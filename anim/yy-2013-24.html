@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-24 · 2013 阅读第 24 题 · 减少失业，最重要的举措是什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 最高级是天然定位词",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "题干 the most important——去原文找“最高级 / nothing more than”式表达",
+  "count": 0,
+  "body": "<p>题干：According to the author, to reduce unemployment, <b>the most important</b> is ___。“最重要”是天然定位词——原文里通常有“最高级 / nothing would be more important than”式的对应表达。</p>"
+ },
+ {
+  "title": "定位末段 · nothing would be more important than",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位末段：nothing would be more important than 通过法案确保每个美国人接受高中后教育",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...but nothing would be more important than passing some kind of G. I. Bill for the 21st century that ensures that every American has access to post-high school education.</div><p>末段：支持就业的办法很多，但“<b>没有什么比</b>通过一部 21 世纪的《退伍军人权利法案》式立法更重要”——该法案确保<b>每个美国人都有机会接受高中后教育</b>。nothing would be more important than ↔ the most important，定位严丝合缝。</p>"
+ },
+ {
+  "title": "选项 B · 确保人们接受更多教育",
+  "cls": "good",
+  "tag": "当选 B",
+  "log": "B to ensure more education for people ✓ 当选——目的从句的同义改写：法案是形式，教育是实质",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>同义改写：ensures that every American has access to post-high school education → <b>to ensure more education for people</b>。法案只是形式，“让更多人受教育”才是作者强调的实质目的。</p>"
+ },
+ {
+  "title": "选项 A · 加快信息技术革命",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A to accelerate the I.T. revolution ✗ 排除——反向干扰：IT 革命正是失业的推手之一",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>反向干扰：全文的立论是 IT 革命与全球化正在“用机器取代劳动力”、加剧失业——加速它们与“减少失业”背道而驰。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见原词出现就选，不核对方向。</p>"
+ },
+ {
+  "title": "选项 C · 推进经济全球化",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C to advance economic globalization ✗ 排除——同样反向：全球化是文中另一失业推手",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>同样反向：全球化是文中失业的另一推手（用外国工人取代本国劳动力），作者不会把它当作解药。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“文中有此词”当成“作者支持此事”。</p>"
+ },
+ {
+  "title": "选项 D · 多颁布一些法案",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D to pass more bills ✗ 排除——断章取义 + 扩大化：丢掉了法案“保障教育”的目的",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>断章取义 + 扩大化：some kind of G. I. Bill 是“一部保障教育的<b>特定</b>法案”，不是“多多立法”；更关键的是它丢掉了法案的目的从句 that ensures... education——作者看重的是教育本身。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 pass bills 的字面，没抓住目的从句。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（确保人们接受更多教育）——最高级 ↔ nothing more important 精准对位",
+  "count": 3,
+  "body": "<p>答案选 <b>B（to ensure more education for people 确保人们接受更多教育）</b>。</p><p><b>记忆锚点</b>：the most important ↔ nothing would be more important than；选项要落在目的从句上（法案 → 教育）；反向干扰项的特征是“用了原文高频词但方向相反”（A、C）。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 24 题 · 减少失业，最重要的举措是什么",
+  "subtitle": "考点：观点细节题 · 最高级定位词 the most important ↔ nothing would be more important",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（to ensure more education for people）",
+ "html": "<b>B 确保人们接受更多教育</b>：末段 nothing would be more important than passing a G.I.Bill that ensures... post-high school education。<br>最易误选：<b>D</b>——more bills 扩大化，丢了“保障教育”的目的从句。<br>记忆锚点：最高级题找 nothing more than 表达；答案落在“目的”上而不是“手段”上。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 24 题 · 减少失业，最重要的举措是什么</h2>
+<p>答案：<strong>B（to ensure more education for people 确保人们接受更多教育）</strong>。</p>
+<h3>第 0 步：先立机制——最高级是天然定位词</h3>
+<p>题干 the most important（最重要的）是天然的“信号枪”：原文里几乎必然有最高级或“否定比较级”式的对应表达。本题的对应表达在末段：<strong>nothing would be more important than...</strong>（没有什么比……更重要）——定位一步到位。而且要注意：选项要落在“目的”上，不是落在“手段”上。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...there are many things we need to do to support employment, but nothing would be more important than passing some kind of G. I. Bill for the 21st century that ensures that every American has access to post-high school education.</blockquote>
+<p>末段：支持就业的办法很多，但“没有什么比通过一部 21 世纪的《退伍军人权利法案》式立法更重要”——该法案<strong>确保每个美国人都有机会接受高中后教育</strong>。nothing would be more important than ↔ the most important，对位严丝合缝。</p>
+<h3>第 2 步：同义改写核对</h3>
+<p>ensures that every American has access to post-high school education → <strong>to ensure more education for people</strong>。法案只是形式，“让更多人受教育”才是作者强调的实质目的——正确项抓的是目的从句，不是 passing bills 这个动作本身。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A to accelerate the I.T. revolution</td><td>✗ 排除</td><td>反向干扰：全文立论是 IT 革命与全球化正在“用机器取代劳动力”、加剧失业——加速它与“减少失业”背道而驰。（典型误解：见原词出现就选，不核对方向。）</td></tr><tr><td>B to ensure more education for people</td><td>✓ 当选</td><td>目的从句 ensures... post-high school education 的同义改写。</td></tr><tr><td>C to advance economic globalization</td><td>✗ 排除</td><td>同样反向：全球化是文中失业的另一推手（用外国工人取代本国劳动力），作者不会把它当解药。（典型误解：把“文中有此词”当成“作者支持此事”。）</td></tr><tr><td>D to pass more bills in the 21st century</td><td>✗ 排除</td><td>断章取义 + 扩大化：some kind of G. I. Bill 是“一部保障教育的特定法案”，不是“多多立法”；且丢掉了目的从句 that ensures... education。（典型误解：只看到 pass bills 的字面。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A、C 为什么是“反向干扰”？</strong>：它们的词（I.T. revolution、globalization）在原文里高频出现，但原文说它们是失业的<strong>原因</strong>——把原因包装成对策，方向恰好相反。这是“原词设障”里最危险的一类。</li><li><strong>D 错在“more”还是错在“bills”？</strong>：主要错在丢目的。原文的法案有明确指向（保障教育），D 把它泛化成“多颁布法案”，即使数量词不改，只要目的丢了，就不是作者的观点。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：抓住 pass a bill 的字面动作，没落到 that ensures... 的目的从句上。</li><li><strong>误选 A</strong>：没意识到 IT 革命在文中的角色是“失业推手”而非“解药”。</li></ul>
+<blockquote>记忆锚点：the most important ↔ nothing would be more important than；答案落在“目的”（教育）而不是“手段”（法案）；原词高频但方向相反 = 反向干扰。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

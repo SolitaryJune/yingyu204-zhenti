@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-26 · 2019 阅读 Text 2 第 26 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · “by saying...”考言外之意，不考字面", "cls": "key", "tag": "定位", "log": "开篇引语题：先立“好处反衬挑战”的反差，含义去下文找", "count": 0, "ribbon": null, "body": "<p>题干：By saying “one of the harder challenges,” the author implies that ____.</p><p>机制：开篇的比喻/短语题，答案<b>不在本句字面</b>，而在它引出的下文。首句用 give us shade, quiet（好处）与 one of the harder challenges（挑战）并置——“反差”是路标，接下来看作者怎么解释这个挑战。</p>"}, {"title": "定位原文 · 首段②③句给出挑战的内容", "cls": "key", "tag": "证据", "log": "人类破坏森林吸碳能力；森林终将“排碳 > 吸碳”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Forests give us shade, quiet and one of the harder challenges in the fight against climate change. Even as we humans count on forests to soak up a good share of the carbon dioxide we produce, we are threatening their ability to do so. The climate change we are hastening could one day leave us with forests that emit more carbon than they absorb.</div><p>②句：人类<b>依赖</b>森林吸碳（count on forests to soak up carbon dioxide），却在<b>破坏</b>森林的吸碳能力；③句：照此下去，终有一天森林“<b>排碳 &gt; 吸碳</b>”（emit more carbon than they absorb）。⇒ 森林将从“碳吸收者”反转成“碳排放源”——对人类抗碳事业而言，这是<b>潜在的威胁</b>。</p>"}, {"title": "逐项分析 · A global climate change may get out of control", "cls": "bad", "tag": "排除 A", "log": "A global climate change may get out of control ✗ 排除——偷换对象 + 夸大：挑战的含义是“森林可能加剧气候变化”，且文中没说“失控”；干扰项也脱离了 forests 这一主题词", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>偷换对象 + 夸大：挑战的含义是“森林可能加剧气候变化”，且文中没说“失控”；干扰项也脱离了 forests 这一主题词。</p><p style=\"color:#b91c1c\">⚠ 典型误解：觉得“气候变化失控”符合常识、气派大——推断题里“符合常识但文中无据”是标准陷阱。</p>"}, {"title": "逐项分析 · B people may misunderstand global warming", "cls": "bad", "tag": "排除 B", "log": "B people may misunderstand global warming ✗ 排除——无中生有：②句说人类“破坏森林吸碳能力”，不是“误解全球变暖”", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>无中生有：②句说人类“破坏森林吸碳能力”，不是“误解全球变暖”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“没保护好”曲解成“认识错了”。</p>"}, {"title": "逐项分析 · C extreme weather conditions may arise", "cls": "bad", "tag": "排除 C", "log": "C extreme weather conditions may arise ✗ 排除——臆测：由 climate change、carbon dioxide 等词联想出“极端天气”，文中完全未提", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>臆测：由 climate change、carbon dioxide 等词联想出“极端天气”，文中完全未提。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用气候话题的常识套话填空。</p>"}, {"title": "逐项分析 · D forests may become a potential threat", "cls": "good", "tag": "选定 D", "log": "D forests may become a potential threat ✓ 当选——emit more carbon than they absorb = 从碳汇变成碳源 = 潜在威胁；threat 是对③句的合理归纳", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>emit more carbon than they absorb = 从碳汇变成碳源 = 潜在威胁；threat 是对③句的合理归纳。</p><p>对应关系：leave us with forests that emit more carbon than they absorb ↔ forests may become a potential threat。</p>"}, {"title": "结论 · 反差结构与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（forests may become a potential threat）——引语含义去下文找，答案要贴主题词", "count": 3, "ribbon": null, "body": "<p>答案选 <b>D（forests may become a potential threat 森林可能成为潜在的威胁）</b>：开篇“好处”反衬“挑战”，②③句把挑战落实为“森林反成碳源”。</p><p><b>记忆锚点</b>：开篇 the harder challenges = 下文②③句的解释；threat = emit more carbon than they absorb 的归纳；推断题的选项要“贴着主题词（森林）”走。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>A</b>：三个干扰项全部脱离 forests 这个核心词——常识对、文章无，推断题不选。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 2 第 26 题 · “一项更严峻的挑战”暗示什么（推理判断题）",
+  subtitle: "考点：开篇引语/推断题 · 好处反衬挑战 → ②③句解读 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（forests may become a potential threat）", "html": "<b>D forests may become a potential threat（森林可能成为潜在威胁）</b>：emit more carbon than they absorb = 碳汇反转变碳源。<br>最易误选：<b>A</b>——符合常识但脱离主题词 forests，文中未说“失控”。<br>记忆锚点：开篇引语的含义去下文找；threat = 排碳超过吸碳。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：推理判断题——开篇“好处”反衬“挑战”，挑战的内容在②③句</h2>
+<p>答案：<strong>D（forests may become a potential threat 森林可能成为潜在的威胁）</strong>。</p>
+<h3>第 0 步：先立机制——"by saying..."考的不是字面，是言外之意</h3>
+<blockquote>Forests give us shade, quiet and one of the harder challenges in the fight against climate change. Even as we humans count on forests to soak up a good share of the carbon dioxide we produce, we are threatening their ability to do so. The climate change we are hastening could one day leave us with forests that emit more carbon than they absorb.</blockquote>
+<p>①句用 give us shade, quiet（好处）与 one of the harder challenges（挑战）并置——先把“反差”立起来，真正的含义必须去下文找。</p>
+<h3>第 1 步：解读②③句——挑战的具体内容</h3>
+<ul><li>②句：人类<strong>依赖</strong>森林吸碳，却在<strong>破坏</strong>森林的吸碳能力；</li><li>③句：照此下去，终有一天森林“排碳 &gt; 吸碳”。</li><li>合起来：森林将从“碳吸收者”反转成“碳排放源”——对人类抗碳事业而言，这是<strong>潜在的威胁</strong> → D。</li></ul>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A global climate change may get out of control</td><td>✗</td><td>偷换对象+夸大：挑战会“加剧气候变化”，但没说“失控”；且脱离 forests 主题词</td></tr><tr><td>B people may misunderstand global warming</td><td>✗</td><td>无中生有：②句说人类破坏森林吸碳能力，不是“误解全球变暖”</td></tr><tr><td>C extreme weather conditions may arise</td><td>✗</td><td>臆测：由 climate、carbon dioxide 联想出“极端天气”，文中未提</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：觉得“气候变化失控”符合常识、气派大。但推断题的答案必须<strong>落在文章关键词上</strong>——本题三个干扰项都脱离了 forests 这个主题词。</li><li><strong>常识代入</strong>：B、C 都是“听起来很对”的气候话题套话——推断题里“符合常识但文中无据”的选项是标准陷阱。</li></ul>
+<blockquote>记忆锚点：开篇 the harder challenges = 下文②③句的解释；threat = emit more carbon than they absorb 的归纳；推断题的选项要“贴着森林”走。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

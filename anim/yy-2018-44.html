@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-44 · 2018 新题型第 44 题 · 「你在场吗」段：反面案例＋正面建议 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 反例在前，标题取正面建议", "cls": "key", "tag": "方法", "log": "先演反面案例再给正解的段群——标题概括作者的建议，不概括反例里的失败动作", "count": 0, "ribbon": null, "body": "<p>七选五小标题题：找<b>对象</b>＋找<b>建议</b>。本段群是清单文最典型的“<b>先演反例、再给正解</b>”结构：反例把“缺席”演给你看，标题概括它反衬的正面动作。铁律：反例里的字面（哪怕是“你”的主动动作）永远是低优先级。</p>"},
+ {"title": "定位段群 ·【44】刷手机的反例→wholeheartedly", "cls": "key", "tag": "定位", "log": "定位⑪⑫段：pouring your heart out vs busy on phone → be in that communication wholeheartedly", "count": 0, "ribbon": null, "body": quote("Imagine you are pouring your heart out to someone and they are <b>just busy on their phone</b>… you get the response &ldquo;I can <b>multitask</b>&rdquo;. So when someone tries to communicate with you, <b>just be in that communication wholeheartedly. Make eye contact.</b>") + "<p>推进链两层：①反例——你掏心掏肺，对方只顾刷手机，还甩一句“I can multitask”（一心多用）——作者嘲讽的对象；②建议——<b>wholeheartedly 投入这场交流</b>＋<b>eye contact</b>（眼神交流是“在场”的可操作标志）。be <b>in</b> that communication 的 in——作者要的是“待在对话里”的状态。</p>"},
+ {"title": "提炼段旨 · 对象＝对话投入度，建议＝在场", "cls": "key", "tag": "提炼", "log": "提炼段旨：反例演“缺席”，建议“在场”——eye contact 是 present 的行为证据", "count": 0, "ribbon": null, "body": "<p>讨论对象 = <b>对话中“人在不在”</b>（absence vs presence）；作者建议 = <b>be in that communication wholeheartedly</b>。标题的任务是概括状态，不是复述细节——eye contact 不必进标题，present 一个词就够了。</p>"},
+ {"title": "逐项分析 · B Be present", "cls": "good", "tag": "选定 B", "log": "B 全身心在场 ✓ ——be in that communication wholeheartedly 的压缩改写", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>[B] <b>Be present</b> ↔ be <b>in</b> that communication <b>wholeheartedly</b>：present ＝ 人在场、心也在场；eye contact 是 present 的行为证据——眼神交流只可能发生在“在场”的状态里。</p>"},
+ {"title": "逐项分析 · G Ask for an opinion", "cls": "bad", "tag": "排除 G", "log": "G 征求意见 ✗ ——宾语错＋归属错：ask for 的对象是 attention，且是反例里的失败动作", "count": 1, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>⑪段确有 <b>ask for</b> their attention 字面：其一，ask for 的宾语是 <b>attention</b> 不是 opinion；其二，这句是<b>反例</b>里“你”做的失败动作——被一句 I can multitask 打发了。拿反例字面配万能动词，指望你只看搭配不看归属。</p><p style=\"color:#b91c1c\">⚠ 典型误解：先问字面在原文的“叙事身份”——是作者的建议，还是被批评的反例？</p>"},
+ {"title": "逐项分析 · A / E 的错位归宿", "cls": "bad", "tag": "排除 A·E", "log": "A 就说出来／E 找共同点 ✗ ——分别是【41】【43】段的标题", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>[A] <b>Just say it</b> 是【41】段“开口”的标题——本段谈的不是说不说，而是说与听时<b>人在不在</b>；[E] <b>Find the “me too”s</b> 是【43】段“找共同点”的标题——本段没有寻找共同点的动作。（C/D/F 各归其位或多余，本段核心只有一个词：在场。）</p><p style=\"color:#b91c1c\">⚠ 典型误解：真标题在本篇里只有一个家，先归位再选题。</p>"},
+ {"title": "结论 · 标题取状态不取细节", "cls": "good", "tag": "答案 B", "log": "答案 B（Be present）—— 见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>反例（busy on phone／multitask）→ 建议（be in that communication wholeheartedly ＋ eye contact）→ [B] Be present。</b></p><p>答案选 <b>B（Be present）</b>。</p><p><b>记忆锚点</b>：反例 → 建议的段群，标题取正面建议；反例里的字面（ask for）永远低优先级；标题概括<b>状态</b>（present），不概括细节（eye contact）；multitask 是嘲讽对象不是解法。</p><p style=\"color:#b91c1c\">最易误选：<b>G（Ask for an opinion）</b>——宾语错＋归属错的双重陷阱。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 新题型第 44 题 ·「你在场吗」段——反面案例反衬正面建议",
+  subtitle: "考点：小标题题 · 反例/建议叙事身份判断 + wholeheartedly 压缩改写",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段群 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（Be present）", "html": "<b>B 全身心在场</b>：just be in that communication <b>wholeheartedly</b>（＋eye contact）的压缩改写——反例演“缺席”（busy on phone／multitask），建议“在场”。<br>记忆锚点：反例在前标题取建议；反例字面（ask for）永远低优先级；标题概括状态不概括细节。<br>最易误选：<b>G（Ask for an opinion）</b>——宾语错＋归属错。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 新题型第 44 题 · 小标题题——"你在场吗"段：反面案例＋正面建议</h2>
+<p>答案：<strong>B（Be present 全身心在场）</strong>。</p>
+<h3>第 0 步：先立机制——"反面案例 → 正面建议"的段群，标题取正面建议</h3>
+<p>本段群（⑪⑫段）是清单文里最典型的"先演反例、再给正解"结构：⑪段演<strong>反例</strong>——你掏心掏肺（pouring your heart out），对方却只顾刷手机，你要他抬头，他甩一句"I can multitask"（我能一心多用）；⑫段收出<strong>正面建议</strong>——So when someone tries to communicate with you, <strong>just be in that communication wholeheartedly</strong>（全身心地投入到那次交流中）＋ <strong>Make eye contact</strong>（进行眼神交流）。反例的功能是把"缺席"演给你看，标题概括的是它反衬的那个正面动作：<strong>在场</strong>。</p>
+<h3>第 1 步：定位段群</h3>
+<blockquote>Imagine you are pouring your heart out to someone and they are just busy on their phone... So when someone tries to communicate with you, <strong>just be in that communication wholeheartedly. Make eye contact.</strong> Trust me, eye contact is where all the magic happens.</blockquote>
+<p>推进链两层：①反例——人在对话中"不在场"（busy on their phone / multitask）；②建议——<strong>wholeheartedly 在场</strong>＋眼神交流（eye contact 是"在场"的可操作标志）。注意 be in that communication 的 in——作者要的正是"人待在这场对话里"这个状态。</p>
+<h3>第 2 步：同义替换——"wholeheartedly be in"就是"be present"</h3>
+<p>[B] <strong>Be present</strong> 是②层的压缩改写：<strong>be present</strong> ↔ be <strong>in</strong> that communication <strong>wholeheartedly</strong>（present＝人在场、心也在场）；eye contact 则是 present 的行为证据——眼神交流只可能发生在"在场"的状态里。标题不写细节（eye contact），只写状态（present），因为标题的任务是概括，不是复述。</p>
+<h3>第 3 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>G Ask for an opinion</td><td>✗</td><td>断章取义：⑪段确有 <strong>ask for</strong> their attention（请求对方注意）字面，但其一，ask for 的宾语是 attention 不是 opinion；其二，这句是<strong>反例</strong>里"你"做的失败动作——被 multitask 打发了。命题人拿反例里的字面配了一个万能动词，指望你只看搭配不看归属</td></tr><tr><td>A Just say it</td><td>✗</td><td>错位归宿：【41】段"开口"的标题；本段谈的不是说不说，而是说与听时"人在不在"</td></tr><tr><td>E Find the "me too"s</td><td>✗</td><td>错位归宿：【43】段"找共同点"的标题；本段没有"寻找共同点"的动作</td></tr></tbody></table>
+<p>（[C] Pay a unique compliment、[D] Name, places, things、[F] Skip the small talk 也各归其位或多余；本段群的核心只有一个词：在场。）</p>
+<h3>预判追问：反例里明明有"你"的主动动作（ask for attention），为什么不能用它的字面造标题？</h3>
+<p>小标题铁律之一：<strong>标题概括作者的建议，不概括反例里失败的动作</strong>。⑪段 ask for their attention 是被作者当作"没用"来演示的（对方回一句 I can multitask 就打发了）；把它提出来当标题，等于把文章批评的行为立为目标。[G] 的第二层错在宾语：opinion 与 attention 一词之差。识别这类干扰的口诀：<strong>先问这个词在原文的"叙事身份"——是作者的建议，还是被批评的反例？</strong>反例字面永远低优先级。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：被 ask for 字面钩住——宾语错（opinion≠attention）＋归属错（反例动作≠作者建议）。</li><li><strong>漏看 multitask 的讽刺</strong>：I can multitask 是作者的嘲讽对象，不是解决方案——选项里任何"一心多用/高效处理"的暗示都与本段相反。</li><li><strong>把 eye contact 当主旨</strong>：眼神交流只是"在场"的表现形式之一；标题取状态不取细节。</li></ul>
+<blockquote>记忆锚点：本段群＝<strong>反例（busy on phone／multitask）→ 建议（be in... wholeheartedly ＋ eye contact）</strong>，标题取正面建议 → Be present；反例里的字面（ask for）永远低优先级；标题概括状态，不概括细节。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

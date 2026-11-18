@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-34 动画：指代题——this point 到底指什么</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：先弄清 who did what",
+   "body": "<p>题干：<b>According to the last paragraph, Brynjolfsson and McAfee discussed ____.</b>（根据末段，B&M 二人讨论了什么？）</p><p>陷阱预告：末段首句的主角是 <b>Hagel</b>——As Hagel notes, Brynjolfsson and McAfee indeed touched on <b>this point</b> in their book。B&M 只是被提及；回答本题靠的是 <b>this point 指什么</b>。</p>",
+   "log": "审题：B&M discussed 什么？末段首句主角其实是 Hagel，答案挂在 this point 上"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：末段首句 + 紧随其后的两句",
+   "body": "<div class='qq'><b>末段：</b>As Hagel notes, Brynjolfsson and McAfee indeed touched on <b>this point</b> in their book. We need to reframe race against the machine as <b>race with the machine</b>. In other words, we need to look at the ways in which machines can <b>augment human labor rather than replace it</b>. <span class='cn'>（译：把\u201c与机器赛跑\u201d改写为\u201c与机器同跑\u201d——机器应增强而非取代人类劳动。）</span></div><p>首句之前没有人说过\u201cthis point\u201d的内容 → 它不是回指，是<b>下指</b>：指后面的两句。</p>",
+   "log": "定位末段：this point 往前找不到先行词，只能往后指"},
+  {"cls": "key", "ecs": "shift", "tag": "破指代", "count": 0,
+   "title": "破指代：下指内容 = 人的参与不可或缺",
+   "body": "<p>下指内容：race <b>with</b> the machine + machines <b>augment</b> human labor <b>rather than replace</b> it。</p><p>再接上一段末句：需要能 take initiative、exercise imagination \u201cto <b>respond to unexpected events</b>\u201d的人——机器只擅长可预测的活动。</p><p>合并起来，\u201cthis point\u201d = <b>工作场所离不开人的参与</b>。作者还补了句 In other words 替你把指代展开。</p>",
+   "log": "破指代：this point 下指\u201c机器增强人力\u201d+\u201c人应对意外\u201d= 人参与有必要"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 A", "count": 1,
+   "title": "排除 A：the predictability of machine behavior",
+   "ribbon": {"k": 1, "ok": false},
+   "body": "<p><b>A · the predictability of machine behavior in practice</b>（机器行为的可预测性）<span class='bad-dot'>✗</span></p><p>内容源自<b>第五段</b>——They are designed to perform very predictable activities。但那是 <b>Hagel 提出的、B&M 未触及</b>的观点。</p><p>误选 = 指代方向走反：往回读了上一段，还把观点记到了别人头上。</p>",
+   "log": "排除 A：predictable activities 是第五段 Hagel 的论据，不是 B&M 的"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 B", "count": 2,
+   "title": "排除 B：the formula for how work is conducted",
+   "ribbon": {"k": 2, "ok": false},
+   "body": "<p><b>B · the formula for how work is conducted efficiently</b>（有效开展工作的方法）<span class='bad-dot'>✗</span></p><p>两个问题：其一，<b>过于宽泛</b>——\u201c如何开展工作\u201d什么都能装；其二，a very 20th century notion of work 是 <b>Hagel</b> 的说法，也不属于 B&M。</p>",
+   "log": "排除 B：范围过宽，且出处是 Hagel 的观点"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 C", "count": 3,
+   "title": "排除 C：the ways machines replace human labor",
+   "ribbon": {"k": 3, "ok": false},
+   "body": "<p><b>C · the ways machines replace human labor in modern times</b>（机器取代人力的方式）<span class='bad-dot'>✗</span></p><p>取舍关系反向：原文是 <b>augment rather than replace</b>（增强而非取代）。C 只留下 replace，把 rather than 扔了——转折词两边的词丢一个，方向就翻 180 度。</p>",
+   "log": "排除 C：原文 augment rather than replace，C 偷走了 rather than"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 D", "count": 4,
+   "title": "锁定 D：the necessity of human involvement",
+   "ribbon": {"k": 4, "ok": true},
+   "body": "<p><b>D · the necessity of human involvement in the workplace</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文（下指内容）</th><th>选项 D</th><th>替换关系</th></tr><tr><td>machines can augment human labor</td><td>necessity of human involvement</td><td>机器\u201c增强人力\u201d反推 = 人必须在场</td></tr><tr><td>people … respond to unexpected events</td><td>human involvement</td><td>机器干不了的靠人，正向概括</td></tr></table>",
+   "log": "锁定 D：机器增强人力、人应对意外 → 人类参与工作确有必要"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 D",
+   "body": "<p><b>答案 D（the necessity of human involvement in the workplace）</b>——B&M 触及的观点是\u201c与机器同跑，机器增强人力\u201d。</p><p>记忆锚点：this point 找不到先行词就是<b>下指</b>，往<b>后</b>读；<b>augment = 增强 ≠ replace = 取代</b>，rather than 两边的词不能丢。</p>",
+   "log": "结论：B&M 讨论了人参与工作的必要性，选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-34 · 指代题：this point 到底指什么",
+  subtitle: "考点：Text3 末段细节 · 方法：定人物 → 破指代 → 同义替换 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 破指代 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>this point 是下指：指 race with the machine / machines augment human labor rather than replace it —— 人的参与不可或缺。</b>记忆锚点：句首 this point 找不到先行词就往后读；augment = 增强 ≠ replace = 取代；A 的陷阱是把第五段 Hagel 的论据记到 B&M 头上。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：指代题——this point 到底指什么</h2>
+<p>答案：<strong>D</strong>。</p>
+<h3>第 0 步：先立方法——先弄清 who did what</h3>
+<p>题干问 According to the last paragraph, Brynjolfsson and McAfee discussed ____。看似送分：找到末段、找到两个人名就行。但末段首句是 <strong>As Hagel notes, Brynjolfsson and McAfee indeed touched on this point in their book.</strong>——句子的主角是 Hagel，B&amp;M 只是被提及。真正能回答"B&amp;M 讨论了什么"的，是 <strong>this point 指代的内容</strong>。指代题答错了，全题就错了。</p>
+<h3>第 1 步：定位原文，拆解"下指"</h3>
+<blockquote>As Hagel notes, Brynjolfsson and McAfee indeed touched on this point in their book. We need to reframe race against the machine as race with the machine. In other words, we need to look at the ways in which machines can augment human labor rather than replace it.（译：正如哈格尔所指出的，B&amp;M 二人在书中确实触及了这一点。我们需要把"与机器赛跑"重新定义为"与机器同跑"——也就是说，要看机器如何增强而非取代人类劳动。）</blockquote>
+<p><strong>this point 在首句句尾，它往前找不到先行词</strong>（末段之前这句还没说过话）——它是<strong>下指（cataphora）</strong>：指后面两句，即 "race with the machine" 与 "augment human labor rather than replace it"。再结合上一段末句——需要能 "take initiative and exercise their imagination to respond to unexpected events" 的人，而机器只擅长可预测的活动——"这一点"就是：<strong>人的参与不可或缺</strong>。</p>
+<h3>第 2 步：同义替换对号入座</h3>
+<table><thead><tr><th>原文</th><th>选项 D</th><th>替换关系</th></tr></thead><tbody><tr><td>machines can augment human labor</td><td>necessity of human involvement in the workplace</td><td>机器"增强人力"反推 = 人必须在场</td></tr><tr><td>people ... to respond to unexpected events</td><td>human involvement</td><td>机器干不了的活靠人，同为正向概括</td></tr></tbody></table>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A the predictability of machine behavior</td><td>✗</td><td>误读了指代方向：predictable activities 是第五段 Hagel 的论据，恰是 B&amp;M "未触及、Hagel 特别提出"的内容——拿错人的观点答题</td></tr><tr><td>B the formula for how work is conducted</td><td>✗</td><td>过于宽泛：relies on a very 20th century notion of work 是 Hagel 的话；且"如何开展工作"什么都装得下，标题级选项当不了细节题答案</td></tr><tr><td>C the ways machines replace human labor</td><td>✗</td><td>取舍关系反向：原文是 augment rather than replace（增强而非取代），C 只留 replace 丢掉 rather than</td></tr><tr><td>D the necessity of human involvement</td><td>✓</td><td>对下指内容第二、三句的合理概括</td></tr></tbody></table>
+<h3>预判追问：为什么说 this point 不是寻常回指？</h3>
+<p>寻常回指（anaphora）往回找先行词，但首句之前没人说过"this point"的内容；而紧随其后的两句恰好给出具体所指。首句之后还补了一句 "In other words"（换言之）——这是作者在帮你把指代展开，等于把答案递到手上。</p>
+<blockquote>记忆锚点：句首的 this point 若找不到先行词，就是下指——往<strong>后</strong>读；augment = 增强 ≠ replace = 取代，rather than 两边的词不能丢。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

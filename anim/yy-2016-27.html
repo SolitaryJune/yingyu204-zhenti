@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·27 阅读 · “受威胁”标签为何令环保派失望</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：情绪题 = 期望与现实的落差', cls: 'key',
+    body: '<p>题干：The “threatened” tag <b>disappointed</b> some environmentalists in that it ____。情绪题（失望）的机制：人失望是因为<b>实际所得 &lt; 期望所求</b>。所以答案不是单句替换，而是两句对读——他们要过什么 vs 实际拿到什么。</p>',
+    log: '失望 = 所得 < 所求' },
+  { title: '定位原文（第二段③④句）', cls: 'key',
+    body: src('“Some environmentalists, however, were disappointed. They had pushed the agency to designate the bird as “<b>endangered</b>,” a status that gives federal officials <b>greater regulatory power</b> to crack down on threats.”') +
+      '<p>④句交代<b>期望端</b>：环保派一直敦促列为“濒危”，因为 endangered 意味着联邦官员获得<b>更大的监管权</b>。</p>',
+    log: '期望：endangered → 更大监管权' },
+  { title: '现实端：只给了 threatened', cls: 'step',
+    body: '<p>现实：USFWS 只给了 <b>threatened（受威胁）</b>——监管权<b>较小</b>，这正是⑤句 Ashe 辩护时说的 flexibility（少对抗、多灵活）的另一面。</p>',
+    log: '现实：threatened → 监管权较小' },
+  { title: '镜像反向', cls: 'good',
+    body: '<p>greater regulatory power 的镜像 = <b>granted less federal regulatory power</b>。期望“更大监管权”没拿到，拿到的是“较小监管权”——落差成立，选 C。</p>',
+    log: 'less ← greater 的镜像反向' },
+  { title: 'A was a give-in to governmental pressure', cls: 'bad',
+    body: '<p>④句 They had pushed the agency 的 They = 前句主语 <b>some environmentalists</b>——是<b>环保派在向机构施压</b>，不是政府施压。指代认错，因果链全塌。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 指代认错，施压方向颠倒' },
+  { title: 'B would involve fewer agencies in action', cls: 'bad',
+    body: '<p>“监管权变小”是<b>量</b>的属性，“机构变少”是<b>结构</b>属性，不可互推；且方案实际拉入了更多主体（各州、土地所有者）。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 权力大小 ≠ 机构多少' },
+  { title: 'C granted less federal regulatory power', cls: 'good',
+    body: '<p>与 endangered 之 greater regulatory power 构成同一属性（联邦监管权）的正反两面——不是无中生有，而是镜像表述。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 镜像反向，命中' },
+  { title: 'D went against conservation policies', cls: 'bad',
+    body: '<p>⑤句完整含义：threatened 给了联邦<b>灵活性</b>去尝试“更少对抗的保护方式”——这是保护策略之一种，不是“违背保护政策”。断章取义。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 只扫半句，断章取义' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（granted less federal regulatory power）</b>。记忆锚点：情绪题找<b>期望 vs 现实</b>的落差——endangered（greater regulatory power，没给）→ threatened（less federal regulatory power，给了）→ C。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 27 · 失望的原因：endangered 与 threatened 之差',
+  subtitle: '考点：情绪因果题 · 期望-现实落差 + 镜像反向 · They 指代',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开落差判定与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（granted less federal regulatory power）',
+    html: '记忆锚点：环保派要 <b>endangered（greater regulatory power）</b>，实际只得到 <b>threatened（less federal regulatory power）</b>——落差即答案 C。A 错在 They = environmentalists（施压方向颠倒），B 把权力大小换成机构多少，D 断章取义 confrontational approaches。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：环保派为何失望——endangered 与 threatened 之间差的监管权</h2>
+<p>答案：<strong>C（granted less federal regulatory power）</strong>。</p>
+<h3>第一步：先立机制——"失望"是情绪结果，原因必在比较结构里</h3>
+<p>题干：The "threatened" tag disappointed some environmentalists in that it ____。情绪题（disappointed）的机制：人失望是因为<strong>实际所得 &lt; 期望所求</strong>。所以本题不是单句替换，而是两句对读——他们<strong>要过什么</strong>（期望）vs <strong>实际拿到什么</strong>（现实），落差本身就是答案。</p>
+<h3>第二步：定位原文，两句对读</h3>
+<blockquote>Some environmentalists, however, were disappointed. They had pushed the agency to designate the bird as "<strong>endangered</strong>," a status that gives federal officials <strong>greater regulatory power</strong> to crack down on threats.</blockquote>
+<p>期望：endangered（濒危）→ 联邦官员获得<strong>更大</strong>监管权。现实：只给了 threatened（受威胁）——监管权<strong>较小</strong>。greater regulatory power 的镜像反向 = granted <strong>less</strong> federal regulatory power，选 C。这不是无中生有的推理，而是同一属性（联邦监管权大小）的正反表述。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A was a give-in to governmental pressure</td><td>是对政府压力的屈服</td><td>④句 They had pushed the agency 的 They = 环保人士：是环保派在施压，方向颠倒</td></tr><tr><td>B would involve fewer agencies in action</td><td>参与行动的机构更少</td><td>监管权变小 ≠ 机构变少；实际方案反而拉入更多主体（州、土地所有者）</td></tr><tr><td>C granted less federal regulatory power</td><td>赋予较小联邦监管权</td><td>与 endangered 之 greater regulatory power 成镜像，落差成立</td></tr><tr><td>D went against conservation policies</td><td>与保护政策相违背</td><td>⑤句说 threatened 反而给了"尝试少对抗保护方式"的灵活性——是保护策略之一种</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：把 pushed 的施动者认错——④句 They 指代前句主语 some environmentalists，"环保派敦促机构"误读成"政府施压"，整个因果链就塌了。</li><li><strong>选 B</strong>：把"权力小"与"部门少"划等号——权力大小是量的属性，机构多少是结构属性，两者不可互推；且第二段末明说方案要拉拢更多合作方。</li><li><strong>选 D</strong>：只扫到 confrontational conservation approaches 就下结论"违背保护政策"——⑤句完整含义是 threatened 给了联邦<strong>灵活性</strong>去尝试更少对抗的保护手段，恰是换一种方式做保护。</li></ul>
+<blockquote>记忆锚点：情绪题找<strong>期望 vs 现实</strong>的落差——endangered（greater regulatory power，没给）→ threatened（less federal regulatory power，给了）→ C。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

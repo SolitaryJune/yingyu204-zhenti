@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-04 · 2020 完形第 4 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 4 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 4 空所在句，考点：上下文语义（同义复现）+ be+adj+to do 结构",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">__3__ , there's another sort of parent that's a bit easier to __4__ : a patient parent.</div><p>空格在 easier to ____ 结构中，说明 parent 的性质；对照点在首段：defining what it means to be a good parent（界定好父母）很难。</p>"
+ },
+ {
+  "title": "找证据 · defining 的同义复现",
+  "cls": "key",
+  "tag": "证据",
+  "log": "easier to ____ 与首段 defining（界定难）对照——空格须与 defining 同义复现：describe",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But defining what it means to be a good parent is undoubtedly very tricky... → another sort of parent that's a bit easier to __4__...</div><p>tricky ↔ easier 前后咬合：首段\"界定（defining）难\"，本句另一种父母\"____\"易——describe 与 defining 同义复现。且 be+adj+to do 主动表被动：parent 是空格动词的逻辑宾语。</p>"
+ },
+ {
+  "title": "逐项分析 · A amuse（逗乐；提供消遣）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A amuse（逗乐；提供消遣） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"容易被逗乐的父母\"与\"界定标准\"无关——干扰来自\"耐心父母让孩子开心\"的惯性联想，且把 parent 误当主语读成\"父母去逗乐（孩子）\"。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略 easier 与 tricky 的对照，掉进\"父母逗孩子开心\"的惯常思维。</p>"
+ },
+ {
+  "title": "逐项分析 · B assist（帮助，协助）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B assist（帮助，协助） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"容易被帮助的父母\"同样接不上\"界定标准\"的语境，干扰方向同 A。</p>"
+ },
+ {
+  "title": "逐项分析 · C describe（描述；形容）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C describe（描述；形容） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与首段 defining 同义复现，easier to describe = \"更好描述\"，对照严丝合缝；主动形式表被动意义，语法成立。</p>"
+ },
+ {
+  "title": "逐项分析 · D train（训练，培训）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D train（训练，培训） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"容易被训练的父母\"文意不通——文章不是在给父母分培训班；干扰同样来自\"父母要训练孩子\"的惯性联想。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把不定式读成主动\"父母去训练\"，忽略主宾关系。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（describe 描述；形容）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>还有一种父母要更容易\"描述\"一些：有耐心的父母。</b></p><p>答案选 <b>C（describe 描述；形容）</b>。</p><p><b>记忆锚点</b>：easier to ____ ↔ 首段 tricky/defining → describe；be+adj+to do 主动表被动，主语是动词的宾语。</p><p style=\"color:#b91c1c\">最易误选：<b>D（train）</b>——忽略 easier ↔ tricky 的呼应，把\"父母训练孩子\"的惯常思维代入空格。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 4 空 · easier 咬住首段 defining——不定式主动表被动的陷阱",
+  subtitle: "考点：上下文语义（同义复现）+ be+adj+to do 结构 · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（describe）",
+ "html": "<b>C describe（描述；形容）</b>。<br>完整句义：还有一种父母要更容易\"描述\"一些：有耐心的父母。<br>记忆锚点：easier to ____ ↔ 首段 tricky/defining → describe；be+adj+to do 主动表被动，主语是动词的宾语。<br>最易误选：<b>D（train）</b>——忽略 easier ↔ tricky 的呼应，把\"父母训练孩子\"的惯常思维代入空格。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 4 空 · easier 咬住首段 defining——不定式主动表被动的陷阱</h2>
+<p>答案：<strong>C（describe 描述；形容）</strong>。</p>
+<h3>第 0 步：先立机制——先找对照点，再核语法关系</h3>
+<p>这个空有三层线索。第一层是词汇复现：首段反复出现 defining what it means to be a good parent——"界定/描述好父母"难（tricky）；本句 another sort of parent that's a bit easier to ____ 是与它对照的：另一种父母，"____"起来更容易。空格词必须与 defining 同义复现。第二层是语法结构：be + 形容词 + to do 中，不定式用主动形式表被动意义——a parent (who is) easier to describe，即"容易被描述的父母"；parent 是空格动词的逻辑宾语，不是主语。第三层是排除法：剩下三个动词都是"父母对孩子"方向的惯常动作，正好掉进把 parent 当主语的陷阱。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>__3__ , there's another sort of parent that's a bit easier to __4__ : a patient parent.</blockquote>
+<p>空格在 easier to ____ 结构中，说明 parent 的性质；对照点在首段：defining what it means to be a good parent（界定好父母）很难。</p>
+<h3>第 2 步：找证据——defining 的同义复现</h3>
+<ul><li><strong>首段</strong>：defining what it means to be a good parent is very tricky（"界定好父母"难）；</li><li><strong>本句</strong>：another sort of parent that's a bit easier to ____（另一种父母更易____）；</li><li><strong>同义复现</strong>：easier 的对照对象就是 defining/describe——describe（描述、形容）与 defining 同族；</li><li><strong>语法核验</strong>：be + adj + to do 主动表被动：easier to describe = 容易"被描述"。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A amuse</td><td>逗乐；提供消遣</td><td>✗ 排除</td><td>"容易被逗乐的父母"与"界定标准"无关——干扰来自"耐心父母让孩子开心"的惯性联想，且把 parent 误当主语读成"父母去逗乐（孩子）"。（典型误解：忽略 easier 与 tricky 的对照，掉进"父母逗孩子开心"的惯常思维。）</td></tr><tr><td>B assist</td><td>帮助，协助</td><td>✗ 排除</td><td>"容易被帮助的父母"同样接不上"界定标准"的语境，干扰方向同 A。</td></tr><tr><td>C describe</td><td>描述；形容</td><td>✓ 当选</td><td>与首段 defining 同义复现，easier to describe = "更好描述"，对照严丝合缝；主动形式表被动意义，语法成立。</td></tr><tr><td>D train</td><td>训练，培训</td><td>✗ 排除</td><td>"容易被训练的父母"文意不通——文章不是在给父母分培训班；干扰同样来自"父母要训练孩子"的惯性联想。（典型误解：把不定式读成主动"父母去训练"，忽略主宾关系。）</td></tr></tbody></table>
+<p>代入后的完整句义：还有一种父母要更容易"描述"一些：有耐心的父母。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>train 不也是常见动词吗，"容易训练的父母"哪里不通？</strong>：两处不通：一是 easier 的对照对象是首段"界定难"——"容易训练"接不上这个对照；二是 be+adj+to do 里 parent 是动词的逻辑宾语，读成"父母去训练（孩子）"更是方向反了。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（train）</strong>：忽略 easier ↔ tricky 的呼应，把"父母训练孩子"的惯常思维代入空格。</li></ul>
+<blockquote>记忆锚点：easier to ____ ↔ 首段 tricky/defining → describe；be+adj+to do 主动表被动，主语是动词的宾语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

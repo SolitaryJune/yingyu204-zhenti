@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-39 · 2015 阅读第 39 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 顺序出题锁定第六、七段",
+  "cls": "key",
+  "tag": "方法",
+  "log": "38 题在第四段、40 题考全文 → 本题落在第六、七段",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干只有 <b>Obamacare</b> 一个关键词，而全文最后两段都在讲它；再按「顺序出题」原则核对：38 题落在第四段，40 题考全文主旨，本题必然夹在中间的<b>第六、七段</b>。Obamacare 的作用原文给了两次表述——第六段的 main purposes 和第七段的结论句，正确项必须把两处合并。</p>"
+ },
+ {
+  "title": "定位原文 · 两处关键表述",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第六段① + 第七段末句：outside of employment / no longer a link",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...one of the main purposes was to allow people to get insurance outside of employment. … With Obamacare there is no longer a link between employment and insurance.</div><p>两处合并：医改的目的之一是让人们<b>不就业也能获得保险</b>（outside of employment）；结论句直说<b>就业与保险不再挂钩</b>（no longer a link between employment and insurance）。</p>"
+ },
+ {
+  "title": "逐项分析 · A it is no longer easy for part-timers to get insurance（兼职者不再容易获得保险）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 兼职者不再容易获得保险 ✗ ——no longer 杂糅且方向拧反",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>把原文 <b>no longer</b> 与 get insurance 拼起来，却把方向拧反——医改让保险<b>更容易</b>获得：either through Medicaid or the exchanges，两条新途径。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见词凑句——抓到原文词汇就拼答案，不核对方向。</p>",
+  "body": {
+   "k": "A",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B full-time employment is still essential for insurance（全职工作仍是必要条件）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 全职工作仍是必要条件 ✗ ——与 no longer a link 正相反对",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>末句明说 <b>no longer a link</b> between employment and insurance，B 说「仍是必要条件」——180 度相反。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C it is still challenging to get insurance for family members（为家人投保仍困难）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 为家人投保仍困难 ✗ ——那是医改前的情形",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>cover themselves and their families 出自第七段②句，是虚拟语气描述的<b>医改前</b>情形（may previously have felt the need）——时态错位，不是现状。</p>",
+  "body": {
+   "k": "C",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D employment is no longer a precondition to get insurance（就业不再是获得保险的前提）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D 就业不再是获得保险的前提 ✓ ——两处原文的逻辑等价改写",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>no longer a link between employment and insurance = 就业不再是获得保险的前提。<b>precondition</b> 原文没有——这正是概括型正确项：不再挂钩 = 「有工作」从必要条件降级为可选路径，逻辑等价即可。</p>",
+  "body": {
+   "k": "D",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 逻辑等价与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（employment is no longer a precondition to get insurance）",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>医改前「有工作才能有保险」，医改后「没工作也能有保险」→ 就业不再是前提。</p><p>答案选 <b>D（employment is no longer a precondition to get insurance）</b>。</p><p><b>记忆锚点</b>：Obamacare = 保险与就业脱钩；outside of employment + no longer a link 两处合并；may previously have felt = 医改前的情形。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——原文词汇全在，方向却拧反；杂糅式选项必须核对方向。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T4 第 39 题 · 奥巴马医改改变了什么",
+  subtitle: "考点：事实细节 · 顺序出题定位 · 两处原文的逻辑合并",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（employment is no longer a precondition to get insurance）",
+ "html": "<b>D employment is no longer a precondition to get insurance（有工作不再是获得医保的前提）</b>。<br>outside of employment + no longer a link 两处合并 = 保险与就业脱钩。<br>最易误选：<b>A</b>——no longer 杂糅且方向拧反。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——"医保与就业脱钩"的两处原文合并</h2>
+<p>答案：<strong>D（employment is no longer a precondition to get insurance）</strong>。</p>
+<h3>第 0 步：先立方法——按出题顺序锁定第六、七段</h3>
+<p>题干只有 Obamacare 一个关键词，而全文最后两段都在讲它；再按"顺序出题"原则核对：38 题落在第四段，40 题考全文主旨，本题必然夹在中间的第六、七段。Obamacare 的作用原文给了<strong>两次</strong>表述——第六段的 main purposes 和第七段的结论句，正确项必须把两处合并起来读。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...one of the main purposes was to allow people to get insurance <strong>outside of employment</strong>.（第六段：医改的目的之一，是让人们在不就业的情况下也能获得保险。）<br/>With Obamacare there is <strong>no longer a link</strong> between employment and insurance.（第七段末句：有了奥巴马医改，就业与保险之间不再挂钩。）</blockquote>
+<p>no longer a link between employment and insurance = 就业不再是获得保险的前提。[D] 的 employment is no longer a <strong>precondition</strong> to get insurance 正是它的名词化改写：不再挂钩 = "有工作"从必要条件变成了可选条件。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A it is no longer easy for part-timers to get insurance</td><td>✗</td><td>杂糅反向：把原文 no longer 与 get insurance 拼起来，却把方向拧反——医改让保险<strong>更容易</strong>获得（Medicaid 或 exchanges 两条新途径）</td></tr><tr><td>B full-time employment is still essential for insurance</td><td>✗</td><td>正相反对：末句明说 no longer a link，B 说"全职工作仍是必要条件"</td></tr><tr><td>C it is still challenging to get insurance for family members</td><td>✗</td><td>时态错位：cover themselves and their families 出自第七段②句，那是虚拟语气描述的<strong>医改前</strong>情形（may previously have felt the need）</td></tr></tbody></table>
+<h3>预判追问：precondition（前提）这个词原文有吗？</h3>
+<p>没有——这正是"概括型"正确项的写法：同义改写不要求词对词，只要求<strong>逻辑等价</strong>。医改前"有工作才能有保险"，医改后"没工作也能有保险"，则"就业"从必要前提降级为可选路径。反过来说，凡把"前提"保留下来的选项（B）或把方向拧反的选项（A），都与这两句原文冲突。</p>
+<blockquote>记忆锚点：Obamacare = 保险与就业脱钩；outside of employment + no longer a link 两处合并；may previously have felt = 医改<strong>前</strong>的情形，别当成现状。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

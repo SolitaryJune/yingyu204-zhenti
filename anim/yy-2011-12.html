@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-12 · 2011 完形第 12 空 · 句首衔接语：同一方案的进一步阐释</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 12 所在句", "cls": "key", "tag": "定位", "log": "定位原文：句首衔接语 + the approach would create a “walled garden”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>__12__</b>, the approach would create a “walled garden” in cyberspace, with safe “neighborhoods” and bright “streetlights”…</div><p>衔接语不表达句内词义，表达<b>本句与上文的逻辑关系</b>。判定两步：① 本句主语与上文哪个说法同指？② 两句之间是递进、对照还是别的？</p>"}, {"title": "找证据 · the approach 就是上文那个方案", "cls": "key", "tag": "证据", "log": "找证据：a proposal → The idea → the approach —— 同一方案层层递进", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The idea is to create a federation of private online identity systems.</div><p>从 a proposal（提议）→ The idea（构想）→ the approach（途径）：主语一路换名，说的<b>始终是同一套系统</b>——文章在层层递进地阐述它。衔接语应为“进一步阐释/实际上”。</p>"}, {"title": "逐项分析 · B In effect（实际上）", "cls": "good", "tag": "选定 B", "log": "B In effect（实际上） ✓ 当选——引出对同一方案的进一步阐释", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>“实际上，这个途径会造出一个围墙花园”——对同一方案实际效果的比喻性进一步阐述，递进补充顺理成章。</p>"}, {"title": "逐项分析 · D In contrast（相比之下）", "cls": "bad", "tag": "排除 D", "log": "D In contrast ✗ 排除——本句仍是同一个 approach，无对照对象", "count": 2, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>contrast 需要两样对立事物；本句主语又回到了 the approach 本身，话题延续。</p><p style=\"color:#b91c1c\">⚠ 典型误解：政府版 vs 私人版的对比在第 10 空所在句已经讲完，残留印象被误用。</p>"}, {"title": "逐项分析 · A In vain（徒劳）", "cls": "bad", "tag": "排除 A", "log": "A In vain ✗ 排除——would create 是正面陈述，与“徒劳”矛盾", "count": 3, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>“徒劳”与 would create a “walled garden” 的正面陈述直接冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把后文专家的质疑提前搬来当基调。</p>"}, {"title": "逐项分析 · C In return（作为回报）", "cls": "bad", "tag": "排除 C", "log": "C In return ✗ 排除——上文没有“付出—回报”结构", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>in return 需要付出方与回报方；上文只是介绍方案，不存在回报结构。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见短语就硬套中文。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（In effect 实际上）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>实际上，这一途径将在网络空间造出一个“围墙花园”——有安全“街区”和明亮“路灯”，营造可信社区的感觉。</b></p><p>答案选 <b>B（In effect 实际上，事实上）</b>。</p><p><b>记忆锚点</b>：句首衔接语 → 先找主语同指，再定逻辑；同一话题层层递进 → In effect；contrast 要对立物、in vain 要负面、in return 要付出回报。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 12 空 · 句首衔接语：同一方案的进一步阐释",
+  subtitle: "考点：上下文逻辑关系（衔接短语） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（In effect）", "html": "<b>B In effect（实际上）</b>：主语 the approach 与上文 a proposal / the idea 同指——同一方案的递进阐释。<br>记忆锚点：衔接语先找主语同指，再定逻辑关系。<br>最易误选：<b>D（In contrast）</b>——早前对比的残留印象误用。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 12 空 · 句首衔接语：同一方案的进一步阐释</h2>
+<p>答案：<strong>B（In effect 实际上，事实上）</strong>。</p>
+<h3>第 0 步：先立机制——衔接语选什么，取决于上下句话题关系</h3>
+<p>句首衔接语（In vain / In effect / In return / In contrast）不表达句内词义，表达的是<strong>本句与上文的逻辑关系</strong>。判定路径固定两步：① 找本句主语与上文哪个说法同指；② 判断两句话之间是递进补充、对照、因果还是让步。选错衔接语，通常就是这两步里走错一步。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>__12__, the approach would create a "walled garden" in cyberspace, with safe "neighborhoods" and bright "streetlights" to establish a sense of a trusted community.</blockquote>
+<p>本句主语是 the approach（这一途径）。它说的是：这个方案实际上会在网络空间造出一个带安全“街区”、明亮“路灯”的“围墙花园”。</p>
+<h3>第 2 步：找证据——the approach 就是上文反复谈论的那一个方案</h3>
+<blockquote>The idea is to create a federation of private online identity systems.</blockquote>
+<p>从 a proposal（第 4 空）到 The idea（第 8 空）再到本句的 the approach，<strong>主语一路换名、说的始终是同一套系统</strong>：文章在层层递进地阐述它——先提提议，再说构想，再对比政府版，现在用“围墙花园”的比喻进一步描绘它的实际效果。所以衔接语要表“进一步阐释/实际上”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B In effect</td><td>实际上</td><td>✓ 当选</td><td>引出对同一方案实际效果的进一步（比喻性）阐述：“实际上，这个途径会造出一个围墙花园”——递进补充，顺理成章。</td></tr><tr><td>D In contrast</td><td>相比之下</td><td>✗ 排除</td><td>contrast 需要两样<strong>对立</strong>的事物；本句说的仍是同一个 approach，没有第二个对照项。（典型误解：上文政府版与私人版对比的记忆残留——那点对比在第 10 空所在句已经讲完。）</td></tr><tr><td>A In vain</td><td>徒劳</td><td>✗ 排除</td><td>would create a "walled garden" 是正面陈述，“徒劳”与其直接矛盾。（典型误解：把后文专家的质疑（第 17 空段）提前搬到这里当基调。）</td></tr><tr><td>C In return</td><td>作为回报</td><td>✗ 排除</td><td>in return 需要“付出—回报”的前后结构，上文没有任何付出方与回报方。（典型误解：见短语就硬套中文。）</td></tr></tbody></table>
+<p>代入后的完整句义：实际上，这一途径将在网络空间造出一个“围墙花园”——有安全的“街区”和明亮的“路灯”，以营造一种可信社区的感觉。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>In contrast 为什么这么有迷惑性？</strong>：因为全文确实出现过一次对比（私人方案 vs 政府驾照版）。但衔接语只管<strong>本句与紧邻上文</strong>的关系：第 10 空所在句已经完成对比，本句主语又回到了 the approach 本身——话题延续，无对照。</li><li><strong>In effect 和 in fact 有区别吗？</strong>：功能几乎相同，都表“实际上”，用于进一步澄清或引出实质效果；本题要的正是这个功能。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（In contrast）</strong>：把文章早前的对比残留当成此处关系，没核本句主语与上文同指。</li><li><strong>误选 A（In vain）</strong>：被后文“专家质疑”的氛围带跑，把争议基调提前到了这句正面描述里。</li><li><strong>误选 C（In return）</strong>：不查“付出—回报”结构是否存在。</li></ul>
+<blockquote>记忆锚点：句首衔接语 → 先找主语同指（the approach = the idea = a proposal），再定逻辑（同一话题层层递进 → In effect 实际上）；contrast 要两样对立物，in vain 要负面结果，in return 要付出回报。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2014-47 小作文谋篇：合租室友信的「告知习惯 + 询问建议」双必答点</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2012-47 成品范式）：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两个指令动词定内容',
+    cls: 'key',
+    body: '<p><b>1) tell him about your living habits</b>（必答点 1：介绍生活习惯）+ <b>2) ask for advice about living there</b>（必答点 2：询问当地居住建议）。信型 = <b>合租室友信（自我介绍 + 咨询）</b>。背景线索：<code>study abroad</code>（留学）+ <code>share an apartment with John, a local student</code>（与当地学生合租）——话题自然落在生活习惯与<b>文化差异</b>上。少答任何一条必答点，档次直接掉。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>收信人是<b>具体的人 John</b> → 称呼用 <b>Dear John</b>（不必 Dear Sir or Madam）。两条硬约束：<b>Do not use your own name. Use "Li Ming" instead</b> → 落款署 <b>Li Ming</b>；<b>Do not write your address</b> → 不写地址。书信三件套：称呼 + 正文 + 落款（Yours, Li Ming）。100 词左右，三段 8–10 句。</p>' },
+  { title: '谋篇：两个必答点缝在一段里，用因果链串起',
+    cls: 'key',
+    body: '<p>三段式：<b>段 1</b> 寒暄 + 缘由（搬入前最好互相了解生活习惯）；<b>段 2</b> 主体——总起 → 分述习惯 → 特殊请求 → 询问建议；<b>段 3</b> 盼复收尾。两条指令不是两块拼盘，而是一条链：做中国菜（习惯）→ 请容忍辣味（习惯对室友的影响）→ 那你们那有什么规矩（建议）——「习惯影响对方，所以想了解你的规矩」，衔接自然。</p>' },
+  { title: '段 1 寒暄：一句话给全信立目的',
+    cls: 'good',
+    body: '<p><b>I am glad that it is you who will be my roommate during my overseas study and cannot wait to meet you. Before my moving in, I think it is necessary to arrive at a basic understanding about each other\'s living habits.</b></p><p>先表达欣喜（迫不及待想见你），再点出写信缘由——「搬入前」对「彼此生活习惯」有个基本了解：目的句一立，段 2 的自我介绍就有了由头。</p>' },
+  { title: '段 1 句型升格：强调句 + 形式主语',
+    cls: 'key',
+    body: '<p>升格路径：① 简单句 <i>You will be my roommate. I am glad about it.</i> → ② 合并 <i>I am glad that you will be my roommate...</i> → ③ <b>强调句</b> <i>it is <b>you</b> who...</i>——强调主语 you，突出「室友正好是你」的欣喜。</p><p>提要求用<b>形式主语</b>缓冲：I think <b>it is necessary</b> to arrive at a basic understanding...——先垫「有必要互相了解」，委婉不生硬。</p>' },
+  { title: '段 2 总起 + 分述：动名词同位语列举习惯',
+    cls: 'good',
+    body: '<p><b>As a typical Chinese, I observe traditional living rules, sleeping and getting up early, having gorgeous breakfast, good lunch and humble supper and keeping room tidy and clean.</b></p><p>三个<b>动名词短语作同位语</b>展开 rules：早睡早起 · 三餐规律 · 房间整洁——都是<b>可观察的行为</b>，不是「I am hard-working」式性格评价。gorgeous / humble 一褒一抑，早中晚三餐自带画面感。</p>' },
+  { title: '段 2 特殊请求：习惯要落到「对室友的影响」',
+    cls: 'good',
+    body: '<p><b>In addition, I prefer cooking Chinese dishes at home and hope to get your tolerance for occasional spicy smell during dish preparation.</b></p><p>习惯写到第二条就带出影响：做中国菜 → 辣味会飘 → 求你 <b>tolerance</b>（容忍）。只罗列习惯不求理解，介绍就不完整；这一句也为下一句的询问铺了路。</p>' },
+  { title: '段 2 询问建议：必答点 2 落槌',
+    cls: 'good',
+    body: '<p><b>There must also be some special living rules to be respected in your country. Can you explain them to me in advance?</b></p><p>顺着「我有我的规矩 → 你们那<b>也一定有</b>规矩」的逻辑反转过来问：<i>special living rules to be respected</i>（不定式被动作后置定语）+ <i>explain them in advance</i>（提前说明，好让我准备）。一句陈述 + 一个问句，语气亲切又达意，不必堆公函腔。</p>' },
+  { title: '段 3 收尾：一句盼复',
+    cls: 'good',
+    body: '<p><b>Hope to get your early reply.</b></p><p>100 词的信收尾不必铺陈：盼复一句即可。落款 <b>Yours, Li Ming</b>——真名、地址都碰不得（两条硬指令）。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>share an apartment with sb. 与某人合租 · arrive at a basic understanding about 对……有基本了解 · observe living rules 遵循生活规律 · sleeping and getting up early 早睡早起 · keep room tidy and clean 保持房间整洁 · get your tolerance for... 求你对……的容忍 · in advance 提前 · Hope to get your early reply 望早复信</p>' },
+  { title: '模板迁移（初识室友/邻居通用）',
+    cls: 'key',
+    body: '<p>「寒暄定目的 → 总起 + 动名词列举习惯 → 习惯影响对方求容忍 → 反转询问对方规矩 → 盼复」适用于<b>一切初识式自我介绍 + 咨询信</b>：换题只换「习惯清单」与「询问的规矩」两个槽位；强调句寒暄、形式主语提要求、动名词同位语列举三个句型整体复用。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>寒暄定目的 → 习惯（总起 + 列举 + 影响求容忍）→ 询问对方规矩 → 盼复</b>；两个必答点（tell habits / ask for advice）缺一掉档；称呼 Dear John；落款 Li Ming、不写地址；语气亲切自然。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2014-47 小作文谋篇演示：合租室友信的「告知习惯 + 询问建议」',
+  subtitle: '考点：应用文写作（自我介绍 + 咨询信）· 方法：拆指令 → 定格式 → 三段谋篇 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>Dear John,</p>' +
+      '<p>I am glad that it is you who will be my roommate during my overseas study and cannot wait to meet you. Before my moving in, I think it is necessary to arrive at a basic understanding about each other\'s living habits.</p>' +
+      '<p>As a typical Chinese, I observe traditional living rules, sleeping and getting up early, having gorgeous breakfast, good lunch and humble supper and keeping room tidy and clean. In addition, I prefer cooking Chinese dishes at home and hope to get your tolerance for occasional spicy smell during dish preparation. There must also be some special living rules to be respected in your country. Can you explain them to me in advance? Hope to get your early reply.</p>' +
+      '<p>Yours,<br>Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>寒暄定目的 → 习惯（总起 + 列举 + 求容忍）→ 问规矩 → 盼复</b>；语气亲切自然；称呼 Dear John；落款 Li Ming、不写地址。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 小作文——合租室友信："告知习惯 + 询问建议"双必答点</h2>
+<p>答案（范文）：<strong>Dear John, I am glad that it is you who will be my roommate during my overseas study and cannot wait to meet you. Before my moving in, I think it is necessary to arrive at a basic understanding about each other's living habits. As a typical Chinese, I observe traditional living rules, sleeping and getting up early, having gorgeous breakfast, good lunch and humble supper and keeping room tidy and clean. In addition, I prefer cooking Chinese dishes at home and hope to get your tolerance for occasional spicy smell during dish preparation. There must also be some special living rules to be respected in your country. Can you explain them to me in advance? Hope to get your early reply. Yours, Li Ming</strong></p>
+<h3>第 0 步：先立机制——应用文的分是"指令覆盖"给出来的</h3>
+<p>应用文评分看三道关：<strong>格式</strong>（称呼/正文/落款）、<strong>必答点</strong>（指令动词逐条覆盖）、<strong>语域</strong>（对谁说话用什么语气）。本题指令两条：1) <code>tell him about your living habits</code>；2) <code>ask for advice about living there</code>——少答任何一条，档次直接掉。背景 <code>you are going to study abroad and share an apartment with John, a local student</code> 定了三件事：场景是留学合租、关系是初次见面的室友、话题自然落在生活习惯与文化差异上。所以语气要<strong>亲切自然</strong>，不端公函腔。</p>
+<h3>第 1 步：审题——两个指令动词各自拆出内容清单</h3>
+<table><thead><tr><th>指令</th><th>拆出的内容</th><th>落点</th></tr></thead><tbody><tr><td>tell him about your living habits</td><td>作息规律、饮食偏好、房间整洁度、可能给对方带来的影响</td><td>段 2 前半</td></tr><tr><td>ask for advice about living there</td><td>询问当地特殊生活规范与注意事项</td><td>段 2 后半</td></tr></tbody></table>
+<p>两条指令可以"接"在同一段里：先介绍自己做中国菜（习惯），顺势请求对方容忍辣味（习惯对室友的影响），再问对方国家有什么规矩要遵守（建议）——用"做菜 → 辣味 → 你的规矩"这条链把两个必答点缝起来，衔接自然，不是硬凑两块。</p>
+<h3>第 2 步：格式红线</h3>
+<ul><li>收信人是具体的人 John → 称呼 <strong>Dear John</strong>（不必 Dear Sir or Madam）。</li><li><code>Do not use your own name. Use "Li Ming" instead.</code> → 落款 <strong>Yours, Li Ming</strong>。</li><li><code>Do not write your address.</code> → 不写地址。</li><li>100 词左右：三段 8–10 句即可，每句都要干活。</li></ul>
+<h3>第 3 步：谋篇——三段式与段内功能</h3>
+<ul><li><strong>段 1 寒暄 + 缘由</strong>：很高兴室友是你、迫不及待想见面 → "搬入前最好对彼此生活习惯有个基本了解"——一句话给全信立起目的，自然引出段 2。</li><li><strong>段 2 主体</strong>：总起（我遵循传统的生活规律）→ 分述（早睡早起、三餐规律、房间整洁）→ 特殊请求（做中国菜求容忍辣味）→ 询问建议（你们那里有什么规矩）。</li><li><strong>段 3 收尾</strong>：盼复一句（Hope to get your early reply）收束。</li></ul>
+<h3>第 4 步：句型升格——从简单句到范文句的三条路径</h3>
+<ol><li><strong>强调句聚情</strong>：<code>I am glad that it is you who will be my roommate...</code>——It is...who 强调主语 you，把"室友正好是你"的欣喜突出出来；再并上 cannot wait to meet you，一句寒暄不空转。</li><li><strong>形式主语缓冲语气</strong>：<code>I think it is necessary to arrive at a basic understanding about each other's living habits</code>——it 作形式主语、不定式真主语，提要求前先垫一句"有必要互相了解"，委婉不生硬。</li><li><strong>动名词同位语列举</strong>：<code>I observe traditional living rules, sleeping and getting up early, having gorgeous breakfast, good lunch and humble supper and keeping room tidy and clean</code>——三个动名词短语作同位语展开 rules，避免三个并列句的笨重；早睡早起 + 早餐吃好/中餐吃饱/晚餐吃少（gorgeous、humble 一褒一抑）自带画面感。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>只写习惯不问建议</strong>：必答点 2 缺失，直接掉档；反之只问不写同样残缺。</li><li><strong>把习惯写成性格</strong>：<code>I am hard-working</code> 是自我评价，不是 living habit；要写可观察的行为——作息、饮食、房间。</li><li><strong>语气过正式</strong>：对室友堆公函腔（I would be most grateful if you could kindly...）反而失真；一句 <code>Can you explain them to me in advance?</code> 亲切又达意。</li><li><strong>违反硬指令</strong>：落款写真名、或画蛇添足写地址——两条红线一碰即扣。</li><li><strong>两张皮衔接</strong>：介绍习惯与询问建议之间没有过渡，像两封信拼在一起；要有"习惯影响对方 → 所以想了解你的规矩"的因果链。</li></ul>
+<blockquote>记忆锚点：应用文先数<strong>指令动词</strong>再动笔；格式 × 必答点 × 语域三关全过；介绍习惯要"可感知"，询问建议要"接得住"；落款 <strong>Li Ming</strong>、不写地址。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015-46 翻译长难句拆解：习语意译 · it 形式主语 · 熟路效应三层因果链</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板（同 2014-46 成品范式）：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 十个句子面板的成分块与重组译文 */
+var SENT = [
+  { label: '句① Think about driving a route that\u2019s very familiar.',
+    chunks: [
+      { t: 'Think about driving a route', k: 'zhu', n: '祈使句·think about doing「试想开车走」' },
+      { t: 'that\u2019s very familiar', k: 'cong', n: 'that 定语从句·仅三词，前置「非常熟悉的」' }
+    ],
+    trans: '重组：试想开车走一条非常熟悉的路。（祈使句把读者拉进假想场景）' },
+  { label: '句② It could be your commute to work, a trip into town or the way home.',
+    chunks: [
+      { t: 'It could be', k: 'zhu', n: 'it 回指 a route（不是形式主语）·could be 表列举' },
+      { t: 'your commute to work', k: 'mod', n: 'commute 名词「通勤」= 上下班(的路)' },
+      { t: 'a trip into town', k: 'mod', n: '进城(的路)' },
+      { t: 'or the way home', k: 'mod', n: '回家(的路)' }
+    ],
+    trans: '重组：可以是上下班、进城或是回家的路。（三个并列名词短语按中文习惯落成“……的路”）' },
+  { label: '句③ Whichever it is, you know every twist and turn like the back of your hand.',
+    chunks: [
+      { t: 'Whichever it is', k: 'cong', n: '让步·承接三种路线「不管是哪条路」' },
+      { t: 'you know every twist and turn', k: 'zhu', n: '主谓宾·twist and turn「每一处曲曲弯弯」' },
+      { t: 'like the back of your hand', k: 'mod', n: '习语！整体 =「了如指掌」，不可逐字「像手背一样知道」' }
+    ],
+    trans: '重组：不管是哪条路，你对每一处曲曲弯弯都了如指掌。（习语整体意译）' },
+  { label: '句④ On these sorts of trips it\u2019s easy to lose concentration on the driving and pay little attention to the passing scenery.',
+    chunks: [
+      { t: 'On these sorts of trips', k: 'mod', n: '介词短语状语·回指熟路「在这种路上」' },
+      { t: 'it\u2019s easy', k: 'zhu', n: 'it 形式主语·不译出' },
+      { t: 'to lose concentration on the driving', k: 'zhu', n: '真主语①不定式·「不专注于驾驶」' },
+      { t: 'and (to) pay little attention to the passing scenery', k: 'zhu', n: '真主语②并列·passing 现在分词定语「沿途掠过的景色」' }
+    ],
+    trans: '重组：在这种路上，很容易不专注于驾驶，很少注意沿途的景色。（形式主语 it 不译，直接“很容易”起句）' },
+  { label: '句⑤ The consequence is that you perceive that the trip has taken less time than it actually has.',
+    chunks: [
+      { t: 'The consequence is that\u2026', k: 'zhu', n: '主系表·第一个 that 表语从句' },
+      { t: 'you perceive that the trip has taken less time', k: 'cong', n: '第二个 that 宾语从句·perceive 取「觉得」(主观感知)' },
+      { t: 'than it actually has', k: 'cong', n: '比较状语从句·actually 与主观感觉成「主观 vs 实际」对比' }
+    ],
+    trans: '重组：结果你就觉得旅途所花的时间比实际的要短。（戏眼 = 主观感觉 vs 实际情形）' },
+  { label: '句⑥ This is the well-travelled road effect: people tend to underestimate the time it takes to travel a familiar route.',
+    chunks: [
+      { t: 'This is the well-travelled road effect', k: 'zhu', n: 'This 回指首段情形·well-travelled road 呼应 very familiar「熟路」' },
+      { t: 'people tend to underestimate', k: 'zhu', n: 'tend to「往往」·underestimate「低估」' },
+      { t: 'the time it takes to travel a familiar route', k: 'cong', n: '(that) it takes to\u2026 定语从句省略关系词·it 形式主语「走熟路所需的时间」' }
+    ],
+    trans: '重组：这就是熟路效应：人们走熟路时往往会低估所需的时间。（漏掉定语从句则定义不完整）' },
+  { label: '句⑦ The effect is caused by the way we allocate our attention.',
+    chunks: [
+      { t: 'The effect is caused by\u2026', k: 'zhu', n: '被动句·按中文习惯「是由……造成的」·第三段总起' },
+      { t: 'the way we allocate our attention', k: 'cong', n: '(that) we allocate attention 定语从句·allocate「分配」' }
+    ],
+    trans: '重组：这种效应是由我们分配注意力的方式造成的。（注意力按任务熟悉程度分配，不是匀速）' },
+  { label: '句⑧ When we travel down a well-known route, because we don\u2019t have to concentrate much, time seems to flow more quickly.',
+    chunks: [
+      { t: 'When we travel down a well-known route', k: 'cong', n: '时间状语从句·travel 僻义「走」·well-known 僻义「熟悉的」·down「沿着」可略' },
+      { t: 'because we don\u2019t have to concentrate much', k: 'cong', n: '原因状语从句·「由于不必非常专注」' },
+      { t: 'time seems to flow more quickly', k: 'zhu', n: '主干·flow 暗喻「时光如流水」→「过得快些」·seems 主观' }
+    ],
+    trans: '重组：我们走很熟的路时，由于不必非常专注，时间似乎就过得快些。（三个熟词僻义都藏在从句里）' },
+  { label: '句⑨ And afterwards, when we come to think back on it, we can\u2019t remember the journey well because we didn\u2019t pay much attention to it.',
+    chunks: [
+      { t: 'And afterwards, when we come to think back on it', k: 'cong', n: '时间状语·come to do「到……时」·think back on「回想」' },
+      { t: 'we can\u2019t remember the journey well', k: 'zhu', n: '主干·「记得不很清楚」' },
+      { t: 'because we didn\u2019t pay much attention to it', k: 'cong', n: '原因从句·中文提前为「由于……所以……」' }
+    ],
+    trans: '重组：之后，我们回想起这段旅程时，由于当时没怎么注意，所以记得不很清楚。（语序重组显化因果）' },
+  { label: '句⑩ So we assume it was shorter.',
+    chunks: [
+      { t: 'So we assume', k: 'zhu', n: 'So 收束因果链·assume 僻义「觉得/想当然认为」非「假设」' },
+      { t: 'it was shorter', k: 'zhu', n: 'it 指旅程耗时·「时间短了」' }
+    ],
+    trans: '重组：这样，我们就觉得时间短了。（链条收口：注意力少 → 记不清 → 觉得短）' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 1]], trans: [1] },
+  { focus: [2], hot: [[2, 1], [2, 2]], trans: [2] },
+  { focus: [3], hot: [[3, 1], [3, 2], [3, 3]], trans: [3] },
+  { focus: [4], hot: [[4, 1], [4, 2]], trans: [4] },
+  { focus: [5], hot: [[5, 2]], trans: [5] },
+  { focus: [6], hot: [[6, 0], [6, 1]], trans: [6] },
+  { focus: [7], hot: [[7, 0], [7, 2]], trans: [7] },
+  { focus: [8], hot: [[8, 0], [8, 2]], trans: [8] },
+  { focus: [9], hot: [[9, 0], [9, 1]], trans: [9] },
+  { hot: [[2, 2], [3, 1], [5, 2], [7, 0]], trans: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2015-46 翻译长难句拆解：习语意译 · it 形式主语 · 熟路效应三层因果链',
+  subtitle: '考点：英译汉 · 方法：拆结构 → 定词义 → 组语序（十句逐一演示，绿=主干 · 琥珀=修饰/习语 · 蓝=从句）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示十个句子的拆解与重组。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读全文定基调：心理学科普小品「熟路效应」，用词平实、难在习语与小结构；骨架 = 现象(段1) → 定义(段2) → 释因(段3) 三层因果链：不必专注 → 事后记不清 → 觉得时间短', count: 0 },
+    { cls: 'key', tag: '句①祈使', log: 'Think about doing 祈使句「试想……」；that\u2019s very familiar 定语从句仅三词，前置为「一条非常熟悉的路」', count: 1 },
+    { cls: 'step', tag: '句②指代', log: 'It could be 的 it 回指 a route（不是形式主语）；commute 是名词「通勤」；三个并列名词短语落成「上下班、进城或是回家的路」', count: 2 },
+    { cls: 'key', tag: '句③习语', log: 'know\u2026like the back of your hand 固定习语 =「了如指掌」，逐字译「像手背一样知道」即丢分；twist and turn 取「每一处曲曲弯弯」', count: 3 },
+    { cls: 'key', tag: '句④形式主语', log: 'it 形式主语不译出，真主语 = lose\u2026 and (to) pay\u2026 两个并列不定式；passing scenery 现在分词作定语「沿途掠过的景色」', count: 4 },
+    { cls: 'key', tag: '句⑤双that', log: '第一个 that 表语从句、第二个 that 宾语从句；perceive 取「觉得」不是「感知」；than it actually has 构成「主观感觉 vs 实际耗时」的对比，是全段戏眼', count: 5 },
+    { cls: 'key', tag: '句⑥定义', log: '独句段下定义：This 回指首段情形；the time (that) it takes to travel\u2026 定语从句省略关系词 =「走熟路所需的时间」，漏掉这层定义就不完整', count: 6 },
+    { cls: 'step', tag: '句⑦释因', log: 'is caused by 被动句按中文习惯译「是由……造成的」；the way we allocate our attention =「我们分配注意力的方式」，第三段总起', count: 7 },
+    { cls: 'key', tag: '句⑧僻义', log: 'travel =「走」非「旅行」、well-known =「熟悉的」非「著名的」、down「沿着」可略去；flow 暗喻「时光如流水」→「时间似乎过得快些」', count: 8 },
+    { cls: 'step', tag: '句⑨语序', log: 'come to do「到……时」、think back on「回想」；because 从句中文提前——「由于当时没怎么注意，所以记得不很清楚」', count: 9 },
+    { cls: 'key', tag: '句⑩收口', log: 'assume 取「想当然地认为/觉得」非「假设」；So 落定因果链：注意力少 → 记不清 → 觉得短，与首段⑤句「觉得比实际短」首尾呼应', count: 10 },
+    { cls: 'done', tag: '全篇落定', log: '十句重组完成：习语「了如指掌」、it 形式主语、the time it takes 定语从句、travel/well-known/assume 三处熟词僻义是本篇得分眼', count: 11, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组 → 三层因果链定译文',
+    html: '<p><b>参考译文（答案口径）</b>：试想开车走一条非常熟悉的路。可以是上下班、进城或是回家的路。不管是哪条路，你对每一处曲曲弯弯都了如指掌。在这种路上，很容易不专注于驾驶，很少注意沿途的景色。结果你就觉得旅途所花的时间比实际的要短。这就是熟路效应：人们走熟路时往往会低估所需的时间。这种效应是由我们分配注意力的方式造成的。我们走很熟的路时，由于不必非常专注，时间似乎就过得快些。之后，我们回想起这段旅程时，由于当时没怎么注意，所以记得不很清楚。这样，我们就觉得时间短了。</p>' +
+      '<p>记忆锚点：全文三层因果<b>现象 → 定义 → 释因</b>；习语整体意译不逐字（了如指掌）；it 形式主语不译出；the time it takes to do = 「做……所需的时间」；travel = 走、well-known = 熟悉、assume = 觉得（想当然）；「时光如流水」落中文即「过得快」。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 翻译——"熟路效应"：习语意译、it 形式主语与三层因果链的拆-定-组</h2>
+<p>答案（参考译文）：<strong>试想开车走一条非常熟悉的路。可以是上下班、进城或是回家的路。不管是哪条路，你对每一处曲曲弯弯都了如指掌。在这种路上，很容易不专注于驾驶，很少注意沿途的景色。结果你就觉得旅途所花的时间比实际的要短。</strong></p>
+<p><strong>这就是熟路效应：人们走熟路时往往会低估所需的时间。</strong></p>
+<p><strong>这种效应是由我们分配注意力的方式造成的。我们走很熟的路时，由于不必非常专注，时间似乎就过得快些。之后，我们回想起这段旅程时，由于当时没怎么注意，所以记得不很清楚。这样，我们就觉得时间短了。</strong></p>
+<h3>第 0 步：先立机制——英译汉仍按"拆结构 → 定词义 → 组语序"，但先看清全文骨架</h3>
+<table><thead><tr><th>步骤</th><th>干什么</th><th>本篇的落点</th></tr></thead><tbody><tr><td>拆</td><td>找谓语定主干，形式主语、从句各自归位</td><td>句④ it 形式主语、句⑥ the time 后省略关系词的定语从句</td></tr><tr><td>定</td><td>习语/比喻不逐字，熟词僻义靠语境定音</td><td>了如指掌、时光如流水；travel/well-known/assume 的僻义</td></tr><tr><td>组</td><td>英语从句后置，中文语序重组并显化逻辑</td><td>句⑨原因从句提前为"由于……所以……"</td></tr></tbody></table>
+<p>动笔前先定两件事。<strong>其一，文体基调</strong>：这是心理学科普小品，讲日常现象"熟路效应"，用词平实，难在习语与小结构，不在大嵌套。<strong>其二，全文骨架是三层因果</strong>：第一段摆现象（走熟路觉得耗时短）→ 第二段下定义（人们走熟路时往往低估所需时间）→ 第三段释因（不必专注 → 事后记不清 → 觉得时间短）。译文里 when/and afterwards/so 这条链要接顺，"没注意 → 记不清 → 觉得短"环环相扣，不能各译各的。</p>
+<h3>第 1 步：句①②③——进场景：祈使句、it 指代与习语第一刀</h3>
+<ul><li>句① <code>Think about driving a route that's very familiar</code>：祈使句开头把读者拉进假想场景，译"试想开车走……"；that's very familiar 定语从句只有三个词，前置为"一条非常熟悉的路"，不必拆句。</li><li>句② <code>It could be your commute to work, a trip into town or the way home</code>：it 回指 a route（不是形式主语，别误判）；commute 此处是<strong>名词</strong>"通勤"，your commute to work = "上下班（的路）"；三个并列名词短语按中文习惯落成"上下班、进城或是回家的路"。</li><li>句③ <code>Whichever it is, you know every twist and turn like the back of your hand</code>：whichever 承接三种路线，让步译"不管是哪条路"。<code>know...like the back of your hand</code> 是固定习语，整体义"对……了如指掌"——逐字译成"像知道自己的手背一样"就丢了习语分；every twist and turn 取"每一处曲曲弯弯"，保留原文的画面感。</li></ul>
+<h3>第 2 步：句④⑤——现象句：形式主语与"主观感觉 vs 实际耗时"</h3>
+<ul><li>句④ <code>On these sorts of trips it's easy to lose concentration on the driving and pay little attention to the passing scenery</code>：it 是<strong>形式主语</strong>，真主语是 to lose... and (to) pay... 两个并列不定式——it 不译，直接以"很容易"起句。these sorts of trips 回指熟路；passing 是现在分词作定语，"沿途掠过的景色"。两个并列谓语正对应"走熟路不用费神"的情形，译文"很容易不专注于驾驶，很少注意沿途的景色"。</li><li>句⑤ <code>The consequence is that you perceive that the trip has taken less time than it actually has</code>：两个 that 层层相套——第一个是表语从句，第二个是 perceive 的宾语从句。得分点在 <strong>perceive</strong>：此处取"觉得、认为"（主观感知），不是"感知/察觉"的学术腔；比较从句 than it actually has 译"比实际的要短"，you perceive 与 actually 恰构成"主观感觉 vs 实际情形"的对比，这正是全段的戏眼。</li></ul>
+<h3>第 3 步：句⑥——定义句：独句段与"省略 that 的定语从句"</h3>
+<ul><li><code>This is the well-travelled road effect: people tend to underestimate the time it takes to travel a familiar route</code>。独句段承上启下：This 回指首段情形，well-travelled road 呼应 very familiar，译"熟路效应"。</li><li>结构上 <code>the time it takes to travel...</code> = the time (that) it takes to travel...，<strong>定语从句省略了关系词</strong>，it 形式主语、to travel a familiar route 才是真主语——漏看这层，就只剩"低估时间"，丢掉"走熟路所需的时间"这个限定，得分点不完整。tend to = "往往"，与首段 it's easy to 的"惯常情形"呼应。</li></ul>
+<h3>第 4 步：句⑦⑧——释因段上：被动句与两个熟词僻义</h3>
+<ul><li>句⑦ <code>The effect is caused by the way we allocate our attention</code>：被动句按中文习惯译"是由……造成的"；the way 后省略关系词，"我们分配注意力的方式"；allocate 取"分配"义——注意力不是匀速使用，而是按任务熟悉程度分配，这句是第三段的总起。</li><li>句⑧ <code>When we travel down a well-known route, because we don't have to concentrate much, time seems to flow more quickly</code>：when 与 because 双层状语嵌套。三个词要定音：<strong>travel</strong> 此处 = "走、行进"，不是"旅行"；<strong>well-known</strong> 此处 = "熟悉的"，不是"著名的"（走熟路哪来的著名）；down 表"沿着"，按中文习惯略去。主干 time seems to flow more quickly 是暗喻——"时光如流水"是中文现成对应，译"时间似乎就过得快些"，seems 提示这是主观感受。</li></ul>
+<h3>第 5 步：句⑨⑩——释因段下：语序重组与因果链收口</h3>
+<ul><li>句⑨ <code>And afterwards, when we come to think back on it, we can't remember the journey well because we didn't pay much attention to it</code>：come to do = "到……时"；think back on = "回想"。中文语序重组：英语里 because 从句挂在主句之后，中文把原因提前——"由于当时没怎么注意，所以记得不很清楚"。</li><li>句⑩ <code>So we assume it was shorter</code>：<strong>assume</strong> 取"想当然地认为、觉得"，不是"假设"——它没有证据支撑，正因为记忆贫乏才主观判定"时间短"。So 一落，整条因果链收口：注意力投入少 → 事后记得不清 → 感觉时间短，与首段⑤句"觉得比实际短"首尾呼应。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>习语逐字直译</strong>：know...like the back of your hand 译"像手背一样知道"——不识习语，按字面拼装。</li><li><strong>把形式主语的 it 译出来</strong>：句④译成"它是容易的"——it 是占位主语，中文直接"很容易……"起句。</li><li><strong>perceive/assume 取学术义</strong>：译"感知到""假定"——语境是主观时间感，两词都取"觉得"；assume 更含"想当然"。</li><li><strong>漏掉省略关系词的定语从句</strong>：the time it takes to travel a familiar route 只译"低估时间"——"走熟路所需"这个限定没了，定义句就不完整。</li><li><strong>travel/well-known 熟词僻义直译</strong>："当我们旅行在一条著名的路下"——travel = 走、well-known = 熟悉、down = 沿着（可略），三处都要按语境定音。</li><li><strong>flow 直译"流动"</strong>：时间客观速度没变，这是暗喻；"时光如流水"落在中文就是"过得快些"。</li><li><strong>因果链断裂</strong>：第三段 When... And afterwards... So... 是一条链，译文不把"没注意 → 记不清 → 觉得短"接顺，三句各译各的，逻辑分丢失。</li></ul>
+<blockquote>记忆锚点：全文三层因果<strong>现象 → 定义 → 释因</strong>；习语整体意译不逐字；it 形式主语不译出；the time it takes to do = "做……所需的时间"；travel = 走、well-known = 熟悉、assume = 觉得（想当然）；"时光如流水"落中文即"过得快"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

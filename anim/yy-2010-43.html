@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-43 动画："更舒适"是比较级陷阱</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：两个高危词", "body": "<p>陈述：<b>Formation flight is more comfortable because passengers can not see the other planes.</b>（编队飞行更舒适，因为乘客看不到其他飞机。）</p><p>高危词：比较级 <b>more comfortable</b>（要找比较对象）+ 因果 <b>because</b>（要找因果句）。</p>", "log": "比较级与 because 是本题的两处高危点"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：第四段的\"担忧—回应\"", "body": "<div class=\"qq\"><b>第四段②⑤句：</b>One consideration is safety, or at least the perception of it. Would passengers feel comfortable travelling in companion? … A passenger peering out of the window might not even see the other planes. <span class=\"cn\">（译：要考虑的是安全感：乘客会舒适吗？……间距数海里，乘客可能根本看不见其他飞机。）</span></div>", "log": "原文是\"提出担忧—给出回应\"，不是舒适度比较"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 3, "title": "比对：三处失守", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>more comfortable 更舒适（比较级）</td><td>只是回应\"会不会不舒服\"的担忧，无比较对象</td><td><span class=\"bad-dot\">比较级无中生有</span></td></tr><tr><td>can not see 断言看不见</td><td>might not even see 可能看不见</td><td><span class=\"bad-dot\">推定被坐实</span></td></tr><tr><td>because 看不见所以舒适</td><td>无此因果句</td><td><span class=\"bad-dot\">因果无出处</span></td></tr></table>", "log": "三处失守：比较级、语气、因果全被偷换"}, {"cls": "bad", "ecs": "miss", "tag": "排除 T", "title": "排除 T：True · 陈述为真", "body": "<p><b>选项 T（True · 陈述为真）</b><span class=\"bad-dot\">✗</span></p><p>比较级无对象、推定被坐实、因果无出处——<b>T 不成立</b>。</p>", "log": "排除 T：True · 陈述为真", "count": 3, "ribbon": {"k": 1, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "判定 F", "title": "判定 F：False · 陈述为假", "body": "<p><b>选项 F（False · 陈述为假）</b><span class=\"ok-dot\">✓</span></p><p>陈述曲解原文信息并坐实推定语气——<b>判 F 成立</b>。</p>", "log": "判定 F：False · 陈述为假", "count": 3, "ribbon": {"k": 2, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 3, "title": "结论：答案 F", "body": "<p><b>答案 F</b>——\"更舒适\"是比较级陷阱。</p><p>记忆锚点：比较级先问\"跟谁比\"；would / could / might 被改成断言也算偷换。</p>", "log": "结论：比较级无中生有 + 语气坐实，答案选 F"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-43 · 判断题：\"更舒适\"是比较级陷阱",
+  subtitle: "考点：新题型判断正误 · 方法：比较级查对象 + 语气核对",
+  counterLabel: "比对点",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 逐点比对 → 口径核查。",
+  snaps: snaps,
+  result: {
+    big: "答案 F",
+    html: "<b>原文是\"回应安全感知的担忧\"（would / could / might not even see），不是舒适度比较</b>——more comfortable 比较级无中生有，推定语气被坐实成 can not see。比较级先问\"跟谁比\"。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：判断题——比较级必须有"比较对象"</h2>
+<p>答案：<strong>F</strong>（陈述错误）。</p>
+<h3>第 0 步：先立机制——盯住"最容易被带过去"的词</h3>
+<p>陈述 Formation flight is <strong>more comfortable</strong> because passengers can <strong>not see</strong> the other planes 有两处高危词：比较级 more comfortable、因果 because。判断题机制：<strong>比较级必须能在原文找到比较对象</strong>，因果必须有因果句托底——两处任一落空即判 F。关键词 Formation flight、comfortable、passengers → 定位第四段。</p>
+<h3>第 1 步：定位与比对</h3>
+<blockquote>One consideration is safety, or at least the perception of it. <strong>Would passengers feel comfortable</strong> travelling in companion? Dr. Kroo points out that the aircraft <strong>could</strong> be separated by several nautical miles… A passenger peering out of the window <strong>might not even see</strong> the other planes.（要考虑的是安全，至少是安全感。乘客结伴飞行会舒适吗？克鲁博士指出飞机可以相隔数海里……乘客朝窗外看<strong>可能根本看不见</strong>其他飞机。）</blockquote>
+<p>比对三处失守：</p>
+<ul><li><strong>比较级无中生有</strong>：原文是在<strong>回应一个潜在担忧</strong>（会不会不舒服？），答以"间距远到可能看不见，不必担心"——全文没有"编队飞行比普通飞行<strong>更</strong>舒适"的比较，more comfortable 凭空冒出。</li><li><strong>语气被坐实</strong>：原文全是推定语气 would / could / might not even see；陈述却用断言 can not see + 一般现在时，把"推定"说成"事实"。</li><li><strong>因果句查无出处</strong>：原文没有"因为看不见所以更舒适"的因果表述。</li></ul>
+<p>→ 选 <strong>F</strong>。</p>
+<blockquote>记忆锚点：比较级先问"跟谁比"——原文没给比较对象就是陷阱；would / could / might 的推定语气被改成断言，也算偷换。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

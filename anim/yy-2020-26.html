@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-26 · 原因细节题：商机暴增 × 人才有限的供需模型</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：contributed to 问「涨薪的原因」",
+  "body": "<p>题干：<b>Which of the following has contributed to CEO pay rise?</b></p><p>按题文同序锁定第二段：该段集中解释涨薪原因。①句给出理解薪酬增长的「最佳模型」，③句用显性因果词 <b>one reason</b> 给出另一条原因（CEO 自身表现提升）。选项要能与某条原因<b>语义对应</b>，其余多为偷换 / 捏造。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "供需模型：机会扩张 × 人才有限",
+  "body": "<p>The best model for understanding the growth of CEO pay is that of <b>limited CEO talent</b> in a world where <b>business opportunities for the top firms are growing rapidly</b>。</p><p>翻译成供需：顶级公司的商业机会迅速扩张 → 对顶级 CEO 的需求上升；而 CEO 人才池有限 → <b>供不应求 → 薪酬被推高</b>。①句的 are growing rapidly 就是正确项 Increased 的来源。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第二段①句",
+  "body": "<div class='qq'><b>原文：</b>The best model for understanding the growth of CEO pay is that of limited CEO talent in a world where <b>business opportunities for the top firms are growing rapidly</b>.</div><p class='cn'>译：理解 CEO 薪酬增长的最佳模型是：在顶级公司商业机会迅速增长的世界里，CEO 人才有限。</p><p>C 的 <b>Increased business opportunities for top firms</b> ↔ business opportunities for the top firms are growing rapidly——increased ↔ growing rapidly，主体（top firms）原样对应。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：偷换增长主体",
+  "body": "<p><b>A · The growth in the number of corporations</b> <span class='bad-dot'>✗</span></p><p>原文「迅速增长」的是<b>顶级公司的商业机会</b>；A 把增长主体偷换成「公司的数量」——增长对象错了。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：因果倒置 + 捏造结果",
+  "body": "<p><b>B · The general pay rise with a better economy</b> <span class='bad-dot'>✗</span></p><p>文中 economy（global economy / U.S. economy）出现时说的是「CEO 的努力是推动经济的动力之一」——<b>经济情况是果，CEO 付出是因</b>；B 把因果倒过来，还添了「工资普遍上涨」这一原文没有的结果。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：economies 凑数",
+  "body": "<p><b>D · Close cooperation among leading economies</b> <span class='bad-dot'>✗</span></p><p>「主要经济体之间密切合作」全文未提——由 economy 一词联想凑数的无中生有项。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 4,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：①句的合理推断",
+  "body": "<p><b>C · Increased business opportunities for top firms</b> <span class='ok-dot'>✓</span></p><p>机会扩张制造对顶级 CEO 的需求、人才有限抬高价格——C 是①句供需模型的直接对应，与题干 contributed to（成为原因之一）相容。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（Increased business opportunities for top firms）</b>。</p><p>记忆锚点：原因题抓隐性因果词——The best model...（理论模型）、dynamic elements（动力）；核对「增长的是商机，不是公司数量、不是整体工资」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-26 · 原因细节题：商机暴增 × 人才有限的供需模型",
+  subtitle: "考点：Text2 第二段 · CEO 涨薪的经济学解释",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 C", "html": "<b>供需模型定因果</b>：顶级公司商机 are growing rapidly（↔ Increased）× CEO 人才 limited → 涨薪。A 偷换主体（公司数量）、B 因果倒置（文中经济是果）+ 捏造「工资普遍上涨」、D 由 economy 凑数。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 26 题——原因细节题：在"商机暴增 × 人才有限"里找因果</h2>
+<p>答案：<strong>C</strong>（Increased business opportunities for top firms）。</p>
+<h3>第 0 步：先立机制——经济学解释的因果模型</h3>
+<p>第二段①句给出理解 CEO 薪酬增长的"最佳模型"：The best model for understanding the growth of CEO pay is that of <strong>limited CEO talent in a world where business opportunities for the top firms are growing rapidly</strong>（CEO 人才有限，而顶级公司的商业机会正快速增长）。翻译成供需关系：机会扩张制造了对顶级 CEO 的需求，人才池却有限——供不应求，薪酬自然被推高。①句的 are growing rapidly 就是 C 的 Increased 的来源。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>The best model for understanding the growth of CEO pay is that of limited CEO talent in a world where business opportunities for the top firms are growing rapidly.</blockquote>
+<p>C 的 Increased business opportunities for top firms ↔ business opportunities for the top firms are growing rapidly：increased ↔ growing rapidly、for top firms 原样对应。选 C。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（The growth in the number of corporations）</strong>：把"迅速增长"的<strong>主体偷换</strong>了——原文增长的是"顶级公司的商业机会"，不是"公司的数量"。</li><li><strong>B（The general pay rise with a better economy）</strong>：文中 economy（global economy / U.S. economy）出现时说的是"CEO 的努力是推动经济的动力之一"——经济情况是<strong>果</strong>，CEO 付出是<strong>因</strong>；B 把因果倒过来，还添了"工资普遍上涨"这一原文没有的结果。</li><li><strong>D（Close cooperation among leading economies）</strong>：由 economy 一词联想凑数，"主要经济体密切合作"全文未提。</li></ul>
+<blockquote>记忆锚点：原因题抓隐性因果词——The best model...（理论模型）、dynamic elements（动力）；再核对"增长的是商机，不是公司数量、不是整体工资"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

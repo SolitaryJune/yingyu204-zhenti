@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-06 · 2014 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 6 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 6 空所在句，考点：上下文语义 + 介词短语辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It is often defined <b>__6__</b> body mass index, or BMI.</div><p>空格两端：<b>defined</b>（定义）与 <b>body mass index</b>（BMI，身高体重指数）。要补的是一个介词短语，回答“肥胖是**凭什么**被定义的”。四个选项都由 in 开头，但整体意义相差极大——这类题必须靠下文验证，不能靠对介词 in 的印象。</p>"
+ },
+ {
+  "title": "找证据 · 下文立刻给出 BMI 的公式与分级",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下文给出 BMI 算法与 18-25/25-30/30 分级——“依据 BMI 定义”是唯一合理句意",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">BMI <b>__7__</b> body mass divided by the square of height.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">An adult with a BMI of 18 to 25 is often considered to be normal weight.</div><p>下一句 <b>BMI __ body mass divided by the square of height</b> 给出算法，再往下按 18-25 / 25-30 / 30 以上划出正常、超重、肥胖三档。作者写这一段的意图很清楚：<b>肥胖是拿 BMI 数值当标尺界定的</b>。空格短语必须表达“依据、按照”。</p>"
+ },
+ {
+  "title": "逐项分析 · B in case of（万一，如果发生）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B in case of（万一，如果发生） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>in case of 表假设条件；“定义万一 BMI”语义不通——原句是一般性陈述，不存在“万一”的假设句式。</p><p style=\"color:#b91c1c\">⚠ 典型误解：四个短语都含 in，凭对单个介词的印象选词。</p>"
+ },
+ {
+  "title": "逐项分析 · C in favor of（支持，有利于）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C in favor of（支持，有利于） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>in favor of 表立场倾向；“定义”不存在支持谁、反对谁的立场问题——“依据 BMI”与“支持 BMI”是两回事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见到 favor 想到“选择它”，把“依据”和“支持”混为一谈。</p>"
+ },
+ {
+  "title": "逐项分析 · D in respects of（关于，在……方面）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D in respects of（关于，在……方面） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“在 BMI 方面定义肥胖”含糊其辞——没说清 BMI 是定义的**标尺**；该搭配本身也不规范（标准说法是 in this respect）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：语义含糊的选项看似“都能沾边”，实则没说中要害。</p>"
+ },
+ {
+  "title": "逐项分析 · A in terms of（依据，按照）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A in terms of（依据，按照） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>defined in terms of BMI = 依据 BMI 来定义——in terms of 的本义是“用……（单位/术语）来表述”，引申为“以……为衡量尺度”，与下文“公式 + 分级”的写法严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（in terms of 依据，按照）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>肥胖通常依据身体质量指数（即 BMI）来定义。</b></p><p>答案选 <b>A（in terms of 依据，按照）</b>。</p><p><b>记忆锚点</b>：defined / measured + in terms of X = 以 X 为依据；in case of 表万一、in favor of 表支持，都与“定义”无关。</p><p style=\"color:#b91c1c\">最易误选：<b>B（in case of）</b>——只盯 in，不记完整短语的意义。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 6 空 · “defined ______ BMI”该用哪个介词短语",
+  subtitle: "考点：上下文语义 + 介词短语辨析 · 定位 → 后文验证 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 用下文公式验证 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（in terms of）",
+ "html": "<b>A in terms of（依据，按照）</b>。<br>记忆锚点：defined / measured + in terms of X = 以 X 为依据；in case of 表万一、in favor of 表支持，都与“定义”无关。<br>最易误选：<b>B（in case of）</b>——只盯 in，不记完整短语的意义。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 6 空 · It is often defined ______ body mass index——定义的“依据”怎么表达</h2>
+<p>答案：<strong>A（in terms of 依据，按照）</strong>。</p>
+<h3>第 0 步：先立机制——介词短语题：先明确空格要表达的逻辑，再用下文验证</h3>
+<p>空格两端的逻辑关系先想清楚：defined（定义）与 BMI 之间缺的是“依据”关系——肥胖凭什么被界定？带着这个预设去下文找验证：下一句给算法，再下几句给分级界值。若下文证实“BMI 就是那把标尺”，空格短语就必须表达“按照、依据”；四个选项里语义场对不上的逐一出局。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It is often defined __6__ body mass index, or BMI.</blockquote>
+<p>It（指 obesity）is often defined <code>__</code> BMI：主语是被定义项，宾语位置放的是候选标尺，中间的短语决定“标尺”与“定义”的关系。</p>
+<h3>第 2 步：找证据——下文公式与分级证实“BMI 是标尺”</h3>
+<blockquote>BMI __7__ body mass divided by the square of height.</blockquote>
+<blockquote>An adult with a BMI of 18 to 25 is often considered to be normal weight.</blockquote>
+<p>作者紧接着给出 BMI = 体重 ÷ 身高²，又按数值划出正常/超重/肥胖三档——这一整段就是“依据 BMI 定义肥胖”的操作手册。反过来说，若空格填“万一/支持/方面”，下文这套数值系统就失去了着落点。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A in terms of</td><td>依据，按照</td><td>✓ 当选</td><td>defined in terms of BMI = 依据 BMI 来定义——in terms of 的本义是“用……（单位/术语）来表述”，引申为“以……为衡量尺度”，与下文“公式 + 分级”的写法严丝合缝。</td></tr><tr><td>B in case of</td><td>万一，如果发生</td><td>✗ 排除</td><td>in case of 表假设条件；“定义万一 BMI”语义不通——原句是一般性陈述，不存在“万一”的假设句式。（典型误解：四个短语都含 in，凭对单个介词的印象选词。）</td></tr><tr><td>C in favor of</td><td>支持，有利于</td><td>✗ 排除</td><td>in favor of 表立场倾向；“定义”不存在支持谁、反对谁的立场问题——“依据 BMI”与“支持 BMI”是两回事。（典型误解：见到 favor 想到“选择它”，把“依据”和“支持”混为一谈。）</td></tr><tr><td>D in respects of</td><td>关于，在……方面</td><td>✗ 排除</td><td>“在 BMI 方面定义肥胖”含糊其辞——没说清 BMI 是定义的标尺；该搭配本身也不规范（标准说法是 in this respect）。（典型误解：语义含糊的选项看似“都能沾边”，实则没说中要害。）</td></tr></tbody></table>
+<p>代入后的完整句义：肥胖通常依据身体质量指数（即 BMI）来定义。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>in terms of 为什么能表“依据”？</strong>：它的本义是“用……（单位/术语）来表述”，引申为“以……为衡量尺度”：define sth in terms of X 就是“拿 X 当尺子来界定某物”，正合“BMI 是标尺”的语境。</li><li><strong>怎么快速排除 in case of？</strong>：问一句：句子里有“条件/假设”的影子吗？defined 是一般性陈述，不是“万一发生什么”的假设句式，语义场直接对不上——介词短语排除靠整体意义，不靠首词 in。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（in case of）</strong>：只盯 in，不记完整短语的意义。</li><li><strong>误选 C（in favor of）</strong>：把“衡量的依据”错当成“选择的立场”。</li><li><strong>误选 D（in respects of）</strong>：被“方面”义的含糊表述蒙混过关，未检验是否说中“标尺”要害。</li></ul>
+<blockquote>记忆锚点：defined / measured + in terms of X = 以 X 为依据；in case of 表万一、in favor of 表支持，都与“定义”无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

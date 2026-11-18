@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012-46 翻译长难句拆解：人才流失语境 · prospect 熟词僻意「可能性」</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点既有动画一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 六个句子的成分块与重组译文 */
+var SENT = [
+  { label: '句① When people…worry about migration, they are usually concerned at the prospect of…',
+    chunks: [
+      { t: 'When people in developing countries worry about migration,', k: 'cong', n: '时间状语从句：担忧移民问题' },
+      { t: 'they are usually concerned at', k: 'zhu', n: '主干：通常忧虑的是' },
+      { t: 'the prospect of', k: 'zhu', n: '熟词僻意：prospect = 可能性（非「前景」）' },
+      { t: 'their best and brightest departure', k: 'zhu', n: '形容词名词化：最优秀人才的外流' },
+      { t: 'to Silicon Valley or to hospitals and universities in the developed world.', k: 'mod', n: '介词短语后置定语：外流去往何处' }
+    ],
+    trans: '重组：他们通常忧虑的是，自己国家最优秀、最聪明的人才可能移民到硅谷或发达国家的医院和大学——忧虑的是「人才流失」，不是「美好前景」。' },
+  { label: '句② These are the kind of workers that…try to attract by using immigration rules that…',
+    chunks: [
+      { t: 'These are the kind of workers', k: 'zhu', n: '主干；These 回指「最优秀人才」→ 这类工作者' },
+      { t: 'that countries like Britain, Canada and Australia try to attract', k: 'cong', n: '定语从句①修饰 workers：这些国家想吸引' },
+      { t: 'by using immigration rules', k: 'mod', n: '方式状语：通过实行移民条例' },
+      { t: 'that privilege college graduates.', k: 'cong', n: '定语从句②修饰 rules；privilege 动词 = 给予优待' }
+    ],
+    trans: '重组：这类工作者正是英国、加拿大和澳大利亚等国家想要通过对大学毕业生提供优惠的移民条例来吸引的人才。' },
+  { label: '句③ Lots of studies have found that…',
+    chunks: [
+      { t: 'Lots of studies have found', k: 'zhu', n: '主干：大量研究表明' },
+      { t: 'that well-educated people', k: 'cong', n: 'that 宾语从句主语：受过良好教育者' },
+      { t: 'from developing countries', k: 'mod', n: '后置定语：来自发展中国家' },
+      { t: 'are particularly likely to emigrate.', k: 'cong', n: '从句谓语：尤其可能移居国外' }
+    ],
+    trans: '重组：许多研究表明，发展中国家受过良好教育的人尤其可能移民。' },
+  { label: '句④ A big survey…found that…, compared with…',
+    chunks: [
+      { t: 'A big survey of Indian households in 2004 found', k: 'zhu', n: '主干：2004 年印度家庭大调查发现' },
+      { t: 'that nearly 40% of emigrants had more than a high-school education,', k: 'cong', n: 'that 宾语从句：近 40% 移民受过高中以上教育' },
+      { t: 'compared with around 3.3% of all Indians over the age of 25.', k: 'mod', n: '分词比较状语：比较对象需增译补全' }
+    ],
+    trans: '重组：2004 年对印度家庭的一项大规模调查表明，将近 40% 移居国外的人受过高中以上教育，而与之形成对比的是：全印度 25 岁以上受过高中以上教育的人约为 3.3%。' },
+  { label: '句⑤ This "brain drain" has long bothered…',
+    chunks: [
+      { t: 'This "brain drain"', k: 'zhu', n: '主语：This 回指前述现象；固定表达「人才流失」' },
+      { t: 'has long bothered', k: 'zhu', n: '谓语：长期困扰' },
+      { t: 'policymakers in poor countries.', k: 'mod', n: '宾语 + 后置定语：贫困国家的决策者' }
+    ],
+    trans: '重组：这种「人才流失」现象长期困扰着贫困国家的决策者。' },
+  { label: '句⑥ They fear that it hurts…, depriving them of…who could have…',
+    chunks: [
+      { t: 'They fear that it hurts their economies,', k: 'zhu', n: '主干；it 回指人才流失现象' },
+      { t: 'depriving them of much-needed skilled workers', k: 'mod', n: '现在分词结果状语：deprive sb. of sth. → 使失去' },
+      { t: 'who could have taught at their universities,', k: 'cong', n: '长定语从句拆小句；could have done 虚拟「本可以」' },
+      { t: 'worked in their hospitals and come up with clever new products', k: 'cong', n: '三个并列谓语；come up with + products = 设计出' },
+      { t: 'for their factories to make.', k: 'mod', n: '供本国工厂生产' }
+    ],
+    trans: '重组：他们担心这会损害本国经济，使他们失去急需的熟练劳动者——这些人本可以留在国内在大学任教、在医院工作或设计新奇产品供工厂生产。' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（缺省=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  {},
+  { focus: [0], hot: [[0, 2], [0, 3]] },
+  { focus: [0], hot: [[0, 1], [0, 2], [0, 3]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 3]] },
+  { focus: [1], hot: [[1, 0], [1, 2], [1, 3]], trans: [1] },
+  { focus: [2, 3], hot: [[2, 0], [3, 0]], trans: [2] },
+  { focus: [3], hot: [[3, 0], [3, 2]] },
+  { focus: [3], hot: [[3, 0], [3, 1], [3, 2]], trans: [3] },
+  { focus: [4], hot: [[4, 0], [4, 1]], trans: [4] },
+  { focus: [5], hot: [[5, 0], [5, 1]] },
+  { focus: [5], hot: [[5, 1], [5, 2], [5, 3]] },
+  { focus: [5], hot: [[5, 0], [5, 1], [5, 2], [5, 3], [5, 4]], trans: [5] },
+  { hot: [[0, 1], [0, 2], [0, 3], [1, 0], [2, 0], [3, 0], [4, 0], [4, 1], [5, 0]], trans: [0, 1, 2, 3, 4, 5] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2012-46 翻译长难句拆解：主干/修饰/从句分色框 · prospect 熟词僻意「可能性」',
+  subtitle: '考点：英译汉（人才流失话题）· 方法：拆结构 → 定词义 → 组语序（六句逐一演示，绿=主干 · 琥珀=修饰 · 蓝=从句/状语）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示六句的拆解与重组。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读两段锁定话题：发展中国家的人才流失（brain drain）。六句考点：熟词僻意（prospect / privilege）、分词与定语从句（compared with / depriving / who 长从句）、虚拟语气（could have done）——逐句拆-定-组', count: 0 },
+    { cls: 'key', tag: '句①定音', log: 'prospect 词典第一义「前景」，但 worry about / concerned at 表明叙述的是「忧虑」——忧虑的不是最美好前景：prospect 此处 = 可能性；the best and brightest 形容词名词化 = 最优秀、最聪明的人才', count: 1 },
+    { cls: 'ok', tag: '句①译文', log: 'departure 回应 migration 直接译「移民」；to Silicon Valley or… 介词短语作后置定语并入「移民到……」——与句② These 的衔接就位', count: 2 },
+    { cls: 'key', tag: '句②回指', log: 'These 回指句①「最优秀人才」→「这类工作者」；两个 that 定语从句分别修饰 workers 与 immigration rules；privilege 作动词 = 给予优待', count: 3 },
+    { cls: 'ok', tag: '句②译文', log: 'by using immigration rules 方式状语前置：「通过对大学毕业生提供优惠的移民条例来吸引」', count: 4 },
+    { cls: 'key', tag: '句③④主干', log: '两句同构：主语 + found + that 宾语从句；emigrate = 移居国外；句④主语补出调查年份与对象（2004 年、印度家庭）', count: 5 },
+    { cls: 'key', tag: '句④增译', log: 'compared with 是分词比较状语，比较对象必须增译补全：「全印度 25 岁以上（受过高中以上教育）的人约为 3.3%」——人才外流的选择性由此凸显', count: 6 },
+    { cls: 'ok', tag: '句④译文', log: '增译「而与之形成对比的是」，40% 对 3.3% 的对比落定', count: 7 },
+    { cls: 'key', tag: '句⑤固定', log: 'brain drain 固定表达「人才流失」；This 回指「受教育程度越高越可能移民」的现象；has long bothered = 长期困扰', count: 8 },
+    { cls: 'key', tag: '句⑥分词', log: 'depriving them of… 是现在分词结果状语（deprive sb. of sth.），不是与 hurts 并列的谓语 →「使他们失去急需的熟练劳动者」', count: 9 },
+    { cls: 'key', tag: '句⑥虚拟', log: 'who 定语从句过长，拆成独立小句「而这些人本可以……」；could have done 虚拟语气 = 本能够做、实际未做；三个并列谓语 taught / worked / come up with（结合宾语 products 定音「设计出」）', count: 10 },
+    { cls: 'ok', tag: '句⑥译文', log: 'for their factories to make 译「供工厂生产」，全句重组落定', count: 11 },
+    { cls: 'done', tag: '全篇落定', log: '六句重组完成，全篇译文落定：prospect = 可能性、privilege = 优待、could have done = 本可以（参考译文见结论卡）', count: 12, done: true }
+  ],
+
+  result: {
+    big: '拆-定-组三步 · prospect = 可能性',
+    html: '<p><b>参考译文（答案口径）</b>：发展中国家的人考虑移民时，通常关心的是到硅谷或发达国家的医院和大学里工作这样最美好最光明的前景。这些人正是英国、加拿大和澳大利亚等国家想要通过对大学毕业生提供优惠的移民条例来吸引的人才。许多研究表明，发展中国家受过良好教育的人尤其可能移民。2004年对印度家庭的一项大规模调查表明，将近40%移居国外的人受过高中以上教育，而与之形成对比的是：全印度25岁以上受过高中以上教育的人约为3.3%。这种“人才流失”现象长期困扰着贫困国家的决策者。他们担心这会损害本国经济，使他们失去急需的熟练劳动者，这些人本可以留在国内在大学任教、在医院工作或设计新奇产品供工厂生产。</p>' +
+      '<p>记忆锚点：<b>一个谓语锁定一个主干</b>；prospect 熟词僻意 = 可能性；the best and brightest = 最优秀的人才；privilege 动词 = 优待；compared with 增译比较对象；depriving = 结果状语「使失去」；could have done = 本可以；长定语从句拆小句用「这些人」衔接。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2012 翻译——「人才流失」语境下的熟词僻意与从句处理</h2>
+<p>答案（参考译文口径）：<strong>发展中国家的人考虑移民时，通常关心的是到硅谷或发达国家的医院和大学里工作这样最美好最光明的前景。这些人正是英国、加拿大和澳大利亚等国家想要通过对大学毕业生提供优惠的移民条例来吸引的人才。许多研究表明，发展中国家受过良好教育的人尤其可能移民。2004年对印度家庭的一项大规模调查表明，将近40%移居国外的人受过高中以上教育，而与之形成对比的是：全印度25岁以上受过高中以上教育的人约为3.3%。这种“人才流失”现象长期困扰着贫困国家的决策者。他们担心这会损害本国经济，使他们失去急需的熟练劳动者，这些人本可以留在国内在大学任教、在医院工作或设计新奇产品供工厂生产。</strong></p>
+<p>（说明：参考译文首句的"最美好最光明的前景"沿用了字面读法；权威校对补充已按语境校正——prospect 此处是熟词僻意"可能性"，忧虑的对象是"人才流失"而非"美好前景"。下面的讲解按校对口径教思路，答案口径不变。）</p>
+<h3>第 0 步：先立机制——翻译按「拆结构 → 定词义 → 组语序」三步走</h3>
+<p>英译汉不是逐词替换。本篇出自 The Economist《流失还是获益？》，话题是发展中国家的人才流失，六句话的难点都归入同一套流程：</p>
+<table><thead><tr><th>步骤</th><th>干什么</th><th>本篇的落点</th></tr></thead><tbody><tr><td>拆</td><td>找谓语定主干，剩余成分归入修饰/从句</td><td>句②双层定语从句、句④比较状语、句⑥分词结果状语 + who 长从句</td></tr><tr><td>定</td><td>多义词靠语境"定音"，不照词典第一义</td><td>prospect = 可能性、privilege 作动词 = 优待、come up with + products = 设计出</td></tr><tr><td>组</td><td>英语修饰后置、中文重组语序，长从句拆小句</td><td>句④增译比较对象、句⑥ who 从句另起"这些人本可以……"</td></tr></tbody></table>
+<h3>第 1 步：句①——prospect 熟词僻意 + the best and brightest 名词化</h3>
+<p><code>When people in developing countries worry about migration, they are usually concerned at the prospect of their best and brightest departure to Silicon Valley or to hospitals and universities in the developed world.</code></p>
+<ul><li>时间状语从句 When people... worry about migration 铺背景；主干是 they are usually concerned at the prospect of...。</li><li><strong>prospect 词典第一义是"前景"</strong>，但照此直译成"移民带来的最美好最光明的前景"在逻辑上翻车：worry about / concerned at 表明叙述的是一种<strong>忧虑</strong>，忧虑的对象不可能是"最美好的前景"。此处 prospect 是熟词僻意 = the possibility that something will happen（可能性）——忧虑的是"自己国家最优秀的人才可能移民"这件事。</li><li><strong>their best and brightest 是形容词名词化</strong>，指"最优秀、最聪明的人才"；departure 本义"离开"，回应开头的 migration，直接译"移民"。to Silicon Valley or to hospitals and universities 是介词短语作后置定语，限定外流去往何处。</li><li>这样译还能与句②顺滑衔接：发达国家想吸引的正是 These（这类人才）。</li></ul>
+<h3>第 2 步：句②——These 回指 + 双层定语从句 + privilege 活用</h3>
+<p><code>These are the kind of workers that countries like Britain, Canada and Australia try to attract by using immigration rules that privilege college graduates.</code></p>
+<ul><li>These 回指句①的 their best and brightest；语义重点落在后面，"These are the kind of workers" 作名词短语处理成"这类工作者"。</li><li>第一个 that 定语从句修饰 workers：countries... try to attract；by using immigration rules 是方式状语"通过实行……的移民条例"。</li><li>第二个 that 定语从句修饰 immigration rules；<strong>privilege 在这里作动词</strong> = 给予优待、赋予优惠地位（不是名词"特权"）——"对大学毕业生提供优惠的移民条例"。</li></ul>
+<h3>第 3 步：句③④——数据对比 + compared with 增译</h3>
+<p><code>Lots of studies have found that well-educated people from developing countries are particularly likely to emigrate. A big survey of Indian households in 2004 found that nearly 40% of emigrants had more than a high-school education, compared with around 3.3% of all Indians over the age of 25.</code></p>
+<ul><li>两句同构：主语 + found + that 宾语从句。emigrate = 移居国外；句④主语补出调查年份与对象（2004 年、印度家庭），说明句③的结论有据可依。</li><li><strong>compared with 是过去分词短语作比较状语，比较对象必须增译补全</strong>：相比的是"移民中受过高中以上教育的比例"与"全印度 25 岁以上人口中受过高中以上教育的比例"。中文处理成"而与之形成对比的是：全印度 25 岁以上受过高中以上教育的人约为 3.3%"——40% 对 3.3%，人才外流的"选择性"才凸显出来。</li></ul>
+<h3>第 4 步：句⑤——brain drain 固定表达</h3>
+<p><code>This "brain drain" has long bothered policymakers in poor countries.</code></p>
+<ul><li>brain drain 固定表达"人才流失、智力外流"；This 回指前文"受教育程度越高越可能移民"的现象。</li><li>has long bothered = 长期困扰；句虽短，却是全篇的题眼——它把前两句话的"现象"命名，引出末句的"危害"。</li></ul>
+<h3>第 5 步：句⑥——depriving 结果状语 + could have done 虚拟</h3>
+<p><code>They fear that it hurts their economies, depriving them of much-needed skilled workers who could have taught at their universities, worked in their hospitals and come up with clever new products for their factories to make.</code></p>
+<ul><li>主干 They fear that it hurts their economies；it 回指 brain drain 现象。</li><li><strong>depriving them of... 是现在分词作结果状语</strong>（deprive sb. of sth. 使某人失去某物），说明"损害经济"的具体方式——不是与 hurts 并列的谓语，译"使他们失去急需的熟练劳动者"。</li><li><strong>who 定语从句太长，拆成独立小句</strong>，用指示代词衔接："而这些人本可以……"。<strong>could have done 是虚拟语气</strong> = 过去本能够做、实际没做（人才已经流失），必须译出"本可以"——丢掉它，"人才已走、贡献落空"的假设感就没了。</li><li>三个并列谓语 taught / worked / come up with 拆成"在大学任教、在医院工作、设计新奇产品"；come up with 本义"提出、想出"，结合宾语 products 定音"设计出"；for their factories to make = 供本国工厂生产。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>prospect 译成"最美好最光明的前景"</strong>：照搬词典第一义，没核对 worry about / concerned at 的忧虑语境——忧虑的应是"人才可能流失"。</li><li><strong>the best and brightest 当成两个形容词</strong>：没识别名词化，译成"最美好最光明的离开"，人才这个主语丢失。</li><li><strong>privilege 当名词</strong>：漏掉动词用法"给予优待"，immigration rules 的修饰关系断裂。</li><li><strong>compared with 直译"与 3.3% 的印度人相比"</strong>：比较对象残缺，"25 岁以上、受过高中以上教育"两个限定丢了，对比失去意义。</li><li><strong>depriving 当并列谓语</strong>：把分词结果状语读成与 hurts 并列的动作，句序错乱。</li><li><strong>could have taught 译成"能够教"</strong>：虚拟语气没译出，"本可以留下而未留"的假设落空。</li><li><strong>who 定语从句硬塞进修饰语</strong>：从句太长不拆小句，译文头重脚轻。</li></ul>
+<blockquote>记忆锚点：翻译三步 <strong>拆-定-组</strong>；prospect 熟词僻意 = 可能性；the best and brightest = 最优秀的人才；privilege 动词 = 优待；compared with 增译比较对象；depriving = 结果状语"使失去"；could have done = 本可以；长定语从句拆小句用"这些人"衔接。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

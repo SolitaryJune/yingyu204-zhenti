@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 2 空 · __2__ one and the others become distorted：A Emphasize / B Identify / C Assess / D Explain</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 2 在「__2__ one and the others become distorted」；考点：上下文语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Most work-related behaviors have multiple components. <b>__2__</b> one and the others become distorted.</div><p>空 2 是祈使句的谓语动词，宾语是 one（多个要素中的一个），and 之后是它引发的后果。</p>"
+ },
+ {
+  "title": "立机制 · 无关联词 = 顺承；and 暗藏因果",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：无关联词 = 顺承；and 暗藏因果",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Most work-related behaviors have multiple components. <b>__2__</b> one and the others become distorted.</div><p>③④句与①②句之间没有任何显性关联词，属于<b>顺承</b>：④句在具体演示①②句“目标设定带来负面影响”是如何发生的。句内还藏着一层因果——__ one <b>and</b> the others become distorted：对“某一个要素”做某个动作，其余要素就扭曲变形。</p><p>能触发这个后果的动作，必须紧扣全文主题“设定目标”：设定目标的本质就是<b>挑出一个要素重点对待</b>。Emphasize（重视）= to give special importance to sth，“重视其中一个”即“将它立为目标”，因果链就此闭合。</p>"
+ },
+ {
+  "title": "找证据 · “重视一个 ⇒ 其余扭曲”与首句 set targets 呼应",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：“重视一个 ⇒ 其余扭曲”与首句 set targets 呼应",
+  "body": "<p>首句 set targets（设定目标）已经点题：目标就是被挑出来重点对待的那个要素。代入 Emphasize one and the others become distorted——重视其中一个，其余就会变形走样，正是首段“顾此失彼”机制的浓缩。</p>"
+ },
+ {
+  "title": "逐项分析 · A Emphasize（重视；强调）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A Emphasize（重视；强调）✓ 当选",
+  "body": "<p><b>当选。</b>Emphasize（重视）= 把一个要素立为目标，“重视一个 ⇒ 其余扭曲”顺承首段负面影响，and 的因果被激活。</p>"
+ },
+ {
+  "title": "逐项分析 · B Identify（确认；找出）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B Identify（确认；找出）✗ 排除",
+  "body": "<p><b>排除。</b>Identify（确认；找出）。multiple components 是客观存在、已知的显现要素，不需要“找出”；而且“找出一个”与“其余扭曲”之间没有因果关联。</p><p style=\"color:#b91c1c\">⚠ 典型误解：觉得“要素先要被识别出来才能谈重视”；但③句已交代要素是客观存在的（have multiple components），不存在“尚未识别”的问题。</p>"
+ },
+ {
+  "title": "逐项分析 · C Assess（评定；评估）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C Assess（评定；评估）✗ 排除",
+  "body": "<p><b>排除。</b>Assess（评定；评估）。assess 的对象是人与事的<b>性质、质量</b>，不是“构成成分 one”；评估动作本身也不会让其余要素变形。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“评估要素”当成常见管理动作；但 assess 处不了“设定目标”这个主题——只有“重视（立为目标）”才能触发顾此失彼。</p>"
+ },
+ {
+  "title": "逐项分析 · D Explain（解释；说明）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D Explain（解释；说明）✗ 排除",
+  "body": "<p><b>排除。</b>Explain（解释）。explain 面向复杂难解的事物，而 one 已是分解后不难理解的一个要素；“解释一个”同样触发不了后果。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（Emphasize 重视；强调）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>Emphasize one and the others become distorted.（重视其中一个，其余的就会扭曲变形。）</b></p><p>答案选 <b>A（Emphasize 重视；强调）</b>。</p><p><b>记忆锚点</b>：无关联词 = 顺承；Emphasize one = 把一个要素立为目标；and 暗藏因果：重视一个 ⇒ 其余 distorted。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（Assess）：把“评估要素”当成常见管理动作；但 assess 处不了“设定目标”这个主题——只有“重视（立为目标）”才能触发顾此失彼。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 2 空 · __2__ one and the others become distorted：A Emphasize / B Identify / C Assess / D Explain",
+  subtitle: "考点：上下文语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 A（Emphasize 重视；强调）",
+ "html": "<b>A Emphasize（重视；强调）</b>。<br>完整句：Emphasize one and the others become distorted.（重视其中一个，其余的就会扭曲变形。）<br>记忆锚点：无关联词 = 顺承；Emphasize one = 把一个要素立为目标；and 暗藏因果：重视一个 ⇒ 其余 distorted。<br>最易误选：<b>C Assess（评定；评估）</b>——把“评估要素”当成常见管理动作；但 assess 处不了“设定目标”这个主题——只有“重视（立为目标）”才能触发顾此失彼。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 2 空 · 哪个动词能触发“其余要素被扭曲”</h2>
+<p>答案：<strong>A（Emphasize 重视；强调）</strong>。</p>
+<h3>第 0 步：先立机制——无关联词 = 顺承；and 暗藏因果</h3>
+<blockquote>Most work-related behaviors have multiple components. <strong>__2__</strong> one and the others become distorted.</blockquote>
+<p>③④句与①②句之间没有任何显性关联词，属于<strong>顺承</strong>：④句在具体演示①②句“目标设定带来负面影响”是如何发生的。句内还藏着一层因果——__ one <strong>and</strong> the others become distorted：对“某一个要素”做某个动作，其余要素就扭曲变形。</p>
+<p>能触发这个后果的动作，必须紧扣全文主题“设定目标”：设定目标的本质就是<strong>挑出一个要素重点对待</strong>。Emphasize（重视）= to give special importance to sth，“重视其中一个”即“将它立为目标”，因果链就此闭合。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Most work-related behaviors have multiple components. <strong>__2__</strong> one and the others become distorted.</blockquote>
+<p>空 2 是祈使句的谓语动词，宾语是 one（多个要素中的一个），and 之后是它引发的后果。</p>
+<h3>第 2 步：找证据——“重视一个 ⇒ 其余扭曲”与首句 set targets 呼应</h3>
+<p>首句 set targets（设定目标）已经点题：目标就是被挑出来重点对待的那个要素。代入 Emphasize one and the others become distorted——重视其中一个，其余就会变形走样，正是首段“顾此失彼”机制的浓缩。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Emphasize</td><td>重视；强调</td><td>✓ 当选</td><td>Emphasize（重视）= 把一个要素立为目标，“重视一个 ⇒ 其余扭曲”顺承首段负面影响，and 的因果被激活。</td></tr><tr><td>B Identify</td><td>确认；找出</td><td>✗ 排除</td><td>Identify（确认；找出）。multiple components 是客观存在、已知的显现要素，不需要“找出”；而且“找出一个”与“其余扭曲”之间没有因果关联。（典型误解：觉得“要素先要被识别出来才能谈重视”；但③句已交代要素是客观存在的（have multiple components），不存在“尚未识别”的问题。）</td></tr><tr><td>C Assess</td><td>评定；评估</td><td>✗ 排除</td><td>Assess（评定；评估）。assess 的对象是人与事的<strong>性质、质量</strong>，不是“构成成分 one”；评估动作本身也不会让其余要素变形。（典型误解：把“评估要素”当成常见管理动作；但 assess 处不了“设定目标”这个主题——只有“重视（立为目标）”才能触发顾此失彼。）</td></tr><tr><td>D Explain</td><td>解释；说明</td><td>✗ 排除</td><td>Explain（解释）。explain 面向复杂难解的事物，而 one 已是分解后不难理解的一个要素；“解释一个”同样触发不了后果。</td></tr></tbody></table>
+<p>代入后的完整句义：Emphasize one and the others become distorted.（重视其中一个，其余的就会扭曲变形。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>“重视”为什么强到能让其他要素“扭曲”？</strong>：因为组织资源与考核都跟着重点走：一个要素被立为目标后，人力、激励、注意力全部倾斜，未被选中的要素自然被挤压变形——这正是后文公交例子的运行机制。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（Assess）</strong>：觉得“评估一个要素”是标准管理动作。但 assess 的宾语是性质与质量，且评估不产生“其余扭曲”的后果；动词题先问“这个动作能不能触发 and 后面的结果”。</li></ul>
+<blockquote>记忆锚点：无关联词 = 顺承；Emphasize one = 把一个要素立为目标；and 暗藏因果：重视一个 ⇒ 其余 distorted。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

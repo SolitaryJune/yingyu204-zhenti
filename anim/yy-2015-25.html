@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-25 · 2015 阅读第 25 题 · however 转折处找差异——“没有这种清晰”是职场与家的分界线 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 比较题＝找“分界线”", "cls": "key", "tag": "审题", "log": "审题眼：The home front differs from the workplace in that ___——找两者差异的确切内容", "count": 0, "ribbon": null, "body": "<p>题干问 home front（家庭大后方）与 workplace（工作场所）的区别。预判：文章把两者写成对照结构，答案应在<b>转折与指代交接</b>的位置。</p>"},
+ {"title": "定位原文 · however＋such clarity 是机关", "cls": "key", "tag": "定位", "log": "定位原文：On the home front, however, people have no such clarity → Rare is the household…", "count": 0, "ribbon": null, "body": quote("On the home front, however, people have no such clarity. Rare is the household in which the division of labor is so clinically and methodically laid out.") + "<p>however 表示本段与上段“职场”正相反；<b>such clarity 回指上一段</b>的“任务明确、按劳获酬”。no such clarity ＝ 两者的分界线。</p>"},
+ {"title": "同义替换 · Rare…laid out ↔ seldom clear-cut", "cls": "key", "tag": "替换", "log": "同义替换：Rare（鲜有）↔ seldom；clinically and methodically laid out ↔ clear-cut", "count": 0, "ribbon": null, "body": "<p>第二句把“不清晰”具体化：很少有家庭能把家务<b>不偏不倚、有条不紊地分工</b>（Rare is the household in which the division of labor is so clinically and methodically laid out）——即“家中很少分工明确”。</p>"},
+ {"title": "逐项分析 · D division of labor at home is seldom clear-cut", "cls": "good", "tag": "选定 D", "log": "D 家中很少分工明确 ✓ 当选——Rare↔seldom、laid out↔clear-cut 的同义转述", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>第五段②句的同义转述：Rare（鲜有）＝seldom，clinically and methodically laid out（清晰有序地安排）＝clear-cut。职场“任务明确”对照家庭“分工不明”，差异成立。</p>"},
+ {"title": "逐项分析 · A family labor is often adequately rewarded", "cls": "bad", "tag": "排除 A", "log": "A 家务常得到充分回报 ✗ 排除——与③句 inadequate rewards 方向相反", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>③句说 there are <b>inadequate rewards</b> for most of them（家务多而无酬）。A 抓到了“奖励”这个差异维度，却把方向读反了——方向写反与内容无关同罪。</p><p style=\"color:#b91c1c\">⚠ 典型误解：定位到了维度，没核对方向。</p>"},
+ {"title": "逐项分析 · C household tasks are generally more motivating", "cls": "bad", "tag": "排除 C", "log": "C 家务更能调动积极性 ✗ 排除——家人“同事”要靠劝服甚至威胁才动", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>④句写家人做家务要 be talked into（劝服）、青少年要被 threatened with…（威胁）；第六段总结 the co-workers are much harder to motivate——与 C 方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“难驱动”读成“更能调动”。</p>"},
+ {"title": "逐项分析 · B home is hardly a cozier working environment", "cls": "bad", "tag": "排除 B", "log": "B 家并非更舒适的工作环境 ✗ 排除——原文比较“清晰/回报”，不是“舒适度”", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>原文的比较维度是“分工是否清晰、有无回报”，B 把它偷换成“舒适与否”——凭常识感受设障，文本没有这层比较。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用生活常识替原文作答。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（division of labor at home is seldom clear-cut）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>职场：任务明确、劳动换收入；家庭（however）：no such clarity，家务很少被清晰分工（Rare… laid out）——这正是两者的区别。</b></p><p>答案选 <b>D（division of labor at home is seldom clear-cut）</b>。</p><p><b>记忆锚点</b>：比较题在 however / no such… 的交接处找答案；such clarity 回指上段；Rare ↔ seldom、laid out ↔ clear-cut。</p><p style=\"color:#b91c1c\">最易误选：<b>A（adequately rewarded）</b>——维度对、方向反。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 25 题 · however 转折处找差异——“没有这种清晰”是职场与家的分界线",
+  subtitle: "考点：段落比较题 · however 转折 + such clarity 指代回溯",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（division of labor at home is seldom clear-cut）", "html": "<b>D 家中很少分工明确</b>：Rare…clinically and methodically laid out ↔ seldom clear-cut。<br>记忆锚点：比较题在 however / no such… 交接处找答案；such clarity 回指上段。<br>最易误选：<b>A（adequately rewarded）</b>——维度对、方向反。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 25 题 · however 转折处找差异——"没有这种清晰"就是职场与家的分界线</h2>
+<p>答案：<strong>D（division of labor at home is seldom clear-cut 家中很少会分工明确）</strong>。</p>
+<h3>第 0 步：先立机制——比较题的答案藏在"转折词+指代"交接处</h3>
+<p>题干问 home front（家庭大后方）与 workplace（工作场所）的<strong>区别</strong>。定位段首句 On the home front, however, people have no such clarity 是全题的机关所在：however 表明本段与上一段构成"职场 ↔ 家庭"的正反对照；<strong>such clarity（这种清晰）回指上一段</strong>职场的情况——任务明确、按劳获酬。那么"no such clarity"就正是两者的分界线：家中没有这种清晰。而下一句 Rare is the household in which the division of labor is so clinically and methodically laid out 把"不清晰"具体化为"家务很少被清晰有序地分工"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>At work, people pretty much know what they're supposed to be doing... The bargain is very pure: Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola. / On the home front, however, people have no such clarity. Rare is the household in which the division of labor is so clinically and methodically laid out.</blockquote>
+<ul><li>职场：任务清晰、交易纯粹（劳动 ↔ 收入）；</li><li>家庭（however 转折）：no such clarity；家务很少被不偏不倚、有条不紊地分工（Rare... laid out）。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A family labor is often adequately rewarded</td><td>家务劳动常得到充分回报</td><td>✗ 排除</td><td>与③句 there are inadequate rewards for most of them（家务多而无酬）正好相反</td></tr><tr><td>B home is hardly a cozier working environment</td><td>家并非更舒适的工作环境</td><td>✗ 排除</td><td>把"分工不明、劳而无酬"偷换成"舒适度"——原文比较的是清晰与回报，不是舒适</td></tr><tr><td>C household tasks are generally more motivating</td><td>家务更能调动积极性</td><td>✗ 排除</td><td>与④句"家人需要被劝服甚至威胁才肯做家务"（第六段 much harder to motivate）相反</td></tr><tr><td>D division of labor at home is seldom clear-cut</td><td>家中很少分工明确</td><td>✓ 当选</td><td>Rare（鲜有）↔ seldom；clinically and methodically laid out ↔ clear-cut——第五段②句的同义转述</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>题干问"区别"，D 只说了家，职场那一半呢？</strong>：such clarity 回指上段的职场情况，"no such clarity"本身就是在比较——句子结构里职场是隐含的对照组。D 描述的"家中不清晰"正是与职场"任务明确"相对照的那一半差异。</li><li><strong>为什么不选含"奖励"的表述？奖励差异不也是区别吗？</strong>：它确实是区别的一部分，但选项 A 把方向写反了（adequately rewarded vs inadequate rewards）——比较题里"方向写反"与"内容无关"一样致命。D 抓住了区别中与选项表述方向一致的那一条。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（adequately rewarded）</strong>：定位到了"奖励"这一差异维度，却把 inadequate 读反成 adequate。</li><li><strong>误选 B（cozier environment）</strong>：被"家 vs 职场"的常识感受带偏，原文的比较维度是"清晰/回报"，不是"舒适"。</li><li><strong>误选 C（more motivating）</strong>：与"家人难被驱动"的事实方向相反。</li></ul>
+<blockquote>记忆锚点：比较题在 however/no such... 的交接处找答案；such clarity 回指上一段；Rare... laid out ↔ seldom clear-cut 是本题的替换对；方向写反与内容无关同罪。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

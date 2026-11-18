@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 7 空 · 建一套电子支付设施要花什么——expensive · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · First 的任务：第一条“劝退”理由", "cls": "key", "tag": "审题", "log": "先立机制：First 的任务：第一条“劝退”理由", "count": 0, "ribbon": null, "body": "<p>First 引出阻碍因素第一条。句型 it is very ___ to set up…：it 是形式主语，真正被评价的是 to set up the computer, card reader, and telecommunications networks（建一整套电子支付基础设施）这件事。段落任务是解释“纸币系统为什么不消失”，所以第一条理由必须能劝退这套建设。评一个“从零铺开的基础设施”，最硬的门槛维度就是钱。</p>"}, {"title": "定位原文 · 空 7 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 7 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">First, it is very <b>__7__</b> to set up the computer, card reader, and telecommunications networks necessary to make electronic money the __8__ form of payment.</div><p>it is very ___ to do sth：形容词作表语评“做某事”。expensive / imaginative / sensitive / productive 里，只有“代价高”能构成障碍。</p>"}, {"title": "找证据 · 评价对象 = 整套设施的建设成本", "cls": "key", "tag": "证据", "log": "找证据：评价对象 = 整套设施的建设成本", "count": 0, "ribbon": null, "body": "<p>计算机、读卡器、电信网络——设备、布点、联网，处处是投入；“建不起”正是电子支付推广慢的头号原因，与第 6 空 work against（阻碍）方向一致，也与第 8 空“让电子货币当主角”的目的从句相连。</p>"}, {"title": "逐项分析 · A expensive（昂贵的）", "cls": "good", "tag": "选定 A", "log": "A expensive（昂贵的）✓ 当选——成本即门槛", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>建整套设施（计算机 + 读卡器 + 电信网络）非常昂贵——支出门槛正是电子化推广慢的头号“劝退”理由，与 work against 方向一致。</p>"}, {"title": "逐项分析 · B imaginative（富有想象力的）", "cls": "bad", "tag": "排除 B", "log": "B imaginative（富有想象力的）✗ 排除——语义错位", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>被评价的是“建设施”这件事，谈不上想象力，语义错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见高科技就联想到想象力。</p>"}, {"title": "逐项分析 · C sensitive（敏感的）", "cls": "bad", "tag": "排除 C", "log": "C sensitive（敏感的）✗ 排除——修饰对象不通", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>sensitive 修饰“问题、数据、话题”尚可，修饰“建系统”不通；且“安全敏感”是第 14 空之后的段落。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被后文 security 话题提前带偏。</p>"}, {"title": "逐项分析 · D productive（多产的；富有成效的）", "cls": "bad", "tag": "排除 D", "log": "D productive（多产的；富有成效的）✗ 排除——褒义方向站错队", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>正面评价与“找阻碍”的段落任务相反，方向站错队。</p><p style=\"color:#b91c1c\">⚠ 典型误解：孤立看句子通顺就选，忽略 First 的段落使命。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（expensive 昂贵的）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>首先，建立使电子货币成为主导支付方式所必需的计算机、读卡器和电信网络是非常昂贵的。</b></p><p>答案选 <b>A（expensive 昂贵的）</b>。</p><p><b>记忆锚点</b>：First/Second/Third = 段落任务清单；评“建基础设施”先想代价 → expensive；褒义词进不了“找毛病”清单。</p><p style=\"color:#b91c1c\">最易误选：<b>D（productive）</b>——孤句通顺度最高的褒义词，而段落任务是“找毛病”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 7 空 · 建一套电子支付设施要花什么——expensive",
+  subtitle: "考点：上下文语义（形容词辨析） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 A（expensive 昂贵的）", "html": "<b>A expensive（昂贵的）</b>。<br>完整句义：首先，建立使电子货币成为主导支付方式所必需的计算机、读卡器和电信网络是非常昂贵的。<br>记忆锚点：First/Second/Third = 段落任务清单；评“建基础设施”先想代价 → expensive；褒义词进不了“找毛病”清单。<br>最易误选：<b>D（productive）</b>——孤句通顺度最高的褒义词，而段落任务是“找毛病”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 7 空 · 建一套电子支付设施要花什么——expensive</h2>
+<p>答案：<strong>A（expensive 昂贵的）</strong>。</p>
+<h3>第 0 步：先立机制——First 的任务：第一条“劝退”理由</h3>
+<p>First 引出阻碍因素第一条。句型 it is very ___ to set up…：it 是形式主语，真正被评价的是 to set up the computer, card reader, and telecommunications networks（建一整套电子支付基础设施）这件事。段落任务是解释“纸币系统为什么不消失”，所以第一条理由必须能劝退这套建设。评一个“从零铺开的基础设施”，最硬的门槛维度就是钱。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>First, it is very <code>__7__</code> to set up the computer, card reader, and telecommunications networks necessary to make electronic money the <code>__8__</code> form of payment.</blockquote>
+<p>it is very ___ to do sth：形容词作表语评“做某事”。expensive / imaginative / sensitive / productive 里，只有“代价高”能构成障碍。</p>
+<h3>第 2 步：找证据——评价对象 = 整套设施的建设成本</h3>
+<p>计算机、读卡器、电信网络——设备、布点、联网，处处是投入；“建不起”正是电子支付推广慢的头号原因，与第 6 空 work against（阻碍）方向一致，也与第 8 空“让电子货币当主角”的目的从句相连。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A expensive</td><td>昂贵的</td><td>✓ 当选</td><td>建整套设施（计算机 + 读卡器 + 电信网络）非常昂贵——支出门槛正是电子化推广慢的头号“劝退”理由，与 work against 方向一致。（易错警示：productive 是孤句里最“通顺”的褒义词，但 First 的任务是找毛病。）</td></tr><tr><td>B imaginative</td><td>富有想象力的</td><td>✗ 排除</td><td>被评价的是“建设施”这件事，谈不上想象力，语义错位。（典型误解：见高科技就联想到想象力。）</td></tr><tr><td>C sensitive</td><td>敏感的</td><td>✗ 排除</td><td>sensitive 修饰“问题、数据、话题”尚可，修饰“建系统”不通；且“安全敏感”是第 14 空之后的段落。（典型误解：被后文 security 话题提前带偏。）</td></tr><tr><td>D productive</td><td>多产的；富有成效的</td><td>✗ 排除</td><td>正面评价与“找阻碍”的段落任务相反，方向站错队。（典型误解：孤立看句子通顺就选，忽略 First 的段落使命。）</td></tr></tbody></table>
+<p>代入后的完整句义：首先，建立使电子货币成为主导支付方式所必需的计算机、读卡器和电信网络是非常昂贵的。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>it 是形式主语吗？</strong>：是。it is very ___ to set up… 中，真正的主语是不定式短语“建立整套设施”，it 只是占位；空格评的是“建设施”这件事的属性。</li><li><strong>productive 为什么不行？</strong>：productive 是褒义评价（富有成效的），而 First 的段落任务是“找阻碍”——任何正面评价都站错队。做题时先认领段落任务，再筛词义方向。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（imaginative）</strong>：见高科技就联想到想象力。</li><li><strong>误选 C（sensitive）</strong>：被后文 security 话题提前带偏。</li><li><strong>误选 D（productive）</strong>：孤立看句子通顺就选，忽略 First 的段落使命。</li></ul>
+<blockquote>记忆锚点：First/Second/Third = 段落任务清单；评“建基础设施”先想代价 → expensive；褒义词进不了“找毛病”清单。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

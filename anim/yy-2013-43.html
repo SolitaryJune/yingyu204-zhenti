@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-43 动画：新题型选标题——【43】段 Waste not, want not</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：\"反驳开头\"的段落抓转折落点",
+  body:"<p>【43】段开头像自我标榜（You may proudly claim…），但那不是主旨，是<b>被反驳的靶子</b>。看到\"你以为 X——其实不止 X\"的结构，主旨永远在被反驳之后的展开里。</p>",
+  log:"立靶子段：主旨在转折之后"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：立靶 → 立标准 → 给方法",
+  body:"<table class=\"aw-mini\"><tr><th>【43】段句子</th><th>信息</th></tr><tr><td>① only have frozen peas in the freezer – <b>that's not good enough</b></td><td>靶子：柜子只有冻豌豆？不够格</td></tr><tr><td>② Mine is <b>filled with</b> leftovers, bread, stock, meat and fish</td><td>标准：柜子要塞满剩菜面包高汤</td></tr><tr><td>③ Planning ahead should <b>eliminate wastage</b>, but <b>surplus</b> vegetables → soup, fruits about to \"<b>go off</b>\" → cooked or juiced</td><td>方法：多余蔬菜做汤，快坏水果煮掉榨掉</td></tr></table>",
+  log:"全段围绕：wastage / surplus / go off = 不浪费"},
+ {cls:"bad", ecs:"miss", tag:"排除 F", count:1, ribbon:{k:6, ok:false}, title:"排除 F：Planning is everything（已占用＋词面陷阱）",
+  body:"<p><b>F（计划就是一切）</b><span class=\"bad-dot\">✗</span>：③句 <b>Planning ahead</b> should eliminate wastage 与【41】标题字面最近。但句子重心：Planning ahead should…只是铺垫，<b>but</b> 之后\"剩余物如何处置\"才是本段新信息。且 F 已被【41】段占用。</p>",
+  log:"排除 F：planning ahead 是铺垫，but 后才是重点"},
+ {cls:"bad", ecs:"miss", tag:"排除 E", count:2, ribbon:{k:5, ok:false}, title:"排除 E：Stick to what you need（已占用＋方向相反）",
+  body:"<p><b>E（坚持只买所需）</b><span class=\"bad-dot\">✗</span>：E 管\"<b>买</b>\"（控制买进），本段管\"<b>存</b>\"（进了门的食材一样不许浪费，榨干存量）——方向相反。且 E 已被【42】段占用。</p>",
+  log:"排除 E：E 管买，本段管存，方向相反"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:3, ribbon:{k:2, ok:false}, title:"排除 B：Balance your diet（多余项）",
+  body:"<p><b>B（均衡膳食）</b><span class=\"bad-dot\">✗</span>：本段不谈膳食均衡——谈的是冷冻柜管理与剩食再利用。B 与 A（Live like a peasant）正是 7 选 5 里的两个<b>多余项</b>。</p>",
+  log:"排除 B：无对应，多余项之一"},
+ {cls:"good", ecs:"ok", tag:"锁定 G", count:4, ribbon:{k:7, ok:true}, title:"锁定 G：Waste not, want not",
+  body:"<p><b>G（不浪费就不会匮乏）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p>eliminate <b>wastage</b>（消灭浪费）↔ <b>Waste not</b>；surplus vegetables 做汤、将 \"<b>go off</b>\" 的水果煮掉榨掉（榨干存量）↔ <b>want not</b>（不匮乏）。英语谚语 <b>Waste not, want not</b> 本义就是\"不浪费，不愁缺\"。</p>",
+  log:"锁定 G：wastage/surplus/go off = Waste not, want not"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 G",
+  body:"<p><b>答案 G</b>——Waste not, want not（不浪费就不会匮乏）。</p><p>记忆锚点：You may proudly claim…that's not good enough = 立靶子，主旨在转折后；\"管买\"（E）与\"管存\"（G）别混。多余项：A、B。</p>",
+  log:"结论：【43】段标题为 Waste not, want not，答案选 G"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-43 · 新题型：【43】段的小标题",
+  subtitle: "考点：7 选 5 段落主旨 · 方法：立靶子段抓转折 → 关键词同义替换 → 排除已用项",
+  counterLabel: "已核验",
+  ribbonTitle: "小标题（✓ 命中 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位段落主旨 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 G",
+    html: "<b>Waste not, want not</b>（不浪费就不会匮乏）＝ eliminate <b>wastage</b> + surplus 做汤 + 快 \"go off\" 的煮掉榨掉。记忆锚点：Planning ahead 是 but 之前的铺垫（F 已占用）；E 管买、G 管存，方向相反。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型选标题——【43】段的小标题</h2>
+<p>答案：<strong>G</strong>（Waste not, want not，不浪费就不会匮乏）。</p>
+<h3>第 0 步：先立机制——"反驳开头"的段落抓转折落点</h3>
+<p>【43】段开头像一句自我标榜（You may proudly claim…），但这不是主旨，是<strong>被反驳的靶子</strong>。判断段落主旨时，看到"你以为 X——其实不止 X"的结构，主旨永远在<strong>被反驳之后的展开</strong>里。</p>
+<h3>第 1 步：拆段找主旨</h3>
+<table><thead><tr><th>句子</th><th>信息</th></tr></thead><tbody><tr><td>① You may proudly claim to only have frozen peas in the freezer – <strong>that's not good enough</strong></td><td>靶子：冷冻柜只有冻豌豆？不够格</td></tr><tr><td>② <strong>Mine is filled with</strong> leftovers, bread, stock, meat and fish</td><td>作者的冷冻柜塞满剩菜、面包、高汤、肉鱼</td></tr><tr><td>③ Planning ahead should <strong>eliminate wastage</strong>, but if you have <strong>surplus</strong> vegetables you'll do a vegetable soup, and all fruits threatening to "<strong>go off</strong>" will be <strong>cooked or juiced</strong></td><td>提前规划消灭浪费：多余蔬菜做汤，快坏的水果煮掉榨掉</td></tr></tbody></table>
+<p>①句立靶子（柜子空＝不达标），②句给标准（柜子要满），③句给方法（如何做到"满而不浪费"：剩余物再利用，不让任何食材白白坏掉）。全段落点＝<strong>不浪费</strong>：wastage、surplus、go off 三个词围着一个中心。</p>
+<p>替换链：eliminate <strong>wastage</strong> / surplus / go off ↔ <strong>Waste not</strong>；充分利用 ↔ want not（不匮乏）。谚语 Waste not, want not 正是"不浪费就不会缺" → 选 <strong>G</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>F Planning is everything</td><td>✗</td><td>已被【41】占用＋词面陷阱</td></tr><tr><td>E Stick to what you need</td><td>✗</td><td>已被【42】占用＋方向相反</td></tr><tr><td>B Balance your diet</td><td>✗</td><td>多余项，无对应</td></tr></tbody></table>
+<ul><li><strong>误选 F——被 Planning ahead 勾走</strong>：③句 <strong>Planning ahead</strong> should eliminate wastage 里有 planning ahead，与【41】标题字面最近。但注意句子的重心：Planning ahead should…（理应如此）只是铺垫，<strong>but</strong> 之后"剩余物如何处置"才是本段新信息。何况 F 已被【41】占用。</li><li><strong>误选 E——方向正好相反</strong>：E 说"只买所需"（控制买进），本段说的是"进了门的食材一样都不许浪费"（榨干存量）——一个管"买"，一个管"存"，方向相反。E 已被【42】占用。</li><li><strong>误选 B——无对应</strong>：本段不谈膳食均衡；B 是两个多余项之一。</li></ul>
+<blockquote>记忆锚点：You may proudly claim…that's not good enough = 立靶子，主旨在转折后；wastage / surplus / go off → Waste not, want not（G）；"管买"（E）与"管存"（G）别混。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-22 · 2025 阅读第 22 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 对比题两侧都要定位",
+    "cls": "key",
+    "tag": "审题",
+    "log": "Compared with ⇒ 过去与如今两侧各找定位句",
+    "count": 0,
+    "body": "<p>题干 <code>Compared with tips in the past, today&#39;s tips ____</code> 是今昔对比：<b>过去</b>一侧在段[2]②③（先服务后付费、付费时点奖励优质服务），<b>如今</b>一侧在段[2]①（与工资和服务规范脱钩）＋段[7]③（与服务质量脱钩）。四个选项都是比较级，逐项核对“今 vs 昔”的方向。</p>"
+  },
+  {
+    "title": "定位原文 · 今昔各两句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "过去：规范决定＋奖励优质服务；如今：脱钩",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today&#39;s tip requests are often not connected to the salary and service norms that used to determine when and how people tip. ... That timing could reward high-quality service and give workers an incentive to provide it. ... tipping now seems to be more coercive, less generous, and often completely dissociated from service quality.</div><p>过去：小费由“工资与服务规范”决定、时点能<b>奖励优质服务</b>；如今：与规范<b>脱钩</b>、与服务质量<b>完全脱钩</b>。</p>"
+  },
+  {
+    "title": "同义替换锁定 C",
+    "cls": "good",
+    "tag": "替换",
+    "log": "not connected / dissociated ⇒ less to do with service quality",
+    "count": 0,
+    "body": "<p>如今：not connected to the service norms（段[2]①）＋ completely dissociated from service quality（段[7]③）；过去：由规范决定、时点能奖励优质服务。两头一比：如今的小费<b>与服务质量关系不大</b> ⇒ <b>C</b>。</p>"
+  },
+  {
+    "title": "逐项分析 · A 支付频率低得多",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 频率更低 ✗——如今被索要得更频繁",
+    "count": 1,
+    "body": "<p><b>排除。</b>段[7]② being asked for too high of a tip <b>too often</b>：如今索要频率更高；选项说“支付频率低得多”，方向说反——<b>反向干扰</b>。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 较少被提前索要",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B 更少被提前索要 ✗——恰恰更常提前",
+    "count": 2,
+    "body": "<p><b>排除。</b>段[3]① It&#39;s becoming more common for tips to be requested beforehand：提前索小费越来越普遍；选项方向说反——<b>反向干扰</b>。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C 与服务质量关系不大",
+    "cls": "good",
+    "tag": "复认 C",
+    "log": "C 与服务质量关系不大 ✓——两处脱钩证据合议",
+    "count": 2,
+    "body": "<p><b>复认。</b>not connected（规范脱钩）＋ dissociated from service quality（质量脱钩）双证据支撑 C。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D 收入贡献更小",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 收入贡献更小 ✗——贡献在变大",
+    "count": 3,
+    "body": "<p><b>排除。</b>段[5]①②：小费是 vital source of income，tip creep 与 tipflation 正 <b>further supplementing</b> 收入——贡献更大而非更小；且“低薪行业工作者”不能推广到所有工作者。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C——三个干扰项全是方向说反",
+    "count": 3,
+    "body": "<p>答案选 <b>C（have less to do with service quality）</b>。</p><p><b>记忆锚点</b>：对比题两侧定位；如今＝脱钩（not connected / dissociated）；A／B／D 三个反向干扰全把“今多于昔”说成“今少于昔”。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 22 题 · 与过去相比，如今的小费有何不同",
+  "subtitle": "Text 1 · 考点：细节理解（对比）· 两侧定位 → 方向比对",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“两侧定位 → 方向比对”的推理链。",
+  "result": {
+    "big": "答案 C（have less to do with service quality）",
+    "html": "<b>C 与服务质量的关系不大</b>——段[2]① not connected + 段[7]③ dissociated from service quality 双证据；过去则是 reward high-quality service。<br>记忆锚点：对比题两侧定位，三个干扰项全是反向干扰。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 22 题 · 与过去相比，如今的小费有何不同</h2>
+<p>答案：<strong>C（have less to do with service quality 与服务质量的关系不大）</strong>。</p>
+<h3>第 0 步：先立机制——对比题要“两侧都定位”</h3>
+<p>题干 Compared with tips in the past, today's tips ____ 是今昔对比：必须把“过去的小费”与“如今的小费”各自定位，再比对差异。过去一侧：段[2]②③（先服务后付费、付费时点奖励优质服务）；如今一侧：段[2]①（索要小费与工资和服务规范脱钩）＋段[7]③（如今的小费与服务质量脱钩）。四个选项都是比较级表述，逐项核对“今 vs 昔”的方向是否说反。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Today's tip requests are often not connected to the salary and service norms that used to determine when and how people tip.<br/>That timing could reward high-quality service and give workers an incentive to provide it.<br/>And, as our research emphasizes, tipping now seems to be more coercive, less generous, and often completely dissociated from service quality.</blockquote>
+<p>过去：小费由“工资与服务规范”决定，餐后付费的时点能<strong>奖励优质服务</strong>；如今：索要小费与这些规范<strong>脱钩</strong>，研究还强调如今的小费与服务质量<strong>完全脱钩</strong>。</p>
+<h3>第 2 步：同义替换核对 C</h3>
+<p>not connected to the service norms ＋ completely dissociated from service quality → <strong>have less to do with service quality</strong>（与服务质量关系不大）。两处“脱钩”表述共同支撑 C；过去一侧 reward high-quality service 恰好提供“关系更紧密”的对照基线。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A are paid much less frequently</td><td>被支付的频率低得多</td><td>✗</td><td>段[7]② being asked for too high of a tip too often——如今被索要得更频繁，方向说反（反向干扰）</td></tr><tr><td>B are less often requested in advance</td><td>较少被提前索要</td><td>✗</td><td>段[3]① It's becoming more common for tips to be requested beforehand——如今更常提前索要，反向干扰</td></tr><tr><td>C have less to do with service quality</td><td>与服务质量的关系不大</td><td>✓</td><td>段[2]① not connected ＋ 段[7]③ dissociated from service quality 的同义概括</td></tr><tr><td>D contribute less to workers' income</td><td>对工作者收入贡献较小</td><td>✗</td><td>段[5]①② vital source of income ＋ further supplementing the income——贡献在变大，反向干扰</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A 的 too often 不就是“频繁”吗，怎么算反向</strong>：too often 说的是如今<strong>被索要</strong>得频繁——今多于昔；选项说“支付频率低得多”，正好把方向说反。</li><li><strong>D 挪用了哪两句</strong>：小费是收入 vital source（段[5]①）、tip creep 与 tipflation 正在进一步补充收入（段[5]②）——两句都说明如今贡献更大；且“低薪行业工作者”不能推广到“所有工作者”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：只看到段[3]有 request beforehand，没注意 becoming more common 是“越来越普遍”——比较方向说反。</li><li><strong>误选 D</strong>：见 income 就联想，未比对“贡献变大还是变小”。</li></ul>
+<blockquote>记忆锚点：对比题两侧都要定位：过去＝规范决定＋奖励优质服务；如今＝脱钩（not connected / dissociated）；A、B、D 三个反向干扰全把“今多于昔”说成“今少于昔”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

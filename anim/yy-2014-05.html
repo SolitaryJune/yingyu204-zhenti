@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-05 · 2014 完形第 5 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 5 空所在句（先还原倒装）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 5 空所在句——Of even greater __ is the fact that...，倒装句先还原语序",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Of even greater <b>__5__</b> is the fact that obesity turns out to be very difficult to define.</div><p>这是倒装句：表语 <b>Of even greater __</b> 被提到句首，真正的主语是 <b>the fact that obesity turns out to be very difficult to define</b>（肥胖很难界定这一事实）。还原成正常语序：<b>The fact is of even greater __</b>。of + 抽象名词构成“具有某种属性”的表语；比较级 even greater 提示：和上文相比，这件事更值得——什么？</p>"
+ },
+ {
+  "title": "找证据 · greater 的比较对象是一次话题升级",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上文谈超重益处收尾，本句转向“肥胖难以界定”——话题升级信号",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...among the elderly, being somewhat overweight is often an indicator of good health.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Of even greater <b>__5__</b> is the fact that obesity turns out to be very difficult to define.</div><p>上段以“老年人微胖是健康标志”收尾，第一部分讲完<b>超重的益处</b>；本句突然说“肥胖 turns out to be 很难界定”——话题从“益处”切换到“定义难题”。作者用 greater 提示读者：<b>下面这个问题比上面那个更值得关注</b>。所以空格名词必须能表达“值得关注”。</p>"
+ },
+ {
+  "title": "逐项分析 · A impact（影响）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A impact（影响） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>of great impact = 影响巨大。但下文讲的是“肥胖怎么定义、BMI 是什么”，并没有展开“这个事实造成了什么影响”，比较级落空。</p><p style=\"color:#b91c1c\">⚠ 典型误解：greater + impact 是高频搭配，不看下文是否真的在谈影响。</p>"
+ },
+ {
+  "title": "逐项分析 · B relevance（关联）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B relevance（关联） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>of greater relevance = 与（前文）关联更大。可这句恰是话题转移的枢纽，下文“如何定义肥胖”与上文“超重有益”并无更大关联，语义正好相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 greater 就想“和前文比较”，没读出话题换轨的写作意图。</p>"
+ },
+ {
+  "title": "逐项分析 · C assistance（援助，帮助）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C assistance（援助，帮助） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>of assistance = 有帮助的，主语通常是人或工具；“肥胖难以界定”这一事实本身谈不上“提供帮助”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 of + 抽象名词的格式，不检查名词与主语事实的语义相容。</p>"
+ },
+ {
+  "title": "逐项分析 · D concern（关切，关注）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D concern（关切，关注） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>of even greater concern = 更值得关注——作者亮明“下面这个问题更重要”，承上启下，与 greater 的比较级严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（concern 关注）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>更值得关注的是这样一个事实：肥胖被证明很难界定。</b></p><p>答案选 <b>D（concern 关切，关注）</b>。</p><p><b>记忆锚点</b>：倒装句先还原语序；even greater = 话题升级的信号；承上启下引入新问题 → of (even) greater concern。</p><p style=\"color:#b91c1c\">最易误选：<b>A（impact）</b>——把“ greater + 抽象名词”当固定套路，不验证下文是否真的在谈影响。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 5 空 · 倒装句 Of even greater ______ is...",
+  subtitle: "考点：上下文语义 + 倒装句还原 + 抽象名词辨析 · 还原语序 → 话题升级 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“还原倒装 → 判话题升级 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（concern）",
+ "html": "<b>D concern（关切，关注）</b>。<br>记忆锚点：倒装句先还原语序；even greater = 话题升级的信号；承上启下引入新问题 → of (even) greater concern。<br>最易误选：<b>A（impact）</b>——把“ greater + 抽象名词”当固定套路，不验证下文是否真的在谈影响。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 5 空 · Of even greater ______ is the fact that...——倒装句里的过渡名词</h2>
+<p>答案：<strong>D（concern 关切，关注）</strong>。</p>
+<h3>第 0 步：先立机制——倒装句先还原语序，再问 greater 比的是什么</h3>
+<p>本句是倒装：Of even greater <code>__</code> is the fact that...，正常语序为 The fact is of even greater <code>__</code>。of + 抽象名词构成“具有某种属性”的表语结构。解题的钥匙是比较级 <strong>greater</strong>：比较要有对象，而这里的“对象”不是某个同类名词，而是<strong>上文整个话题</strong>——作者在说，接下来这件事比前面聊的“超重的益处”更值得如何如何。能承接“话题升级”的抽象名词，只有“关注”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Of even greater __5__ is the fact that obesity turns out to be very difficult to define.</blockquote>
+<p>还原语序后句意为：“肥胖很难界定这一事实，比（上文的话题）更加 <code>__</code>”——空格填的是作者对这一新话题的态度分量。</p>
+<h3>第 2 步：找证据——greater 的比较对象是一次话题换轨</h3>
+<blockquote>...among the elderly, being somewhat overweight is often an indicator of good health.</blockquote>
+<blockquote>Of even greater __5__ is the fact that obesity turns out to be very difficult to define.</blockquote>
+<p>上段末句给“超重有益”收尾；本句立刻抛出“肥胖 turns out to be 很难界定”。段落交界处的 even greater 是作者的手势：前面说的固然重要，但下面这个“定义难题”更要紧。空格名词必须自带“值得投入注意力”的语义，才接得住这个手势。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A impact</td><td>影响</td><td>✗ 排除</td><td>of great impact = 影响巨大。但下文讲的是“肥胖怎么定义、BMI 是什么”，并没有展开“这个事实造成了什么影响”，比较级落空。（典型误解：greater + impact 是高频搭配，不看下文是否真的在谈影响。）</td></tr><tr><td>B relevance</td><td>关联</td><td>✗ 排除</td><td>of greater relevance = 与（前文）关联更大。可这句恰是话题转移的枢纽，下文“如何定义肥胖”与上文“超重有益”并无更大关联。（典型误解：看到 greater 就想“和前文比较”，没读出话题换轨的写作意图。）</td></tr><tr><td>C assistance</td><td>援助，帮助</td><td>✗ 排除</td><td>of assistance = 有帮助的，主语通常是人或工具；“肥胖难以界定”这一事实本身谈不上“提供帮助”。（典型误解：只认 of + 抽象名词的格式，不检查名词与主语事实的语义相容。）</td></tr><tr><td>D concern</td><td>关切，关注</td><td>✓ 当选</td><td>of even greater concern = 更值得关注——作者亮明“下面这个问题更重要”，承上启下，与 greater 的比较级严丝合缝。</td></tr></tbody></table>
+<p>代入后的完整句义：更值得关注的是这样一个事实：肥胖被证明很难界定。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么这题必须先认出倒装？</strong>：不还原语序就会把 Of even greater <code>__</code> 当成句首状语去找名词搭配，方向全错；还原成 The fact is of even greater <code>__</code> 之后，主语是“事实”、比较级指向话题升级，候选名词的范围立刻清晰。倒装句完形的第一步永远是还原语序。</li><li><strong>concern 不是也有“担忧”义吗，取哪个？</strong>：此处取“关切、值得关注”义即可；即便偏“担忧”，方向也对——肥胖难以界定确实是个让人头疼的问题。concern 的语义弹性正是它胜出的原因。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（impact）</strong>：把“ greater + 抽象名词”当固定套路，不验证下文是否真的在谈影响。</li><li><strong>误选 B（relevance）</strong>：把话题转移误读成话题延续。</li><li><strong>误选 C（assistance）</strong>：忽略主语是“事实”，事实不能施予帮助。</li></ul>
+<blockquote>记忆锚点：倒装句先还原语序；even greater = 话题升级的信号；承上启下引入新问题 → of (even) greater concern。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

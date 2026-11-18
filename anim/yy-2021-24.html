@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-24 · 2021 阅读第 24 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：段落推断题选「明确说出」而非「引申」",
+  "body": "<p>题干：<b>We can learn from Paragraph 3 that there was ____</b>（从第三段可知，当时存在 ____）。</p><p>第三段的信息链：失业率基数（2 月 3.5% / 5.5%）→ 飙升（5 月 13.3% / 13.7%）→ 许多用工荒消失但<b>不是全部</b> → 医疗领域举例。learn from Paragraph 3 优先选<b>被明确说出</b>的事实。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：医疗领域的举例句",
+  "body": "<div class='qq'><b>原文：</b>In the medical field, to take an obvious example, the pandemic meant that there were still clear shortages of doctors, nurses and other medical personnel.</div><p>举例句给出明确事实：医生、护士及其他医务人员<b>仍然明显短缺</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：「不是全部消失」引出举例",
+  "body": "<div class='qq'><b>原文：</b>As of May, those rates had spiked up to 13.3 per cent and 13.7 per cent, and although many worker shortages had disappeared, not all had done so.</div><p>链条：失业率飙到 13%+ → 许多「用工荒」消失了，<b>但不是全部</b> → 医疗领域就是明显的例子。「still clear shortages」承接「not all had disappeared」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：政策调整的呼吁——段内无政策话题",
+  "body": "<p><b>A · a call for policy adjustment（政策调整的呼吁）</b> <span class='bad-dot'>✗</span></p><p>第三段只有失业率与用工短缺的描述，没有任何政策层面的呼吁。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：招聘惯例的改变——无中生有",
+  "body": "<p><b>B · a change in hiring practices（招聘惯例的改变）</b> <span class='bad-dot'>✗</span></p><p>没有 hiring practices 的表述，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：医护人员短缺——shortages = lack",
+  "body": "<p><b>C · a lack of medical workers（医护人员短缺）</b> <span class='ok-dot'>✓</span></p><p>clear shortages of doctors, nurses and other medical personnel → <b>a lack of medical workers</b>：shortages = lack，医生护士 = medical workers，同义替换干净利落。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：经济复苏的迹象——方向反了",
+  "body": "<p><b>D · a sign of economic recovery（经济复苏的迹象）</b> <span class='bad-dot'>✗</span></p><p>失业率从 3.5% 飙到 13.7% 是疫情冲击，不是复苏。</p><p style='color:#b91c1c'>⚠ 典型误解：把「失业率高企」误读成「复苏信号」，方向整个反了。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（a lack of medical workers）</b>。</p><p>记忆锚点：段落推断题选「明确说出」而非「引申」；shortages = lack，医疗领域举例 = 医护缺口仍在。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 D（a sign of economic recovery）——把「失业率飙升」误读成「复苏」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-24 · 阅读第 24 题：第三段读出了什么事实",
+  subtitle: "考点：Text1 第 3 段 · 段落推断题（选明确说出的信息）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C",
+ "html": "<b>C a lack of medical workers</b>：clear shortages of doctors, nurses and other medical personnel → 医护人员短缺。<br>记忆锚点：段落推断题选「明确说出」而非「引申」；shortages = lack。<br>最易误选：D——失业率飙升是疫情冲击，不是复苏。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 24 题——第三段读出了什么事实</h2>
+<p>答案：<strong>C</strong>（a lack of medical workers）。</p>
+<h3>第 0 步：先立机制——「段落推断题」核对的是被明确说出的信息</h3>
+<p>Paragraph 3 的信息链是三层：失业率基数（2 月 3.5% / 5.5%）→ 飙升（5 月 13.3% / 13.7%）→ 「许多用工荒消失了，但不是全部」→ 医疗领域举例。「learn from Paragraph 3」优先选<strong>被原文明确说出</strong>的事实，而不是引申。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>As of May, those rates had spiked up to 13.3 per cent and 13.7 per cent, and although many worker shortages had disappeared, not all had done so. In the medical field, to take an obvious example, the pandemic meant that there were still clear shortages of doctors, nurses and other medical personnel.</blockquote>
+<p>clear shortages of doctors, nurses and other medical personnel → <strong>a lack of medical workers</strong>：shortages = lack，医生护士 = medical workers，逐点同义替换。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（a call for policy adjustment）</strong>：第三段只有失业率与短缺的描述，没有任何政策呼吁。</li><li><strong>B（a change in hiring practices）</strong>：无中生有——没有招聘惯例的表述。</li><li><strong>D（a sign of economic recovery）</strong>：方向反了——失业率从 3.5% 飙到 13.7% 是疫情冲击，不是复苏信号。</li></ul>
+<blockquote>记忆锚点：段落推断题选「明确说出」而非「引申」；shortages = lack，medical field 举例 = 医护缺口仍在。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

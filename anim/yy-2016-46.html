@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016-46 翻译长难句拆解：lure/carry/demand 词义定音 · the more 连锁 · which 指代整句</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板（同 2015-46 成品范式）：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现（绿=主干 · 琥珀=修饰/词义点 · 蓝=从句）；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 七个句子面板的成分块与重组译文 */
+var SENT = [
+  { label: '句① The supermarket is designed to lure customers into spending as much time as possible within its doors.',
+    chunks: [
+      { t: 'The supermarket is designed to', k: 'zhu', n: '强目的性「设计初衷就是要」·勿译「被设计来」' },
+      { t: 'lure customers into spending', k: 'mod', n: 'lure into doing「诱使」（贬）·作者的警示立场，勿降级为「吸引」' },
+      { t: 'as much time as possible', k: 'mod', n: '修饰时间长短 → 中文落「尽可能久」' },
+      { t: 'within its doors', k: 'mod', n: '字面「在其门内」→ 意译「在店内」' }
+    ],
+    trans: '重组：超市的设计就是要诱使顾客尽可能久地待在店内。（lure 定全篇揭底口吻）' },
+  { label: '句② The reason for this is simple: The longer you stay in the store, the more stuff you\u2019ll see, and the more stuff you see, the more you\u2019ll buy.',
+    chunks: [
+      { t: 'The reason for this is simple:', k: 'zhu', n: '主句·冒号表解释说明「其理由很简单」' },
+      { t: 'The longer you stay in the store, the more stuff you\u2019ll see', k: 'cong', n: '越……越……第一环：逗留越久 → 看得越多' },
+      { t: 'and the more stuff you see, the more you\u2019ll buy', k: 'cong', n: '第二环拿第一环结果当原因：看得越多 → 买得越多·两环相衔成连锁' }
+    ],
+    trans: '重组：其理由很简单：你在店里逗留越久，看到的东西就越多，看到的东西越多，买的就越多。（「越……越……」两短句相扣，拆断或硬并句都丢分）' },
+  { label: '句③ And supermarkets contain a lot of stuff.',
+    chunks: [
+      { t: 'And supermarkets contain', k: 'zhu', n: 'And 承上递进·contain「容纳、装盛」非抽象「包含」' },
+      { t: 'a lot of stuff', k: 'mod', n: 'stuff 非正式「东西、物品」·概述特征，为④数据铺垫' }
+    ],
+    trans: '重组：而超市里的东西多得很。' },
+  { label: '句④ The average supermarket, according to the Food Marketing Institute, carries some 44,000 different items, and many carry tens of thousands more.',
+    chunks: [
+      { t: 'The average supermarket, according to the Food Marketing Institute,', k: 'mod', n: '「普通超市」+ 插入语中文提前「按食品营销研究院所说」' },
+      { t: 'carries some 44,000 different items', k: 'zhu', n: 'carry 僻义！「备有货物供销售=售卖」·some + 数词 =「大约」' },
+      { t: 'and many carry tens of thousands more', k: 'zhu', n: 'many 承前指「许多超市」·「还多出成千上万种」' }
+    ],
+    trans: '重组：按食品营销研究院所说，普通超市售卖约44,000种各式货品，而且许多超市的货品还要多出成千上万种。' },
+  { label: '句⑤ The sheer volume of available choice is enough to send shoppers into a state of information overload.',
+    chunks: [
+      { t: 'The sheer volume of available choice', k: 'zhu', n: 'sheer 纯强调「单是……就」·available choice 回指③④海量货品' },
+      { t: 'is enough to send shoppers into a state of', k: 'zhu', n: '「单是……就足以使……陷入」' },
+      { t: 'information overload', k: 'mod', n: '术语直取「信息超负荷」' }
+    ],
+    trans: '重组：单是可供选择的货品数量就足以让购物者陷入信息超负荷的状态。（效果链第一环）' },
+  { label: '句⑥ According to brain-scan experiments, the demands of so much decision-making quickly become too much for us.',
+    chunks: [
+      { t: 'According to brain-scan experiments,', k: 'mod', n: '「根据大脑扫描实验」·实验依据' },
+      { t: 'the demands of so much decision-making', k: 'zhu', n: 'demand 僻义！「累人的事/负担」非「要求」·决策量带来的负担' },
+      { t: 'quickly become too much for us', k: 'zhu', n: '「很快令我们无法承受」·quickly 修饰 become，回应⑤ overload' }
+    ],
+    trans: '重组：根据大脑扫描实验，如此之大的决策量带来的负担会很快令我们无法承受。（效果链第二环）' },
+  { label: '句⑦ After about 40 minutes of shopping, most people stop struggling to be rationally selective, and instead begin shopping emotionally \u2013 which is the point at which we accumulate the 50 percent of stuff in our cart that we never intended buying.',
+    chunks: [
+      { t: 'After about 40 minutes of shopping,', k: 'mod', n: '时间状语「购物约40分钟后」' },
+      { t: 'most people stop struggling to be rationally selective', k: 'zhu', n: 'struggle to do「费力做」→「不再费心理性选购」' },
+      { t: 'and instead begin shopping emotionally', k: 'zhu', n: 'rationally selective vs shopping emotionally 一正一反「转而冲动购物」' },
+      { t: 'which is the point at which we accumulate', k: 'cong', n: 'which 指代整句落定的时刻·the point 取「时刻」→「就是从这一刻起」' },
+      { t: 'the 50 percent of stuff in our cart that we never intended buying', k: 'cong', n: 'that 定语从句前置「本来根本没打算买的那一半东西」·intend doing = intend to do' }
+    ],
+    trans: '重组：购物约40分钟后，大多数人就不再费心去理性选购，而是开始冲动购物了——就是从这一刻起，我们把本来根本没打算买的那一半东西堆进了购物车。（效果链收口）' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1], [0, 2], [0, 3]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 1], [1, 2]], trans: [1] },
+  { focus: [2], hot: [[2, 0], [2, 1]], trans: [2] },
+  { focus: [3], hot: [[3, 0], [3, 1], [3, 2]], trans: [3] },
+  { focus: [4], hot: [[4, 0], [4, 1], [4, 2]], trans: [4] },
+  { focus: [5], hot: [[5, 0], [5, 1], [5, 2]], trans: [5] },
+  { focus: [6], hot: [[6, 1], [6, 2], [6, 3], [6, 4]], trans: [6] },
+  { hot: [[1, 1], [1, 2], [3, 1], [4, 1], [5, 0], [5, 2], [6, 1], [6, 3], [6, 4]], trans: [0, 1, 2, 3, 4, 5, 6] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2016-46 翻译长难句拆解：lure/carry/demand 词义定音 · the more 连锁 · which 指代整句',
+  subtitle: '考点：英译汉「超市心理学」· 方法：拆结构 → 定词义 → 组语序（七句逐一演示，绿=主干 · 琥珀=修饰/词义点 · 蓝=从句）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示七个句子的拆解与重组。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读定基调：《国家地理》科普说明文，作者替消费者揭底「超市心理学」，lure 类贬义词要保住警示口吻；骨架三层：设计初衷(①②) → 货品海量(③④) → 效果链(⑤⑥⑦)：信息过载 → 决策过载 → 冲动购物', count: 0 },
+    { cls: 'key', tag: '句①初衷', log: 'is designed to 强目的性「设计初衷就是要」；lure into doing「诱使」（贬），译「吸引」丢立场；as much time as possible 落「尽可能久」；within its doors 意译「在店内」', count: 1 },
+    { cls: 'key', tag: '句②连锁', log: '冒号表解释说明；两层 the more\u2026 the more\u2026 首尾相衔：逗留越久 → 看得越多 → 买得越多；中文「越……越……」两短句相扣承接，拆断或硬并句都丢句式分', count: 2 },
+    { cls: 'step', tag: '句③递进', log: 'And 承上递进；contain 取「容纳、装盛」非抽象「包含」；stuff 非正式「东西、物品」；本句概述特征，为④的数据铺垫', count: 3 },
+    { cls: 'key', tag: '句④僻义', log: 'carry 僻义「备有货物供销售=售卖」，超市不「搬运」商品；some + 数词 =「大约」；插入语提前「按食品营销研究院所说」；tens of thousands more「多出成千上万种」', count: 4 },
+    { cls: 'key', tag: '句⑤过载', log: 'sheer 纯强调「单是……就」；available choice 回指③④海量货品；send into a state of「使陷入……状态」；information overload 术语直取「信息超负荷」', count: 5 },
+    { cls: 'step', tag: '句⑥负担', log: 'demand 僻义「累人的事/负担」非「要求」；the demands of so much decision-making =「如此之大的决策量带来的负担」；too much for us「令我们无法承受」', count: 6 },
+    { cls: 'key', tag: '句⑦难句', log: '主干 stop struggling to be rationally selective / instead begin shopping emotionally 一正一反；which is the point 指代整句落定的时刻 →「就是从这一刻起」；that we never intended buying 定语从句必须前置', count: 7 },
+    { cls: 'done', tag: '全篇落定', log: '七句重组完成：lure/carry/some/sheer/demand 词义定音 + the more 连锁 + which 指代时刻 + that 从句前置，是本篇得分眼', count: 8, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组 → 超市心理学三层链条',
+    html: '<p><b>参考译文（答案口径）</b>：超市的设计就是要诱使顾客尽可能久地待在店内。其理由很简单：你在店里逗留越久，看到的东西就越多，看到的东西越多，买的就越多。而超市里的东西多得很。按食品营销研究院所说，普通超市售卖约44,000种各式货品，而且许多超市的货品还要多出成千上万种。单是可供选择的货品数量就足以让购物者陷入信息超负荷的状态。根据大脑扫描实验，如此之大的决策量带来的负担会很快令我们无法承受。购物约40分钟后，大多数人就不再费心去理性选购，而是开始冲动购物了——就是从这一刻起，我们把本来根本没打算买的那一半东西堆进了购物车。</p>' +
+      '<p>记忆锚点：语篇三层 = <b>设计初衷 → 货品海量 → 效果链（信息过载 → 决策过载 → 冲动购物）</b>；lure = 诱使（贬）、carry = 售卖、some + 数 = 大约、sheer = 单是、demand = 负担；the more 连锁两层相衔不必拆；which is the point =「就是从这一刻起」；that 从句前置（intend doing = intend to do）。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 翻译——"超市心理学"：五处词义定音 + the more 连锁 + which 指代整句</h2>
+<p>答案（参考译文）：<strong>超市的设计就是要诱使顾客尽可能久地待在店内。其理由很简单：你在店里逗留越久，看到的东西就越多，看到的东西越多，买的就越多。而超市里的东西多得很。按食品营销研究院所说，普通超市售卖约44,000种各式货品，而且许多超市的货品还要多出成千上万种。单是可供选择的货品数量就足以让购物者陷入信息超负荷的状态。根据大脑扫描实验，如此之大的决策量带来的负担会很快令我们无法承受。购物约40分钟后，大多数人就不再费心去理性选购，而是开始冲动购物了——就是从这一刻起，我们把本来根本没打算买的那一半东西堆进了购物车。</strong></p>
+<h3>第 0 步：先立机制——拆结构、定词义、组语序，但先看清语篇骨架</h3>
+<table><thead><tr><th>步骤</th><th>干什么</th><th>本篇的落点</th></tr></thead><tbody><tr><td>拆</td><td>找谓语定主干，从句、指代各自归位</td><td>句② the more 连锁；句⑦ which 指代整句 + that 定语从句</td></tr><tr><td>定</td><td>熟词僻义靠语境定音，不逐字硬搬</td><td>lure / contain / carry / some / sheer / demand 六处</td></tr><tr><td>组</td><td>英语后置修饰前移，逻辑词显化</td><td>句④ 插入语提前；句⑦ that 从句前置；too much for us 落成"无法承受"</td></tr></tbody></table>
+<p>动笔前先定两件事。<strong>其一，文体基调</strong>：科普说明文（节选自《国家地理》），作者站在消费者一边揭底"超市心理学"——lure（诱使）这类词自带贬义，承载作者的警示立场，译文语气要偏"揭底"而不是"介绍"。<strong>其二，语篇骨架是三层递进</strong>：①②句摆超市的设计初衷与原因（留客越久 → 看得越多 → 买得越多）→ ③④句交代"货品海量"这个硬件条件（44,000 种还只是平均数）→ ⑤⑥⑦句推演效果链（选择太多 → 信息超负荷 → 决策过载 → 放弃理性、冲动购物）。这条链上⑤句 available choice 回指③④、⑥句 the demands of so much decision-making 回指⑤——指代要接住，译断了语篇分就丢。</p>
+<h3>第 1 步：句①——设计初衷句：is designed to 的目的性与 lure 的立场</h3>
+<p><code>The supermarket is designed to lure customers into spending as much time as possible within its doors.</code></p>
+<ul><li>is designed to 表强目的性，译"设计初衷就是要"——比"被设计来"更像中文。</li><li><strong>lure sb into doing = "诱使某人做某事"</strong>：lure 是"引诱、诱使"（贬），译成"吸引"就丢了作者的批评口吻；这一处是全篇立场定音。</li><li>as much time as possible 字面"尽可能多的时间"，此处修饰<strong>时间的长短</strong>，中文落成"尽可能<strong>久</strong>"才顺。</li><li>within its doors 字面"在其门内"，实指"在店内"，不必保留"门"的意象。</li></ul>
+<h3>第 2 步：句②——原因句：the more 连锁是本句得分眼</h3>
+<p><code>The reason for this is simple: The longer you stay in the store, the more stuff you'll see, and the more stuff you see, the more you'll buy.</code></p>
+<ul><li>冒号表解释说明：simple 之后整段都在解释"理由"的内容。</li><li>这是<strong>两层 the more... the more... 首尾相衔</strong>：第一环"逗留越久 → 看得越多"，第二环拿第一环的结果当原因——"看得越多 → 买得越多"。中文"越……越……"句式天然能承接：落成"你在店里逗留越久，看到的东西就越多，看到的东西越多，买的就越多"，两个"越……越……"短句相扣，链条不断。</li><li>常见误组有两种：把两层拆断各译各的（丢逻辑衔接），或者硬并成一句"越久越多越买"（丢句式分）。</li></ul>
+<h3>第 3 步：句③④——特征句：contain 与 carry 两个"装货"动词</h3>
+<p><code>And supermarkets contain a lot of stuff. The average supermarket, according to the Food Marketing Institute, carries some 44,000 different items, and many carry tens of thousands more.</code></p>
+<ul><li>contain 此处取"容纳、装盛"——说的是货架上装着的实物，不是抽象的"包含"；stuff 是非正式用语"东西、物品"。</li><li><strong>carry 是第一处熟词僻义</strong>：此处 = "备有（货物）供销售"，即"售卖"——超市不会"搬运" 44,000 种商品。</li><li>some 修饰数词 = "大约"（some 44,000 = 约 4.4 万）；The average supermarket = "普通超市"；according to the Food Marketing Institute 是插入语，中文按习惯提前为"按食品营销研究院所说"；tens of thousands more = "（比这）还多出成千上万种"，many 承前指"许多超市"。</li></ul>
+<h3>第 4 步：句⑤⑥——效果链上：sheer 强调与 demand 僻义</h3>
+<p><code>The sheer volume of available choice is enough to send shoppers into a state of information overload. According to brain-scan experiments, the demands of so much decision-making quickly become too much for us.</code></p>
+<ul><li><strong>sheer = "十足的、纯粹的"，纯强调词</strong>：The sheer volume = "单是……这个数量"——不译出来就少了"光是数量就够"的语气；available choice 回指③④的海量货品，"可供选择的货品"。</li><li>send sb into a state of... = "使某人陷入……状态"；information overload 是术语，直取"信息超负荷"。</li><li><strong>demand 是第二处熟词僻义</strong>：不是"要求"，而是"累人的、烦人的事情（负担）"——the demands of so much decision-making = "如此之大的决策量带来的负担"（面对几万种商品，买不买、买哪种，全是决策）。</li><li>too much for us = "令我们无法承受"；quickly 修饰 become——"很快"就撑不住，与⑤句 overload 正好呼应。</li></ul>
+<h3>第 5 步：句⑦——全篇最长难句：which 指代时刻 + that 从句前置</h3>
+<p><code>After about 40 minutes of shopping, most people stop struggling to be rationally selective, and instead begin shopping emotionally – which is the point at which we accumulate the 50 percent of stuff in our cart that we never intended buying.</code></p>
+<ul><li>主干 = most people stop struggling to be rationally selective, and instead begin shopping emotionally：struggle to do = "费力做某事"，stop struggling to do = "不再费心去理性选购"；rationally selective（理性选购）与 shopping emotionally（感性购物/冲动购物）一正一反。</li><li><strong>which 引导非限定性定语从句，指代前面整件事落定的那一刻</strong>——the point 取"时刻"义：破折号处译"就是从这一刻起"，at which we accumulate... = "从这一刻起我们攒下了……"。只把 which 当成指代 shopping emotionally 一个短语，"这一刻"的时间含义就漏了。</li><li>that we never intended buying 是定语从句修饰 stuff，必须<strong>前置</strong>："本来根本没打算买的那一半东西"；intend doing = intend to do（打算买）。按英语语序后挂成"……50%的东西堆进购物车，我们从未打算买"，定语脱节，得分点全丢。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>carry 直译"搬运/携带"</strong>：没识别"备货售卖"义，卷面上出现"超市搬运 44,000 种商品"。</li><li><strong>some 译"一些"</strong>：some + 数词 = "大约"，译成"一些 44,000 种商品"则连数字都没交代清。</li><li><strong>demand 译"要求"</strong>：语境是决策带来的负担，取"负担/消耗"才通。</li><li><strong>the more 连锁拆断</strong>：两层"越……越……"各译各的，"看到的东西越多"与前面脱钩，因果链断裂。</li><li><strong>that 定语从句不前置</strong>：单独拖成一句"那一半东西是我们本来没打算买的"——中文定语必须压在名词前。</li><li><strong>which 指代错位</strong>：漏译"这一刻"的时间含义，或把 the point 理解成"观点/要点"。</li><li><strong>lure 褒贬不分</strong>：译"吸引顾客"丢了作者的警示立场，"诱使"才是本题口径。</li><li><strong>within its doors 硬译</strong>："在它的门内"——实指"在店内"。</li></ul>
+<blockquote>记忆锚点：语篇三层 = <strong>设计初衷 → 货品海量 → 效果链（信息过载 → 决策过载 → 冲动购物）</strong>；lure = 诱使（贬）、carry = 售卖、some + 数 = 大约、sheer = 单是、demand = 负担；the more 连锁两层相衔不必拆；which is the point = "就是从这一刻起"；that 从句前置（intend doing = intend to do）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

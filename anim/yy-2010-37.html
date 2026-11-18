@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-37 动画："精英陪审员"暴露了什么</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：showed 问的是\"后果\"", "body": "<p>题干：<b>The practice of selecting so-called elite jurors prior to 1968 showed ____</b>（1968 年前选\"精英陪审员\"的做法表明____）</p><p>推理题机制：答案不是字面复述，而是字面行为<b>顺推一步的后果</b>。</p>", "log": "showed 问后果：把\"选精英\"放进逻辑链推一遍"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：第二段③句", "body": "<div class=\"qq\"><b>第二段：</b>Although the Supreme Court…had prohibited intentional racial discrimination in jury selection as early as the 1880 case…, the practice of selecting so-called elite or blue-ribbon juries provided a convenient way around this and other antidiscrimination laws. <span class=\"cn\">（译：尽管最高法院早已禁止蓄意种族歧视，但\"选精英\"为绕开反歧视法提供了捷径。）</span></div>", "log": "题眼：provided a convenient way around（绕开的捷径）"}, {"cls": "", "ecs": "step", "tag": "推理", "count": 0, "title": "推理链：四步推出\"法律不完备\"", "body": "<table class=\"aw-mini\"><tr><th>步</th><th>推理</th></tr><tr><td>1</td><td>1880 判例已明禁种族歧视</td></tr><tr><td>2</td><td>于是改用\"只选精英\"——名义上无歧视字眼</td></tr><tr><td>3</td><td>实际把多数少数族裔挡在门外，却不违法</td></tr><tr><td>4</td><td>能绕开法律 → 法律没堵住这条路 = 不完备（inadequacy）</td></tr></table>", "log": "绕得开 = 法有漏洞 → 反歧视法律不完备"}, {"cls": "good", "ecs": "ok", "tag": "锁定 A", "title": "锁定 A：反歧视法律的不完备", "body": "<p><b>A · 反歧视法律的不完备</b><span class=\"ok-dot\">✓</span></p><p>provided a convenient way around this and other <b>antidiscrimination laws</b> → 能被绕开 = 法有漏洞 → <b>inadequacy 成立</b>。</p>", "log": "锁定 A：反歧视法律的不完备", "count": 1, "ribbon": {"k": 1, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "title": "排除 B：对某些种族的普遍歧视", "body": "<p><b>B · 对某些种族的普遍歧视</b><span class=\"bad-dot\">✗</span></p><p>两处过度推断：In some states 限定\"某些州\"；精英制是\"变相\"歧视，推不出\"普遍盛行\"。</p>", "log": "排除 B：对某些种族的普遍歧视", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "title": "排除 C：程序中自相矛盾的理念", "body": "<p><b>C · 程序中自相矛盾的理念</b><span class=\"bad-dot\">✗</span></p><p>偷换冲突双方：原文是 procedures <b>conflicted with</b> democratic ideals（程序 vs 理想），不是程序内部理念互掐。</p>", "log": "排除 C：程序中自相矛盾的理念", "count": 3, "ribbon": {"k": 3, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "title": "排除 D：最高法院法官普遍傲慢", "body": "<p><b>D · 最高法院法官普遍傲慢</b><span class=\"bad-dot\">✗</span></p><p>无中生有：最高法院是\"禁止歧视\"的正面角色，全文无一字写法官傲慢。</p>", "log": "排除 D：最高法院法官普遍傲慢", "count": 4, "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 A", "body": "<p><b>答案 A（the inadequacy of antidiscrimination laws）</b>——能绕开 = 有漏洞。</p><p>记忆锚点：a convenient way around the law = 法律不完备；推理题答案 = 字面的后果。</p>", "log": "结论：精英制绕开反歧视法，暴露法律不完备，答案选 A"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-37 · 推理题：\"精英陪审员\"暴露了什么",
+  subtitle: "考点：Text2 推理判断 · 方法：定位 → 顺推后果 → 干扰归因",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 A",
+    html: "<b>\"provided a convenient way around…antidiscrimination laws\"（为绕开反歧视法提供捷径）→ 能被绕开 = 法律不完备</b>。易错：B 过度推断\"普遍\"；C 偷换冲突双方（是程序 vs 理想）；D 无中生有。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：推理题——"绕开法律"顺推出法律不完备</h2>
+<p>答案：<strong>A</strong>（the inadequacy of antidiscrimination laws）。</p>
+<h3>第 0 步：先立机制——推理题的答案是"字面的后果"</h3>
+<p>推理题（showed / suggests / implies）的机制：答案通常不是原文某句话的复述，而是那句话<strong>顺推一步的后果</strong>。本题问 selecting so-called elite jurors <strong>prior to 1968</strong> 这种做法<strong>表明</strong>了什么——把"选精英"放进原文的逻辑链里走一遍，看它必然推出什么。</p>
+<h3>第 1 步：定位与推理链</h3>
+<blockquote>Although the Supreme Court of the United States had prohibited intentional racial discrimination in jury selection as early as the 1880 case of Strauder v. West Virginia, the practice of selecting so-called elite or blue-ribbon juries <strong>provided a convenient way around this and other antidiscrimination laws</strong>.（尽管最高法院早在 1880 年就已禁止陪审员遴选中的蓄意种族歧视，但挑选所谓精英陪审员的做法，为<strong>绕开这条及其他反歧视法律</strong>提供了捷径。）</blockquote>
+<p>推理链：法律已明禁种族歧视 → 于是改成只选"精英" → 名义上无歧视字眼、实际把多数少数族裔挡在门外 → <strong>这样干却不违法</strong> → 说明反歧视法律没堵住这条路 = <strong>法律不完备（inadequacy）</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（对某些种族的普遍歧视）</strong>：两处过度推断——原文 In some states 限定是"某些州"；精英制是"变相"歧视，原文没说歧视"普遍盛行"。</li><li><strong>C（遴选程序中自相矛盾的理念）</strong>：偷换冲突的双方。原文②句是 procedures <strong>conflicted with</strong> these democratic ideals——"程序"与"民主理想"相冲突；不是程序<strong>内部</strong>理念互掐。</li><li><strong>D（最高法院法官普遍傲慢）</strong>：无中生有。最高法院在文中是"禁止歧视"的正面角色，全文没有一个字写法官傲慢。</li></ul>
+<blockquote>记忆锚点：provided a convenient way around the law = 法律有空子可钻 = 法律不完备；推理题答案 = 字面行为的后果，不是字面本身。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

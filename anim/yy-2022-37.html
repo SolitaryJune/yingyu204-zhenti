@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-37 · 2022 阅读 Text 4 第 37 题 · 研究者为何选择“吃肉”作研究对象</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · 顺因果标记词摸瓜",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：第二段 reasons 冒号列举——原因题的标准入口",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">They chose this particular behavior for three reasons…: students’ attitudes on the topic are variable and unstable, behavior is easily measurable, and ethics literature largely agrees that eating less meat is good because it reduces environmental harm and animal suffering.</div><p>题干问 a reason for the researchers to study meat eating（原因之一）→ 顺 <b>reasons</b> 因果标记词锁定第二段②句：冒号引出三项并列原因。</p>"
+  },
+  {
+   "title": "机制 · 原因清单对号入座",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：找到原文原因清单，选项逐条比对——清单外即无中生有",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>原因题机制：先锁定因果标记词（reasons、because、冒号列举），拿到原文给出的<b>原因清单</b>，再把选项逐条对号。</p><p>本段清单三项：①态度多变不稳定；②<b>行为易于衡量</b>；③伦理文献一致认为少吃肉有益。题干问“之一”，清单内的任一项即正确。</p>"
+  },
+  {
+   "title": "证据 · 原因二近原词复现",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：easily measurable ↔ easy to measure",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">behavior is easily measurable</div><p>原因二 <b>easily measurable</b> 与选项 B 的 <b>easy to measure</b> 几乎原词级复现（easily = easy；measurable = to measure）——语义无损。</p>"
+  },
+  {
+   "title": "逐项分析 · A It is common among students",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A It is common among students ✗ 排除——跨段杂糅",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>common 是<b>首段</b>修饰 ethics classes（道德课很普遍）的词，与吃肉行为无关——跨段拼贴。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“课程普遍”迁移成“行为普遍”。</p>"
+  },
+  {
+   "title": "逐项分析 · B It is a behavior easy to measure",
+   "cls": "good",
+   "tag": "选定 B",
+   "log": "B It is a behavior easy to measure ✓ 当选——原因二",
+   "count": 1,
+   "ribbon": {
+    "k": "B",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>behavior is easily measurable ↔ It is a behavior easy to measure，原因清单第二项的同义改写。</p>"
+  },
+  {
+   "title": "逐项分析 · C It is important to students’ health",
+   "cls": "bad",
+   "tag": "排除 C",
+   "log": "C It is important to students’ health ✗ 排除——less 被掐掉",
+   "count": 2,
+   "ribbon": {
+    "k": "C",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>原文是 eating <b>less</b> meat is good（少吃肉有益）——选项把 less 掐掉，方向都变了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：断章取义，丢掉方向词。</p>"
+  },
+  {
+   "title": "逐项分析 · D It is a hot topic in ethics classes",
+   "cls": "bad",
+   "tag": "排除 D",
+   "log": "D It is a hot topic in ethics classes ✗ 排除——复现词偷换",
+   "count": 3,
+   "ribbon": {
+    "k": "D",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>topic 确是本段复现词，但它指“研究者选定的话题”，不是“道德课上的热门话题”——修饰关系被偷换。</p><p style=\"color:#b91c1c\">⚠ 典型误解：借复现词凑选项。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 B",
+   "log": "答案 B（a behavior easy to measure）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>a reason → reasons 冒号列举 → 原因二 easily measurable → easy to measure</b>。</p><p>答案选 <b>B（It is a behavior easy to measure）</b>。</p><p><b>记忆锚点</b>：原因题三选一——“态度多变、易衡量、少吃肉好”；less 是不能丢的方向词；复现词必须核对修饰关系。</p><p style=\"color:#b91c1c\">最易误选：<b>D</b>——topic 复现是陷阱。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 阅读 Text 4 第 37 题 · 研究者为何选择“吃肉”作研究对象",
+  subtitle: "考点：原因细节题 · reasons 冒号列举三选一 + 复现词陷阱",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 B（a behavior easy to measure）",
+  "html": "<b>B It is a behavior easy to measure（容易衡量的行为）</b>。<br>behavior is easily measurable ↔ easy to measure（近原词级复现）。<br>记忆锚点：原因题找 reasons 冒号列举——“态度多变、易衡量、少吃肉好”三选一；less 是不能丢的方向词。<br>最易误选：<b>D</b>——topic 复现词是陷阱，它指“研究者选定的话题”。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 阅读 Text 4 第 37 题 · 研究者为何选择"吃肉"作为研究对象</h2>
+<p>答案：<strong>B（It is a behavior easy to measure 它是一种容易衡量的行为）</strong>。</p>
+<h3>第 0 步：先立机制——问原因就顺"原因标记词"摸瓜</h3>
+<p>题干问 a reason for the researchers to study meat eating（研究吃肉的原因之一）。原因题的机制是：先锁定因果标记词（reasons、because、冒号列举），找到原文给出的原因清单，再把选项与清单逐条比对——清单里没有的就是无中生有。本题主旨句自带完整的列举结构，是一个"三选一"的匹配题。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>They chose this particular behavior for three reasons...: students' attitudes on the topic are variable and unstable, behavior is easily measurable, and ethics literature largely agrees that eating less meat is good because it reduces environmental harm and animal suffering.</blockquote>
+<p>研究者选吃肉行为有三个原因：一、学生对该话题的态度多变不稳定；二、该行为<strong>易于衡量</strong>；三、伦理文献基本一致认为少吃肉有益（减少环境伤害与动物痛苦）。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>behavior is easily measurable ↔ It is a behavior easy to measure。几乎原词级复现（easily measurable = easy to measure），当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A It is common among students</td><td>✗</td><td>common 是<strong>首段</strong>修饰 ethics classes（道德课很普遍）的词，与吃肉行为无关——跨段杂糅。（典型误解：把"课程普遍"迁移成"行为普遍"。）</td></tr><tr><td>B It is a behavior easy to measure</td><td>✓</td><td>原因二 easily measurable 的同义改写。</td></tr><tr><td>C It is important to students' health</td><td>✗</td><td>eating <strong>less</strong> meat is good 被掐头去尾成"吃肉好/重要"，方向都变了。（典型误解：断章取义，丢掉 less。）</td></tr><tr><td>D It is a hot topic in ethics classes</td><td>✗</td><td>topic 是本段复现词，但它指"研究者选定的这个话题"，不是"道德课上的热门话题"。（典型误解：借复现词偷换语义。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>三个原因里 B 只占一个，选 B 是否"以偏概全"？</strong>：题干问的是 a reason（原因之一），所以只要选项是三原因之一即正确；反而是"全都要"式的概括项才不在清单里。</li><li><strong>冒号在这里起什么作用？</strong>：reasons 后的冒号引出三项并列（X, Y and Z），其中第三项内嵌 because 从句。读长列举时先数清"有几项、各是什么"，再拿选项对号——A/C/D 都不在清单上，只有 B 与第二项严丝合缝。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：common 的所属对象是课程不是行为，跨段拼贴。</li><li><strong>误选 C</strong>：less 一词之差，语义反向。</li><li><strong>误选 D</strong>：被 topic 复现迷惑，未核对修饰关系。</li></ul>
+<blockquote>记忆锚点：原因题找 reasons 冒号列举："态度多变、<strong>易衡量</strong>、少吃肉好"三选一；easily measurable = easy to measure；less 是不能丢的方向词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

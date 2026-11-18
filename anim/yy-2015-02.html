@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-02 · 2015 考研英语（二）完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 2 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 2 所在句，考点：句内逻辑（because 因果）+ 不定代词", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It’s a sad reality – our desire to avoid interacting with other human beings – because there’s __2__ to be gained from talking to the stranger standing by you.</div><p>空格在 there be 句型中作<b>真实主语</b>，to be gained from talking to... 是不定式作后置定语：“跟身边的陌生人聊天，有 __ 可收获”。语义重心全落在空格的<b>量与褒贬</b>上。</p>"}, {"title": "机制 · because 从句要为“可悲”提供理由", "cls": "key", "tag": "证据", "log": "机制：because 解释为何 sad——空格必须表“收获多、正面”", "count": 0, "ribbon": null, "body": "<p>because 从句的任务是<b>解释主句为什么可悲</b>。可悲在哪？——“与陌生人聊天明明有收获（好事），我们却偏偏回避”。方向定了：空格必须表“<b>收获多、正面</b>”；反向的“收获少/没有”都会把因果拆掉——可悲的不是收获少，而是有收获却不去做。</p>"}, {"title": "逐项分析 · A nothing（没有什么）", "cls": "bad", "tag": "排除 A", "log": "A nothing（没有什么） ✗ 排除——“没有收获”使回避不可悲，因果反向", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>nothing 表“没有可收获的”→ 回避陌生人就毫无损失 →谈不上“可悲”，because 的因果反向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 sad 的对象搞反：可悲的不是收获少，是有收获却不去做。</p>"}, {"title": "逐项分析 · B little（几乎没有）", "cls": "bad", "tag": "排除 B", "log": "B little（几乎没有） ✗ 排除——little 自带否定，同样拆掉因果", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>little 表否定（区别于 a little），“几乎没有收获”，与 A 同病：为“回避”辩护，而不是解释“可悲”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看 little 比 nothing 语气轻，没意识到两者同为否定方向。</p>"}, {"title": "逐项分析 · C another（另一个）", "cls": "bad", "tag": "排除 C", "log": "C another（另一个） ✗ 排除——要求前文有可数的“第一个”，文中没有", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>another 指同类中的“再一个”，要求前文存在可数的第一项；there's much to be gained 结构里说的是收获的量，不是“又一份收益”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 another 能填进空格的词性，没核对其指代前提。</p>"}, {"title": "逐项分析 · D much（许多）", "cls": "good", "tag": "选定 D", "log": "D much（许多） ✓ 当选——“收获良多”与“偏偏回避”构成反差，正好解释 sad", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>much 表“大量、许多”：there's much to be gained = 收获良多。正因“有收获却不去做”，才构成 sad reality——因果方向正确。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（much 许多）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>这是个可悲的现实——我们回避与他人的交流——因为跟身边的陌生人聊天本可收获良多。</b></p><p>答案选 <b>D（much）</b>。</p><p><b>记忆锚点</b>：because 从句 = 为主句情绪找理由；先判褒贬方向，再选量词。</p><p style=\"color:#b91c1c\">最易误选：<b>B（little）</b>——把 sad 理解成“聊天没益处”，方向正好读反。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 2 空 · “可悲”的理由：与陌生人聊天到底有没有收获",
+  subtitle: "考点：句内逻辑（because 因果）+ 不定代词 · 方向检验 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（much 许多）", "html": "<b>D much（许多）</b>——有收获却回避，才可悲；because 从句为主句情绪找理由。<br>记忆锚点：because 从句 = 为主句情绪找理由；先判褒贬方向，再选量词。<br>最易误选：<b>B（little）</b>——little 自带否定，会把因果方向读反。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 2 空 · because 从句要为“可悲”提供理由</h2>
+<p>答案：<strong>D（much）</strong>。</p>
+<h3>第 0 步：先立机制——because 空的“方向检验”</h3>
+<p><code>It's a sad reality ... because there's __2__ to be gained...</code>：because 从句的任务是<strong>解释主句为什么可悲</strong>。可悲在哪？——“与陌生人聊天明明有收获（好事），我们却偏偏回避”。方向定了：空格必须表“<strong>收获多、正面</strong>”；反向的“收获少/没有”都会把因果拆掉——可悲的不是收获少，而是有收获却不去做。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It's a sad reality – our desire to avoid interacting with other human beings – because there's __2__ to be gained from talking to the stranger standing by you.</blockquote>
+<p>空格在 there be 句型中作真实主语，to be gained from talking to... 是不定式作后置定语：“跟身边的陌生人聊天，有 __ 可获得”。语义重心全落在空格的量与褒贬上。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A nothing</td><td>没有什么</td><td>✗ 排除</td><td>“没有收获”→ 回避不算可悲，因果反向。（典型误解：把 sad 的对象搞反。）</td></tr><tr><td>B little</td><td>几乎没有</td><td>✗ 排除</td><td>little 自带否定（区别于 a little），与 A 同病。（典型误解：以为 little 语气轻就算正面。）</td></tr><tr><td>C another</td><td>另一个</td><td>✗ 排除</td><td>指同类中的“再一个”，要求前文有可数的第一项，文中没有。（典型误解：只查词性不查指代前提。）</td></tr><tr><td>D much</td><td>许多</td><td>✓ 当选</td><td>“收获良多”与“偏偏回避”构成反差，正好解释 sad。</td></tr></tbody></table>
+<p>代入后的完整句义：这是个可悲的现实——我们回避与他人的交流——因为跟身边的陌生人聊天本可收获良多。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>little 不是比 nothing 委婉吗，为什么也算否定？</strong>：little = “少到几乎没有”，本身带否定色彩；a little 才是肯定。两者方向相同，都替“回避”辩护，救不了 sad 的因果。</li><li><strong>another 为什么不行？它也是“有收获”呀</strong>：another 的前提是同类第一项已出现（one...another...）；前文没有“一份收益”作铺垫，且这里谈的是收获的量而非份数。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（little）</strong>：把 sad 的对象搞反——以为可悲指“聊天没益处”；其实可悲的是“有益处却躲着不聊”。</li><li><strong>误选 A（nothing）</strong>：同 B 且绝对化更重。</li><li><strong>误选 C（another）</strong>：只看词性能填，不查指代前提。</li></ul>
+<blockquote>记忆锚点：because 从句 = 为主句情绪找理由；先判褒贬方向，再选量词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

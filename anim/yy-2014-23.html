@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-23 · 2014 阅读第 23 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 例证题：观点在前、例子在后",
+  "cls": "key",
+  "tag": "审题",
+  "log": "例子本身不是考点，例子服务的观点才是——找“回指胶水”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>McRib is mentioned in Paragraph 3 to show that ____.</b></p><p>例证题的固定结构：观点句在前、例子句在后，中间常有 This is the reason / such / that's why 这类“回指胶水”。McRib 所在的④句开头正是 <b>This is apparently the reason...</b>——它自报家门：我只是③句观点的例子。</p>"
+ },
+ {
+  "title": "定位原文 · 第三段③④句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：③句观点（节制消费才最享受）+ ④句例子（麦当劳限量供应 McRib）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...and <b>luxuries are most enjoyable when they are consumed sparingly</b>. <b>This is apparently the reason</b> McDonald's restricts the availability of its popular McRib — a marketing trick that has turned the pork sandwich into an object of obsession.</div><p>③句观点：奢侈品只有<b>节制地消费</b>（consumed sparingly = 偶尔买、限量买）才最享受；④句例子：麦当劳<b>限制供应</b>（restricts the availability）→ 变成令人痴迷之物。</p>"
+ },
+ {
+  "title": "同义替换 · 观点句的改写",
+  "cls": "key",
+  "tag": "替换",
+  "log": "consumed sparingly / restricts availability → rarity；most enjoyable → pleasure",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>consumed sparingly / restricts the availability → <b>稀缺、难得</b>；most enjoyable / an object of obsession → <b>愉悦感提升</b>。D 项 <b>rarity generally increases pleasure</b> = ③句观点的改写。</p>"
+ },
+ {
+  "title": "逐项分析 · A consumers are sometimes irrational",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 消费者有时不理智 ✗ 排除——过度引申，作者认可这种心理规律",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“难得的东西更让人渴望、得到后更愉悦”是作者认可的心理规律（他建议读者用它享受愉悦），作者没说这“不理智”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：给“排队抢购”贴上“非理性”标签，替作者加了道德判断。</p>"
+ },
+ {
+  "title": "逐项分析 · B popularity usually comes after quality",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 流行来自品质 ✗ 排除——无中生有，全文没碰“品质”",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>McRib 走红靠的是<b>饥饿营销</b>，与品质无关，全文没有任何“品质”信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由 popular 一词脑补质量逻辑。</p>"
+ },
+ {
+  "title": "逐项分析 · C marketing tricks are often effective",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 营销策略通常起效 ✗ 排除——偷换考点：例子字面 ≠ 被证明的观点",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>营销确实成功了，但那是<b>例子</b>的字面内容；题目问例子<b>说明什么观点</b>——本文主题是“怎么花钱更快乐”，不是“怎么营销”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例子的原词当答案——例证题里原词照搬的选项往往是“例子本身”。</p>"
+ },
+ {
+  "title": "逐项分析 · D rarity generally increases pleasure",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D 稀缺通常提升愉悦感 ✓ 当选——③句“节制消费才最享受”的改写",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>This is the reason 指回③句：节制消费（稀缺）才最享受（愉悦提升）——D 是观点句的同义改写。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（rarity generally increases pleasure）——观点在例子上一句",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>D（rarity generally increases pleasure）</b>。</p><p><b>记忆锚点</b>：This is the reason... = 例证句自报家门，观点在上一句；consumed sparingly ↔ restricts availability ↔ rarity；例证题选“观点改写”，警惕“例子原词”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 C（最强干扰）——marketing trick 是原文原词。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 23 题 · 提 McRib 干什么——例证题的答案在例子上一句",
+  subtitle: "考点：例证题 · This is the reason 指回观点句：consumed sparingly ↔ rarity",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（rarity generally increases pleasure）",
+ "html": "<b>D 稀缺通常提升愉悦感</b>：④句 This is apparently the reason 自报家门，指回③句“奢侈品只有节制消费才最享受”。<br>A 过度引申“不理智”；B“品质”无中生有；C 是例子字面而非论点。<br>最易误选：<b>C</b>——原词陷阱。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 23 题 · 提 McRib 干什么——例证题的答案在例子上一句</h2>
+<p>答案：<strong>D（rarity generally increases pleasure）</strong>。</p>
+<h3>第 0 步：先立机制——例子本身不是考点，例子服务的观点才是</h3>
+<p>例证题的固定结构：观点句在前、例子句在后，中间常有 This is the reason / such / that's why 这类"回指胶水"。McRib 所在的④句开头正是 This is apparently the reason...——它自报家门：我只是③句观点的例子。答案去③句找，不去麦当劳找。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...and luxuries are most enjoyable when they are consumed sparingly. This is apparently the reason McDonald's restricts the availability of its popular McRib — a marketing trick that has turned the pork sandwich into an object of obsession.</blockquote>
+<p>③句观点：奢侈品只有<strong>节制地消费</strong>（consumed sparingly = 偶尔买、限量买）才最享受；④句例子：麦当劳<strong>限制供应</strong>（restricts the availability）McRib，把它变成令人痴迷之物（an object of obsession）。</p>
+<h3>第 2 步：同义替换</h3>
+<p>consumed sparingly / restricts the availability → 稀缺、难得；most enjoyable / an object of obsession → 愉悦感提升。D 项 rarity generally increases pleasure（稀缺通常提升愉悦感）= ③句观点句的改写。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D rarity generally increases pleasure</td><td>稀缺通常提升愉悦感</td><td>✓ 当选</td><td>例证句 This is the reason 指回③句"节制消费才最享受"。</td></tr><tr><td>A consumers are sometimes irrational</td><td>消费者有时不理智</td><td>✗ 排除</td><td>过度引申：难得的东西更让人渴望、得到后更愉悦，是作者认可的心理规律，作者没说这"不理智"。（典型误解：给"排队抢购"贴上"非理性"标签。）</td></tr><tr><td>B popularity usually comes after quality</td><td>流行往往来自品质</td><td>✗ 排除</td><td>无中生有：McRib 走红靠饥饿营销，全文没碰"品质"二字。（典型误解：由 popular 一词脑补质量逻辑。）</td></tr><tr><td>C marketing tricks are often effective</td><td>营销策略通常会起效</td><td>✗ 排除</td><td>偷换考点：营销确实成功了，但那是<strong>例子</strong>的字面内容；题目问例子<strong>说明什么观点</strong>——本文主题是"怎么花钱更快乐"，不是"怎么营销"。（典型误解：把例子的原词当答案。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>例证题为什么不能选例子里的事实？</strong>：例子是作者请来的证人，问题问的是证人证明的"论点"——问 to show that，就答观点句。</li><li><strong>an object of obsession 不是"疯狂"吗？能推出 irrational？</strong>：obsession 描述"稀缺放大渴望"的效果，作者对这种心理是中性的、甚至是利用的态度（建议读者节制消费以享受愉悦），没有批评消费者。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：marketing trick 是原文原词——例证题里，原词照搬的选项往往是"例子本身"而非"被证明的观点"。</li><li><strong>误选 A</strong>：把"稀缺 → 渴望"的正常心理读成"不理智"，替作者加了道德判断。</li></ul>
+<blockquote>记忆锚点：This is the reason... = 例证句自报家门，观点在上一句；consumed sparingly ↔ restricts availability ↔ rarity；例证题选"观点改写"，警惕"例子原词"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

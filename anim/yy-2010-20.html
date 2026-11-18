@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·20 完形 · 高危人群名单里的身份关系</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：列举句', cls: 'key',
+    body: '<p>冒号后是一张<b>高危人群名单</b>：health care workers, people __20__ infants and healthy young people。空格要填 people 与 infants 之间的<b>关系</b>。</p>',
+    log: '名单逻辑：关系决定"为何要接种"' },
+  { title: '定位原文', cls: 'key',
+    body: src('“But it was still possible to vaccinate people in <b>other high-risk groups</b>: health care workers, people __20__ infants and healthy young people.”') +
+      '<p>名单暗含同一个理由：都<b>接触</b>传染链——医护接触病源，照料者接触婴儿。</p>',
+    log: '高危 = 接触源人群' },
+  { title: '空格任务：照料关系', cls: 'step',
+    body: '<p>"照料婴幼儿的人"密切接触婴儿，属于免疫保护链条上的高危群体。空格短语要能造出 <b>people __ infants = 照料婴儿的人</b> 这个身份。</p>',
+    log: '空格 = people 与 infants 的关系' },
+  { title: 'A involved in：搭配崩坏', cls: 'bad',
+    body: '<p>involved in 卷入、涉及——后接<b>活动、事件</b>，接 infants 成了"卷入婴儿"，搭配不通。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A involve in 接事件不接人' },
+  { title: 'C concerned with：态度不是身份', cls: 'bad',
+    body: '<p>concerned with 关心、涉及——"关心婴儿"貌似温情，但 concerned with 多指"与……有关"；<b>关心</b>不构成"需要接种"的理由，名单要的是接触/照料关系。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C"关心"≠"接触照料"' },
+  { title: 'D warding off：方向相反', cls: 'bad',
+    body: '<p>warding off 避开、挡住——宾语应是疾病、危险："挡住病毒"可以，"避开婴儿"与"高危群体应接种"逻辑相反。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D ward off 病毒 ≠ ward off 婴儿' },
+  { title: 'B caring for：身份闭环', cls: 'good',
+    body: '<p>caring for 照顾、照料——<b>people caring for infants</b> = 照料婴幼儿的人：身份成立、语义通顺，与医护人员同列"接触高危源"群体。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B = 照料者，高危名单成立' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（caring for）</b>。记忆锚点：<b>高危人群 = 接触源人群</b>——health care workers 接触病源，people caring for infants 接触婴儿；ward off 病毒可以，ward off 婴儿不行。</p>',
+    log: '锁定 B（caring for）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 20 · 高危人群名单里的身份关系',
+  subtitle: '考点：句内语义（列举一致性）＋ 短语搭配 · 选项：involved in / caring for / concerned with / warding off',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（caring for）',
+    html: '记忆锚点：<b>名单内部要语义一致</b>——高危人群靠"接触"入列：医护接触病源、照料者接触婴儿 → <b>caring for</b>。involved in 接事件、concerned with 是态度、warding off 方向相反。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：people __ infants——高危人群名单里的身份关系</h2>
+<p>答案：<strong>B（caring for）</strong>。</p>
+<h3>第一步：先立机制——列举句的语义一致性</h3>
+<p>冒号后是一张高危人群名单：health care workers, people __20__ infants and healthy young people。名单要回答"为什么这些人也要接种"——医护人员接触病源、<strong>照料婴儿的人接触婴儿</strong>、健康年轻人是接种的低风险对象。所以空格要填 people 与 infants 之间的<strong>照料关系</strong>，这个关系决定了他们属于"需要被保护的接触人群"。</p>
+<h3>第二步：定位原文——接在 18/19 题的语境上</h3>
+<blockquote>But it was still possible to vaccinate people in other high-risk groups: health care workers, people __20__ infants and healthy young people.</blockquote>
+<p>鼻喷剂型虽不宜给孕妇等人使用，但其他高危群体<strong>仍需接种</strong>——"照料婴幼儿的人"正是在列的高危群体：他们密切接触婴儿，是免疫保护链条上的一环。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A involved in</td><td>卷入、涉及</td><td>后接活动、事件，接 infants 成了"卷入婴儿"，搭配不通</td></tr><tr><td>B caring for</td><td>照顾、照料</td><td>people caring for infants = 照料婴幼儿的人，身份成立、语义通顺</td></tr><tr><td>C concerned with</td><td>关心、涉及</td><td>"关心婴儿"貌似温情，但 concerned with 多指"与……有关"，且"关心"不构成接种理由</td></tr><tr><td>D warding off</td><td>避开、挡住</td><td>"避开婴儿"与"高危群体应接种"的逻辑相反</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C（concerned with）</strong>：concern 有"关心"义，与"婴儿"搭配貌似合理。但名单要的是<strong>接触/照料关系</strong>（决定是否暴露于传染环境），不是态度层面。</li><li><strong>选 A（involved in）</strong>：involve in 接事件不接人，把"带婴儿"硬塞进 in 后搭配崩坏。</li><li><strong>选 D（warding off）</strong>：ward off 的宾语是疾病、危险——"挡住病毒"，不是"挡住婴儿"，方向彻底反了。</li></ul>
+<blockquote>记忆锚点：高危人群 = 接触源人群——health care workers 接触病源，people <strong>caring for</strong> infants 接触婴儿；ward off 病毒可以，ward off 婴儿不行。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

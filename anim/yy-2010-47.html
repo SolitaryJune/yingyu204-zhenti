@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2010-47 小作文谋篇：感谢信 + 邀请信的「一信两职」结构框架</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：一信两职',
+    cls: 'key',
+    body: '<p>指令两个动词定内容：<b>express your thanks for his/her warm reception</b>（必答点 1：感谢热情接待）+ <b>welcome him/her to visit China in due course</b>（必答点 2：适时邀请访华）。信型 = <b>感谢信 + 邀请信</b>合体。</p><p>收信人是 American colleague（认识的人）→ 语气礼貌亲切、半正式即可，不必 Dear Sir or Madam。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>指令两条硬约束：<b>Do not sign your own name</b> → 落款必须署 <b>Zhang Wei</b>；<b>Do not write your address</b> → 不写地址。书信三件套齐全：称呼（Dear...）+ 正文 + 落款（Yours sincerely, Zhang Wei）。署真名或写地址 = 直接踩格式扣分线。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> 感谢 + 细节（对方做了什么、我收获了什么）；<b>段 2</b> 邀请 + 回报承诺（in due course 访华，reciprocate hospitality）；<b>段 3</b> 一句期待收尾。两个必答点分别锚定段 1、段 2，缺一即结构性掉档。</p>' },
+  { title: '段 1：感谢要有细节',
+    cls: 'good',
+    body: '<p>空泛的 Thank you very much 撑不起段落——感谢的说服力来自「对方做的事对我产生的影响」：</p><p>体贴接待 → <b>made me feel at home</b>（宾至如归）；详解风俗 → <b>detailed explanation of American custom</b>；实际收获 → <b>get over culture shock</b>（克服文化冲击）+ 更深理解美国文化。</p>' },
+  { title: '段 1 升格：三句并一句',
+    cls: 'good',
+    body: '<p>简单句 You provided explanation / You helped me overcome / You helped me know better → 用<b>现在分词作结果状语</b>压成一句：</p><p><b>You kindly provided detailed explanation of American custom, assisting me to get over culture shock soon and, more importantly, have deeper understanding of American culture.</b></p>' },
+  { title: '段 2 升格：邀请配回报',
+    cls: 'good',
+    body: '<p>邀请句升格为 <b>so that 目的状语从句</b>：</p><p><b>I highly welcome you to come to China in due course so that I can reciprocate your hospitality.</b></p><p>in due course = 适时；reciprocate your hospitality = 回报款待——邀请与感谢形成「礼尚往来」闭环。</p>' },
+  { title: '段 2 升格：承诺句',
+    cls: 'good',
+    body: '<p>承诺来访收获，用<b>介词 + which 非限制性定语从句</b>：</p><p><b>I promise you a fantastic visit, through which you may gain a deep insight into Chinese culture.</b></p><p>段 3 只需一句 <b>Look forward to your visit</b> + 落款。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>reciprocate 回报 · hospitality 款待 · considerate 体贴的 · feel at home 宾至如归 · culture shock 文化冲击 · get over 克服 · gain a deep insight into 深刻理解 · in due course 适时 · detailed explanation 详尽的解说</p>' },
+  { title: '成文检查：三查一控',
+    cls: 'key',
+    body: '<p><b>一查要点</b>：感谢（带细节）与邀请（带回报）都在；<b>二查格式</b>：称呼 + Yours sincerely, Zhang Wei，无地址；<b>三查语气</b>：半正式、亲切礼貌，无公文腔；<b>控字数</b>：100 词左右。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>感谢配细节，邀请配回报，落款 Zhang Wei</b>；升格靠句法框架（分词状语 / so that / through which），不靠堆难词。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2010-47 小作文谋篇演示：感谢信 + 邀请信的「一信两职」',
+  subtitle: '考点：应用文写作 · 方法：拆指令 → 定框架 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>My Dear Friend, thank you very much for receiving me, a delegate of Sino-American cultural exchange program, during my visit to America. Your considerate and warm reception made me feel at home. You kindly provided detailed explanation of American custom, assisting me to get over culture shock soon and, more importantly, have deeper understanding of American culture. I had a great time there, and I really appreciate everything you have done for me.</p>' +
+      '<p>Additionally, I highly welcome you to come to China in due course so that I can reciprocate your hospitality. I promise you a fantastic visit, through which you may gain a deep insight into Chinese culture. Look forward to your visit.</p>' +
+      '<p>Yours sincerely, Zhang Wei</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>格式 + 要点 + 升格</b>三线并行；两个必答点缺一掉档。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：感谢信 + 邀请信的「一信两职」——2010 小作文</h2>
+<p>答案（参考范文口径）：<strong>My Dear Friend,</strong> Thank you very much for receiving me, a delegate of Sino-American cultural exchange program, during my visit to America. Your considerate and warm reception made me feel at home. You kindly provided detailed explanation of American custom, assisting me to get over culture shock soon and, more importantly, have deeper understanding of American culture. I had a great time there, and I really appreciate everything you have done for me. Additionally, I highly welcome you to come to China in due course so that I can reciprocate your hospitality. I promise you a fantastic visit, through which you may gain a deep insight into Chinese culture. Look forward to your visit. <strong>Yours sincerely, Zhang Wei</strong></p>
+<h3>第 0 步：先立机制——小作文按「格式 + 要点 + 升格」三线评分</h3>
+<p>小作文的分数不由"文笔"单独决定，而是三条线并行：<strong>格式</strong>（称呼/正文/落款是否符合书信规范与指令红线）、<strong>要点</strong>（题目指令列出的信息点是否逐条落实）、<strong>语言</strong>（同档内靠句式与用词升格拉开差距）。所以动笔前先拆指令，把每条指令翻译成"信里要出现的内容"，缺一条要点就掉档——这是小作文的评分机制，也决定了下面每一步的做法。</p>
+<h3>第 1 步：拆指令——每条指令对应信里的一个位置</h3>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>Write a letter</td><td>应用文类型 = 书信，格式必须完整</td><td>称呼 + 正文 + 落款</td></tr><tr><td>as a member of a Sino-American cultural exchange program</td><td>身份线索：文化交流项目成员，刚从美国回来</td><td>第一段自报身份</td></tr><tr><td>express your thanks for his/her warm reception</td><td>必答点 1：感谢热情接待</td><td>第一段</td></tr><tr><td>welcome him/her to visit China in due course</td><td>必答点 2：适时邀请对方访华</td><td>第二段</td></tr><tr><td>Use "Zhang Wei" instead / Do not write your address</td><td>格式红线：落款署 Zhang Wei，不写地址</td><td>落款</td></tr></tbody></table>
+<p>两个必答点缺一即结构性扣分；收信人是 American colleague（认识的人），语气礼貌亲切即可，不必用 Dear Sir or Madam 那种极正式套话。</p>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1 感谢 + 细节</strong>：光说 thank you very much 撑不起段落，要落到对方具体做了什么——接待体贴周到（made me feel at home）、详解美国风俗（detailed explanation of American custom）、帮我快速克服文化冲击、加深对美国文化的理解。细节是感谢的"证据"。</li><li><strong>段 2 邀请 + 回报</strong>：邀请对方适时来访（in due course），并说明来访的意义——回报对方款待（reciprocate your hospitality）、承诺一次深入了解中国文化的访问。邀请与感谢形成"礼尚往来"的闭环。</li><li><strong>段 3 收尾</strong>：一句期待（Look forward to your visit）+ 落款。</li></ul>
+<h3>第 3 步：语言升格——预判"同档内怎么拿高分"</h3>
+<p>升格的机制是<strong>把多个简单句压进一个句法框架</strong>，而不是堆大词：</p>
+<ul><li>三个简单句 You provided explanation / You helped me overcome culture shock / You helped me know better → 用现在分词作结果状语压成一句：You kindly provided detailed explanation of American custom, <strong>assisting me to</strong> get over culture shock soon <strong>and</strong>, more importantly, have deeper understanding of American culture.</li><li>邀请句用 <strong>so that 目的状语从句</strong>：I highly welcome you to come to China in due course <strong>so that</strong> I can reciprocate your hospitality.</li><li>承诺句用 <strong>介词 + which 非限制性定语从句</strong>：I promise you a fantastic visit, <strong>through which</strong> you may gain a deep insight into Chinese culture.</li><li>词汇升格：reciprocate（回报）、hospitality（款待）、considerate（体贴的）、in due course（适时）、get over culture shock（克服文化冲击）、gain a deep insight into（深入了解）。</li></ul>
+<h3>第 4 步：成文自检——三个"为什么"</h3>
+<ul><li><strong>为什么落款必须写 Zhang Wei</strong>：指令明令 Do not sign your own name，署真名 = 违反指令扣分。</li><li><strong>为什么不用 Dear Sir or Madam</strong>：收信人是自己认识的同事，生套公文称呼反而语气失当；用 Dear...（对方称呼）或 My Dear Friend 这类半正式称呼。</li><li><strong>为什么感谢段要有收获细节</strong>：感谢信的说服力来自"对方做的事对我产生了什么影响"，收获写实在，邀请段"回报"才有落点。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只写感谢漏掉邀请</strong>：必答点 2 缺失，内容完整性掉档——指令两个动词（express / welcome）就是评分清单。</li><li><strong>落款署自己的名字或忘写</strong>：格式红线踩线；正确是 Yours sincerely, Zhang Wei。</li><li><strong>写了地址</strong>：指令明令 Do not write your address。</li><li><strong>语气过文过公</strong>：通篇 I would be most obliged / hereby 这类公文腔，对"同事"失当；小作文半正式即可。</li><li><strong>感谢空泛</strong>：通篇没有一处具体细节，语言分与内容分同时受损。</li><li><strong>in due course 丢掉"适时"义</strong>：直接写成 invite you to come anytime，指令含义打了折扣。</li></ul>
+<blockquote>记忆锚点：小作文 = <strong>格式 + 要点 + 升格</strong>；感谢必配细节，邀请必配回报；落款红线 <strong>Zhang Wei</strong>、不写地址；升格靠句法框架（分词状语 / so that / through which），不靠堆难词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

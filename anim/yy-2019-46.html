@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2019-46 翻译长难句拆解：拔插入语 → 定僻义 → 重组译文 · underestimate 全文定调</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 七个句子面板：成分块与重组译文 */
+var SENT = [
+  { label: '句① It is easy to underestimate English writer James Herriot.',
+    chunks: [
+      { t: 'It', k: 'zhu', n: '形式主语（不译）' },
+      { t: 'is easy', k: 'zhu', n: '评价部分：容易' },
+      { t: 'to underestimate English writer James Herriot', k: 'zhu', n: '真正主语：低估这位作家这件事' }
+    ],
+    trans: '句①译文：英国作家詹姆斯·海里厄特容易被人低估。' },
+  { label: '句② He had such a pleasant, readable style that one might think that anyone could imitate it.',
+    chunks: [
+      { t: 'He had such a pleasant, readable style', k: 'zhu', n: '主干；style 指向作品 → 增译「作品风格」' },
+      { t: 'that one might think', k: 'cong', n: 'such…that 结果状语从句；might 推测兼质疑' },
+      { t: 'that anyone could imitate it', k: 'cong', n: 'think 的宾语从句；it 回指 style' }
+    ],
+    trans: '句②译文：他的作品风格欢快易读，让人觉得谁都可以模仿。' },
+  { label: '句③④⑤ How many times have I heard people say “…” / Easily said. Not so easily done.',
+    chunks: [
+      { t: 'How many times have I heard people say', k: 'zhu', n: '倒装 = 感叹「无数次」，非疑问' },
+      { t: '“I could write a book. I just haven’t the time.”', k: 'cong', n: '直接引语：大众的口头禅' },
+      { t: 'Easily said. Not so easily done.', k: 'mod', n: '省略句：承上启下，说易做难' }
+    ],
+    trans: '句③④⑤译文：有多少次我都听人说：“我也能写书。我只是没那时间。”说起来轻巧，做起来就没那么简单了。' },
+  { label: '句⑥ James Herriot, contrary to popular opinion, did not find it easy in his early days of, as he put it, “having a go at the writing game”.',
+    chunks: [
+      { t: 'James Herriot', k: 'zhu', n: '主语' },
+      { t: 'contrary to popular opinion', k: 'mod', n: '插入语①：与一般人的想法相反（全文转折路标）' },
+      { t: 'did not find it easy', k: 'zhu', n: '主干谓语：并不觉得容易' },
+      { t: 'in his early days of', k: 'mod', n: '写作生涯初期（非「早年」）' },
+      { t: 'as he put it', k: 'mod', n: '插入语②：正如他自己所说（put = 说，熟词僻义）' },
+      { t: '“having a go at the writing game”', k: 'cong', n: '引语：have a go = 尝试、玩一玩' }
+    ],
+    trans: '句⑥译文：和一般人的想法相反，用詹姆斯·海里厄特的话说，在“玩写作这种游戏”之初，他可没觉得很容易。' },
+  { label: '句⑦ While he obviously had an abundance of natural talent, the final, polished work that he gave to the world was the result of years of practicing, re-writing and reading.',
+    chunks: [
+      { t: 'While he obviously had an abundance of natural talent', k: 'cong', n: '让步状语从句：虽然天分极高（While 非时间义）' },
+      { t: 'the final, polished work … was the result of years of practicing, re-writing and reading', k: 'zhu', n: '主干：精湛作品 = 多年打磨的结果' },
+      { t: 'that he gave to the world', k: 'mod', n: '定语从句简短 →「的」字前置；the world → 世人' }
+    ],
+    trans: '句⑦译文：虽然他显然天分极高，但他最终呈现给世人的精湛作品却是多年写作练习、不断重写和阅读的结果。' },
+  { label: '句⑧ Like the majority of authors, he had to suffer many disappointments and rejections along the way, but these made him all the more determined to succeed.',
+    chunks: [
+      { t: 'Like the majority of authors', k: 'mod', n: '类比状语：跟大多数作家一样' },
+      { t: 'he had to suffer many disappointments and rejections along the way', k: 'zhu', n: '谓语①：遭受失望与被拒之苦' },
+      { t: 'but these made him all the more determined to succeed', k: 'zhu', n: '转折谓语②：all the more = 愈发' }
+    ],
+    trans: '句⑧译文：跟大多数作家一样，他一路走来也不得不遭受了许多失望和被拒之苦，但这些更坚定了他要成功的决心。' },
+  { label: '句⑨ Everything he achieved in life was earned the hard way and his success in the literary field was no exception.',
+    chunks: [
+      { t: 'Everything he achieved in life', k: 'zhu', n: '主语（含省略 that 的定语从句）' },
+      { t: 'was earned the hard way', k: 'mod', n: '固定短语：来之不易' },
+      { t: 'and his success in the literary field was no exception', k: 'zhu', n: '并列收束：也不例外' }
+    ],
+    trans: '句⑨译文：他一生的所有成就都是艰苦努力的结果，他在文学领域的成功也不例外。' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1], [0, 2]], trans: [0] },
+  { focus: [1], hot: [[1, 0]], trans: [] },
+  { focus: [1], hot: [[1, 1], [1, 2]], trans: [1] },
+  { focus: [2], hot: [[2, 0], [2, 2]], trans: [2] },
+  { focus: [3], hot: [[3, 0], [3, 2]], trans: [] },
+  { focus: [3], hot: [[3, 1], [3, 3], [3, 4], [3, 5]], trans: [3] },
+  { focus: [4], hot: [[4, 0]], trans: [] },
+  { focus: [4], hot: [[4, 1], [4, 2]], trans: [4] },
+  { focus: [5], hot: [[5, 0], [5, 1], [5, 2]], trans: [5] },
+  { focus: [6], hot: [[6, 0], [6, 1], [6, 2]], trans: [6] },
+  { hot: [[0, 0], [3, 1], [6, 1]], trans: [0, 1, 2, 3, 4, 5, 6] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2019-46 翻译长难句拆解：拔插入语 → 定僻义 → 重组译文 · underestimate 全文定调',
+  subtitle: '考点：英译汉 · 方法：拆结构 → 定词义 → 组语序（绿=主干 · 琥珀=修饰/插入语 · 蓝=从句/引语）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示九个句子的拆解与重组：先立「误解 → 点评 → 纠正」语义链，再逐句拆。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读定调：underestimate 是全文题眼——①-③句摆大众误解（文风平实人人可模仿），④⑤句点评「说易做难」，⑥-⑨句用「天赋+打磨+磨难」纠正误解。翻译三步：拆→定→组', count: 0 },
+    { cls: 'key', tag: '句①形式主语', log: 'It 是形式主语，真正主语是 to underestimate…——形式主语不译，整句按汉语评价句重组「……容易被人低估」', count: 1 },
+    { cls: 'key', tag: '句②主干', log: 'such…that 结果状语从句里又套 think 的宾语从句；主干只有 He had such a pleasant, readable style', count: 2 },
+    { cls: 'key', tag: '句②定音', log: '主语 He 指作家 → style 定音「作品风格」并增译；it 回指风格；might/could 推测语气暗含作者对大众看法的质疑', count: 3 },
+    { cls: 'shift', tag: '句③④⑤', log: 'How many times 倒装表感叹「无数次」而非疑问；Easily said. Not so easily done 是省略句，承上启下：说易做难', count: 4 },
+    { cls: 'key', tag: '句⑥拔插入语', log: 'contrary to popular opinion 与 as he put it 两处插入语把结构切碎；拔掉后主干只剩 James Herriot did not find it easy', count: 5 },
+    { cls: 'key', tag: '句⑥定音重组', log: 'put = 「说、表达」（熟词僻义）；have a go = 「尝试、玩一玩」；popular opinion 语境义「一般人的想法」；early days 指写作「初期」；插入语提前重组', count: 6 },
+    { cls: 'key', tag: '句⑦While', log: 'While 此处取让步义「虽然」——从句先天天赋与主句后天打磨构成对比，不是「当…时」', count: 7 },
+    { cls: 'ok', tag: '句⑦重组', log: 'an abundance of natural talent 糅合译「天分极高」；that 定语从句简短作「的」字前置；the world 意译「世人」；polished = 精湛的', count: 8 },
+    { cls: 'ok', tag: '句⑧转折', log: 'but 前后对比：前半「跟大多数作家一样」类比重申；rejections 结合写作语境 = 投稿被拒；all the more = 愈发——越受挫越坚定', count: 9 },
+    { cls: 'ok', tag: '句⑨收束', log: 'earned the hard way 固定短语「来之不易」；Everything 绝对化收束全篇，no exception 呼应题眼：文学成功也不例外', count: 10 },
+    { cls: 'done', tag: '全篇落定', log: '九句重组完成：大众「低估」被推翻——文风平实不等于容易模仿，成就 = 天赋 + 多年打磨 + 历尽磨难', count: 11, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组 三步落定全篇',
+    html: '<p><b>参考译文（答案口径）</b>：英国作家詹姆斯·海里厄特容易被人低估。他的作品风格欢快易读，让人觉得谁都可以模仿。有多少次我都听人说，“我也能写书。我只是没那时间。”说起来轻巧，做起来就没那么简单了。和一般人的想法相反，用詹姆斯·海里厄特的话说，在“玩写作这种游戏”之初，他可没觉得很容易。虽然他显然天分极高，但他最终呈现给世人的精湛作品却是多年写作练习、不断重写和阅读的结果。跟大多数作家一样，他一路走来也不得不遭受了许多失望和被拒之苦，但这些更坚定了他要成功的决心。他一生的所有成就都是艰苦努力的结果，他在文学领域的成功也不例外。</p>' +
+      '<p>记忆锚点：<b>双插入语先拔后拆，主干自然浮出</b>；contrary to popular opinion = 全文转折路标；put / have a go / the hard way 靠语境定音；While 先判让步还是时间。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 翻译——“拆-定-组”拆掉双插入语与三处熟词僻义</h2>
+<p>答案（参考译文）：<strong>英国作家詹姆斯·海里厄特容易被人低估。他的作品风格欢快易读，让人觉得谁都可以模仿。有多少次我都听人说：“我也能写书。我只是没那时间。”说起来轻巧，做起来就没那么简单了。和一般人的想法相反，用詹姆斯·海里厄特的话说，在“玩写作这种游戏”之初，他可没觉得很容易。虽然他显然天分极高，但他最终呈现给世人的精湛作品却是多年写作练习、不断重写和阅读的结果。跟大多数作家一样，他一路走来也不得不遭受了许多失望和被拒之苦，但这些更坚定了他要成功的决心。他一生的所有成就都是艰苦努力的结果，他在文学领域的成功也不例外。</strong></p>
+<h3>第 0 步：先立机制——全文是“大众误解 → 点评 → 纠正”的语义链</h3>
+<p>翻译不是逐词替换，每句都要走同一套流程：<strong>拆结构 → 定词义 → 组语序</strong>。本篇的语篇结构直接决定了几个关键译法怎么落：</p>
+<table><thead><tr><th>层次</th><th>句子</th><th>干什么</th><th>翻译落点</th></tr></thead><tbody><tr><td>大众误解</td><td>①-③</td><td>文风平实易读，人人可模仿</td><td>it is easy to do 评价句型；such...that 因果</td></tr><tr><td>点评</td><td>④⑤</td><td>说易做难</td><td>省略句 Easily said. Not so easily done 承上启下</td></tr><tr><td>纠正</td><td>⑥-⑨</td><td>天赋 + 打磨 + 磨难 = 成就</td><td>双插入语切主干、While 让步、固定短语</td></tr></tbody></table>
+<p>underestimate 是全文题眼：①句说“容易低估”，埋下大众的误解；⑥句 <code>contrary to popular opinion</code> 标志作者由“大众看法”转入“正确看法”——这句插入语是全篇转折的路标，必须译成“与一般人的想法相反”，不能丢。理解了这条链，后面每个句子的处理都不是猜的，而是从结构里推出来的。</p>
+<h3>第 1 步：句①②——评价句型与 such...that</h3>
+<ul><li>句① <code>It is easy to underestimate English writer James Herriot.</code>：it 是形式主语，真主语是 to underestimate...——形式主语<strong>不译</strong>，整句按汉语评价句重组：“……容易被人低估”（被动隐含“人们低估他”）。</li><li>句② such...that 结果状语从句内又套一层 that 宾语从句（think 的宾语），两层从句一次拆清：主干只有 <code>He had such a pleasant, readable style</code>。</li><li><strong>style 定音</strong>：主语 He 指作家，故 style 指<strong>作品/写作风格</strong>，增译“作品风格”；句尾 it 回指同一风格。might、could 是推测语气，暗含作者对大众看法的质疑——“让人觉得谁都可以模仿”。</li></ul>
+<h3>第 2 步：句③④⑤——倒装感叹与省略句</h3>
+<ul><li><code>How many times have I heard people say</code> 不是疑问句，而是感叹强调：“有多少次我都听人说”——表“无数次”，说明这种低估屡见不鲜。</li><li><code>Easily said. Not so easily done.</code> 是省略句（源自 easily said than done 的化用），两句同义复现、承上启下：④承上总结大众认知“创作说来容易”，⑤启下引出实际情况“做来不易”。译作“说起来轻巧，做起来就没那么简单了”。</li></ul>
+<h3>第 3 步：句⑥——双插入语切割主干（本篇最难的句子）</h3>
+<p><code>James Herriot, contrary to popular opinion, did not find it easy in his early days of, as he put it, “having a go at the writing game”.</code></p>
+<ul><li><strong>先拔插入语再找主干</strong>：contrary to popular opinion 插在主谓之间，as he put it 插在介宾 of 与其宾语之间，把结构切碎。拔掉两处插入语，主干只剩 <code>James Herriot did not find it easy</code>。</li><li>两处插入语都有功能：前者是转折路标（呼应第 0 步的语义链），后者 <code>put</code> 是熟词僻义“说、表达”（不是“放”），标志后文引号内是海里厄特本人的话。</li><li>重组：插入语按汉语习惯提前，<code>of</code> 短语是 his early days 的后置定语（“……之初”）：“和一般人的想法相反，用詹姆斯·海里厄特的话说，在“玩写作这种游戏”之初，他可没觉得很容易。”</li></ul>
+<h3>第 4 步：句⑦⑧⑨——While 让步、定语从句与固定短语</h3>
+<ul><li>句⑦ <strong>While 取让步义</strong>：“虽然他显然天分极高”。判断依据：从句天赋（先天）与主句多年打磨（后天）构成对比关联，不是时间“当……时”。an abundance of natural talent 糅合译作“天分极高”；that he gave to the world 定语从句简短，处理成“的”字结构，the world 意译“世人”；polished 译“精湛的”。</li><li>句⑧ but 前后对比：前半“跟大多数作家一样……遭受许多失望和被拒之苦”（rejections 结合写作语境 = 投稿被拒），后半 <code>all the more</code>（愈发、更加）把“道路艰辛”与“必胜决心”接成因果：“越受挫越坚定”。</li><li>句⑨ <code>earned the hard way</code> 是固定短语“来之不易”；Everything 绝对化收束全篇，no exception 呼应题眼——文学上的成功也不例外。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>句①译成“低估英国作家詹姆斯·海里厄特是容易的”</strong>：没识别形式主语句型的评价功能，欧化生硬。</li><li><strong>such...that 丢掉结果义</strong>：译成“他有平易风格，人们觉得能模仿”，“如此……以至于”的因果链断了。</li><li><strong>contrary to popular opinion 译“与流行观点相反”</strong>：popular opinion 结合语境是“一般人的想法”，不是“流行观点”。</li><li><strong>as he put it 丢掉或译“正如他放置的”</strong>：put 熟词僻义“说、表达”没看出来。</li><li><strong>have a go at 直译“有一次去写作游戏”</strong>：have a go 是固定表达“尝试一下”，配 writing game 取“玩一玩写作这种游戏”的口吻。</li><li><strong>While 译成“当……时”</strong>：让步义没识别，天赋与打磨的对比就立不住。</li><li><strong>his early days 译“早年”</strong>：后接写作历程，应译“早期/初期”。</li><li><strong>the hard way 直译“用艰难的方式”</strong>：固定短语“来之不易”，且是上文 all the hardships 的上义词收束。</li><li><strong>rejections 译“拒绝”</strong>：语境是投稿被拒，宜作“被拒之苦”。</li></ul>
+<blockquote>记忆锚点：翻译三步 <strong>拆-定-组</strong>；双插入语先拔后拆，主干自然浮出；contrary to popular opinion = 转折路标；put / have a go / the hard way 三处熟词僻义靠主语与语境定音；While 先判让步还是时间。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

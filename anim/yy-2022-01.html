@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-01 · 2022 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 1 所在句，考点：句内语义 + 同义复现",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("For him writing is a __1__ job—a job like any other.") +
+    "<p>空格形容词修饰 job，破折号后紧跟同位解释 <b>a job like any other</b>（一份和其他任何工作一样的工作）——考点是句内语义复现。</p>"
+ },
+ {
+  "title": "机制 · 破折号后自带答案",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：破折号后的解释必须能无损改写空格词",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完形填空里，破折号后如果跟了对名词的解释，空格词就必须能被它<b>无损改写</b>。所以本题不必逐个背词义，只需回答：哪个形容词能被「像其他任何工作一样」无损替换？</p>" +
+    "<p>答案候选只可能是「平常的/普通的」这一维度的词。</p>"
+ },
+ {
+  "title": "证据 · 首句把写作拉下神坛",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：首句观点——找不到写作时间就不是作家",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Harlan Coben believes that if you're a writer, you'll find the time; and that if you can't find the time, then writing isn't a priority and you're not a writer.") +
+    "<p>首句立观点：作家就该找得到写作时间。空格句用「和其他工作一样」进一步说明：写作只是要按时干完的本职工作——作家应像其他行业从业者一样挤出时间。</p>"
+ },
+ {
+  "title": "逐项分析 · A difficult（困难的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A difficult（困难的） ✗ 排除——与同位解释对不上",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>「难」无法被 a job like any other 解释——普通工作未必难，难的也未必普通。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：被首句「找不到时间写作」带偏，以为在强调写作之难。</p>"
+ },
+ {
+  "title": "逐项分析 · B normal（正常的；一般的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B normal（正常的；一般的） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>a normal job ↔ a job like any other 同义复现，代入读作「写作是一份平常的工作——和其他任何工作一样」，语义语法双合。</p>"
+ },
+ {
+  "title": "逐项分析 · C steady（稳定的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C steady（稳定的） ✗ 排除——不同维度",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>steady 强调收入/状态「稳定不波动」（a steady income），与「像其他任何工作」的普通性无关。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：联想「作家靠写作稳定谋生」，凭常识脑补。</p>"
+ },
+ {
+  "title": "逐项分析 · D pleasant（令人愉快的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D pleasant（令人愉快的） ✗ 排除——感受维度，非普通性维度",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>「愉快」是个人感受维度，与解释说明强调的「普通性」不在一个维度。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：认为写作是热爱之事故而愉快。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（normal 正常的；一般的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>对他而言，写作是一份平常的工作——和其他任何工作一样。</b></p>" +
+    "<p>答案选 <b>B（normal 正常的；一般的）</b>。</p>" +
+    "<p><b>记忆锚点</b>：破折号后接同位解释 → 空格词必须能被它无损改写；normal job = a job like any other。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>A（difficult）</b>——把首句「找不到时间」当成写作难，没回到同位解释处验证。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 1 空 · 写作是一份 ____ 工作——“和其他任何工作一样”",
+  subtitle: "考点：句内语义 + 同义复现 · 破折号同位解释 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（normal）",
+    html: "<b>B normal（正常的；一般的）</b>。<br>记忆锚点：破折号后接同位解释 → 空格词必须能被它无损改写；normal job = a job like any other。<br>最易误选：<b>A（difficult）</b>——被首句「找不到时间」带偏，没回到破折号后的同位解释处验证。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 1 空 · "a ____ job" 与 "a job like any other" 的同义复现</h2>
+<p>答案：<strong>B（normal 正常的；一般的）</strong>。</p>
+<h3>第 0 步：先立机制——破折号是"自带答案"的信号</h3>
+<p>完形填空里，破折号后面如果跟了对前面名词的解释，空格词就必须能被这个解释"无损改写"。本题空格句自带这样的结构：For him writing is a __1__ job—a job like any other. 破折号后的 a job like any other（一份和其他任何工作一样的工作）就是 a ____ job 的同位解释。所以这道题不必逐个背四个词的释义，只需回答一个问题：哪个形容词能被"像其他任何工作一样"无损替换？</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For him writing is a __1__ job—a job like any other.</blockquote>
+<p>空格形容词修饰 job，破折号后接同位解释——考点是句内语义复现。</p>
+<h3>第 2 步：找证据——首句把写作"拉下神坛"</h3>
+<blockquote>Harlan Coben believes that if you're a writer, you'll find the time; and that if you can't find the time, then writing isn't a priority and you're not a writer.</blockquote>
+<p>首句立观点：作家就该找得到写作时间，找不到就说明写作没被当回事。紧接着的空格句用"和其他工作一样"进一步说明：写作不是特殊事业，只是一份要按时干完的本职工作——作家应像其他行业从业者一样挤出时间。能表达"平常、普通"的只有 normal。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A difficult</td><td>困难的</td><td>✗</td><td>"难"无法被 a job like any other 解释——普通工作未必难，难的也未必普通。（典型误解：被首句"找不到时间写作"带偏，以为在强调写作之难。）</td></tr><tr><td>B normal</td><td>正常的；一般的</td><td>✓</td><td>a normal job ↔ a job like any other 同义复现，语义语法双合。</td></tr><tr><td>C steady</td><td>稳定的</td><td>✗</td><td>"稳定"指收入/状态不波动，与"像其他任何工作"无关。（典型误解：联想"作家靠写作稳定谋生"，凭常识脑补。）</td></tr><tr><td>D pleasant</td><td>令人愉快的</td><td>✗</td><td>"愉快"是个人感受维度，与解释说明强调的"普通性"不在一个维度。（典型误解：认为写作是热爱之事故而愉快。）</td></tr></tbody></table>
+<p>代入后的完整句义：对他而言，写作是一份平常的工作——和其他任何工作一样。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 difficult 的干扰性最强？</strong>：首句确实暗示"人们往往找不到时间写作"，看似在说写作难。但空格句的解释方向是"普通"，不是"难"：作者用"像修管道一样"的平常工作观批评"找借口不写"。四个选项都能形容写作，但只有 normal 能与破折号后的解释对上。</li><li><strong>steady 不也是"正常上班"的意思吗？</strong>：steady 强调"稳定不变"（a steady income 收入稳定），指向工作状态；空格强调的是"普通性、无特殊性"，两者不同维度。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（difficult）</strong>：把首句"找不到时间"直接当成"写作难"，没有回到破折号后的同位解释处验证。</li><li><strong>误选 D（pleasant）</strong>：把"写作是热爱"的常识带入，忽略解释说明内容才是解题锚点。</li></ul>
+<blockquote>记忆锚点：破折号后接同位解释 → 空格词必须能被它无损改写；normal job = a job like any other。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

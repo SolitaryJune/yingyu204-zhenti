@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 3 空 · Travel on a London bus and you’ll __3__ see how this works with drivers：A nearly / B curiously / C eagerly / D quickly</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 3 在「Travel on a London bus and you’ll __3__ see how this works with drivers」；考点：上下文语义 + 副词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Travel on a London bus and you’ll <b>__3__</b> see how this works with drivers.</div><p>空 3 是修饰 see 的副词；see 的宾语是 how this works（这件事如何发生），指向“理解”，而非视觉动作。</p>"
+ },
+ {
+  "title": "立机制 · 例证过渡句：坐一趟车就能“明白”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：例证过渡句：坐一趟车就能“明白”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Travel on a London bus and you’ll <b>__3__</b> see how this works with drivers.</div><p>本句是从抽象论点转向实例的<b>过渡句</b>：上文刚说“理解目标设定的负面影响很难”，紧接着说“坐一趟伦敦公交，你就 __ 能明白这在司机身上是如何发生的”。Travel... and you’ll... 是“只要……就会……”的条件句式。</p><p>关键在 see 的词义：它在此不是“用眼睛看”，而是“明白、理解”（see = understand）。坐<b>一趟</b>车就能明白，突出的正是这个例子的说服力——直接、迅速。副词的裁判是 see 的这个词义：修饰“理解的速度” ⇒ quickly（很快就能明白）。</p>"
+ },
+ {
+  "title": "找证据 · 下文的连环问答印证：例子让人一看就懂",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：下文的连环问答印证：例子让人一看就懂",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Are they carefully inspected? Never. Do people get on without paying? Of course! ... Buses do so almost as frequently as cyclists.</div><p>下文用一串自问自答（查票吗？从不。逃票？当然有！闯红灯？家常便饭！）把抽象机制演成直观场景——这正是“坐一趟就能 quickly 明白”的兑现。nearly（差一点才明白）会削弱例子效力，curiously / eagerly（好奇地/热切地）则把“理解”误当成“张望”。</p>"
+ },
+ {
+  "title": "逐项分析 · A nearly（几乎）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A nearly（几乎）✗ 排除",
+  "body": "<p><b>排除。</b>nearly 表程度，nearly see = “差一点才明白”，暗示理解不彻底；与例子“让读者一坐车就懂”的服务目的相反。</p>"
+ },
+ {
+  "title": "逐项分析 · B curiously（好奇地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B curiously（好奇地）✗ 排除",
+  "body": "<p><b>排除。</b>curiously（好奇地）把 see 当成“张望”来修饰，捏造了“乘客好奇地看”的心理；此处 see 是思维上的“理解”，不接好奇心副词。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“在公交车上”的场景带偏，以为 see 是“看”这个动作，顺手配了个心理副词。</p>"
+ },
+ {
+  "title": "逐项分析 · C eagerly（热切地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C eagerly（热切地）✗ 排除",
+  "body": "<p><b>排除。</b>eagerly（热切地）同样把“理解”误读成视觉动作或欲望；eagerly see 不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：同 B 的思路，觉得“兴致勃勃地观察”；先给 see 定词义（understand），再选副词就不会跑偏。</p>"
+ },
+ {
+  "title": "逐项分析 · D quickly（迅速地）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D quickly（迅速地）✓ 当选",
+  "body": "<p><b>当选。</b>quickly（迅速地）修饰“明白”的速度：一趟车下来就懂，紧扣例子直观、有说服力的作用。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（quickly 迅速地）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>Travel on a London bus and you’ll quickly see how this works with drivers.（只要坐一趟伦敦公交，你很快就能明白这是如何发生在司机身上的。）</b></p><p>答案选 <b>D（quickly 迅速地）</b>。</p><p><b>记忆锚点</b>：Travel... and you’ll quickly see = 例证过渡句；see 接 how 从句 = 明白；修饰“理解”用 quickly，不接好奇心副词。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B（curiously）：被“在公交车上”的场景带偏，以为 see 是“看”这个动作，顺手配了个心理副词。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 3 空 · Travel on a London bus and you’ll __3__ see how this works with drivers：A nearly / B curiously / C eagerly / D quickly",
+  subtitle: "考点：上下文语义 + 副词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 D（quickly 迅速地）",
+ "html": "<b>D quickly（迅速地）</b>。<br>完整句：Travel on a London bus and you’ll quickly see how this works with drivers.（只要坐一趟伦敦公交，你很快就能明白这是如何发生在司机身上的。）<br>记忆锚点：Travel... and you’ll quickly see = 例证过渡句；see 接 how 从句 = 明白；修饰“理解”用 quickly，不接好奇心副词。<br>最易误选：<b>B curiously（好奇地）</b>——被“在公交车上”的场景带偏，以为 see 是“看”这个动作，顺手配了个心理副词。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 3 空 · see 在这里是“看”还是“明白”——副词的裁判</h2>
+<p>答案：<strong>D（quickly 迅速地）</strong>。</p>
+<h3>第 0 步：先立机制——例证过渡句：坐一趟车就能“明白”</h3>
+<blockquote>Travel on a London bus and you’ll <strong>__3__</strong> see how this works with drivers.</blockquote>
+<p>本句是从抽象论点转向实例的<strong>过渡句</strong>：上文刚说“理解目标设定的负面影响很难”，紧接着说“坐一趟伦敦公交，你就 __ 能明白这在司机身上是如何发生的”。Travel... and you’ll... 是“只要……就会……”的条件句式。</p>
+<p>关键在 see 的词义：它在此不是“用眼睛看”，而是“明白、理解”（see = understand）。坐<strong>一趟</strong>车就能明白，突出的正是这个例子的说服力——直接、迅速。副词的裁判是 see 的这个词义：修饰“理解的速度” ⇒ quickly（很快就能明白）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Travel on a London bus and you’ll <strong>__3__</strong> see how this works with drivers.</blockquote>
+<p>空 3 是修饰 see 的副词；see 的宾语是 how this works（这件事如何发生），指向“理解”，而非视觉动作。</p>
+<h3>第 2 步：找证据——下文的连环问答印证：例子让人一看就懂</h3>
+<blockquote>Are they carefully inspected? Never. Do people get on without paying? Of course! ... Buses do so almost as frequently as cyclists.</blockquote>
+<p>下文用一串自问自答（查票吗？从不。逃票？当然有！闯红灯？家常便饭！）把抽象机制演成直观场景——这正是“坐一趟就能 quickly 明白”的兑现。nearly（差一点才明白）会削弱例子效力，curiously / eagerly（好奇地/热切地）则把“理解”误当成“张望”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A nearly</td><td>几乎</td><td>✗ 排除</td><td>nearly 表程度，nearly see = “差一点才明白”，暗示理解不彻底；与例子“让读者一坐车就懂”的服务目的相反。</td></tr><tr><td>B curiously</td><td>好奇地</td><td>✗ 排除</td><td>curiously（好奇地）把 see 当成“张望”来修饰，捏造了“乘客好奇地看”的心理；此处 see 是思维上的“理解”，不接好奇心副词。（典型误解：被“在公交车上”的场景带偏，以为 see 是“看”这个动作，顺手配了个心理副词。）</td></tr><tr><td>C eagerly</td><td>热切地</td><td>✗ 排除</td><td>eagerly（热切地）同样把“理解”误读成视觉动作或欲望；eagerly see 不成立。（典型误解：同 B 的思路，觉得“兴致勃勃地观察”；先给 see 定词义（understand），再选副词就不会跑偏。）</td></tr><tr><td>D quickly</td><td>迅速地</td><td>✓ 当选</td><td>quickly（迅速地）修饰“明白”的速度：一趟车下来就懂，紧扣例子直观、有说服力的作用。</td></tr></tbody></table>
+<p>代入后的完整句义：Travel on a London bus and you’ll quickly see how this works with drivers.（只要坐一趟伦敦公交，你很快就能明白这是如何发生在司机身上的。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么 see 不可能是“看见”？</strong>：宾语是 how this works——一种机制、一个道理。看见的宾语应是人或物，“看见道理”不合语义；see + how/that 从句 = 明白、理解，是常见用法。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B / C（curiously / eagerly）</strong>：被公交场景带偏，把 see 理解成“观看”。副词题第一步永远是确认被修饰动词在本句的词义。</li></ul>
+<blockquote>记忆锚点：Travel... and you’ll quickly see = 例证过渡句；see 接 how 从句 = 明白；修饰“理解”用 quickly，不接好奇心副词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

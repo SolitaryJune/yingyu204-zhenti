@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·19 完形 · shape 的主题复现锁定</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：末段动词题 = 主题复现', cls: 'key',
+    body: '<p>完形末段的句子往往是对全文主题的<b>重申与收束</b>。答案不用现场发明——把通篇反复出现的那个关系<b>换个词再说一遍</b>即可。先回顾本文的主题链。</p>',
+    log: '末段空格 = 主题复现，先摆主题链' },
+  { title: '全文主题链回顾', cls: 'step',
+    body: '<p>① 首段：幸福的人更 productive、creative、愿冒险；② 第二段：幸福地区公司在 R&D 上花更多；③ 第四段：投资力度与当地幸福指数相关。<b>主题链：地方文化情感 → 暗中左右管理者决策 → 公司投资</b>。</p>',
+    log: '主题链：地域因素影响管理者决策' },
+  { title: '定位原文', cls: 'key',
+    body: src('“It’s not hard to imagine that local culture and sentiment would help ____ how executives think about the future.”') +
+      '<p>主语 <b>local culture and sentiment</b>（地方文化与情感），宾语 <b>how executives think about the future</b>（管理者思考未来的方式）——正是主题链“地域因素 → 管理者思维”那一环。</p>',
+    log: '主宾关系 = 文化作用于思维' },
+  { title: '空格任务：由内而外的影响', cls: 'step',
+    body: '<p>空格动词必须表达<b>潜移默化、由内而外地影响</b>——文化把管理者的思维“塑”成某个样子，这种影响已内化为思维的一部分。</p>',
+    log: '动词要表达“塑造/影响”' },
+  { title: 'A share：分享', cls: 'bad',
+    body: '<p>“分享思考方式”只是<b>并列展示</b>，够不上影响；主题链“文化 → 投资”断在这里。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 分享 ≠ 影响，链条断裂' },
+  { title: 'B rediscover：重新发现', cls: 'bad',
+    body: '<p>re- 前缀陷阱：凡“重新”先找“第一次”在哪里——文中没有“曾经发现过、后来遗失”的任何铺垫，<b>“重新”无源</b>。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B “重新”无文本来源' },
+  { title: 'C simplify：简化', cls: 'bad',
+    body: '<p>全文未提管理者思维“由繁到简”的走向，<b>方向凭空设定</b>；搭配顺口不等于语义成立。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 简化方向无依据' },
+  { title: 'D shape：塑造', cls: 'good',
+    body: '<p>文化<b>塑造</b>思维：由内而外、内化为思维一部分，正接主题链。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D 塑造 = 主题复现，命中' },
+  { title: '下文验证', cls: 'step',
+    body: '<p>下句研究者原话：<b>happy people would be more forward-thinking and creative</b>——幸福地方的人确实想得更长远，说明地方情绪<b>真的改变了思维内容</b>；只有 shape 能支撑这个后续，share/rediscover/simplify 都推不出它。</p>',
+    log: '下句“想得更长远”印证塑造' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D（shape）</b>。记忆锚点：<b>末段空格 = 主题复现</b>——文化/情绪 + 思维 → shape（塑造）；中性词（share）与无源词（rediscover、simplify）直接排除。</p>',
+    log: '锁定 D（shape）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 19 · shape——全文主题在末段重申',
+  subtitle: '考点：上下文语义 · 主题复现 · 选项 share / rediscover / simplify / shape',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开主题链与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（shape）',
+    html: '记忆锚点：末段动词题判据是<b>主题复现</b>——本文主题链“地方文化情感 → 管理者思维 → 公司投资”，空格动词须表达<b>由内而外的塑造</b> → shape。下文 happy people would be more forward-thinking 是它的实物证据。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：shape——全文主题在末段"重申"，空格动词必须接得住</h2>
+<p>答案：<strong>D（shape）</strong>。</p>
+<h3>第一步：先立机制——末段动词题的判据是"主题复现"</h3>
+<p>完形末段的句子往往不是新信息，而是对全文主题的<strong>重申与收束</strong>。所以这类空格的答案不需要现场发明，而是要把通篇反复出现的那个关系<strong>换个词再说一遍</strong>。本文的主题链只有一条：某地幸福指数高 → 该地公司投资更多、研发更多 → 地方文化情感在暗中左右管理者的决策。空格所在句正处于这条链的收口处。</p>
+<h3>第二步：定位原文，看主宾关系</h3>
+<blockquote>It's not hard to imagine that local culture and sentiment would help ____ how executives think about the future.</blockquote>
+<p>主语 local culture and sentiment（地方文化与情感），宾语是 how executives think about the future（管理者思考未来的方式）。句子要说的正是主题链里"地域因素 → 管理者思维"那一环，空格动词必须表达<strong>潜移默化、由内而外地影响</strong>。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A share</td><td>分享</td><td>"分享思考方式"只是并列展示，够不上"影响"，主题链断在这里</td></tr><tr><td>B rediscover</td><td>重新发现</td><td>文中没有"曾经发现过、后来遗失"的任何铺垫，"重新"无源</td></tr><tr><td>C simplify</td><td>简化</td><td>全文未提管理者思维"由繁到简"的走向，凭空设定方向</td></tr><tr><td>D shape</td><td>塑造、使成形</td><td>文化塑造思维：影响由内而外、且内化为思维一部分，正接主题链</td></tr></tbody></table>
+<h3>第四步：下文验证</h3>
+<p>空格所在句的下句是研究者的原话：happy people would be more forward-thinking and creative——幸福地方的人<strong>确实想得更长远</strong>，说明地方情绪真的改变了思维内容；只有 shape 能支撑这个后续，"分享/重发现/简化"都推不出它。</p>
+<h3>易错点</h3>
+<ul><li><strong>选 A（share）</strong>：被 help ____ how 从句的表面搭配吸引，忘了句子是主题句——"分享"是中性互动词，撑不起"文化影响投资"的全篇论证。</li><li><strong>选 C（simplify）</strong>：觉得 simplify how... 搭配顺口就选——但搭配顺口不等于语义成立，"简化思维"在文中没有任何落点。</li><li><strong>选 B（rediscover）</strong>：re- 前缀陷阱，凡是看到"重新"先找"第一次"在哪里，找不到就是无中生有。</li></ul>
+<blockquote>记忆锚点：末段空格 = 主题复现——<strong>文化/情绪 + 思维 → shape</strong>（塑造）；中性词（share）与无源词（rediscover、simplify）直接排除。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

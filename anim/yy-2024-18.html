@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-18 · 2024 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 本空是“解决措施”里的动词',
+    cls: 'key',
+    tag: '审题',
+    log: '动宾搭配 ____ some time in your diary + 语义须补救“没留出空白”',
+    count: 0,
+    body: '<p>空格短语作谓语，宾语是 <code>some time in your diary</code>。末段结构是“提出问题 → 给出对策”：药方必须针对病症“日程里从没为休息留出空白”，故动作应为“划出／留出一段时间”。</p>'
+  },
+  { title: '定位原文 · 问题句与对策句',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：空 18 位于末句祈使句的宾语从句，考点：上下文语义 + 动词短语',
+    count: 0,
+    body: quote('If you feel like you’re always doing something and there is never any __15__ in your calendar for downtime, you could suffer social burnout or social __16__.') +
+      quote('Make sure you __18__ some time in your diary when you’re __19__ for socialising and use this time to relax, __20__ and recover.') +
+      '<p>上句是病，下句是药：空间从未留出 → 现在去“标出”一段时间。</p>'
+  },
+  { title: '找证据 · 问题—对策闭环',
+    cls: 'key',
+    tag: '证据',
+    log: '找证据：and use this time to relax...——这段时间是被腾出来休息的',
+    count: 0,
+    body: '<p>对策句后半 <code>use this time to relax ... and recover</code> 说明被处理出的 some time 的用途：休息恢复。要“治”的就是问题句的 <b>no space for downtime</b>——空格动词必须表达“划出／标出”。</p>'
+  },
+  { title: '逐项分析 · A take over（接管；接手）',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A take over ✗ 排除——接管的必须是权责、企业、职务',
+    count: 1,
+    ribbon: { k: 'A', ok: false },
+    body: '<p><b>排除。</b>take over 的宾语是企业、国家、职责、岗位等，如 take over responsibility for this project。“接管日程簿里的一段时间”语义不通。</p><p style="color:#b91c1c">⚠ 典型误解：把“接手”泛化到任何宾语上，不查宾语类型。</p>'
+  },
+  { title: '逐项分析 · B wipe off（擦去；抹掉）',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B wipe off ✗ 排除——物理擦除义 + 与“利用这段时间”自相矛盾',
+    count: 2,
+    ribbon: { k: 'B', ok: false },
+    body: '<p><b>排除。</b>wipe off 针对物体表面：擦干液体、抹去表面物质。宾语 some time 是抽象时段，物理上擦不掉；更致命的是逻辑矛盾——时间既已“抹去”，何来 <code>use this time</code>？</p><p style="color:#b91c1c">⚠ 典型误解：中式直觉“日程满就该删安排”，把“腾出”想成“擦掉”。</p>'
+  },
+  { title: '逐项分析 · C add up（把……加起来）',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C add up ✗ 排除——计算义，与语境无关',
+    count: 3,
+    ribbon: { k: 'C', ok: false },
+    body: '<p><b>排除。</b>add up 用于求和场景，如 add up the number of calories。上下文不涉及任何计算，“把时间加起来”表意不明，也无法与后文“利用这段时间放松”衔接。</p>'
+  },
+  { title: '逐项分析 · D mark out（划出；标出）',
+    cls: 'good',
+    tag: '选定 D',
+    log: 'D mark out ✓ 当选——在日程簿里划出一段专属时间',
+    count: 3,
+    ribbon: { k: 'D', ok: true },
+    body: '<p><b>当选。</b>mark out = 用线画出范围、标出，如 They marked out a tennis court on the lawn。“在日程簿中标出一段时间来休息”正回应问题句“从未留出任何空白”，问题—对策闭环成立。</p>'
+  },
+  { title: '结论 · 完整句义与记忆锚点',
+    cls: 'good',
+    tag: '答案 D',
+    log: '答案 D（mark out 划出；标出）——完整句义见结论卡',
+    count: 3,
+    body: '<p>完整句义：<b>务必在日程簿里划出你没空社交、专门用来放松休息恢复的一段时间。</b></p><p>答案选 <b>D（mark out 划出；标出）</b>。</p><p><b>记忆锚点</b>：no space for downtime → mark out some time（划出）；wipe off 物理擦除、add up 数字求和、take over 只接管权责。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 完形第 18 空 · “在日程簿里____一些时间”该填哪个动词短语',
+  subtitle: '考点：上下文语义 + 动词短语辨析 · 问题句 → 对策句的呼应',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（mark out）',
+    html: '<b>D mark out（划出；标出）</b>——在日程簿里标出一段时间供休息，正回应“日程里从未留出空白”。<br>记忆锚点：wipe off 是物理擦除且与 use this time 矛盾，add up 是求和，take over 只接管权责；最易误选 <b>B（wipe off）</b>——“删安排”的直觉陷阱。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 18 空 · “在日程簿里____一些时间”填哪个动词短语</h2>
+<p>答案：<strong>D（mark out 划出；标出）</strong>。</p>
+<h3>第 0 步：先立机制——本空是“解决措施”里的动词</h3>
+<p>末段是“提出问题 → 给出对策”的结构：先说社交过度也伤人（social burnout），并点出病症“日程簿里从来没有为休息留出空白”；末句用祈使句 Make sure you ____ some time in your diary... 开药方。所以空格短语要满足两条：能跟 some time in your diary 构成动宾搭配；语义上是对“没留出空白”的补救——即“（在日程簿里）划出／标出一段时间”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>If you feel like you’re always doing something and there is never any __15__ in your calendar for downtime, you could suffer social burnout or social __16__.<br/>Make sure you __18__ some time in your diary when you’re __19__ for socialising and use this time to relax, __20__ and recover.</blockquote>
+<h3>第 2 步：找证据——问题句与对策句的呼应</h3>
+<p>问题句：日程排满、没有为 downtime 留出空间；对策句后半：and use this time to relax... and recover——被腾出的“这段时间”是拿来休息恢复的。药方要治的正是“没留出空白”，故空格动作 = 在日程簿里“划出／标出”一段专属时间。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A take over</td><td>接管；接手</td><td>✗</td><td>宾语是企业、职务、职责等，“接管日程簿里的一段时间”语义不通</td></tr><tr><td>B wipe off</td><td>擦去；抹掉</td><td>✗</td><td>针对物体表面做物理清除；宾语是抽象的“时间”擦不掉，且时间既已抹去，后文“利用这段时间”便无从谈起</td></tr><tr><td>C add up</td><td>把……加起来</td><td>✗</td><td>用于计算场景；上下文不涉及求和，“把时间加起来”与后文无法衔接</td></tr><tr><td>D mark out</td><td>划出；标出</td><td>✓</td><td>在日程簿里“标出”一段时间供休息，正回应“从没留出空白”，问题—对策闭环成立</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 B 不是“砍掉一些安排”的正解？</strong>：中式直觉容易想成“日程太满，抹掉几项”。但 wipe off 的宾语应是表面可擦除之物；文中宾语是 some time，且“擦掉”与 use this time 自相矛盾——时间是“腾出来”，不是“抹掉”。</li><li><strong>mark out 的典型用法？</strong>：mark out an area / a court——划定范围，如 They marked out a tennis court on the lawn。用于 calendar/diary 即“圈出一段时间”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（wipe off）</strong>：被“日程满就该删安排”的直觉带偏，没核对 wipe off 的物理清除义与宾语类型。</li><li><strong>误选 A（take over）</strong>：把 take over 的“接手”泛化到任何宾语——它接管的必须是权力、职责类对象。</li></ul>
+<blockquote>记忆锚点：问题句 no space for downtime → 对策句 ____ some time in your diary → mark out（划出）；wipe off 是物理擦除，add up 是数字求和，take over 只接管权责。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

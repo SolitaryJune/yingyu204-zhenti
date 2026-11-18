@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-37 · 2018 阅读第 37 题 · 研究结论题：发现不是预期 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · shows that 只接“真实发现”", "cls": "key", "tag": "审题", "log": "审题眼：The study in the early 1980s cited by Harford shows that ___ —— 方法/预期/发现三槽分清", "count": 0, "ribbon": null, "body": "<p>题干：The <b>study</b> in the early 1980s cited by Harford <b>shows that</b> ___. 研究题先架三个信息槽：<b>研究方法</b>（怎么做的）、<b>研究者预期</b>（以为会怎样）、<b>研究真实发现</b>（实际怎样）。shows that 只接第三个槽——跳过“以为”，直接接住“推翻”之后的内容。</p>"},
+ {"title": "定位原文 · While 以为是预期，wrong 后是发现", "cls": "key", "tag": "定位", "log": "定位第四段方法＋第五段①②句：While assumed 让步从句装预期，冒号后装发现", "count": 0, "ribbon": null, "body": quote("While the researchers <b>assumed</b> that the well-structured daily plans would be most effective…, <b>they were wrong: the detailed daily plans demotivated students.</b> …inevitable distractions often render the daily to-do list ineffective, while leaving room for improvisation…can reap the best results.") + "<p>方法在第四段：两组学生——月度目标组 vs 详细每日计划组。第五段①句：While 从句装<b>预期</b>（以为详尽计划执行最有效），冒号后装<b>发现</b>：详尽的每日计划反而让学生失去动力；②句给解释：干扰使清单无效，留出应变空间才见效。</p>"},
+ {"title": "同义替换 · not as fruitful as expected", "cls": "key", "tag": "替换", "log": "同义替换：D 把“发现推翻预期”这个动作写进了选项", "count": 0, "ribbon": null, "body": "<p>[D] <b>detailed plans may not be as fruitful as expected</b> ↔ they <b>were wrong</b>: the <b>detailed daily plans demotivated</b> students：detailed plans ↔ the detailed daily plans；not as fruitful ↔ demotivated / wrong；<b>as expected</b> ↔ the researchers assumed（“预期”复活于选项）。D 的妙处：把“预期落空”本身写进选项。锁定 [D]。</p>"},
+ {"title": "逐项分析 · D detailed plans may not be as fruitful as expected", "cls": "good", "tag": "选定 D", "log": "D 详细计划可能不如预期富有成效 ✓ ——wrong 之后发现内容的概括", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>they were wrong（预期落空）＋ the detailed daily plans demotivated students（详尽计划挫伤积极性）→“详细计划可能不如预期那样富有成效”——对象、方向、程度全部对齐。</p>"},
+ {"title": "逐项分析 · A distractions may actually increase efficiency", "cls": "bad", "tag": "排除 A", "log": "A 干扰实际可能提高效率 ✗ ——方向反：原文说干扰使清单无效", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>②句 inevitable distractions often <b>render the daily to-do list ineffective</b>（干扰使每日清单<b>无效</b>）——“干扰<b>提高</b>效率”与原文南辕北辙，负面信息被改成正面。</p><p style=\"color:#b91c1c\">⚠ 典型误解：negative → positive 的方向反转。</p>"},
+ {"title": "逐项分析 · B daily schedules are indispensable to studying", "cls": "bad", "tag": "排除 B", "log": "B 每日计划不可或缺 ✗ ——把预期当发现：assumed 的内容已被 wrong 推翻", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>“每日计划表很有用”是①句前半 researchers <b>assumed</b> 的<b>预期</b>，冒号后紧跟 <b>they were wrong</b>——预期已被当场推翻。[B] 捡的是被扔掉的半个句子。</p><p style=\"color:#b91c1c\">⚠ 典型误解：While 从句内容顺口好读，忘了转折才是主句。</p>"},
+ {"title": "逐项分析 · C students are hardly motivated by monthly goals", "cls": "bad", "tag": "排除 C", "log": "C 月度目标几乎无法激励学生 ✗ ——错配分组：受挫的是 daily plans 不是 monthly goals", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>受挫的是<b>详尽的每日计划</b>（the detailed daily plans demotivated students），不是“每月目标”——monthly goals 是另一组的做法，原文从头到尾<b>没说</b>月度目标组表现如何。真词＋变形字拼出从未作出的结论。</p><p style=\"color:#b91c1c\">⚠ 典型误解：哪一组的发现归哪一组——原文没说的对照组成绩不选。</p>"},
+ {"title": "结论 · 三槽分清，发现归位", "cls": "good", "tag": "答案 D", "log": "答案 D（detailed plans may not be as fruitful as expected）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>方法（月度组 vs 每日计划组）→ 预期（While assumed）→ they were wrong：详尽计划挫伤学生 → [D]。</b>三个干扰项各占一个坑：A 反方向、B 用预期、C 错分组。</p><p>答案选 <b>D（detailed plans may not be as fruitful as expected）</b>。</p><p><b>记忆锚点</b>：研究题三槽 方法/预期/发现，shows that 只接第三个槽；While assumed 是预期，<b>they were wrong</b> 冒号后才是发现；干扰 render…ineffective，留白 improvise 才见效。</p><p style=\"color:#b91c1c\">最易误选：<b>B</b>——预期永远不是发现。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 37 题 · 研究结论题——shows that 问的是真实发现，不是预期",
+  subtitle: "考点：研究题三槽（方法/预期/发现）· While assumed / they were wrong 分界",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“分清方法/预期/发现 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（detailed plans may not be as fruitful as expected）", "html": "<b>D 详细计划可能不如预期富有成效</b>：they were wrong: the detailed daily plans demotivated students 的概括改写。<br>记忆锚点：研究题三槽方法/预期/发现，shows that 只接发现；While assumed 是预期，wrong 冒号后才是发现。<br>最易误选：<b>B</b>——把研究者预期当成了研究发现。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 37 题 · 研究结论题——"shows that"问的是真实发现，不是预期</h2>
+<p>答案：<strong>D（detailed plans may not be as fruitful as expected 详细计划可能不如预期那样富有成效）</strong>。</p>
+<h3>第 0 步：先立机制——一个研究题里藏着三种要分开的信息</h3>
+<p>凡是研究/实验题，先在脑中架起三个信息槽：<strong>研究方法</strong>（怎么做的）、<strong>研究者预期</strong>（以为会怎样）、<strong>研究真实发现</strong>（实际怎样）。题干 The study in the early 1980s <strong>shows</strong> that ____ 问的是第三个槽。本文把这三样放得很整齐：第四段给方法（把大学生分两组：一组定月度目标，一组制定详细的每日计划）；第五段①句前半 While the researchers assumed...（研究者以为详尽的每日计划执行起来最有效）是<strong>预期</strong>；①句后半 <strong>they were wrong</strong>: the detailed daily plans demotivated students 才是<strong>真实发现</strong>——并且发现直接推翻了预期。找答案时必须跳过"以为"，直接接住"wrong"之后的内容。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>While the researchers assumed that the well-structured daily plans would be most effective when it came to the execution of tasks, <strong>they were wrong: the detailed daily plans demotivated students.</strong> Harford argues that inevitable distractions often render the daily to-do list ineffective, while leaving room for improvisation in such a list can reap the best results.</blockquote>
+<p>结构：①句"While 以为…，<strong>they were wrong</strong>：详尽的每日计划反而让学生失去动力"——让步从句装预期，冒号后装发现；②句给出解释：干扰使清单无效，<strong>留出应变空间</strong>才有最佳效果。答案锁定在 wrong 之后。</p>
+<h3>第 2 步：同义替换——"推翻预期"就是"不如预期"</h3>
+<p>[D] detailed plans <strong>may not be as fruitful as expected</strong> 是①句的概括：<strong>detailed plans</strong> ↔ the detailed daily plans；<strong>not as fruitful</strong> ↔ demotivated students / they were wrong（没达到预想的成效）；<strong>as expected</strong> ↔ the researchers assumed（"预期"一词在选项里复活了）。D 的妙处在于把"发现推翻预期"这个动作本身写进了选项——not as fruitful as expected 说的正是"预期落空"。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A distractions may actually increase efficiency</td><td>✗</td><td>方向完全相反：②句 inevitable distractions often <strong>render the daily to-do list ineffective</strong>（干扰使每日清单<strong>无效</strong>）——"干扰提高效率"与原文南辕北辙</td></tr><tr><td>B daily schedules are indispensable to studying</td><td>✗</td><td>把预期当发现：daily schedules indispensable 是①句前半 researchers <strong>assumed</strong> 的内容，冒号后紧跟 they were wrong——预期已被当场推翻，B 捡的是被扔掉的半个句子</td></tr><tr><td>C students are hardly motivated by monthly goals</td><td>✗</td><td>偷换对象：受挫的是<strong>详尽的每日计划</strong>（the detailed daily plans demotivated students），不是"每月目标"（monthly goals 是另一组的做法，原文没说它失效）——把 A 组的结论扣到 B 组头上</td></tr><tr><td>D detailed plans may not be as fruitful as expected</td><td>✓</td><td>they were wrong: the detailed daily plans demotivated students 的概括改写，"as expected" 复活预期、以否定收束</td></tr></tbody></table>
+<h3>预判追问：研究中"月度目标"那一组到底表现如何？</h3>
+<p>原文<strong>没有说</strong>。第四段只交代分组方法（月度目标组 vs 详细每日计划组），第五段只报了详细计划组的发现（demotivated）并解释原因。C 正是钻这个空子：月度目标（monthly goals）是原文出现过的真词，"hardly motivated"是 demotivated 的变体——真词＋变形字，拼出一个原文从未作出的结论。研究题的排除纪律：<strong>哪一组的发现归哪一组</strong>，原文没说的"对照组成绩"一律不选。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把"干扰使清单失效"顺手改成"干扰提升效率"——negative 变 positive。</li><li><strong>误选 B</strong>：While 从句里的预期太顺口，忘了 they were wrong 的转折——预期永远不是发现。</li><li><strong>误选 C</strong>：monthly goals 与 demotivated 各取一半——错配实验分组。</li></ul>
+<blockquote>记忆锚点：研究题三槽 <strong>方法/预期/发现</strong>，shows that 只接第三个槽；While assumed 是预期，<strong>they were wrong</strong> 冒号后才是发现；干扰 render...ineffective，留白 improvise 才见效；月度组的成绩原文未说。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

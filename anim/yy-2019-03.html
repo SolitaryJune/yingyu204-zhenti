@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 3 空 · shift from 全面 to __（副词）：A initially / B solely / C occasionally / D formally</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 3 在「shift from 全面 to __（副词）」位；考点：句内语义（副词辨析 + shift from A to B 结构）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">As for me, weighing myself every day caused me to shift my focus from being generally healthy and physically active, to focusing <b>__3__</b> on the scale.</div><p>空 3 是修饰 focusing on the scale 的副词。句子骨架是 shift my focus from A to B：注意力从“整体健康 + 身体活跃”（generally 全面的、physically 多维的）转移到“盯着体重计”。副词要刻画转向后的 B 的特征。</p>"
+ },
+ {
+  "title": "立机制 · shift from A to B：副词要给 B 盖章",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：shift from A to B：副词要给 B 盖章",
+  "body": "<p>本段在佐证首段结论“过度称重有害”。害处体现在哪？——关注点从“全面”收缩成“片面”：原来同时顾健康、活力、训练表现，现在只剩体重计上的一个数字。能表达“只剩、仅仅”的副词是 solely（义同 only），它与 from 侧的 generally、physically 构成“全面 ↔ 片面”的对照，把这种“退化”写实。</p>"
+ },
+ {
+  "title": "找证据 · 下句定性：这种转变是“坏”的",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下句定性：这种转变是“坏”的",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That was bad to my overall fitness goals.</div><p>下句马上定性：这种转变 bad（坏）。坏在哪？坏在从“全面”收缩成“只剩一个数字”。所以空格副词必须与 generally / physically 形成对照，突出“片面”。</p>"
+ },
+ {
+  "title": "逐项分析 · A initially（最初，首先）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A initially（最初，首先）✗ 排除",
+  "body": "<p><b>排除。</b>shift to B 的 B 是转变后的当前状态，“最初”属于 from 的一侧；把“最初”放到转向后的位置，时间顺序拧反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 shift 就想“从前如何”，忘了空格在 to 之后。</p>"
+ },
+ {
+  "title": "逐项分析 · B solely（仅仅，只）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B solely（仅仅，只）✓ 当选",
+  "body": "<p><b>当选。</b>focusing solely on the scale = 只关注体重计数字：与 from 侧 generally / physically 形成对照，坐实“片面”之弊。</p>"
+ },
+ {
+  "title": "逐项分析 · C occasionally（偶尔）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C occasionally（偶尔）✗ 排除",
+  "body": "<p><b>排除。</b>“偶尔关注体重计”反而说明称重不频繁、不过度，与 weighing myself every day（每天称）直接矛盾，也撑不起“有害”的结论。</p>"
+ },
+ {
+  "title": "逐项分析 · D formally（正式地）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D formally（正式地）✗ 排除",
+  "body": "<p><b>排除。</b>利用中文“形式上”干扰：focusing formally on... 意为“在形式上关注”，逻辑不通；“正式地关注数字”不成话。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 3 填 solely（仅仅，只）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">to focusing <b>solely</b> on the scale.</div><p>转向只关注体重计数字。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "log": "答案 B（solely 仅仅，只）——见结论卡",
+  "body": "<p>答案选 <b>B（solely 仅仅，只）</b>。</p><p><b>记忆锚点</b>：shift from 全面（generally / physically）to 片面（solely）：三个副词的对照就是文意的走向；solely = only。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（formally）</b>：把中文“形式上”硬套进英文；formally 指“场合/方式正式”，focusing formally on... 是“在形式上关注”，不成话。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 3 空 · shift from 全面 to __（副词）：A initially / B solely / C occasionally / D formally",
+  subtitle: "考点：句内语义（副词辨析 + shift from A to B 结构） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（solely 仅仅，只）", "html": "<b>B（solely 仅仅，只）</b>。<br>记忆锚点：shift from 全面（generally / physically）to 片面（solely）：三个副词的对照就是文意的走向；solely = only。<br>最易误选：<b>D（formally）</b>——把中文“形式上”硬套进英文；formally 指“场合/方式正式”，focusing formally on... 是“在形式上关注”，不成话。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 3 空 · shift from 全面 to __（副词）</h2>
+<p>答案：<strong>B（solely 仅仅，只）</strong>。</p>
+<h3>第 0 步：先立机制——shift from A to B：副词要给 B 盖章</h3>
+<p>本段在佐证首段结论“过度称重有害”。害处体现在哪？——关注点从“全面”收缩成“片面”：原来同时顾健康、活力、训练表现，现在只剩体重计上的一个数字。能表达“只剩、仅仅”的副词是 solely（义同 only），它与 from 侧的 generally、physically 构成“全面 ↔ 片面”的对照，把这种“退化”写实。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>As for me, weighing myself every day caused me to shift my focus from being generally healthy and physically active, to focusing <strong>__3__</strong> on the scale.</blockquote>
+<p>空 3 是修饰 focusing on the scale 的副词。句子骨架是 shift my focus from A to B：注意力从“整体健康 + 身体活跃”（generally 全面的、physically 多维的）转移到“盯着体重计”。副词要刻画转向后的 B 的特征。</p>
+<h3>第 2 步：找证据——下句定性：这种转变是“坏”的</h3>
+<blockquote>That was bad to my overall fitness goals.</blockquote>
+<p>下句马上定性：这种转变 bad（坏）。坏在哪？坏在从“全面”收缩成“只剩一个数字”。所以空格副词必须与 generally / physically 形成对照，突出“片面”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A initially</td><td>最初，首先</td><td>✗ 排除</td><td>shift to B 的 B 是转变后的当前状态，“最初”属于 from 的一侧；把“最初”放到转向后的位置，时间顺序拧反。（典型误解：见 shift 就想“从前如何”，忘了空格在 to 之后。）</td></tr><tr><td>B solely</td><td>仅仅，只</td><td>✓ 当选</td><td>focusing solely on the scale = 只关注体重计数字：与 from 侧 generally / physically 形成对照，坐实“片面”之弊。</td></tr><tr><td>C occasionally</td><td>偶尔</td><td>✗ 排除</td><td>“偶尔关注体重计”反而说明称重不频繁、不过度，与 weighing myself every day（每天称）直接矛盾，也撑不起“有害”的结论。</td></tr><tr><td>D formally</td><td>正式地</td><td>✗ 排除</td><td>利用中文“形式上”干扰：focusing formally on... 意为“在形式上关注”，逻辑不通；“正式地关注数字”不成话。</td></tr></tbody></table>
+<p>代入后的完整句义：to focusing solely on the scale.（转向只关注体重计数字。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（formally）</strong>：把中文“形式上”硬套进英文；formally 指“场合/方式正式”，focusing formally on... 是“在形式上关注”，不成话。</li></ul>
+<blockquote>记忆锚点：shift from 全面（generally / physically）to 片面（solely）：三个副词的对照就是文意的走向；solely = only。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

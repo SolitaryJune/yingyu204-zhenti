@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-18 · 2011 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 态度名词要由后文“定价”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：考点＝上下文语义＋态度名词；greeted with ___ by experts, who worry…",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>句子骨架：The plan has also been greeted with __ by some computer security experts, <b>who worry</b> that…。</p><p>greeted with X ＝ 以 X 的态度回应；X 是专家摆出的态度。态度名词不能凭词感选，必须由后文定价——定价者就是定语从句里的 <b>worry（担忧）</b>。</p>"
+ },
+ {
+  "title": "定位原文 · worry 是唯一的态度证据",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：定语从句 who worry that… would still leave… 给态度定价",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("The plan has also been greeted with __18__ by some computer security experts, who worry that the “voluntary ecosystem” envisioned by Mr. Schmidt would still leave much of the Internet __19__.") + "<p>专家们“担忧”这个“自愿生态系统”仍会让互联网大部分地方不安全。担忧的本质＝“我不相信这方案管用”——这正是 <b>skepticism（怀疑）</b>的语义内核。</p>"
+ },
+ {
+  "title": "找证据 · also：安全专家加入上一段的质疑阵营",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上段已有 applaud / concerned 的分歧，本句 also 补上专家一票",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Still, the administration’s plan has __16__ privacy rights activists. Some applaud the approach; others are concerned.") + "<p>上一段隐私权人士已经分歧：有人喝彩、有人担忧；also 暗示本句是“安全专家也来表态”——同样不是全体喝彩。专家们的表态带着具体理由（worry that…），有论点有论据的反对＝质疑。</p>"
+ },
+ {
+  "title": "逐项分析 · A skepticism（怀疑，质疑）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A skepticism（怀疑，质疑） ✓ 当选——worry 的同义复现",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "body": "<p><b>当选。</b>担心方案不奏效＝对其存疑：态度与 who worry 从句完全同向。代入读作“该计划也遭到一些计算机安全专家的怀疑”。</p>"
+ },
+ {
+  "title": "逐项分析 · B tolerance（宽容，容忍）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B tolerance（宽容，容忍） ✗ 排除——容忍是放任，worry 是不放心",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>tolerance 是“虽不满意但放任”；worry 是“不放心、怕出事”。容忍方案的人不会同时“担忧计划不管用”到出声论证——语义与从句不同向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“专家没把方案一棒子打死”脑补成宽容。</p>"
+ },
+ {
+  "title": "逐项分析 · C indifference（冷漠，冷淡）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C indifference（冷漠，冷淡） ✗ 排除——冷漠者不论证，专家却在给理由",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>indifference＝不关心、懒得评价；who worry 恰恰证明专家高度关心。冷漠与“给出具体担忧理由”直接冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“没喝彩”等同于“不关心”——有理由的反对恰恰是高度关心。</p>"
+ },
+ {
+  "title": "逐项分析 · D enthusiasm（热情，热忱）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D enthusiasm（热情，热忱） ✗ 排除——与 worry 方向相反",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>enthusiasm 是积极态度，与 worry 相反；若专家真热情，从句应写 believe / praise，而不是 worry that… would still leave…。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 plan、experts 等中性词，没读态度从句。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（skepticism 怀疑）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>该计划还遭到了一些计算机安全专家的怀疑，他们担心施密特所设想的“自愿生态系统”仍会让互联网的大部分地方易受攻击。</b></p><p>答案选 <b>A（skepticism 怀疑，质疑）</b>。</p><p><b>记忆锚点</b>：greeted with ＋ 态度名词 → 含义由定语从句定价；worry / concern / doubt → skepticism；indifference 的特征是“不评价”，有理由的反对永远不是冷漠。</p><p style=\"color:#b91c1c\">最易误选：<b>C（indifference）</b>——把“没喝彩”当成“不关心”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 18 空 · 安全专家对该计划摆出什么态度",
+  subtitle: "考点：上下文语义＋态度名词 · greeted with ___ 由 who worry 定价",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（skepticism）",
+    html: "<b>A skepticism（怀疑，质疑）</b>。<br>记忆锚点：greeted with ＋ 态度名词 → 含义由定语从句定价；worry / concern / doubt → skepticism；indifference 的特征是“不评价”。<br>最易误选：<b>C（indifference）</b>——把“没喝彩”当成“不关心”。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 18 空 · "greeted with ___" 的名词由定语从句定价</h2>
+<p>答案：<strong>A（skepticism 怀疑）</strong>。</p>
+<h3>第 0 步：先立机制——抽象名词题，态度词后面找"定价"</h3>
+<p>句子骨架：The plan has also been greeted with __ by some computer security experts, <strong>who worry</strong> that...。greeted with X 意为"以 X 的态度对待/回应"，X 是专家们对这个计划摆出的态度。态度名词不能凭词感选，要由后文给出"定价"——这里定价的就是定语从句里的 <strong>worry（担忧）</strong>：从句是 experts 的态度说明，空格名词必须与 worry 同向。</p>
+<h3>第 1 步：定位原文——worry 是唯一的态度证据</h3>
+<blockquote>The plan has also been greeted with __18__ by some computer security experts, who worry that the "voluntary ecosystem" envisioned by Mr. Schmidt would still leave much of the Internet __19__.</blockquote>
+<p>拆读：专家们"担忧"施密特设想的"自愿生态系统"仍会让互联网大部分地方不安全。担忧的本质是"我不相信这方案管用"——不信任、存疑，这正是 skepticism（怀疑）的语义内核。Also 一词还暗示：上一段隐私权人士 already 有分歧（Some applaud; others are concerned），本句是"安全专家也来表态"，同样不是喝彩。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A skepticism</td><td>怀疑，质疑</td><td>worry 的同义复现：担心方案不奏效＝对其存疑——态度与从句完全同向</td></tr><tr><td>B tolerance</td><td>宽容，容忍</td><td>容忍是"虽不满意但放任"，而 worry 是"不放心"，且容忍者不会同时"担忧计划不管用"到出声质疑</td></tr><tr><td>C indifference</td><td>冷漠，冷淡</td><td>冷漠＝不关心；后文 who worry 恰恰证明专家高度关心，语义直接冲突</td></tr><tr><td>D enthusiasm</td><td>热情，热忱</td><td>积极态度与 worry 相反；若真热情，从句应写 believe / praise</td></tr></tbody></table>
+<h3>预判追问：skepticism 和 indifference 差在哪？</h3>
+<p>两者都"不捧场"，容易混。indifference 是"跟我无关，懒得评价"；skepticism 是"我盯着的，但我不信"。专家们不仅发声（greeted with...），还给出了具体理由（worry that... would still leave...）——有论点、有论据的反对是质疑，不是冷漠。冷漠的人不会论证。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（enthusiasm）</strong>：只看到 plan、experts 等中性词，没读 who worry 从句；态度题的答案永远在态度证据一侧。</li><li><strong>误选 B（tolerance）</strong>：把"专家没把方案一棒子打死"脑补成宽容；原文 worry 是明确的负面担忧，不是无奈接受。</li><li><strong>误选 C（indifference）</strong>：把"没喝彩"等同于"不关心"；有具体担忧理由的表态恰恰是高度关心的表现。</li></ul>
+<blockquote>记忆锚点：greeted with ＋ 态度名词 → 名词的含义由后置定语从句定价；worry / concern / doubt → skepticism；indifference 的特征是"不评价"，有理由的反对永远不是冷漠。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

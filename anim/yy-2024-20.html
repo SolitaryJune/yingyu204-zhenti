@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-20 · 2024 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 并列结构锁定语义场',
+    cls: 'key',
+    tag: '审题',
+    log: 'to relax, __20__ and recover：三个并列不定式共享同一语义场',
+    count: 0,
+    body: '<p>空格处在 <code>to relax, __20__ and recover</code> 中——and 连接的三个并列不定式，作 use this time 的目的状语。并列结构是完形的高价值线索：relax（放松）、recover（恢复精力）已定，中间一词必然同属“休息”语义场。</p>'
+  },
+  { title: '定位原文 · 空 20 所在句',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：空 20 是并列不定式中间项，考点：句内并列逻辑',
+    count: 0,
+    body: quote('...and use this time to relax, __20__ and recover.') +
+      '<p>这段被标出的时间是“没空社交”的专属时间（第 19 空 unavailable），用途链条：放松 → 歇息 → 恢复。</p>'
+  },
+  { title: '语义推演 · 缺的一环是“歇息”',
+    cls: 'key',
+    tag: '推演',
+    log: '语义推演：relax → rest → recover 同场递进',
+    count: 0,
+    body: '<p>relax 放松身心，recover 恢复精力，中间的“停下来歇息”正是 rest。D 项与前后两词构成 <b>relax → rest → recover</b> 的同场递进，完整实现“腾出时间”的意图。</p>'
+  },
+  { title: '逐项分析 · A react（反应）',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A react ✗ 排除——不及物、须接 to，塞不进并列结构',
+    count: 1,
+    ribbon: { k: 'A', ok: false },
+    body: '<p><b>排除。</b>react 暗含因果：对某事作出反应，须接 <code>to</code> 引出对象。并列结构里前后都是裸动词 relax、recover，夹一个必须带介词的词，结构失衡；单独使用也表意不明。</p><p style="color:#b91c1c">⚠ 典型误解：忽略不及物动词的介词需求。</p>'
+  },
+  { title: '逐项分析 · B repeat（重复）',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B repeat ✗ 排除——“循环休息”是脑补义，词义本身表达不出',
+    count: 2,
+    ribbon: { k: 'B', ok: false },
+    body: '<p><b>排除。</b>“放松后再来一轮”看似合理，但 repeat 只表“重说、重做”，自身无法传达循环义，且不与 relax/recover 同属“休息”语义场。</p><p style="color:#b91c1c">⚠ 典型误解：把合理想象当成词义，忽视并列同场要求。</p>'
+  },
+  { title: '逐项分析 · C return（返回；恢复）',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C return ✗ 排除——“恢复”义的主语是物，本空逻辑主语是 you',
+    count: 3,
+    ribbon: { k: 'C', ok: false },
+    body: '<p><b>排除。</b>中文释义“恢复”与 recover 近义是命题人的设障点：return 取“恢复”义指感觉、情形回到原状，主语是物——如 <code>Her appetite had returned</code>（她胃口又好了）。本空不定式的逻辑主语是 <b>you</b>，“你恢复”该用 recover。</p><p style="color:#b91c1c">⚠ 典型误解：只对中文释义做匹配，不查英文主语限制。</p>'
+  },
+  { title: '逐项分析 · D rest（休息）',
+    cls: 'good',
+    tag: '选定 D',
+    log: 'D rest ✓ 当选——与 relax、recover 近义并列',
+    count: 3,
+    ribbon: { k: 'D', ok: true },
+    body: '<p><b>当选。</b>rest = 休息，与 relax、recover 近义并列：“放松、休息、恢复精力”层层递进，恰能体现“在日程簿里划出不愿社交的时间”的目的。</p>'
+  },
+  { title: '结论 · 完整句义与记忆锚点',
+    cls: 'good',
+    tag: '答案 D',
+    log: '答案 D（rest 休息）——完整句义见结论卡',
+    count: 3,
+    body: '<p>完整句义：<b>用这段腾出来的时间放松、休息、恢复精力。</b></p><p>答案选 <b>D（rest）</b>。</p><p><b>记忆锚点</b>：并列不定式共享语义场——relax / rest / recover；return 的“恢复”主语是物，react 必带 to，repeat 表不了循环。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 完形第 20 空 · “放松、____、恢复”并列的动词',
+  subtitle: '考点：句内并列逻辑 · 并列不定式共享语义场',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 语义推演 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（rest）',
+    html: '<b>D rest（休息）</b>——relax / rest / recover 同场递进。<br>记忆锚点：return 取“恢复”义时主语是感觉/情形（Her appetite had returned），本空逻辑主语是 you；react 必带 to；repeat 表不了循环。最易误选 <b>C（return）</b>——中文释义“恢复”的假匹配。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 20 空 · “放松、____、恢复”并列的动词</h2>
+<p>答案：<strong>D（rest 休息）</strong>。</p>
+<h3>第 0 步：先立机制——并列结构锁定语义场</h3>
+<p>to relax, __20__ and recover 是 and 连接的三个并列不定式，作 use this time 的目的状语。并列结构是完形的高价值线索：三个词共享同一个语义场。relax（放松）、recover（恢复精力）已定，中间缺的一环必然是“休息”义动词——这就是本空的全部机制，先定语义场，再辨词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...and use this time to relax, __20__ and recover.</blockquote>
+<h3>第 2 步：语义推演</h3>
+<p>被标出的时间是“没空社交”的专属时间（见第 19 空），用途链条是：放松身心 → 停下来歇息 → 恢复精力。D rest 与前后两词构成 relax → rest → recover 的同场递进，完整实现“腾出时间”的意图。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A react</td><td>反应</td><td>✗</td><td>react 暗含“对某事作出反应”，须接 to 引出对象；此处单独使用表意不明，也无法与 relax/recover 并列</td></tr><tr><td>B repeat</td><td>重复</td><td>✗</td><td>“放松后再来一轮”是脑补的循环义，repeat 自身表达不出，且不属“休息”语义场</td></tr><tr><td>C return</td><td>返回；恢复</td><td>✗</td><td>中文释义“恢复”与 recover 近义是设障点：return 取“恢复”义时主语是感觉/情形（Her appetite had returned），本空逻辑主语是 you</td></tr><tr><td>D rest</td><td>休息</td><td>✓</td><td>与 relax、recover 近义并列，“放松、休息、恢复”层层递进，契合腾出时间的目的</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>return 不是也有“恢复”的意思吗？</strong>：return 表“恢复”指感觉、情形回到原状或再度出现，主语是物：Her appetite had returned（她胃口又好了）。本空不定式的逻辑主语是 you——“你恢复”该用 recover，return 进不了这个句位。</li><li><strong>react 在语法上为何别扭？</strong>：react 是不及物动词，反应必有对象（react to sth）；并列结构里前后都是裸动词 relax、recover，夹一个必须带 to 的词，结构失衡。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（return）</strong>：只对中文释义“恢复=恢复”做匹配，没查英文搭配的主语限制。</li><li><strong>误选 B（repeat）</strong>：把“循环休息”的合理想象当成词义本身，忽视并列结构要求语义同场。</li></ul>
+<blockquote>记忆锚点：并列不定式共享语义场——relax / rest / recover；return 的“恢复”主语是物，react 必带 to，repeat 表不了循环。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

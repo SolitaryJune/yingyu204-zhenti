@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2012-47 小作文谋篇：投诉信的「问题—诉求阶梯—兜底」框架</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两个指令动词定内容',
+    cls: 'key',
+    body: '<p><b>1) make a complaint</b>（必答点 1：投诉）+ <b>2) demand a prompt solution</b>（必答点 2：要求尽快解决）。信型 = <b>投诉信</b>。内容线索两条：<code>found something wrong with the electronic dictionary</code>（投诉对象：电子词典的质量问题）+ <code>bought from an online store the other day</code>（购买渠道与时间，可扩展成购买细节）。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>收信人是 <b>customer service center（客服中心）</b>——部门而非具体的人 → 称呼用 <b>Dear Sir or Madam</b>。两条硬约束：<b>Do not sign your own name</b> → 落款署 <b>Zhang Wei</b>；<b>Do not write the address</b> → 不写地址。书信三件套：称呼 + 正文 + 落款（Yours faithfully, Zhang Wei）。</p>' },
+  { title: '谋篇：投诉信的内在逻辑是「给一条可执行的解决路径」',
+    cls: 'key',
+    body: '<p>投诉是目的，解决是落点——只发泄不满不给方案 = 必答点 2 缺失。三段式：<b>段 1</b> 购买背景 + 问题（从概括到具体）；<b>段 2</b> 诉求阶梯（换 → 修 → 退）+ 兜底；<b>段 3</b> 客套 + 联系方式。收信人是执行者，语气要<b>有力而克制</b>。</p>' },
+  { title: '段 1 背景：一句话交代四要素',
+    cls: 'good',
+    body: '<p><b>The day before yesterday I bought an electronic dictionary, P 900, in your online store.</b></p><p>时间（前天）+ 商品（电子词典 P900 型号）+ 渠道（贵网店）——客服处理投诉第一步是查订单，要素齐才立得住；一句带过，不铺陈。</p>' },
+  { title: '段 1 问题：概括 + 具体表现',
+    cls: 'good',
+    body: '<p>总述：<b>To my dismay, within three days of the purchase I found it couldn\'t work normally.</b>——「购买三天内即故障」这个时间线本身就是质量证据。</p><p>具体表现：<b>It shuts itself down automatically with intolerable frequency.</b>（自动关机，频繁到无法忍受）。只有概括没有表现，投诉就显得空。</p>' },
+  { title: '段 2 诉求：换 → 修 → 退 的让步阶梯',
+    cls: 'good',
+    body: '<p><b>I expect you to provide a new one for replacement or, at least, to follow the warranty policy by repairing it. If no satisfaction can be gained by these means, I will have to demand a refund.</b></p><p>三级诉求用 <b>or, at least</b> 与 <b>if no satisfaction…</b> 显化让步递进：换新 → 按保修维修 → 退款兜底。will have to 是「退到底线」的声明，不是威胁。</p>' },
+  { title: '语气纪律：有力而克制',
+    cls: 'key',
+    body: '<p>客服是执行者，信件可能被逐条核对——用 <b>expect / demand</b> 表明确诉求，但不写 You must…! 式威胁句；<b>To my dismay</b>（懊恼）代替 angry（愤怒），不满有度。故障写成可核实的现象（自动关机 + 频率），比「质量差」更可能被受理。</p>' },
+  { title: '段 3 客套：留沟通通道',
+    cls: 'good',
+    body: '<p><b>Thank you for taking the time to read this letter. If detailed information is required, please reach me at 12345678.</b></p><p>感谢阅读 + 留电话（reach = 与……联系）。投诉信也要收得体面：诉求已明，通道常开。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>to my dismay 让我懊恼的是 · shut itself down automatically 自动关机 · with intolerable frequency 频繁得无法忍受 · for replacement 更换 · follow the warranty policy 履行保修协议 · demand a refund 要求退款 · reach sb. at + 电话号码 与某人联系 · within three days of the purchase 购买后三天内</p>' },
+  { title: '模板迁移（商品质量投诉通用）',
+    cls: 'key',
+    body: '<p>「背景四要素 → 概括 + 表现 → 换修退阶梯 → 兜底 → 客套」适用于<b>一切商品/服务质量投诉</b>：换题只换「背景四要素」与「具体故障表现」两个槽位；诉求阶梯（换新 → 维修 → 退款）与客套段整体复用。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>背景 → 问题（概括 + 表现）→ 换修退阶梯 → 兜底 → 客套</b>；两个必答点（complaint / solution）缺一掉档；称呼 Dear Sir or Madam；落款 Zhang Wei；语气有力而克制。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2012-47 小作文谋篇演示：投诉信的「问题—诉求阶梯—兜底」',
+  subtitle: '考点：应用文写作（投诉信）· 方法：拆指令 → 定框架 → 句型升格 → 成文自检（make a complaint + demand a prompt solution）',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>Dear Sir or Madam,</p>' +
+      '<p>The day before yesterday I bought an electronic dictionary, P 900, in your online store. To my dismay, within three days of the purchase I found it couldn\'t work normally. It shuts itself down automatically with intolerable frequency. I expect you to provide a new one for replacement or, at least, to follow the warranty policy by repairing it. If no satisfaction can be gained by these means, I will have to demand a refund.</p>' +
+      '<p>Thank you for taking the time to read this letter. If detailed information is required, please reach me at 12345678.</p>' +
+      '<p>Yours faithfully,<br>Zhang Wei</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>背景四要素 → 问题（概括+表现）→ 换修退阶梯 → 兜底 → 客套</b>；语气有力而克制；两个必答点缺一掉档。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2012 小作文——投诉信的「问题—诉求阶梯—兜底」框架</h2>
+<p>答案（参考范文口径）：<strong>Dear Sir or Madam, The day before yesterday I bought an electronic dictionary, P 900, in your online store. To my dismay, within three days of the purchase I found it couldn't work normally. It shuts itself down automatically with intolerable frequency. I expect you to provide a new one for replacement or, at least, to follow the warranty policy by repairing it. If no satisfaction can be gained by these means, I will have to demand a refund. Thank you for taking the time to read this letter. If detailed information is required, please reach me at 12345678. Yours faithfully, Zhang Wei</strong></p>
+<h3>第 0 步：先立机制——投诉信的分数从哪来</h3>
+<p>小作文 = <strong>格式 + 要点 + 语言</strong>三线并行。投诉信的特殊机制在于：<strong>投诉是目的，解决是落点</strong>——只发泄不满不给解决方案，必答点 2 缺失直接掉档；语气过狠又语域失当。收信人是客服中心的工作人员，属于"执行者"而非决策者，信件将来可能被逐条核对，所以好投诉信的形态是：事实清楚、诉求明确、语气有力而克制。动笔前先拆指令，把每条指令换算成"信里必须出现的内容"。</p>
+<h3>第 1 步：拆指令——每条指令对应信里的一个位置</h3>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>Write an email to the customer service center</td><td>应用文 = 书信；收信人是客服部门（不是具体某个人）</td><td>称呼用 Dear Sir or Madam</td></tr><tr><td>1) make a complaint</td><td>必答点 1：投诉</td><td>第一段：购买背景 + 质量问题</td></tr><tr><td>2) demand a prompt solution</td><td>必答点 2：要求尽快解决</td><td>第二段：期望的处理措施</td></tr><tr><td>found something wrong with the electronic dictionary</td><td>内容线索：质量问题</td><td>问题要从概括写到具体表现</td></tr><tr><td>bought from an online store the other day</td><td>内容线索：购买渠道与时间</td><td>背景句补出时间、型号、渠道</td></tr><tr><td>Use "Zhang Wei" / Do not write the address</td><td>格式红线</td><td>落款 Yours faithfully, Zhang Wei</td></tr></tbody></table>
+<p>两个必答点（complaint / solution）缺一即结构性扣分；署真名或写地址是踩线扣分。</p>
+<h3>第 2 步：谋篇——投诉信的内在逻辑是"给一条可执行的解决路径"</h3>
+<ul><li><strong>段 1 背景句</strong>一句话交代四要素：时间（the day before yesterday 前天）、商品（electronic dictionary, P 900，型号是核实凭据）、渠道（your online store）——客服处理投诉第一步是查订单，要素齐才立得住。</li><li><strong>问题从概括到具体</strong>：先总述 couldn't work normally（不能正常工作），再落到具体表现 shuts itself down automatically with intolerable frequency（自动关机，频繁到无法忍受）。"购买三天内即故障"这个时间线本身就是质量证据。</li><li><strong>诉求按让步递进排</strong>：换新（provide a new one for replacement）→ 至少按保修维修（follow the warranty policy by repairing it）→ 都不行退款（demand a refund）。or, at least 与 if no satisfaction can be gained by these means 两个让步标记把阶梯显化——既是 prompt solution 的要求，也是谈判姿态：底线明确，姿态不撕破。</li></ul>
+<h3>第 3 步：语言升格——把不满写进精确的表达</h3>
+<ul><li><strong>To my dismay</strong>（让我懊恼的是）：比 I was angry 更书面，不满有度。</li><li><strong>with intolerable frequency</strong>：把"老出毛病"量化成频率描述，具体可核。</li><li><strong>follow the warranty policy by repairing it</strong>：方式状语 by repairing 点明"怎么修"，诉求可执行。</li><li><strong>If no satisfaction can be gained by these means, I will have to demand a refund</strong>：被动句 + will have to，是"退到底线"的声明而非威胁。</li><li>客套收尾 <strong>Thank you for taking the time...</strong> 与 <strong>please reach me at 12345678</strong>（reach = 与……联系）：诉求已明，沟通通道常开。</li></ul>
+<h3>第 4 步：成文自检——三个"为什么"</h3>
+<ul><li><strong>为什么称呼 Dear Sir or Madam</strong>：收信人是"客服中心"这个部门，不知姓名性别，双敬称最稳妥。</li><li><strong>为什么语气不能太生硬</strong>：客服是执行者，You must...! 式威胁句解决不了问题还会显得失态；expect / demand 表明确诉求即可。</li><li><strong>为什么问题要写具体表现</strong>：客服判断是否保修范围内，先看故障是否可描述——"自动关机 + 频率"比"质量差"更可能被受理。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只投诉不提解决方案</strong>：必答点 2 缺失，内容完整性掉档。</li><li><strong>语气过狠</strong>：通篇 You must / 或威胁向消协举报——语域失当，投诉信讲"有力而克制"。</li><li><strong>背景要素残缺</strong>：不写购买时间/渠道/型号，客服无从核实，投诉可信度打折。</li><li><strong>问题空泛</strong>：只说 it doesn't work well，没有具体故障表现，诉求显得无据。</li><li><strong>诉求只有一项</strong>：换/修/退阶梯少一环，"prompt solution"的达成路径就断了。</li><li><strong>格式踩线</strong>：署自己的名字、写地址、漏称呼或漏落款——指令明令的硬约束。</li></ul>
+<blockquote>记忆锚点：投诉信 = <strong>背景四要素 → 问题（概括 + 表现）→ 换修退让步阶梯 → 兜底 → 客套留通道</strong>；称呼 Dear Sir or Madam；落款 Zhang Wei；语气有力而克制，底线（refund）明确但不威胁。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

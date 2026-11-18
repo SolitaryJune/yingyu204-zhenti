@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-30 · 标题题：现象 + 立场，缺一不可</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：标题 = 话题 + 立场",
+  "body": "<p>题干：<b>The most suitable title for this text would be ____</b>。</p><p>标题题的机制：先把全文串成一句话，再与选项比对。好的标题既要含<b>话题</b>（CEO pay），又要含<b>作者立场</b>（高薪不过分 / 有其合理性）——只复述现象或偏移话题的都进不了终选。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "各段功能标签 → 串成一句话",
+  "body": "<table class='aw-mini'><tr><th>段</th><th>内容</th><th>功能</th></tr><tr><td>①</td><td>现象：CEO 薪酬大涨（年薪约 1890 万美元）</td><td>摆现象</td></tr><tr><td>②③</td><td>商机暴增 × 人才有限；CEO 技能远超常人</td><td>理由一：值这个价</td></tr><tr><td>④⑤</td><td>强治理时期照涨 / 高薪给外聘 / 挂钩股价提升公司价值</td><td>理由二：不是掠夺</td></tr></table><p>一句话：<b>CEO 高薪并非过高，而是有其合理性</b>。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：只有现象没有立场",
+  "body": "<p><b>B · CEO Pay: Past and Present</b> <span class='bad-dot'>✗</span></p><p>话题（CEO Pay）对，但只覆盖首段「薪酬大涨」的<b>现象</b>陈述——没有传达任何论点。标题要的不是时间轴，是作者为高薪辩护的<b>立场</b>。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：偏离薪酬话题",
+  "body": "<p><b>C · CEOs' Challenges of Today</b> <span class='bad-dot'>✗</span></p><p>由第三段「如今 CEO 需要更多技能」臆断出「今日挑战」，且<b>不含薪酬话题</b>——文章的关注点始终是 pay，这道话题闸都过不了。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：过度引申 + 无涉薪酬",
+  "body": "<p><b>D · CEO Traits: Not Easy to Define</b> <span class='bad-dot'>✗</span></p><p>「特质难定义」由第三段的技能清单过度引申，文中无据；同样不涉薪酬——与 C 一起出局。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 4,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：话题与立场双闸全过",
+  "body": "<p><b>A · CEOs Are Not Overpaid</b> <span class='ok-dot'>✓</span></p><p>overpaid（薪酬过高）正是第四段 ripping people off（剥削）、depredation（掠夺）所反驳的对象——A 以判断句直陈作者立场，话题（CEO 薪酬）准确，覆盖全文五个段落。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（CEOs Are Not Overpaid）</b>。</p><p>记忆锚点：标题题两道闸——话题闸（CEO pay）+ 立场闸（not overpaid）；只复述现象（B）或偏移话题（C/D）的标题都是半身像。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-30 · 标题题：现象 + 立场，缺一不可",
+  subtitle: "考点：Text2 全文主旨 · CEO 高薪并非过高",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 A", "html": "<b>话题 + 立场双闸</b>：全文 = 现象（首段）+ 理由一「值这个价」（②③段）+ 理由二「不是掠夺」（④⑤段）→ CEOs Are Not Overpaid。B 只有现象没立场；C/D 丢了薪酬话题。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 30 题——标题题：现象 + 立场，缺一不可</h2>
+<p>答案：<strong>A</strong>（CEOs Are Not Overpaid）。</p>
+<h3>第 0 步：先立机制——标题 = 话题 + 作者立场</h3>
+<p>标题题的机制：先把全文串成一句话，再与选项比对。本文结构：首段摆现象（CEO 薪酬大涨，普通 CEO 年薪约 1890 万美元）；第二、三段给理由一（顶级公司商机暴增 × CEO 人才有限，且如今 CEO 需要的技能远超常人——高薪"值这个价"）；第四、五段给理由二（治理趋严时薪酬照涨、高薪付给外聘而非内部安逸者、薪酬挂钩股价能 build up corporate value——高薪"不是掠夺"）。一句话：<strong>CEO 高薪并非过高，而是有其合理性</strong>——标题既要含"薪酬"话题，又要含"不过分"这一立场判断。</p>
+<h3>第 1 步：A 对号入座</h3>
+<p>CEOs Are Not Overpaid：overpaid（薪酬过高）正是第四段 ripping people off（剥削）、depredation（掠夺）所反驳的对象——全文五个段落都在为"高薪合理"辩护，A 以判断句直陈作者立场，且话题（CEO 薪酬）准确。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（CEO Pay: Past and Present）</strong>：话题对，但只覆盖首段"薪酬大涨"的<strong>现象</strong>陈述，没有传达任何<strong>论点</strong>（为高薪辩护的立场）。</li><li><strong>C（CEOs' Challenges of Today）</strong>：由第三段"如今 CEO 需要更多技能"臆断出"今日挑战"，且<strong>不含薪酬话题</strong>——文章的关注点始终是 pay。</li><li><strong>D（CEO Traits: Not Easy to Define）</strong>：由第三段技能清单过度引申，"特质难定义"文中无据，同样不涉薪酬。</li></ul>
+<blockquote>记忆锚点：标题题两道闸——话题（CEO pay）闸 + 立场（not overpaid）闸；只复述现象或偏移话题的标题都进不了终选。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-29 · 2018 Text2 第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第五、六段",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：Paragraphs 5&6，考点：Which 型细节题（选项回文比对）",
+  "body": quote("（⑤段①句）The question \"what happens when the wind doesn't blow or the sun doesn't shine?\" has provided a quick put-down for skeptics.") + "<p>题干只给范围不给考点——唯一可靠动作是<b>反向定位</b>：把每个选项的关键词带回原文，逐项比对。</p><p>比对时盯三类病灶：因果颠倒、主体曲解、立场错挂（作者的话 vs 反面人物的话）。</p>"
+ },
+ {
+  "title": "立机制 · 两段各备好了“病灶原料”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：⑤段②句因果链（储能提升 → 持续供电）；⑥段①句车企是推动者；⑤段①句怀疑者的话≠作者立场",
+  "body": quote("（⑤段②句）But a boost in the storage capacity of batteries is making their ability to <b>keep power flowing around the clock</b> more likely.") + quote("（⑥段①句）The advance is driven in part by <b>vehicle manufacturers</b>, who are placing big bets on battery-powered electric vehicles.") + "<p>⑤段②句的因果方向：电池储能提升（因）→ 全天候持续供电更可能（果）。is making 的主宾方向必须盯死。</p><p>⑥段①句：电池技术进步部分由车企驱动。⑤段①句：怀疑者的嘲讽——<b>不是作者立场</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · C Its continuous supply is becoming a reality",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C ✓ 当选——keep power flowing around the clock more likely 的合理改写",
+  "body": "<p><b>当选。</b>逐词对表：continuous supply ↔ keep power flowing around the clock（昼夜不停供电）；is becoming a reality ↔ more likely（进行态）。</p><p>方向、程度、主体（清洁能源自身）全部吻合——两段中唯一经得起回文比对的选项。</p>"
+ },
+ {
+  "title": "逐项分析 · A Its application has boosted battery storage",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ✗ 排除——因果颠倒：原文是“储能提升 → 持续供电”，不是“应用 → 储能”",
+  "body": "<p><b>排除。</b>is making 的主语是 a boost in the storage capacity of batteries（电池储能提升），宾语侧才是持续供电能力。</p><p>A 把因果读反成“清洁能源的应用提升了储能”——只看到 boost 与 battery 在一句里，没盯主宾方向。</p><p style='color:#b91c1c'>⚠ 典型误解：is making A B = A 导致 B。</p>"
+ },
+ {
+  "title": "逐项分析 · B It is commonly used in car manufacturing",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——曲解：车企投资的是电动汽车电池技术，清洁能源并非“用于制造汽车”",
+  "body": "<p><b>排除。</b>车企押注（placing big bets）的是<b>电池驱动的电动汽车</b>——投资方向是电池技术。</p><p>“清洁能源通常用于汽车制造业”把“投资电池”偷换成“清洁能源用在造车上”——主体与动作都错了。</p>"
+ },
+ {
+  "title": "逐项分析 · D Its sustainable exploitation will remain difficult",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——立场错挂：“仍将困难”是怀疑者的嘲讽，作者恰恰在反驳它",
+  "body": "<p><b>排除。</b>“不刮风不出太阳怎么办”是<b>怀疑者</b>的质疑——引语先问“谁说的”。</p><p>作者立场相反：has provided（现在完成时）暗示这记奚落<b>已过时</b>，②句 But 直接回击“持续供电更可能了”。</p><p style='color:#b91c1c'>⚠ 典型误解：把反面人物的嘲讽当成作者判断。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（Its continuous supply is becoming a reality）——回文比对两段，仅 C 全部吻合",
+  "body": "<p>完整逻辑：<b>电池储能提升让“不刮风不出太阳怎么办”的老质疑过时——清洁能源的持续供应正成为现实。</b></p><p>答案选 <b>C（Its continuous supply is becoming a reality）</b>。</p><p><b>记忆锚点</b>：Which 型题 = 选项回文逐项比对；is making A B = A 导致 B（盯主宾）；引语先问“谁说的”；现在完成时的奚落 = 已过时的质疑。</p><p style='color:#b91c1c'>⚠ 最易误选 A：boost 与 battery 同句不等于因果同向。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text2 第 29 题 · 根据第五、六段，关于清洁能源哪项正确",
+  subtitle: "考点：Which 型细节题（回文比对） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 回文比对机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（Its continuous supply is becoming a reality）", "html": "<b>C</b>：keep power flowing around the clock more likely = 持续供应正成为现实。<br>记忆锚点：is making A B = A 导致 B；引语先问“谁说的”；完成时的奚落 = 已过时。<br>最易误选：<b>A</b>——因果颠倒，储能提升才是“因”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text2 第 29 题 · 第五、六段：清洁能源哪句为真</h2>
+<p>答案：<strong>C（Its continuous supply is becoming a reality）</strong>。</p>
+<h3>第 0 步：先立机制——Which 型细节题是"回文比对"不是"先入为主"</h3>
+<p>Which of the following is true 的解题机制与单定位题不同：题干不提供具体考点，只有范围（Paragraphs 5&amp;6）。此时唯一可靠的动作是<strong>反向定位</strong>——把每个选项的关键词带回原文，逐项比对。比对时盯三类典型病灶：<strong>因果颠倒</strong>（A 与 B 谁推动谁）、<strong>主体曲解</strong>（谁的什么动作）、<strong>立场错挂</strong>（作者的话 vs 反面人物的话）。第五、六段恰好给足了这三类干扰的原料：⑤段②句讲电池储能提升 → 持续供电更可能（因果链），⑥段①句讲车企押注电动汽车（投资方与受益方的关系），⑤段①句讲怀疑者的嘲讽（非作者立场）。先用机制把这些"病灶位"立起来，再逐项对表。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>（⑤段②句）But a boost in the storage capacity of batteries is making their ability to <strong>keep power flowing around the clock more likely</strong>.</blockquote>
+<p>&gt;</p>
+<blockquote>（⑥段①句）The advance is <strong>driven in part by vehicle manufacturers</strong>, who are placing big bets on battery-powered electric vehicles.</blockquote>
+<ul><li>⑤段②句的因果方向：电池储能提升（因）→ 全天候持续供电更可能（果）；</li><li>⑥段①句：电池技术的进步部分由<strong>车企</strong>驱动（车企是推动者）。</li></ul>
+<h3>第 2 步：同义替换——"全天候持续供电更可能" = "持续供应正成为现实"</h3>
+<p><code>keep power flowing around the clock</code>（昼夜不停地供电）是"持续供应"的原文表达；<code>more likely</code>（更可能）是"正在成为现实"的进行态。C 项 <code>Its continuous supply is becoming a reality</code> 逐词对表：continuous supply ↔ keep power flowing around the clock，is becoming a reality ↔ more likely。方向、程度、主体（清洁能源自身）全部吻合——这是两段中唯一经得起回文比对的选项。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Its application has boosted battery storage</td><td>其应用提升了电池储能</td><td>✗ 排除</td><td>因果颠倒：原文是"电池储能提升 → 清洁能源可持续供电"，A 反读为"应用 → 储能"。is making 的主语是 a boost in storage capacity，不是 application。</td></tr><tr><td>B It is commonly used in car manufacturing</td><td>它通常用于汽车制造</td><td>✗ 排除</td><td>曲解：车企投资的是"电动汽车<strong>电池技术</strong>"，清洁能源并没有被"用于制造汽车"；把"投资电池"偷换成"清洁能源用在造车上"。</td></tr><tr><td>C Its continuous supply is becoming a reality</td><td>其持续供应正成为现实</td><td>✓ 当选</td><td>keep power flowing around the clock more likely 的合理改写，方向、程度、主体全对。</td></tr><tr><td>D Its sustainable exploitation will remain difficult</td><td>其可持续开发仍将困难</td><td>✗ 排除</td><td>立场错挂：这个判断来自<strong>怀疑者</strong>的嘲讽之问（"不刮风不出太阳怎么办"）；作者立场恰恰相反——⑤段①句 has provided（现在完成时）暗示该质疑已过时，②句 But 直接回击。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 has provided a quick put-down 是"质疑已过时"的信号？</strong>：现在完成时 + 表"过去有效的奚落"，配合下句 But 的回击——时间线是"过去能噎住人 → 现在不成问题了"。读时态就是在读作者立场。</li><li><strong>⑥段②句 electric cars are still a rarity 会不会支持 D？</strong>：不会——Although 让步的是"电动汽车现在少见"，主句说"巨额投资将迅速改变局面"；让步转折的重心仍在"向好"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：只看到 boost 与 battery 在一句里，没盯 is making 前后的主宾方向。</li><li><strong>误选 D</strong>：把怀疑者的嘲讽当成作者的判断——引用语必须问"谁说的"。</li></ul>
+<blockquote>记忆锚点：Which 型题 = <strong>选项回文逐项比对</strong>；is making A B = A 导致 B（盯主宾）；引语先问"谁说的"；现在完成时的奚落 = 已过时的质疑。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

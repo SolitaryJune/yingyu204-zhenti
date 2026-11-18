@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-02 · 2014 完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 2 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 2 空所在句，考点：上下文语义 + 形容词方向判断",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And there are health conditions for which being overweight is actually <b>__2__</b>.</div><p>空格是表语形容词：主语是 <b>being overweight</b>（超重这种状态），for which 引导定语从句修饰 health conditions。句中站着两个方向信号：<b>actually</b>（实际上，暗示与常识相反）与前句的对比（正常体重者风险更高，超重者反而更低）。空格要填的词必须落在“超重反而有好处”这个方向上。</p>"
+ },
+ {
+  "title": "找证据 · 前句对比 + 例子方向都指向“超重在起保护作用”",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：前句“正常体重者风险更高” + For example“胖女性更不易缺钙”，两条证据同向",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A number of studies have concluded that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, heavier women are less likely to develop calcium deficiency than thin women.</div><p>前句刚说完 normal-weight people are <b>at higher risk</b> of some diseases <b>compared to those who are overweight</b>——比较之下，超重者风险更低。For example 后再举“较胖女性更不容易缺钙”。两条证据同向：超重对这些健康问题在起<b>保护</b>作用。</p>"
+ },
+ {
+  "title": "逐项分析 · B dangerous（危险的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B dangerous（危险的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>代入成“超重其实是危险的”——这恰是常识，可 actually 的反转语气和前后两条证据全在说反话，方向完全相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭生活常识直接选词，丢了 actually 的反转信号。</p>"
+ },
+ {
+  "title": "逐项分析 · C sufficient（足够的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C sufficient（足够的） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>sufficient 评价的是数量多少，而“超重”是一种状态，谈不上“足够”或“不够”——语义落空。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只挑褒贬方向，没检查词与主语“状态”是否相容。</p>"
+ },
+ {
+  "title": "逐项分析 · D troublesome（麻烦的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D troublesome（麻烦的） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>同样是负面评价，与“超重有益”的证据链反向；“带来麻烦”也接不上后文“不易缺钙”的例子。</p><p style=\"color:#b91c1c\">⚠ 典型误解：漏读 for which 定语从句的指向，没意识到句子在说超重的好处。</p>"
+ },
+ {
+  "title": "逐项分析 · A protective（保护性的）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A protective（保护性的） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>“超重对某些健康状况起保护作用”——protective 精确对应“风险更低、不易缺钙”两条证据，且与 actually 的反转语气吻合：常识说超重有害，研究说它反而护体。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（protective 保护性的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>对某些健康状况而言，超重实际上反而起保护作用。</b></p><p>答案选 <b>A（protective 保护性的）</b>。</p><p><b>记忆锚点</b>：actually = 反转信号灯；例证方向定褒贬；“超重防病” → protective（保护性的）。</p><p style=\"color:#b91c1c\">最易误选：<b>B（dangerous）</b>——无视 actually 的反转信号与首句立场，凭生活常识选词。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 2 空 · “超重其实是 ______ 的”——actually 的反转信号",
+  subtitle: "考点：上下文语义 + 形容词方向判断 · 定位 → 反转信号 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 抓 actually 反转信号 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（protective）",
+ "html": "<b>A protective（保护性的）</b>。<br>记忆锚点：actually = 反转信号灯；例证方向定褒贬；“超重防病” → protective（保护性的）。<br>最易误选：<b>B（dangerous）</b>——凭生活常识选词，无视 actually 的反转信号与首句立场。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 2 空 · “超重对某些健康状况其实是 ______ 的”——actually 的反转信号</h2>
+<p>答案：<strong>A（protective 保护性的）</strong>。</p>
+<h3>第 0 步：先立机制——形容词题先找方向信号：actually + 前句对比</h3>
+<p>空格是表语形容词：主语 being overweight（超重这种状态），for which 引导定语从句修饰 health conditions——句子说的是“对某些健康问题而言，超重反而 <code>__</code>”。句中两个信号决定方向：<strong>actually</strong>（实际上）专门出现在“与预期相反”处；前句刚比较过“正常体重者风险更高、超重者更低”。所以空格必须填“有好处”方向的词，一切贬义词先出局。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And there are health conditions for which being overweight is actually __2__.</blockquote>
+<p>for which 把“超重”和“某些健康状况”绑在一起：要判断的是超重对这些状况起什么作用——是保护、危害，还是别的性质。</p>
+<h3>第 2 步：找证据——前句对比 + For example 例子，两条证据同向</h3>
+<blockquote>A number of studies have concluded that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</blockquote>
+<blockquote>For example, heavier women are less likely to develop calcium deficiency than thin women.</blockquote>
+<p>证据一：正常体重者患病风险“更高”，比较的落点是超重者风险更低；证据二：较胖女性更不容易缺钙。两条证据都在描述超重“挡住”了某些健康风险——这正是“保护性”的含义，比笼统的“有好处”更贴原文的防病视角。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A protective</td><td>保护性的</td><td>✓ 当选</td><td>“超重对某些健康状况起保护作用”——protective 精确对应“风险更低、不易缺钙”两条证据，且与 actually 的反转语气吻合。</td></tr><tr><td>B dangerous</td><td>危险的</td><td>✗ 排除</td><td>代入成“超重其实是危险的”——这恰是常识，可 actually 的反转语气和前后两条证据全在说反话，方向完全相反。（典型误解：凭生活常识直接选词，丢了 actually 的反转信号。）</td></tr><tr><td>C sufficient</td><td>足够的</td><td>✗ 排除</td><td>sufficient 评价的是数量多少，而“超重”是一种状态，谈不上“足够”或“不够”——语义落空。（典型误解：只挑褒贬方向，没检查词与主语“状态”是否相容。）</td></tr><tr><td>D troublesome</td><td>麻烦的</td><td>✗ 排除</td><td>同样是负面评价，与“超重有益”的证据链反向；“带来麻烦”也接不上后文“不易缺钙”的例子。（典型误解：漏读 for which 定语从句的指向，没意识到句子在说超重的好处。）</td></tr></tbody></table>
+<p>代入后的完整句义：对某些健康状况而言，超重实际上反而起保护作用。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>protective 是“防护的”，为什么不是“有益的”更直白？</strong>：选项里没有 beneficial；protective 正是从“风险更低、不易缺钙”这两个防病例子里提炼出的性质：超重像一层保护垫。选词要以原文证据为准，不凭语感另起炉灶。</li><li><strong>dangerous 不就是常识里超重的特点吗？</strong>：常识没错，但首句 Thinner isn’t always better 就是要打破这个常识，actually 一词专管“反常识”处。跟着常识选 dangerous，正好掉进出题人设置的立场陷阱。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（dangerous）</strong>：无视 actually 的反转信号与首句立场，凭生活常识选词。</li><li><strong>误选 C（sufficient）</strong>：只挑褒贬，不检查语义兼容——“状态”不能被评价为“足够”。</li><li><strong>误选 D（troublesome）</strong>：漏读 for which 定语从句的指向，没发现句子在说超重的好处。</li></ul>
+<blockquote>记忆锚点：actually = 反转信号灯；例证方向定褒贬；“超重防病” → protective（保护性的）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

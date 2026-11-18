@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·30 阅读 · 末段抛出的"钩子"</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：续写题', cls: 'key',
+    body: '<p>题干 <b>the part immediately after this text</b>。机制：续写受两条规则约束——<b>与末段顺滑相接</b> + <b>服务全文主旨</b>。看末段抛出的"未展开意象"。</p>',
+    log: '续写 = 衔接末段 × 服务主旨' },
+  { title: '定位末段：钩子出场', cls: 'key',
+    body: src('“<b>In short</b>, the image that best represents the current crisis is the <b>stereotypical cartoon scene</b> of a man sitting at the breakfast table with a newspaper held up in front of his face, while a woman glares at the back of it, wanting to talk.”') +
+      '<p>一句话点出"经典漫画"：男人报纸挡脸、女人怒视欲言——<b>只提及，未描绘</b>，到此戛然而止。</p>',
+    log: '漫画被抛出但未展开 = 钩子' },
+  { title: '连贯性推演：下一段写漫画', cls: 'good',
+    body: '<p>按篇章连贯性，刚抛出的意象必须承接 → 下一段<b>细描这幅漫画</b>；且漫画讲的是"夫妻交流危机"，仍服务主旨。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B = 末段在场 + 主旨相关' },
+  { title: 'A：冷灶不回锅', cls: 'bad',
+    body: '<p>"细述新书<b>《离婚谈》</b>"——第三段提过，之后 ④ ⑤ 段再未出现；早退场的对象不会回锅，与末段毫无衔接。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 第三段的旧灶，已冷' },
+  { title: 'C：论据不是主题', cls: 'bad',
+    body: '<p>"美国<b>高离婚率</b>的其他原因"——离婚率只是"沟通危害"的论据，不是全文焦点；且与末段的漫画场景无关。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 把论据当主题' },
+  { title: 'D：人物使命已结束', cls: 'bad',
+    body: '<p>"介绍政治学者 <b>Hacker</b>"——第三段引用完毕后此人再未出场；人物使命结束，不会回头介绍。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 引用完毕的人物' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（a detailed description of the stereotypical cartoon）</b>。记忆锚点：<b>续写题 = 末段在场 + 主旨相关</b>；末段 In short 点出漫画却未展开，钩子就在这里。</p>',
+    log: '锁定 B' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 30 · 末段抛出的"钩子"',
+  subtitle: 'Text 2（夫妻交流模式）· 考点：篇章走向预测（连贯性 + 主旨一致性）',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B',
+    html: '记忆锚点：<b>续写题看末段在场对象</b>——末段抛出 stereotypical cartoon 只提及未展开，下文必然细描；A/D 是第三段的"冷灶"不回锅，C 把论据离婚率当主题。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：接下来写什么——末段抛出的"钩子"</h2>
+<p>答案：<strong>B（a detailed description of the stereotypical cartoon）</strong>。</p>
+<h3>第一步：先立机制——续写题的两个约束</h3>
+<p>"下文最可能讲什么"受两条规则约束：<strong>顺滑相接</strong>（与末段无缝衔接）+ <strong>服务主旨</strong>（仍围绕全文主线）。识别方法：看末段刚"抛出一个意象/话题"却没展开——那就是钩子。</p>
+<h3>第二步：定位原文（末段）</h3>
+<blockquote>In short, the image that best represents the current crisis is the stereotypical cartoon scene of a man sitting at the breakfast table with a newspaper held up in front of his face, while a woman glares at the back of it, wanting to talk.</blockquote>
+<p>一句话点出"最能代表这场危机的经典漫画"，到此戛然而止——漫画只是被提及，尚未描绘。按篇章连贯性，下一段自然<strong>细描这幅漫画</strong>。</p>
+<h3>第三步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A 细述新书《离婚谈》</td><td>✗</td><td>冷灶：第三段提过此后再未出现，与末段无衔接</td></tr><tr><td>B 细描那幅典型漫画</td><td>✓</td><td>与末句直接相接，且继续服务"夫妻交流模式"主旨</td></tr><tr><td>C 美国高离婚率的其他原因</td><td>✗</td><td>偏题：离婚率只是论据，全文焦点是交流模式</td></tr><tr><td>D 介绍政治学者 Hacker</td><td>✗</td><td>冷灶：第三段已引用完毕，人物使命结束</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：被"第三段出现过"的熟悉感吸引。续写题的铁律：<strong>早出现且已退场的对象不会回锅</strong>——衔接对象必须在末段在场。</li><li><strong>选 C</strong>：把论据当主题。高离婚率是"沟通危害有多大"的证据，不是作者要展开的新话题。</li></ul>
+<blockquote>记忆锚点：续写题 = 末段在场 + 主旨相关，二者缺一不可；末段 In short 点出漫画却未展开，钩子就在这里。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023 阅读第 21 题 · 人物观点题：RHS 的看法写在「says + because of」之后</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2023 阅读第 21 题 · 人物观点题：RHS 的看法写在「says + because of」之后","subtitle":"考点：观点细节题 · 方法：says 之后才是观点，because of 之后是原因（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位观点句 → 同义替换 → 逐项排除”的推理链。","stemEn":"The RHS thinks that plastic grass <b>____</b>.","stemZh":"皇家园艺协会（RHS）认为塑料草坪____。（人物观点题：先找 says / 引语，观点就在其后）","quotes":[{"tag":"定位① · 首段末句（观点句）","en":"The Royal Horticultural Society (RHS), which runs the annual show in west London, <b>says</b> it has introduced the ban <b>because of the damage plastic grass does to the environment and biodiversity</b>.","zh":"says 之后是 RHS 的观点；because of 给出禁用原因——塑料草坪对环境与生物多样性造成破坏。damage to the environment ↔ harmful to the environment。"},{"tag":"定位② · 第二段引语（补充印证）","en":"Ed Home, of the RHS, said: “We launched our sustainability strategy last year and fake grass is just <b>not in line with our ethos and views on plastic</b>. We recommend using real grass because of its <b>environmental benefits</b>…”","zh":"RHS 成员补充：人造草坪不合其环保理念，推荐真草因其环境益处——双重印证「人造草坪有害环境」。"},{"tag":"机制 · says 前后分工","en":"(RHS), which runs the annual show in west London, says it has introduced the ban because of…","zh":"says 之前的定语从句（which runs the annual show in west London）只是身份介绍；观点藏在 says 之后。C、D 都是从 says 之前或别处拼凑的干扰。"}],"opts":[{"k":"B","en":"is a hot topic in gardening circles","zh":"是园艺界的热议话题","why":"把首段②句的客观事实「反对已扩散到最高园艺圈（opposition has now spread to the highest gardening circles）」夸大成 RHS 的观点——这是别处信息，不是 RHS 的看法。"},{"k":"C","en":"is overpraised in the annual show","zh":"在年度展会中被过度夸赞","why":"窜改——原文说塑料草坪在年度花展中被「禁止（banned）」，不是被「过度夸赞」；语义方向完全相反。"},{"k":"D","en":"is ruining the view of west London","zh":"正在破坏伦敦西区的景观","why":"碎片杂糅——west London 只是花展举办地（says 之前定语从句里的次要信息）；原文泛泛谈「对环境的危害」，从未具体提到伦敦西区的景观。"},{"k":"A","en":"is harmful to the environment","zh":"对环境有害","why":"","good":"harmful to the environment ↔ the <b>damage</b> plastic grass does to <b>the environment</b>：题干+A 正是首段末句的同义改写，第二段引语再证。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1,2],"state":{}},{"show":[0,1,2],"state":{"B":"bad"}},{"show":[0,1,2],"state":{"B":"bad","C":"bad"}},{"show":[0,1,2],"state":{"B":"bad","C":"bad","D":"bad"}},{"show":[0,1,2],"state":{"B":"bad","C":"bad","D":"bad","A":"good"}},{"show":[0,1,2],"state":{"B":"bad","C":"bad","D":"bad","A":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"题干问 RHS 的观点（thinks）→ 人物观点题：答案藏在 says 之后 / 引语之内，says 之前的内容只是身份介绍","count":0},{"cls":"shift","tag":"定位①首段末句","log":"RHS says it has introduced the ban because of the damage plastic grass does to the environment and biodiversity——禁用原因：破坏环境","count":0},{"cls":"shift","tag":"定位②第二段引语","log":"RHS 成员：fake grass is just not in line with our ethos（不合环保理念）+ 推荐真草因其 environmental benefits——双重印证","count":0},{"cls":"shift","tag":"机制：同义替换","log":"damage … to the environment ↔ harmful to the environment——观点句的关键词在 A 里被同义改写","count":0},{"cls":"miss","tag":"排除 B","log":"B hot topic ✗：把首段②句「反对扩散到最高园艺圈」这个客观事实，夸大成 RHS 的观点——信息错位","count":1,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C overpraised ✗：原文说「被禁止（banned）」，不是「被过度夸赞」——方向反了","count":2,"ribbon":{"k":"C","ok":false}},{"cls":"miss","tag":"排除 D","log":"D ruining the view of west London ✗：west London 只是花展举办地的次要信息，杂糅成「破坏西区景观」——原文没有","count":3,"ribbon":{"k":"D","ok":false}},{"cls":"ok","tag":"选定 A","log":"A harmful to the environment ✓：damage to the environment 的同义改写，首段末句 + 第二段引语两处印证","count":3,"ribbon":{"k":"A","ok":true}},{"cls":"done","tag":"结论","log":"答案 A：观点题先找 says——says 之后 + because of 之后才是观点；says 之前的定语从句只是身份牌","count":3,"done":true}],"result":{"big":"答案 A（is harmful to the environment）","html":"<b>A</b>：RHS 禁用塑料草坪 <b>because of the damage … to the environment</b>——即认为它<b>对环境有害</b>；第二段「不合环保理念、推荐真草」再证。<br>B 把「园艺圈的反对方」夸大成「热议话题」；C 把「被禁止」窜改成「被夸赞」；D 把花展举办地杂糅成「破坏西区景观」。<br>记忆锚点：<b>says 之后才是观点，says 之前只是身份介绍</b>。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 21 题——观点题先找 says：says 之后 + because of 之后才是观点</h2>
+<p>答案：<strong>A（is harmful to the environment）</strong>。</p>
+<h3>第一步：先立机制——says 之前是身份牌，says 之后才是观点</h3>
+<p>人物观点题的答案位置有规律：<code>sb says...</code> 之后是观点本体，says 之前的定语从句只是身份介绍。本题由题干关键词 RHS 定位至首段末句——says 之后还带了 because of，观点的理由也在其中。</p>
+<h3>第二步：定位原文——两处印证</h3>
+<blockquote>The Royal Horticultural Society (RHS), which runs the annual show in west London, says it has introduced the ban because of the damage plastic grass does to the environment and biodiversity.</blockquote>
+<blockquote>"…fake grass is just not in line with our ethos and views on plastic. We recommend using real grass because of its environmental benefits…"</blockquote>
+<ul><li>禁用原因：塑料草坪对环境与生物多样性造成破坏（damage to the environment）；</li><li>第二段引语再证：人造草坪不合环保理念，推荐真草因其环境益处；</li><li>同义替换：damage … to the environment → harmful to the environment。</li></ul>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>B is a hot topic in gardening circles ✗</strong>：把首段②句的客观事实「反对已扩散到最高园艺圈」夸大成 RHS 的观点——信息错位，那不是 RHS 的看法。</li><li><strong>C is overpraised in the annual show ✗</strong>：原文说塑料草坪在年度花展中被「禁止（banned）」，不是被「过度夸赞」——语义方向相反。</li><li><strong>D is ruining the view of west London ✗</strong>：碎片杂糅——west London 只是花展举办地（says 之前定语从句里的次要信息），原文从未说塑料草坪破坏伦敦西区景观。</li><li><strong>A is harmful to the environment ✓</strong>：damage to the environment 的同义改写，两处原文印证。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（最强干扰）</strong>：opposition has now spread to the highest gardening circles 是作者的客观陈述，不是 RHS 的观点——观点题最忌把「背景事实」当成「人物观点」。</li><li><strong>误选 D</strong>：被 says 之前的定语从句带偏——定语从句在观点区之外，只作身份介绍。</li></ul>
+<blockquote>记忆锚点：观点题定位「says / 引语」——之前是身份牌，之后才是观点；because of 之后是理由，答案常由理由同义改写而来。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

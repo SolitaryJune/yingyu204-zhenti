@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-23 · 2019 阅读 Text 1 第 23 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · 三组同义替换锁定定位句", "cls": "key", "tag": "定位", "log": "rethinking↔revival；awareness↔recognition；定位第二段④句", "count": 0, "ribbon": null, "body": "<p>题干：Vaish holds that the rethinking about guilt comes from an awareness that ____.</p><p>三组同义替换——the rethinking about guilt ↔ this revival（复兴/复现）；comes from ↔ is part of；an awareness ↔ recognition。定位到 Vaish 的话：this revival is part of a larger <b>recognition</b> that...——recognition 后面的从句就是答案。</p>"}, {"title": "定位原文 · aren’t binary 的破折号", "cls": "key", "tag": "证据", "log": "emotions aren’t binary + 破折号解释：同一情绪在此有利、在彼有害", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…adding that this revival is part of a larger recognition that emotions aren’t binary – feelings that may be advantageous in one context may be harmful in another. Jealousy and anger, for example, may have evolved to alert us to important inequalities. Too much happiness can be destructive.</div><p>破折号给出解释：emotions aren’t binary（情绪不是非好即坏）——<b>同一情绪</b>在此情境有利、在彼情境有害。随后⑤⑥句例证：嫉妒与愤怒（一般视为有害）可能进化来提醒我们注意不平等（有利）；快乐过多也可能具有毁灭性（有益的过量变有害）。⇒ 同一情绪能扮演<b>相反的两种角色</b>。</p>"}, {"title": "逐项分析 · A emotions are context-independent", "cls": "bad", "tag": "排除 A", "log": "A emotions are context-independent ✗ 排除——方向反转：原文“在一种情境有利、在另一种情境有害”强调的正是“取决于情境”（context-dependent）", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>方向反转：原文“在一种情境有利、在另一种情境有害”强调的正是“取决于情境”（context-dependent）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：binary 一词没读懂，把“不是非好即坏”理解成“与情境无关”——恰与破折号解释相反。</p>"}, {"title": "逐项分析 · B emotions are socially constructive", "cls": "bad", "tag": "排除 B", "log": "B emotions are socially constructive ✗ 排除——答非所问：social glue（第三段）是反思带来的“对内疚作用的新认识”（果），不是“反思的来源”（因）", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>答非所问：social glue（第三段）是反思带来的“对内疚作用的新认识”（果），不是“反思的来源”（因）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓到文中有社会建设性字样就选，没核对题干问的是“来源”还是“结果”。</p>"}, {"title": "逐项分析 · C emotional stability can benefit health", "cls": "bad", "tag": "排除 C", "log": "C emotional stability can benefit health ✗ 排除——全文未涉及“情绪稳定”与“健康”的关系，属无中生有", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>全文未涉及“情绪稳定”与“健康”的关系，属无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用健康常识代入外文阅读题。</p>"}, {"title": "逐项分析 · D an emotion can play opposing roles", "cls": "good", "tag": "选定 D", "log": "D an emotion can play opposing roles ✓ 当选——aren’t binary + 破折号解释 + ⑤⑥句例证 ⇒ 同一情绪在不同情境下可以起完全相反的作用", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>aren’t binary + 破折号解释 + ⑤⑥句例证 ⇒ 同一情绪在不同情境下可以起完全相反的作用。</p><p>对应关系：awareness ↔ recognition；opposing roles ↔ advantageous in one context / harmful in another。</p>"}, {"title": "结论 · 双面性与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（an emotion can play opposing roles）——aren’t binary 的完整解读", "count": 3, "ribbon": null, "body": "<p>答案选 <b>D（an emotion can play opposing roles 同一情绪可以起相反的作用）</b>。</p><p><b>记忆锚点</b>：revival = rethinking；recognition = awareness；aren’t binary = 同一情绪可好可坏（角色相反），判断依据全在破折号与⑤⑥句例证里。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>B（socially constructive）</b>：文中有 social glue——但那是“反思之后”对内疚的新认识，题干问的是反思“源自”什么。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 1 第 23 题 · 对内疚的“再思考”源自什么（人物观点题）",
+  subtitle: "考点：人物观点题 · 同义替换定位 → aren’t binary 破折号解读 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（an emotion can play opposing roles）", "html": "<b>D an emotion can play opposing roles（同一情绪可起相反作用）</b>：recognition that emotions aren’t binary + 破折号解释 + ⑤⑥句例证。<br>最易误选：<b>B</b>——social glue 是反思之“果”，不是反思之“源”。<br>记忆锚点：awareness ↔ recognition；aren’t binary = 有利/有害取决于情境。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：人物观点题——aren't binary 的破折号才是答案</h2>
+<p>答案：<strong>D（an emotion can play opposing roles 同一情绪可以起相反作用）</strong>。</p>
+<h3>第 0 步：先立机制——三组同义替换锁定定位句</h3>
+<table><thead><tr><th>题干</th><th>原文</th></tr></thead><tbody><tr><td>the rethinking about guilt</td><td>this revival（复兴/复现）</td></tr><tr><td>comes from</td><td>is part of</td></tr><tr><td>an awareness</td><td>recognition</td></tr></tbody></table>
+<p>定位至第二段④句：...this revival is part of a larger recognition that emotions <strong>aren't binary</strong> – feelings that may be advantageous in one context may be harmful in another.</p>
+<h3>第 1 步：读懂定位句 + 例证</h3>
+<ul><li>aren't binary（不是非好即坏）→ 破折号给出解释：<strong>同一情绪</strong>在此情境有利、在彼情境有害；</li><li>⑤⑥句例证：嫉妒与愤怒（一般认为有害）可能进化来提醒我们注意不平等（有利）；快乐过多可能具有毁灭性（有益的过量变有害）。</li><li>两层信息合并：同一情绪能扮演<strong>相反的两种角色</strong> → D。</li></ul>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A emotions are context-independent</td><td>✗</td><td>方向反转：原文“有利与否取决于情境”，即 context-<strong>dependent</strong></td></tr><tr><td>B emotions are socially constructive</td><td>✗</td><td>答非所问：social glue（第三段）是反思带来的“对内疚作用的新认识”（果），不是反思的来源（因）</td></tr><tr><td>C emotional stability can benefit health</td><td>✗</td><td>无中生有：全文未涉及情绪稳定与健康</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：文中有 social glue、cooperative species 等词，容易抓来就选。但题干问的是“反思<strong>源自</strong>什么认识”——来源必须是对 emotions 的认识，而非对 guilt 作用的新发现。</li><li><strong>误选 A</strong>：binary 一词没读懂，把“情绪不是非好即坏”理解成“情绪与情境无关”——恰好与破折号解释相反。</li></ul>
+<blockquote>记忆锚点：revival = rethinking；recognition = awareness；aren't binary = 同一情绪可好可坏（角色相反），判断依据全在破折号与⑤⑥句例证里。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

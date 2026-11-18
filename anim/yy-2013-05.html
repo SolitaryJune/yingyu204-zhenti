@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 5 空 · 二十年未果的进程有多快——slow in coming · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 收束问句 = 上文证据的概括", "cls": "key", "tag": "审题", "log": "先立机制：收束问句 = 上文证据的概括", "count": 0, "ribbon": null, "body": "<p>本句是第一段的收束问句，把前文事实拧成一个疑问：预言喊了二十年（第 2 空）、例证落空（第 3、4 空），无现金社会到底为什么迟迟不来？空格在 be so ___ in coming 里作表语，形容 movement（进程）“到来”的状态。概括题的答案必须能覆盖上文全部证据——证据全是时间维度的：二十年、至今未实现。</p>"}, {"title": "定位原文 · 空 5 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 5 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Why has the movement to a cashless society been so <b>__5__</b> in coming?</div><p>so ___ in coming：形容词 + in doing 结构，“在到来这件事上如此……”。四个候选 silent / sudden / slow / steady，只有一个与“二十年未果”同向。</p>"}, {"title": "找证据 · two decades + not yet = 时间证据链", "cls": "key", "tag": "证据", "log": "找证据：two decades + not yet = 时间证据链", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Indeed, predictions have been around for two decades but have not yet come to fruition.</div><p>“预言存在了二十年”与“至今没有实现”两个事实，指向的都是“慢”：不是没来，而是来得极慢。第二段随即用 several factors work against… 开始作答，答案“缓慢”同时为下文的原因列举定下方向。</p>"}, {"title": "逐项分析 · A silent（沉默的；无声的）", "cls": "bad", "tag": "排除 A", "log": "A silent（沉默的；无声的）✗ 排除——与快慢维度不搭", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>silent 形容“无声”，与“进程到来”的快慢维度不搭，上文证据全是时间。</p><p style=\"color:#b91c1c\">⚠ 典型误解：silent / slow 形近，扫读出错。</p>"}, {"title": "逐项分析 · B sudden（突然的）", "cls": "bad", "tag": "排除 B", "log": "B sudden（突然的）✗ 排除——与二十年未果矛盾", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>方向反了：“突然到来”与“二十年未实现”直接矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：完全脱离上文证据，凭语感选词。</p>"}, {"title": "逐项分析 · C slow（缓慢的；迟缓的）", "cls": "good", "tag": "选定 C", "log": "C slow（缓慢的；迟缓的）✓ 当选——与时间证据同向", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>movement has been slow in coming = 进程迟迟不来，与二十年未果完全同向，也为下文的原因列举定方向。</p>"}, {"title": "逐项分析 · D steady（稳定的；持续的）", "cls": "bad", "tag": "排除 D", "log": "D steady（稳定的；持续的）✗ 排除——“稳定”≠“缓慢”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>steady in coming 说“来得很稳”，但上文强调“至今没来”；“预言持续存在”不等于“进程持续到来”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 for two decades 的“持续感”带偏。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（slow 缓慢的）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>为什么迈向无现金社会的进程如此缓慢、迟迟不来？</b></p><p>答案选 <b>C（slow 缓慢的）</b>。</p><p><b>记忆锚点</b>：收束问句 = 上文证据的概括题；two decades + not yet → slow in coming；预言“持续”≠进程“持续”。</p><p style=\"color:#b91c1c\">最易误选：<b>D（steady）</b>——for two decades 的“持续感”最容易诱导 steady，可那是预言在持续，不是进程。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 5 空 · 二十年未果的进程有多快——slow in coming",
+  subtitle: "考点：上下文语义（形容词辨析） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（slow 缓慢的）", "html": "<b>C slow（缓慢的）</b>。<br>完整句义：为什么迈向无现金社会的进程如此缓慢、迟迟不来？<br>记忆锚点：收束问句 = 上文证据的概括题；two decades + not yet → slow in coming；预言“持续”≠进程“持续”。<br>最易误选：<b>D（steady）</b>——for two decades 的“持续感”最容易诱导 steady，可那是预言在持续，不是进程。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 5 空 · 二十年未果的进程有多快——slow in coming</h2>
+<p>答案：<strong>C（slow 缓慢的）</strong>。</p>
+<h3>第 0 步：先立机制——收束问句 = 上文证据的概括</h3>
+<p>本句是第一段的收束问句，把前文事实拧成一个疑问：预言喊了二十年（第 2 空）、例证落空（第 3、4 空），无现金社会到底为什么迟迟不来？空格在 be so ___ in coming 里作表语，形容 movement（进程）“到来”的状态。概括题的答案必须能覆盖上文全部证据——证据全是时间维度的：二十年、至今未实现。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Why has the movement to a cashless society been so <code>__5__</code> in coming?</blockquote>
+<p>so ___ in coming：形容词 + in doing 结构，“在到来这件事上如此……”。四个候选 silent / sudden / slow / steady，只有一个与“二十年未果”同向。</p>
+<h3>第 2 步：找证据——two decades + not yet = 时间证据链</h3>
+<blockquote>Indeed, predictions have been around for two decades but have not yet come to fruition.</blockquote>
+<p>“预言存在了二十年”与“至今没有实现”两个事实，指向的都是“慢”：不是没来，而是来得极慢。第二段随即用 several factors work against… 开始作答，答案“缓慢”同时为下文的原因列举定下方向。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A silent</td><td>沉默的；无声的</td><td>✗ 排除</td><td>silent 形容“无声”，与“进程到来”的快慢维度不搭，上文证据全是时间。（典型误解：silent / slow 形近，扫读出错。）</td></tr><tr><td>B sudden</td><td>突然的</td><td>✗ 排除</td><td>方向反了：“突然到来”与“二十年未实现”直接矛盾。（典型误解：完全脱离上文证据，凭语感选词。）</td></tr><tr><td>C slow</td><td>缓慢的；迟缓的</td><td>✓ 当选</td><td>movement has been slow in coming = 进程迟迟不来，与二十年未果完全同向，也为下文的原因列举定方向。（易错警示：steady 的“持续感”来自 for two decades，但持续的是预言，不是进程。）</td></tr><tr><td>D steady</td><td>稳定的；持续的</td><td>✗ 排除</td><td>steady in coming 说“来得很稳”，但上文强调“至今没来”；“预言持续存在”不等于“进程持续到来”。（典型误解：被 for two decades 的“持续感”带偏。）</td></tr></tbody></table>
+<p>代入后的完整句义：为什么迈向无现金社会的进程如此缓慢、迟迟不来？</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>be slow in coming 是什么结构？</strong>：be + 形容词 + in (doing)：“在……方面如何”。slow in coming = 迟迟不来；同类如 be slow in responding（反应迟缓）。</li><li><strong>这个问句在全篇起什么作用？</strong>：承上启下：第一段摆出“预言快、现实慢”的矛盾并给出例证，本句把矛盾拧成一个问题；第二段用 several factors work against… 正式作答。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（silent）</strong>：silent / slow 形近，扫读出错。</li><li><strong>误选 B（sudden）</strong>：完全脱离上文证据，凭语感选词。</li><li><strong>误选 D（steady）</strong>：被 for two decades 的“持续感”带偏。</li></ul>
+<blockquote>记忆锚点：收束问句 = 上文证据的概括题；two decades + not yet → slow in coming；预言“持续”≠进程“持续”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

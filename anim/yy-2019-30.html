@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-30 · 2019 阅读 Text 2 第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · 态度题找“评价性表达”，首尾优先", "cls": "key", "tag": "定位", "log": "态度藏在段首副词、比喻短语、末段总评——三处逐一收集", "count": 0, "ribbon": null, "body": "<p>题干：The author’s attitude to California’s plan can best be described as ____.</p><p>态度题机制：作者的态度藏在他<b>下判断</b>的地方——转折后、段首副词、全文末句。本题三处：第二段段首 <b>Thankfully</b>；第二段③句 <b>leading the way</b>；末段 <b>should serve as a model</b>。</p>"}, {"title": "收集证据 · 三处评价词连成一条线", "cls": "key", "tag": "证据", "log": "Thankfully（庆幸）→ leading the way（表率）→ serve as a model（典范）：褒扬递进", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Thankfully, there is a way out of this trap – but it involves striking a subtle balance. Helping forests flourish as valuable “carbon sinks” long into the future may require reducing their capacity to absorb carbon now. California is leading the way, as it does on so many climate efforts, in figuring out the details.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">State governments are well accustomed to managing forests, but traditionally they’ve focused on wildlife, watersheds and opportunities for recreation. Only recently have they come to see the vital part forests will have to play in storing carbon. California’s plan, which is expected to be finalized by the governor next year, should serve as a model.</div><p>三处从“庆幸有出路”到“加州领跑”再到“应成为典范”，<b>褒扬递进</b> → 作者支持加州计划。</p>"}, {"title": "逐项分析 · A ambiguous（模棱两可的）", "cls": "bad", "tag": "排除 A", "log": "A ambiguous（模棱两可的） ✗ 排除——张冠李戴：subtle balance 是“计划内容”的权衡（短期吸碳力 vs 长期吸碳力），不是作者态度含糊", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>张冠李戴：subtle balance 是“计划内容”的权衡（短期吸碳力 vs 长期吸碳力），不是作者态度含糊。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 subtle（精妙的）当成 ambiguous（含糊的）。</p>"}, {"title": "逐项分析 · B tolerant（宽容的）", "cls": "bad", "tag": "排除 B", "log": "B tolerant（宽容的） ✗ 排除——误设缺陷：把“短期降低碳承载力”“年处理面积占比小”当成缺陷再“包容”——前者是长期受益的代价设计，后者引出“优先处理高风险区”，均非缺陷", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>误设缺陷：把“短期降低碳承载力”“年处理面积占比小”当成缺陷再“包容”——前者是长期受益的代价设计，后者引出“优先处理高风险区”，均非缺陷。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把客观的“代价/限制”读成“缺点”，进而臆造“作者勉强接受”。</p>"}, {"title": "逐项分析 · C supportive（支持的）", "cls": "good", "tag": "选定 C", "log": "C supportive（支持的） ✓ 当选——Thankfully + leading the way + should serve as a model 三证齐全，褒扬贯穿全文", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>Thankfully + leading the way + should serve as a model 三证齐全，褒扬贯穿全文。</p><p>三处证据：Thankfully（庆幸）→ California is leading the way（表率）→ should serve as a model（典范）。</p>"}, {"title": "逐项分析 · D cautious（谨慎的）", "cls": "bad", "tag": "排除 D", "log": "D cautious（谨慎的） ✗ 排除——无风险警示：“谨慎”意味着心存顾虑，全文没有讨论计划可能造成的风险，与 should serve as a model 的力荐矛盾", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>无风险警示：“谨慎”意味着心存顾虑，全文没有讨论计划可能造成的风险，与 should serve as a model 的力荐矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 only a small share 这类“保留式”表述就以为作者有所保留——那是客观条件描述，不是态度词。</p>"}, {"title": "结论 · 态度词三查法", "cls": "good", "tag": "答案 C", "log": "答案 C（supportive 支持的）——段首副词+比喻短语+结尾总评", "count": 3, "ribbon": null, "body": "<p>答案选 <b>C（supportive 支持的）</b>。</p><p><b>记忆锚点</b>：态度题三查——段首副词（Thankfully）、比喻性短语（leading the way）、结尾总评（serve as a model）；subtle balance 是内容，不是态度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>D（cautious）</b>：态度题只认评价性词汇——客观条件描述（小占比、需平衡）不构成“谨慎”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 2 第 30 题 · 作者对加州计划的态度（观点态度题）",
+  subtitle: "考点：观点态度题 · 收集评价词 → 褒贬定调 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（supportive 支持的）", "html": "<b>C supportive（支持的）</b>：Thankfully（庆幸）+ leading the way（表率）+ should serve as a model（典范），褒扬递进。<br>最易误选：<b>D（cautious）</b>——客观条件描述不是态度词，全文无风险警示。<br>记忆锚点：态度题三查——段首副词、比喻短语、结尾总评；subtle balance 是内容不是态度。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：态度题——把全文的“评价词”串成一条线</h2>
+<p>答案：<strong>C（supportive 支持的）</strong>。</p>
+<h3>第 0 步：先立机制——态度题找“评价性表达”，首尾优先</h3>
+<p>态度藏在作者下判断的地方：转折后、段首副词、全文末句。本文三处：</p>
+<table><thead><tr><th>位置</th><th>原文</th><th>情感</th></tr></thead><tbody><tr><td>第二段①</td><td><strong>Thankfully</strong>, there is a way out of this trap</td><td>赞赏、庆幸</td></tr><tr><td>第二段③</td><td>California is <strong>leading the way</strong>, as it does on so many climate efforts</td><td>表率、推崇</td></tr><tr><td>末段末句</td><td>California's plan... should <strong>serve as a model</strong></td><td>力荐、典范</td></tr></tbody></table>
+<p>三处从“庆幸”到“表率”再到“典范”，褒扬递进 → <strong>supportive</strong>。</p>
+<h3>第 1 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A ambiguous</td><td>✗</td><td>张冠李戴：subtle balance 是<strong>计划内容</strong>的权衡（短期吸碳力 vs 长期吸碳力），不是作者态度含糊</td></tr><tr><td>B tolerant</td><td>✗</td><td>误设缺陷：把“短期降低碳承载力”“年处理面积占比小”当成缺陷再“包容”——两者均非缺陷</td></tr><tr><td>C supportive</td><td>✓</td><td>Thankfully + leading the way + serve as a model 三证齐全</td></tr><tr><td>D cautious</td><td>✗</td><td>无风险警示：“谨慎”意味着心存顾虑，与 should serve as a model 的力荐矛盾</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：看到 subtle、only a small share 这类“保留式”表述就以为作者有所顾虑。但这些是<strong>客观条件描述</strong>，不是态度词；态度题只认评价性词汇。</li><li><strong>误选 A</strong>：subtle（微妙的）容易被当成 ambiguous（含糊的）——subtle 修饰的是“平衡之精巧”，不是“态度之模糊”。</li></ul>
+<blockquote>记忆锚点：态度题三查——段首副词（Thankfully）、比喻性短语（leading the way）、结尾总评（serve as a model）；subtle balance 是内容，不是态度。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

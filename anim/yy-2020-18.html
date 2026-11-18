@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-18 · 完形第 18 空：用「更可行的目标」反推空格</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：下句是钥匙",
+  "body": "<p>空格句是末段首句：Certainly, it's incredibly <b>__18__</b> to maintain patience at all times（始终对孩子保持耐心非常 __）。</p><p>紧随其后的下句是 <b>A more practical goal</b> is to try...（一个<b>更可行</b>的目标是……）。\"更可行\"三个字就是钥匙：只有\"始终保持耐心\"这件事<b>很难做到</b>时，才需要退一步给出替代方案。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：承上 + 启下两句一起看",
+  "body": "<div class='qq'><b>原文：</b>Certainly, it's incredibly <b>__18__</b> to maintain patience at all times with your children. A more <b>practical</b> goal is to try, to the best of your ability, to be as tolerant and composed as you can...</div><p class='cn'>译：当然，始终对孩子保持耐心是非常 __ 的。一个更务实的目标是：尽你所能，在面对……时尽量保持宽容与冷静。</p><p>hard 取\"困难的\"义：保持耐心确实难，所以才提出\"更务实的目标\"。这也呼应前文\"成为耐心的父母并非易事\"\"父母失控情有可原\"。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：terrible（糟糕的）",
+  "body": "<p><b>A · terrible</b> <span class='bad-dot'>✗</span></p><p>填进去变成\"始终对孩子保持耐心是件<b>糟糕的事</b>\"——这是在否定耐心本身，而全文通篇都在论证耐心的重要。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：strange（奇怪的）",
+  "body": "<p><b>C · strange</b> <span class='bad-dot'>✗</span></p><p>strange 表示\"某情况不正常、出人意料\"，同样把\"保持耐心\"说成不该做的事——偏离作者态度：保持耐心最理想，尽管很难。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：wrong（错误的）",
+  "body": "<p><b>D · wrong</b> <span class='bad-dot'>✗</span></p><p>与 A 同病：\"始终保持耐心是<b>错误做法</b>\"。A、D、C 三项都在\"否定做法\"，而空格要的只是\"承认困难\"——承认困难 ≠ 否定做法。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 4,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：hard（困难的）",
+  "body": "<p><b>B · hard</b> <span class='ok-dot'>✓</span></p><p>it's incredibly <b>hard</b> to...：保持耐心很难 → 下句 A more practical goal 顺理成章。既承认困难，又不否定耐心的价值，与全文立场一致。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（hard）</b>。</p><p>记忆锚点：下句 A more practical goal = 上句\"很难做到\"；完形选词先看承上启下，\"承认困难\"不等于\"否定做法\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-18 · 完形第 18 空：用「更可行的目标」反推空格",
+  subtitle: "考点：上下文语义（承上启下逻辑）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 搭配/语义核对 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 B", "html": "<b>承上启下定词性方向</b>：下句 A more practical goal（更务实的目标）反推空格 = \"很难做到\"（hard）。terrible / strange / wrong 都把\"保持耐心\"说成糟糕、奇怪、错误——共同误区是\"把承认困难当成了否定做法\"。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 18 空——用下文"更可行的目标"反推空格</h2>
+<p>答案：<strong>B</strong>（hard）。</p>
+<h3>第 0 步：先立机制——完形选词先看"承上启下"</h3>
+<p>空格句是末段首句：Certainly, it's incredibly __18__ to maintain patience at all times（当然，始终对孩子保持耐心非常 __）。它的下一句是 A more practical goal is to try...（一个<strong>更可行</strong>的目标是……）。"更可行"三个字就是钥匙：只有当"始终保持耐心"这件事<strong>很难做到</strong>时，才需要退一步给出替代方案。这与前文第三、四段的要义呼应——"成为耐心的父母并非易事""父母情绪失控情有可原"。所以空格要填"困难"义，且必须落在<strong>承认困难</strong>上，而不是<strong>否定做法</strong>。</p>
+<h3>第 1 步：B 对号入座</h3>
+<blockquote>Certainly, it's incredibly <strong>hard</strong> to maintain patience at all times with your children. A more practical goal is to try, to the best of your ability, to be as tolerant and composed as you can...</blockquote>
+<p>hard 取"困难的"义：保持耐心确实难，所以下一句才顺势提出"更务实的目标"。承上（呼应"并非易事"）、启下（引出务实建议），逻辑严丝合缝。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（terrible 糟糕的）</strong>：填进去变成"始终对孩子保持耐心是件糟糕的事"，否定了耐心本身——全文通篇都在论证耐心的重要。</li><li><strong>C（strange 奇怪的）</strong>：表示"某情况不正常、出人意料"，同样把"保持耐心"说成了一件不该做的事，偏离作者态度。</li><li><strong>D（wrong 错误的）</strong>：与 A 同病——"始终保持耐心是错误做法"。A、C、D 的共同误区是"把承认困难当成了否定做法"；作者立场恰是"保持耐心最理想，尽管很难"。</li></ul>
+<blockquote>记忆锚点：下句 A more practical goal = 上句"很难做到"；承上启下定词义方向——承认困难不等于否定做法。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

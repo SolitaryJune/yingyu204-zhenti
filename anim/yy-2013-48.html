@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2013-48 大作文谋篇：图表作文的「描图—析因—评论」三段机制</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：图表数据迷你表（自包含，无外部资源） */
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+tr.hl td{background:#fffbeb;color:#b45309;font-weight:700}
+</style>
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两个指令定三段',
+    cls: 'key',
+    body: '<p><b>1) interpret the chart</b>（图表说了什么）+ <b>2) give your comments</b>（你怎么看），约 150 词。机制对应三段式：<b>描图给「是什么」，析因给「为什么」，评论给「怎么看」</b>——描图不评论、析因不描写、评论不重复，各段功能不串门。</p>' },
+  { title: '读图：先抓趋势，再抓最显眼的数据点',
+    cls: 'key',
+    body: '<table class="aw-mini"><tr><th>年级</th><th>兼职比率</th><th>读法</th></tr><tr><td>大一</td><td>67.77%</td><td>起点已过半数</td></tr><tr><td>大二</td><td>71.13%</td><td>平缓上升</td></tr><tr><td>大三</td><td>71.93%</td><td>几乎持平</td></tr><tr><td class="hl">大四</td><td>88.24%</td><td>最大增幅（比前一年高约 16%）</td></tr></table><p>话题 = 大学生兼职；直接信息 = <b>兼职率逐年级上升，最大增幅出现在大四</b>。隐忧（挤占学业）留给评论段。</p>' },
+  { title: '谋篇：三段各管一件事',
+    cls: 'key',
+    body: '<p><b>段 1</b> 描图 = 趋势一句 + 重点数据一句；<b>段 2</b> 析因 = 两个动机（先虚后实）；<b>段 3</b> 评论 = 让步 + 转折 + 建议。第一段只陈述图表事实，<b>steadily / most noticeable</b> 这类定调词不算评论。</p>' },
+  { title: '段 1 趋势句：rate 作主语，from…to… 打包全程',
+    cls: 'good',
+    body: '<p><b>The chart shows the proportion of college students taking part-time jobs in a university, rising steadily from 67.77% among freshmen to 88.24% among seniors.</b></p><p>主语选 <b>rate/proportion（比率）</b>，谓语 rises/increases；from…to… 一句画完整条柱状图；现在分词 rising steadily 挂尾，避免第二句。</p>' },
+  { title: '段 1 重点数据：with 复合结构补差值',
+    cls: 'good',
+    body: '<p><b>The most noticeable jump occurs in the final year, when the rate is about 16% higher than that of the previous year.</b></p><p>最大增幅在大四：88.24% − 71.93% ≈ 16%——<b>比较对象必须写清（与前一年比）</b>。进阶句式：the biggest increase occurs in the graduation year, <b>with the rate 16% higher than a year ago</b>（with 复合结构）。</p>' },
+  { title: '段 2 动机一（经验）：名词化 + 背景反证',
+    cls: 'good',
+    body: '<p><b>The first is the growing wish to gain practical experience for future careers — a preparation that seems all the more sensible when unemployment hit a record high in early 2013.</b></p><p>名词化主语（the growing wish）比从句紧凑；失业率创新高（2013 年初）作背景，反证准备工作的合理性（<b>reach a record high</b> 创历史新高）。</p>' },
+  { title: '段 2 动机二（钱）：As 从句 + 分词结果状语',
+    cls: 'good',
+    body: '<p><b>As students move into higher grades, they spend more on study materials and social activities, so part-time jobs become an obvious way to cover the costs.</b></p><p>因果链 = 高年级 → 花费多 → 去挣钱；参考口径句式：<b>there will be huger costs…, undoubtedly pushing students to reap money from part-time jobs</b>（there be 客观陈述 + 现在分词结果状语 pushing，一句收尾）。</p>' },
+  { title: '段 3 评论：让步 → however 转折 → 建议收口',
+    cls: 'good',
+    body: '<p><b>Working part-time does benefit students, yet it may eat into study time. To gain without academic loss, students should learn to strike a balance between work and study.</b></p><p>先让步（确有益处——与段 2 动机呼应，动机达成即益处，不必重论）；再转折点出图表内的隐忧（<b>erosion of study time 学习时间受侵蚀</b>）；最后落在可执行建议：<b>strike a balance</b>。</p>' },
+  { title: '高分搭配清单（背三件套）',
+    cls: 'key',
+    body: '<p><b>rise annually</b> 逐年上升 · <b>the biggest increase</b> 最大增幅 · <b>in the graduation year</b> 大四 · <b>become increasingly willing to</b> 越来越愿意 · <b>the growing wish to</b> 越发迫切地想 · <b>gain practical experience</b> 获得实践经验 · <b>reach a record high</b> 创历史新高 · <b>reap money from</b> 靠……赚钱 · <b>erosion of study time</b> · <b>suffer academically</b> · <b>strike a balance between study and work</b>。</p>' },
+  { title: '模板迁移（一切「百分比上升」图表通用）',
+    cls: 'key',
+    body: '<p>「趋势句（from X% to Y%）→ 重点数据（with…higher than）→ 两个原因 → 让步 + 转折 + 平衡建议」适用于<b>所有占比逐年上升的图表</b>：换题只换三个槽位——主语（比率的对象）、数据区间与最大增幅年份、原因对（先社会/发展性，后现实/利益性）。</p>' },
+  { title: '结论：要点口径与锚点',
+    cls: 'good',
+    body: '<p>要点口径（与参考一致）：兼职率逐年上升（67.77% → 88.24%），最大增幅在大四约 16%；原因 = 积累实践经验（失业率新高佐证）+ 高年级花费增多靠兼职挣钱；评论 = 有益但防学业受侵蚀，strike a balance。三段锚点：<b>描图不评论 → 析因两动机 → 评论落建议</b>。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var clsMap = { good: 'ok', bad: 'miss', key: 'key' };
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : (clsMap[s.cls] || 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2013-48 大作文谋篇演示：图表作文的「描图—析因—评论」',
+  subtitle: '考点：图表作文（兼职率逐年上升）· 方法：读图抓趋势与峰值 → 三段分工 → 句型升格（interpret the chart + give your comments）',
+  intro: '点击「▶ 播放」逐步展开读图与三段谋篇的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '三段机制：描图 → 析因 → 评论',
+    html: '<p><b>范文要点（自行组织，口径与参考一致）</b>：The chart shows the proportion of college students taking part-time jobs in a university, rising steadily from 67.77% among freshmen to 88.24% among seniors. The most noticeable jump occurs in the final year, when the rate is about 16% higher than that of the previous year. Two motives drive the trend. The first is the growing wish to gain practical experience for future careers — a preparation that seems all the more sensible when unemployment hit a record high in early 2013. The other is money: as students move into higher grades, they spend more on study materials and social activities, so part-time jobs become an obvious way to cover the costs. Working part-time does benefit students, yet it may eat into study time. To gain without academic loss, students should learn to strike a balance between work and study.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>描图（趋势 + 峰值）→ 析因（经验 + 金钱）→ 评论（让步 + 转折 + strike a balance）</b>；最大增幅在大四（比前一年高约 16%）；rise annually / reach a record high / strike a balance 三件套。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 大作文——图表作文的「描图—析因—评论」三段机制</h2>
+<p>答案（参考范文要点口径）：<strong>段 1 描图：兼职率逐年上升，从大一 67.77% 到大四 88.24%，最大增幅在大四（比前一年高约 16%）；段 2 析因：动机一是为职业积累实践经验（2013 年初失业率创新高更凸显其合理），动机二是高年级花费增多、靠兼职挣钱；段 3 评论：兼职确有益处，但须防学习时间被侵蚀，应学会在学业与工作间求平衡。</strong>以下范文要点为自行组织版本，内容口径与参考一致：</p>
+<blockquote><strong>The chart shows the proportion of college students taking part-time jobs in a university, rising steadily from 67.77% among freshmen to 88.24% among seniors. The most noticeable jump occurs in the final year, when the rate is about 16% higher than that of the previous year. Two motives drive the trend. The first is the growing wish to gain practical experience for future careers — a preparation that seems all the more sensible when unemployment hit a record high in early 2013. The other is money: as students move into higher grades, they spend more on study materials and social activities, so part-time jobs become an obvious way to cover the costs. Working part-time does benefit students, yet it may eat into study time. To gain without academic loss, students should learn to strike a balance between work and study.</strong></blockquote>
+<h3>第 0 步：先立机制——图表作文的分怎么挣</h3>
+<p>大作文两个指令：<strong>1) interpret the chart（图表说了什么）+ 2) give your comments（你怎么看）</strong>。机制对应三段式：<strong>描图给"是什么"，析因给"为什么"，评论给"怎么看"</strong>——描图不评论、析因不描写、评论不重复，各段功能不串门。柱状图读法先抓两件事：<strong>总体趋势</strong>（四个年级一起看）与<strong>最显眼的数据点</strong>（跳变最大的一年）。</p>
+<table><thead><tr><th>年级</th><th>兼职比率</th><th>读法</th></tr></thead><tbody><tr><td>大一</td><td>67.77%</td><td>起点已过半数——兼职在大学并不边缘</td></tr><tr><td>大二</td><td>71.13%</td><td>平缓上升</td></tr><tr><td>大三</td><td>71.93%</td><td>几乎持平——上升并非线性</td></tr><tr><td>大四</td><td>88.24%</td><td>最大增幅（比前一年高约 16%）——毕业年兼职近乎全员</td></tr></tbody></table>
+<p>读图结论：话题 = 大学生兼职；直接信息 = <strong>兼职率逐年级上升，最大增幅出现在大四</strong>。隐忧（可能挤占学业）留给评论段，不在描图段夹带。</p>
+<h3>第 1 步：段 1 描图——趋势一句 + 重点数据一句</h3>
+<ul><li>趋势句主语选 rate/proportion（比率），谓语 rises/increases，范围用 from…to…打包：from 67.77% in the first year to 88.24% in the final year——<strong>一句画完整条柱状图</strong>。</li><li>重点数据句：the biggest increase occurs in the graduation year, with the rate about 16% higher than a year ago——<strong>with 复合结构</strong>补差值，比再造一句更紧凑。</li><li>描图段只陈述事实、不加评论；" steadily / most noticeable "这类词是给数据"定调"，不算评论。</li></ul>
+<h3>第 2 步：段 2 析因——两个动机，一虚一实</h3>
+<ul><li><strong>动机一（经验）</strong>：the growing wish to gain practical experience for future careers——名词化主语（wish）比从句紧凑；再用失业率背景（unemployment reached a record high in early 2013）反证其合理：It is reasonable and wise to do such preparation。</li><li><strong>动机二（钱）</strong>：as the school year advances, there will be huger costs of studying materials and social events, undoubtedly pushing students to reap money from part-time jobs——<strong>As 状语从句 + there be 客观陈述 + 现在分词结果状语（pushing）</strong>，一句话讲完"高年级 → 花费多 → 去挣钱"的因果链。</li><li>两个动机的排布：先虚（职业动机，长句）后实（金钱动机，短句点题后展开）——层次清楚。</li></ul>
+<h3>第 3 步：段 3 评论——先让步后转折，落在建议</h3>
+<ul><li>让步句：It can indeed be beneficial to be part-timers（先承认益处——与段 2 的动机呼应，动机达成即益处，不必重论）。</li><li>转折句：<strong>However</strong>, the risk of erosion of study time should be considered——图表话题内的隐忧是"挤占学业"，不跑到社会道德上去。</li><li>建议收尾：To benefit from part-time jobs without suffering academically, students should learn to <strong>strike a balance</strong>（between study and work）——评论落在可执行的建议上，全篇收口。</li></ul>
+<h3>第 4 步：语言升格——必备搭配清单</h3>
+<ul><li><strong>rise annually</strong> 逐年上升；<strong>the biggest increase</strong> 最大增幅；<strong>in the graduation year</strong> 大四</li><li><strong>become increasingly willing to</strong> 越来越愿意；<strong>the growing wish to</strong> 越发迫切地想</li><li><strong>gain practical experience</strong> 获得实践经验；<strong>reach a record high</strong> 创历史新高</li><li><strong>reap money from part-time jobs</strong> 靠兼职赚钱；<strong>push sb. to do</strong> 促使</li><li><strong>erosion of study time</strong> 学习时间受侵蚀；<strong>suffer academically</strong> 学业受损；<strong>strike a balance between study and work</strong> 在学业与工作间求平衡</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只报数据不点趋势</strong>：把四个百分比罗列一遍却不说"逐年级上升、最大增幅在大四"——interpret 等于没做，第一段失分。</li><li><strong>数据张冠李戴</strong>：把 16% 的差值算成"大四比大三多 16 个百分点的人"却没写清比较对象（与前一年比），或百分比与人数混说。</li><li><strong>原因只写一个</strong>：两个动机（经验 + 钱）少一个，分析单薄；或把原因写成"大学生缺钱花"这种无展开的断言。</li><li><strong>评论跑题</strong>：大谈兼职被骗、社会道德——超出图表话题；隐忧应落在"对学业的影响"。</li><li><strong>无 however 转折</strong>：只夸不忧，comment 层次单一；或只忧不夸，与段 2 打架。</li><li><strong>句型短板</strong>：不会 with 复合结构与分词结果状语，整篇简单句并列——句式多样性直接扣分。</li></ul>
+<blockquote>记忆锚点：图表作文三段 = <strong>描图（趋势 + 重点数据）→ 析因（动机一经验 + 动机二金钱）→ 评论（让步 + however 转折 + strike a balance 建议）</strong>；最大增幅在大四（比前一年高约 16%）；rise annually / reach a record high / strike a balance 三件套背下来。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-45 动画：新题型小标题【45】：保持谦逊 → B</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：三连建议一个方向，方向即主旨", "body": "<p>题干：为段落【45】选小标题。</p><p>本段三组建议方向一致：①<code>only offering your opinion, not gospel truth</code>（只是个人观点，不是真理）→ ②<code>talk tentatively</code> and slightly <code>understate your confidence</code>（措辞试探、收敛自信，还有示范句式）→ ③<code>invite critique</code>. Be open to hearing other opinions（邀请批评、乐于听异议）。合成一个姿态：<b>别自视太高＝谦逊</b>。</p>", "log": "机制：建议句群方向一致——观点照亮、语气放低、耳朵打开"}, {"cls": "", "ecs": "step", "tag": null, "count": 0, "title": "定位：第六段谦逊词群", "body": "<div class=\"qq\"><b>段首：</b>Emphasize that you're <b>only offering your opinion, not gospel truth</b>. It may be a well-informed, well-researched opinion, but it's still an opinion. <span class=\"cn\">（译：强调你只是在提供个人观点，而非绝对真理——再有依据也只是观点。）</span></div><div class=\"qq\"><b>段中：</b>...talk <b>tentatively</b> and slightly <b>understate your confidence</b>. ... Having asserted your opinion (as a position, not as a fact), demonstrate equal curiosity about other views... and then <b>invite critique</b>. <span class=\"cn\">（译：试探着说、稍收敛自信；亮出观点的同时对他见保持好奇，并邀请批评。）</span></div>", "log": "词群：only my opinion / tentatively / understate confidence / invite critique"}, {"cls": "good", "ecs": "ok", "tag": "锁定 B", "count": 2, "title": "锁定 B：Stay humble.", "body": "<p><b>B · Stay humble.（保持谦逊）</b><span class=\"ok-dot\"> ✓</span></p><p><code>only my opinion</code> / <code>not gospel truth</code> / <code>talk tentatively</code> / <code>understate your confidence</code> / <code>invite critique</code>——谦逊词群一网打尽（understate your confidence 近义复现 humble）。</p>", "log": "锁定 B：谦逊词群覆盖全段", "ribbon": {"k": 2, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 E", "count": 5, "title": "排除 E：Don't make judgements.", "body": "<p><b>E · Don't make judgements.（不要下评判）</b><span class=\"bad-dot\"> ✗</span></p><p>头号干扰：把\"别把自己的观点当真理\"放大成\"不下评判\"。恰恰相反——段落要你 <code>assert your opinion</code>（as a position, not as a fact），明确亮出观点，只是姿态放低并邀请批评。\"不下评判\"与\"亮出观点\"自相矛盾。</p>", "log": "排除 E：段落要亮观点，与\"不评判\"相反", "ribbon": {"k": 5, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "count": 4, "title": "排除 D：Be realistic about the risks.", "body": "<p><b>D · Be realistic about the risks.（务实对待风险）</b><span class=\"bad-dot\"> ✗</span></p><p>全文未用标题之一（游离项）：本段谈表达姿态，通篇没有风险评估的内容。</p>", "log": "排除 D：未用标题游离，与姿态话题无关", "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": null, "title": "结论：45 选 B", "body": "<p><b>【45】答案 B（Stay humble.）</b>。</p><p>记忆锚点：opinion, not gospel truth / tentatively / understate confidence / invite critique ↔ Stay humble；\"低姿态亮观点\"≠\"不下判断\"（E）。</p>", "log": "结论：低姿态亮观点——B"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-45 · 新题型小标题【45】：保持谦逊 → B",
+  subtitle: "考点：新题型小标题 · 方法：建议句群 → 方向即主旨",
+  counterLabel: '已核验',
+  ribbonTitle: "候选小标题（✓ 中选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：抓段落主线 → 配小标题 → 辨干扰项。",
+  snaps: snaps,
+  result: {"big": "45 → B", "html": "<b>only my opinion / tentatively / understate confidence / invite critique ↔ Stay humble</b>。记忆锚点：低姿态亮观点 ≠ 不下判断（E 是头号干扰）。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：小标题【45】——"只是个人意见"：保持谦逊</h2>
+<p>答案：<strong>B（Stay humble.）</strong>。</p>
+<h3>第 0 步：先立机制——三连建议一个方向，方向即主旨</h3>
+<p>本段三组建议层层递进、方向完全一致：</p>
+<ol><li><code>Emphasize that you're only offering your opinion, not gospel truth</code>（强调你只是在提供个人观点，不是绝对真理）；</li><li><code>talk tentatively and slightly understate your confidence</code>（措辞带试探，稍微收敛自信）——并给了示范句式：别说 "we will never make it"，要说 "This is just my opinion, but..."；</li><li><code>demonstrate equal curiosity about other views... invite critique. Be open to hearing other opinions</code>（对其他观点同样好奇，邀请批评，乐于听异议）。</li></ol>
+<p>三句合成一个姿态：观点照亮、语气放低、耳朵打开——<strong>别自视太高 = 谦逊</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Emphasize that you're only offering your opinion, not gospel truth. ... talk tentatively and slightly understate your confidence. ... Remind the person that this is your point of view, and then invite critique. Be open to hearing other opinions.</blockquote>
+<h3>第 2 步：对号入座与干扰项归因</h3>
+<ul><li><strong>B Stay humble ✓</strong>：<code>only my opinion</code> / <code>not gospel truth</code> / <code>talk tentatively</code> / <code>understate your confidence</code> / <code>invite critique</code>——谦逊词群一网打尽（understate your confidence 近义复现 humble）。</li><li><strong>E Don't make judgements ✗（头号干扰）</strong>：把"别把自己的观点当真理"放大成"不下评判"。恰恰相反——段落要你 <code>assert your opinion</code>（明确亮出观点，as a position, not as a fact），只是姿态放低、并邀请对方批评。"不下评判"与"亮出观点"自相矛盾，且 E 侧重"如何对待他人意见"，不是本段角度。</li><li><strong>D Be realistic about the risks ✗</strong>：全文未用标题之一（游离项）。本段谈表达姿态，通篇没有风险评估的内容。</li></ul>
+<blockquote>记忆锚点：opinion, not gospel truth / tentatively / understate confidence / invite critique ↔ Stay humble；"低姿态亮观点" ≠ "不下判断"（E）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

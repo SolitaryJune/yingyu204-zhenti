@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-08 · 2016 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段首句，考点：代词回指 + 论点呼应",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Sure enough, firms’ investment and R&amp;D intensity were correlated with the happiness of the area in which they were <b>__8__</b>.</div><p>结构：the area in which they were __——“公司处于某种状态的地区”。两个抓手：① they 回指谁？② 全文论点里“地区”与“公司”是什么关系？</p>"
+ },
+ {
+  "title": "找证据 · they 回指 firms；论点说“公司所在地”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：they=firms；第二段 located in places / in happy places → 地区=公司所在地",
+  "body": "<p>① 代词 they 距离上最近、语法上可行的先行词是 <b>firms</b>（复数），不是 the area（单数，且语义上“地区在地区里”不通）。</p><p>② 第二段已两次锁定关系：Companies <b>located in</b> places with happier people / firms <b>in happy places</b>——地区是公司的<b>所在地</b>。上市公司的投资与研发决策出自<b>总部</b>，故 the area in which they were <b>headquartered</b>（总部所在地）。</p>"
+ },
+ {
+  "title": "逐项分析 · D headquartered（设总部于）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D headquartered（设总部于）✓ 当选——总部所在地的幸福指数影响决策",
+  "body": "<p><b>当选。</b>the area in which they were headquartered：“公司总部所在的地区”。投资和研发决策由总部做出，总部所在地的幸福感才会影响决策——与论点、回指、常识三线全合。</p>"
+ },
+ {
+  "title": "逐项分析 · A divided（划分）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A divided（划分）✗ 排除——误把 they 读成 the area；分支所在地≠决策中心",
+  "body": "<p><b>排除。</b>选 A 的前提是把 they 误读为 the area（“土地被划分”）；即便读成“公司被划分出分支”，分支机构所在地也不等于投资决策的源头——决策出自总部。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没确认 they 回指 firms，代词指认失手。</p>"
+ },
+ {
+  "title": "逐项分析 · B advertised（做广告）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B advertised（做广告）✗ 排除——广告投放地未必是所在地，且与论点无关",
+  "body": "<p><b>排除。</b>公司“被做广告宣传”的地区未必是公司所在地；而且广告行为与全文论点“地区幸福感影响公司投资”没有论证关系。</p>"
+ },
+ {
+  "title": "逐项分析 · C overtaxed（过度征税）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C overtaxed（过度征税）✗ 排除——征税地未必是所在地，且偏离论点",
+  "body": "<p><b>排除。</b>公司“被过度征税”的地区同样未必与所在地同指；征税也与“地区幸福感→投资”的论证链条无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用“公司在某地可能遇到的事”泛化代入，不检验与论点的相关性。</p>"
+ },
+ {
+  "title": "结论 · 回指链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（headquartered 设总部于）——回指链见结论卡",
+  "body": "<p>回指链：<b>they = firms → the area in which they were headquartered = 总部所在地 → 呼应 located in places with happier people。</b></p><p>答案选 <b>D（headquartered 总部设立于）</b>。</p><p><b>记忆锚点</b>：定从里的代词先定先行词；地区与公司的关系由论点句（located in places）定调；投资决策出自总部 → headquartered。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 8 空 · 公司____所在地区的幸福指数",
+  subtitle: "考点：上下文语义 + 代词回指 + 论点呼应 · headquartered 精准词",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 定回指 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（headquartered）", "html": "<b>D headquartered（总部设立于）</b>。<br>记忆锚点：they 回指 firms（不是 the area）；地区=公司所在地（呼应 located in places）；投资研发决策出自总部 → headquartered。<br>最易误选：<b>A（divided）</b>——they 指认失手，把“土地被划分”读进定语从句。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 8 空 · 公司____所在地区的幸福指数</h2>
+<p>答案：<strong>D（headquartered 总部设立于）</strong>。</p>
+<h3>第 0 步：先立机制——定语从句里先定代词，再对论点</h3>
+<p>句子骨架：firms’ investment and R&amp;D intensity were correlated with the happiness of the area in which they were __。解题机制分两步：① they 回指谁（代词指认）；② 全文论点中“地区”与“公司”是什么关系（语义定调）。两步都指向同一答案。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Sure enough, firms’ investment and R&amp;D intensity were correlated with the happiness of the area in which they were __8__.</blockquote>
+<h3>第 2 步：找证据——they = firms；地区 = 公司所在地</h3>
+<p>they 的先行词是 <strong>firms</strong>（复数；the area 单数，且“地区在地区里”不通）。第二段已两次定调：Companies <strong>located in</strong> places with happier people / firms <strong>in happy places</strong>——地区是公司的<strong>所在地</strong>。上市公司的投资与研发决策出自<strong>总部</strong>，故填 headquartered：总部所在地的幸福指数影响决策。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A divided</td><td>划分</td><td>✗ 排除</td><td>前提是 they 误读为 the area；即便读成“公司划出分支”，分支地≠决策源头。（典型误解：代词指认失手。）</td></tr><tr><td>B advertised</td><td>做广告</td><td>✗ 排除</td><td>广告投放地未必是所在地，与论点无论证关系。</td></tr><tr><td>C overtaxed</td><td>过度征税</td><td>✗ 排除</td><td>征税地未必是所在地，偏离“幸福感→投资”链条。</td></tr><tr><td>D headquartered</td><td>设总部于</td><td>✓ 当选</td><td>总部所在地 = 决策中心所在地区，三线全合。</td></tr></tbody></table>
+<p>代入后的完整句义：果然，公司的投资与研发力度与其总部所在地区的幸福指数相关。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么必须是“总部所在地”？</strong>：投资和研发的决策由公司总部做出——只有总部所在地的文化氛围（幸福感）才能影响这类决策；分支机构所在地的幸福感与投资决策之间没有论证通道。</li><li><strong>advertised / overtaxed 不也发生在“某地区”吗？</strong>：它们描述公司在某地的行为或遭遇，但该地区未必与公司所在地同指；更重要的是，全文论点始终围绕“公司所在地区的幸福感”展开，这两个动作都不在论点链条上。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（divided）</strong>：没有先确认 they 回指 firms。</li><li><strong>误选 B/C</strong>：用“公司在某地可能发生的事”泛化代入，不检验与论点的相关性。</li></ul>
+<blockquote>记忆锚点：定从里的代词先定先行词（they = firms）；地区与公司的关系由论点句定调；投资决策出自总部 → headquartered。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

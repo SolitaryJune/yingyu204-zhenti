@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-28 · 2018 Text2 第 28 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第四段③句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段③句 But 转折 + 两个 where 从句，考点：推断题（证据收拢）",
+  "body": quote("But that message did not play well with many in Iowa, where <b>wind turbines dot the fields</b> and provide <b>36 percent</b> of the state's electricity generation — and where tech giants like Microsoft are <b>being attracted by the availability of clean energy</b> to power their data centers.") + "<p>推断题的刻度尺：证据完全支撑（对）/ 夸大（错）/ 反向（错）。证据只能取自③句的<b>事实</b>，不能取自特朗普的话（观点）。</p>"
+ },
+ {
+  "title": "立机制 · 观点与事实分家",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：②句特朗普言论＝观点；③句 But 后两个 where 从句＝当地事实（风机遍布 + 36% + 易得）",
+  "body": "<p>②句：特朗普在爱荷华演讲<b>贬风能</b>——这是他的<b>观点</b>。</p><p>③句 But：这话在爱荷华<b>不吃香</b>——随后给出当地事实：风机<b>遍布田野</b>、供应全州 <b>36%</b> 电量；微软等巨头被清洁能源的<b>易得性</b>吸引至此建数据中心。</p><p>“学到的”只能从事实里收拢。</p>"
+ },
+ {
+  "title": "逐项分析 · A wind is a widely used energy source",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A ✓ 当选——“遍布田野 + 供应 36% 电量”收拢成“被广泛应用”",
+  "body": "<p><b>当选。</b>dot the fields（星星点点铺满田野）是<b>空间之广</b>；36 percent of the state's electricity generation 是<b>体量之实</b>。</p><p>两证交集 = 风能在爱荷华<b>被广泛应用</b>——不夸大（没说取代），不缩水（没说少量）。</p>"
+ },
+ {
+  "title": "逐项分析 · B wind energy has replaced fossil fuels",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——过度推断：36% 未过半，“取代”把三分之一读成全部",
+  "body": "<p><b>排除。</b>36 percent 尚不及一半——“已取代化石燃料”把三分之一读成了全部。</p><p>widely used 说<b>使用面</b>，replaced 说<b>取代关系</b>——36% 只支撑前者。推断越过证据边界即错。</p><p style='color:#b91c1c'>⚠ 典型误解：只见 dot the fields，未见占比不及一半。</p>"
+ },
+ {
+  "title": "逐项分析 · C tech giants are investing in clean energy",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C ✗ 排除——角色错位：巨头被“易得”吸引来“用电”，不是“投资”清洁能源",
+  "body": "<p><b>排除。</b>微软等巨头是被清洁能源<b>易得性</b>吸引——来此<b>建设数据中心</b>、给机房供电。</p><p>它们的角色是<b>用电方</b>，不是<b>投资方</b>——“来用电” ≠ “投钱开发清洁能源产业”。</p><p style='color:#b91c1c'>⚠ 典型误解：被 attracted 一词带跑，不辨主体动作。</p>"
+ },
+ {
+  "title": "逐项分析 · D there is a shortage of clean energy supply",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——与证据反向：易得（availability）+ 供 36% 电量 = 充足而非短缺",
+  "body": "<p><b>排除。</b>证据说的是 the <b>availability</b> of clean energy（清洁能源的易得性）——供应充足才谈得上易得。</p><p>把“占 36%”狭隘理解成“不够”，与原文方向相反。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（wind is a widely used energy source）——两个 where 从句收拢成“广泛应用”",
+  "body": "<p>完整逻辑：<b>特朗普的风能“不靠谱论”在爱荷华不受待见——这里风机遍布田野、供应全州 36% 电量，风能早已广泛应用。</b></p><p>答案选 <b>A（wind is a widely used energy source）</b>。</p><p><b>记忆锚点</b>：推断题刻度尺——证据收拢（对）/ 夸大（错）/ 反向（错）；观点与事实分家；被吸引 ≠ 投资者，可能是用户。</p><p style='color:#b91c1c'>⚠ 最易误选 B：36% 支撑“广泛应用”，不支撑“取代化石燃料”。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text2 第 28 题 · 可以推断在爱荷华州，____",
+  subtitle: "考点：推断题（证据收拢） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 观点事实分家机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（wind is a widely used energy source）", "html": "<b>A</b>：wind turbines dot the fields + provide 36 percent = 风能被广泛应用。<br>记忆锚点：推断题三档——证据收拢（对）/ 夸大（错）/ 反向（错）；观点与事实分家。<br>最易误选：<b>B</b>——36% 未过半，“取代化石燃料”是过度推断。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text2 第 28 题 · 爱荷华州能"学到"什么</h2>
+<p>答案：<strong>A（wind is a widely used energy source）</strong>。</p>
+<h3>第 0 步：先立机制——推断题的"学到的"是有边界的</h3>
+<p>It can be learned that... 是推断题，但它不是自由发挥：<strong>"学到的东西"必须由原文证据直接支撑，且只能走到证据允许的最远处</strong>。机制上，推断的刻度尺有三档：证据完全支撑（正确）、证据夸大（过度推断）、证据反向（曲解）。本题的证据链在第四段③句——注意这一句的主语易混淆：②句说特朗普在爱荷华演讲贬风能，③句 But 转折说<strong>这个说法在爱荷华不吃香</strong>，随后用两个 where 从句给出该州实情：风机<strong>遍布田野</strong>、供应该州 <strong>36%</strong> 的发电量。所以"学到的"要从③句的两个 where 从句里取，而不是从特朗普的话里取（那是他的观点，不是事实）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But that message did not play well with many in Iowa, where <strong>wind turbines dot the fields</strong> and provide <strong>36 percent</strong> of the state's electricity generation — and where tech giants like Microsoft are <strong>being attracted by the availability of clean energy</strong> to power their data centers.</blockquote>
+<ul><li>证据一：风机遍布田野（分布广）；</li><li>证据二：供应该州 36% 的发电量（占比高但未过半）；</li><li>证据三：微软等科技巨头因清洁能源<strong>易得</strong>而被吸引至此。</li></ul>
+<h3>第 2 步：同义替换——"遍布 + 36%" = "被广泛应用"</h3>
+<p><code>dot the fields</code>（星星点点铺满田野）是空间上的广，<code>36 percent of the state's electricity generation</code>（全州三分之一的电）是量上的实。两者合起来，风能在爱荷华是<strong>被广泛应用的能源</strong>——A 项 <code>wind is a widely used energy source</code> 恰好取两证交集，既不夸大（没说取代化石燃料）也不缩水（没说仅少量使用）。这是推断题标准动作：把两个具体证据收拢成一个抽象概括。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A wind is a widely used energy source</td><td>风能是被广泛应用的能源</td><td>✓ 当选</td><td>"遍布田野 + 供应 36% 电量"的合理收拢：广度、体量都有证据。</td></tr><tr><td>B wind energy has replaced fossil fuels</td><td>风能已取代化石燃料</td><td>✗ 排除</td><td>过度推断：36% 尚未过半，"取代化石燃料"把三分之一读成全部——只见 dot the fields，未见占比不及一半。</td></tr><tr><td>C tech giants are investing in clean energy</td><td>科技巨头正在投资清洁能源</td><td>✗ 排除</td><td>曲解：巨头是被"清洁能源<strong>易得</strong>"吸引而<strong>来设数据中心</strong>（用电方），不是<strong>投资</strong>清洁能源产业（投资方）——主体角色错位。</td></tr><tr><td>D there is a shortage of clean energy supply</td><td>清洁能源供应短缺</td><td>✗ 排除</td><td>与证据反向："易得（availability）+ 供应 36% 电量"说明的是充足而非短缺——把 36% 狭隘理解成"不够"。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>特朗普的话能当证据吗？</strong>：不能——②句是他的<strong>观点</strong>（dismissed as unreliable），且③句已说明"这番话在爱荷华不吃香"；题干问"在爱荷华能学到什么"，答案只能来自当地事实。</li><li><strong>"广"和"多"差在哪？</strong>：widely used 说的是<strong>使用面</strong>（发电占比高、设施遍布），B 的 replaced 说的是<strong>取代关系</strong>（把化石燃料挤出局）——36% 只支撑前者，不支撑后者。推断题常考这一线之差。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把"占 36%、遍布田野"放大成"取代"——推断越过证据边界即错。</li><li><strong>误选 C</strong>：被 attracted 一词带跑，忘了巨头们的动作是"用"（power their data centers），不是"投"。</li></ul>
+<blockquote>记忆锚点：推断题刻度尺——<strong>证据收拢（对）/ 夸大（错）/ 反向（错）</strong>；观点（特朗普的话）与事实（where 从句）分家；被吸引 ≠ 投资者，可能是用户。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

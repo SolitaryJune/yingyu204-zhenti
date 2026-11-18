@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-19 · 2019 完形第 19 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 19 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 19 考连词，先看两侧分句的时态与事实性", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I've also experienced greater success in achieving my specific fitness goals, __19__ I'm training according to those goals, not the numbers on a scale.</div><p>连词题的机制：<b>连词表达两侧分句的逻辑关系</b>。所以先别看选项，先把两侧分句各自的“身份”鉴定出来——谁是因、谁是果，是不是假设。</p>"}, {"title": "鉴定两侧 · 完成时的“果” + 进行时的“因”", "cls": "key", "tag": "证据", "log": "前半句现在完成时=已实现的结果；后半句现在进行时=正在进行的现实原因", "count": 0, "ribbon": null, "body": "<p>前半句 I’ve <b>experienced</b> greater success：现在完成时——“取得更大成功”是<b>已实现的结果</b>。</p><p>后半句 I’m <b>training</b> according to those goals：现在进行时——“按目标训练”是<b>正在进行的现实做法</b>，恰是成功的理由。</p><p>结果在前、原因在后 ⇒ 前果后因 → <b>because</b>。</p>"}, {"title": "逐项分析 · A if（假若，如果）", "cls": "bad", "tag": "排除 A", "log": "A if（假若，如果） ✗ 排除——if 引入假设条件，但两侧都是正在发生的现实（完成时陈述既有事实 + 进行时陈述现实做法），不是假设", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>if 引入假设条件，但两侧都是正在发生的现实（完成时陈述既有事实 + 进行时陈述现实做法），不是假设。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到“训练→成功”有因果味就选 if，忘了检查“是否假设”这个闸门。</p>"}, {"title": "逐项分析 · B unless（如果不，除非）", "cls": "bad", "tag": "排除 B", "log": "B unless（如果不，除非） ✗ 排除——unless = if not，引出“主句不成立的唯一条件”；文意是直陈因果，不是“除非按目标训练否则不会成功”的条件式论证", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>unless = if not，引出“主句不成立的唯一条件”；文意是直陈因果，不是“除非按目标训练否则不会成功”的条件式论证。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“原因”与“必要条件”混为一谈。</p>"}, {"title": "逐项分析 · C until（直到……为止）", "cls": "bad", "tag": "排除 C", "log": "C until（直到……为止） ✗ 排除——until 需要一个“终止时刻”；“按目标训练”是持续性动作，没有终点，且“取得成功”也不会因训练而终止", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>until 需要一个“终止时刻”；“按目标训练”是持续性动作，没有终点，且“取得成功”也不会因训练而终止。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“训练是持续性动作”误导成“持续到某刻”的时间关系。</p>"}, {"title": "逐项分析 · D because（因为，由于）", "cls": "good", "tag": "选定 D", "log": "D because（因为，由于） ✓ 当选——前半句完成时的“果” + 后半句进行时的“因”——前果后因，because 完全吻合", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>前半句完成时的“果” + 后半句进行时的“因”——前果后因，because 完全吻合。</p><p>代入读作：“我在实现健身目标上取得了更大成功，<b>因为</b>我是按目标、而不是按体重秤上的数字在训练”。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（because 因为）——连词题三看：时态、事实性、逻辑方向", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>我在实现具体健身目标上取得了更大成功，因为我正在按照目标、而不是体重秤上的数字进行训练。</b></p><p>答案选 <b>D（because 因为，由于）</b>。</p><p><b>记忆锚点</b>：连词题三看——看时态（完成时 = 既成事实）、看进行时（现实理由）、看逻辑方向（前果后因 → because）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>A（if）</b>：if 也能带出“条件兼因果”的味道，但它把既成事实篡改成了假设——时态信号一丢，方向就错。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 完形第 19 空 · “结果在前，原因在后”选哪个连词",
+  subtitle: "考点：句内语义逻辑（连词辨析）· 鉴定时态与事实性 → 判逻辑关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（because 因为）", "html": "<b>D because（因为）</b>：完成时的结果（I’ve experienced greater success）+ 进行时的原因（I’m training...）= 前果后因。<br>最易误选：<b>A（if）</b>——把既成事实篡改成假设。<br>记忆锚点：连词题三看——时态、事实性、逻辑方向；until 要终点，unless 要唯一条件。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：空 19 的连词——“结果在前，原因在后”</h2>
+<p>答案：<strong>D（because 因为）</strong>。</p>
+<h3>第 0 步：先立机制——连词题先看两侧的“事实性与时态”</h3>
+<blockquote>I've also experienced greater success in achieving my specific fitness goals, __19__ I'm training according to those goals, not the numbers on a scale.</blockquote>
+<p>连词的职责是标出两侧分句的逻辑关系，所以先鉴定两侧分句的“身份”：</p>
+<ul><li>前半句 I've <strong>experienced</strong> greater success：现在完成时——“取得更大成功”是<strong>已实现的结果</strong>；</li><li>后半句 I'm <strong>training</strong> according to those goals：现在进行时——“按目标训练”是<strong>正在进行的现实做法</strong>，恰是成功的理由。</li></ul>
+<p>结果在前、原因在后 → <strong>because</strong>。</p>
+<h3>第 1 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>逻辑关系</th><th>判定</th></tr></thead><tbody><tr><td>A if</td><td>假设条件</td><td>✗ 两件事都是正在发生的现实，不是假设</td></tr><tr><td>B unless</td><td>唯一条件（if not）</td><td>✗ 文意是直陈因果，不是“除非…否则不…”</td></tr><tr><td>C until</td><td>时间终止点</td><td>✗ “按目标训练”是持续性动作，没有“终点时刻”</td></tr><tr><td>D because</td><td>前果后因</td><td>✓ 完成时的结果 + 进行时的原因</td></tr></tbody></table>
+<h3>第 2 步：预判追问——if 不也能表“因果关联”吗？</h3>
+<p>if 确实可引出条件兼因果，但它引入的是<strong>假设情形</strong>。原文主句用现在完成时陈述既有事实（I've experienced），从句用现在进行时陈述现实（I'm training）——两边都不是虚拟、不是假设，所以只能 because。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：只看到“训练→成功”的因果方向，忽略时态信号；if 把既成事实篡改成假设。</li><li><strong>误选 C</strong>：把 because I'm training（持续进行）误读成 until 的“持续到某刻”；until 需要终止点，句中没有。</li><li><strong>误选 B</strong>：unless 反过来会推出“不按目标训练就不成功”——这层意思文中没有论证。</li></ul>
+<blockquote>记忆锚点：连词题三看——看时态（完成时 = 既成事实）、看进行时（现实理由）、看逻辑方向（前果后因 → because）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

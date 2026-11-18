@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2014-46 翻译长难句拆解：主干/修饰分色框 · reconstruction 定音「回顾」</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板（同 2010-46 成品范式）：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 八个句子面板的成分块与重组译文 */
+var SENT = [
+  { label: '句① Most people would define optimism as…, with a glass…',
+    chunks: [
+      { t: 'Most people would define', k: 'zhu', n: '主谓（define A as B 固定搭配）' },
+      { t: 'optimism', k: 'zhu', n: '宾语' },
+      { t: 'as being endlessly happy', k: 'zhu', n: 'as 短语·宾补 =「定义为永远快乐」' },
+      { t: 'with a glass', k: 'mod', n: 'with 复合结构·修饰（半杯水比喻）' },
+      { t: "that's perpetually half full", k: 'cong', n: 'that 定语从句修饰 glass' }
+    ],
+    trans: '重组：大多数人都会把乐观定义为永远快乐，觉得杯子里总有半杯水。（perpetually 定音「总有」）' },
+  { label: '句② But that\u2019s exactly the kind of false cheerfulness that…',
+    chunks: [
+      { t: "that's exactly the kind of false cheerfulness", k: 'zhu', n: '主系表（exactly = 恰恰）' },
+      { t: "that positive psychologists wouldn't recommend", k: 'cong', n: 'that 定语从句；recommend 取「提倡」义' }
+    ],
+    trans: '重组：但这恰恰不是真正的快乐，积极心理学家们并不提倡。（false cheerfulness 意译）' },
+  { label: '句③ “…,” says Tal Ben-Shahar, a Harvard professor',
+    chunks: [
+      { t: '\u201cHealthy optimism means being in touch with reality,\u201d', k: 'cong', n: '直接引语·按正常语序译出' },
+      { t: 'says Tal Ben-Shahar', k: 'zhu', n: '主谓倒装 → 还原为「Ben-Shahar 说」' },
+      { t: 'a Harvard professor', k: 'mod', n: '同位语 → 前置为「哈佛大学教授」' }
+    ],
+    trans: '重组：哈佛大学教授 Tal Ben-Shahar 说：“健康的乐观意味着不脱离现实。”（be in touch with reality = 正视现实，反面译「不脱离」）' },
+  { label: '句④ realistic optimists are those who…, but not those who…',
+    chunks: [
+      { t: 'According to Ben-Shahar', k: 'mod', n: '介词短语插入·「按照 Ben-Shahar 的说法」' },
+      { t: 'realistic optimists are those', k: 'zhu', n: '主系表' },
+      { t: 'who make the best of things that happen', k: 'cong', n: '定语从句①·主动应对 =「力求从中得到最大收获」' },
+      { t: 'but not those who believe everything happens for the best', k: 'cong', n: '定语从句②·被动指望 =「指望凡事都有最好结局」' }
+    ],
+    trans: '重组：按照 Ben-Shahar 的说法，现实的乐观主义者是那些不管发生什么事情都力求从中得到最大收获的人，而不是那些指望凡事都有最好结局的人。（make the best of ≠ happen for the best）' },
+  { label: '句⑤ When he feels down – say, after… – he grants himself…',
+    chunks: [
+      { t: 'When he feels down', k: 'cong', n: '时间状语从句·「当他情绪低落时」' },
+      { t: '\u2013 say, after giving a bad lecture \u2013', k: 'mod', n: '插入语·say = 比如说（举例）' },
+      { t: 'he grants himself permission', k: 'zhu', n: '主谓 + 双宾' },
+      { t: 'to be human', k: 'mod', n: '不定式·说明 permission = 接纳凡人身份' }
+    ],
+    trans: '重组：当他情绪低落时——比如说一次课没讲好——他宽容自己，承认自己是凡人。（permission to be human 逻辑显化）' },
+  { label: '句⑥ He reminds himself that not every…; some will…',
+    chunks: [
+      { t: 'He reminds himself', k: 'zhu', n: '主谓宾' },
+      { t: 'that not every lecture can be a Nobel winner', k: 'cong', n: 'that 宾语从句·部分否定 =「并非每一」' },
+      { t: 'some will be less effective than others', k: 'cong', n: '分号并列·比较级' }
+    ],
+    trans: '重组：他提醒自己，不是每堂课都有获诺贝尔奖的水准；总会有一些课的效果不如别的课。（a Nobel winner 取比喻义）' },
+  { label: '句⑦ Next is reconstruction. He analyzes…, learning…',
+    chunks: [
+      { t: 'Next is reconstruction', k: 'zhu', n: '主系表·熟词僻义：reconstruction = 回顾，非「重建」' },
+      { t: 'He analyzes the weak lecture', k: 'zhu', n: '主谓宾' },
+      { t: 'learning lessons for the future', k: 'mod', n: '现在分词·伴随状语' },
+      { t: "about what works and what doesn't", k: 'cong', n: '双 what 从句·介词宾语 = 哪些有效哪些无效' }
+    ],
+    trans: '重组：第二种方法是回顾。他分析讲得不好的课，为以后汲取有用的经验和失败的教训。' },
+  { label: '句⑧ Finally, there is perspective, which involves…',
+    chunks: [
+      { t: 'Finally, there is perspective', k: 'zhu', n: '主干·perspective = 视角' },
+      { t: 'in the grand scheme of life', k: 'mod', n: '固定短语插入·「在宏大的生命长卷里」' },
+      { t: 'which involves acknowledging that…', k: 'cong', n: 'which 非限制性定语从句·另起一句' },
+      { t: "that one lecture really doesn't matter", k: 'cong', n: 'that 宾语从句 = 认识到的内容' }
+    ],
+    trans: '重组：最后，还有视角问题，要认识到在宏大的生命长卷里，一堂课真的不算什么。' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1], [0, 2]], trans: [] },
+  { focus: [0], hot: [[0, 3], [0, 4]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 1]], trans: [1] },
+  { focus: [2], hot: [[2, 0], [2, 1], [2, 2]], trans: [2] },
+  { focus: [3], hot: [[3, 1], [3, 2], [3, 3]], trans: [3] },
+  { focus: [4], hot: [[4, 0], [4, 1], [4, 2], [4, 3]], trans: [4] },
+  { focus: [5], hot: [[5, 1], [5, 2]], trans: [5] },
+  { focus: [6], hot: [[6, 0], [6, 2], [6, 3]], trans: [6] },
+  { focus: [7], hot: [[7, 1], [7, 2], [7, 3]], trans: [7] },
+  { hot: [[3, 2], [3, 3], [6, 0]], trans: [0, 1, 2, 3, 4, 5, 6, 7] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2014-46 翻译长难句拆解：主干/修饰/从句分色框 · reconstruction 定音「回顾」',
+  subtitle: '考点：英译汉 · 方法：拆结构 → 定词义 → 组语序（八句逐一演示，绿=主干 · 琥珀=修饰 · 蓝=从句/引语）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示八个难句的拆解与重组。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读全文锁定基调：这不是励志鸡汤，而是积极心理学对「盲目乐观」的纠偏——先立靶子（永远快乐的假乐观），再给 Ben-Shahar 的定义与三种方法；词义全部照此定音', count: 0 },
+    { cls: 'key', tag: '句①主干', log: '谓语 would define；define A as B 固定搭配 → 把乐观「定义为」永远快乐', count: 1 },
+    { cls: 'key', tag: '句①定音', log: 'with a glass that\u2019s perpetually half full 是「半杯水」比喻：乐观者看还有半杯；perpetually 取「总有」，不译「永久地」', count: 2 },
+    { cls: 'ok', tag: '句①②译文', log: '句②第二个 that 引定语从句；exactly = 恰恰；false cheerfulness 意译「不是真正的快乐」；recommend 取「提倡」义', count: 3 },
+    { cls: 'key', tag: '句③倒装', log: '引语后 says Tal Ben-Shahar 是主谓倒装 → 还原「Ben-Shahar 说」；同位语 a Harvard professor 前置作定语；be in touch with reality 反面译「不脱离现实」', count: 4 },
+    { cls: 'key', tag: '句④对比', log: 'those who… but not those who… 双定语从句对比；make the best of = 主动应对「力求最大收获」，happen for the best = 被动指望「相信自然最好」——全篇最大得分点', count: 5 },
+    { cls: 'key', tag: '句⑤插入语', log: 'When he feels down 时间从句；破折号内 say = 比如说（不是「说」）；grants himself permission to be human 逻辑显化为「宽容自己，承认自己是凡人」', count: 6 },
+    { cls: 'key', tag: '句⑥部分否定', log: 'not every = 并非每一（不是每堂课都不能）；a Nobel winner 取比喻义「诺奖水准」；分号后比较级译「总有一些课不如别的课」', count: 7 },
+    { cls: 'key', tag: '句⑦僻义', log: 'Next is reconstruction：reconstruction 不是「重建」而是「回顾/复盘」（宾语是讲砸的课）；分词短语 learning lessons 作伴随状语；双 what 从句 = 哪些有效哪些无效', count: 8 },
+    { cls: 'key', tag: '句⑧视角', log: 'perspective = 视角；which 非限制性定语从句太长 → 另起一句；in the grand scheme of life = 人生大局，译「宏大的生命长卷」', count: 9 },
+    { cls: 'done', tag: '全篇落定', log: '八句重组完成：对比句④「力求收获 vs 指望结局」、僻义 reconstruction「回顾」两处是本篇得分眼', count: 10, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组三步定译文',
+    html: '<p><b>参考译文（答案口径）</b>：大多数人都会把乐观定义为永远快乐，觉得杯子里总有半杯水。但这恰恰不是真正的快乐，积极心理学家们并不提倡。哈佛大学教授 Tal Ben-Shahar 说：“健康的乐观意味着不脱离现实。”按照 Ben-Shahar 的说法，现实的乐观主义者是那些不管发生什么事情都力求从中得到最大收获的人，而不是那些指望凡事都有最好结局的人。Ben-Shahar 运用三种方法保持乐观。当他情绪低落时——比如说一次课没讲好——他宽容自己，承认自己是凡人。他提醒自己，不是每堂课都有获诺贝尔奖的水准；总会有一些课的效果不如别的课。第二种方法是回顾。他分析讲得不好的课，为以后汲取有用的经验和失败的教训。最后，还有视角问题，要认识到在宏大的生命长卷里，一堂课真的不算什么。</p>' +
+      '<p>记忆锚点：<b>一个谓语锁定一个主干</b>；引语后 says sb = 主谓倒装；not every = 部分否定；make the best of = 主动利用、happen for the best = 被动指望；reconstruction 在本文 = <b>回顾</b>。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 翻译——"健康的乐观"语境定音与八句拆-定-组</h2>
+<p>答案（参考译文）：<strong>大多数人都会把乐观定义为永远快乐，觉得杯子里总有半杯水。但这恰恰不是真正的快乐，积极心理学家们并不提倡。哈佛大学教授 Tal Ben-Shahar 说："健康的乐观意味着不脱离现实。"按照 Ben-Shahar 的说法，现实的乐观主义者是那些不管发生什么事情都力求从中得到最大收获的人，而不是那些指望凡事都有最好结局的人。</strong></p>
+<p>Ben-Shahar 运用三种方法保持乐观。当他情绪低落时——比如说一次课没讲好——他宽容自己，承认自己是凡人。他提醒自己，不是每堂课都有获诺贝尔奖的水准；总会有一些课的效果不如别的课。第二种方法是回顾。他分析讲得不好的课，为以后汲取有用的经验和失败的教训。最后，还有视角问题，要认识到在宏大的生命长卷里，一堂课真的不算什么。</p>
+<h3>第 0 步：先立机制——英译汉按"拆结构 → 定词义 → 组语序"三步走</h3>
+<p>英译汉不是逐词替换，每句话都过同一套流程：</p>
+<table><thead><tr><th>步骤</th><th>干什么</th><th>本篇的落点</th></tr></thead><tbody><tr><td>拆</td><td>找谓语定主干，插入语、从句各自归位</td><td>句③引语后的主谓倒装、句④双重定语从句对比</td></tr><tr><td>定</td><td>多义词与熟词僻义靠语境"定音"</td><td>reconstruction ≠ 重建，= 回顾；say = 比如说</td></tr><tr><td>组</td><td>英语修饰后置、中文语序重组并显化逻辑</td><td>those who... but not those who... 译成"是……而不是……"</td></tr></tbody></table>
+<p>动笔前先定全文语境基调：这不是励志鸡汤，而是积极心理学对"盲目乐观"的纠偏——第一段先立靶子（"永远快乐"的假乐观），再用 Ben-Shahar 的定义否定它；第二段给出三种具体方法（接纳不完美、回顾复盘、拉长视角）。全文没有生僻词，得分点集中在<strong>结构识别</strong>与<strong>熟词僻义</strong>两处。</p>
+<h3>第 1 步：句①②——立靶子：假乐观与心理学家的态度</h3>
+<ul><li>句①主干是 <code>Most people would define optimism as being endlessly happy</code>：<code>define A as B</code> 固定搭配，"把 A 定义为 B"。<code>with a glass that's perpetually half full</code> 是 with 复合结构，内嵌定语从句——这正是"半杯水"的经典比喻：乐观者看"还有半杯"，悲观者看"只剩半杯"。按比喻义意译为"觉得杯子里总有半杯水"，perpetually 处理成"总有"比"永久地"自然。</li><li>句②<code>that's exactly the kind of false cheerfulness that positive psychologists wouldn't recommend</code>：第二个 that 引定语从句修饰 false cheerfulness。三个处理点：exactly 译"恰恰"；false cheerfulness（虚假的欢快）意译为"这恰恰不是真正的快乐"；recommend 取"提倡"义，拆成短句"积极心理学家们并不提倡"，符合中文流水句习惯。</li></ul>
+<h3>第 2 步：句③④——真定义：倒装引语与对比定语从句</h3>
+<ul><li>句③<code>"Healthy optimism means being in touch with reality," says Tal Ben-Shahar, a Harvard professor</code>：引语后的 <code>says Tal Ben-Shahar</code> 是主谓倒装，中文还原为"哈佛大学教授 Tal Ben-Shahar 说"——同位语 a Harvard professor 前置作定语。<code>be in touch with reality</code> 固定表达"正视现实、与现实保持联系"，此处取反面立意，译"不脱离现实"。</li><li>句④是全篇最重的一句：<code>realistic optimists are those who make the best of things that happen, but not those who believe everything happens for the best</code>。主系表带两个并列定语从句构成对比，<code>those who... but not those who...</code> 译成"是……的人，而不是……的人"。真正的得分点是两个短语语义的分辨：<code>make the best of</code> = 充分利用、尽量把……处理好，是<strong>主动应对</strong>发生的事；<code>happen for the best</code> = 相信事情最终自然会有最好结果，是<strong>被动指望</strong>。所以前半译"不管发生什么事情都力求从中得到最大收获"，后半译"指望凡事都有最好结局"——一个落在行动，一个落在心态，混同即丢分。</li></ul>
+<h3>第 3 步：句⑤⑥——方法一"接纳不完美"：插入语与部分否定</h3>
+<ul><li><code>When he feels down</code> 时间状语从句，译"当他情绪低落时"；破折号里的 <code>say, after giving a bad lecture</code> 是举例插入语——<strong>say 此处 = "比如说"，不是"说"</strong>。</li><li><code>grants himself permission to be human</code> 字面是"给自己许可去做人"，直译生硬；其含义是接受人会犯错、表现有起伏，按逻辑显化译作"宽容自己，承认自己是凡人"。</li><li><code>not every lecture can be a Nobel winner</code> 是<strong>部分否定</strong>：not every = "并非每一"，不等于"每一都不"。can be a Nobel winner 是比喻，指"达到诺贝尔奖级别的优秀"，译"有获诺贝尔奖的水准"。分号后半 <code>some will be less effective than others</code> 译"总会有一些课的效果不如别的课"。</li></ul>
+<h3>第 4 步：句⑦⑧——方法二"回顾"、方法三"视角"：熟词僻义重灾区</h3>
+<ul><li><code>Next is reconstruction</code>：主系表（表语后置引出列举语序）。<strong>reconstruction 不是"重建/改造"</strong>——它承接上文讲砸的课，指对失败经历做复盘总结，译"回顾"。</li><li><code>learning lessons for the future about what works and what doesn't</code> 是现在分词作伴随状语；两个并列 what 从句即"什么方法有效、什么方法无效"，合译"为以后汲取有用的经验和失败的教训"。</li><li><code>Finally, there is perspective</code>：perspective 取"视角、看问题的尺度"。which 引非限制性定语从句且内容较长，<strong>另起一句</strong>译出："要认识到……"。<code>in the grand scheme of life</code> 固定表达"从整个人生大局看"，译文取"在宏大的生命长卷里"；<code>one lecture really doesn't matter</code> → "一堂课真的不算什么"。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>reconstruction 译成"重建"</strong>：只记词典第一义，未看语境——分析的对象是 the weak lecture，复盘的不是建筑。</li><li><strong>say 译成"说"</strong>：没识别破折号内 say 的举例义，句子被译成"他说，讲了一次糟糕的课后"这样的病句。</li><li><strong>not every 译成全盘否定</strong>："每堂课都不能获诺奖"与"并非每堂课都有诺奖水准"意思不同——否定的是 every（部分否定）。</li><li><strong>make the best of 与 happen for the best 混同</strong>：两者都含 best，但前者是主动利用，后者是被动相信结果最好；译文分别落在"力求得到最大收获"与"指望最好结局"。</li><li><strong>grants himself permission to be human 直译"允许自己做人"</strong>：漏了逻辑显化——permission to be human 指接纳凡人的不完美。</li><li><strong>says Tal Ben-Shahar 保留倒装</strong>：中文没有"说 Tal Ben-Shahar"的语序，须还原"Ben-Shahar 说"。</li><li><strong>a glass that's perpetually half full 逐字直译"一个永远半满的杯子"</strong>：既丢比喻义，又把 with 结构处理成孤立句，与"永远快乐"脱节。</li></ul>
+<blockquote>记忆锚点：翻译三步 <strong>拆-定-组</strong>；引语后 says sb = 主谓倒装；not every = 部分否定"并非每一"；make the best of = 主动利用、happen for the best = 被动指望；reconstruction 在本文 = <strong>回顾</strong>；in the grand scheme of life = 人生大局。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

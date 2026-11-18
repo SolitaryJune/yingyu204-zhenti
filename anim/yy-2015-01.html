@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-01 · 2015 考研英语（二）完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 1 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 1 所在句，考点：上下文语义 + 名词词义辨析", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Everyone around us seems to agree by the way they cling to their phones, even without a __1__ on a subway.</div><p>空格受不定冠词 a 限定，是<b>单数可数名词</b>，作介词短语 without a __1__ on a subway 的核心词，整个短语修饰主句“人人紧握手机不放”。“这个条件”与“玩手机”这个动作能否搭上关系，就是本题靶心。</p>"}, {"title": "机制 · even 是让步信号，空格要填“玩手机的潜在条件”", "cls": "key", "tag": "证据", "log": "机制：even 引出让步——空格须是“人们玩手机的潜在条件”", "count": 0, "ribbon": null, "body": "<p><b>even 是让步信号</b>：“连（最不利的条件）都没有”还要做某事，才配用 even。所以空格要填的不是“与地铁相关的任何名词”，而是<b>人们低头玩手机的潜在条件</b>：有它才方便玩手机；连它都没有仍在玩，才撑得起“人人抱着手机不放”的极端画面。</p><p>顺着这个标准问：地铁场景里“玩手机的先决条件”是什么？——信号。没信号照样刷，正是低头族最真实的写照。</p>"}, {"title": "逐项分析 · A signal（信号）", "cls": "good", "tag": "选定 A", "log": "A signal（信号） ✓ 当选——没信号也玩手机，让步成立且是玩手机的前提", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>signal（信号）：no signal（没信号）是地铁常识；signal 同时是上网、刷屏的先决条件——“连信号都没有还抱着手机”，even 让步成立，条件与动作双合。</p>"}, {"title": "逐项分析 · B permit（许可证）", "cls": "bad", "tag": "排除 B", "log": "B permit（许可证） ✗ 排除——约束的是乘车资格，不是玩手机的条件", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>permit（许可证）约束的是“能否乘车/进入”，不是“玩不玩手机”的条件；许可、执照对应的是开车场景。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“乘车的许可条件”错当成“玩手机的许可条件”。</p>"}, {"title": "逐项分析 · C ticket（车票）", "cls": "bad", "tag": "排除 C", "log": "C ticket（车票） ✗ 排除——是乘车条件，与“玩手机”无条件关系", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>ticket（车票）与 subway 语义场亲近，确实是“乘车条件”——但它不是“玩手机的条件”：有票没票跟玩不玩手机毫无条件关系，“没票也玩手机”与句义无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只做语义场共现，看到 subway 就想到 ticket。</p>"}, {"title": "逐项分析 · D record（记录）", "cls": "bad", "tag": "排除 D", "log": "D record（记录） ✗ 排除——“地铁上没有记录”不知所云", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>record（记录）：without a record on a subway（地铁上没有记录）不知所云，既当不了乘车的条件，更当不了玩手机的条件。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背词义，不把选项代回句子里验读。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（signal 信号）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>身边的每个人都紧握手机，哪怕在地铁里连信号都没有</b>——玩手机之顽固溢于言表。</p><p>答案选 <b>A（signal）</b>。</p><p><b>记忆锚点</b>：even without a __ → 找“该动作的潜在条件”；语义场共现只是入场券，条件关系才是判据。</p><p style=\"color:#b91c1c\">最易误选：<b>C（ticket）</b>——与地铁共现度最高，但它是乘车条件，不是玩手机的条件。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 1 空 · 地铁上“连____都没有”也抱着手机，缺的是什么",
+  subtitle: "考点：上下文语义 + 名词词义辨析 · even 让步逻辑 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 A（signal 信号）", "html": "<b>A signal（信号）</b>——没信号照样刷，even 让步成立，又是玩手机的先决条件。<br>记忆锚点：even without a __ → 找“该动作的潜在条件”；语义场共现只是入场券，条件关系才是判据。<br>最易误选：<b>C（ticket）</b>——ticket 是“乘车条件”，不是“玩手机的条件”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 1 空 · even 让步逻辑要的是“玩手机的潜在条件”</h2>
+<p>答案：<strong>A（signal）</strong>。</p>
+<h3>第 0 步：先立机制——名词题别比“谁跟 subway 更熟”</h3>
+<p>名词空格最容易做成本能查词典：哪个名词跟地铁“语义场亲近”就选哪个。但这道题的判据在句子逻辑上：空格在 <code>even without a __1__ on a subway</code> 这个状语里，<strong>even 是让步信号</strong>——“连（最不利的条件）都没有”还要做某事，才用 even。所以空格要填的是“<strong>人们低头玩手机的潜在条件</strong>”：有了它才方便玩手机；连它都没有仍在玩，才撑得起“人人抱着手机不放”的极端描述。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Everyone around us seems to agree by the way they cling to their phones, even without a __1__ on a subway.</blockquote>
+<p>空格受不定冠词 a 限定，是单数可数名词，作 without a __1__ on a subway 的核心词，整个短语修饰主句 everyone...cling to their phones。“条件”与“动作”的关系，就是本题靶心。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A signal</td><td>信号</td><td>✓ 当选</td><td>no signal 是地铁常识；signal 又正是上网刷屏的先决条件——“连信号都没有还玩手机”，让步成立。</td></tr><tr><td>B permit</td><td>许可证</td><td>✗ 排除</td><td>许可证约束“能否乘车/进入”，不约束“玩不玩手机”。（典型误解：把乘车的许可条件错当玩手机的条件。）</td></tr><tr><td>C ticket</td><td>车票</td><td>✗ 排除</td><td>是“乘车条件”，不是“玩手机的条件”，有票没票与刷手机无关。（典型误解：只做语义场共现，见 subway 就选 ticket。）</td></tr><tr><td>D record</td><td>记录</td><td>✗ 排除</td><td>“地铁上没有记录”不知所云。（典型误解：只背词义不代回句中验读。）</td></tr></tbody></table>
+<p>代入后的完整句义：身边的每个人都紧握手机，哪怕在地铁里连信号都没有。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>ticket 不是跟 subway 更搭吗，为什么不对？</strong>：语义场共现只说明“常在一起出现”，不说明“空格句里当什么用”。even 让步句问的是“没它为何还玩手机”，答案必须是玩手机的条件；ticket 是乘车条件，答非所问。</li><li><strong>record 有“记录”义，手机不也能记录吗？</strong>：without a record 字面是“没有记录”，放在地铁场景里既非常识、也不构成任何“条件”，句子不成立。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（ticket）</strong>：语义场共现代替条件判断——最常见错法。</li><li><strong>误选 B（permit）</strong>：把“许可”泛化，没核对许可的对象是乘车资格。</li><li><strong>误选 D（record）</strong>：只背词义，不验句义。</li></ul>
+<blockquote>记忆锚点：even without a __ → 找“该动作的潜在条件”；语义场共现只是入场券，条件关系才是判据。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

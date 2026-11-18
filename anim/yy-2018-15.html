@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-15 · 不健康的好奇心是可以____的：A define / B resist / C replace / D trace</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 15 在 is possible to __ 的动词位；考点：段际逻辑（however 转折）+ 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Unhealthy curiosity is possible to <b>__15__</b> , however.</div><p>空 15 是本段首句 <b>Unhealthy curiosity is possible to __</b> 的动词，however 提示本句与上文方向相反：上文讲好奇心会 backfire，本句要讲另一面。</p>"
+ },
+ {
+  "title": "立机制 · however 定方向：负面讲完，该讲可控",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：however 转折 → 上文负作用 → 本段不必担心、负作用可避免",
+  "body": "<p>however 是段际转折的信号灯：上文说好奇心会驱使人做自毁之事，本段话锋一转，只剩两个可能方向——要么夸好奇心的好处，要么说这种负作用<b>不必担心、可以避免</b>。下文立刻给出实验佐证：被引导想象感受的参与者，<b>less likely</b>（更少）主动要求看不适图片——行为被抑制了。所以空格词 = 按捺、抗拒这类把它压下去的动词，resist 正合适。</p>"
+ },
+ {
+  "title": "找证据 · 实验结果 less likely = 行为被抑制",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：想象后果 → 更少选择看图 → 不健康的好奇心可被按捺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In a final experiment, participants who were encouraged to __16__ how they would feel after viewing an unpleasant picture were less likely to __17__ to see such an image.</div><p>下句实验：鼓励参与者<b>预测</b>看完不适图片后的感受，结果他们<b>更少</b>主动选择看这类图片。这说明病态的好奇心可以被压制、避免——一个可操作的对策实验，正好支撑段首 unhealthy curiosity 可以被 resist 的论断。</p>"
+ },
+ {
+  "title": "逐项分析 · A define（下定义；界定）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A define（下定义；界定）✗ 排除",
+  "body": "<p><b>排除。</b>给不健康的好奇心下定义，与下文抑制行为的实验对不上：实验测的是看与不看，不是定义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：is possible to + 动词只求搭配通顺，没往下看实验细节做校验。</p>"
+ },
+ {
+  "title": "逐项分析 · B resist（按捺；抗拒）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B resist（按捺；抗拒）✓ 当选",
+  "body": "<p><b>当选。</b>resist = 按捺住、抗拒住（不健康的好奇心），与 however 的转折方向及下文更少看图的实验结果吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · C replace（取代；更换）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C replace（取代；更换）✗ 排除",
+  "body": "<p><b>排除。</b>不健康的好奇心可以被取代，外延过大：被什么取代、换成什么都不知道，与下文降低负面影响的具体对策对不上。</p>"
+ },
+ {
+  "title": "逐项分析 · D trace（追溯；查到）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D trace（追溯；查到）✗ 排除",
+  "body": "<p><b>排除。</b>追溯不健康的好奇心与实验内容无关；实验做的是干预（预测后果），不是溯源。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 15 填 resist（按捺；抗拒）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Unhealthy curiosity is possible to <b>resist</b> , however.</div><p>然而，不健康（病态）的好奇心是可以按捺、可以避免的。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（resist 按捺；抗拒）——见结论卡",
+  "body": "<p>答案选 <b>B（resist 按捺；抗拒）</b>。</p><p><b>记忆锚点</b>：however 的转折方向 = 与上文负面相对的可控可解；段首论断要能被段内实验细节支撑——resist 对应 less likely 的行为抑制。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（define）</b>：只验证了 is possible to define 的搭配通顺，没有用段内实验（预测后果 → 更少看图）反推段首动词的语义。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 15 空 · 不健康的好奇心是可以____的：A define / B resist / C replace / D trace",
+  subtitle: "考点：段际逻辑（however 转折）+ 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（resist 按捺；抗拒）", "html": "<b>B（resist 按捺；抗拒）</b>。<br>记忆锚点：however 的转折方向 = 与上文负面相对的可控可解；段首论断要能被段内实验细节支撑——resist 对应 less likely 的行为抑制。<br>最易误选：<b>A（define）</b>——只验证了 is possible to define 的搭配通顺，没有用段内实验（预测后果 → 更少看图）反推段首动词的语义。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 15 空 · 不健康的好奇心是可以____的</h2>
+<p>答案：<strong>B（resist 按捺；抗拒）</strong>。</p>
+<h3>第 0 步：先立机制——however 定方向：负面讲完，该讲可控</h3>
+<p>however 是段际转折的信号灯：上文说好奇心会驱使人做自毁之事，本段话锋一转，只剩两个可能方向——要么夸好奇心的好处，要么说这种负作用<strong>不必担心、可以避免</strong>。下文立刻给出实验佐证：被引导想象感受的参与者，<strong>less likely</strong>（更少）主动要求看不适图片——行为被抑制了。所以空格词 = 按捺、抗拒这类把它压下去的动词，resist 正合适。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Unhealthy curiosity is possible to <strong>__15__</strong> , however.</blockquote>
+<p>空 15 是本段首句 <strong>Unhealthy curiosity is possible to __</strong> 的动词，however 提示本句与上文方向相反：上文讲好奇心会 backfire，本句要讲另一面。</p>
+<h3>第 2 步：找证据——实验结果 less likely = 行为被抑制</h3>
+<blockquote>In a final experiment, participants who were encouraged to __16__ how they would feel after viewing an unpleasant picture were less likely to __17__ to see such an image.</blockquote>
+<p>下句实验：鼓励参与者<strong>预测</strong>看完不适图片后的感受，结果他们<strong>更少</strong>主动选择看这类图片。这说明病态的好奇心可以被压制、避免——一个可操作的对策实验，正好支撑段首 unhealthy curiosity 可以被 resist 的论断。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A define</td><td>下定义；界定</td><td>✗ 排除</td><td>给不健康的好奇心下定义，与下文抑制行为的实验对不上：实验测的是看与不看，不是定义。（典型误解：is possible to + 动词只求搭配通顺，没往下看实验细节做校验。）</td></tr><tr><td>B resist</td><td>按捺；抗拒</td><td>✓ 当选</td><td>resist = 按捺住、抗拒住（不健康的好奇心），与 however 的转折方向及下文更少看图的实验结果吻合。</td></tr><tr><td>C replace</td><td>取代；更换</td><td>✗ 排除</td><td>不健康的好奇心可以被取代，外延过大：被什么取代、换成什么都不知道，与下文降低负面影响的具体对策对不上。</td></tr><tr><td>D trace</td><td>追溯；查到</td><td>✗ 排除</td><td>追溯不健康的好奇心与实验内容无关；实验做的是干预（预测后果），不是溯源。</td></tr></tbody></table>
+<p>代入后的完整句义：然而，不健康（病态）的好奇心是可以按捺、可以避免的。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（define）</strong>：只验证了 is possible to define 的搭配通顺，没有用段内实验（预测后果 → 更少看图）反推段首动词的语义。</li></ul>
+<blockquote>记忆锚点：however 的转折方向 = 与上文负面相对的可控可解；段首论断要能被段内实验细节支撑——resist 对应 less likely 的行为抑制。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

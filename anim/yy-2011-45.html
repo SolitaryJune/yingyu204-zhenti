@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-45 动画：配对题——发言人的“责任协议”落在企业头上</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：配对落点是“语义重心”",
+  body:"<p>左栏：<b>A Department of Health spokesperson proposed that ____</b>（卫生部发言人提议____）。右栏 7 个观点，2 个多余。</p><p>发言人发言集中在第十一段，两句连排：第一句抛大框架，第二句给<b>具体抓手</b>。配对选与<b>语义重心</b>对齐的选项——大框架句常被拿来制造过度推断的干扰项。</p>",
+  log:"配对题：定位第十一段发言人发言，找语义重心"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：两句连排，重心在第二句",
+  body:"<div class=\"qq\"><b>第十一段①：</b>“We need to create a new vision for public health <b>where all of society works together</b> to get healthy and live longer.” <span class=\"cn\">（译：我们需要为公共健康创造新愿景——全社会共同努力走向健康长寿。）</span></div><div class=\"qq\"><b>第十一段②：</b>“This includes creating a new ‘<b>responsibility deal</b>’ <b>with business</b>, built on <b>social responsibility</b>, <b>not state regulation</b>.” <span class=\"cn\">（译：这包括与企业订立新的“责任协议”——建立在社会责任而非国家法规之上。）</span></div><p>第一句是大框架（全社会），第二句是具体抓手（与企业的责任协议）。</p>",
+  log:"定位第十一段②：a new responsibility deal with business"},
+ {cls:"good", ecs:"ok", tag:"锁定 G", count:1, ribbon:{k:7, ok:true}, title:"锁定 G：strengthen the sense of responsibility among businesses",
+  body:"<p><b>G（政府应强化各企业的责任感）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p>a new “<b>responsibility deal</b>” <b>with business</b>, built on <b>social responsibility</b> ↔ strengthen the <b>sense of responsibility among businesses</b>（与企业的“责任协议”＝强化企业的责任感）。</p><p>not <b>state regulation</b>（不靠国家法规）正是“政府牵头、企业担责”的结构 → G。</p>",
+  log:"锁定 G：responsibility deal with business = 强化企业责任感"},
+ {cls:"bad", ecs:"miss", tag:"排除 F", count:2, ribbon:{k:6, ok:false}, title:"排除 F：parents should set good examples",
+  body:"<p><b>F（父母应在家保持健康饮食、为孩子树立榜样）</b><span class=\"bad-dot\">✗</span>：<b>本题主坑</b>。</p><p>①句 all of <b>society</b> works together 的“全社会”被顺势收窄成“父母”。但大框架只是铺垫，发言人的<b>语义重心</b>在②句——强调各大企业应担起社会责任，而非约束父母行为。过度推断。</p>",
+  log:"排除 F：all of society 过度收窄成“父母”"},
+ {cls:"bad", ecs:"miss", tag:"排除 A / B", count:4, ribbon:{k:1, ok:false}, title:"排除 A（脂肪税）与 B（校园禁店）",
+  body:"<p><b>A（对快餐商征“脂肪税”）</b><span class=\"bad-dot\">✗</span>：首段 <b>leading doctors（名医集体）</b>的要求——发言人代表卫生部，通篇无征税字眼。</p><p><b>B（政府应禁止校园周边快餐店）</b><span class=\"bad-dot\">✗</span>：Bhugra 的答案（44 题）；发言人的 deal 恰是 built on social responsibility, <b>not state regulation</b>——靠协议不靠禁令，方向相反。</p>",
+  log:"排除 A（名医集体的）、B（Bhugra 的，且方向相反）"},
+ {cls:"bad", ecs:"miss", tag:"排除 C / D / E", count:7, title:"排除 C、D、E",
+  body:"<p><b>C（说教有效）</b><span class=\"bad-dot\">✗</span>：Oliver 的答案（43 题）；<b>D（香烟式警告）</b><span class=\"bad-dot\">✗</span>：Stephenson 的答案（42 题）。</p><p><b>E（薯片糖果商贡献大）</b><span class=\"bad-dot\">✗</span>：Lansley 的答案（41 题）。“企业担责”与“企业参与”表面都谈企业，但 E 说的是特定企业在特定运动中的贡献，与 G 的“政府强化企业责任感”主语谓语都不同。</p>",
+  log:"排除 C/D/E：各有其主，E 的主语谓语也不对"},
+ {cls:"good", ecs:"done", tag:"结论", count:7, title:"结论：答案 G",
+  body:"<p><b>答案 G</b>——“responsibility deal” with business ＝ 强化企业责任感。</p><p><table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr><tr><td class=\"mine\">A 脂肪税</td><td class=\"mine\">首段名医集体</td></tr><tr><td class=\"mine\">B 校园禁店</td><td class=\"mine\">Bhugra（44 题）</td></tr><tr><td class=\"mine\">C 说教有效</td><td class=\"mine\">Oliver（43 题）</td></tr><tr><td class=\"mine\">D 香烟式警告</td><td class=\"mine\">Stephenson（42 题）</td></tr><tr><td class=\"mine\">E 薯片糖果商</td><td class=\"mine\">Lansley（41 题）</td></tr><tr><td class=\"mine\">F 父母榜样</td><td class=\"mine\">无主（过度推断）</td></tr><tr><td class=\"ans\">G 强化企业责任</td><td class=\"ans\">卫生部发言人 ✓ 本题</td></tr></table></p>",
+  log:"结论：发言人提议强化企业责任感，答案选 G"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-45 · 新题型配对：卫生部发言人提议什么",
+  subtitle: "考点：Text B 人物观点配对 · 方法：定位语义重心 → 替换对齐 → 过度推断排查",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位 → 语义重心 → 逐项排查。",
+  snaps: snaps,
+  result: {
+    big: "答案 G",
+    html: "<b>creating a new “responsibility deal” with business, built on social responsibility</b>＝ strengthen the sense of responsibility among businesses。记忆锚点：大框架（all of society）产干扰（F 过度推断），具体抓手产答案（G）；not state regulation 是排除 B 的方向阀。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——发言人的"责任协议"落在企业头上</h2>
+<p>答案：<strong>G</strong>（the government should strengthen the sense of responsibility among businesses 政府应强化各企业的责任感）。</p>
+<h3>第 0 步：先立机制——配对的落点是"语义重心"</h3>
+<p>卫生部发言人的发言集中在第十一段，两句连排：第一句抛大框架（全社会共同努力），第二句给<strong>具体抓手</strong>（与企业订立"责任协议"）。配对题选的是与原文<strong>语义重心</strong>对齐的选项——大框架句往往被命题人拿去制造"过度推断"的干扰项（本题 F），真正能对齐的是第二句的具体表述。</p>
+<h3>第 1 步：定位第十一段，抓"责任协议"</h3>
+<blockquote>第十一段："We need to create a new vision for public health <strong>where all of society works together</strong> to get healthy and live longer. This includes creating a new '<strong>responsibility deal</strong>' <strong>with business</strong>, built on <strong>social responsibility</strong>, <strong>not state regulation</strong>."（我们需要为公共健康创造新愿景——全社会共同努力走向健康长寿。这包括与企业订立新的"责任协议"，它建立在社会责任而非国家法规之上。）</blockquote>
+<p>替换链：a new "<strong>responsibility deal</strong>" <strong>with business</strong>, built on <strong>social responsibility</strong> ↔ strengthen the <strong>sense of responsibility</strong> <strong>among businesses</strong>。"与企业的责任协议"＝强化企业的责任感 → 选 <strong>G</strong>。</p>
+<p>注意 not state regulation（不靠国家法规）——发言人主张的正是"政府牵头，让企业担责"，与 G 的主语结构严丝合缝。</p>
+<h3>第 2 步：干扰项归因——F 是"全社会"的过度推断</h3>
+<ul><li><strong>误选 F（父母应在家保持健康饮食、为孩子树立榜样）——本题主坑</strong>：all of society works together 的"全社会"被顺势收窄成"父母"。但第一句只是铺垫，语义重心在第二句：发言人真正强调的是<strong>各大企业应承担社会责任</strong>，而非约束父母行为。过度推断。</li><li><strong>误选 A（脂肪税）</strong>：首段 leading doctors 的集体要求——发言人代表卫生部，通篇没有征税字眼。</li><li><strong>误选 B（校园周边禁店）</strong>：Bhugra 的答案（44 题）；发言人的 deal 恰是 built on social responsibility, <strong>not state regulation</strong>——靠协议不靠禁令，方向相反。</li><li><strong>误选 E（薯片糖果商贡献大）</strong>：Lansley 的答案（41 题）。E 说的是<strong>特定企业在特定运动中的贡献</strong>，与 G 的"政府强化企业责任感"主语谓语都不同。</li><li><strong>误选 C（说教有效）/ D（香烟式警告）</strong>：分别属 Oliver（43 题）、Stephenson（42 题），与发言人无关。</li></ul>
+<blockquote>记忆锚点：两句连排找语义重心——大框架（all of society）产干扰（F 过度推断），具体抓手（"responsibility deal" with business）产答案（G）；responsibility 原词贯穿是定位灯，not state regulation 是排除 B 的方向阀。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

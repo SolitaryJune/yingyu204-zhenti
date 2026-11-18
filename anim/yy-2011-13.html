@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-13 · 2011 完形第 13 空 · 围墙花园要营造一种“______社区”的感觉</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 13 所在句", "cls": "key", "tag": "定位", "log": "定位原文：围墙花园 + 安全“街区”+ 明亮“路灯”→ 一种“__13__社区”的感觉", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In effect, the approach would create a “walled garden” in cyberspace, with safe “neighborhoods” and bright “streetlights” to establish a sense of a <b>__13__</b> community.</div><p>形容词被前面的意象供养：safe / bright / walled 指向的共同感受是<b>放心、可信</b>。考点：句内语义 + 词汇复现。</p>"}, {"title": "找证据 · 方案名字里早埋着这个词", "cls": "key", "tag": "证据", "log": "找证据：a “voluntary trusted identity” system —— trusted 前文已出场", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…offered the federal government a proposal … – a “voluntary trusted identity” system…</div><p>第 4 空所在句里系统的名字就是 trusted identity：此处意象铺开后再以 a trusted community 收束，前后呼应成一条线。</p>"}, {"title": "逐项分析 · A trusted（可信的）", "cls": "good", "tag": "选定 A", "log": "A trusted（可信的） ✓ 当选——安全明亮意象汇总 + 前文复现", "count": 1, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>安全“街区”+明亮“路灯”给人放心、可信之感；与方案名 trusted identity 精确复现。</p>"}, {"title": "逐项分析 · B modernized（现代化的）", "cls": "bad", "tag": "排除 B", "log": "B modernized ✗ 排除——意象撑不起“新旧程度”", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>现代化说的是新旧程度；安全街区/明亮路灯的意象与它无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：全篇讲高科技就联想“现代化”。</p>"}, {"title": "逐项分析 · C thriving（繁荣的）", "cls": "bad", "tag": "排除 C", "log": "C thriving ✗ 排除——本句谈安全感，不谈商业兴旺", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>繁荣说的是商业兴旺，文中没有这个铺垫；bright 的“明亮”不能滑成“兴旺”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：bright → 兴旺发达的联想滑动。</p>"}, {"title": "逐项分析 · D competing（竞争的）", "cls": "bad", "tag": "排除 D", "log": "D competing ✗ 排除——比喻的方向是“安全可控”，不是“竞争”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>多系统并存（federation）是事实，但围墙花园的比喻方向是<b>安全可控</b>；“竞争的社区”在此也语义生硬。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓住前文 competing systems 的残影。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（trusted 可信的）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>实际上，这一途径将在网络空间造出一个“围墙花园”，以安全“街区”和明亮“路灯”营造一种可信社区的感觉。</b></p><p>答案选 <b>A（trusted 可信的，受信任的）</b>。</p><p><b>记忆锚点</b>：形容词空 → 找供养它的意象（safe/bright/walled）→ trusted；前文 trusted identity 精确复现；modernized 说新旧、thriving 说商业、competing 说对手。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 13 空 · 围墙花园要营造一种“______社区”的感觉",
+  subtitle: "考点：句内语义（形容词）+ 意象支撑与词汇复现 · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（trusted）", "html": "<b>A trusted（可信的）</b>：safe neighborhoods + bright streetlights 的意象汇总为“可信社区”，并与方案名 trusted identity 复现。<br>记忆锚点：形容词空先找供养它的意象。<br>最易误选：<b>C（thriving）</b>——bright“明亮”滑成“兴旺”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 13 空 · 围墙花园要营造一种“______社区”的感觉</h2>
+<p>答案：<strong>A（trusted 可信的，受信任的）</strong>。</p>
+<h3>第 0 步：先立机制——形容词空先看它被什么意象“养着”</h3>
+<p>空格形容词修饰 community，所在的句子是一个大比喻：围墙花园（walled garden）+ 安全“街区”（safe neighborhoods）+ 明亮“路灯”（bright streetlights）→ 营造一种“______社区”的感觉。形容词不是孤立的，它由前面的意象供养：安全、明亮、有围墙，这些意象指向的共同感受是<strong>放心、可信</strong>。同时还有一条铁律：这个形容词最好能在前文找到出处（复现）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In effect, the approach would create a "walled garden" in cyberspace, with safe "neighborhoods" and bright "streetlights" to establish a sense of a __13__ community.</blockquote>
+<p>“围墙花园”喻指网络里一片安全可控的区域；它要建立的社区感觉，必须是这一串意象的汇总。</p>
+<h3>第 2 步：找证据——方案的名字里早埋着这个词</h3>
+<blockquote>…offered the federal government a proposal … – a "voluntary trusted identity" system…</blockquote>
+<p>第 4 空所在句里，系统的名字就是 a "voluntary <strong>trusted</strong> identity" system——trusted 在文章前部已经出场。此处用 safe neighborhoods / bright streetlights 把“可信”的意象铺开后，再以 a trusted community 收束，前后呼应成一条线。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A trusted</td><td>可信的</td><td>✓ 当选</td><td>安全“街区”+明亮“路灯”→ 给人放心、可信之感；与前文方案名 trusted identity 精确复现。</td></tr><tr><td>B modernized</td><td>现代化的</td><td>✗ 排除</td><td>现代化说的是新旧程度，安全街区/明亮路灯的意象撑不起它。（典型误解：全篇讲网络高科技，就联想“现代化”。）</td></tr><tr><td>C thriving</td><td>繁荣的</td><td>✗ 排除</td><td>繁荣说的是商业兴旺，文中没有商业繁荣的铺垫。（典型误解：bright“灯火通明”→“兴旺发达”的联想滑动。）</td></tr><tr><td>D competing</td><td>竞争的</td><td>✗ 排除</td><td>竞争描述的是多个系统并存的状态（第 8 空的 federation），而“围墙花园+街区”的意象说的是<strong>安全可控</strong>，两者方向不同；“竞争的社区”在此也语义生硬。（典型误解：抓住前文 competing systems 的残影。）</td></tr></tbody></table>
+<p>代入后的完整句义：实际上，这一途径将在网络空间造出一个“围墙花园”，以安全“街区”和明亮“路灯”营造一种可信社区的感觉。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>thriving“繁荣的社区”在现实英语里很常见，为什么这里不行？</strong>：常见搭配 ≠ 本句意思；本句形容词要汇总的是“安全、明亮”这组意象，讨论的是<strong>安全感</strong>，不是经济活力。完形比的是句内证据，不是常识频率。</li><li><strong>competing 与第 8 空 federation 里的多系统不呼应吗？</strong>：呼应的是“多系统”这个事实，但本句比喻的核心是围墙把危险挡在外面——方向是“安全可控”，不是“竞争”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（thriving）</strong>：把 bright 的“明亮”滑动成“兴旺”，意象支撑错位。</li><li><strong>误选 B（modernized）</strong>：被全文高科技氛围带走，忘了形容词要被本句意象供养。</li><li><strong>误选 D（competing）</strong>：抓住前文残影，没读比喻句自己的方向。</li></ul>
+<blockquote>记忆锚点：形容词空 → 找供养它的意象（safe/bright/walled）→ trusted；前文 trusted identity 精确复现；modernized 说新旧、thriving 说商业、competing 说对手。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

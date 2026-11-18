@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·29 阅读 · 主旨 = 各段功能的并集</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：主旨题', cls: 'key',
+    body: '<p>题干 <b>best summarize the main idea</b>。机制：先给每段写"功能一句话"，答案必须<b>覆盖所有功能</b>——主旨 = 各段功能的并集。</p>',
+    log: '主旨 = 并集，不是某段的放大' },
+  { title: '① ② 段：现象出场', cls: 'key',
+    body: src('“...one man had been particularly talkative..., while his wife sat silently... This episode crystallizes the irony that although American men tend to talk more than women <b>in public</b>, they often <b>talk less at home</b>.”') +
+      '<p>聚会引子 → 普遍模式：公开场合男多于女、家中男少于女，且危及婚姻。</p>',
+    log: '① ② 段：模式 + 危害' },
+  { title: '③ 段：数据佐证', cls: 'key',
+    body: src('“...most of the women she interviewed...gave <b>lack of communication</b> as the reason for their divorces... a virtual epidemic of failed conversation.”') +
+      '<p>用离婚数据佐证"交流缺失"的杀伤力——仍在讲模式差异的后果。</p>',
+    log: '③ 段：离婚归因沟通' },
+  { title: '④ ⑤ 段：研究 + 收尾', cls: 'key',
+    body: src('“...most wives want their husbands to be, first and foremost, <b>conversational partners</b>... the image that best represents the current crisis is the <b>stereotypical cartoon</b>...”') +
+      '<p>作者研究：妻子要交谈伙伴；⑤ 段用漫画定格"报纸挡脸、妻子欲言"的画面。</p>',
+    log: '④ ⑤ 段：期待差异 + 漫画' },
+  { title: 'D：并集检验通过', cls: 'good',
+    body: '<p>五段功能全部指向"夫妻交谈模式不同"——<b>Conversational patterns between man and wife are different</b> 正是这条线的命名。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D 覆盖五段 → 正确' },
+  { title: 'A：无中生有', cls: 'bad',
+    body: '<p>"<b>道德滑坡</b>（moral decaying）亟待研究"——全文没有道德议题；干扰性最低的一项。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 概念凭空' },
+  { title: 'B：反向干扰', cls: 'bad',
+    body: '<p>"婚姻破裂源于<b>性别不平等</b>"——④ 段 ① 句 focused <b>not on</b> tangible inequities：原文明说抱怨不来自不平等。否定词一丢，方向全反。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B = 被否定命题的肯定版' },
+  { title: 'C：过宽 + 局部', cls: 'bad',
+    body: '<p>"夫妻对<b>婚姻</b>的期待不同"——只有第四段讲期待，且差异限于<b>交流</b>层面；C 拿局部冒充全局、把"交流期待"放大成"婚姻期待"。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 覆盖不足 + 概念放大' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D</b>。记忆锚点：<b>主旨题先列各段功能再选并集</b>；not on tangible inequities 是 B、C 共同的雷区——否定词在，选项就得反着读。</p>',
+    log: '锁定 D' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 29 · 主旨 = 各段功能的并集',
+  subtitle: 'Text 2（夫妻交流模式）· 考点：全文主旨概括',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D',
+    html: '记忆锚点：<b>五段功能并集</b>——引子、模式、数据、研究、漫画全挂在"夫妻交谈模式不同"上。A 无中生有；B 把 not on tangible inequities 反着读；C 拿第四段局部放大成"婚姻期待"。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：主旨题——全文只在论证一件事：夫妻交谈模式不同</h2>
+<p>答案：<strong>D（Conversational patterns between man and wife are different）</strong>。</p>
+<h3>第一步：先立机制——主旨 = 各段功能的并集</h3>
+<p>主旨题的机制：把每段"功能一句话"写出来，答案必须<strong>覆盖所有功能</strong>。本文五段：① 聚会引子（男主人当场没话说）→ ② 普遍模式 + 危及婚姻 → ③ 数据佐证（离婚归因沟通失败）→ ④ 作者研究（妻子要的是交谈伙伴）→ ⑤ 漫画收尾。</p>
+<h3>第二步：检验 D 的覆盖面</h3>
+<p>五段功能全部指向同一现象——<strong>公开场合男多于女、家里男少于女，且这一差异正在伤及婚姻</strong>。D "夫妻间交谈模式不同"正是这条线的命名：模式（pattern）对应引子与 ② 句，夫妻（man and wife）对应全部人物，差异对应每一段的展开。</p>
+<h3>第三步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A 道德滑坡亟待社会学研究</td><td>✗</td><td>无中生有：全文没有"道德"议题</td></tr><tr><td>B 婚姻破裂源于性别不平等</td><td>✗</td><td>反向干扰：④ 段 ① 句 focused <strong>not</strong> on tangible inequities——原文否定的正是"不平等"归因</td></tr><tr><td>C 夫妻对婚姻的期待不同</td><td>✗</td><td>过宽 + 局部：仅第四段成立，且原文差异限于"交流"期待，不是婚姻全方位；覆盖不了五段</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C</strong>：最具迷惑性——第四段确实讲了"期待差异"。但主旨要覆盖五段：C 拿局部冒充全局，还把"交流期待"放大成"婚姻期待"。</li><li><strong>选 B</strong>：把"抱怨不是来自不平等"读成"问题出在不平等"。否定词丢失是主旨题的常见事故：not on tangible inequities 在原文里明明白白。</li></ul>
+<blockquote>记忆锚点：主旨题先列各段功能再选"并集"；第四段的 not on tangible inequities 是 B、C 共同的雷区——否定词在，选项就得反着读。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025-46 翻译长难句拆解：先抓主干 → 再挂修饰 → 最后收僻义（谈话中的停顿）</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开拆句卡片，每步一张 .aw-stepcard。
+     长难句用「主干/修饰/从句/熟词僻义」四色分框呈现；英语内容无需 KaTeX。
+     外壳仅引用 ../assets/ 下两件资源，无外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 长难句分色框：kind = trunk 主干(绿) / mod 修饰(琥珀) / cl 从句(蓝) / odd 熟词僻义(红) */
+function seg(text, kind){
+  var C = {
+    trunk: ['#ecfdf5', '#16a34a', '#14532d'],
+    mod:   ['#fffbeb', '#d97706', '#92400e'],
+    cl:    ['#eff6ff', '#2563eb', '#1e40af'],
+    odd:   ['#fef2f2', '#dc2626', '#991b1b']
+  };
+  var c = C[kind] || ['#f1f5f9', '#64748b', '#0f172a'];
+  return '<span style="background:' + c[0] + ';border-bottom:2px solid ' + c[1] +
+         ';color:' + c[2] + ';padding:1px 4px;border-radius:3px;font-weight:600">' + text + '</span>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '机制先行：拆句流水线——主干 → 修饰 → 僻义',
+    cls: 'key',
+    tag: '流程',
+    log: '翻译失分多死于语序而非词义：先抓主干，再挂修饰，最后收僻义与指代',
+    count: 0,
+    body: '<p>固定作业流程：<b>先抓主干（谁 + 干了什么）→ 再挂修饰（介词短语/从句/so...that 按中文习惯归位）→ 最后收僻义与指代（It / doing so / there 三处指代必须还原）</b>。全篇 10 句，脉络四步走：<b>设问 → 研究结论 → 数据 → 反转</b>（朋友间长停顿反而更亲密）。</p>' +
+      '<p>分色图例：' + seg('主干', 'trunk') + ' ' + seg('修饰成分', 'mod') + ' ' + seg('从句', 'cl') + ' ' + seg('熟词僻义', 'odd') + '。下面逐句拆解。</p>' },
+  { title: '句① 破折号铺解释 + there be 句型',
+    cls: 'step',
+    tag: '句①',
+    log: 'you 泛指读者；there be 译「出现了」，不译「那里有」',
+    count: 1,
+    ribbon: { k: 1, ok: true },
+    body: '<p>' + seg('You know the moment', 'trunk') + ' — ' + seg('the conversation slows', 'mod') + ', then ' + seg('there’s a pause', 'mod') + '.</p>' +
+      '<p>主干 You know the moment 是寒暄式呼语：you 泛指读者，译<b>你知道那种时刻吧</b>——语气词「吧」把寒暄感带出来。破折号引出对 moment 的具体解释：谈话慢下来、随后出现停顿，两个分句按原顺序排开。</p>' +
+      '<p>' + seg('there’s a pause', 'odd') + ' 是 <b>there be 句型</b>，译「出现了停顿」，不是「那里有一个停顿」。</p>' +
+      '<p><b>译文：</b>你知道那种时刻吧——谈话慢了下来，然后出现了停顿。</p>' },
+  { title: '句② It 指代还原 + 并列省略 + so...that',
+    cls: 'step',
+    tag: '句②',
+    log: 'It＝这种场面；and so awkward＝and (it is) so awkward；say anything＝慌不择言',
+    count: 2,
+    ribbon: { k: 2, ok: true },
+    body: '<p>' + seg('It’s awkward', 'trunk') + ', and ' + seg('so awkward that', 'cl') + ' ' + seg('some people will panic and say anything', 'cl') + '.</p>' +
+      '<p>' + seg('It', 'odd') + ' 指代上句的<b>这种场面</b>（谈话慢下来后出现停顿），译「这种场面」而非「它」。</p>' +
+      '<p>and so awkward 是<b>并列省略</b>：补全＝and (it is) so awkward——「尴尬」说了两遍，中文用顶真复现「令人尴尬，尴尬到……」，so...that 结果从句顺势挂上。</p>' +
+      '<p>' + seg('say anything', 'odd') + ' 不是「说任何事」，语境中是<b>慌不择言、随便说些什么</b>。</p>' +
+      '<p><b>译文：</b>这种场面令人尴尬，尴尬到让一些人惊慌失措，只能随便说些什么。</p>' },
+  { title: '句③ find + 宾补：设问句收住第一段',
+    cls: 'step',
+    tag: '句③',
+    log: 'find sth stressful＝认为……让人倍感压力',
+    count: 3,
+    ribbon: { k: 3, ok: true },
+    body: '<p>' + seg('Do we all find', 'trunk') + ' ' + seg('such silences', 'mod') + ' ' + seg('so stressful', 'mod') + '?</p>' +
+      '<p>主干是 <b>find + 宾语 + 宾补</b>（find sth stressful）＝「认为……怎么样」：我们都认为这样的沉默让人倍感压力吗？' + seg('stressful', 'odd') + ' 取「使人紧张的、让人倍感压力的」，设问就此立起，引出下文研究。</p>' +
+      '<p><b>译文：</b>我们都认为这样的沉默让人倍感压力吗？</p>' },
+  { title: '句④ 全文最长句：which 从句 + so...that 套 even though',
+    cls: 'step',
+    tag: '句④',
+    log: 'which 先行词是 previous studies（复数谓语 indicate 为证）；doing so 指代避免交谈',
+    count: 4,
+    ribbon: { k: 4, ok: true },
+    body: '<p>' + seg('Researchers analysed the frequency and impact of gaps greater than 2 seconds during conversations', 'trunk') + ', ' + seg('including an overview of previous studies', 'mod') + ' ' + seg('which indicate that the fear of awkward silences can be so extreme that people avoid talking to strangers', 'cl') + ', ' + seg('even though doing so is likely to be an enjoyable experience', 'cl') + '.</p>' +
+      '<p>主干只有一件事：分析了停顿（超过 2 秒的 gap）的频率与影响——' + seg('the frequency', 'odd') + ' 在研究语境取<b>发生率</b>，不是抽象的「频率」。including... 处理成第二个动作「并回顾了先前一些研究的综述」。</p>' +
+      '<p>' + seg('which indicate that...', 'cl') + ' 定语从句，<b>先行词是 previous studies</b>（复数谓语 indicate 为证），中文前置装不下 → 拆「这些研究表明」小分句；从句内再套 so...that：「太过担心……以至于避免和陌生人交谈」。</p>' +
+      '<p>' + seg('doing so', 'odd') + ' 指代 <b>avoid talking to strangers</b> →「尽管这样做很可能是一种令人愉快的体验」——指代不还原，「这样做」就悬空。</p>' +
+      '<p><b>译文：</b>研究者们分析了谈话期间超过2秒的停顿的发生率及影响，并回顾了先前一些研究的综述，这些研究表明，人们太过担心尴尬的沉默，以至于他们会避免和陌生人交谈，尽管这样做很可能是一种令人愉快的体验。</p>' },
+  { title: '句⑤ 介词短语开头 + connected 取「亲密」',
+    cls: 'step',
+    tag: '句⑤',
+    log: 'During... with short gaps＝在有短暂停顿的谈话中；connected＝亲密',
+    count: 5,
+    ribbon: { k: 5, ok: true },
+    body: '<p>' + seg('During conversations with short gaps', 'mod') + ', ' + seg('people feel', 'trunk') + ' ' + seg('more connected', 'odd') + ' ' + seg('to their conversation partners', 'mod') + '.</p>' +
+      '<p>介词短语作时间状语前置：「在有短暂停顿的谈话中」。主干 feel more connected 是<b>比较级 + 形容词表语</b>。</p>' +
+      '<p>' + seg('connected', 'odd') + ' 在关系语境取<b>亲密</b>，不是「连接上的」——译「感觉与其交谈对象的关系更加亲密」。</p>' +
+      '<p><b>译文：</b>在有短暂停顿的谈话中，人们感觉与其交谈对象的关系更加亲密。</p>' },
+  { title: '句⑥ when + 现在分词省略结构 + dip 僻义',
+    cls: 'step',
+    tag: '句⑥',
+    log: 'when entering＝when (people are) entering；dip 本义蘸，此处降低',
+    count: 6,
+    ribbon: { k: 6, ok: true },
+    body: '<p>' + seg('But such feelings of connection markedly dip', 'trunk') + ' ' + seg('when entering a long gap', 'mod') + '.</p>' +
+      '<p><b>when + 现在分词</b>是省略结构：补全＝when (people are) entering a long gap，逻辑主语还原成「谈话」——「当谈话陷入长时间的停顿时」。</p>' +
+      '<p>' + seg('dip', 'odd') + ' 本义「蘸、浸」，此处取<b>下降、跌落</b>：markedly dip 译「显著降低」；such feelings of connection 浓缩为「这种亲密感」。</p>' +
+      '<p><b>译文：</b>然而，当谈话陷入长时间的停顿时，这种亲密感会显著降低。</p>' },
+  { title: '句⑦ 被动 followed by 反向译「引发」',
+    cls: 'step',
+    tag: '句⑦',
+    log: 'be followed by 直译「被……跟随」生硬，反向说成「引发」',
+    count: 7,
+    ribbon: { k: 7, ok: true },
+    body: '<p>' + seg('Long gaps between strangers', 'trunk') + ' ' + seg('are likely to be followed by', 'odd') + ' ' + seg('a change in topic', 'mod') + '.</p>' +
+      '<p>主干是被动结构 are likely to be followed by：中文按<b>被动转主动</b>处理——陌生人之间谈话的长时间停顿<b>易于引发</b>话题的转换；「被……跟随」直译生硬，反向说成「引发」才通。</p>' +
+      '<p><b>译文：</b>陌生人之间谈话的长时间停顿易于引发话题的转换。</p>' },
+  { title: '句⑧ the opposite 指代前文全部结论',
+    cls: 'step',
+    tag: '句⑧',
+    log: 'But 转折 + the opposite＝情况恰好相反',
+    count: 8,
+    ribbon: { k: 8, ok: true },
+    body: '<p>' + seg('But', 'mod') + ' ' + seg('the opposite', 'trunk') + ' ' + seg('seems to be true for', 'mod') + ' ' + seg('conversations between friends', 'mod') + '.</p>' +
+      '<p>' + seg('the opposite', 'odd') + ' 承接上文全部结论（短停顿增亲密、长停顿降亲密）：译「情况似乎<b>恰好相反</b>」——But 转折 + opposite 指代，中文要点明「情况」二字作主语。</p>' +
+      '<p><b>译文：</b>但是，对于朋友之间的谈话，情况似乎恰好相反。</p>' },
+  { title: '句⑨ there 副词指代 + saw 拟人僻义',
+    cls: 'step',
+    tag: '句⑨',
+    log: 'there＝in conversations between friends；saw＝见证，转「使……更亲密」',
+    count: 9,
+    ribbon: { k: 9, ok: true },
+    body: '<p>' + seg('Long gaps there', 'trunk') + ' ' + seg('saw', 'odd') + ' ' + seg('increased connection', 'mod') + '.</p>' +
+      '<p>' + seg('there', 'odd') + ' 是<b>副词指代</b>＝ in conversations between friends →「在这种情况下」。</p>' +
+      '<p>' + seg('saw', 'odd') + ' 的主语是场合（长停顿），英语允许时间/地点作主语配 see 的拟人用法，核心义是<b>见证、经历</b>——中文不接受这种拟人，增译处理为「长时间的停顿<b>使彼此的关系更加亲密</b>」；increased connection 名词化还原成主谓句。</p>' +
+      '<p><b>译文：</b>在这种情况下，长时间的停顿使彼此的关系更加亲密。</p>' },
+  { title: '句⑩ reflection and expression 语境定词义',
+    cls: 'step',
+    tag: '句⑩',
+    log: 'reflection＝仔细思考、expression＝表情流露，由朋友间长停顿的语境裁定',
+    count: 10,
+    ribbon: { k: 10, ok: true },
+    body: '<p>' + seg('Between friends', 'mod') + ', ' + seg('longer gaps seem to provide', 'trunk') + ' ' + seg('natural moments', 'mod') + ' ' + seg('for reflection and expression', 'odd') + '.</p>' +
+      '<p>provide... for... 结构：「给……提供了……的时机」；natural moments 译<b>自然而然的时机</b>。</p>' +
+      '<p><b>语境定词义</b>：' + seg('reflection', 'odd') + ' 不取「倒影、反思」的常见义，' + seg('expression', 'odd') + ' 不取「表达」的泛义——朋友间长停顿给的是<b>仔细思考和表情流露</b>的机会，这是本篇最后两处「认识词的陌生义」。</p>' +
+      '<p><b>译文：</b>朋友之间，较长时间的停顿似乎给仔细思考和表情流露提供了自然而然的时机。</p>' },
+  { title: '结论：十句拆完，指代与僻义全部落袋',
+    cls: 'good',
+    tag: '结论',
+    log: '主干 → 修饰 → 僻义三步走完全篇，完整译文见右侧结论卡',
+    count: 10,
+    body: '<p>本篇全部难点都落在同一套流程上：<b>主干 → 修饰 → 僻义</b>。三处指代（It / doing so / there）逐一还原；so...that 双现、when + 现在分词补逻辑主语、被动 followed by 反向译「引发」；语境词五连——say anything、frequency、connected、dip、saw。完整四段译文见右侧结论卡。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: s.count,
+    ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2025-46 翻译长难句拆解：先抓主干 → 再挂修饰 → 最后收僻义',
+  subtitle: '考点：英译汉（谈话中的停顿） · 方法：主干 / 修饰 / 从句 / 僻义 四色分框',
+  counterLabel: '已拆句',
+  ribbonTitle: '句子进度（①–⑩ 全拆通）',
+  intro: '点击「▶ 播放」逐句拆解十句难点，分色框即结构。',
+  snaps: snaps,
+  result: {
+    big: '整段译文（答案口径）',
+    html: '<p>你知道那种时刻吧——谈话慢了下来，然后出现了停顿。这种场面令人尴尬，尴尬到让一些人惊慌失措，只能随便说些什么。我们都认为这样的沉默让人倍感压力吗？</p>' +
+      '<p>研究者们分析了谈话期间超过2秒的停顿的发生率及影响，并回顾了先前一些研究的综述，这些研究表明，人们太过担心尴尬的沉默，以至于他们会避免和陌生人交谈，尽管这样做很可能是一种令人愉快的体验。</p>' +
+      '<p>在有短暂停顿的谈话中，人们感觉与其交谈对象的关系更加亲密。然而，当谈话陷入长时间的停顿时，这种亲密感会显著降低。陌生人之间谈话的长时间停顿易于引发话题的转换。</p>' +
+      '<p>但是，对于朋友之间的谈话，情况似乎恰好相反。在这种情况下，长时间的停顿使彼此的关系更加亲密。朋友之间，较长时间的停顿似乎给仔细思考和表情流露提供了自然而然的时机。</p>' +
+      '<p style="margin-top:8px">记忆锚点：拆句三步 = <b>主干 → 修饰 → 僻义</b>；It / doing so / there 三处指代必须还原成具体对象；when + 现在分词＝省略结构要补逻辑主语；被动 followed by 反向译「引发」；本篇语境词五连——say anything 慌不择言、frequency 发生率、connected 亲密、dip 降低、saw 见证（使……更亲密）。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 翻译 · 谈话中的停顿：沉默为何让人恐慌</h2>
+<p>答案：<strong>整段英译汉（15 分）</strong>，评分口径 = 题库参考译文（见文末"整句译文"），逐句按"结构拆解 → 词义定夺"推进。</p>
+<h3>第 0 步：先立机制——拆句流水线：主干 → 修饰 → 僻义</h3>
+<p>翻译失分多死于语序而非词义。固定作业流程：</p>
+<ol><li><strong>先抓主干</strong>：每句先问"谁 + 干了什么"，主干往往只有一件事；</li><li><strong>再挂修饰</strong>：介词短语、定语从句、so...that 结果状语、when + 现在分词，按中文习惯归位——中文定语前移装不下就拆小分句，被动句转主动；</li><li><strong>最后收僻义与指代</strong>：本篇 10 句埋了多处"认识词的陌生义"（say anything / connected / dip / saw / reflection and expression），还有 It、doing so、there 三处指代——词义与指代对象都必须由语境裁定。</li></ol>
+<p>全段脉络四步走：第一段设问（停顿尴尬，人人都慌吗）→ 第二段给研究结论（怕尴尬到逃避陌生人交流）→ 第三段报数据（短停顿增亲密、长停顿降亲密、陌生人会换话题）→ 第四段反转（朋友间长停顿反而更亲密）。行文顺着"现象 → 结论 → 数据 → 反例"走，译文的语气也要跟着转。</p>
+<h3>第 1 步：第一段三句——设问段省略与指代密集</h3>
+<p><strong>句①</strong> You know the moment — the conversation slows, then there's a pause.</p>
+<ul><li>主干 You know the moment 是呼语的变体：you 泛指读者，译"你知道那种时刻吧"，语气词"吧"把寒暄感译出来；</li><li>破折号引出对 moment 的具体解释：谈话慢下来、随后出现停顿——两个分句按原顺序排开即可；</li><li>there's a pause 是 <strong>there be 句型</strong>，译"出现了停顿"，别译成"那里有一个停顿"。</li></ul>
+<p><strong>句②</strong> It's awkward, and so awkward that some people will panic and say anything.</p>
+<ul><li><strong>代词指代</strong>：It 指代上句的这种场面（谈话慢下来后出现停顿），译"这种场面"而非"它"；</li><li><strong>省略 + 并列</strong>：and so awkward = and (it is) so awkward，并列省略了主语和系动词——先数出"尴尬"说了两遍，译文用"令人尴尬，尴尬到……"顶真式复现；</li><li><strong>so...that 结果状语从句</strong>：尴尬到让一些人……；panic and say anything 并列谓语，say anything 不是"说任何事"，语境中是<strong>慌不择言、随便说些什么</strong>。</li></ul>
+<p><strong>句③</strong> Do we all find such silences so stressful?</p>
+<ul><li>find + 宾语 + 宾补（find sth stressful）＝"认为……怎么样"：我们都认为这样的沉默让人倍感压力吗？stressful 取"使人紧张的"，全段设问就此立起。</li></ul>
+<h3>第 2 步：第二段一句——全文最长句的三层嵌套</h3>
+<p><strong>句④</strong> Researchers analysed the frequency and impact of gaps greater than 2 seconds during conversations, including an overview of previous studies which indicate that the fear of awkward silences can be so extreme that people avoid talking to strangers, even though doing so is likely to be an enjoyable experience.</p>
+<ul><li>主干只有一件事：研究者分析了停顿（超过 2 秒的 gap）的<strong>频率与影响</strong>——frequency 在研究语境取"发生率"，不是抽象的"频率"；</li><li>including an overview of previous studies 是伴随的介词短语，处理成第二个动作"并回顾了先前一些研究的综述"；</li><li>which indicate that... 定语从句，<strong>先行词是 previous studies</strong>（复数谓语 indicate 为证），中文前置装不下 → 拆成独立小分句"这些研究表明"；</li><li>从句内再嵌 so...that：担心尴尬的沉默 can be so extreme that people avoid... → "太过担心……以至于避免和陌生人交谈"；</li><li>even though 让步从句挂句末：<strong>doing so 指代 avoid talking to strangers</strong> →"尽管这样做很可能是一种令人愉快的体验"——指代不还原，"这样做"就会悬空。</li></ul>
+<h3>第 3 步：第三段三句——数据陈述段</h3>
+<p><strong>句⑤</strong> During conversations with short gaps, people feel more connected to their conversation partners.</p>
+<ul><li>介词短语 During conversations with short gaps 作时间状语 →"在有短暂停顿的谈话中"；</li><li>feel more connected 是比较级 + 形容词表语：<strong>connected 在关系语境取"亲密"</strong>，不是"连接上的"——译"感觉与其交谈对象的关系更加亲密"。</li></ul>
+<p><strong>句⑥</strong> But such feelings of connection markedly dip when entering a long gap.</p>
+<ul><li><strong>when + 现在分词</strong>是省略结构：when (people are) entering...，逻辑主语还原成"谈话"——"当谈话陷入长时间的停顿时"；</li><li>僻义：dip 本义"蘸、浸"，此处取"<strong>下降、跌落</strong>"，markedly dip 译"显著降低"；such feelings of connection 浓缩为"这种亲密感"。</li></ul>
+<p><strong>句⑦</strong> Long gaps between strangers are likely to be followed by a change in topic.</p>
+<ul><li>are likely to be followed by 是被动结构，中文按"被动转主动"处理：陌生人之间谈话的长时间停顿<strong>易于引发</strong>话题的转换——followed by 直译"被……跟随"生硬，反向说成"引发"。</li></ul>
+<h3>第 4 步：第四段三句——反转段见真功夫</h3>
+<p><strong>句⑧</strong> But the opposite seems to be true for conversations between friends.</p>
+<ul><li>the opposite 承接上文全部结论："对于朋友之间的谈话，情况似乎恰好相反"——But 转折 + opposite 指代前文，译文要点明"情况"二字作主语。</li></ul>
+<p><strong>句⑨</strong> Long gaps there saw increased connection.</p>
+<ul><li><strong>there 是副词指代</strong>＝ in conversations between friends →"在这种情况下"；</li><li>僻义重点：saw 的主语是时间/场合（长停顿），拟人用法取"<strong>见证、经历</strong>"→ 增译处理为"长时间的停顿<strong>使彼此的关系更加亲密</strong>"——直译"长停顿看见了增加的亲密感"不通。</li></ul>
+<p><strong>句⑩</strong> Between friends, longer gaps seem to provide natural moments for reflection and expression.</p>
+<ul><li>provide... for... 结构："给……提供了……的时机"；natural moments 译"自然而然的时机"；</li><li><strong>语境定词义</strong>：reflection 不取"倒影、反思"的常见义，expression 不取"表达"的泛义，朋友间长停顿给的是<strong>仔细思考和表情流露</strong>的机会——这是本篇最后两处"认识词的陌生义"。</li></ul>
+<h3>第 5 步：预判追问</h3>
+<ul><li><strong>为什么句②的 awkward 要译两遍？</strong>：and so awkward 是省略结构，省略的前提是信息重复；中文用顶真（"令人尴尬，尴尬到……"）既复现原文的强调，又让 so...that 从句挂得自然。</li><li><strong>which 从句为什么不并入定语？</strong>：先行词 previous studies 与主干信息量同级，中文前置定语容纳不下，一律拆"这些研究表明"小分句；谓语 indicate 是复数形式，也可反证先行词是 studies 不是 overview。</li><li><strong>saw 为什么不是"看见"？</strong>：英语允许时间/地点作主语配 see/witness 的拟人用法（2020 年翻译考过 saw 的同款用法），核心义是"经历、见证"——中文不接受这种拟人，需转成"使……"或"……多了"。</li></ul>
+<h3>易错点（正译 vs 误译）</h3>
+<table><thead><tr><th>表达</th><th>正译</th><th>误译</th></tr></thead><tbody><tr><td>there's a pause</td><td>出现了停顿</td><td>那里有一个停顿</td></tr><tr><td>say anything</td><td>随便说些什么</td><td>说任何事</td></tr><tr><td>the frequency</td><td>发生率</td><td>频率（抽象义）</td></tr><tr><td>connected</td><td>亲密</td><td>连接上的</td></tr><tr><td>dip</td><td>降低</td><td>蘸</td></tr><tr><td>be followed by</td><td>引发</td><td>被……跟随</td></tr><tr><td>Long gaps there saw...</td><td>长停顿使关系更亲密</td><td>长停顿看见了……</td></tr><tr><td>reflection and expression</td><td>仔细思考和表情流露</td><td>反思和表达</td></tr></tbody></table>
+<h3>整句译文（答案口径）</h3>
+<blockquote>你知道那种时刻吧——谈话慢了下来，然后出现了停顿。这种场面令人尴尬，尴尬到让一些人惊慌失措，只能随便说些什么。我们都认为这样的沉默让人倍感压力吗？</blockquote>
+<blockquote>研究者们分析了谈话期间超过2秒的停顿的发生率及影响，并回顾了先前一些研究的综述，这些研究表明，人们太过担心尴尬的沉默，以至于他们会避免和陌生人交谈，尽管这样做很可能是一种令人愉快的体验。</blockquote>
+<blockquote>在有短暂停顿的谈话中，人们感觉与其交谈对象的关系更加亲密。然而，当谈话陷入长时间的停顿时，这种亲密感会显著降低。陌生人之间谈话的长时间停顿易于引发话题的转换。</blockquote>
+<blockquote>但是，对于朋友之间的谈话，情况似乎恰好相反。在这种情况下，长时间的停顿使彼此的关系更加亲密。朋友之间，较长时间的停顿似乎给仔细思考和表情流露提供了自然而然的时机。</blockquote>
+<blockquote>记忆锚点：拆句三步 = <strong>主干 → 修饰 → 僻义</strong>；It / doing so / there 三处指代必须还原成具体对象；when + 现在分词＝省略结构要补逻辑主语；被动 followed by 反向译"引发"；本篇语境词五连——say anything 慌不择言、frequency 发生率、connected 亲密、dip 降低、saw 见证（使……更亲密）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

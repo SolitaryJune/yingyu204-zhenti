@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-26 · 2018 Text2 第 26 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第二段三句连读",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第二段②句被考词 plummeting，考点：词义推断（句间逻辑）",
+  "body": quote("② But increasingly the story is about the <b>plummeting</b> prices of renewables, especially wind and solar.") + "<p>猜词题的机制：<b>词义不由词根词缀决定，由句间逻辑决定</b>。解题三步：看②句与①句的关系 → 看③句与②句的关系 → 词义只能取逻辑链上唯一允许的值。</p>"
+ },
+ {
+  "title": "立机制 · ①→②转折，②→③例证",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：But 转折引出更主要的原因；③句 solar/wind 例证②句——plummeting 已被原文亲手写出",
+  "body": quote("① Some growth stems from a commitment by governments and farsighted businesses to fund cleaner energy sources.") + quote("③ The cost of solar panels has <b>dropped by 80 percent</b> and the cost of wind turbines by <b>close to one-third</b> in the past eight years.") + "<p>①→②：But 转折——出钱支持只是一部分原因，更主要的是 plummeting prices。</p><p>②→③：solar panels / wind turbines 精确照应 renewables, especially wind and solar——③句是②句的<b>例证</b>，逐项对应：prices ↔ cost；plummeting ↔ <b>dropped</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · C falling（下降的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C falling ✓ 当选——与例证句 dropped by 80% / one-third 同向同义",
+  "body": "<p><b>当选。</b>③句是②句的展开例证：The cost... has <b>dropped</b> by 80 percent——plummeting 的词义已被原文亲手写出：dropped（下降）。</p><p>C 项 falling 与之完全同向同义——这不是“猜”，是原文自带的释义。</p>"
+ },
+ {
+  "title": "逐项分析 · A stabilizing（稳定的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ✗ 排除——由①句“资金支持”捏造“价格企稳”，与 dropped 80% 直接矛盾",
+  "body": "<p><b>排除。</b>“价格企稳”是从①句“政府与企业出钱支持”捏造来的——没看透③句解释②句的例证关系。</p><p>dropped by 80 percent（骤降八成）与“稳定”直接矛盾。</p><p style='color:#b91c1c'>⚠ 典型误解：只看①句就下判断。</p>"
+ },
+ {
+  "title": "逐项分析 · B changing（变化的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——“变化”无方向无幅度，与例证的单向大幅下降不符",
+  "body": "<p><b>排除。</b>陷阱最深的一项：falling 确实属于 changing 的一种，但 changing 同时暗示“时升时降、摇摆不定”。</p><p>③句给的是<b>单向大幅下降</b>（80%、近三分之一）——“变化”丢了方向信息，不算 closest。</p><p style='color:#b91c1c'>⚠ 典型误解：不确定就选“安全牌变化”。</p>"
+ },
+ {
+  "title": "逐项分析 · D rising（上升的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——把 growth（份额增长）望文生义安到“价格”上，方向恰好相反",
+  "body": "<p><b>排除。</b>段中确实有 growth、increasingly——但增长的是可再生能源的<b>份额与势头</b>，不是价格。</p><p>把“增长”安到 prices 头上，主语错位、方向恰好相反。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（falling）——例证句 dropped 就是 plummeting 的原文释义",
+  "body": "<p>完整逻辑：<b>②句 But 转折引出更主要的原因——价格暴跌；③句以“太阳能板降 80%、风机降近三分之一”亲手写出答案。</b></p><p>答案选 <b>C（falling）</b>。</p><p><b>记忆锚点</b>：猜词题三步——②句看转折、③句找例证、词义取链上唯一允许的值；例证句里的 dropped 就是答案。</p><p style='color:#b91c1c'>⚠ 最易误选 B（changing）：“变化”丢了方向，closest 要求方向幅度都贴合。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text2 第 26 题 · plummeting 一词词义最接近：stabilizing / changing / falling / rising",
+  subtitle: "考点：词义推断（句间逻辑） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 句间逻辑 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（falling）", "html": "<b>C falling</b>：③句 The cost has dropped by 80% 例证②句——plummeting = 下降，原文自带的释义。<br>记忆锚点：猜词题三步——看转折、找例证、词义取链上唯一允许的值。<br>最易误选：<b>B changing</b>——“变化”无方向，与单向大幅下降的例证不符。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text2 第 26 题 · plummeting 的词义</h2>
+<p>答案：<strong>C（falling）</strong>。</p>
+<h3>第 0 步：先立机制——词义题考的不是词，是句间逻辑</h3>
+<p>猜词题的底层机制：<strong>被考词的意思不由词根词缀决定，由它所在句与前后句的逻辑关系决定</strong>。所以解题动作是固定的三步：一、看被考词所在句（②句）与上一句（①句）是什么关系；二、看下一句（③句）与它是什么关系；三、把三句连成一条逻辑链，词义只能取链上那个位置允许的值。任何脱离这三句的"词感"（plummet 好像见过、像"猛跌"）都是不可靠的——同样可靠的是：选项必须<strong>同时兼容</strong>前后句的逻辑，不兼容者排除。</p>
+<h3>第 1 步：定位原文（第二段三句连读）</h3>
+<blockquote>① Some growth stems from a commitment by governments and farsighted businesses to fund cleaner energy sources.</blockquote>
+<p>&gt;</p>
+<blockquote>② But increasingly the story is about the <strong>plummeting</strong> prices of renewables, especially wind and solar.</blockquote>
+<p>&gt;</p>
+<blockquote>③ The cost of solar panels has <strong>dropped by 80 percent</strong> and the cost of wind turbines by <strong>close to one-third</strong> in the past eight years.</blockquote>
+<ul><li>①→②：But 转折——增长的一部分来自政府与企业<strong>出钱</strong>（①句），②句给出<strong>更主要的原因</strong>：<code>the plummeting prices</code>；</li><li>②→③：③句的 solar panels、wind turbines 精确照应②句的 renewables, especially wind and solar——③句是②句的<strong>例证</strong>。</li></ul>
+<h3>第 2 步：同义替换——例证句给出词义的"标准答案"</h3>
+<p>③句是②句的展开例证，两者逐项对应：<code>The cost of solar panels / wind turbines</code> ↔ <code>prices of renewables</code>；<code>dropped by 80 percent / close to one-third</code> ↔ <code>plummeting</code>。也就是说，<strong>plummeting 的词义已被原文亲手写出</strong>：dropped（下降）。C 项 falling 与之完全同向——这不是"猜"，是原文自带的释义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A stabilizing</td><td>稳定的</td><td>✗ 排除</td><td>由①句"政府与企业提供资金支持"捏造出"价格企稳"——没看透③句解释②句的例证关系；且 dropped 80% 与"稳定"直接矛盾。</td></tr><tr><td>B changing</td><td>变化的</td><td>✗ 排除</td><td>陷阱最深的一项：falling 确实属于 changing 的一种，但 changing 同时暗示"时升时降、摇摆不定"——③句给的是<strong>单向大幅下降</strong>（80%、三分之一），"变化"没有方向，与例证不符。</td></tr><tr><td>C falling</td><td>下降的</td><td>✓ 当选</td><td>与例证句 dropped by 80 percent / close to one-third 同向同义——原文自带的释义。</td></tr><tr><td>D rising</td><td>上升的</td><td>✗ 排除</td><td>由段中 growth、increasingly 望文生义（增长的是"份额/势头"，不是价格）——方向恰好相反。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>知道 plummet 本义还用做这套流程吗？</strong>：知道词义也要做——命题人可能考僻义或比喻义；而流程法保证在<strong>不认识</strong>词时同样能拿分，这正是词义题的出题初衷。</li><li><strong>为什么 B 的"包含关系"不成立？</strong>：词义题选的是"最接近"（closest in meaning），要求方向与幅度都贴合；changing 方向不定，幅度不明，是最贴近的近邻也不如 falling 精确。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（changing）</strong>：把它当"安全牌"——凡不确定就选"变化"。但例证句已锁定方向，"变化"反而丢了方向信息。</li><li><strong>误选 D（rising）</strong>：把全文的 growth（份额增长）错安到"价格"上——主语错位。</li></ul>
+<blockquote>记忆锚点：猜词题三步——<strong>②句看转折、③句找例证、词义取链上唯一允许的值</strong>；例证句里的 dropped 就是答案。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

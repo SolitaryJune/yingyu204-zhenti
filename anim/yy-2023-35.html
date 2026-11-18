@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-35 动画：双人否定观点题——先取同，再取反</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：Neither...nor...would agree 三步走",
+  "body": "<p>题干：<b>Neither Sparrow nor Storm would agree that ____.</b>（斯帕罗和斯托姆都不会认同____。）</p><p>双人否定观点题的机制：<b>取齐两人立场 → 取同</b>（共同接受什么）<b>→ 取反</b>（与共同立场正面冲突的说法就是答案）。拿着选项逐个问“他认不认同”容易乱。</p>",
+  "log": "审题：先取齐两人立场，再取同取反"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位①",
+  "count": 0,
+  "title": "斯帕罗的立场（第一段末）",
+  "body": "<div class=\"qq\"><b>第一段末句：</b>In other words, <b>human memory is not deteriorating</b> but “adapting to new communications technology,” Sparrow says. <span class=\"cn\">（换句话说，人类记忆没有衰退，只是在适应新的通信技术。）</span></div><p><b>not deteriorating</b>——全文最明确的否定句。</p>",
+  "log": "斯帕罗：记忆没有衰退，只是在适应新技术"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位②",
+  "count": 0,
+  "title": "斯托姆的立场（第四段）",
+  "body": "<div class=\"qq\"><b>第四段：</b>“There may be costs..., but ... overall <b>the benefits are going to outweigh those costs</b>,” observes Benjamin Storm. “...memory is changing, but is it changing for the better? At this point, <b>we don’t know</b>.” <span class=\"cn\">（代价可能有，但总体益大于弊；记忆在变，变好变坏我们还不知道。）</span></div><p>他没说记忆在变坏——底线立场与斯帕罗一致。</p>",
+  "log": "斯托姆：益大于弊；记忆在变，但没说变坏"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "取同",
+  "count": 0,
+  "title": "取同：两人共同立场",
+  "body": "<p>共同立场 = <b>记忆没有衰退、没有被削弱</b>：斯帕罗明说 not deteriorating；斯托姆只说“在变”，从未说变坏。</p>",
+  "log": "共同立场：互联网没有削弱记忆"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 1,
+  "title": "锁定 B：取反命中",
+  "body": "<p><b>B · the Internet is weakening our memory</b> <span class=\"ok-dot\">✓</span></p><p>“互联网正在削弱记忆”与共同立场<b>正面相撞</b>——斯帕罗说 not deteriorating，斯托姆也不会认同“削弱”论。取反命中，当选。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "log": "锁定 B：与共同立场正面冲突，取反命中"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 2,
+  "title": "排除 A：那是斯托姆认同的半句",
+  "body": "<p><b>A · reliance on the Internet will be costly</b> <span class=\"bad-dot\">✗</span></p><p>There may be costs... 正是斯托姆<b>亲口认同</b>的让步半句（but 后 outweigh 益大于弊）。典型误解：只看到 costs 就以为是否定态度——反向题做成正向题，最不该选。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "log": "排除 A：costs 是斯托姆认同的让步半句"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "title": "排除 C：记忆训练无中生有",
+  "body": "<p><b>C · memory exercise is a must for our brains</b> <span class=\"bad-dot\">✗</span></p><p>“记忆训练”无中生有：第三段“锻炼大脑”的主语是<b>浏览网页</b>，且那是 Chabris 与 Simons 的观点，与题干两人无关。典型误解：把第三段碎片信息搭到两人头上。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "log": "排除 C：第三段观点不能替题干两人代言"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "title": "排除 D：专注力与年龄的因果是编造的",
+  "body": "<p><b>D · our ability to focus declines with age</b> <span class=\"bad-dot\">✗</span></p><p>原文只说“没有证据表明互联网干扰专注能力”；age 在文中只是研究对象的年龄，专注力随年龄衰退是拼接出来的因果。典型误解：拿 older adults 与 focus 硬凑。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "log": "排除 D：原文无“专注力随年龄衰退”"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（the Internet is weakening our memory）</b>——与两人共同立场正面冲突。</p><p>记忆锚点：Neither...nor...would agree 先取同再取反；not deteriorating 是全文立场底色。</p>",
+  "log": "结论：取反命中“记忆被削弱”，答案选 B"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-35 · 双人否定观点题：谁都不会认同“记忆被削弱”",
+ "subtitle": "考点：Text 1 双人观点 · 方法：取齐立场 → 取同 → 取反",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位两人立场 → 取同 → 取反锁定。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 B",
+  "html": "<b>斯帕罗：not deteriorating；斯托姆：只说“在变”、益大于弊</b>——共同立场是“记忆没有被削弱”，B 恰好唱反调。记忆锚点：双人否定题先取同再取反；第三段专家观点与题干人物无关。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 阅读 Text 1 第 35 题 · 斯帕罗与斯托姆都不会认同的说法</h2>
+<p>答案：<strong>B（the Internet is weakening our memory 互联网正在削弱我们的记忆）</strong>。</p>
+<h3>第 0 步：先立机制——Neither...nor...would agree = 先取同，再取反</h3>
+<p>双人观点否定题的机制是三步：先把两个人各自的立场找齐，再"取同"（两人共同接受什么），最后"取反"（与共同立场正面冲突的那个说法，就是两人都不会认同的）。拿着选项逐个问"他认不认同"容易乱；先立起共同立场，再一眼看穿哪个选项在唱反调，顺序就顺了。</p>
+<h3>第 1 步：取齐斯帕罗的立场（第一段）</h3>
+<blockquote>In other words, human memory is not deteriorating but "adapting to new communications technology," Sparrow says.</blockquote>
+<p>not deteriorating——记忆没有衰退，只是在适应新技术。这是全文最明确的否定句。</p>
+<h3>第 2 步：取齐斯托姆的立场（第四段）</h3>
+<blockquote>"There may be costs associated with our increased reliance on the Internet, but I'd have to imagine that overall the benefits are going to outweigh those costs," observes psychology professor Benjamin Storm. "It seems pretty clear that memory is changing, but is it changing for the better? At this point, we don't know."</blockquote>
+<p>代价可能有，但总体益大于弊；记忆在变，但变好变坏"我们还不知道"——他没说记忆在变坏，底线立场与斯帕罗一致：互联网没有削弱记忆。</p>
+<h3>第 3 步：取同取反，对上 B</h3>
+<p>两人的共同立场 = 记忆没有衰退、没有被削弱。"the Internet is weakening our memory"（互联网正在削弱记忆）与这个共同立场正面相撞——斯帕罗明说 not deteriorating，斯托姆也不会认同"削弱"论。取反命中，B 当选。</p>
+<h3>第 4 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A reliance on the Internet will be costly</td><td>✗</td><td>这是斯托姆亲口认同的半句（There may be costs），"都不认同"不成立。（典型误解：只看到 costs 就以为是否定态度，漏了 but 后的 outweigh。）</td></tr><tr><td>B the Internet is weakening our memory</td><td>✓</td><td>与两人共同立场正面冲突，取反命中。</td></tr><tr><td>C memory exercise is a must for our brains</td><td>✗</td><td>"记忆训练"无中生有：第三段说的"锻炼大脑"主语是浏览网页，且那是 Chabris 与 Simons 的观点，与题干两人无关。（典型误解：把第三段的碎片信息搭到两人头上。）</td></tr><tr><td>D our ability to focus declines with age</td><td>✗</td><td>原文只说"没有证据表明互联网干扰专注能力"，age 在文中只是研究对象的年龄，专注力与年龄的因果是编造的。（典型误解：拿 older adults 与 focus 拼接无关信息。）</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：反向题做成正向题——A 恰恰是斯托姆支持的，最不该选。</li><li><strong>误选 C/D</strong>：题干限定了人物（Sparrow、Storm），第三段的专家观点根本不能替这两人"代言"。</li></ul>
+<blockquote>记忆锚点：Neither...nor...would agree 先取同再取反；not deteriorating 是全文的立场底色；第三段专家观点与题干人物无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

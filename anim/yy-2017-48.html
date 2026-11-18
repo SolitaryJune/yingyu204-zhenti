@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2017-48 大作文谋篇：折线图「博物馆数量与参观人数」的双线对照、归因与评论</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2016-47 成品范式）：逐步展开结构框架卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致），无任何外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 结构框架：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：线图双线——分开读，再对照',
+    cls: 'key',
+    body: '<p>指令两条：1) <b>interpret the chart</b>（解读图表）+ 2) <b>give your comments</b>（发表评论），约 150 词。线图读<b>趋势</b>；本题是<b>双线</b>（博物馆数量 / 参观人数），必须<b>分开读、再对照</b>——只揉成一句「都在涨」，段 3 就没了支点。</p>' },
+  { title: '读图：双升不同速 → 全文抓手',
+    cls: 'key',
+    body: '<p>数量线：连年攀升但<b>增速放缓</b>；人次线：稳定强劲上升。对照之后抓手浮出：<b>「双升不同速」</b>——段 2 归因分线接住（馆为什么多：政策+经济；人为什么来：生活水平+精神需求），段 3 评论从「不同速」里长出矛盾：<b>馆的增速放缓 vs 人的需求多样</b>→ 供不应求的隐忧与对策。</p>' },
+  { title: '谋篇三段：描述 → 归因 → 评论',
+    cls: 'key',
+    body: '<p><b>段 1</b> 描述趋势：总起句（双双连续增长）+ while 对照句（两线不同节奏）。<b>段 2</b> 归因：过渡句 + Firstly 政策线 + Moreover 经济·需求线。<b>段 3</b> 评论：However 挑战立论 → 两条对策 → It\'s believed 展望收篇。150 词三段，描述只留约三分之一。</p>' },
+  { title: '段 1 句型：consecutive 总起 + while 对照',
+    cls: 'good',
+    body: '<p><b>The given chart reveals China\'s consecutive growth of museums and museum visitors from 2013 to 2015. The growth of museum experienced a slowdown in 2014, while the growth of museum visitors maintained a dynamic momentum.</b></p><p><b>consecutive</b>（连续的）一词把三年走势说尽；一个 <b>while</b> 把「不同速」压进一句——experienced a slowdown（增速放缓）vs maintained a dynamic momentum（保持强劲势头）是图表描述的<b>万能对照对子</b>。</p>' },
+  { title: '段 2 过渡：be attributed to 开启归因',
+    cls: 'step',
+    body: '<p><b>This phenomenon can be attributed to the following reasons.</b></p><p><b>be attributed to</b>（归因于）是图表作文段 2 的标准过渡件——一句把「现象」与「原因」的接口装好，下文两条原因各挂一个衔接词，层次即刻分明。</p>' },
+  { title: '段 2 原因一（Firstly）：政策线——国家支持 + 免费开放',
+    cls: 'good',
+    body: '<p><b>Firstly, thanks to national endeavor at cultural undertakings, numerous museums have been constructed and opened freely to the public.</b></p><p><b>thanks to</b>（得益于）挂庄重状语；国家支持文化事业 → 博物馆建成并<b>免费开放</b>——这一条接住「馆为什么多」；被动语态 have been constructed 客观陈述政策成果。</p>' },
+  { title: '段 2 原因二（Moreover）：经济·需求线——underpin + with 复合结构',
+    cls: 'key',
+    body: '<p><b>Moreover, China\'s rapid economic growth underpins the cultural progress. With living-standard improving, the public demand increasingly varied spiritual nutrition, thus visiting museums and galleries has become a willing choice for more people.</b></p><p><b>underpin</b> 僻义亮点：取「从底部支撑、构成……的基础」，比 support 厚重；<b>with + 名词 + 现在分词</b>作伴随状语交代大背景，<b>thus</b> 引出结果——一句完成「背景 → 需求 → 行为」三级推理，接住「人为什么来」。</p>' },
+  { title: '段 3 立论：However 挑战——从「不同速」长出矛盾',
+    cls: 'key',
+    body: '<p><b>However, this encouraging sign also presents challenges, like how to address the supply deficiency posed by decelerated growth of museum and people\'s increasingly diverse need for exhibitions.</b></p><p>让步转折立论：先肯定（this encouraging sign）再转折（also presents challenges）——矛盾正是<b>馆增速放缓 vs 观展需求日益多样</b>；<b>address</b> 取僻义「设法解决」、<b>supply deficiency</b>（供不应求）承接读图时的隐忧。</p>' },
+  { title: '段 3 对策：数字技术两条线',
+    cls: 'good',
+    body: '<p><b>Museums can improve efficiency by embracing mobile and digital technologies like e-museum. Meanwhile, through digital pictures and interactive videos, visitors can appreciate numerous exhibits from around the world and obtain fresh visiting experiences.</b></p><p>对策一：博物馆<b>拥抱移动数字技术</b>（网上观展）提高利用率；对策二：数字图片 + 互动视频带来<b>全新观展体验</b>——embrace（拥抱/采用）、interactive 是可迁移高分词。</p>' },
+  { title: '段 3 收篇：It\'s believed 主语从句展望',
+    cls: 'good',
+    body: '<p><b>It\'s believed that through joint efforts, China\'s museums will constitute a bigger driving force advancing cultural development and the important means to enhance people\'s well-being, thus further boosting economic and social development.</b></p><p>信息量大时把次要信息压成状语（through joint efforts）、定语（advancing...），避免从句叠加；句尾 <b>thus further boosting</b> 分词收口——「博物馆 → 文化 → 民生 → 经济社会」推进链挂在一句话上。</p>' },
+  { title: '易错自检：六处失分源',
+    cls: 'bad',
+    body: '<p><b>两线揉成一条</b>：「都在增长」——不同速的对照丢了，段 3 没了来处。<b>只描述不评论</b>：漏必答点 2——评论要有「挑战+对策+展望」三层。<b>归因空洞</b>：「人们热爱文化」泛论——国家支持与免费开放、经济托底、生活水平提高才是本题归因链。<b>数据张冠李戴</b>：把「增速放缓」安到人次线上。<b>underpin 识破不了</b>：「从底部支撑」=「为……奠定基础」。<b>词数失衡</b>：描述占大半，归因评论被挤瘪。</p>' },
+  { title: '结论：框架锚点与模板迁移',
+    cls: 'good',
+    body: '<p>框架锚点：<b>双线分开读 + while 对照 → 分线归因（Firstly 政策 / Moreover 经济+需求）→ However 挑战 + 对策 + It\'s believed 展望</b>；句型三件套 = experienced a slowdown... maintained a dynamic momentum、with...improving, thus...、It\'s believed that... thus further boosting...。</p><p>模板迁移：凡对<b>正向变化趋势</b>的评价分析（在线教育增长、手机订阅量攀升），换掉主题词即可沿用「描述 → 归因 → 评论」框架。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2017-48 大作文谋篇演示：折线图「博物馆数量与参观人数」',
+  subtitle: '考点：图表作文（线图·双线）· 方法：读图对照 → 三段谋篇 → 逐句升格 → 成文自检',
+  counterLabel: '已推进',
+  intro: '点击「▶ 播放」逐步展开读图、谋篇与句型升格的推理链。',
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>The given chart reveals China\'s consecutive growth of museums and museum visitors from 2013 to 2015. The growth of museum experienced a slowdown in 2014, while the growth of museum visitors maintained a dynamic momentum.</p>' +
+      '<p>This phenomenon can be attributed to the following reasons. Firstly, thanks to national endeavor at cultural undertakings, numerous museums have been constructed and opened freely to the public. Moreover, China\'s rapid economic growth underpins the cultural progress. With living-standard improving, the public demand increasingly varied spiritual nutrition, thus visiting museums and galleries has become a willing choice for more people.</p>' +
+      '<p>However, this encouraging sign also presents challenges, like how to address the supply deficiency posed by decelerated growth of museum and people\'s increasingly diverse need for exhibitions. Museums can improve efficiency by embracing mobile and digital technologies like e-museum. Meanwhile, through digital pictures and interactive videos, visitors can appreciate numerous exhibits from around the world and obtain fresh visiting experiences. It\'s believed that through joint efforts, China\'s museums will constitute a bigger driving force advancing cultural development and the important means to enhance people\'s well-being, thus further boosting economic and social development.</p>' +
+      '<p style="margin-top:8px">记忆锚点：线图双线 = <b>分开读 + 对照找「不同速」</b>；三段 = <b>描述（consecutive growth + while 对照）→ 归因（Firstly 政策线 / Moreover 经济+需求线）→ 评论（However 挑战 → 数字技术对策 → It\'s believed 展望）</b>；experienced a slowdown... maintained a dynamic momentum、with...improving, thus...、underpin（奠定基础）。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 大作文——折线图「2013-2015 年我国博物馆数量和参观人数」：双线对照定抓手、三线归因、挑战+建议收口</h2>
+<p>答案（范文）：<strong>The given chart reveals China's consecutive growth of museums and museum visitors from 2013 to 2015. The growth of museum experienced a slowdown in 2014, while the growth of museum visitors maintained a dynamic momentum.</strong></p>
+<p><strong>This phenomenon can be attributed to the following reasons. Firstly, thanks to national endeavor at cultural undertakings, numerous museums have been constructed and opened freely to the public. Moreover, China's rapid economic growth underpins the cultural progress. With living-standard improving, the public demand increasingly varied spiritual nutrition, thus visiting museums and galleries has become a willing choice for more people.</strong></p>
+<p><strong>However, this encouraging sign also presents challenges, like how to address the supply deficiency posed by decelerated growth of museum and people's increasingly diverse need for exhibitions. Museums can improve efficiency by embracing mobile and digital technologies like e-museum. Meanwhile, through digital pictures and interactive videos, visitors can appreciate numerous exhibits from around the world and obtain fresh visiting experiences. It's believed that through joint efforts, China's museums will constitute a bigger driving force advancing cultural development and the important means to enhance people's well-being, thus further boosting economic and social development.</strong></p>
+<h3>第 0 步：先立机制——线图作文的读图动作：双线分开读，找"不同速"</h3>
+<p>两条指令定两件事：1) <code>interpret the chart</code>（必答点 1：解读图表）+ 2) <code>give your comments</code>（必答点 2：发表评论），约 150 词。线图读<strong>趋势</strong>；本题的特别处是<strong>双线</strong>——博物馆数量与参观人数各是一条线，读图动作必须<strong>分开读、再对照</strong>：数量线连年攀升但增速放缓，人次线则保持稳定增长的强劲势头。对照之后全文抓手自然浮出：<strong>"双升不同速"</strong>。</p>
+<p>这个抓手直接决定后两段怎么写：段 2 归因要<strong>分线接住</strong>——为什么馆多了（国家支持、经济托底），为什么人来了（生活水平提高、精神需求多样）；段 3 评论则从"不同速"里长出矛盾——<strong>馆的增速放缓 vs 人的需求多样</strong>，供不应求的隐忧与对策正是从这条缝隙里挖出来的。只把两线揉成一句"都在涨"，段 3 就没了支点。</p>
+<h3>第 1 步：审图表——细节 → 解析 → 寓意</h3>
+<table><thead><tr><th>细节信息</th><th>信息解析</th><th>推导寓意</th></tr></thead><tbody><tr><td>图表标题「2013-2015 年我国博物馆数量和参观人数」</td><td>时间跨度三年；对象 = 我国博物馆事业</td><td>分析须扣"文化事业繁荣"的大背景</td></tr><tr><td>数量线：连年上升，增幅先大后小</td><td>博物馆持续增加，但增速放缓</td><td>段 2 归因线一：国家支持文化事业；段 3 挑战源：增速放缓</td></tr><tr><td>人次线：稳定强劲攀升</td><td>参观需求旺盛</td><td>段 2 归因线二：经济托底 + 生活水平提高；段 3 需求端：日益多样</td></tr></tbody></table>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1（interpret）</strong>：总起句交代图表反映的整体情况（museums 与 museum visitors 双双连续增长）→ 对照句把两条线的不同节奏一句话压紧（数量线增速放缓 vs 人次线势头强劲）。两句把图读完整，不逐点报数。</li><li><strong>段 2（归因）</strong>：过渡句开启原因分析（This phenomenon can be attributed to...）→ <strong>原因一（Firstly）</strong>：国家支持文化事业，大批博物馆建成并免费开放——解释"馆为什么多"；<strong>原因二（Moreover）</strong>：经济快速发展托底文化进步（underpin），生活水平提高使人们需要更多样的精神食粮，主动走进博物馆——解释"人为什么来"。两条归因线各接一条线，互不重叠。</li><li><strong>段 3（comments）</strong>：让步转折立论（However, this encouraging sign also presents challenges）——可喜现象背后是挑战：馆的增速放缓 vs 观展需求日益多样，供不应求如何解决；随后给<strong>两条对策</strong>（博物馆拥抱移动数字技术提高效率；数字图片与互动视频带来全新观展体验）；最后主语从句展望收篇（It's believed that... will constitute a bigger driving force... thus further boosting...）。评论有矛盾、有对策、有展望，不是空喊"文化真好"。</li></ul>
+<h3>第 3 步：句型升格——五条路径</h3>
+<ol><li><strong>总起句带"连续"语义</strong>：<code>The given chart reveals China's consecutive growth of museums and museum visitors from 2013 to 2015.</code>——consecutive（连续的）一词把三年走势说尽，比 every year it increases 高一档。</li><li><strong>while 对照句</strong>：<code>The growth of museum experienced a slowdown in 2014, while the growth of museum visitors maintained a dynamic momentum.</code>——一个 while 把两条线的"不同速"压进一句；experienced a slowdown（增速放缓）与 maintained a dynamic momentum（保持强劲势头）动宾搭配地道，是图表描述的万能对子。</li><li><strong>归因过渡 + thanks to / underpin</strong>：<code>This phenomenon can be attributed to the following reasons.</code>（be attributed to 归因于）开段；<code>thanks to national endeavor at cultural undertakings</code>（得益于国家对文化事业的努力）给原因一挂上庄重的状语；<code>China's rapid economic growth underpins the cultural progress</code>——<strong>underpin 取"构成……的基础、从底部支撑"义</strong>，比 support 厚重，是本段的词义亮点。</li><li><strong>with 复合结构 + thus 分词结果</strong>：<code>With living-standard improving, the public demand increasingly varied spiritual nutrition, thus visiting museums and galleries has become a willing choice for more people.</code>——with + 名词 + 现在分词作伴随状语交代大背景，thus 引出结果，一句话完成"背景 → 需求 → 行为"的三级推理。</li><li><strong>It's believed that 主语从句展望</strong>：<code>It's believed that through joint efforts, China's museums will constitute a bigger driving force advancing cultural development and the important means to enhance people's well-being, thus further boosting economic and social development.</code>——信息量大时把次要信息处理成状语（through joint efforts）、定语（advancing...），避免从句叠加；句尾 thus further boosting 用分词收口，把"博物馆 → 文化 → 民生 → 经济社会"的推进链挂在一句话上。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>两线揉成一条</strong>：只写"博物馆和参观人数都在增长"——"不同速"的对照丢了，段 3 的挑战就没有来处。</li><li><strong>只描述不评论</strong>：漏必答点 2；comments 要有"挑战 + 对策 + 展望"三层，"Museums are good" 式空赞不给力。</li><li><strong>归因空洞</strong>：写成"人们热爱文化"的泛论——国家支持与免费开放、经济托底、生活水平提高带来精神需求，才是本题的归因链条。</li><li><strong>数据张冠李戴</strong>：把"增速放缓"安到人次线上——放缓的是博物馆数量线，人次线始终强劲。</li><li><strong>underpin 识破不了</strong>：不认识则段 2 原因二写不出来——"从底部支撑"即"为……奠定基础"。</li><li><strong>词数失衡</strong>：段 1 描述占掉大半，归因与评论被挤瘪——150 词三段，描述只留约三分之一。</li></ul>
+<blockquote>记忆锚点：线图双线 = <strong>分开读 + 对照找"不同速"</strong>；三段 = <strong>描述（consecutive growth + while 对照句）→ 归因（政策线 Firstly / 经济+需求线 Moreover）→ 评论（However 挑战 → 数字技术对策 → It's believed 展望）</strong>；句型三件套 = experienced a slowdown... maintained a dynamic momentum、with...improving, thus...、It's believed that... thus further boosting...。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

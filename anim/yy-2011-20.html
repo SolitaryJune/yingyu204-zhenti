@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-20 · 2011 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 类比结构是“语义传导线”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：考点＝上下文语义＋类比结构；in the same way that drivers must…",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>句子骨架：They argue that all Internet users should be __ to register and identify themselves, <b>in the same way that</b> drivers must be licensed…。</p><p>in the same way 是强逻辑信号：类比两端的<b>方向和强度必须一致</b>。右端 drivers <b>must</b> be licensed（必须持照）＝强制铁证，传导到左端，空格动词也只能是强制义。</p>"
+ },
+ {
+  "title": "定位原文 · 谁在主张，主张什么",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：They argue that all Internet users should be ___ to register…",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("They argue that all Internet users should be __20__ to register and identify themselves, in the same way that drivers must be licensed to drive on public roads.") + "<p>They ＝ 上一句里 worry 的计算机安全专家；担忧方案不管用之后的进一步主张：让<b>所有</b>用户注册并实名。</p>"
+ },
+ {
+  "title": "找证据 · 主张与全文的 anonymity 针锋相对",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：匿名滋生犯罪 → 专家要求收回匿名的硬措施，语气只会往强走",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("The Internet affords anonymity to its users… But that very anonymity is also behind the explosion of cyber-crime…") + "<p>“all（所有）＋ register and identify themselves（注册实名）”与全文开篇的 anonymity 针锋相对——专家要的是收回匿名的<b>硬措施</b>，语气只会往强里走，不会往弱里走。</p>"
+ },
+ {
+  "title": "逐项分析 · D forced（强迫，强制）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D forced（强迫，强制） ✓ 当选——must be licensed 的同义复现",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "body": "<p><b>当选。</b>像司机必须持照上路一样，用户被强制注册实名——与 must 的强度、方向双吻合。代入读作“所有互联网用户都应被强制注册并验证身份”。</p>"
+ },
+ {
+  "title": "逐项分析 · A invited（邀请）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A invited（邀请） ✗ 排除——软性号召，强度对不上 must",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>“邀请所有用户注册”是软性号召，与 must be licensed 的强制强度不匹配。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把专家主张脑补成温和倡议，忽略 all 与 must 的规模感、强制感。</p>"
+ },
+ {
+  "title": "逐项分析 · B appointed（任命）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B appointed（任命） ✗ 排除——appoint 只接“人职”，搭配即错",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>appoint 的对象是“人职”，指“委派某人任某职”，不接“去做某事”的强制义——搭配与语义双错。</p><p style=\"color:#b91c1c\">⚠ 典型误解：词义迁移错误，把“指定”当万能动词。</p>"
+ },
+ {
+  "title": "逐项分析 · C allowed（允许）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C allowed（允许） ✗ 排除——方向全反：允许＝可以不注册",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>allowed ＝ “可以注册也可以不注册”，而 must 是“非注册不可”；专家担心安全不足，主张的是收紧管制而非放开选择。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看“注册”这件事本身合理，没核对类比强度。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（forced 强制）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>他们主张，所有互联网用户都应被强制注册并验证身份，就像司机必须持有驾照才能在公共道路上开车一样。</b></p><p>答案选 <b>D（forced 强迫，强制）</b>。</p><p><b>记忆锚点</b>：in the same way that ＝ 类比传导线，两端方向、强度必须一致；drivers must be licensed → 用户被 forced to register；invited / allowed 弱于 must，appointed 搭配即错。</p><p style=\"color:#b91c1c\">最易误选：<b>C（allowed）</b>——允许与强制方向相反。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 20 空 · 像司机必须持照一样，用户应被 ______ 注册",
+  subtitle: "考点：上下文语义＋类比结构 · in the same way that 强制义传导",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（forced）",
+    html: "<b>D forced（强迫，强制）</b>。<br>记忆锚点：in the same way that ＝ 类比传导线，两端方向、强度必须一致；drivers must be licensed → forced to register。<br>最易误选：<b>C（allowed）</b>——允许与强制方向相反。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 20 空 · "in the same way that drivers must"——类比结构的强制义传导</h2>
+<p>答案：<strong>D（forced 强制）</strong>。</p>
+<h3>第 0 步：先立机制——类比结构是"语义传导线"</h3>
+<p>句子骨架：They argue that all Internet users should be __ to register and identify themselves, <strong>in the same way that</strong> drivers must be licensed...。in the same way（以同样的方式）是完形里的强逻辑信号：类比两端的方向和强度必须一致。类比右端写的是 drivers <strong>must</strong> be licensed（司机"必须"持照）——must 是强制的铁证，传导到左端，空格动词也只能是强制义。这是"一致方向"题：谁往相反方向走谁出局。</p>
+<h3>第 1 步：定位原文——谁在主张，主张什么</h3>
+<blockquote>They argue that all Internet users should be __20__ to register and identify themselves, in the same way that drivers must be licensed to drive on public roads.</blockquote>
+<p>They = 上一句里 worry 的计算机安全专家。他们在担忧方案不管用之后的进一步主张：让<strong>所有</strong>用户注册并验证身份。注意"all（所有）"+"register and identify themselves（注册并实名）"本身就与全文开篇的 anonymity（匿名）针锋相对——专家要的是收回匿名的硬措施，语气只会往强里走，不会往弱里走。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A invited</td><td>邀请</td><td>"邀请所有用户注册"是软性号召，与 must be licensed 的强制强度不匹配</td></tr><tr><td>B appointed</td><td>任命</td><td>appoint 的对象是"人职"，是"委派某人任某职"，不接"去做某事"的强制义；搭配与语义双错</td></tr><tr><td>C allowed</td><td>允许</td><td>方向完全反了：allowed ＝ "可以注册也可以不注册"，而 must 是"非注册不可"；专家担心安全不足，主张的是收紧而非放开</td></tr><tr><td>D forced</td><td>强迫，强制</td><td>must be licensed 的同义复现：像司机必须持照上路一样，用户被强制注册实名——强度、方向双吻合</td></tr></tbody></table>
+<h3>预判追问：为什么"允许注册"也不行？</h3>
+<p>allowed 看似温和无害，但它是全文方向的逆行者：第一段说匿名滋生了网络犯罪爆炸，专家们 worry 方案还不够——他们的诉求是<strong>加强管制</strong>（all users 注册实名）。"允许"是把选择权交给用户，与"所有用户必须"的语气相反。类比结构 in the same way 已经替考官把答案钉死在 must 的方向上：邀请、允许都是弱于或反于 must 的词，只有 forced 与 must 同级。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（allowed）</strong>：只看"注册"这件事本身合理，没看类比强度——must 是强制，allowed 是放行，方向相反。</li><li><strong>误选 A（invited）</strong>：把专家的主张脑补成温和倡议；"all Internet users"的规模感与类比句的 must 都指向硬性要求。</li><li><strong>误选 B（appointed）</strong>：词义迁移错误——appoint 只用于"任命职务"，不能用于"强制做某事"。</li></ul>
+<blockquote>记忆锚点：in the same way that ＝ 类比传导线，两端方向、强度必须一致；drivers must be licensed → 用户被 <strong>forced</strong> to register；invited / allowed 弱于 must，appointed 搭配即错。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

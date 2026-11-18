@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-32 · 2025 阅读第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 总述句后看展开句",
+    "cls": "key",
+    "tag": "审题",
+    "log": "总述“参差不齐”后，②③给具体问题",
+    "count": 0,
+    "body": "<p>题干 <code>One problem with existing HAPs</code> 原词在段[2]① But implementation...has been uneven（执行参差不齐）——<b>总述</b>；②③展开：② 许多计划<b>缺乏足够资金</b>；③ 警报触发阈值<b>不按当地气候定制</b>。两个真问题对应两个候选选项，就看谁“严丝合缝”、谁“形似神异”。</p>"
+  },
+  {
+    "title": "定位原文 · 阈值一刀切两句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "阈值一刀切：有的看白天高温，有的得看夜温湿度",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And their triggering thresholds often are not customized to the local climate.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In some areas, high daytime temperatures alone might serve as an adequate trigger for alerts. But in other places, nighttime temperatures or humidity might be as important a gauge of risk as daytime highs.</div><p>触发阈值“一刀切”：缺的是<b>本地化标准</b>。</p>"
+  },
+  {
+    "title": "同义替换锁定 B",
+    "cls": "good",
+    "tag": "替换",
+    "log": "thresholds not customized ⇒ lack localized criteria",
+    "count": 0,
+    "body": "<p>triggering thresholds（触发阈值）＝发布警报的<b>判定标准</b>；not customized to the local climate（未按当地气候定制）＝<b>不本地化</b> → <b>lack localized alert-issuing criteria</b>。</p>"
+  },
+  {
+    "title": "逐项分析 · A 执行成本太高",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 成本太高 ✗——“缺资金”≠“成本高”（易错项）",
+    "count": 1,
+    "body": "<p><b>排除。</b>段[2]② lack adequate funding 说明<b>投入不足</b>这一现状；“costly（成本高）”是<b>原因判断</b>（因为贵所以难执行）——原文没有任何成本信息，从“缺钱”跳到“因贵而难行”是<b>过度推理</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解（易错项）：把“缺资金”脑补成“成本太高”。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 缺本地化警报标准",
+    "cls": "good",
+    "tag": "复认 B",
+    "log": "B 缺本地化警报标准 ✓——段[2]③④的同义转述",
+    "count": 1,
+    "body": "<p><b>复认。</b>孟买案例（湿度被忽略）反过来佐证③：阈值没把本地湿度算进去——正是“缺本地化标准”。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · C 对热浪响应延迟",
+    "cls": "bad",
+    "tag": "排除 C",
+    "log": "C 响应延迟 ✗——孟买是“没触发”不是“触发慢”",
+    "count": 2,
+    "body": "<p><b>排除。</b>段[3]②：孟买那天 36°C 比国家级沿海城市阈值<b>低 1°C</b>——未达阈值所以没发警报，是“<b>没触发</b>”，不是“触发慢”；<b>曲解文意</b>。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · D 使医院压力巨大",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 医院压力大 ✗——医院是被安排做准备",
+    "count": 3,
+    "body": "<p><b>排除。</b>段[1]医院被要求设清凉病房——是计划的<b>准备动作</b>，全文未提医院“压力巨大”——<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 B",
+    "log": "答案 B——两个真问题里选替换严丝合缝的",
+    "count": 3,
+    "body": "<p>答案选 <b>B（lack localized alert-issuing criteria）</b>。</p><p><b>记忆锚点</b>：缺资金（A 是过度推理）与阈值不本地化是并列的两个真问题；孟买差 1°C 是“没触发”不是“延迟”；thresholds → criteria、not customized → lack localized。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 32 题 · 现有 HAPs 存在的一个问题",
+  "subtitle": "Text 3 · 考点：细节理解（问题识别）· 报告展开句比对",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“总述展开句 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 B（lack localized alert-issuing criteria）",
+    "html": "<b>B 缺乏本地化的警报发布标准</b>——triggering thresholds not customized to the local climate 的同义转述；孟买差 1°C 的案例反向佐证。<br>记忆锚点：A“缺资金”≠“成本太高”（过度推理）；C“没触发”≠“响应延迟”。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 32 题 · 现有 HAPs 存在的一个问题</h2>
+<p>答案：<strong>B（lack localized alert-issuing criteria 缺乏本地化的警报发布标准）</strong>。</p>
+<h3>第 0 步：先立机制——“问题题”顺报告的展开句走</h3>
+<p>题干 One problem with existing HAPs 原词在段[2]① But implementation of existing HAPs has been uneven（执行参差不齐）——<strong>总述句</strong>；②③两句展开具体问题：② 许多计划<strong>缺乏足够资金</strong>（lack adequate funding）；③ 警报触发阈值<strong>往往不按当地气候定制</strong>（triggering thresholds often are not customized to the local climate）。两个真问题对应两个候选选项，就看哪个“严丝合缝”、哪个“形似神异”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And their triggering thresholds often are not customized to the local climate.<br/>In some areas, high daytime temperatures alone might serve as an adequate trigger for alerts. But in other places, nighttime temperatures or humidity might be as important a gauge of risk as daytime highs.</blockquote>
+<p>触发阈值“一刀切”：有的地方白天高温就够触发预警，有的地方夜温或湿度同样关键——缺的是<strong>本地化标准</strong>。</p>
+<h3>第 2 步：同义替换核对 B</h3>
+<p>triggering thresholds（触发阈值）＝发布警报的<strong>判定标准</strong>；not customized to the local climate（未按当地气候定制）＝<strong>不本地化</strong> → <strong>lack localized alert-issuing criteria（缺乏本地化的警报发布标准）</strong>。thresholds → criteria、not customized → lack localized，两处替换均成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A prove too costly to be implemented</td><td>执行成本太高</td><td>✗</td><td>段[2]②只是<strong>缺资金</strong>（lack adequate funding），“缺钱”≠“成本高到无法执行”，过度推理</td></tr><tr><td>B lack localized alert-issuing criteria</td><td>缺乏本地化的警报发布标准</td><td>✓</td><td>段[2]③④：触发阈值未按当地气候定制的同义转述</td></tr><tr><td>C give delayed responses to heat waves</td><td>对热浪响应延迟</td><td>✗</td><td>段[3]②孟买案例：差 1°C 未达阈值是<strong>没触发</strong>，不是“触发慢”，曲解文意</td></tr><tr><td>D keep hospitals under great pressure</td><td>使医院压力巨大</td><td>✗</td><td>段[1]医院只是被要求设清凉病房（准备动作），未提压力，无中生有</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A 为什么是过度推理而不是同义替换</strong>：lack funding（缺钱）陈述的是<strong>投入不足</strong>这一状态；“costly（成本高）”给出的是<strong>原因判断</strong>（因为贵所以难执行）——原文没有任何成本信息，从“缺钱”跳到“因贵而难行”加了一层没有支点的因果。</li><li><strong>C 的孟买案例说明什么</strong>：36°C 距国家级沿海城市阈值差 1°C，加上湿度放大效应造成伤亡——案例恰恰佐证③“阈值未本地化”（忽略了湿度），证明的是 B，不是“响应迟缓”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（易错项）</strong>：把“缺资金”脑补成“成本太高”；报告只陈述现状，没诊断原因。</li><li><strong>误选 C</strong>：把“未达阈值 → 没发警报”理解成“反应慢”；没触发与触发慢是两回事。</li></ul>
+<blockquote>记忆锚点：问题题看总述后的展开句：资金不足（A 是过度推理）＋阈值不按当地气候定制 → lack localized criteria；孟买差 1°C 是“没触发”不是“延迟”；thresholds → criteria、not customized → lack localized。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

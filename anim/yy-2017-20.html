@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-20 · 2017 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 对照机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 20 所在修饰链",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：末段破折号句尾，考点：上下文语义 + “业余 vs 专业”对照修辞",
+  "body": quote("...perhaps different enough to throw himself into a hobby or a passion project <b>with the intensity usually reserved for</b> <b>__20__</b> matters.") + "<p>修饰链：以通常只留给 `__20__` 事务的<b>强度</b>（intensity）投身爱好。hobby 是业余的，那么“通常独占高强度投入”的另一方是谁？</p>"
+ },
+ {
+  "title": "立机制 · 这是“业余 vs 专业”的对照",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：hobby（业余）对照“通常独占高强度”的事务 → 职业/专业事务；全文主线“工作 vs 无工作”同向",
+  "body": "<p>句内对照：hobby（业余）↔ `__20__` matters。什么事务<b>通常独占</b>这种高强度投入？——<b>职业、专业</b>事务（加班赶项目、钻研业务的投入度）。</p><p>全文主线也正是“工作 vs 无工作的未来”：本文结论是无工作的未来未必懒散——人们会把职业级热情倾注到爱好里。<b>对照修辞</b>与<b>全文主题</b>双重指向 professional。</p>"
+ },
+ {
+  "title": "逐项分析 · B professional（专业的；职业的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "log": "B professional ✓ 当选——与 hobby 构成业余/专业对照，扣全文“工作”主线",
+  "body": "<p><b>当选。</b>professional 强调“区别于业余爱好的专业、职业性”：以不亚于职业投入的热情对待爱好——印证全文论点：无工作的未来不会满是闲散，反而会涌现新的专业人才。</p>"
+ },
+ {
+  "title": "逐项分析 · A technological（技术的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A technological ✗ 排除——领域词只说明“哪一类”，说明不了“谁独占高强度”",
+  "body": "<p><b>排除。</b>technological matters 只划定“技术领域”，与“强度独占者”无关；全文也未聚焦技术类事务。</p><p style='color:#b91c1c'>⚠ 典型误解：首段说 technology 取代人力，就把 technological 拉进来——开头关键词错位后置。</p>"
+ },
+ {
+  "title": "逐项分析 · C educational（教育的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C educational ✗ 排除——同为领域词，与强度对照无涉",
+  "body": "<p><b>排除。</b>“教育类事务”与“高强度专注”没有必然绑定；文中也没有教育话题支撑。</p><p style='color:#b91c1c'>⚠ 典型误解：被“读了 12 年书”之类的背景联想带偏。</p>"
+ },
+ {
+  "title": "逐项分析 · D interpersonal（人际的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D interpersonal ✗ 排除——人际闲聊与“高强度专注”气质相反",
+  "body": "<p><b>排除。</b>人际类事务（社交）恰恰不强调高强度专注，与 intensity 的气质相悖。</p><p style='color:#b91c1c'>⚠ 典型误解：爱好有社交属性，就联想到 interpersonal——联想不是照应。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（professional）——业余爱好，专业级的强度",
+  "body": "<p>完整句义：<b>……也许会不同到让他以通常只留给专业事务的强度，投身于某项爱好或热爱的事业。</b></p><p>答案选 <b>B（professional）</b>。</p><p><b>记忆锚点</b>：hobby ↔ professional matters = 业余与专业的对照；usually reserved for 问的是“<b>谁独占这种强度</b>”，不是“哪一类事务”。</p><p style='color:#b91c1c'>⚠ 最易误选 A（technological）：首段关键词错位到结尾。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 20 空 · 专业级的投入强度通常留给____事务：technological / professional / educational / interpersonal 选哪个",
+  subtitle: "考点：上下文语义（业余 vs 专业对照） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 对照机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（professional）", "html": "<b>B professional</b>：hobby（业余）↔ professional matters（专业）的对照；以职业级强度对待爱好，扣全文“无工作未来未必不好”的论点。<br>记忆锚点：usually reserved for 问“谁独占这种强度”。<br>最易误选：<b>A（technological）</b>——首段 technology 错位后置。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 20 空 · 什么事务才"配得上"这种投入强度</h2>
+<p>答案：<strong>B（professional）</strong>。</p>
+<h3>第 0 步：先立机制——"usually reserved for" 是一道对照题</h3>
+<p>空 20 所在的修饰链：throw himself into a hobby ... <strong>with the intensity usually reserved for</strong> <code>__20__</code> matters——以通常只留给 <code>__20__</code> 事务的强度投身爱好。这句话的修辞骨架是<strong>对照</strong>：hobby（业余爱好）是句子的主舞台，而"通常独占高强度投入"的另一方是谁？业余的反面是<strong>专业/职业</strong>。全篇的主线也正是"工作 vs 无工作的未来"——能同时咬合"业余-专业"对照与全文主题的，只有 professional。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...perhaps different enough to throw himself into a hobby or a passion project <strong>with the intensity usually reserved for</strong> <code>__20__</code> matters.</blockquote>
+<h3>第 2 步：找证据——主题与对照双重指向</h3>
+<ul><li>全文主线：技术在取代人力 → 无工作的未来会怎样。本文的答案：人们会把职业级的热情<strong>倾注到爱好里</strong>——"无工作的未来未必懒散，反而涌现新的专业人才"（20 空所在段落正是全文的收束论证）；</li><li>句内对照：hobby（业余）↔ <code>__20__</code> matters（通常独占高强度的事务）。强度本属于哪种事务？<strong>职业、专业</strong>事务——加班赶项目、钻研业务的投入度；</li><li>逻辑链：18 空"下班累" → 19 空"投身爱好" → 20 空"强度堪比专业工作"——三空一条线。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B professional</td><td>专业的；职业的</td><td>✓ 当选</td><td>与 hobby 构成"业余 vs 专业"的对照，又扣全文"工作"主线：以不亚于职业投入的热情对待爱好，印证"无工作未来未必不好"。</td></tr><tr><td>A technological</td><td>技术的</td><td>✗ 排除</td><td>领域词：只能说明"哪一类事务"（技术类），与"强度独占者"无关；全文也未聚焦技术类事务。（典型误解：开头说 technology 取代人力，就把 technological 拉进来——开头词错位后置。）</td></tr><tr><td>C educational</td><td>教育的</td><td>✗ 排除</td><td>同为领域词，"教育类事务"与强度对照无涉；文中也未谈教育。（典型误解：被 12 年求学背景带偏。）</td></tr><tr><td>D interpersonal</td><td>人际的</td><td>✗ 排除</td><td>领域词：人际类事务（社交）恰恰不强调高强度专注；与"intensity"的气质相悖。（典型误解：hobby 有社交属性，就联想到 interpersonal。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么三个领域词都错？</strong>：它们与 matters 搭配都通（technological/educational/interpersonal matters 都是合法短语），这正是干扰层。但 <code>usually reserved for</code> 问的不是"哪一类"，而是"<strong>谁通常独占这种强度</strong>"——答案是"专业/职业事务"这一性质，不是某一领域。</li><li><strong>professional 与全文论点如何咬合？</strong>：本文反驳"无工作 = 懒散荒芜"的悲观论：Danaher 的例子说明，人会把职业级的 intensity 转投到爱好中——professional 一词正是这条论线的收口。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（technological）</strong>：被首段 technology 取代人力的表述带偏，把开头的关键词错位到结尾。</li><li><strong>误选 D（interpersonal）</strong>：从爱好联想到社交，忘了 intensity（专注强度）与人际闲聊的气质相反。</li></ul>
+<blockquote>记忆锚点：hobby ↔ professional matters = 业余与专业的对照；<code>usually reserved for</code> 问的是"谁独占这种强度"，不是"哪一类事务"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

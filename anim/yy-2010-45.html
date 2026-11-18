@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-45 动画：传闻不等于有据可查</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：证据等级是高危口径", "body": "<p>陈述：<b>It has been documented that during World War II, America's armed forces once tried formation flight to save fuel.</b>（有记载表明二战期间美军曾试编队飞行省油。）</p><p>机制：证据等级要对齐——reports 报道 / rumor 传闻 / documented 有据可查是三级，<b>拔高一级就是偷换</b>。</p>", "log": "documented（有据可查）是本题的证据等级高危点"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：末段的\"报道—否定\"", "body": "<div class=\"qq\"><b>末段③句：</b>There are reports that some military aircraft flew in formation when they were low on fuel during the Second World War, but Dr. Lissaman says they are unsubstantiated. <span class=\"cn\">（译：有报道称军机曾在二战燃油不足时编队飞行，但李萨曼博士说这些说法无事实根据。）</span></div>", "log": "There are reports… but… unsubstantiated——报道随即被否定"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 2, "title": "比对：证据等级被拔高", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>has been documented 有文件证明</td><td>There are reports 有报道（未经证实）</td><td><span class=\"bad-dot\">等级拔高</span></td></tr><tr><td>史实成立</td><td>but… they are unsubstantiated 无事实根据</td><td><span class=\"bad-dot\">转折后被推翻</span></td></tr></table>", "log": "报道 ≠ 记载；but 之后传闻被推翻"}, {"cls": "bad", "ecs": "miss", "tag": "排除 T", "title": "排除 T：True · 陈述为真", "body": "<p><b>选项 T（True · 陈述为真）</b><span class=\"bad-dot\">✗</span></p><p>\"有据可查\"被原文\"未经证实的报道\"否定——<b>T 不成立</b>。</p>", "log": "排除 T：True · 陈述为真", "count": 2, "ribbon": {"k": 1, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "判定 F", "title": "判定 F：False · 陈述为假", "body": "<p><b>选项 F（False · 陈述为假）</b><span class=\"ok-dot\">✓</span></p><p>证据等级被拔高、转折后传闻被推翻——<b>判 F 成立</b>。</p>", "log": "判定 F：False · 陈述为假", "count": 2, "ribbon": {"k": 2, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 2, "title": "结论：答案 F", "body": "<p><b>答案 F</b>——传闻不是有据可查。</p><p>记忆锚点：reports + unsubstantiated ≠ documented；but 后面才是真话。</p>", "log": "结论：证据等级偷换，答案选 F"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-45 · 判断题：传闻不等于有据可查",
+  subtitle: "考点：新题型判断正误 · 方法：证据等级核对 + 转折后采信",
+  counterLabel: "比对点",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 逐点比对 → 口径核查。",
+  snaps: snaps,
+  result: {
+    big: "答案 F",
+    html: "<b>\"There are reports that… but… they are unsubstantiated\"（有报道但无事实根据）≠ It has been documented（有据可查）</b>——证据等级被拔高一级。判断题里 but 转折之后才是作者采信的内容。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：判断题——传闻不等于有据可查</h2>
+<p>答案：<strong>F</strong>（陈述错误）。</p>
+<h3>第 0 步：先立机制——证据等级是口径的一部分</h3>
+<p>陈述 It <strong>has been documented</strong> that during World War II, America's armed forces once tried formation flight to save fuel（<strong>有记载、有文件证明</strong>二战期间美军曾试过编队飞行省油）。判断题机制：陈述的<strong>证据等级</strong>也要跟原文对齐——报道（reports）、传闻（rumor）、有据可查（documented）是三个不同等级，拔高一级就是偷换。</p>
+<h3>第 1 步：定位与比对</h3>
+<blockquote>There are <strong>reports</strong> that some military aircraft flew in formation when they were low on fuel during the Second World War, <strong>but</strong> Dr. Lissaman says <strong>they are unsubstantiated</strong>.（<strong>有报道称</strong>一些军机在二战中因燃油不足而编队飞行，<strong>但</strong>李萨曼博士说这些说法<strong>并无事实根据</strong>。）</blockquote>
+<p>比对三步：</p>
+<ul><li><strong>证据等级被拔高</strong>：There are reports（有报道）≠ It has been documented（有文件证明）——"未证实的报道"被拔高成"有据可查的记载"。</li><li><strong>转折后才是作者采信的内容</strong>：but 之后 unsubstantiated（无事实根据）直接<strong>推翻</strong>了传闻的可信性。</li><li>末句的家史补充（"我父亲是 RAF 飞行员"）只为佐证"他应该知道"，不改变证据等级。</li></ul>
+<p>→ 选 <strong>F</strong>。</p>
+<blockquote>记忆锚点：reports + unsubstantiated = 未经证实的传闻，不等于 documented（有据可查）；判断题里 but 后面才是真话。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

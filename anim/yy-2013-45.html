@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-45 动画：新题型选标题——【45】段 Remember to treat yourself</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：让步开头抓 but 之后",
+  body:"<p>【45】段是全文最后一条建议，开头先泼冷水：<b>You won't be eating out a lot</b>（你不会经常下馆子）——这是<b>让步</b>，不是主旨。紧随其后的 <b>but</b> 才是真建议。收尾段的标题还要能收束全文语气：省钱归省钱，生活质量不牺牲。</p>",
+  log:"让步开头：主旨在 but 之后"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：让步 → 建议 → 算账佐证",
+  body:"<table class=\"aw-mini\"><tr><th>【45】段句子</th><th>信息</th></tr><tr><td>① You <b>won't be eating out a lot</b>, <b>but</b> save your pennies and once every few months <b>treat yourself to a set lunch at a good restaurant</b></td><td>让步＋建议：不常下馆子，但每几个月犒劳自己一顿</td></tr><tr><td>② £1.75 a week × 3 months = £21 – more than enough at Michelin-starred <b>Arbutus</b></td><td>算账：三个月攒出米其林午餐</td></tr><tr><td>③ £16.95 米其林 vs £12.99 外卖披萨：I know which I'd rather eat</td><td>对比：知道选哪个</td></tr></table>",
+  log:"but 之后：treat yourself to a set lunch at a good restaurant"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：Live like a peasant（让步句误读）",
+  body:"<p><b>A（像农民一样生活）</b><span class=\"bad-dot\">✗</span>：①句前半 <b>won't be eating out a lot</b>（不常下馆子）容易与\"过苦日子\"对上号。但这只是让步：but 后明说存钱去<b>米其林餐厅</b>犒劳自己——精打细算吃得好，不是凑合活着。A 是多余项。</p>",
+  log:"排除 A：读到 but 前就停了，方向错"},
+ {cls:"bad", ecs:"miss", tag:"排除 C/G", count:2, ribbon:{k:3, ok:false}, title:"排除 C、G：已被占用",
+  body:"<p><b>C（店主是你的朋友）</b><span class=\"bad-dot\">✗</span>：属【44】段——本段没有店主与免费食材。</p><p><b>G（不浪费就不会匮乏）</b><span class=\"bad-dot\">✗</span>：属【43】段——本段没有剩食再利用。7 选 5 做到最后一题，<b>先划掉已用标题</b>能瞬间缩小战场。</p>",
+  log:"排除 C、G：已用项直接划掉"},
+ {cls:"good", ecs:"ok", tag:"锁定 D", count:3, ribbon:{k:4, ok:true}, title:"锁定 D：Remember to treat yourself",
+  body:"<p><b>D（记得犒劳自己）</b><span class=\"ok-dot\">✓</span>：替换链——</p><div class=\"qq\"><b>①句 but 之后：</b>save your pennies and once every few months <b>treat yourself to a set lunch at a good restaurant</b>. <span class=\"cn\">（译：存下小钱，每隔几个月到一家好餐厅吃顿套餐犒劳自己。）</span></div><p>treat yourself to a set lunch ↔ <b>Remember to treat yourself</b>（原文动词原封不动给出标题）。②③的算账只是证明\"犒劳得起、值得\"。</p>",
+  log:"锁定 D：treat yourself to a set lunch = Remember to treat yourself"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, title:"结论：答案 D",
+  body:"<p><b>答案 D</b>——Remember to treat yourself（记得犒劳自己）。</p><p>记忆锚点：让步开头（won't…a lot）主旨在 but 后；\"不常下馆子\"是让步不是主旨。多余项：A、B。</p>",
+  log:"结论：【45】段标题为 Remember to treat yourself，答案选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-45 · 新题型：【45】段的小标题",
+  subtitle: "考点：7 选 5 段落主旨 · 方法：让步段抓 but → 动词短语同义替换 → 划掉已用项",
+  counterLabel: "已核验",
+  ribbonTitle: "小标题（✓ 命中 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位段落主旨 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>Remember to treat yourself</b>（记得犒劳自己）＝ but 之后 <b>treat yourself to a set lunch at a good restaurant</b>。记忆锚点：You won't be eating out a lot 是让步不是主旨（A 读一半就停）；C、G 已被【44】【43】占用。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型选标题——【45】段的小标题</h2>
+<p>答案：<strong>D</strong>（Remember to treat yourself，记得犒劳自己）。</p>
+<h3>第 0 步：先立机制——"让步开头"的段落抓 but 之后</h3>
+<p>【45】段（全文最后一条建议）开头先泼冷水：You won't be eating out a lot（你不会经常下馆子）——这是<strong>让步</strong>，不是主旨。紧随其后的 but 才是真正的建议。收尾段的标题还要能<strong>收束全文语气</strong>：省钱归省钱，生活质量不牺牲。</p>
+<h3>第 1 步：拆段找主旨</h3>
+<table><thead><tr><th>句子</th><th>信息</th></tr></thead><tbody><tr><td>① You <strong>won't be eating out</strong> a lot, <strong>but</strong> save your pennies and once every few months <strong>treat yourself to a set lunch at a good restaurant</strong></td><td>让步：不常下馆子；but：存好小钱，每隔几个月好好犒劳自己一顿</td></tr><tr><td>② £1.75 a week for three months gives you £21 – more than enough for a three-course lunch at Michelin-starred Arbutus</td><td>账单：每周省 £1.75，三个月凑够 £21，在米其林星级餐厅吃三道菜午餐绰绰有余</td></tr><tr><td>③ It's £16.95 there – or £12.99 for a large pizza from Domino's: <strong>I know which I'd rather eat</strong></td><td>对比：£16.95 的米其林 vs £12.99 的外卖披萨——作者知道选哪个</td></tr></tbody></table>
+<p>but 之后的动词短语 <strong>treat yourself to a set lunch at a good restaurant</strong> 已经把标题写在了明面上；②③的账单算账只是证明"犒劳自己花得起、值得"。</p>
+<p>替换链：once every few months <strong>treat yourself to a set lunch at a good restaurant</strong> ↔ <strong>Remember to treat yourself</strong> → 选 <strong>D</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A Live like a peasant</td><td>✗</td><td>让步句误读</td></tr><tr><td>C Shopkeepers are your friends</td><td>✗</td><td>已被【44】占用</td></tr><tr><td>G Waste not, want not</td><td>✗</td><td>已被【43】占用</td></tr></tbody></table>
+<ul><li><strong>误选 A——把"不常下馆子"当"过苦日子"</strong>：①句前半 You won't be eating out a lot 容易和 Live like a peasant（像农民一样生活）对上号。但这只是让步：后半句 but 明说要存钱去米其林餐厅犒劳自己——"精打细算吃得好"，不是"凑合活着"。A 是多余项。</li><li><strong>误选 C / G——已占用项</strong>：C（店主是你的朋友）属【44】段，G（不浪费就不会匮乏）属【43】段，本段没有店主、没有剩食再利用的内容。7 选 5 做到最后一题时，<strong>先划掉已用标题</strong>能瞬间缩小战场。</li></ul>
+<blockquote>记忆锚点：让步开头（won't…a lot）主旨在 but 后；save your pennies and…treat yourself to a set lunch at a good restaurant → Remember to treat yourself（D）；"不常下馆子"是让步不是主旨，A 的"苦日子"恰好读到一半就停了。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-40 · 2018 阅读第 40 题 · 主旨题三通道 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 主旨题三通道", "cls": "key", "tag": "审题", "log": "审题眼：This text is mainly about ___ —— 结构梳理 → 关键词频次 → 选项反向设想", "count": 0, "ribbon": null, "body": "<p>题干：This text is <b>mainly about</b> ___. 话题提炼型主旨题走三条互相印证的通道：①<b>结构梳理</b>——九段归三块；②<b>关键词频次</b>——反复出现的词组是主旨的化身；③<b>选项反向设想</b>——倒推“假如文章写的是它”应有的内容，对不上就排除。</p>"},
+ {"title": "通道一 · 九段归三块", "cls": "key", "tag": "结构", "log": "P1 提出话题（deep work 习惯）→ P2 总纲（方法＋唯一关键）→ P3–9 三大策略", "count": 0, "ribbon": null, "body": quote("To <b>combat the trap</b> of putting a premium on being busy, Cal Newport… recommends <b>building a habit of &ldquo;deep work&rdquo;</b> – the ability to focus without distraction.") + "<p>三块结构：第一块（P1）提出话题——对抗“以忙碌为荣”的陷阱，养成<b>深度工作</b>习惯；第二块（P2）总纲——三种方法＋唯一关键（坚守专注时间）；第三块（P3–P9）三大策略——深度规划（P3）、重排优先级与待办清单（P4–P5）、拥抱闲暇 be lazy（P6–P9）。<b>三块都通向同一个落点：把工作做得更多、更高效。</b></p>"},
+ {"title": "通道二 · 关键词频次", "cls": "key", "tag": "词频", "log": "get more done in less time 复现＋deep work / focus 回响——B 是词组的集大成", "count": 0, "ribbon": null, "body": quote("Newport also recommends &ldquo;deep scheduling&rdquo; to combat constant interruptions and <b>get more done in less time</b>.") + "<p>第三段 get more done <b>in less time</b>；第六段 make the <b>most of</b> our focus and energy；全文 deep work / focus / approaches 反复回响。[B] <b>approaches to getting more done in less time</b> 正是这些词组的集大成：approaches 对应三大策略，getting more done in less time 对应 deep work 的目的。</p>"},
+ {"title": "逐项分析 · B approaches to getting more done in less time", "cls": "good", "tag": "选定 B", "log": "B 用更少时间完成更多工作的方法 ✓ ——结构落点＋关键词集大成", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>三通道同向：结构上“话题→总纲→策略”的落点是高效工作；词频上它是全文高频词组的合体。主旨本身就是它。</p>"},
+ {"title": "逐项分析 · A ways to relieve the tension of busy life", "cls": "bad", "tag": "排除 A", "log": "A 缓解忙碌生活的紧张 ✗ ——偏差替换：combat the trap 是拒绝低效，不是减压", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>文章意旨“避免陷入<b>以忙碌为荣的陷阱</b>（combat the trap of putting a premium on being busy）”被换写成“缓解忙碌生活的<b>紧张</b>”——全文讲提效方法，不是减压指南。</p><p style=\"color:#b91c1c\">⚠ 典型误解：combat the trap（拒绝低效忙碌）→ relieve the tension（心理疏导）的语义滑移。</p>"},
+ {"title": "逐项分析 · C the key to eliminating distractions", "cls": "bad", "tag": "排除 C", "log": "C 消除干扰的要诀 ✗ ——以偏概全：对抗干扰只是第三段一小节", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>combat constant interruptions 只是第三段 deep scheduling 的内容；文章的层级是“如何实现<b>深度、高效工作</b>”，比“消除干扰”高一层、宽一围。反向设想：若全文写“消除干扰”，则待办清单、闲散、大脑回路四段以上内容全成跑题——显然不是。</p><p style=\"color:#b91c1c\">⚠ 典型误解：局部策略升格为全文目的——干扰项不靠造假靠走偏。</p>"},
+ {"title": "逐项分析 · D the cause of the lack of focus time", "cls": "bad", "tag": "排除 D", "log": "D 专注时间不足的原因 ✗ ——无中生有：全文从未集中讨论成因", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>文中只在个别处暗示“外在干扰会侵占专注”，从未集中讨论“专注时间不足的<b>原因</b>”。论因型文章会大量出现 cause / lead to / result from 一类表述——本文没有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：主旨题最典型的无中生有方向——问因给法。</p>"},
+ {"title": "结论 · 三通道同向验证", "cls": "good", "tag": "答案 B", "log": "答案 B（approaches to getting more done in less time）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>结构：话题→总纲→策略，落点高效 → 词频：get more done in less time 集大成 → 反向设想排除 A/C/D → [B]。</b></p><p>答案选 <b>B（approaches to getting more done in less time）</b>。</p><p><b>记忆锚点</b>：主旨题三通道 结构梳理 → 关键词频次 → 选项反向设想；全文落点 = deep work 习惯 + 三大策略；以偏概全（C）、偏差替换（A）、无中生有（D）各归其位。</p><p style=\"color:#b91c1c\">最易误选：<b>C（eliminating distractions）</b>——真实细节升格主旨，撑不起全文。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 40 题 · 主旨题三通道——结构梳理＋关键词频次＋选项反向设想",
+  subtitle: "考点：话题提炼型主旨题 · 九段归三块 + 高频词集大成 + 以偏概全识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“结构梳理 → 关键词频次 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（approaches to getting more done in less time）", "html": "<b>B 用更少时间完成更多工作的方法</b>：P1 话题（deep work 习惯）→ P2 总纲 → P3–P9 三大策略，全文高频词组 getting more done in less time 的集大成。<br>记忆锚点：主旨题三通道 结构→词频→反向设想；以偏概全（C）、偏差替换（A）、无中生有（D）各归其位。<br>最易误选：<b>C</b>——对抗干扰只是第三段一小节，撑不起全文。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 40 题 · 主旨题——结构梳理＋关键词频次＋选项反向设想</h2>
+<p>答案：<strong>B（approaches to getting more done in less time 用更少时间完成更多工作的方法）</strong>。</p>
+<h3>第 0 步：先立机制——主旨题的三条通道</h3>
+<p>话题提炼型主旨题（This text is mainly about ____）有三条互相印证的通道：①<strong>结构梳理</strong>——文章九段实为"提出话题 → 给出总纲 → 展开策略"三块；②<strong>关键词频次</strong>——全文反复出现的词组才是主旨的化身（deep work、focus、<strong>get more done in less time</strong>）；③<strong>选项反向设想</strong>——把每个选项当成"假如文章写的是它"去倒推应有的内容，与实际内容对不上就排除。三条通道共同指向 [B]。</p>
+<h3>第 1 步：结构梳理——九段归三块</h3>
+<blockquote>P1：To combat the trap of putting a premium on being busy, Cal Newport... recommends <strong>building a habit of "deep work"</strong> – the ability to focus without distraction.</blockquote>
+<blockquote>P3：Newport also recommends "deep scheduling" to combat constant interruptions and <strong>get more done in less time</strong>.</blockquote>
+<p>第一块（P1）提出全文话题：对抗"以忙碌为荣"的陷阱，养成<strong>深度工作</strong>的习惯；第二块（P2）给出总纲：三种方法＋唯一关键（坚守专注时间，见第 36 题）；第三块（P3–P9）展开三大具体策略——深度规划 deep scheduling（P3）、重排优先级与待办清单（P4–P5，Harford）、拥抱闲暇 be lazy（P6–P9）。<strong>三块都通向同一个落点：如何把工作做得更多、更高效。</strong></p>
+<h3>第 2 步：关键词频次——get more done in less time 出现两次</h3>
+<p>第三段 get more done <strong>in less time</strong>；第六段 In order to make the <strong>most of</strong> our focus and energy；全文主干 deep work / focus / approaches 反复回响。[B] approaches to <strong>getting more done in less time</strong> 恰好是这些词组的集大成——"方法（approaches）"对应三大策略，"更少时间做更多事"对应 deep work 的目的。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A ways to relieve the tension of busy life</td><td>✗</td><td>偏差替换：文章意旨是"避免陷入以忙碌为荣的陷阱"（combat the <strong>trap</strong> of putting a premium on being busy），被换写成"缓解忙碌生活的紧张"——文章通篇讲提效方法，不是减压指南</td></tr><tr><td>C the key to eliminating distractions</td><td>✗</td><td>以偏概全：对抗干扰（combat constant interruptions）只是第三段 deep scheduling 一小节的内容；文章的层级是"如何实现深度、高效工作"，比"消除干扰"高一层、宽一围</td></tr><tr><td>D the cause of the lack of focus time</td><td>✗</td><td>无中生有：文中只在个别处暗示"外在干扰会侵占专注"，从未集中讨论"专注时间不足的<strong>原因</strong>"——论因型文章会大量出现 cause/lead to/result from，本文没有</td></tr><tr><td>B approaches to getting more done in less time</td><td>✓</td><td>结构落点＋关键词集大成，主旨本身</td></tr></tbody></table>
+<h3>预判追问：C 听起来也算全文关键词，为什么只能算"太窄"？</h3>
+<p>eliminate distractions 确实是文中真实出现过的信息（combat constant interruptions、limit distractions 一类的意思），主旨题的干扰项<strong>不靠造假靠走偏</strong>：它把一个"局部策略"升格为"全文目的"。检验方法就用通道③的反向设想——假如文章真是写"消除干扰的要诀"，那么四、六、七、八段的待办清单、闲散、大脑回路就全都是跑题内容，而它们恰恰各占正文四分之一以上。<strong>一两项内容与主旨重合、撑不起全文的选项，就是以偏概全。</strong></p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把"对抗忙碌陷阱"读成"缓解忙碌压力"——combat the trap 是拒绝低效忙碌，不是心理疏导。</li><li><strong>误选 C</strong>：真实细节升格主旨——只有第三段在讲干扰，撑不起全文。</li><li><strong>误选 D</strong>：文中没讨论过原因——主旨题最典型的无中生有方向。</li></ul>
+<blockquote>记忆锚点：主旨题三通道 <strong>结构梳理 → 关键词频次 → 选项反向设想</strong>；全文落点 = deep work 习惯 + 三大策略 = 更少时间做更多事；以偏概全（C）、偏差替换（A）、无中生有（D）各归其位。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-15 · 2023 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 15 所在句，考点：句内语义（+常识推断）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It needs someone who can __15__ the interdisciplinary team and keep them on course for improvement.</div><p>领导者考题模型：strong leader × interdisciplinary team（跨部门，自带协作难点）× 并列谓语 keep them on course。第一个动词要“凝合”，第二个动词要“领航”。</p>"
+ },
+ {
+  "title": "找证据 · 团队底色：跨部门 + 协作",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：跨部门成员 + 协作力量 → 领导者先“团结”再“领航”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A growth team is made up of members from different departments within your company, and it harnesses the power of collaboration to focus __3__ on finding ways to grow.</div><p>首段已铺底色：members from different departments + harnesses the power of collaboration。跨部门的人靠协作出合力——能配得上 strong 的第一个动作是把他们团结起来。</p>"
+ },
+ {
+  "title": "逐项分析 · A unite（使团结；使联合）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A unite（使团结；使联合） ✓ 当选",
+  "body": "<p><b>当选。</b>unite the interdisciplinary team and keep them on course for improvement：先团结、再领航，两个动作递进衔接，共同支撑 strong leader 的“强大”，也兑现团队“集各部门合力”的设定。</p>"
+ },
+ {
+  "title": "逐项分析 · B finance（提供资金；资助）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B finance（提供资金；资助） ✗ 排除——全文无资金话题，拨款也不是领导力",
+  "body": "<p><b>排除。</b>finance the team 需要上下文出现经费、预算叙事。原文从头到尾谈的是人、视角、目标，没有一分钱话题；“会拨款”也支撑不起 strong leader 的“强大”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用“老板管钱”的常识填空</p>"
+ },
+ {
+  "title": "逐项分析 · C follow（追随；跟踪）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C follow（追随；跟踪） ✗ 排除——“跟踪团队”是监控不是凝聚，与 on course 衔接不上",
+  "body": "<p><b>排除。</b>“领导应该跟踪团队进展”是常识干扰。但 follow the team 给不出跨部门团队最缺的“凝聚力”，也无法与 keep them on course（主动领航）形成动作递进——领航者不该只是跟在后面。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿“领导要跟进进展”的泛化常识硬填</p>"
+ },
+ {
+  "title": "逐项分析 · D choose（挑选；选择）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D choose（挑选；选择） ✗ 排除——choose the team 是“挑选团队”而非“挑选成员”，且无需“强大”",
+  "body": "<p><b>排除。</b>choose the interdisciplinary team 的宾语是整个团队——语义成了“挑选团队”；即便理解为选人，挑选动作本身也不需要 strong leader 的能力加成，与下句“设目标、定时间框架”的管理动作也不成序列。</p><p style=\"color:#b91c1c\">⚠ 典型误解：宾语理解偏差 + 没核对该动作是否需要“强大”</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（unite 使团结；使联合）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>它需要一个能够把跨部门团队团结起来、并引领他们持续改进的人</b>（unite + keep on course = 一团结、二领航）。</p><p>答案选 <b>A（unite 使团结；使联合）</b>。</p><p><b>记忆锚点</b>：跨部门 × 协作 → 领导者先 unite（团结）再 keep on course（领航）；finance 无资金话题，follow 是监控不是凝聚，choose 的宾语是“团队”不是“成员”。</p><p style=\"color:#b91c1c\">最易误选：<b>C（follow）</b>——拿“领导要跟进进展”的泛化常识硬填</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 15 空 · “____ the interdisciplinary team”该填哪个动词",
+  subtitle: "考点：句内语义 · 跨部门团队 × strong leader 的能力要求",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（unite）", "html": "<b>A unite（使团结；使联合）</b>。<br>完整句义：它需要一个能够把跨部门团队团结起来、并引领他们持续改进的人。<br>记忆锚点：跨部门 × 协作 → 领导者先 unite（团结）再 keep on course（领航）；finance 无资金话题，follow 是监控不是凝聚，choose 的宾语是“团队”不是“成员”。<br>最易误选：<b>C</b>——“领导要跟踪进展”的常识干扰，没看出 follow 给不出跨部门所需的凝聚力"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句内语义 + 动词辨析——“强大领导者”配得上什么动词</h2>
+<p>答案：<strong>A（unite 使团结；使联合）</strong>。</p>
+<h3>第 0 步：先立框架——跨部门团队的难点，就是领导者的考题</h3>
+<p>第五段立了靶子：增长团队要成功，需要一个 <strong>strong leader</strong>。第二句用 It needs 复现句式展开这位领导者的考卷：__15__ the <strong>interdisciplinary team</strong> and keep them on course for improvement。模型：宾语 interdisciplinary team（跨部门团队）自带难点——成员来自不同部门、各有立场；能配得上“强大”的第一个动作，是把这些人<strong>团结成一股合力</strong>，并与并列谓语 keep them on course（领航）顺滑衔接。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>It needs someone who can __15__ the interdisciplinary team and keep them on course for improvement.</blockquote>
+<p>回看全文铺垫：增长团队 made up of members from <strong>different departments</strong>、harnesses the power of <strong>collaboration</strong>（协作的力量）。“跨部门 + 靠协作”是团队的底色，领导者的核心能力自然是把不同部门的人“团结”起来——unite 正是为这个底色准备的动作。</p>
+<blockquote>A growth team is made up of members from different departments within your company…（首段）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A unite</td><td>使团结；使联合</td><td>✅ 当选</td><td>把跨部门团队拧成一股绳，与 keep them on course 顺接</td></tr><tr><td>B finance</td><td>提供资金；资助</td><td>❌ 排除</td><td>全文无资金话题，拨款也不是领导力</td></tr><tr><td>C follow</td><td>追随；跟踪</td><td>❌ 排除</td><td>“跟踪团队”是监控不是凝聚，与 on course 衔接不上</td></tr><tr><td>D choose</td><td>挑选；选择</td><td>❌ 排除</td><td>choose the team 是“挑选团队”而非“挑选成员”，且无需“强大”</td></tr></tbody></table>
+<p>代入全句：<strong>它需要一个能够把跨部门团队团结起来、并引领他们持续改进的人</strong>（unite + keep on course = 一团结、二领航）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 B（finance 提供资金；资助）</strong>：用“老板管钱”的常识填空。finance the team 需要上下文出现经费、预算叙事。原文从头到尾谈的是人、视角、目标，没有一分钱话题；“会拨款”也支撑不起 strong leader 的“强大”。</li><li><strong>误选 C（follow 追随；跟踪）</strong>：拿“领导要跟进进展”的泛化常识硬填。“领导应该跟踪团队进展”是常识干扰。但 follow the team 给不出跨部门团队最缺的“凝聚力”，也无法与 keep them on course（主动领航）形成动作递进——领航者不该只是跟在后面。</li><li><strong>误选 D（choose 挑选；选择）</strong>：宾语理解偏差 + 没核对该动作是否需要“强大”。choose the interdisciplinary team 的宾语是整个团队——语义成了“挑选团队”；即便理解为选人，挑选动作本身也不需要 strong leader 的能力加成，与下句“设目标、定时间框架”的管理动作也不成序列。</li></ul>
+<blockquote>记忆锚点：跨部门 × 协作 → 领导者先 unite（团结）再 keep on course（领航）；finance 无资金话题，follow 是监控不是凝聚，choose 的宾语是“团队”不是“成员”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

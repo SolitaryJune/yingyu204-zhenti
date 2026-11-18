@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-16 · 2016 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句与③句解释",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第五段②③句，考点：同义替换 + 词根反义",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">② The relationship was also stronger in places where happiness was spread more <b>__16__</b>. ③ Firms seem to invest more in places where <b>most people are relatively happy</b>, rather than in places with <b>happiness inequality</b>.</div><p>空 16 副词修饰 spread：幸福“分布得更____”。③句紧跟其后——它就是对②句的解释。同义替换题的机制：把②句空格与③句的措辞一一对应。</p>"
+ },
+ {
+  "title": "找证据 · ③句是②句的翻译器",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：most people are relatively happy ↔ spread more __；happiness inequality ↔ 反义",
+  "body": "<p>③句拆两半：正面——公司在“<b>多数人都比较幸福</b>”（most people are relatively happy）的地方投资更多 ⇒ 幸福分布<b>均匀</b>；反面——“<b>而非</b>（rather than）幸福感不均等（happiness inequality）的地方”。</p><p>所以 ②句 spread more __ 必须满足：与 most people are relatively happy 同义、与 inequality 反义。</p>"
+ },
+ {
+  "title": "逐项分析 · D equally（均等地）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D equally（均等地）✓ 当选——与 inequality 同源反义",
+  "body": "<p><b>当选。</b>happiness was spread more <b>equally</b>——“幸福分布得更加均等”。equally 与 inequality 同源反义（equal ↔ in-equal），与 most people are relatively happy 精准同义替换，②③句的解释关系落定。</p>"
+ },
+ {
+  "title": "逐项分析 · A rapidly（快速地）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A rapidly（快速地）✗ 排除——“分布得快”与③句措辞无关",
+  "body": "<p><b>排除。</b>spread rapidly“传播/分布得快”是时间维度的描述；③句谈的是分布的<b>均匀程度</b>（多数人幸福 vs 不均等），维度错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：三个干扰项语法上都能修饰 spread——语法全通，裁决权在同义替换。</p>"
+ },
+ {
+  "title": "逐项分析 · B directly（直接地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B directly（直接地）✗ 排除——“分布得直接”无对应",
+  "body": "<p><b>排除。</b>spread directly“直接分布”语义含混，与③句的“多数人幸福/不均等”两个措辞都对不上。</p>"
+ },
+ {
+  "title": "逐项分析 · C regularly（定期地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C regularly（定期地）✗ 排除——时间频率义与分布均匀义错位",
+  "body": "<p><b>排除。</b>regularly 表“定期、有规律地（时间频率）”；“幸福定期分布”不通，且与③句的均匀义错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 regularly 的“有规律”与“均匀”混为一谈——一个讲时间，一个讲空间分布。</p>"
+ },
+ {
+  "title": "结论 · 替换链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（equally 均等地）——替换链见结论卡",
+  "body": "<p>替换链：<b>spread more equally ↔ most people are relatively happy（同义）；≠ happiness inequality（同源反义）。</b></p><p>答案选 <b>D（equally 均等地）</b>。</p><p><b>记忆锚点</b>：解释句（③）是空格句（②）的“翻译器”——逐词对应找同义替换；inequality 的同源反义是 equally 的硬证据；rapidly/directly/regularly 语法全通但维度错位。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 16 空 · 幸福感分布更____的地方（同义替换收尾题）",
+  subtitle: "考点：上下文语义 + ③句解释②句的同义替换 · inequality 同源反义",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找同义替换 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（equally）", "html": "<b>D equally（均等地）</b>——与 inequality 同源反义，与 most people are relatively happy 同义。<br>记忆锚点：③句是②句的翻译器，逐词对应；equal ↔ inequality 同源反义是硬证据；rapidly/directly/regularly 语法可搭但维度错位。<br>最易误选：<b>C（regularly）</b>——把“有规律”当成“均匀”，时间频率与空间分布两个维度混为一谈。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 16 空 · 幸福感分布更____的地方</h2>
+<p>答案：<strong>D（equally 均等地）</strong>。</p>
+<h3>第 0 步：先立机制——解释句是空格句的“翻译器”</h3>
+<p>空 16 修饰 spread more __：幸福“分布得更____”。紧随其后的③句是对②句的解释——同义替换题的机制：<strong>把②句空格与③句措辞逐词对应</strong>，空格必须与③句正面表述同义、与反面表述反义。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>② The relationship was also stronger in places where happiness was spread more __16__. ③ Firms seem to invest more in places where most people are relatively happy, rather than in places with happiness inequality.</blockquote>
+<h3>第 2 步：找证据——两条替换线</h3>
+<p>正面：most people are relatively happy（多数人都比较幸福）⇒ 幸福分布<strong>均匀</strong>；反面：rather than happiness inequality（而非幸福感<strong>不均等</strong>）。空格须同时满足：与正面同义、与 inequality 反义——equally（均等地）两条全中，且与 inequality 同源反义（equal ↔ in-equal）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A rapidly</td><td>快速地</td><td>✗ 排除</td><td>时间维度，与“均匀程度”错位。（典型误解：三词语法都能搭 spread，只做语法判断。）</td></tr><tr><td>B directly</td><td>直接地</td><td>✗ 排除</td><td>与③句两处措辞均无对应。</td></tr><tr><td>C regularly</td><td>定期地</td><td>✗ 排除</td><td>时间频率义；“有规律”≠“均匀”，维度错位。</td></tr><tr><td>D equally</td><td>均等地</td><td>✓ 当选</td><td>与 inequality 同源反义，与③句正面表述同义。</td></tr></tbody></table>
+<p>代入后的完整句义：这一关联在幸福感分布更为均等的地区也同样更强。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么语法判断在这里失效？</strong>：rapidly/directly/regularly 在语法上都能修饰 spread——纯语法四选一留下三个“合法答案”；真正的裁决机制是②③句的解释关系与同义替换，这正是完形收尾题的典型设计。</li><li><strong>regularly 的“有规律”不就是“均匀”吗？</strong>：不是——regularly 的规律性指<strong>时间频率</strong>（定期发生），而本空谈的是幸福在人群中的<strong>空间分布</strong>是否均匀；两个维度不能互译。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（regularly）</strong>：把“有规律”与“均匀”混为一谈。</li><li><strong>误选 A/B</strong>：只做语法合法性判断，跳过与③句的同义替换核验。</li></ul>
+<blockquote>记忆锚点：解释句是空格句的翻译器——逐词对应；inequality ⇄ equally 同源反义；语法全通的选项靠替换关系裁决。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

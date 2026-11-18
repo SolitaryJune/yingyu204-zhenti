@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 6 空 · 几个因素在“拖后腿”——work against · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 总起句方向由 First/Second/Third 决定", "cls": "key", "tag": "审题", "log": "先立机制：总起句方向由 First/Second/Third 决定", "count": 0, "ribbon": null, "body": "<p>本句是第二段总起句：Although 让步从句先把对方最强的理由摆出来（电子支付更高效），主句给出转折——“即便如此，纸币系统照样没有消失”，并交代原因是 several factors。空格是 work ___ the disappearance 的介词位：选定的介词决定这些因素对“纸币系统消失”是推还是挡。方向不能凭感觉，要往下读 First / Second / Third 三条论据再回头定。</p>"}, {"title": "定位原文 · 空 6 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 6 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Although electronic means of payment may be more efficient than a payments system based on paper, several factors work <b>__6__</b> the disappearance of the paper system.</div><p>work for / work against / work with / work on 四个短语介词义各不相同；本题考的正是 work 与介词的搭配义，以及与段落论据的对齐。</p>"}, {"title": "找证据 · 三条论据全是“帮纸币续命”", "cls": "key", "tag": "证据", "log": "找证据：三条论据全是“帮纸币续命”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">First, it is very expensive to set up the computer, card reader, and telecommunications networks… / Second, paper checks have the advantage that they provide receipts… / Third, the use of paper checks gives consumers several days of \"float\"…</div><p>代价高昂（建不起来）、收据凭证（消费者不肯放）、浮动期利息（消费者不肯换）——三条理由全部在为纸币系统的“不消失”辩护。所以 factors 是在对抗 disappearance：work against。</p>"}, {"title": "逐项分析 · A for（受雇于；有利于）", "cls": "bad", "tag": "排除 A", "log": "A for（受雇于；有利于）✗ 排除——三条论据全部反向", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>work for the disappearance 会被读成“这些因素有利于纸币系统消失”，与 First / Second / Third 三条论据全部反向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背 work for = 有利于，没有核对本段论据方向。</p>"}, {"title": "逐项分析 · B against（对抗；妨碍）", "cls": "good", "tag": "选定 B", "log": "B against（对抗；妨碍）✓ 当选——统摄三条论据", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>work against the disappearance = 阻碍纸币系统的消失，正好统摄三条“帮纸币续命”的论据。</p>"}, {"title": "逐项分析 · C with（与……共事；协作）", "cls": "bad", "tag": "排除 C", "log": "C with（与……共事；协作）✗ 排除——无协作对象", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>factors（因素）与 disappearance（消失）之间无“协作”可言，搭配对象错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 work 就想 with。</p>"}, {"title": "逐项分析 · D on（从事于；致力于）", "cls": "bad", "tag": "排除 D", "log": "D on（从事于；致力于）✗ 排除——factors 非施动者", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>work on 的主语一般是人（致力于某项工作），factors 不是施动者。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 factors 拟人化。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（against 对抗；妨碍）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>尽管电子支付手段可能比纸币支付系统更高效，但若干因素在阻碍纸币支付系统的消失。</b></p><p>答案选 <b>B（against 对抗；妨碍）</b>。</p><p><b>记忆锚点</b>：work against = 阻碍、起反作用；总起句的方向由 First/Second/Third 决定——先读论据，再定介词。</p><p style=\"color:#b91c1c\">最易误选：<b>A（for）</b>——work for 是更眼熟的短语，但三条论据全部反向，介词必须服从论据。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 6 空 · 几个因素在“拖后腿”——work against",
+  subtitle: "考点：动词短语 work against + 段落论据方向 · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 B（against 对抗；妨碍）", "html": "<b>B against（对抗；妨碍）</b>。<br>完整句义：尽管电子支付手段可能比纸币支付系统更高效，但若干因素在阻碍纸币支付系统的消失。<br>记忆锚点：work against = 阻碍、起反作用；总起句的方向由 First/Second/Third 决定——先读论据，再定介词。<br>最易误选：<b>A（for）</b>——work for 是更眼熟的短语，但三条论据全部反向，介词必须服从论据。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 6 空 · 几个因素在“拖后腿”——work against</h2>
+<p>答案：<strong>B（against 对抗；妨碍）</strong>。</p>
+<h3>第 0 步：先立机制——总起句方向由 First/Second/Third 决定</h3>
+<p>本句是第二段总起句：Although 让步从句先把对方最强的理由摆出来（电子支付更高效），主句给出转折——“即便如此，纸币系统照样没有消失”，并交代原因是 several factors。空格是 work ___ the disappearance 的介词位：选定的介词决定这些因素对“纸币系统消失”是推还是挡。方向不能凭感觉，要往下读 First / Second / Third 三条论据再回头定。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Although electronic means of payment may be more efficient than a payments system based on paper, several factors work <code>__6__</code> the disappearance of the paper system.</blockquote>
+<p>work for / work against / work with / work on 四个短语介词义各不相同；本题考的正是 work 与介词的搭配义，以及与段落论据的对齐。</p>
+<h3>第 2 步：找证据——三条论据全是“帮纸币续命”</h3>
+<blockquote>First, it is very expensive to set up the computer, card reader, and telecommunications networks… / Second, paper checks have the advantage that they provide receipts… / Third, the use of paper checks gives consumers several days of "float"…</blockquote>
+<p>代价高昂（建不起来）、收据凭证（消费者不肯放）、浮动期利息（消费者不肯换）——三条理由全部在为纸币系统的“不消失”辩护。所以 factors 是在对抗 disappearance：work against。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A for</td><td>受雇于；有利于</td><td>✗ 排除</td><td>work for the disappearance 会被读成“这些因素有利于纸币系统消失”，与 First / Second / Third 三条论据全部反向。（典型误解：只背 work for = 有利于，没有核对本段论据方向。）</td></tr><tr><td>B against</td><td>对抗；妨碍</td><td>✓ 当选</td><td>work against the disappearance = 阻碍纸币系统的消失，正好统摄三条“帮纸币续命”的论据。（易错警示：work for 字面更眼熟，但介词方向必须服从 First / Second / Third 的论据。）</td></tr><tr><td>C with</td><td>与……共事；协作</td><td>✗ 排除</td><td>factors（因素）与 disappearance（消失）之间无“协作”可言，搭配对象错位。（典型误解：见 work 就想 with。）</td></tr><tr><td>D on</td><td>从事于；致力于</td><td>✗ 排除</td><td>work on 的主语一般是人（致力于某项工作），factors 不是施动者。（典型误解：把 factors 拟人化。）</td></tr></tbody></table>
+<p>代入后的完整句义：尽管电子支付手段可能比纸币支付系统更高效，但若干因素在阻碍纸币支付系统的消失。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>Although 从句不是在说电子支付“更高效”吗，为什么主句反而护着纸币？</strong>：让步从句的作用是先把对方最强的理由摆上台面（承认高效），主句再顶回去（即便如此也没消失）——这正是“列原因”的标准写法：原因越硬，主句的反差越成立。</li><li><strong>work against 还有哪些高频语境？</strong>：work against sb/sth = 对……不利、起反作用，如 The clock is working against us（时间对我们不利）。反义方向是 work for / toward。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（for）</strong>：只背 work for = 有利于，没有核对本段论据方向。</li><li><strong>误选 C（with）</strong>：见 work 就想 with。</li><li><strong>误选 D（on）</strong>：把 factors 拟人化。</li></ul>
+<blockquote>记忆锚点：work against = 阻碍、起反作用；总起句的方向由 First/Second/Third 决定——先读论据，再定介词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

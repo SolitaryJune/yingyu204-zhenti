@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-44</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>左列人名 <b>Mayghin Levine</b>（社区教育项目负责人）。第十二段只有一句长观点；注意 C 项的 plus 会在段中<b>原词复现</b>（a big plus）——先标记 C、G 为备选。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第十二段）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>Extracurricular activities related to the college major</b> declared on a college application are <b>beneficial</b>… \"If you already know your major, having an extracurricular that <b>fits into that major</b> can be a <b>big plus</b>,\" says Mayghin Levine.</p><p>Levine 的观点：活动与目标专业对上号 = 大加分。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ G",
+    "body": "<p>G 项 <code>It is advisable for students to choose an extracurricular activity that is related to their future study at college</code>：related to their future study at college = related to the college major / fits into that major；advisable = beneficial / a big plus。核心义全对齐。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：同词不同主",
+    "body": "<p>C 项 Undertaking too many activities…hardly a plus 确实含原词 plus，但它是第三、四段 <b>Rexford</b> 的观点（41 题已配给 C）。Levine 谈\"活动与专业匹配\"，根本没谈\"活动太多\"——一词复现 ≠ 观点匹配。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>G（It is advisable for students to choose an extracurricular activity that is related to their future study at college）</b>。口诀：a big plus 是高频表达——锁定\"谁在什么话题上说 plus\"。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 新题型 · 第 44 题：Mayghin Levine 的观点",
+  "subtitle": "考点：多项匹配 · 备选项辨析（C/G），原词 plus 的归属",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 G",
+    "html": "记忆锚点：Levine ⇒ <b>related to the college major ⇒ related to their future study at college</b>；beneficial / big plus ⇒ advisable。C 的 plus 是 Rexford 的\"太多活动不加分\"——<b>同词不同主</b>是本篇最大陷阱。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 新题型第 44 题 · Mayghin Levine 的观点</h2>
+<p>答案：<strong>G（It is advisable for students to choose an extracurricular activity that is related to their future study at college 学生选择一项与其未来大学学习有关的课外活动是明智的）</strong>。</p>
+<h3>第 0 步：先立机制——原词复现是双刃剑</h3>
+<p>备选组合 <strong>C / G</strong>。C 项里的 plus 会在 Levine 段中<strong>原词出现</strong>（a big plus）——这是本篇干扰设计的经典手法：词是你的词，观点不是你的观点。裁决标准回到"这个人在什么话题上说这个词"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote><strong>Extracurricular activities related to the college major</strong> declared on a college application are <strong>beneficial</strong>, experts suggest. "If you already know your major, having an extracurricular that <strong>fits into that major</strong> can be a <strong>big plus</strong>," says Mayghin Levine.</blockquote>
+<p>Levine 的观点：活动与申报的专业对上号，就是大加分。</p>
+<h3>第 2 步：同义替换对上 G</h3>
+<p>related to their future study at college = related to the college major / fits into that major；advisable（明智的）= beneficial / a big plus。话题（专业相关）与评价（值得做）全部对齐，G 当选。</p>
+<h3>第 3 步：排除 C（同词不同主）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>C Undertaking too many extracurricular activities will hardly be seen as a plus by colleges</td><td>✗</td><td>C 确实含原词 plus，但它是第三、四段 <strong>Sue Rexford</strong> 的观点（41 题答案）——话题是"活动太多不加分"；Levine 的话题是"活动与专业匹配"，从未谈"数量"。（典型误解：见 a big plus 原词复现就选——plus 是全篇共享词，Rexford、Levine 两人都在用，归属看人。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>一题配一选项后，C 还能再配给别人吗？</strong>：不能——匹配题一人一选项；C 已被 41 题占用，44 题的答案只能从未用项里选，这本身就是排除 C 的快捷理由。</li><li><strong>advisable 凭什么替换 beneficial？</strong>：beneficial / big plus 表达"值得做、有好处"，advisable 表达"明智、可取"——评价方向一致，属同义概括。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：被原词 plus 绑架，忘了核对发言人；且忽略"一人一选项"原则。</li><li><strong>G 项漏看</strong>：G 的改写幅度较大（major ⇒ future study at college），词面重合少，反而容易被跳过——匹配题要看核心义，不是看重合率。</li></ul>
+<blockquote>记忆锚点：Levine ⇒ related to the college major ⇒ related to their future study at college；beneficial / big plus ⇒ advisable；C 的 plus 是 Rexford 的——<strong>同词不同主</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

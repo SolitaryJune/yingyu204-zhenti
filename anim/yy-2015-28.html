@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-28 · 2015 阅读第 28 题 · “大多数第一代大学生”——59.1% 与助学金定义的接力推理 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · most 锁定“大多数”的数据句", "cls": "key", "tag": "审题", "log": "审题眼：The study suggests that most first-generation students ___——“most”要求原文有配得上它的数据", "count": 0, "ribbon": null, "body": "<p>题干问研究“表明”大多数第一代大学生怎样。审题眼是 <b>most</b>：原文里唯一配得上“大多数”的是第三段的 <b>59.1%</b>——先去那里定位。</p>"},
+ {"title": "定位原文 · 59.1% 拿 Pell Grants", "cls": "key", "tag": "定位", "log": "定位原文：Most of the first-generation students (59.1 percent) were recipients of Pell Grants…", "count": 0, "ribbon": null, "body": quote("Most of the first-generation students (59.1 percent) were recipients of Pell Grants, a federal grant for undergraduates with financial need, while this was true only for 8.6 percent of the students with at least one parent with a four-year degree.") + "<p>第一步事实：59.1% 的第一代大学生是 Pell Grants（佩尔助学金）的受助者；对照组只有 8.6%。</p>"},
+ {"title": "同义替换 · 助学金定义完成第二步", "cls": "key", "tag": "替换", "log": "同义替换：a federal grant for undergraduates with financial need → 需要经济支持", "count": 0, "ribbon": null, "body": "<p>第二步接力：Pell Grants 的同位语定义是“专为 <b>with financial need</b>（有经济需求）的本科生设立的联邦助学金”。大多数人在拿这笔钱 → 这笔钱只为有经济需求者设 → <b>大多数第一代大学生需要经济支持</b>。</p>"},
+ {"title": "逐项分析 · C are in need of financial support", "cls": "good", "tag": "选定 C", "log": "C are in need of financial support ✓ 当选——数据＋定义两步接力得出", "count": 0, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>“领取贫困助学金”的必然前提就是“需要经济支持”——59.1% 的数据与 financial need 的定义合起来，正是 C 的完整链条。</p>"},
+ {"title": "逐项分析 · A are from single-parent families", "cls": "bad", "tag": "排除 A", "log": "A 来自单亲家庭 ✗ 排除——not having a parent with a college degree 否的是学历不是人数", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>定义说的是父母均<b>没有本科学历</b>（not having a parent with a four-year college degree），否定的是家长<b>学历</b>，不是家长<b>人数</b>——“单亲”纯属曲解。</p><p style=\"color:#b91c1c\">⚠ 典型误解：否定结构的辖域没看清。</p>"},
+ {"title": "逐项分析 · B study at private universities", "cls": "bad", "tag": "排除 B", "log": "B 就读私立大学 ✗ 排除——private university 只是研究样本来源，不能外推", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>①句的 an unnamed private university 说明的是<b>研究样本</b>来自某匿名私立大学，不是“第一代大学生大都就读私立大学”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把样本来源当成群体特征。</p>"},
+ {"title": "逐项分析 · D have failed their college", "cls": "bad", "tag": "排除 D", "log": "D 没能读完大学 ✗ 排除——dropout rates are higher 是“较高”，被夸大成“大多数失败”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>首段说第一代学生 dropout rates are <b>higher</b>（辍学率比其他学生高），不等于“most failed”。原文里配得上 most 的只有 59.1% 那条数据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“较高”夸大成“大多数”。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（are in need of financial support）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>59.1% 的第一代大学生领取 Pell Grants ＋ 该助学金专为有经济需求者设立 → 大多数第一代大学生需要经济支持。</b></p><p>答案选 <b>C（are in need of financial support）</b>。</p><p><b>记忆锚点</b>：most 锁定 59.1% 数据句；同位语定义（grant for…with financial need）是第二步推理的燃料；“not having a parent with X degree”否的是学历不是人数。</p><p style=\"color:#b91c1c\">最易误选：<b>A（single-parent families）</b>——学历信息被曲解成家庭结构。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 28 题 · “大多数第一代大学生”——59.1% 与助学金定义的接力推理",
+  subtitle: "考点：细节推断题 · 数据定位 + 同位语定义的两步推理",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 两步推理 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（are in need of financial support）", "html": "<b>C 需要经济支持</b>：59.1% 领 Pell Grants ＋ 该助学金专为 with financial need 者设。<br>记忆锚点：most 锁定数据句；同位语定义是第二步燃料。<br>最易误选：<b>A（single-parent families）</b>——“父母无本科学历”≠“单亲”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 28 题 · "大多数第一代大学生"——59.1% 与助学金定义的接力推理</h2>
+<p>答案：<strong>C（are in need of financial support 需要经济支持）</strong>。</p>
+<h3>第 0 步：先立机制——两步推理：谁在拿助学金 → 助学金为谁而设</h3>
+<p>题干问 the study suggests that most first-generation students 怎么样。"most"是审题眼：原文里配得上"大多数"的信息只有第三段③句的 59.1%——大多数第一代大学生是 <strong>Pell Grants</strong>（佩尔助学金）的受助者。但"拿助学金"本身还不等于答案，接着要用③句里对 Pell Grants 的<strong>同位语定义</strong>完成第二步：a federal grant for undergraduates with financial need（专为有经济需求的本科生设立的联邦助学金）。两步接力：大多数人在拿这笔钱 → 这笔钱只为"有经济需求"的人设 → <strong>大多数第一代大学生需要经济支持</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>First generation was defined as not having a parent with a four-year college degree. Most of the first-generation students (59.1 percent) were recipients of Pell Grants, a federal grant for undergraduates with financial need...</blockquote>
+<ul><li>定义：父母均无四年制本科学历；</li><li>数据：59.1% 是 Pell Grants 受助者；</li><li>定义：Pell Grants＝给 undergraduates <strong>with financial need</strong> 的联邦助学金。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A are from single-parent families</td><td>来自单亲家庭</td><td>✗ 排除</td><td>not having a parent with a college degree 是"父母没有本科学历"，不是"缺了一位家长"——学历信息被曲解成家庭结构</td></tr><tr><td>B study at private universities</td><td>就读于私立大学</td><td>✗ 排除</td><td>unnamed private university 只是<strong>研究样本</strong>的来源，推不出第一代大学生大都上私立大学</td></tr><tr><td>C are in need of financial support</td><td>需要经济支持</td><td>✓ 当选</td><td>59.1% 拿 Pell Grants ＋ 该助学金专为 with financial need 者设立 → 大多数人需要经济支持</td></tr><tr><td>D have failed their college</td><td>大学没能读完</td><td>✗ 排除</td><td>首段说 dropout rates are higher（辍学率较高），被夸大成 most failed——程度失真</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么不能直接选"拿助学金"这个事实？</strong>：选项 C 的表述正是这个事实的正确抽象——"需要经济支持"是"领取贫困助学金"的必然前提与同义改写，两步推理合起来才是完整链条：数据（59.1%）→ 定义（financial need）→ 结论。</li><li><strong>A 的"单亲"从哪来？</strong>：not having a parent with a four-year college degree 的否定对象是 parent 的<strong>学历</strong>（没有一位家长读过四年制大学），不是家长<strong>人数</strong>。把"没有这样的家长"读成"缺家长"，是同位否定结构最经典的误读。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（single-parent families）</strong>：把"父母学历"曲解成"家庭结构"——否定词的辖域没看清。</li><li><strong>误选 B（private universities）</strong>：把研究样本来源当成全体第一代大学生的就读去向。</li><li><strong>误选 D（failed their college）</strong>：把"辍学率较高"夸大为"大多数人读不完"——most 只配得上 59.1% 那条数据。</li></ul>
+<blockquote>记忆锚点：most 锁定 59.1% 那句；同位语 a federal grant for undergraduates with financial need 是第二步推理的燃料；"not having a parent with X degree"否的是学历不是家长人数。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

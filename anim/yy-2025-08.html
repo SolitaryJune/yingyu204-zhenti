@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-08 · 2025 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 8 所在句，考点：词义辨析 · another + 定语从句的「清单复现」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Yet another __8__ that you might be worried about is being a nuisance or __9__ the person you go to for help.</div><p>空格待填正确答案；本题考点：<b>词义辨析 · another + 定语从句的「清单复现」</b>。方法主线：another 清单复现 → 上位词收纳 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · another 在给「担忧清单」续写第 N 项",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：another 在给「担忧清单」续写第 N 项",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格与 another 构成名词短语作主语，且被定语从句 that you might be worried about 修饰：<b>又一个你可能担心的____</b>。上文④⑤句已列出担忧清单（怕失去掌控、被接手抢功），句首 Yet another = 清单再加一项；表语 being a nuisance（惹人厌烦）正是新的担忧内容。所以空格装的是「担忧项」的上位词——factor（因素）。</p>"
+ },
+ {
+  "title": "证据 · worried about 的词汇场一路复现",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：worried about 的词汇场一路复现",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本段 worry 线索密集：You might have concerns about...（④句）之后的⑤⑥句继续展开失控、抢功、添麻烦——整个第二段都在回答「为什么不愿求助」。another + you might be worried about 的组合说明：作者在<b>逐项列举担心的事</b>，空格是清单的「容器词」。</p>"
+ },
+ {
+  "title": "逐项分析 · A theory（理论；意见；看法）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A theory（理论；意见；看法） ✗ 排除——「担心的理论」搭配错位，theory 不与 worried about 相配",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「另一个你可能担心的理论」搭配错位：theory 不与 worried about 构成「担忧对象」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只挑抽象名词，不核对与 worried about 的搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · B choice（选择；抉择）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B choice（选择；抉择） ✗ 排除——担忧的对象是因素不是选择，choice 进不了清单",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>担忧的对象是「惹人厌烦/添麻烦」这种**因素**，不是二选一的「选择」；choice 也进入不了 worry 清单。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「求助是否开口」脑补成一种选择困境。</p>"
+ },
+ {
+  "title": "逐项分析 · C factor（因素；要素）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C factor（因素；要素） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>another factor that you might be worried about = 你可能担心的又一个因素——正好收纳表语 being a nuisance... 这一项新担忧。</p>"
+ },
+ {
+  "title": "逐项分析 · D context（背景，环境）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D context（背景，环境） ✗ 排除——句子的重心是新增担忧项，不是它的背景",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「担心的背景」不是本句要说的：句子的重心是新增的担忧项本身，不是它的背景。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被「求助情境」话题带偏。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（factor 因素；要素）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>你可能担心的又一个因素是：惹人厌烦，或者给你前去求助的人带来不便。</b></p><p>答案选 <b>C（factor 因素；要素）</b>。</p><p><b>记忆锚点</b>：another + 定从（you might be worried about）= 担忧清单续写：空格填能收纳表语内容的「容器词」→ factor；theory/choice/context 都进不了 worry 清单。</p><p style=\"color:#b91c1c\">最易误选：<b>B（choice）</b>——把「求助是否开口」脑补成一种选择困境。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 8 空 · Yet another ____ that you might be worried about",
+  subtitle: "考点：词义辨析（清单容器词）· another + worried about → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（factor）",
+ "html": "<b>C factor（因素；要素）</b>。<br>完整句义：你可能担心的又一个因素是：惹人厌烦，或者给你前去求助的人带来不便。<br>记忆锚点：another + 定从（you might be worried about）= 担忧清单续写：空格填能收纳表语内容的「容器词」→ factor；theory/choice/context 都进不了 worry 清单。<br>最易误选：<b>B（choice）</b>——把「求助是否开口」脑补成一种选择困境。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 8 空 · 词义辨析 · another + 定语从句的「清单复现」</h2>
+<p>答案：<strong>C（factor 因素；要素）</strong>。</p>
+<h3>第 0 步：先立机制——another 在给「担忧清单」续写第 N 项</h3>
+<p>空格与 another 构成名词短语作主语，且被定语从句 that you might be worried about 修饰：<strong>又一个你可能担心的____</strong>。上文④⑤句已列出担忧清单（怕失去掌控、被接手抢功），句首 Yet another = 清单再加一项；表语 being a nuisance（惹人厌烦）正是新的担忧内容。所以空格装的是「担忧项」的上位词——factor（因素）。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Yet another __8__ that you might be worried about is being a nuisance or __9__ the person you go to for help.</blockquote>
+<p>本段 worry 线索密集：You might have concerns about...（④句）之后的⑤⑥句继续展开失控、抢功、添麻烦——整个第二段都在回答「为什么不愿求助」。another + you might be worried about 的组合说明：作者在<strong>逐项列举担心的事</strong>，空格是清单的「容器词」。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A theory</td><td>理论；意见；看法</td><td>✗ 排除</td><td>「另一个你可能担心的理论」搭配错位：theory 不与 worried about 构成「担忧对象」。</td></tr><tr><td>B choice</td><td>选择；抉择</td><td>✗ 排除</td><td>担忧的对象是「惹人厌烦/添麻烦」这种<strong>因素</strong>，不是二选一的「选择」；choice 也进入不了 worry 清单。</td></tr><tr><td>C factor</td><td>因素；要素</td><td>✓ 当选</td><td>another factor that you might be worried about = 你可能担心的又一个因素——正好收纳表语 being a nuisance... 这一项新担忧。</td></tr><tr><td>D context</td><td>背景，环境</td><td>✗ 排除</td><td>「担心的背景」不是本句要说的：句子的重心是新增的担忧项本身，不是它的背景。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>只挑抽象名词，不核对与 worried about 的搭配 → 误选 A（theory）</strong>：「另一个你可能担心的理论」搭配错位：theory 不与 worried about 构成「担忧对象」。</li><li><strong>把「求助是否开口」脑补成一种选择困境 → 误选 B（choice）</strong>：担忧的对象是「惹人厌烦/添麻烦」这种<strong>因素</strong>，不是二选一的「选择」；choice 也进入不了 worry 清单。</li><li><strong>被「求助情境」话题带偏 → 误选 D（context）</strong>：「担心的背景」不是本句要说的：句子的重心是新增的担忧项本身，不是它的背景。</li></ul>
+<blockquote>记忆锚点：another + 定从（you might be worried about）= 担忧清单续写：空格填能收纳表语内容的「容器词」→ factor；theory/choice/context 都进不了 worry 清单。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

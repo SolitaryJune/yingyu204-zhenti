@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-18 · 2015 完形第 18 空 · “更愉快”是补充强调不是因果——In fact 的递进本色 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 段首逻辑词＝前后句的焊点", "cls": "key", "tag": "审题", "log": "审题眼：空格在段首，要把上一句“没人尴尬”和后面“旅途更愉快”焊起来——先判句间关系", "count": 0, "ribbon": null, "body": "<p>四个选项全是 in + 名词 的逻辑连接短语（In turn / In fact / In particular / In consequence）。逻辑词题的第一步不是背词义，而是<b>判断前后句关系</b>：因果？递进？举例？对比？</p>"},
+ {"title": "定位原文 · 两层实验结果", "cls": "key", "tag": "定位", "log": "定位原文：前句“没人尴尬”（底线）→ 空格 → 后句“有交流的通勤更愉快”（更好）", "count": 0, "ribbon": null, "body": quote("…after they went through with the experiment, “not a single person reported having been embarrassed.” __18__, these commutes were reportedly more enjoyable compared with those without communication…") + "<p>前句说交流<b>至少没有坏处</b>（没人尴尬）；空格后说交流<b>还有好处</b>（旅途更愉快）。</p>"},
+ {"title": "找证据 · 语义走向是“不止如此，还…”", "cls": "key", "tag": "证据", "log": "找证据：后句在补充、强化前句——“不尴尬”之上再推一层“更愉快”", "count": 0, "ribbon": null, "body": "<p>后句没有从前句推导出什么新结论，而是把实验结果<b>再报道一层</b>：reportedly（据称）提示这是对研究成果的补充陈述。句间关系＝<b>补充强调、递进</b>——英语里承担这个功能的就是 in fact。</p>"},
+ {"title": "逐项分析 · B In fact（事实上）", "cls": "good", "tag": "选定 B", "log": "B In fact（事实上） ✓ 当选——补充说明并强调前话：“不尴尬”之外还“更愉快”", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>in fact 的功能是“补充说明，强调前面所说的话”：底线是没人尴尬，实际情况还要更好——旅途更愉快。递进语气严丝合缝。</p>"},
+ {"title": "逐项分析 · A In turn（相应地）", "cls": "bad", "tag": "排除 A", "log": "A In turn（相应地） ✗ 排除——in turn 表“前因后果/依次轮替”，此处无因果轮替", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>in turn 表示“作为结果相应地”或“依次轮替”。“没人尴尬”并不反过来产生“更愉快”，两句不是因果轮替链。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到两句一前一后就当成“相应地”。</p>"},
+ {"title": "逐项分析 · C In particular（特别是）", "cls": "bad", "tag": "排除 C", "log": "C In particular（特别是） ✗ 排除——in particular 挑特例，后句是整体结论非特例", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>in particular 用于从一类中<b>挑出特别的例子</b>加以强调。后句谈的是“这些通勤”整体与无交流通勤的比较，没有挑特例的动作。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“递进强调”与“举例强调”混为一谈。</p>"},
+ {"title": "逐项分析 · D In consequence（因此）", "cls": "bad", "tag": "排除 D", "log": "D In consequence（因此） ✗ 排除——因果词要求上文是推导前提，此处是两层陈述", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>in consequence 引出结果，要求上文是原因。但“没人尴尬”与“更愉快”是同一研究的<b>两层并列陈述</b>，不是“因 → 果”的推导。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被表面顺承骗到，把递进补充误判成因果。</p>"},
+ {"title": "结论 · 句间关系与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（In fact 事实上）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>做完实验没人尴尬（底线）；事实上，有交流的通勤据称比无交流的更愉快（更好）——后句补充并强化前句。</b></p><p>答案选 <b>B（In fact 事实上）</b>。</p><p><b>记忆锚点</b>：段首逻辑词先问“前后句什么关系”——补充强调选 in fact；in turn＝因果轮替、in particular＝挑特例、in consequence＝ therefore。</p><p style=\"color:#b91c1c\">最易误选：<b>D（In consequence）</b>——把“递进补充”误判成“因果”。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 完形第 18 空 · “更愉快”是补充强调不是因果——In fact 的递进本色",
+  subtitle: "考点：段首逻辑连接短语辨析（补充强调 vs 因果 / 特例 / 轮替）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（In fact）", "html": "<b>B In fact（事实上）</b>：后句“旅途更愉快”是对前句“没人尴尬”的补充与强调——不止如此，还更好。<br>记忆锚点：逻辑词题先判句间关系；in turn＝因果轮替、in particular＝挑特例、in consequence＝ therefore。<br>最易误选：<b>D（In consequence 因此）</b>——两层陈述被误判成因果链。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 18 空 · "更愉快"是补充强调不是因果——In fact 的递进本色</h2>
+<p>答案：<strong>B（In fact 事实上）</strong>。</p>
+<h3>第 0 步：先立机制——逻辑连接词题先看"前后句的关系"</h3>
+<p>空格在段首，功能是把上一句与后面的整句焊接起来。上一句说：做完实验后"没有一个人报告说尴尬"；空格后说：据称这些通勤旅途比那些无交流的旅途<strong>更令人愉快</strong>（reportedly more enjoyable compared with those without communication）。两句之间没有"前者导致后者"的因果链，也没有"特例"关系，而是<strong>后句在补充、强化前句</strong>：不尴尬只是底线，实际旅途还更愉快。英语里承担"补充说明并强调前话"这一功能的就是 <strong>in fact</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Though the participants didn't expect a positive experience, after they went through with the experiment, "not a single person reported having been embarrassed." __18__, these commutes were reportedly more enjoyable compared with those without communication, ...</blockquote>
+<ul><li>前句（实验结果）：没人尴尬——交流至少没有坏处；</li><li>空格后（更进一步）：有交流的通勤据称<strong>更</strong>愉快——交流还有好处。</li></ul>
+<p>语义走向是"不止如此，还……"：递进、补充、强调，而非因果推导。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义/功能</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A In turn</td><td>相应地；反过来</td><td>✗ 排除</td><td>表示"前者引起后者"或"依次交替"，前句"没人尴尬"并不产生后句"更愉快"</td></tr><tr><td>B In fact</td><td>事实上</td><td>✓ 当选</td><td>用于补充说明、强调前面所说的话："不尴尬"之外还要强调"旅途更愉快"，语义递进</td></tr><tr><td>C In particular</td><td>特别是</td><td>✗ 排除</td><td>引出"特别、需要强调的实例"，后句是整体结论，不是挑出某个特例</td></tr><tr><td>D In consequence</td><td>因此</td><td>✗ 排除</td><td>引出结果，要求上文是原因；但"没人尴尬"与"更愉快"之间无因果推导关系</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>"没人尴尬"难道不是"更愉快"的原因吗？为什么 D 不行？</strong>：因果连接词要求前后是同一推理链上的"因 → 果"。原文两句是实验结果的<strong>两层陈述</strong>：先说底线（不尴尬），再补一层更好的（更愉快），后句的 reportedly（据称）也表明它是在引用研究结果作补充报道，而非由前句推导出来的结论。in fact 恰好表达"再往前推一层、实际情况比你以为的还好"。</li><li><strong>in fact 和 in particular 都是"强调"，差在哪？</strong>：in fact 强调的是<strong>整句话的程度/真实性</strong>（事实上还……）；in particular 强调的是<strong>从一类里挑出一个突出例子</strong>。后句谈的是"这些通勤"整体与无交流通勤的比较，没有"挑特例"的动作。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（In consequence）</strong>：被"不尴尬→更愉快"的表面顺承骗到，把"递进补充"误判成"因果"；因果词要求上文是明确的推导前提。</li><li><strong>误选 A（In turn）</strong>：看到两句一前一后就当成"相应地"，忽略 in turn 的核心义是因果轮替。</li><li><strong>误选 C（In particular）</strong>：把"递进强调"与"举例强调"混为一谈。</li></ul>
+<blockquote>记忆锚点：段首逻辑词先问"前后句什么关系"——补充强调选 in fact；in turn＝因果轮替、in particular＝挑特例、in consequence＝ therefore。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

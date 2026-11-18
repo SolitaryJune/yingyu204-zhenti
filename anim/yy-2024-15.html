@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-15 · 2024 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 15 所在句，考点：句内并列逻辑 + 句际「概述—详述」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you feel like you're always doing something and there is never any __15__ in your calendar for downtime, you could suffer social burnout or social fatigue.</div><p>空格为第 15 空，待填一词。考点：<b>句内并列逻辑 + 句际「概述—详述」</b>；方法主线：and 并列同指 + calendar 语境，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 两条线索夹出「空档」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：两条线索夹出「空档」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>两条线索夹出答案。<b>线索一（句内 and 并列）</b>：If you feel like you're always doing something（总在忙些什么）and there is never any __15__ in your calendar for downtime（日程表里从来没有为闲暇留出任何 ____）——两个从句并列同指：<b>忙 = 没空闲</b>，所以空格名词落在「空档/空白」维度。<b>线索二（语境内证）</b>：in your calendar（日程表）+ for downtime（用于休息放松的时间）——日程表上的「空白」就是没排事项的空档。上句「社交生活过多也有可能」是概述，本句是它的具体化：日程排满、连喘息的空档都没有。</p>"
+ },
+ {
+  "title": "证据 · 「总在忙」与「没空档」互为表里",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：「总在忙」与「没空档」互为表里",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>and 前后互为表里：always doing something（表）→ 日程无空档（里）。下句「饱受社交倦怠」是后果。三句连读：社交过度 → 日程无空档 → 倦怠——空格名词必须让这条链每个环节都咬合。</p>"
+ },
+ {
+  "title": "逐项分析 · A list（列表；清单）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A list（列表；清单） ✗ 排除——看到 calendar 就配 list（日程清单）",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>惯常思维「在日程表上列出待办事项」设障；但「没有为闲暇列出清单」暗示闲暇存在、只是没规划——与「总在忙（没有闲暇）」衔接不上。</p><p style='color:#b91c1c'>⚠ 典型误解：看到 calendar 就配 list（日程清单）——list 指的是「列出来的清单」，矛盾点在于：列清单的前提是有闲暇可列，而句意是根本没有闲暇。</p>"
+ },
+ {
+  "title": "逐项分析 · B order（命令；顺序；条理）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B order（命令；顺序；条理） ✗ 排除——把「失衡」归因到「缺乏条理」",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>惯常思维「日常规划没有条理导致社交失衡」设障；「闲暇时间没有任何条理」同样与「总在忙」接不上——问题本质是没时间，不是没条理。</p><p style='color:#b91c1c'>⚠ 典型误解：把「失衡」归因到「缺乏条理」——句子的落点是「为 downtime 留出量」；order（条理）回答的是「怎么排」，不是「有没有」。</p>"
+ },
+ {
+  "title": "逐项分析 · C space（空白；空档）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C space（空白；空档） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>「日程表上没为休息留出任何空档」= 没时间休息；与「总在忙」并列互证，也与上句「社交过多」和下句「社交倦怠」顺承。</p>"
+ },
+ {
+  "title": "逐项分析 · D boundary（边界；界限）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D boundary（边界；界限） ✗ 排除——中文流行语「工作与生活没有边界」直搬",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>惯常思维「社交与休息没有界限导致倦怠」设障；但 boundary 只能标出「停止社交的时间点」，表达不了「用于休息的时间段」；常用结构 boundary between X and Y 与文中结构也不符。</p><p style='color:#b91c1c'>⚠ 典型误解：中文流行语「工作与生活没有边界」直搬——这里要的是「留给休息的时间段」（量），不是「分界线」（点）；between A and B 的结构在文中也不存在。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（space 空白；空隙；空档）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如果你感觉自己总在忙些什么，日程表里从来没有为休息留出任何空档，你可能就会饱受社交倦怠……</b></p><p>答案选 <b>C（space 空白；空隙；空档）</b>。</p><p><b>记忆锚点</b>：and 并列同指：「总在忙」↔「没空档」→ space；calendar + downtime = 日程空档的语境内证。</p><p style='color:#b91c1c'>最易误选：<b>D（boundary）</b>——「没有边界」的中文流行语直搬；这里要的是留给休息的时间段，不是一条分界线。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 15 空 · there is never any ____ in your calendar for downtime",
+  subtitle: "考点：句内并列逻辑 + 句际「概述—详述」 · and 并列同指 + calendar 语境 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（space）",
+    html: "<b>C space（空白；空隙；空档）</b>。<br>完整句义：如果你感觉自己总在忙些什么，日程表里从来没有为休息留出任何空档，你可能就会饱受社交倦怠……<br>记忆锚点：and 并列同指：「总在忙」↔「没空档」→ space；calendar + downtime = 日程空档的语境内证。<br>最易误选：<b>D（boundary）</b>——「没有边界」的中文流行语直搬；这里要的是留给休息的时间段，不是一条分界线。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 15 空 · 句内并列逻辑 + 句际「概述—详述」</h2>
+<p>答案：<strong>C（space 空白；空隙；空档）</strong>。</p>
+<h3>第 0 步：先立机制——名词题：两条线索夹出「空档」</h3>
+<p>两条线索夹出答案。<strong>线索一（句内 and 并列）</strong>：If you feel like you're always doing something（总在忙些什么）and there is never any __15__ in your calendar for downtime（日程表里从来没有为闲暇留出任何 ____）——两个从句并列同指：<strong>忙 = 没空闲</strong>，所以空格名词落在「空档/空白」维度。<strong>线索二（语境内证）</strong>：in your calendar（日程表）+ for downtime（用于休息放松的时间）——日程表上的「空白」就是没排事项的空档。上句「社交生活过多也有可能」是概述，本句是它的具体化：日程排满、连喘息的空档都没有。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>If you feel like you're always doing something and there is never any __15__ in your calendar for downtime, you could suffer social burnout or social fatigue.</blockquote>
+<p>and 前后互为表里：always doing something（表）→ 日程无空档（里）。下句「饱受社交倦怠」是后果。三句连读：社交过度 → 日程无空档 → 倦怠——空格名词必须让这条链每个环节都咬合。</p>
+<h3>第 2 步：语义对号：space 在日程表上的用法</h3>
+<p>space 意为「空白；空隙」——可指日程表上因没排待办事项而留出的空档：「没有为闲暇时间留出任何空白」即「没有时间休息」，与「总在忙」并列互证。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A list</td><td>列表；清单</td><td>✗ 排除</td><td>惯常思维「在日程表上列出待办事项」设障；但「没有为闲暇列出清单」暗示闲暇存在、只是没规划——与「总在忙（没有闲暇）」衔接不上。</td></tr><tr><td>B order</td><td>命令；顺序；条理</td><td>✗ 排除</td><td>惯常思维「日常规划没有条理导致社交失衡」设障；「闲暇时间没有任何条理」同样与「总在忙」接不上——问题本质是没时间，不是没条理。</td></tr><tr><td>C space</td><td>空白；空档</td><td>✓ 当选</td><td>「日程表上没为休息留出任何空档」= 没时间休息；与「总在忙」并列互证，也与上句「社交过多」和下句「社交倦怠」顺承。</td></tr><tr><td>D boundary</td><td>边界；界限</td><td>✗ 排除</td><td>惯常思维「社交与休息没有界限导致倦怠」设障；但 boundary 只能标出「停止社交的时间点」，表达不了「用于休息的时间段」；常用结构 boundary between X and Y 与文中结构也不符。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>看到 calendar 就配 list（日程清单） → 误选 A（list）</strong>：list 指的是「列出来的清单」，矛盾点在于：列清单的前提是有闲暇可列，而句意是根本没有闲暇。</li><li><strong>把「失衡」归因到「缺乏条理」 → 误选 B（order）</strong>：句子的落点是「为 downtime 留出量」；order（条理）回答的是「怎么排」，不是「有没有」。</li><li><strong>中文流行语「工作与生活没有边界」直搬 → 误选 D（boundary）</strong>：这里要的是「留给休息的时间段」（量），不是「分界线」（点）；between A and B 的结构在文中也不存在。</li></ul>
+<blockquote>记忆锚点：and 并列同指：「总在忙」↔「没空档」→ space；calendar + downtime = 日程空档的语境内证。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

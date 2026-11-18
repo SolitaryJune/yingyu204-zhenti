@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 27 题 · 归因段反向推理：不退休为避开的问题 = 退休可能的坏处</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 27 题 · 归因段反向推理：不退休为避开的问题 = 退休可能的坏处","subtitle":"考点：推理引申题 · 方法：归因 → 反向一步（“为了避开 X” ⇒ “X 是坏处”）（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 归因定位 → 反向推理 → 逐项排除”的推理链。","stemEn":"It can be inferred from Paragraph 3 that Americans tend to think that <b>____</b>.","stemZh":"由第三段可推知，美国人往往认为____。（推理引申题：正确项常是“反向一步”）","quotes":[{"tag":"定位 · 第三段①句","en":"<b>Financial needs aren’t the only culprit</b> for the “unretirement” trend.","zh":"财务需求确实是“不退休”的原因之一（aren’t the only 的否定式表达肯定含义）。"},{"tag":"归因 · 第三段②③句","en":"Other reasons…include personal fulfillment such as <b>staying mentally fit, preventing boredom or avoiding depression</b>. About 72%…would return to work once retired to keep mentally fit while 59% said it would be tied to <b>making ends meet</b>.","zh":"其他原因：保持心理健康、防止无聊、避免抑郁——72% 为心理健康而工作，59% 为维持生计。"}],"opts":[{"k":"A","en":"retirement may cause problems for them.","zh":"退休可能会给他们带来问题","why":"","good":"不退休是为了避开财务困难与心理问题（生计 + 健康）⇒ 反推：退休可能引发这些问题。"},{"k":"B","en":"boredom can be relieved after retirement.","zh":"退休后无聊可以得到缓解","why":"方向拧反——preventing boredom（防止无聊）是不退休的原因，暗含“退休后反而会无聊”，与选项恰好相反。"},{"k":"C","en":"the mental health of retirees is overlooked.","zh":"退休人员的心理健康被忽视了","why":"偷换命题——原文说“一些人为保持心理健康而继续工作”，并未讨论“退休者的心理健康是否被忽视”。"},{"k":"D","en":"“unretirement” contributes to the economy.","zh":"“不退休”利于经济发展","why":"偷换层级——Financial needs / making ends meet 指个人生计，不是“利于宏观经济”；个人动机 ≠ 宏观贡献。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"good"}},{"show":[0,1],"state":{"A":"good","B":"bad"}},{"show":[0,1],"state":{"A":"good","B":"bad","C":"bad"}},{"show":[0,1],"state":{"A":"good","B":"bad","C":"bad","D":"bad"}},{"show":[0,1],"state":{"A":"good","B":"bad","C":"bad","D":"bad"}}],"snaps":[{"cls":"step","tag":"审题","log":"推理引申题，可用排除法：先核对有定位词的 B/C/D，再检验 A 是否由段落主旨反推而来","count":0},{"cls":"shift","tag":"定位①句","log":"Financial needs aren’t the only culprit：财务需求确实是不退休的原因之一","count":0},{"cls":"shift","tag":"归因②③句","log":"其他原因：staying mentally fit / preventing boredom / avoiding depression——为避开心理问题而继续工作；59% 为生计（making ends meet）","count":0},{"cls":"shift","tag":"反向推理","log":"不退休 = 为了避开财务与心理问题 ⇒ 退休可能会带来这些问题 → A","count":0},{"cls":"ok","tag":"选定 A","log":"A retirement may cause problems ✓：由“为避开问题而不退休”合理反推——归因段的镜像结论","count":1,"ribbon":{"k":"A","ok":true}},{"cls":"miss","tag":"排除 B","log":"B boredom relieved ✗：方向拧反——preventing boredom 是继续工作的原因，即不退休才能防止无聊","count":1,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C overlooked ✗：原文是“为了保持心理健康”，没说退休者的心理健康“被忽视”——命题被偷换","count":2,"ribbon":{"k":"C","ok":false}},{"cls":"miss","tag":"排除 D","log":"D economy ✗：Financial needs 是个人生计，不是宏观经济贡献——层级错位","count":3,"ribbon":{"k":"D","ok":false}},{"cls":"done","tag":"结论","log":"答案 A：归因段常考反向推理——reasons for 不做 X = X 的坏处清单；culprit 是反向推理的信号词","count":3,"done":true}],"result":{"big":"答案 A（retirement may cause problems for them）","html":"<b>A</b>：不退休的原因 = <b>财务需求</b>（making ends meet）+ <b>心理健康</b>（staying mentally fit / preventing boredom / avoiding depression）→ 反推：退休可能带来这些问题。<br>B 方向拧反（防止无聊 ≠ 无聊可缓解）；C “被忽视”无据；D 个人生计 ≠ 宏观经济。<br>最易误选：<b>B</b>（boredom 原词复现最诱人——复现词选项要核对逻辑方向）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 27 题——推理引申题：从"避免什么"反推"退休会带来什么"</h2>
+<p>答案：<strong>A（retirement may cause problems for them）</strong>。</p>
+<h3>第一步：先立机制——不退休的理由，反向就是退休的坏处</h3>
+<p>第三段的行文是"归因"：财务需求不是唯一原因，还有个人满足感方面的原因。注意归因的隐含前提——人们<strong>为了避开</strong>这些问题才继续工作。推理引申题的正确项往往就是这"反向一步"：<strong>不退休是为了避免财务或健康问题 → 退休可能引发这些问题</strong>。</p>
+<h3>第二步：定位原文——两类"要避开的问题"</h3>
+<blockquote>Financial needs aren't the only culprit for the "unretirement" trend.</blockquote>
+<blockquote>Other reasons, according to the study, include personal fulfillment such as staying mentally fit, preventing boredom or avoiding depression.</blockquote>
+<ul><li>①句：<strong>财务需求</strong>确实是不退休的原因之一；</li><li>②句：其他原因——<strong>保持心理健康、防止无聊、避免抑郁</strong>（72% 为心理健康继续工作，59% 为维持生计）。</li></ul>
+<p>两类原因指向的问题 = 财务困难 + 心理/情绪问题 → <strong>退休可能会给他们带来这些问题</strong> → A。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A retirement may cause problems for them ✓</strong>：是对"美国人为避开财务与心理问题而不退休"的合理反推。</li><li><strong>B boredom can be relieved after retirement ✗</strong>：方向拧反——<strong>防止无聊</strong>是不退休的原因，暗含"退休后反而无聊"，与选项说的"退休后无聊可以缓解"恰好相反。</li><li><strong>C the mental health of retirees is overlooked ✗</strong>：偷换命题——原文说"一些人为<strong>保持</strong>心理健康而继续工作"，并未讨论"退休者的心理健康是否被忽视"。</li><li><strong>D "unretirement" contributes to the economy ✗</strong>：偷换层级——Financial needs 指个人生计（making ends meet），不是"利于宏观经济"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（最强干扰）</strong>：boredom 一词原词复现，最诱人；复现词选项要核对<strong>逻辑方向</strong>（用来防止 vs 可以缓解）。</li><li><strong>误选 D</strong>：把"个人财务需求"放大成"经济贡献"，层级错位。</li></ul>
+<blockquote>记忆锚点：归因段常考反向推理——reasons for 不做 X = X 的坏处清单；culprit（问题根源）是反向推理的信号词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

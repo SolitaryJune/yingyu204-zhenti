@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-14 · 2011 完形第 14 空 · 带着______完成网上交易——后半句把答案念出来了</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 14 所在句", "cls": "key", "tag": "定位", "log": "定位原文：complete online transactions with __14__, trusting the identities of…", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Mr. Schmidt described it as a “voluntary ecosystem” in which “individuals and organizations can complete online transactions with <b>__14__</b>, trusting the identities of each other…</div><p>with + 抽象名词 = “带着某种心态”完成交易；逗号后的分词短语是命题人留下的<b>注解句</b>。考点：句内语义 + 分词注解。</p>"}, {"title": "找证据 · trusting 就是空格词的替身", "cls": "key", "tag": "证据", "log": "找证据：trusting the identities —— 空格名词 ≈ trust → confidence", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…trusting the identities of each other and the identities of the infrastructure on which the transaction runs.</div><p>交易的底气来自“信任身份”：空格名词是 trust 的名词化表达 → <b>confidence</b>（信心、信任）。</p>"}, {"title": "逐项分析 · C confidence（信心，信任）", "cls": "good", "tag": "选定 C", "log": "C confidence（信心） ✓ 当选——with confidence 与 trusting 同义注解", "count": 1, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>with confidence“放心大胆地”：信任彼此身份 → 放心完成交易，与 trusting 严丝合缝。</p>"}, {"title": "逐项分析 · A caution（小心，谨慎）", "cls": "bad", "tag": "排除 A", "log": "A caution ✗ 排除——“小心翼翼”与 trusting 方向相反", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>小心翼翼恰恰说明不信任，与分词 trusting 针锋相对。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“网上交易要谨慎”的生活常识错置进原文。</p>"}, {"title": "逐项分析 · B delight（高兴，愉快）", "cls": "bad", "tag": "排除 B", "log": "B delight ✗ 排除——愉快是结果情绪，不是“信任”带来的底气", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>注解句的关键词是 trust，不是“高兴”；delight 与 trusting 不构成注解关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：情绪词乱配。</p>"}, {"title": "逐项分析 · D patience（耐心）", "cls": "bad", "tag": "排除 D", "log": "D patience ✗ 排除——全文没有“等待/耗时”话题", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>patience 针对“等待、耗时”，凭空引入不存在的话题。</p><p style=\"color:#b91c1c\">⚠ 典型误解：与交易流程的模糊联想。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（confidence 信心）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>个人与组织可以放心地完成网上交易——信任彼此的身份以及基础设施的身份。</b></p><p>答案选 <b>C（confidence 信心，信任）</b>。</p><p><b>记忆锚点</b>：with + 名词说心态 → 找逗号后的分词注解；trusting → with confidence；caution 与 trust 反向、delight 是结果情绪、patience 是等待。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 14 空 · 带着______完成网上交易——后半句把答案念出来了",
+  subtitle: "考点：句内语义（名词）+ 分词短语的同义注解 · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（confidence）", "html": "<b>C confidence（信心，信任）</b>：逗号后 trusting the identities 是命题人留下的注解——空格名词即 trust 的名词化。<br>记忆锚点：with 短语说心态 → 找分词注解。<br>最易误选：<b>A（caution）</b>——常识绑架，与 trusting 反向。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 14 空 · 带着______完成网上交易——后半句把答案念出来了</h2>
+<p>答案：<strong>C（confidence 信心，信任）</strong>。</p>
+<h3>第 0 步：先立机制——with 短语说心态，逗号后面的分词是注解</h3>
+<p>空格在 with ___ 结构里：with + 抽象名词 = “带着某种心态”完成交易（complete online transactions with ___）。命题人在这类空后面几乎必留注解——本句逗号后的分词短语 trusting the identities of each other and the infrastructure（信任彼此的身份与基础设施的身份）就是对空格名词的<strong>直接展开</strong>：先信任，才有底气完成交易。所以本空的关键动作是把“注解句”和“空格”对上号。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Mr. Schmidt described it as a "voluntary ecosystem" in which "individuals and organizations can complete online transactions with __14__, trusting the identities of each other and the identities of the infrastructure on which the transaction runs."</blockquote>
+<p>个人与组织能带着______完成网上交易——因为他们在信任彼此的身份。</p>
+<h3>第 2 步：找证据——trusting 就是空格词的替身</h3>
+<blockquote>…trusting the identities of each other and the identities of the infrastructure on which the transaction runs.</blockquote>
+<p>分词 trusting（信任）给了空格词一个明示：交易的底气来自“信任身份”。空格名词 ≈ trust 的名词化表达 → <strong>confidence</strong>（信心、信任）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C confidence</td><td>信心，信任</td><td>✓ 当选</td><td>with confidence“放心大胆地”，与分词 trusting 构成同义注解：信任彼此身份 → 放心完成交易。</td></tr><tr><td>A caution</td><td>小心，谨慎</td><td>✗ 排除</td><td>方向相反：小心翼翼恰恰说明不信任；与 trusting 矛盾。（典型误解：把“网上交易要谨慎”的生活常识错置进原文。）</td></tr><tr><td>B delight</td><td>高兴，愉快</td><td>✗ 排除</td><td>愉快是交易达成后的情绪结果，不是“信任身份”带来的那种底气；与 trusting 不构成注解关系。（典型误解：觉得网上交易成功令人愉悦。）</td></tr><tr><td>D patience</td><td>耐心</td><td>✗ 排除</td><td>耐心针对“等待、耗时”，全文没有交易快慢与等待的话题。（典型误解：与交易流程的模糊联想。）</td></tr></tbody></table>
+<p>代入后的完整句义：施密特将其描述为一个“自愿生态系统”，个人与组织可以放心地（带着信心）完成网上交易——信任彼此的身份以及交易所依托的基础设施的身份。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>caution“谨慎”不是网上交易该有的态度吗？</strong>：是生活常识，不是<strong>本句</strong>给的证据。完形只认句内线索：trusting 明确说他们在信任，不是在提防。</li><li><strong>confidence 的“信心”和“信任”两个义项哪个在起作用？</strong>：这里的核心是“信任他人身份带来的底气”，与 trusting 的呼应走的是“信任”义；with confidence 字面即“放心地”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（caution）</strong>：被常识绑架，没看到 trusting 与“谨慎”在语义上针锋相对。</li><li><strong>误选 B（delight）</strong>：情绪词乱配，忽略了注解句的关键词是 trust。</li><li><strong>误选 D（patience）</strong>：凭空引入“等待”话题。</li></ul>
+<blockquote>记忆锚点：with + 名词说心态 → 找逗号后的分词注解；trusting the identities → with confidence；caution 与 trust 反向、delight 是结果情绪、patience 是等待话题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

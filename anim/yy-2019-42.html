@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-42 新题型匹配：Adam Bailey——要参与感，不给选择权</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：42 · Adam Bailey（房地产律师）',
+  'body':'<p>新题型机制：<b>人名是锚点</b>，锚点后的观点句与引语才是候选；匹配成立看<b>系统的同义替换</b>与"程度限定"。</p><p>Adam Bailey 锚定第七、八段——本题机关藏在一个<b>让步结构</b>里。</p>',
+  'log':'审题：人名锚点 Adam Bailey → 第七、八段'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第七段主张 + 第八段操作办法',
+  'body':'<div class="qq"><b>第七段：</b>Younger children should <b>feel like they\'re choosing their home</b> – <b>without actually getting a choice in the matter</b>, said <b>Adam Bailey</b>.<span class="cn">（小孩子应该"感觉"是自己在选房——但实际上并不给他们选择权。）</span></div><div class="qq"><b>第八段：</b>Asking them questions about what they like about the backyard of a potential home will <b>make them feel like they\'re being included in the decision-making process</b>, Bailey said.<span class="cn">（问他们喜欢潜在住宅后院的什么，会让他们"感觉"被纳入决定过程。）</span></div>',
+  'log':'定位：Bailey 主张"要参与的感觉，不给实际选择权"'},
+ {'cls':'','ecs':'step','tag':'拆句','count':0,
+  'title':'拆句：without actually getting a choice 是机关',
+  'body':'<table class="aw-mini"><tr><th>成分</th><th>内容</th><th>读法</th></tr><tr><td>主句</td><td>should feel like they\'re choosing their home</td><td>要"感觉"</td></tr><tr><td>破折号让步</td><td>without actually getting a choice</td><td>不给"实权"</td></tr><tr><td>第八段操作</td><td>feel like they\'re being included</td><td>参与感，被纳入</td></tr></table><p>两段一个声音：<b>给参与感、不给决定权</b>——这正是 D 中 a sense of involvement 的分量。</p>',
+  'log':'拆句：要"感觉"、不给"实权" = a sense of involvement'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：be given a sense of involvement',
+  'body':'<table class="aw-mini"><tr><th>选项 D</th><th>原文</th></tr><tr><td><b>be given a sense of involvement</b></td><td>feel like they\'re choosing / feel like they\'re being included</td></tr><tr><td><b>homebuying decisions</b></td><td>the decision-making process（choosing their home）</td></tr></table>',
+  'log':'替换：sense of involvement ← feel like... included'},
+ {'cls':'good','ecs':'ok','tag':'锁定 D','count':1,'ribbon':{'k':4,'ok':true},
+  'title':'锁定 D：给孩子购房决定中的参与感',
+  'body':'<p><b>D · thinks that children should be given a sense of involvement in homebuying decisions.</b><span class="ok-dot"> ✓</span></p><p>"参与感"三字精准复刻 feel like... without actually getting a choice 的<strong>程度差</strong>。</p>',
+  'log':'锁定 D：Bailey = 参与感（不给实权）'},
+ {'cls':'bad','ecs':'miss','tag':'辨析 C/F','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'辨析 C / F：观点不串门',
+  'body':'<p><b>C · 购房不应只基于孩子的意见</b><span class="bad-dot"> ✗</span>——那是 <b>Tracey Hampson</b> 的原话（wouldn\'t base... solely on their opinions），张冠李戴。</p><p><b>F · 基于孩子的需要而非意见</b><span class="bad-dot"> ✗</span>——那是 <b>Julie Gurner</b> 的结论。Bailey 谈"参与感"这个<b>手段</b>，Gurner 谈"按需求决定"这个<b>原则</b>。E 则属于未被编号的 Jaroszewski。</p>',
+  'log':'辨析：C 是 Hampson 的，F 是 Gurner 的，Bailey 只谈参与感'},
+ {'cls':'good','ecs':'done','tag':'结论','count':2,
+  'title':'结论：42 选 D',
+  'body':'<p><b>42 → D</b>——without actually getting a choice = 只要"参与感"（a sense of involvement）。</p><p>记忆锚点：匹配题盯紧程度限定；引语认人，观点不可串门。</p>',
+  'log':'结论：Adam Bailey → D，答案 D'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-42 · 新题型匹配：Adam Bailey 的观点",
+  subtitle: "考点：Text5（买房与孩子）观点匹配 · 方法：人名锚点 → 让步结构读程度差",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 匹配 / ✗ 落选）",
+  intro: "点击「▶ 播放」逐步展开：人名定位 → 拆让步结构 → 同义替换 → 干扰项辨析。",
+  snaps: snaps,
+  result: {
+    big: "42 → D",
+    html: "<b>程度限定是机关</b>：feel like they\'re choosing – <b>without actually getting a choice</b> = 只要参与感、不给实权 → <b>be given a sense of involvement</b>。C 是 Hampson 的，F 是 Gurner 的，观点不串门。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——"参与感"与"选择权"的一字之差（Adam Bailey）</h2>
+<p>答案：<strong>D（thinks that children should be given a sense of involvement in homebuying decisions）</strong>。</p>
+<h3>第 0 步：先立机制——人名锚点 + 让步结构读出"程度差"</h3>
+<p>Adam Bailey 锚定第七、八段。第七段是本题机关：Younger children should feel like they're choosing their home – <strong>without actually getting a choice in the matter</strong>。破折号后是让步限定：<strong>要"感觉"，不给"实权"</strong>。第八段给操作办法：问孩子喜欢潜在住宅后院的什么，让他们 feel like they're being included in the decision-making process（感觉被纳入决定过程）。两段一个声音：<strong>给参与感，不给决定权</strong>——这正是 D 中 a sense of involvement 的分量。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Younger children should feel like they're choosing their home – without actually getting a choice in the matter, said Adam Bailey...<br/>Asking them questions about what they like about the backyard of a potential home will make them feel like they're being included in the decision-making process, Bailey said.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 D</th><th>原文</th></tr></thead><tbody><tr><td>be given a sense of involvement</td><td>feel like they're choosing / feel like they're being included</td></tr><tr><td>homebuying decisions</td><td>the decision-making process（choosing their home）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>C（购房不应只基于孩子的意见）</strong>：那是 <strong>Tracey Hampson</strong> 的原话（wouldn't base the purchasing decision solely on their opinions）——把甲的观点挂到乙名下，张冠李戴。</li><li><strong>F（应基于孩子的需要而非意见）</strong>：那是 <strong>Julie Gurner</strong> 的结论。Bailey 谈的是"参与感"这个<strong>手段</strong>，Gurner 谈的是"按需求决定"这个<strong>原则</strong>，不可混装。</li><li><strong>E（应考虑朋友与社交活动）</strong>：未被编号的 Greg Jaroszewski 的观点。</li></ul>
+<blockquote>记忆锚点：匹配题盯紧程度限定——without actually getting a choice = 只要参与感（a sense of involvement）；引语认人，观点不串门。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

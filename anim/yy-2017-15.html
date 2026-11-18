@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-15 · 工作的____可能被夸大了：A model / B practice / C virtue / D hardship</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：may be a bit overblown 评价的宾语中心；考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today, the <b>__15__</b> of work may be a bit overblown.</div><p>空 15 是 the __ of work 的中心名词，被谓语 may be a bit overblown（被夸大）评价。</p>"
+ },
+ {
+  "title": "立机制 · overblown 要求宾语中心有“程度属性”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：先查“能否被夸大”（程度属性）→ model/practice 出局",
+  "body": "<p>overblown（夸大、过分渲染）说“某事物被说得过了头”。能被“夸大”的东西，本身必须带<b>好坏程度</b>（好处被夸大、坏处被夸大）。model（模式）、practice（实践）没有程度属性，先出局；剩下的判断交给下文引语。</p>"
+ },
+ {
+  "title": "找证据 · 引语反向证明“工作没那么好”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：引语数落工作弊端 → 反证“好处被夸大”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">“Many jobs are boring, degrading, unhealthy, and a waste of human potential,” says John Danaher.</div><p>引语列举工作的<b>弊端</b>：枯燥、有失体面、有害健康、浪费人类潜能。作者引用它是为了支撑本句“工作的<b>好处</b>也许被夸大了”——被夸大的只能是 virtue（优点）；若是“困难被夸大”，引语就该说“工作没那么苦”，正好相反。</p>"
+ },
+ {
+  "title": "逐项分析 · A model（模式）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A model（模式）✗ 排除",
+  "body": "<p><b>排除。</b>无好坏程度，谈不上“夸大”。</p>"
+ },
+ {
+  "title": "逐项分析 · B practice（实践）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B practice（实践）✗ 排除",
+  "body": "<p><b>排除。</b>同样无程度属性，与 overblown 配不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：不检查“能否被夸大”，凭常见度硬选。</p>"
+ },
+ {
+  "title": "逐项分析 · C virtue（优点）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C virtue（优点）✓ 当选",
+  "body": "<p><b>当选。</b>“工作的优点被夸大”，引语列举弊端正是反证，也为下文“无工作的好处”铺垫。</p>"
+ },
+ {
+  "title": "逐项分析 · D hardship（困难）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D hardship（困难）✗ 排除",
+  "body": "<p><b>排除。</b>若“工作的困难被夸大”，下文应论证“工作没那么难”，与引语矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“枯燥辛苦”就近配 hardship。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（virtue 优点）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>如今，工作带来的好处也许有点被夸大了。</b></p><p>答案选 <b>C（virtue 优点）</b>。</p><p><b>记忆锚点</b>：overblown 的对象必须有程度属性；引语列举弊端 = “好处被夸大”的反证。the virtue of work ↔ 工作之利。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（hardship）：方向错了：引语在数落工作的“坏”，反衬的是“好处被夸大”，不是“坏处被夸大”。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 15 空 · 工作的____可能被夸大了：A model / B practice / C virtue / D hardship",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 C（virtue 优点）",
+ "html": "<b>C virtue（优点）</b>。<br>记忆锚点：overblown 的对象必须有程度属性；引语列举弊端 = “好处被夸大”的反证。the virtue of work ↔ 工作之利。<br>最易误选：<b>D（hardship）</b>——方向错了：引语在数落工作的“坏”，反衬的是“好处被夸大”，不是“坏处被夸大”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 15 空 · 工作的____可能被夸大了</h2>
+<p>答案：<strong>C（virtue 优点）</strong>。</p>
+<h3>第 0 步：先立机制——overblown（夸大）要求宾语中心有“程度属性”</h3>
+<p>Today, the __15__ of work may be a bit overblown：overblown 说“某事物被说得过了头”。能被“夸大”的东西，本身必须带<strong>好坏程度</strong>（好处被夸大、坏处被夸大）。model（模式）、practice（实践）没有程度属性，先出局；剩下的判断交给下文引语。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Today, the __15__ of work may be a bit overblown. "Many jobs are boring, degrading, unhealthy, and a waste of human potential," says John Danaher, a lecturer at the National University of Ireland in Galway.</blockquote>
+<h3>第 2 步：找证据——引语反向证明“工作没那么好”</h3>
+<p>引语列举工作的弊端：枯燥、有失体面、有害健康、浪费人类潜能。作者引用它，是为了支撑本句“工作的<strong>好处</strong>也许被夸大了”——被夸大的只能是 virtue（优点）。若是“困难被夸大”，引语就该说“工作没那么苦”，正好相反。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A model</td><td>模式</td><td>✗ 排除</td><td>无好坏程度，谈不上“夸大”。</td></tr><tr><td>B practice</td><td>实践</td><td>✗ 排除</td><td>同样无程度属性，与 overblown 配不上。（典型误解：不检查“能否被夸大”，凭常见度硬选。）</td></tr><tr><td>C virtue</td><td>优点</td><td>✓ 当选</td><td>“工作的优点被夸大”，引语列举弊端正是反证，也为下文“无工作的好处”铺垫。</td></tr><tr><td>D hardship</td><td>困难</td><td>✗ 排除</td><td>若“工作的困难被夸大”，下文应论证“工作没那么难”，与引语矛盾。（典型误解：见“枯燥辛苦”就近配 hardship。）</td></tr></tbody></table>
+<p>代入后的完整句义：如今，工作带来的好处也许有点被夸大了。</p>
+<h3>预判追问</h3>
+<ul><li><strong>hardship 也是程度词，为什么不行？</strong>：方向错了。引语在数落工作的<strong>坏</strong>——只有“好处被夸大”才需要用坏处来反衬；若主张“坏处被夸大”，下文应列举工作的好，引语却相反。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（hardship）</strong>：把“工作的坏”当成“被夸大的坏”，没注意引语的功能是反衬本句论点。</li></ul>
+<blockquote>记忆锚点：overblown 的对象必须有程度属性；引语列举弊端 = “好处被夸大”的反证。the virtue of work ↔ 工作之利。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

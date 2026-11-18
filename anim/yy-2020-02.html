@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-02 · 2020 完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 2 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 2 空所在句，考点：句间语义逻辑 + 副词短语辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A calm, rule-following child might respond better to a different sort of parenting than, __2__ , a younger sibling.</div><p>空格是两个逗号夹住的插入语，嵌在比较结构 better...than... 的中间——插入语的位置先行锁定：能放这里的只有起衔接作用的副词短语。</p>"
+ },
+ {
+  "title": "梳理逻辑 · \"结论 → 个例\"的总分关系",
+  "cls": "key",
+  "tag": "梳理",
+  "log": "上句结论、本句个例：大孩子与小弟弟妹妹正是\"反应不同\"的具体实例——插入语表举例",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">children respond differently to the same style of parenting. → A calm, rule-following child might respond better ... than, __2__ , a younger sibling.</div><p>上句：宽泛结论（孩子反应各不相同）→ 本句：大孩子 vs 小弟弟妹妹（具体实例）。结论落实例，插入语 = 举例。</p>"
+ },
+ {
+  "title": "逐项分析 · A in addition（此外，另外）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A in addition（此外，另外） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表并列：in addition 前后须是各自完整、互为补充的两条信息（且位于句中时前面常由 and、but 引出）；本句 better...than... 是同一比较的两半，拆不成两条并列信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到\"又出现一个孩子\"就当并列——其实两个孩子是同一实例里的一对对照。</p>"
+ },
+ {
+  "title": "逐项分析 · B for example（例如）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B for example（例如） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>上句抽象结论、本句具体个例，插入语表举例；..., for example, ... 正是标准的插入位置。</p>"
+ },
+ {
+  "title": "逐项分析 · C at once（立刻，马上；同时）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C at once（立刻，马上；同时） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表时间：respond better 说的是普遍状况，与\"短时间内发生\"或\"同时发生\"无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把插入语当时间状语，未先判断句间关系。</p>"
+ },
+ {
+  "title": "逐项分析 · D by accident（偶然地，意外地）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D by accident（偶然地，意外地） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表方式：孩子的不同反应是常态而非偶然事件，语义不沾边。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（for example 例如）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>比如说，一个安静、守规矩的孩子可能比年幼的弟弟妹妹对另一种育儿方式反应更好。</b></p><p>答案选 <b>B（for example 例如）</b>。</p><p><b>记忆锚点</b>：抽象结论 + 具体个例 → 举例；插入语 ..., for example, ...；in addition 前后要各自完整。</p><p style=\"color:#b91c1c\">最易误选：<b>A（in addition）</b>——把\"实例中的对照双方\"误当\"并列补充的两条信息\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 2 空 · 上句结论、本句实例——插入语位置锁定举例",
+  subtitle: "考点：句间语义逻辑 + 副词短语辨析 · 定位 → 梳理逻辑 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 梳理逻辑 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（for example）",
+ "html": "<b>B for example（例如）</b>。<br>完整句义：比如说，一个安静、守规矩的孩子可能比年幼的弟弟妹妹对另一种育儿方式反应更好。<br>记忆锚点：抽象结论 + 具体个例 → 举例；插入语 ..., for example, ...；in addition 前后要各自完整。<br>最易误选：<b>A（in addition）</b>——把\"实例中的对照双方\"误当\"并列补充的两条信息\"。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 2 空 · 上句结论、本句实例——插入语位置锁定举例</h2>
+<p>答案：<strong>B（for example 例如）</strong>。</p>
+<h3>第 0 步：先立机制——插入语负责"句间关系"，先看本句在段中的角色</h3>
+<p>先摆关系再选词。上一句刚给出宽泛结论——children respond differently to the same style of parenting（不同孩子对同一种育儿方式反应不同）；本句立刻落到具体的一对对象上：安静守规矩的大孩子 vs 年幼的弟弟妹妹。这就是典型的"抽象结论 → 具体个例"的展开方式：个例是拿来说明结论的，所以插入语要表"举例"。再看结构：better...than... 是同一比较的两端，前后两半合起来才完整，既拆不成两条并列信息，也没有"时间""方式"的语义空间——四个方向里只剩"举例"可选。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>A calm, rule-following child might respond better to a different sort of parenting than, __2__ , a younger sibling.</blockquote>
+<p>空格是两个逗号夹住的插入语，嵌在比较结构 better...than... 的中间——插入语的位置先行锁定：能放这里的只有起衔接作用的副词短语。</p>
+<h3>第 2 步：梳理逻辑——"结论 → 个例"的总分关系</h3>
+<ul><li><strong>上句</strong>：宽泛结论（孩子反应各不相同）；</li><li><strong>本句</strong>：具体实例（大孩子 vs 小弟弟妹妹，同一对父母的两个孩子）；</li><li><strong>插入语位置</strong>：两个逗号之间，前后是同一个比较结构 better...than... 的两半——既非并列的两条信息，也无时间、方式的语义空间。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A in addition</td><td>此外，另外</td><td>✗ 排除</td><td>表并列：in addition 前后须是各自完整、互为补充的两条信息（且位于句中时前面常由 and、but 引出）；本句 better...than... 是同一比较的两半，拆不成两条并列信息。（典型误解：看到"又出现一个孩子"就当并列——其实两个孩子是同一实例里的一对对照。）</td></tr><tr><td>B for example</td><td>例如</td><td>✓ 当选</td><td>上句抽象结论、本句具体个例，插入语表举例；..., for example, ... 正是标准的插入位置。</td></tr><tr><td>C at once</td><td>立刻，马上；同时</td><td>✗ 排除</td><td>表时间：respond better 说的是普遍状况，与"短时间内发生"或"同时发生"无关。（典型误解：把插入语当时间状语，未先判断句间关系。）</td></tr><tr><td>D by accident</td><td>偶然地，意外地</td><td>✗ 排除</td><td>表方式：孩子的不同反应是常态而非偶然事件，语义不沾边。</td></tr></tbody></table>
+<p>代入后的完整句义：比如说，一个安静、守规矩的孩子可能比年幼的弟弟妹妹对另一种育儿方式反应更好。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>in addition 不也表示"再补充一个对象"吗？</strong>：in addition 引出的两项必须各自完整、互为补充；本句的比较 better...than... 前后两半合起来才是一句完整的话，是同一信息的两端，不是两条并列信息。另外 in addition 位于句中时，前面通常要由 and、but 等连词引出。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（in addition）</strong>：把"实例中的对照双方"误当"并列补充的两条信息"。</li></ul>
+<blockquote>记忆锚点：抽象结论 + 具体个例 → 举例；插入语 ..., for example, ...；in addition 前后要各自完整。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

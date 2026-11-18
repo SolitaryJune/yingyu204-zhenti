@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-05 · 2023 完形第 5 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 5 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 5 所在句，考点：上下文语义 + 句内语义 + 形容词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Prior to forming a growth team, the software company BitTorrent had 50 employees working in the __5__ departments of engineering, marketing and product development.</div><p>新旧对照模型：上段立“新”（跨部门增长团队），本段 Prior to 拉回“之前”——空格形容词给工程、营销、产品开发三个老部门的性质定性。</p>"
+ },
+ {
+  "title": "找证据 · 旧格局长期存在并曾长期有效",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：长期存在、曾经有效 → 排除“临时/边缘”，指向“传统”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This brought them good results until 2012, when their growth plateaued.</div><p>下句 This brought them good results until 2012：这套部门格局长期存在、曾经有效。能同时概括“旧格局 + 长期存在”的是 traditional；与上段跨部门“新团队”形成新 vs 旧对照。</p>"
+ },
+ {
+  "title": "逐项分析 · A identical（完全相同的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A identical（完全相同的） ✗ 排除——“一模一样的部门”不合常理",
+  "body": "<p><b>排除。</b>the identical departments of engineering, marketing and product development 会被读成“（各公司）完全一模一样的部门”。中文思维里“每家公司都有这几个部门”容易滑向 identical，但它强调“完全同一”，不是“都常见”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“各公司都普遍设有”误译成 identical 的“完全相同”</p>"
+ },
+ {
+  "title": "逐项分析 · B marginal（不重要的；边缘的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B marginal（不重要的；边缘的） ✗ 排除——工程部是软件公司的核心，绝非边缘；文中亦无重要性比较",
+  "body": "<p><b>排除。</b>考生容易拿增长团队作参照贬低旧部门：“与专注增长的新团队相比，工程部等是次要部门”。但文中没有比较二者重要性，且常识上工程部对软件公司必不可少。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿“新团队更重要”的主观参照系，给老部门贴“边缘”标签</p>"
+ },
+ {
+  "title": "逐项分析 · C provisional（暂时的；临时的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C provisional（暂时的；临时的） ✗ 排除——临时部门与下文“长期有效”（good results until 2012）矛盾",
+  "body": "<p><b>排除。</b>provisional departments = 临时组建的部门。但下句 This brought them good results until 2012 明确说这套格局运转多年、直到 2012 年才遇到瓶颈——临时性无从谈起。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 Prior to（在……之前）误读成“临时顶替”的时间感</p>"
+ },
+ {
+  "title": "逐项分析 · D traditional（传统的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D traditional（传统的） ✓ 当选",
+  "body": "<p><b>当选。</b>traditional departments of engineering, marketing and product development 概括了“组建增长团队之前”的组织形态——三个职能部门的传统划分，与上段“成员来自不同部门”的增长团队构成新 vs 旧对照，也与 Prior to 的时间指向严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（traditional 传统的；长期存在的）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>在组建增长团队之前，软件公司 BitTorrent 的 50 名员工工作于传统的工程部、市场营销部及产品开发部</b>（traditional 与上段“跨部门新团队”构成新旧对照）。</p><p>答案选 <b>D（traditional 传统的；长期存在的）</b>。</p><p><b>记忆锚点</b>：Prior to + 新概念 → 之前的状态 = traditional；traditional departments of A, B and C = 各自为政的传统部门；下句的持续时间（until 2012）帮形容词验货。</p><p style=\"color:#b91c1c\">最易误选：<b>C（provisional）</b>——把 Prior to（在……之前）误读成“临时顶替”的时间感</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 5 空 · “the ____ departments of engineering…”该填哪个形容词",
+  subtitle: "考点：上下文语义 + 句内语义 + 形容词辨析 · 新旧对照",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（traditional）", "html": "<b>D traditional（传统的；长期存在的）</b>。<br>完整句义：在组建增长团队之前，软件公司 BitTorrent 的 50 名员工工作于传统的工程部、市场营销部及产品开发部。<br>记忆锚点：Prior to + 新概念 → 之前的状态 = traditional；traditional departments of A, B and C = 各自为政的传统部门；下句的持续时间（until 2012）帮形容词验货。<br>最易误选：<b>C</b>——把 Prior to 的“之前”误读成“临时”，又没核对下文的长期有效"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：上下文语义 + 形容词辨析——“新旧对照”框架里的部门</h2>
+<p>答案：<strong>D（traditional 传统的；长期存在的）</strong>。</p>
+<h3>第 0 步：先立框架——“新概念登场，之前必是旧世界”的对照模型</h3>
+<p>上段刚立起增长团队的“新”：成员来自公司内<strong>不同部门</strong>（跨部门协作是新组织形态）。本段 Prior to forming a growth team 把时间拉回“组建之前”。模型：完形里新事物登场前后必有对照——<strong>之前的状态就是“旧/传统”</strong>。engineering、marketing、product development 各管一摊、彼此独立，正是企业最典型的传统部门格局。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>Prior to forming a growth team, the software company BitTorrent had 50 employees working in the __5__ departments of engineering, marketing and product development.</blockquote>
+<p>Prior to forming a growth team（在组建增长团队之前）自带对照方向：与“增长团队”相对的旧模式。再看下句 This brought them good results until 2012——这套格局“长期存在且带来不错成效”，说明它既不临时、也不边缘、更谈不上与谁“一模一样”，四选一里能同时装下“旧格局 + 长期存在”的只有 traditional。</p>
+<blockquote>This brought them good results until 2012, when their growth plateaued.（下句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A identical</td><td>完全相同的</td><td>❌ 排除</td><td>“一模一样的部门”不合常理</td></tr><tr><td>B marginal</td><td>不重要的；边缘的</td><td>❌ 排除</td><td>工程部是软件公司的核心，绝非边缘；文中亦无重要性比较</td></tr><tr><td>C provisional</td><td>暂时的；临时的</td><td>❌ 排除</td><td>临时部门与下文“长期有效”（good results until 2012）矛盾</td></tr><tr><td>D traditional</td><td>传统的</td><td>✅ 当选</td><td>新旧对照的落点：跨部门新团队 vs 各自为政的传统三部门</td></tr></tbody></table>
+<p>代入全句：<strong>在组建增长团队之前，软件公司 BitTorrent 的 50 名员工工作于传统的工程部、市场营销部及产品开发部</strong>（traditional 与上段“跨部门新团队”构成新旧对照）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（identical 完全相同的）</strong>：把“各公司都普遍设有”误译成 identical 的“完全相同”。the identical departments of engineering, marketing and product development 会被读成“（各公司）完全一模一样的部门”。中文思维里“每家公司都有这几个部门”容易滑向 identical，但它强调“完全同一”，不是“都常见”。</li><li><strong>误选 B（marginal 不重要的；边缘的）</strong>：拿“新团队更重要”的主观参照系，给老部门贴“边缘”标签。考生容易拿增长团队作参照贬低旧部门：“与专注增长的新团队相比，工程部等是次要部门”。但文中没有比较二者重要性，且常识上工程部对软件公司必不可少。</li><li><strong>误选 C（provisional 暂时的；临时的）</strong>：把 Prior to（在……之前）误读成“临时顶替”的时间感。provisional departments = 临时组建的部门。但下句 This brought them good results until 2012 明确说这套格局运转多年、直到 2012 年才遇到瓶颈——临时性无从谈起。</li></ul>
+<blockquote>记忆锚点：Prior to + 新概念 → 之前的状态 = traditional；traditional departments of A, B and C = 各自为政的传统部门；下句的持续时间（until 2012）帮形容词验货。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

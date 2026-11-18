@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-41</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>左列人名 <b>Sue Rexford</b>（某中学大学升学指导主任）。多项匹配打法：人名当导航——先扫选项抓\"话题词\"定备选，再回原文找该人物的话，比对<b>核心义</b>而不只是词面。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "选项初筛（备选 C / F）",
+    "body": "<p>C 项 <code>too many activities / hardly a plus</code>（活动太多不算加分）、F 项 <code>uncommon activities / determination and dedication</code>（非常规活动显决心）都带\"投入多少/强度\"的味道——先标记 C、F，进原文裁决。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第三、四段）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · …says it is <b>not necessary</b> for a student…to <b>list 10 activities</b>… \"No college will expect that a student has a <b>huge laundry list</b> of extracurriculars that they have been passionately involved in each for an extended period of time.\"</p><p>Rexford 两句话一个意思：列满 10 项没必要；没有大学会期待一份超长的活动清单。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ C",
+    "body": "<p>C 项 <code>Undertaking too many extracurricular activities will hardly be seen as a plus by colleges</code>：too many = 10 activities / huge laundry list；hardly be seen as a plus = not necessary / No college will expect。核心义严丝合缝。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 F：观点归属错人",
+    "body": "<p>F 项\"非常规活动展现决心与专注\"——determination and dedication 看着像段中 passionately involved…for an extended period？不对：F 说的是 <b>uncommon activities + serious commitment</b>，那是第九段 Joseph（Adegboyega-Edun）的观点，张冠李戴到 Rexford 头上。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>C（Undertaking too many extracurricular activities will hardly be seen as a plus by colleges）</b>。口诀：长得像的备选项比\"话题落点\"——一个说数量多，一个说坚持久。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 新题型 · 第 41 题：Sue Rexford 的观点",
+  "subtitle": "考点：多项匹配 · 人名导航 → 备选项辨析（C/F）",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 C",
+    "html": "记忆锚点：Rexford ⇒ <b>10 activities / huge laundry list ⇒ too many ⇒ hardly a plus</b>。F 的\"决心专注\"属于第九段 Joseph 的 serious commitment——备选项 C/F 靠落点分家：<b>数量 ≠ 决心</b>。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 新题型第 41 题 · Sue Rexford 的观点</h2>
+<p>答案：<strong>C（Undertaking too many extracurricular activities will hardly be seen as a plus by colleges 参加太多课外活动几乎不会被大学视为加分项）</strong>。</p>
+<h3>第 0 步：先立机制——多项匹配 = 备选先行 + 核心义裁决</h3>
+<p>左列是人名，右列是七个观点句（含两个多余项）。本题打法：拿人名当导航回原文找到"他的话"，再拿<strong>话题词</strong>扫选项定出备选，最后比核心义。41 题的备选组合是 <strong>C / F</strong>——两个选项都沾"投入量"的味道，必须靠"话题落点"分家。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...says it is <strong>not necessary</strong> for a student filling out the Common Application to <strong>list 10 activities</strong>... "No college will expect that a student has a <strong>huge laundry list</strong> of extracurriculars that they have been passionately involved in each for an extended period of time."</blockquote>
+<p>Rexford 两句话一个意思：申请表上列满 10 项没必要；没有大学会期待一份超长活动清单。</p>
+<h3>第 2 步：同义替换对上 C</h3>
+<p>too many = 10 activities / huge laundry list（"满满一长串"）；hardly be seen as a plus = not necessary / No college will expect（大学不买账）。C 项是对 Rexford 观点的概括改写，当选。</p>
+<h3>第 3 步：排除 F（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>F Engaging in uncommon activities can demonstrate students' determination and dedication</td><td>✗</td><td>F 的落点是"<strong>非常规活动</strong>展现决心与专注"，对应第九段 Joseph 的 unconventional extracurricular activities + <strong>serious commitment</strong>——张冠李戴到 Rexford 头上。（典型误解：第四段 passionately involved...for an extended period 也有"长期投入"字面，但 Rexford 引它只为说明"清单太长不现实"，谈的不是"决心"这个话题。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C/F 都说"投入"，怎么分家？</strong>：比话题落点——Rexford 的话题是<strong>数量</strong>（10 项、一长串），Joseph 的话题是<strong>坚持</strong>（unconventional + commitment）。一个说"多"、一个说"久"，落点不同。</li><li><strong>unused 干扰项去哪了？</strong>：本篇共用 C、E、A、G、B，D 与 F 是多余项，分别归属 Olivia（经商）与 Joseph（非常规 + 投入）。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 F</strong>：被"长期热情投入"的字面吸引，忘了 Rexford 的结论是"别列那么多"。</li><li><strong>定位错段</strong>：只扫到"extracurricular"就进段，没先确认发言人是谁。</li></ul>
+<blockquote>记忆锚点：Rexford ⇒ 10 activities / huge laundry list ⇒ too many ⇒ hardly a plus；备选项 C/F 靠落点分家——<strong>数量 ≠ 决心</strong>；F 属第九段 Joseph。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

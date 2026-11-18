@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2021-47 小作文谋篇：邀请信的「身份 + 双必答」结构框架</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：邀请 + 告知双必答',
+    cls: 'key',
+    body: '<p>指令两个动词定内容：<b>invite him to participate</b>（必答点 1：邀请参加）+ <b>tell him the details</b>（必答点 2：告知相关事宜）。信型 = 标准<b>邀请信</b>。</p><p>你在线上会议的组织者位置上，收信对象是 <b>Jack, an international student</b>（具名的留学生个体）→ 公务信函用正式语体，但面向同辈、性质是邀请，语言正式中带礼貌亲切即可。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>指令硬约束：<b>Do not use your own name, use "Li Ming" instead</b> → 落款必须署 <b>Li Ming</b>。书信三件套齐全：称呼（Dear Jack，具名个体）+ 正文 + 落款（Yours sincerely, Li Ming）。署真名 = 直接踩格式扣分线。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> 自报身份 + 发出邀请 + 交代时间与方式；<b>段 2</b> 会议主题与目的 + 参会者内容 + 给收信人的角色；<b>段 3</b> 附件 + 表达期待。两个必答点分别锚定段 1 的目的句和段 2 全段，缺一即结构性掉档。</p><p>details = <b>时间 + 方式 + 主题内容</b>三件齐，只写时间不算落实。</p>' },
+  { title: '段 1：目的句一次挂三事',
+    cls: 'good',
+    body: '<p><b>As an organizer of our monthly reading session, I am writing to invite you to our online meeting scheduled for next Friday from 2 p.m. to 4 p.m. via Zoom.</b></p><p>一句装三事：身份（organizer）、邀请（invite you to our online meeting）、详情骨架。<b>scheduled for... via Zoom</b> 用过去分词短语作后置定语，压掉「The meeting will be held...」第二个句子——时间（下周五 2—4 点）与方式（Zoom）钉死。</p>' },
+  { title: '段 2 主题与目的：介词短语整合三句',
+    cls: 'good',
+    body: '<p><b>With the theme of A Famous Writer from Your Country, this meeting aims to expose our participants to writers and works from a wide variety of cultures.</b></p><p>句式成形：主题句 + 目的句 + 来源句三个简单句 → 介词短语开头整合成一句。升格点：expose sb <b>to</b> sth（使接触）替代 let sb know；a wide variety of 替代 different。主题贴着国际学生的文化背景设计——「介绍你本国的一位著名作家」。</p>' },
+  { title: '段 2 参会者与内容：跨文化闭环',
+    cls: 'good',
+    body: '<p><b>Attendees from diverse cultural backgrounds will gather to engage in cross-cultural exchanges and enhance their understanding of literature.</b></p><p>谁参加（多元文化背景的参会者）+ 干什么（两个并列不定式：engage in cross-cultural exchanges 交流 + enhance their understanding 增进了解）。目的不定式并列压掉两个句子；engage in 替代 take part in。</p>' },
+  { title: '段 2 给收信人的角色：邀请理由立住',
+    cls: 'good',
+    body: '<p><b>As a literary enthusiast, you are very welcome to share your insights into the differences between English and Chinese literature.</b></p><p>只描述会议像发通知——这句让「邀请他」有了具体理由：<b>As a literary enthusiast</b> 身份短语点出为什么请他；share your insights into...（分享对……的见解）写明他怎么参与。邀请信的说服力全在这一步。</p>' },
+  { title: '段 3 附件 + 期待收尾落款',
+    cls: 'good',
+    body: '<p><b>Our meeting arrangements are attached for your reference. We will be very pleased if you could accept our invitation.</b></p><p>第一句兜底 details：正文给主干（时间/方式/主题），附件给完整安排；第二句期待收束。落款：<b>Yours sincerely, Li Ming</b>——署名红线再确认一遍。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>be scheduled for 安排在 · via 通过（平台） · with the theme of 以……为主题 · aim to 旨在 · expose sb to sth 使接触 · a wide variety of 多种多样的 · attendee/participant 参会者 · engage in 参加、从事 · cross-cultural exchange 跨文化交流 · insight into 对……的见解 · literary enthusiast 文学爱好者 · for one\'s reference 供参考 · be welcome to do 欢迎做……</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>邀请 + 详情双必答；段 1 一句装下身份 + 邀请 + 时间方式；段 2 主题 → 目的 → 参会者 → 给收信人的角色；段 3 附件 + 期待；落款 Li Ming</b>。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2021-47 小作文谋篇演示：邀请信的「身份 + 双必答」',
+  subtitle: '考点：应用文写作（邀请信） · 方法：拆指令 → 定框架 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>Dear Jack,</p>' +
+      '<p>As an organizer of our monthly reading session, I am writing to invite you to our online meeting scheduled for next Friday from 2 p.m. to 4 p.m. via Zoom.</p>' +
+      '<p>With the theme of A Famous Writer from Your Country, this meeting aims to expose our participants to writers and works from a wide variety of cultures. Attendees from diverse cultural backgrounds will gather to engage in cross-cultural exchanges and enhance their understanding of literature. As a literary enthusiast, you are very welcome to share your insights into the differences between English and Chinese literature.</p>' +
+      '<p>Our meeting arrangements are attached for your reference. We will be very pleased if you could accept our invitation.</p>' +
+      '<p>Yours sincerely,<br>Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>邀请 + 详情双必答</b>；details = 时间 + 方式 + 主题内容；给收信人分配角色（As a..., you are very welcome to...）；落款红线 <b>Li Ming</b>。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：邀请信的「身份 + 双必答」——2021 小作文</h2>
+<p>答案（参考范文口径）：<strong>Dear Jack, As an organizer of our monthly reading session, I am writing to invite you to our online meeting scheduled for next Friday from 2 p.m. to 4 p.m. via Zoom. With the theme of A Famous Writer from Your Country, this meeting aims to expose our participants to writers and works from a wide variety of cultures. Attendees from diverse cultural backgrounds will gather to engage in cross-cultural exchanges and enhance their understanding of literature. As a literary enthusiast, you are very welcome to share your insights into the differences between English and Chinese literature. Our meeting arrangements are attached for your reference. We will be very pleased if you could accept our invitation. Yours sincerely, Li Ming</strong></p>
+<h3>第 0 步：先立机制——小作文按「格式 + 要点 + 升格」三线评分</h3>
+<p>小作文的分数不由文笔单独决定，而是三条线并行：<strong>格式</strong>（称呼/正文/落款是否符合书信规范与指令红线）、<strong>要点</strong>（指令列出的信息点逐条落实）、<strong>语言</strong>（同档内靠句式与用词升格拉开差距）。本题的信型由指令两个动词定死：<strong>invite him to participate</strong>（必答点 1：邀请参加）+ <strong>tell him the details</strong>（必答点 2：告知相关事宜）——一封标准的<strong>邀请信</strong>。机制立住了，下面每一步都是往这三条线里填内容。</p>
+<h3>第 1 步：拆指令——每条指令对应信里的一个位置</h3>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>organizing an online meeting</td><td>你是组织者，活动 = 线上会议</td><td>段 1 自报身份 + 活动名称</td></tr><tr><td>Jack, an international student</td><td>收信对象：具名的留学生个体</td><td>称呼 Dear Jack；活动介绍要自足</td></tr><tr><td>1) invite him to participate</td><td>必答点 1：邀请</td><td>段 1 目的句</td></tr><tr><td>2) tell him the details</td><td>必答点 2：告知事宜</td><td>段 1 末（时间/方式）+ 段 2 全段</td></tr><tr><td>use "Li Ming" instead</td><td>格式红线</td><td>落款 Yours sincerely, Li Ming</td></tr></tbody></table>
+<p>语域判断：写给会议参与者、国际学生的信属于<strong>公务信函</strong>，用正式语体；但面向同辈、性质是邀请，语言不必拘谨——<strong>正式中带礼貌亲切</strong>。两个必答点缺一即结构性扣分。</p>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1 身份 + 目的 + 详情骨架</strong>：As an organizer of our monthly reading session 自报身份，I am writing to invite you to our online meeting 发出邀请；<strong>scheduled for next Friday from 2 p.m. to 4 p.m. via Zoom</strong> 用过去分词短语作后置定语，把时间（下周五下午 2—4 点）与方式（Zoom 平台）两项 details 压进一句——分词压句，省掉「The meeting will be held...」的第二个句子。</li><li><strong>段 2 会议内容 + 给收信人的角色</strong>：主题（With the theme of A Famous Writer from Your Country）→ 目的（expose our participants to writers and works from a wide variety of cultures）→ 参会者与内容（Attendees from diverse cultural backgrounds will gather to engage in cross-cultural exchanges and enhance their understanding of literature）→ 对收信人的期待（As a literary enthusiast, you are very welcome to share your insights into...）。四句话由「活动是什么」推进到「你来干什么」，邀请理由由此立住。</li><li><strong>段 3 附件 + 期待</strong>：Our meeting arrangements are attached for your reference（附上会议安排供参考）+ We will be very pleased if you could accept our invitation，一句落实细节、一句表达期待收束。</li></ul>
+<h3>第 3 步：语言升格——预判「同档内怎么拿高分」</h3>
+<p>升格的机制是<strong>把简单信息压进高级句法框架</strong>，而不是堆大词：</p>
+<ul><li>三个简单句整合成一句：The theme of this meeting is... / This meeting aims to let participants know... / Writers and works are from different cultures → <strong>With the theme of..., this meeting aims to expose our participants to writers and works from a wide variety of cultures.</strong> 介词短语开头整合主题、expose sb to sth（使接触）替代 let sb know、a wide variety of（多种多样的）替代 different。</li><li>身份短语给足邀请理由：<strong>As a literary enthusiast</strong>（作为文学爱好者）——「为什么请他」一句立住，同位/身份结构是邀请信的标配升格点。</li><li>表达升格：be scheduled for（安排在）替代 will hold；engage in cross-cultural exchanges 替代 talk with each other；share your insights into...（分享对……的见解）替代 tell us your ideas；for your reference 供参考。</li><li>details 要落成钉子：via Zoom（具体平台）、from 2 p.m. to 4 p.m.（具体时段）——只写 next Friday 的「详情」不成详情。</li></ul>
+<h3>第 4 步：成文自检——三个「为什么」</h3>
+<ul><li><strong>为什么称呼 Dear Jack</strong>：收信人是具名的留学生个体，朋友式半正式；套 Dear Sir or Madam 反而疏远失当。</li><li><strong>为什么主题设为「你本国的一位著名作家」</strong>：收信人是国际学生——主题贴着他的文化背景设计，邀请才有人接；又与 cross-cultural exchanges 的活动目的闭环。</li><li><strong>为什么第二段要给对方分配角色</strong>：只描述会议内容像发通知；you are very welcome to share your insights 让「邀请他」有具体理由，也写明了他怎么参与——邀请信的说服力全在这一步。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只邀请漏详情</strong>：必答点 2 缺失，内容完整性掉档；details = 时间 + 方式 + 主题内容三件齐。</li><li><strong>详情只有时间漏平台</strong>：via Zoom 这类「怎么参加」的信息漏掉，details 残缺。</li><li><strong>写成会议通知</strong>：通篇罗列流程，没有对收信人的期待与角色分配——邀请理由不足。</li><li><strong>语气两极</strong>：要么公文腔（I would be most obliged...），要么随意（Hey Jack...）；同辈半正式才对。</li><li><strong>署真名或落款缺失</strong>：指令明令 use "Li Ming" instead；格式红线踩线即扣。</li><li><strong>expose 搭配错误</strong>：expose sb <strong>to</strong> sth 是固定搭配，介词换掉即扣。</li><li><strong>目的句空转</strong>：I am writing to invite you to our meeting 后不接任何信息——邀请没有着落点，目的句要一次挂上「活动 + 时间 + 方式」。</li></ul>
+<blockquote>记忆锚点：邀请信 = <strong>邀请 + 详情双必答</strong>；段 1 一句装下「身份 + 邀请 + 时间方式」（scheduled for... via...）；段 2 主题 → 目的 → 参会者 → 给收信人的角色（As a..., you are very welcome to...）；段 3 附件 + 期待；升格三件套——With the theme of 开头、expose...to、share one's insights into；落款红线 <strong>Li Ming</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

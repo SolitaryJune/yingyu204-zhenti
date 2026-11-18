@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-44 · 2022 新题型第 44 题 · 【44】段小标题——不能上场就“空手过招”</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · 【44】段——首句引出中心话题",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：总—分—益——首句 Even if… you can practice the moves",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Even if you can’t yet do a favorite activity, you can practice the moves. With or without a club or racket, swing like you’re hitting the ball. Paddle like you’re in a kayak or canoe. Mimic your favorite swimming strokes.</div><p>本段骨架是「总—分—益」：首句引出中心话题 <b>practice the moves（练习动作）</b>；中间三个祈使句举例——空手挥拍、比划划桨、模拟泳姿。</p>"
+  },
+  {
+   "title": "机制 · 小标题踩首句话题词",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：举例与益处都是首句话题的展开——标题必须踩住它",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>总—分—益段落里，举例与益处都是首句话题的展开。小标题必须踩住 <b>practice the moves</b>，再检查举例（挥拍/划桨/泳姿）与益处会不会推翻它。</p><p>特别警惕：与段内词<b>词面相邻</b>的干扰标题（G 的 routine 与段内 prime、moves 相邻）——必须做语义验证，不能见词就配。</p>"
+  },
+  {
+   "title": "证据 · 末句益处仍服务“练动作”",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：唤醒快乐记忆 + 为肌肉预热——都围着“空练动作”转",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The action will remind you of the joy the activity brought you and prime your muscles for when you can get out there again.</div><p>益处两句：唤醒这项运动带来的快乐记忆 + 让肌肉为“再次上场”预热。<b>The action</b> 回指前面的比划动作——全段确实只干一件事：把动作过一遍。</p>"
+  },
+  {
+   "title": "逐项分析 · A Make It a Habit",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A Make It a Habit ✗ 排除——不是天天坚持，是替代方案",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>本段讲“暂时上不了场时的替代方案”，不是“天天坚持养成习惯”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“再次上场”联想坚持。</p>"
+  },
+  {
+   "title": "逐项分析 · E Listen to Your Body",
+   "cls": "bad",
+   "tag": "排除 E",
+   "log": "E Listen to Your Body ✗ 排除——无身体信号反馈语义",
+   "count": 2,
+   "ribbon": {
+    "k": "E",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>全段没有“根据身体反馈调整”的语义；prime muscles（为肌肉预热）被误读成“听从身体”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：prime 词义脑补。</p>"
+  },
+  {
+   "title": "逐项分析 · F Go Through the Motions",
+   "cls": "good",
+   "tag": "选定 F",
+   "log": "F Go Through the Motions ✓ 当选——双关键词近义复现",
+   "count": 2,
+   "ribbon": {
+    "k": "F",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>Go Through ↔ <b>practice</b>（过一遍 ↔ 练习）；Motions ↔ <b>moves</b>（动作）。两个关键词都是近义复现，“空手比划”正是标题的画面感来源。</p>"
+  },
+  {
+   "title": "逐项分析 · G Round Out Your Routine",
+   "cls": "bad",
+   "tag": "排除 G",
+   "log": "G Round Out Your Routine ✗ 排除——词面复现的陷阱",
+   "count": 3,
+   "ribbon": {
+    "k": "G",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>routine 与段内 prime、moves 词面相邻，但本段讲“单项动作空练以保持状态/预热”，没有“补齐项目、完善锻炼组合”的语义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：词面复现即选——标题题最危险的姿势。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 F",
+   "log": "答案 F（Go Through the Motions）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>首句 practice the moves → 三个祈使句举例 → 末句益处回指动作 → Go Through the Motions</b>。</p><p>答案选 <b>F（Go Through the Motions）</b>。</p><p><b>记忆锚点</b>：总—分—益段落，标题踩首句话题词；Go Through the Motions 在此取字面义“把动作过一遍”，不是贬义“走过场”。</p><p style=\"color:#b91c1c\">最易误选：<b>G</b>——词面相邻不等于语义匹配。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 新题型第 44 题 · 【44】段小标题——不能上场就“空手过招”",
+  subtitle: "考点：小标题题 · 总—分—益结构踩首句话题词 + 词面复现陷阱",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 F（Go Through the Motions）",
+  "html": "<b>F Go Through the Motions（过一遍动作 / 练习动作）</b>。<br>Go Through ↔ practice；Motions ↔ moves。<br>记忆锚点：总—分—益段落，小标题踩首句话题词 practice the moves；此处取字面义“把动作过一遍”，非贬义“走过场”；词面复现（routine/prime）必须过语义验证。<br>最易误选：<b>G</b>——全篇靠“词面复现”设障的典型。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 新题型第 44 题 · 【44】段小标题——不能上场就"空手过招"</h2>
+<p>答案：<strong>F（Go Through the Motions 过一遍动作 / 练习动作）</strong>。</p>
+<h3>第 0 步：先立机制——"总—分—益"结构，中心话题在首句</h3>
+<p>本段一句话说清骨架：首句 Even if you can't yet do a favorite activity, you can <strong>practice the moves</strong> 引出中心话题"练习动作"；中间 swing / paddle / mimic strokes 三个祈使句举例；末句说益处（唤醒快乐记忆 + 为肌肉预热 prime your muscles）。小标题必须踩住首句话题词 practice the moves——举例与益处都是它的展开。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Even if you can't yet do a favorite activity, you can practice the moves. With or without a club or racket, swing like you're hitting the ball. Paddle like you're in a kayak or canoe. Mimic your favorite swimming strokes. The action will remind you of the joy... and prime your muscles for when you can get out there again.</blockquote>
+<p>没有球拍也挥拍、空手划桨、比划游泳姿势——在无法真正上场时，把动作"过一遍"。</p>
+<h3>第 2 步：正向验证 F</h3>
+<p>Go Through ↔ practice（过一遍动作 ↔ 练习动作）；Motions ↔ moves（动作）。两个关键词都是近义复现，且"空手比划"正是标题的画面感来源。当选。</p>
+<h3>第 3 步：逐项排除（主要干扰项）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>F Go Through the Motions</td><td>✓</td><td>go through ↔ practice；motions ↔ moves，全段围绕"练动作"。</td></tr><tr><td>G Round Out Your Routine</td><td>✗</td><td>routine 与 prime、moves 词面相邻，但本段讲的是"单项动作空练以保持状态/预热"，没有"完善锻炼组合"义。（典型误解：词面复现即选——标题题最危险的姿势。）</td></tr><tr><td>A Make It a Habit</td><td>✗</td><td>本段讲的是"暂时上不了场的替代方案"，不是天天坚持。（典型误解：见"再次上场"联想坚持。）</td></tr><tr><td>E Listen to Your Body</td><td>✗</td><td>全段无身体信号反馈语义。（典型误解：prime muscles 被误读成"听从身体"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>Go Through the Motions 不是常带贬义（走过场）吗？</strong>：确实，这个习语在日常语境常指"敷衍了事"；但标题的作用是概括段旨——本段字面就是"把动作过一遍"，中性甚至积极（为回归做准备）。标题题以文意为准，不纠习语的引申义。</li><li><strong>prime your muscles（为肌肉预热）会不会指向"完善常规"？</strong>：prime 说的是这些空练动作让肌肉"为将来上场做好准备"，仍服务"练动作"这个中心；"完善组合"（round out your routine）在本段没有落点——没有"把不同项目补齐"的任何语句。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：只做词面匹配（moves/prime 像 routine），不做语义验证——G 是全篇靠"词面复现"设障的典型。</li><li><strong>误选 A/E</strong>：与相邻段落主旨串门。</li></ul>
+<blockquote>记忆锚点：总—分—益段落，小标题踩首句话题词——practice the moves = Go Through the Motions；词面复现（routine/primes）必须过语义验证这关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

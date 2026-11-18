@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·29 阅读 · in the driver's seat 的观点锁定</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：观点题的两道门', cls: 'key',
+    body: '<p>题干 According to <b>Ashe</b>, the <b>leading role</b> in managing the species is ____。第一道门是<b>人名定位</b>：Ashe 的总结句在第三段末；第二道门是<b>熟语推断</b>：答案藏在 in the driver’s seat 里——不识此语就要借上下文旁证反推。</p>',
+    log: '人名定位 + 熟语推断双门' },
+  { title: '定位原文（③段⑥句）', cls: 'key',
+    body: src('“Overall, the idea is to let “<b>states remain in the driver’s seat</b> for managing the species,” Ashe said.”') +
+      '<p>Ashe 亲口总结：让 <b>states（各州）</b>保持 in the driver’s seat。原句主语就是答案的第一候选。</p>',
+    log: '原句主语 = states' },
+  { title: '熟语推断：driver’s seat', cls: 'good',
+    body: '<p>in the driver’s seat 字面“坐在驾驶座上”——开车者<b>决定方向与速度</b>，引申“处于掌控/主导地位”。题干的 leading role（主导角色）正对应它 → <b>the states</b>。</p>',
+    log: '驾驶座 = 主导地位' },
+  { title: '上下文旁证（③段⑤句）', cls: 'step',
+    body: '<p>⑤句：USFWS 把监测职责交给 WAFWA——<b>a coalition of state agencies（州级机构联盟）</b>。监督权都交给州级联盟，说明主导权确实在向各州倾斜，旁证成立。</p>',
+    log: '监测权在州级联盟，旁证成立' },
+  { title: 'A the federal government', cls: 'bad',
+    body: '<p>⑤句 flexibility 只是给联邦“<b>尝试新方式</b>”的余地——“留有余地”和“坐驾驶座”不是一回事。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 灵活性 ≠ 主导权' },
+  { title: 'B the wildlife agencies', cls: 'bad',
+    body: '<p><b>monitoring progress（监测）≠ 主导管理</b>——监测是跟进观察，主导是拍板决策；且负责者是 WAFWA（州级联盟），选项笼统说成“野生动物机构”又偷换了层次。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 监测 ≠ 主导 + 主体偷换' },
+  { title: 'C the landowners', cls: 'bad',
+    body: '<p>②句 control an estimated 95% of the habitat——<b>“拥有”是物权，“主导”是决策权</b>，数字再大也不换算成领导权。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 物权 ≠ 决策权' },
+  { title: 'D the states', cls: 'good',
+    body: '<p>原句主语 states + in the driver’s seat（主导）+ 州级联盟旁证，三线合围。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D 三线合围，命中' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D（the states）</b>。记忆锚点：观点题人名定位 + <b>in the driver’s seat = 主导</b>；Ashe 原话主语 states（D），旁证 = 监测权归州级联盟 WAFWA。</p>',
+    log: '锁定 D（the states）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 29 · Ashe 的观点：主导者是各州',
+  subtitle: '考点：观点题 · 熟语推断 in the driver’s seat + 上下文旁证',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位、推断与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（the states）',
+    html: '记忆锚点：<b>let “states remain in the driver’s seat for managing the species”</b>——驾驶座 = 掌控方向 = 主导 → the states。旁证：监测职责交给州级联盟 WAFWA。A 的 flexibility 只是余地，B 的 monitoring 只是观察，C 的 95% 只是物权。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：in the driver's seat——观点题里的熟词僻义突破口</h2>
+<p>答案：<strong>D（the states）</strong>。</p>
+<h3>第一步：先立机制——观点题的两道门：人名定位 + 成语推断</h3>
+<p>题干：According to Ashe, the leading role in managing the species is ____。第一道门是<strong>人名</strong>：Ashe 在文中两次发声， managing the species 指向第三段末他的总结句。第二道门是<strong>熟语</strong>：答案藏在 in the driver's seat 里——若不识此语，要会借<strong>上下文旁证</strong>反推词义，这正是命题人埋的考点。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>USFWS also set an interim goal... And it gives the Western Association of Fish and Wildlife Agencies (WAFWA), <strong>a coalition of state agencies</strong>, the job of monitoring progress. Overall, the idea is to let "<strong>states remain in the driver's seat</strong> for managing the species," Ashe said.</blockquote>
+<p>⑥句直给：Ashe 总结——让 <strong>states（各州）</strong> 保持 in the driver's seat（驾驶座 = 掌控方向 = 主导地位）。旁证在⑤句：监督职责交给了 WAFWA——一个<strong>州级机构联盟</strong>，说明主导权确实向各州倾斜。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A the federal government</td><td>联邦政府</td><td>⑤句 flexibility 只是给联邦"尝试新方式"的余地，与"主导管理"是两回事</td></tr><tr><td>B the wildlife agencies</td><td>野生动物机构</td><td>监督（monitoring）≠ 主导；且负责者是 WAFWA（州级联盟），偷换主体</td></tr><tr><td>C the landowners</td><td>土地所有者</td><td>control 95% habitat 是"拥有栖息地"，不等于主导恢复与管理</td></tr><tr><td>D the states</td><td>各州</td><td>in the driver's seat 的主语就是 states，且⑤句州级联盟旁证成立</td></tr></tbody></table>
+<h3>第四步：不识成语怎么办（预判追问）</h3>
+<p>in the driver's seat 字面"坐在驾驶座上"——开车者决定方向与速度，引申"处于掌控地位"。若拿不准，用排除法也能收敛：联邦只是给了灵活性（A 弱），WAFWA 只负责监测（B 弱），土地所有者只是被争取的合作对象（C 弱），唯一既有原句主语又有配套安排的是各州。</p>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：把⑤句 federal 的 flexibility（灵活性）拔高成主导权——"留有余地"和"坐驾驶座"不是一回事。</li><li><strong>选 B</strong>：monitoring progress 的职责与"主导管理"仅一字之差——监测是跟进观察，主导是拍板决策；且原文给的是 WAFWA 这一州级联盟，选项笼统说成"野生动物机构"又偷换了层次。</li><li><strong>选 C</strong>：95% 这个数字太抢眼——但"拥有"是物权，"主导"是决策权，数字再大也不换算成领导权。</li></ul>
+<blockquote>记忆锚点：观点题人名定位 + <strong>in the driver's seat = 主导</strong>；Ashe 原话主语 states（D），旁证 = 监测权归州级联盟 WAFWA。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

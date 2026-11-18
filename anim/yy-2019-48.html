@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2019-48 大作文框架：描图（一降两升）→ 析因（观念之变）→ 预测（only by 倒装）</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两问对应三段',
+    cls: 'key',
+    body: '<p>指令两问：<b>1) interpret the chart</b>（描图）+ <b>2) give your comments</b>（析因 + 预测/建议）。机制：动态图 = 数据变化 → 变化背后的观念/原因。只描图不析因 = 只答第一问，comments 缺失即结构性掉档。</p>' },
+  { title: '读图：先定「一降两升」对比轴',
+    cls: 'key',
+    body: '<p>图表标题 = 某高校 2013 与 2018 年本科生毕业去向统计：</p><p>就业 <b>68.1% → 60.7%</b>（大幅下降）｜升学 <b>26.3% → 34.0%</b>（显著上升）｜创业 <b>1.3% → 2.6%</b>（小幅上升）。</p><p>寓意：就业占比虽最高但下滑，升学创业齐升 → 毕业生<b>就业观之变</b>。这组「一降两升」是全文对比轴。</p>' },
+  { title: '描图段①：总起句',
+    cls: 'good',
+    body: '<p><b>The bar chart displays dramatic changes in terms of college graduates\' choices these years.</b></p><p>一句点明图表类型（bar chart）与主题（graduates\' choices），dramatic 为下文的数据落差埋好伏笔。</p>' },
+  { title: '描图段②：对比句承载主体数据',
+    cls: 'good',
+    body: '<p><b>Specifically, the proportion of those who entered the field of employment after graduation declined hugely from 68.1% in 2013 to 60.7% in 2018, whereas that of those pursuing further education ascended enormously from 26.3% to 34.0% during the same time span.</b></p><p>升格点：<b>whereas</b> 立对比轴；<b>that of those</b> 用 that 指代 proportion、those 指代毕业生，省去重复；数据两端 from...to... 给全；hugely / enormously 幅度分工。</p>' },
+  { title: '描图段③：补充第三组数据',
+    cls: 'good',
+    body: '<p><b>In the meanwhile, the five years also witnessed a slight increase from 1.3% to 2.6% in the percentage of starting a business.</b></p><p>witness 让「这五年」作主语，拟人升格；slight 与 hugely/enormously 呼应幅度分工。创业组数字虽小，<b>不能丢</b>——只写两组算漏读图。</p>' },
+  { title: '析因段①：主题句——从数据跳到观念',
+    cls: 'key',
+    body: '<p><b>The data reflects a shift in graduates\' view regarding post-university life.</b></p><p>一句完成「数据 → 观念之变」的跳跃，这正是 comments 的落点；没有这句，第二段只是把第一段的数据再说一遍。</p>' },
+  { title: '析因段②：就业为何仍是首选',
+    cls: 'good',
+    body: '<p><b>On the one hand, as graduates are mostly expected to support themselves, start a family and climb up the career ladder, joining the workforce often becomes their first choice.</b></p><p>as 从句给社会期待（自食其力、成家、晋升），主句落回「就业仍是首选」——解释占比最高的那组数据；climb up the career ladder 为外刊活用表达。</p>' },
+  { title: '析因段③：升学为何升温',
+    cls: 'good',
+    body: '<p><b>On the other hand, with people\'s living improving, this idea is changing gradually. Owing to less financial stress, graduates are increasingly willing to undertake postgraduate study for higher goals in a world with greater demand for professionals.</b></p><p>两条原因：经济压力变小（owing to less financial stress）+ 社会更缺专业人才（greater demand for professionals）→ 愿意深造。</p>' },
+  { title: '析因段④：创业为何趋热',
+    cls: 'good',
+    body: '<p><b>Meanwhile, going self-employed gets more popular as the threshold of starting a business lowers in digital economy.</b></p><p>数字经济拉低创业门槛（the threshold of starting a business lowers）→ 自主创业受青睐。至此<b>三组数据各配一条原因</b>，析因与描图首尾相扣，一条不多一条不少。</p>' },
+  { title: '结尾段：顺因推势 + only by 倒装',
+    cls: 'good',
+    body: '<p>预测顺着「观念之变 + 经济发展」推，不凭空展望：<b>Predictably, with economic growth, graduates will enjoy more and diverse options.</b></p><p>建议句升格：<b>And only by creating the social atmosphere of respecting individual choices can more graduates fearlessly embark on the path that fits them most.</b></p><p>only + 介词短语置于句首 → <b>部分倒装</b>（can 提到主语前），结尾段最容易拿的分。</p>' },
+  { title: '时态纪律与幅度副词',
+    cls: 'key',
+    body: '<p><b>时态纪律</b>：描图段过去时（declined / ascended / witnessed）；析因段一般现在时（讲普遍原因）；预测段将来时（will enjoy / can embark）。时态错乱是图表作文最常见硬伤。</p><p><b>幅度副词各就各位</b>：hugely（大幅）、enormously（显著）、slight（小幅）——三组数据的量级差靠它们呈现。</p>' },
+  { title: '结论：框架落位',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见右侧结论卡）。框架锚点：<b>「一降两升」定对比轴 → 总起 + whereas 对比句 + 补充句 → 主题句跳观念 → 三条原因对三组数据 → 顺因推势 + only by 倒装收束</b>。时态纪律：过去 → 现在 → 将来。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2019-48 大作文框架演示：描图（一降两升）→ 析因（观念之变）→ 预测（倒装收束）',
+  subtitle: '考点：图表作文 · 方法：interpret the chart + give your comments（毕业生去向：就业 68.1→60.7 / 升学 26.3→34.0 / 创业 1.3→2.6）',
+  intro: '点击「▶ 播放」逐步展开读图、描图、析因与预测的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>The bar chart displays dramatic changes in terms of college graduates\' choices these years. Specifically, the proportion of those who entered the field of employment after graduation declined hugely from 68.1% in 2013 to 60.7% in 2018, whereas that of those pursuing further education ascended enormously from 26.3% to 34.0% during the same time span. In the meanwhile, the five years also witnessed a slight increase from 1.3% to 2.6% in the percentage of starting a business.</p>' +
+      '<p>The data reflects a shift in graduates\' view regarding post-university life. On the one hand, as graduates are mostly expected to support themselves, start a family and climb up the career ladder, joining the workforce often becomes their first choice. On the other hand, with people\'s living improving, this idea is changing gradually. Owing to less financial stress, graduates are increasingly willing to undertake postgraduate study for higher goals in a world with greater demand for professionals. Meanwhile, going self-employed gets more popular as the threshold of starting a business lowers in digital economy.</p>' +
+      '<p>Predictably, with economic growth, graduates will enjoy more and diverse options. And only by creating the social atmosphere of respecting individual choices can more graduates fearlessly embark on the path that fits them most.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>「一降两升」定对比轴</b>；whereas + that of those 立对比；主题句跳观念；三组数据各配一条原因；<b>only by...can...</b> 倒装收束；描图过去时、析因现在时、预测将来时。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：图表作文（毕业生去向“一降两升”）——两问对应三段</h2>
+<p>答案（参考范文口径）：<strong>The bar chart displays dramatic changes in terms of college graduates' choices these years. Specifically, the proportion of those who entered the field of employment after graduation declined hugely from 68.1% in 2013 to 60.7% in 2018, whereas that of those pursuing further education ascended enormously from 26.3% to 34.0% during the same time span. In the meanwhile, the five years also witnessed a slight increase from 1.3% to 2.6% in the percentage of starting a business. The data reflects a shift in graduates' view regarding post-university life. On the one hand, as graduates are mostly expected to support themselves, start a family and climb up the career ladder, joining the workforce often becomes their first choice. On the other hand, with people's living improving, this idea is changing gradually. Owing to less financial stress, graduates are increasingly willing to undertake postgraduate study for higher goals in a world with greater demand for professionals. Meanwhile, going self-employed gets more popular as the threshold of starting a business lowers in digital economy. Predictably, with economic growth, graduates will enjoy more and diverse options. And only by creating the social atmosphere of respecting individual choices can more graduates fearlessly embark on the path that fits them most.</strong></p>
+<h3>第 0 步：先立机制——图表作文是“两问 → 三段”的映射</h3>
+<p>指令两问不是两段：<strong>1) interpret the chart</strong> = 描图段；<strong>2) give your comments</strong> = 析因段 + 预测/建议段。动态图（柱状图跨年份）的机制是“数据变化 → 变化背后的观念/原因”：第二段先用一句主题句把数据跳到寓意，再给原因；第三段顺着原因推未来趋势，并落到建议。只描图不析因 = 只答了第一问，comments 缺失即结构性掉档——这是图表作文的评分机制，决定了下面每一步怎么写。</p>
+<h3>第 1 步：读图——先把“一降两升”的对比轴定下来</h3>
+<table><thead><tr><th>去向</th><th>2013</th><th>2018</th><th>变化</th><th>幅度副词</th></tr></thead><tbody><tr><td>就业</td><td>68.1%</td><td>60.7%</td><td>大幅下降</td><td>declined hugely</td></tr><tr><td>升学</td><td>26.3%</td><td>34.0%</td><td>显著上升</td><td>ascended enormously</td></tr><tr><td>创业</td><td>1.3%</td><td>2.6%</td><td>小幅上升</td><td>a slight increase</td></tr></tbody></table>
+<p>三组数据合起来说明：就业人数虽仍最多但占比在降，升学、创业占比在升——折射出<strong>毕业生就业观的变化</strong>（更注重提升自我、不急于就业）。这条“一降两升”是全文的对比轴：第二段析因、第三段预测都从它长出来。</p>
+<h3>第 2 步：描图段——总起句 + 对比句 + 补充句</h3>
+<ul><li><strong>总起句</strong>点明图表与主题：<code>The bar chart displays dramatic changes in terms of college graduates' choices these years.</code></li><li><strong>对比句</strong>承载主体数据：<code>the proportion of those who entered the field of employment after graduation declined hugely from 68.1% in 2013 to 60.7% in 2018, whereas that of those pursuing further education ascended enormously from 26.3% to 34.0%</code>——whereas 立起对比轴；<code>that of those</code> 用 that 指代 proportion、those 指代毕业生，避免重复；数据两端 from...to... 必须给全。</li><li><strong>补充句</strong>补第三组数据：<code>In the meanwhile, the five years also witnessed a slight increase from 1.3% to 2.6%</code>——witness 让时间作主语，拟人升格；slight 与 hugely/enormously 形成幅度分工，创业组数据虽小但<strong>不能丢</strong>（只写两组算漏读图）。</li></ul>
+<h3>第 3 步：析因段——一句主题句跳到观念，再分三层给原因</h3>
+<ul><li><strong>主题句</strong>承上启下：<code>The data reflects a shift in graduates' view regarding post-university life.</code>——从“数据”跳到“观念之变”，这正是 comments 的落点；没有这句，第二段只是数据的重复。</li><li><strong>原因① 就业为何仍是首选</strong>：as 从句给社会期待（support themselves, start a family and climb up the career ladder），主句落回 joining the workforce often becomes their first choice——解释占比最高的那组数据。</li><li><strong>原因② 升学为何升温</strong>：先给总背景 with people's living improving / this idea is changing gradually，再落到 Owing to less financial stress（经济压力变小）+ greater demand for professionals（社会更缺专业人才）→ 越来越多人愿意深造。</li><li><strong>原因③ 创业为何趋热</strong>：as the threshold of starting a business lowers in digital economy（数字经济拉低创业门槛）→ going self-employed gets more popular。三组数据各配一条原因，<strong>一条不多一条不少</strong>，析因与描图首尾相扣。</li></ul>
+<h3>第 4 步：结尾段——顺因推势 + 建议升格</h3>
+<ul><li>预测不凭空展望，顺着“观念之变 + 经济发展”推：<code>Predictably, with economic growth, graduates will enjoy more and diverse options.</code></li><li>建议句用 <strong>only by 状语前置触发部分倒装</strong>：<code>only by creating the social atmosphere of respecting individual choices can more graduates fearlessly embark on the path that fits them most.</code>——can 提到主语前，这是结尾段最容易拿的分。</li></ul>
+<h3>第 5 步：时态纪律与涨分表达盘点</h3>
+<ul><li><strong>时态纪律</strong>：描图段过去时（declined/ascended/witnessed，五年前到五年间的变化）；析因段一般现在时（讲普遍原因）；预测段将来时（will enjoy/can embark）。时态错乱是图表作文最常见的硬伤。</li><li><strong>涨分表达</strong>：whereas（对比）、that of those（指代省重复）、witness（拟人）、decline/ascend（比 fall/rise 高一档）、owing to（因果）、the threshold of starting a business lowers（门槛降低）、embark on the path（走上道路）。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只描图不析因</strong>：把指令 2) give your comments 当成“重复数据”——comments 指解读现象并给原因，缺失即结构掉档。</li><li><strong>数据抄错或只写两组</strong>：三组去向都要覆盖；from...to... 两端都要给，漏一端数据不完整。</li><li><strong>创业组因数字小而丢弃</strong>：slight increase 也要写，幅度副词（hugely/enormously/slightly）各就各位，否则“一降两升”变“一降一升”。</li><li><strong>缺 whereas 对比轴</strong>：把三组数据平行罗列，“就业降 vs 升学升”的核心对比没立起来。</li><li><strong>第二段直接堆原因、没有主题句</strong>：数据与原因之间缺“观念之变”这一跳，段落失去统帅。</li><li><strong>时态混乱</strong>：描图用现在时或析因用过去时——机制是“过去的五年数据用过去时，普遍原因用现在时，趋势用将来时”。</li><li><strong>结尾只喊口号没有倒装</strong>：We should respect choices 平铺直叙；only by...can... 倒装句式是结尾段的升格点。</li><li><strong>原因与数据脱钩</strong>：给一堆社会大道理却没说清“哪条原因对应哪组数据的变化”，析因与描图失去对应关系。</li></ul>
+<blockquote>记忆锚点：图表作文 = <strong>两问三段</strong>；动态图先定“一降两升”对比轴 → whereas + that of those 立对比 → 主题句跳观念 → 三条原因对三组数据 → only by 倒装收束；描图过去时、析因现在时、预测将来时。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

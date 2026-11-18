@@ -1,0 +1,1551 @@
+{
+  "year": 2026,
+  "count": 48,
+  "questions": [
+    {
+      "id": "yy-2026-01",
+      "year": 2026,
+      "number": 1,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank yy-blank-active\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "afraid"
+        },
+        {
+          "letter": "B",
+          "html": "critical"
+        },
+        {
+          "letter": "C",
+          "html": "proud"
+        },
+        {
+          "letter": "D",
+          "html": "tolerant"
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Most of us strive for self-respect — to see ourselves in a positive light, to be __Q1__ of who we are.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-02",
+      "year": 2026,
+      "number": 2,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank yy-blank-active\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "risky"
+        },
+        {
+          "letter": "B",
+          "html": "natural"
+        },
+        {
+          "letter": "C",
+          "html": "admirable"
+        },
+        {
+          "letter": "D",
+          "html": "foolish"
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only __Q2__ to want to avoid them.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-03",
+      "year": 2026,
+      "number": 3,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank yy-blank-active\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "whether"
+        },
+        {
+          "letter": "B",
+          "html": "where"
+        },
+        {
+          "letter": "C",
+          "html": "why"
+        },
+        {
+          "letter": "D",
+          "html": "how"
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>But the thing is, __Q3__ your self-worth really is being undermined is, to a large degree, subjective.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-04",
+      "year": 2026,
+      "number": 4,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank yy-blank-active\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "citation"
+        },
+        {
+          "letter": "B",
+          "html": "imitation"
+        },
+        {
+          "letter": "C",
+          "html": "perception"
+        },
+        {
+          "letter": "D",
+          "html": "introduction"
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Much of it comes down to your __Q4__ of what someone said or did.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-05",
+      "year": 2026,
+      "number": 5,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank yy-blank-active\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "poor"
+        },
+        {
+          "letter": "B",
+          "html": "loyal"
+        },
+        {
+          "letter": "C",
+          "html": "creative"
+        },
+        {
+          "letter": "D",
+          "html": "shy"
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a __Q5__ member of staff.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-06",
+      "year": 2026,
+      "number": 6,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank yy-blank-active\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "sponsored"
+        },
+        {
+          "letter": "B",
+          "html": "crowded"
+        },
+        {
+          "letter": "C",
+          "html": "disputed"
+        },
+        {
+          "letter": "D",
+          "html": "planned"
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>Or, two of your friends cancel your __Q6__ get-together at the pub and you interpret this as meaning they’re bored of you.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-07",
+      "year": 2026,
+      "number": 7,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank yy-blank-active\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "method"
+        },
+        {
+          "letter": "B",
+          "html": "term"
+        },
+        {
+          "letter": "C",
+          "html": "design"
+        },
+        {
+          "letter": "D",
+          "html": "goal"
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>Psychologists have a __Q7__ for this way of thinking: personalisation.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-08",
+      "year": 2026,
+      "number": 8,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank yy-blank-active\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "evidence"
+        },
+        {
+          "letter": "B",
+          "html": "theory"
+        },
+        {
+          "letter": "C",
+          "html": "condition"
+        },
+        {
+          "letter": "D",
+          "html": "reality"
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>But the __Q8__ is that your boss might view you very highly.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-09",
+      "year": 2026,
+      "number": 9,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank yy-blank-active\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "complaints"
+        },
+        {
+          "letter": "B",
+          "html": "choices"
+        },
+        {
+          "letter": "C",
+          "html": "mistakes"
+        },
+        {
+          "letter": "D",
+          "html": "suggestions"
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>It’s just you made some __Q9__ in the report and she wanted to point these out so that you do better next time. __Q10__ , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just __Q11__ their minds.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-10",
+      "year": 2026,
+      "number": 10,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank yy-blank-active\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "Similarly"
+        },
+        {
+          "letter": "B",
+          "html": "Relatively"
+        },
+        {
+          "letter": "C",
+          "html": "Accordingly"
+        },
+        {
+          "letter": "D",
+          "html": "Contrarily"
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>It’s just you made some __Q9__ in the report and she wanted to point these out so that you do better next time. __Q10__ , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just __Q11__ their minds.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-11",
+      "year": 2026,
+      "number": 11,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank yy-blank-active\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "opened"
+        },
+        {
+          "letter": "B",
+          "html": "changed"
+        },
+        {
+          "letter": "C",
+          "html": "trained"
+        },
+        {
+          "letter": "D",
+          "html": "cleared"
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>It’s just you made some __Q9__ in the report and she wanted to point these out so that you do better next time. __Q10__ , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just __Q11__ their minds.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-12",
+      "year": 2026,
+      "number": 12,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank yy-blank-active\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "quotations"
+        },
+        {
+          "letter": "B",
+          "html": "experiments"
+        },
+        {
+          "letter": "C",
+          "html": "questions"
+        },
+        {
+          "letter": "D",
+          "html": "examples"
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>In both __Q12__ — and others that we all experience — there’s another __Q13__ at work that psychologists call mind reading.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-13",
+      "year": 2026,
+      "number": 13,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank yy-blank-active\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "process"
+        },
+        {
+          "letter": "B",
+          "html": "objective"
+        },
+        {
+          "letter": "C",
+          "html": "outcome"
+        },
+        {
+          "letter": "D",
+          "html": "background"
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>In both __Q12__ — and others that we all experience — there’s another __Q13__ at work that psychologists call mind reading.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-14",
+      "year": 2026,
+      "number": 14,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank yy-blank-active\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "blaming"
+        },
+        {
+          "letter": "B",
+          "html": "warning"
+        },
+        {
+          "letter": "C",
+          "html": "teaching"
+        },
+        {
+          "letter": "D",
+          "html": "asking"
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>This is when you assume to know what other people are thinking about you, when you can’t really know without __Q14__ them directly.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-15",
+      "year": 2026,
+      "number": 15,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank yy-blank-active\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "arguing about"
+        },
+        {
+          "letter": "B",
+          "html": "accounting for"
+        },
+        {
+          "letter": "C",
+          "html": "engaging in"
+        },
+        {
+          "letter": "D",
+          "html": "interfering with"
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>One simple way to avoid __Q15__ personalisation and mind reading is to challenge your negative assumptions of what’s __Q16__ .</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-16",
+      "year": 2026,
+      "number": 16,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank yy-blank-active\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "happened"
+        },
+        {
+          "letter": "B",
+          "html": "continued"
+        },
+        {
+          "letter": "C",
+          "html": "returned"
+        },
+        {
+          "letter": "D",
+          "html": "disappeared"
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>One simple way to avoid __Q15__ personalisation and mind reading is to challenge your negative assumptions of what’s __Q16__ .</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-17",
+      "year": 2026,
+      "number": 17,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank yy-blank-active\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "casual"
+        },
+        {
+          "letter": "B",
+          "html": "obvious"
+        },
+        {
+          "letter": "C",
+          "html": "familiar"
+        },
+        {
+          "letter": "D",
+          "html": "fundamental"
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or __Q17__ about you.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-18",
+      "year": 2026,
+      "number": 18,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank yy-blank-active\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "reward"
+        },
+        {
+          "letter": "B",
+          "html": "feedback"
+        },
+        {
+          "letter": "C",
+          "html": "trust"
+        },
+        {
+          "letter": "D",
+          "html": "proof"
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>The fact your boss took the time to give you __Q18__ at all means they care enough to want to help you __Q19__ .</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-19",
+      "year": 2026,
+      "number": 19,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank yy-blank-active\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "innovate"
+        },
+        {
+          "letter": "B",
+          "html": "concentrate"
+        },
+        {
+          "letter": "C",
+          "html": "improve"
+        },
+        {
+          "letter": "D",
+          "html": "relax"
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>The fact your boss took the time to give you __Q18__ at all means they care enough to want to help you __Q19__ .</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-20",
+      "year": 2026,
+      "number": 20,
+      "type": "单选",
+      "points": 0.5,
+      "tags": [
+        "完形填空"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text. Choose the best word(s) for each numbered blank and mark A, B, C or D on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">Most of us strive for self-respect — to see ourselves in a positive light, to be <span class=\"yy-blank\">__1__</span> of who we are. Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it’s only <span class=\"yy-blank\">__2__</span> to want to avoid them. But the thing is, <span class=\"yy-blank\">__3__</span> your self-worth really is being undermined is, to a large degree, subjective. Much of it comes down to your <span class=\"yy-blank\">__4__</span> of what someone said or did.</p><p class=\"yy-para\">When you take things personally, you’re interpreting these situations as saying something significant and negative about you as a person. Say your boss picks holes in your sales report, and you come away feeling like this means she thinks you’re a <span class=\"yy-blank\">__5__</span> member of staff. Or, two of your friends cancel your <span class=\"yy-blank\">__6__</span> get-together at the pub and you interpret this as meaning they’re bored of you. Psychologists have a <span class=\"yy-blank\">__7__</span> for this way of thinking: personalisation.</p><p class=\"yy-para\">But the <span class=\"yy-blank\">__8__</span> is that your boss might view you very highly. It’s just you made some <span class=\"yy-blank\">__9__</span> in the report and she wanted to point these out so that you do better next time. <span class=\"yy-blank\">__10__</span> , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just <span class=\"yy-blank\">__11__</span> their minds.</p><p class=\"yy-para\">In both <span class=\"yy-blank\">__12__</span> — and others that we all experience — there’s another <span class=\"yy-blank\">__13__</span> at work that psychologists call mind reading. This is when you assume to know what other people are thinking about you, when you can’t really know without <span class=\"yy-blank\">__14__</span> them directly.</p><p class=\"yy-para\">One simple way to avoid <span class=\"yy-blank\">__15__</span> personalisation and mind reading is to challenge your negative assumptions of what’s <span class=\"yy-blank\">__16__</span> . When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or <span class=\"yy-blank\">__17__</span> about you.</p><p class=\"yy-para\">When you do this, it might help to try to put yourself in other people’s shoes. The fact your boss took the time to give you <span class=\"yy-blank\">__18__</span> at all means they care enough to want to help you <span class=\"yy-blank\">__19__</span> . When it comes to your friends — maybe it’s because your friendship is so <span class=\"yy-blank yy-blank-active\">__20__</span> that they felt able to cancel at late notice.</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "strange"
+        },
+        {
+          "letter": "B",
+          "html": "strong"
+        },
+        {
+          "letter": "C",
+          "html": "vulnerable"
+        },
+        {
+          "letter": "D",
+          "html": "valuable"
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>When it comes to your friends — maybe it’s because your friendship is so __Q20__ that they felt able to cancel at late notice.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-21",
+      "year": 2026,
+      "number": 21,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now? And anyway — aren’t they all closing?</p><p class=\"yy-para\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday. As I visited libraries up and down the country, I was surprised to learn there are more than twice the number of libraries (2,892) as there are branches of McDonald’s.</p><p class=\"yy-para\">Enter any one of them and you will find a hive of activity. While books are, and should always be, at the heart of any library, a multitude of other services are offered: employment advice, language classes or digital access and support.</p><p class=\"yy-para\">There are libraries with business and intellectual property centres, which can help business owners and entrepreneurs. Many have nurses on site to carry out basic health checks, with a link to the GP’s surgery. There are libraries where young people can borrow a Fifa-standard football free.</p><p class=\"yy-para\">In return for all of this, you’ll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same. Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</p><p class=\"yy-para\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England. It is, of course, 230 libraries too many. So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.</p><p class=\"yy-para\">The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children. If we don’t use them, we will end up losing them. And for those who haven’t been to a library for some time, they may be surprised by what they find.</p><p>What was the author commissioned to do about English public libraries?</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "Document their valuable traditions."
+        },
+        {
+          "letter": "B",
+          "html": "Make a plan for their expansions."
+        },
+        {
+          "letter": "C",
+          "html": "Obtain reader opinions on them."
+        },
+        {
+          "letter": "D",
+          "html": "Look into their current situation."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-22",
+      "year": 2026,
+      "number": 22,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now? And anyway — aren’t they all closing?</p><p class=\"yy-para\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday. As I visited libraries up and down the country, I was surprised to learn there are more than twice the number of libraries (2,892) as there are branches of McDonald’s.</p><p class=\"yy-para\">Enter any one of them and you will find a hive of activity. While books are, and should always be, at the heart of any library, a multitude of other services are offered: employment advice, language classes or digital access and support.</p><p class=\"yy-para\">There are libraries with business and intellectual property centres, which can help business owners and entrepreneurs. Many have nurses on site to carry out basic health checks, with a link to the GP’s surgery. There are libraries where young people can borrow a Fifa-standard football free.</p><p class=\"yy-para\">In return for all of this, you’ll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same. Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</p><p class=\"yy-para\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England. It is, of course, 230 libraries too many. So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.</p><p class=\"yy-para\">The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children. If we don’t use them, we will end up losing them. And for those who haven’t been to a library for some time, they may be surprised by what they find.</p><p>According to Paragraphs 3&amp;4, the author finds that libraries ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "boast desirable book collections."
+        },
+        {
+          "letter": "B",
+          "html": "keep detailed visitor records."
+        },
+        {
+          "letter": "C",
+          "html": "perform diversified functions."
+        },
+        {
+          "letter": "D",
+          "html": "attract mostly young readers."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now?</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-23",
+      "year": 2026,
+      "number": 23,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now? And anyway — aren’t they all closing?</p><p class=\"yy-para\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday. As I visited libraries up and down the country, I was surprised to learn there are more than twice the number of libraries (2,892) as there are branches of McDonald’s.</p><p class=\"yy-para\">Enter any one of them and you will find a hive of activity. While books are, and should always be, at the heart of any library, a multitude of other services are offered: employment advice, language classes or digital access and support.</p><p class=\"yy-para\">There are libraries with business and intellectual property centres, which can help business owners and entrepreneurs. Many have nurses on site to carry out basic health checks, with a link to the GP’s surgery. There are libraries where young people can borrow a Fifa-standard football free.</p><p class=\"yy-para\">In return for all of this, you’ll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same. Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</p><p class=\"yy-para\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England. It is, of course, 230 libraries too many. So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.</p><p class=\"yy-para\">The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children. If we don’t use them, we will end up losing them. And for those who haven’t been to a library for some time, they may be surprised by what they find.</p><p>It is implied in Paragraph 5 that libraries should ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "be given greater attention."
+        },
+        {
+          "letter": "B",
+          "html": "impose stricter visit limits."
+        },
+        {
+          "letter": "C",
+          "html": "work with private institutions."
+        },
+        {
+          "letter": "D",
+          "html": "get their equipment upgraded."
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now?</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-24",
+      "year": 2026,
+      "number": 24,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now? And anyway — aren’t they all closing?</p><p class=\"yy-para\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday. As I visited libraries up and down the country, I was surprised to learn there are more than twice the number of libraries (2,892) as there are branches of McDonald’s.</p><p class=\"yy-para\">Enter any one of them and you will find a hive of activity. While books are, and should always be, at the heart of any library, a multitude of other services are offered: employment advice, language classes or digital access and support.</p><p class=\"yy-para\">There are libraries with business and intellectual property centres, which can help business owners and entrepreneurs. Many have nurses on site to carry out basic health checks, with a link to the GP’s surgery. There are libraries where young people can borrow a Fifa-standard football free.</p><p class=\"yy-para\">In return for all of this, you’ll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same. Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</p><p class=\"yy-para\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England. It is, of course, 230 libraries too many. So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.</p><p class=\"yy-para\">The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children. If we don’t use them, we will end up losing them. And for those who haven’t been to a library for some time, they may be surprised by what they find.</p><p>The statistics mentioned in Paragraph 6 show ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "the crisis faced by libraries."
+        },
+        {
+          "letter": "B",
+          "html": "the advancement of libraries."
+        },
+        {
+          "letter": "C",
+          "html": "the contributions of libraries."
+        },
+        {
+          "letter": "D",
+          "html": "the flaws existing in libraries."
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now?</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-25",
+      "year": 2026,
+      "number": 25,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now? And anyway — aren’t they all closing?</p><p class=\"yy-para\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday. As I visited libraries up and down the country, I was surprised to learn there are more than twice the number of libraries (2,892) as there are branches of McDonald’s.</p><p class=\"yy-para\">Enter any one of them and you will find a hive of activity. While books are, and should always be, at the heart of any library, a multitude of other services are offered: employment advice, language classes or digital access and support.</p><p class=\"yy-para\">There are libraries with business and intellectual property centres, which can help business owners and entrepreneurs. Many have nurses on site to carry out basic health checks, with a link to the GP’s surgery. There are libraries where young people can borrow a Fifa-standard football free.</p><p class=\"yy-para\">In return for all of this, you’ll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same. Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</p><p class=\"yy-para\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England. It is, of course, 230 libraries too many. So if we are to protect our libraries for future generations, we must raise awareness of them and the work they do.</p><p class=\"yy-para\">The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children. If we don’t use them, we will end up losing them. And for those who haven’t been to a library for some time, they may be surprised by what they find.</p><p>Which of the following is suggested for libraries in the last paragraph?</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "Inviting public feedback."
+        },
+        {
+          "letter": "B",
+          "html": "Seeking adequate funding."
+        },
+        {
+          "letter": "C",
+          "html": "Improving user convenience."
+        },
+        {
+          "letter": "D",
+          "html": "Offering lifetime memberships."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Ask people about public libraries and a certain image springs to mind: dusty, old-fashioned, the sort of place you enjoyed as a child but, rather like a British seaside town, would you go there now?</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-26",
+      "year": 2026,
+      "number": 26,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated. But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t realise that AI platforms may not be very good at keeping our secrets...secret.</p><p class=\"yy-para\">For businesses, the implications are worrying. Consider Microsoft Copilot, for example. It grants Microsoft broad rights to the data inputted or outputted by any user — rights to use this data in any way it sees fit; it can even share it with third parties. This means that any sensitive business information could potentially be exposed to the world. Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</p><p class=\"yy-para\">The situation presents a delicate balance between leveraging AI for its productivity gains and risking confidential data exposure. Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. There’s also a knowledge gap that needs to be addressed — 40% of individuals surveyed are unsure about who retains ownership over the content produced by AI. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p class=\"yy-para\">With AI’s potential to simplify our professional lives, do the admin and enhance the work experience, it’s up to us to navigate its usage cautiously so it supports us without compromising our privacy. There’s no need to back away from progress, as long as we’re equipped with the knowledge and tools to make sure AI remains a friend. And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim. But by building a culture of digital responsibility within our businesses, we can create a future where AI can help us without spilling the beans.</p><p>According to Paragraph 1, workers’ engagement with AI can ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "facilitate their career progress."
+        },
+        {
+          "letter": "B",
+          "html": "give them emotional support."
+        },
+        {
+          "letter": "C",
+          "html": "help maintain their motivation."
+        },
+        {
+          "letter": "D",
+          "html": "improve workplace communication."
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-27",
+      "year": 2026,
+      "number": 27,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated. But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t realise that AI platforms may not be very good at keeping our secrets...secret.</p><p class=\"yy-para\">For businesses, the implications are worrying. Consider Microsoft Copilot, for example. It grants Microsoft broad rights to the data inputted or outputted by any user — rights to use this data in any way it sees fit; it can even share it with third parties. This means that any sensitive business information could potentially be exposed to the world. Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</p><p class=\"yy-para\">The situation presents a delicate balance between leveraging AI for its productivity gains and risking confidential data exposure. Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. There’s also a knowledge gap that needs to be addressed — 40% of individuals surveyed are unsure about who retains ownership over the content produced by AI. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p class=\"yy-para\">With AI’s potential to simplify our professional lives, do the admin and enhance the work experience, it’s up to us to navigate its usage cautiously so it supports us without compromising our privacy. There’s no need to back away from progress, as long as we’re equipped with the knowledge and tools to make sure AI remains a friend. And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim. But by building a culture of digital responsibility within our businesses, we can create a future where AI can help us without spilling the beans.</p><p>Microsoft Copilot is cited to show that the use of AI may ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "pose a threat to businesses."
+        },
+        {
+          "letter": "B",
+          "html": "generate unnecessary data."
+        },
+        {
+          "letter": "C",
+          "html": "promote business cooperation."
+        },
+        {
+          "letter": "D",
+          "html": "encourage information sharing."
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Consider Microsoft Copilot, for example.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-28",
+      "year": 2026,
+      "number": 28,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated. But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t realise that AI platforms may not be very good at keeping our secrets...secret.</p><p class=\"yy-para\">For businesses, the implications are worrying. Consider Microsoft Copilot, for example. It grants Microsoft broad rights to the data inputted or outputted by any user — rights to use this data in any way it sees fit; it can even share it with third parties. This means that any sensitive business information could potentially be exposed to the world. Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</p><p class=\"yy-para\">The situation presents a delicate balance between leveraging AI for its productivity gains and risking confidential data exposure. Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. There’s also a knowledge gap that needs to be addressed — 40% of individuals surveyed are unsure about who retains ownership over the content produced by AI. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p class=\"yy-para\">With AI’s potential to simplify our professional lives, do the admin and enhance the work experience, it’s up to us to navigate its usage cautiously so it supports us without compromising our privacy. There’s no need to back away from progress, as long as we’re equipped with the knowledge and tools to make sure AI remains a friend. And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim. But by building a culture of digital responsibility within our businesses, we can create a future where AI can help us without spilling the beans.</p><p>Some employees choose to break the rules on AI due to ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "easy access to AI products."
+        },
+        {
+          "letter": "B",
+          "html": "the desire to stay well-informed."
+        },
+        {
+          "letter": "C",
+          "html": "its significant role in their work."
+        },
+        {
+          "letter": "D",
+          "html": "the need to compete with others."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>But even with these policies in place, some employees choose to break the rules.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-29",
+      "year": 2026,
+      "number": 29,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated. But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t realise that AI platforms may not be very good at keeping our secrets...secret.</p><p class=\"yy-para\">For businesses, the implications are worrying. Consider Microsoft Copilot, for example. It grants Microsoft broad rights to the data inputted or outputted by any user — rights to use this data in any way it sees fit; it can even share it with third parties. This means that any sensitive business information could potentially be exposed to the world. Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</p><p class=\"yy-para\">The situation presents a delicate balance between leveraging AI for its productivity gains and risking confidential data exposure. Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. There’s also a knowledge gap that needs to be addressed — 40% of individuals surveyed are unsure about who retains ownership over the content produced by AI. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p class=\"yy-para\">With AI’s potential to simplify our professional lives, do the admin and enhance the work experience, it’s up to us to navigate its usage cautiously so it supports us without compromising our privacy. There’s no need to back away from progress, as long as we’re equipped with the knowledge and tools to make sure AI remains a friend. And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim. But by building a culture of digital responsibility within our businesses, we can create a future where AI can help us without spilling the beans.</p><p>To positively shift the AI landscape, businesses should ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "increase the transparency of their data sources."
+        },
+        {
+          "letter": "B",
+          "html": "prioritise the quality of AI-produced content."
+        },
+        {
+          "letter": "C",
+          "html": "include employee perspectives in their rules."
+        },
+        {
+          "letter": "D",
+          "html": "adjust their management to AI development."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-30",
+      "year": 2026,
+      "number": 30,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated. But, with this newfound connection, many of us share sensitive, sometimes highly confidential information, even though over a third of people don’t realise that AI platforms may not be very good at keeping our secrets...secret.</p><p class=\"yy-para\">For businesses, the implications are worrying. Consider Microsoft Copilot, for example. It grants Microsoft broad rights to the data inputted or outputted by any user — rights to use this data in any way it sees fit; it can even share it with third parties. This means that any sensitive business information could potentially be exposed to the world. Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</p><p class=\"yy-para\">The situation presents a delicate balance between leveraging AI for its productivity gains and risking confidential data exposure. Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. There’s also a knowledge gap that needs to be addressed — 40% of individuals surveyed are unsure about who retains ownership over the content produced by AI. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</p><p class=\"yy-para\">With AI’s potential to simplify our professional lives, do the admin and enhance the work experience, it’s up to us to navigate its usage cautiously so it supports us without compromising our privacy. There’s no need to back away from progress, as long as we’re equipped with the knowledge and tools to make sure AI remains a friend. And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim. But by building a culture of digital responsibility within our businesses, we can create a future where AI can help us without spilling the beans.</p><p>According to the last paragraph, we may easily fall victim to AI as we ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "have a limited understanding of it."
+        },
+        {
+          "letter": "B",
+          "html": "underestimate its economic costs."
+        },
+        {
+          "letter": "C",
+          "html": "tend to overemphasise its power."
+        },
+        {
+          "letter": "D",
+          "html": "are excessively exposed to it."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p><p><strong>注意：</strong>本题为 2026 卷争议题——部分机构早期答案给 A，官方定版为 D。</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-31",
+      "year": 2026,
+      "number": 31,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike. Fast trains can cover the 500km between the two cities in three hours. The network also connects Naples, Bologna, Florence and Turin. In many cases, it is the best option — in terms of travel time and cost — for both leisure and business travellers.</p><p class=\"yy-para\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday, which matters for business in a country where tourism accounts for 10 percent of GDP.</p><p class=\"yy-para\">Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage. Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p class=\"yy-para\">The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie. RFI, the network operator, is the single largest European recovery fund beneficiary with planned investments of €24bn by 2026. Ferrovie will invest a total of €124bn in infrastructure over the next 10 years.</p><p class=\"yy-para\">But lack of capacity is another problem. Transport economist Andrea Giuricin said the planned investments would bring improvements but disruptions in the meantime were inevitable. “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said. A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</p><p class=\"yy-para\">One of the most important changes the upgrades will bring is the segregation of the high-speed line from the regular one in certain urban centres through the construction of underground rail links.</p><p class=\"yy-para\">Improvements will also come from the high-density technology and satellite signalling that RFI has been investing in for years, say experts. It will allow for a reduction of the distance between high-speed trains travelling on the same line at any given time, which should mean a significant increase in capacity and traffic fluidity, according to Giuricin.</p><p>According to the first two paragraphs, the high-speed rail network in Italy ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "is seen by tourists as outdated."
+        },
+        {
+          "letter": "B",
+          "html": "is a popular option for travelling."
+        },
+        {
+          "letter": "C",
+          "html": "is inadequately utilised by locals."
+        },
+        {
+          "letter": "D",
+          "html": "is an example of good maintenance."
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-32",
+      "year": 2026,
+      "number": 32,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike. Fast trains can cover the 500km between the two cities in three hours. The network also connects Naples, Bologna, Florence and Turin. In many cases, it is the best option — in terms of travel time and cost — for both leisure and business travellers.</p><p class=\"yy-para\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday, which matters for business in a country where tourism accounts for 10 percent of GDP.</p><p class=\"yy-para\">Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage. Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p class=\"yy-para\">The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie. RFI, the network operator, is the single largest European recovery fund beneficiary with planned investments of €24bn by 2026. Ferrovie will invest a total of €124bn in infrastructure over the next 10 years.</p><p class=\"yy-para\">But lack of capacity is another problem. Transport economist Andrea Giuricin said the planned investments would bring improvements but disruptions in the meantime were inevitable. “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said. A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</p><p class=\"yy-para\">One of the most important changes the upgrades will bring is the segregation of the high-speed line from the regular one in certain urban centres through the construction of underground rail links.</p><p class=\"yy-para\">Improvements will also come from the high-density technology and satellite signalling that RFI has been investing in for years, say experts. It will allow for a reduction of the distance between high-speed trains travelling on the same line at any given time, which should mean a significant increase in capacity and traffic fluidity, according to Giuricin.</p><p>Ferrovie is quoted in Paragraph 3 to show ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "the common occurrence of train delays."
+        },
+        {
+          "letter": "B",
+          "html": "the value of the Italian train network."
+        },
+        {
+          "letter": "C",
+          "html": "the wide media coverage of trains."
+        },
+        {
+          "letter": "D",
+          "html": "the high efficiency of Trenitalia."
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-33",
+      "year": 2026,
+      "number": 33,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike. Fast trains can cover the 500km between the two cities in three hours. The network also connects Naples, Bologna, Florence and Turin. In many cases, it is the best option — in terms of travel time and cost — for both leisure and business travellers.</p><p class=\"yy-para\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday, which matters for business in a country where tourism accounts for 10 percent of GDP.</p><p class=\"yy-para\">Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage. Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p class=\"yy-para\">The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie. RFI, the network operator, is the single largest European recovery fund beneficiary with planned investments of €24bn by 2026. Ferrovie will invest a total of €124bn in infrastructure over the next 10 years.</p><p class=\"yy-para\">But lack of capacity is another problem. Transport economist Andrea Giuricin said the planned investments would bring improvements but disruptions in the meantime were inevitable. “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said. A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</p><p class=\"yy-para\">One of the most important changes the upgrades will bring is the segregation of the high-speed line from the regular one in certain urban centres through the construction of underground rail links.</p><p class=\"yy-para\">Improvements will also come from the high-density technology and satellite signalling that RFI has been investing in for years, say experts. It will allow for a reduction of the distance between high-speed trains travelling on the same line at any given time, which should mean a significant increase in capacity and traffic fluidity, according to Giuricin.</p><p>Which of the following is one cause of the disruptions in the network?</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "Complex train schedules."
+        },
+        {
+          "letter": "B",
+          "html": "Shortage of investments."
+        },
+        {
+          "letter": "C",
+          "html": "Its limited capacity."
+        },
+        {
+          "letter": "D",
+          "html": "Its massive scale."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>But lack of capacity is another problem.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-34",
+      "year": 2026,
+      "number": 34,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike. Fast trains can cover the 500km between the two cities in three hours. The network also connects Naples, Bologna, Florence and Turin. In many cases, it is the best option — in terms of travel time and cost — for both leisure and business travellers.</p><p class=\"yy-para\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday, which matters for business in a country where tourism accounts for 10 percent of GDP.</p><p class=\"yy-para\">Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage. Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p class=\"yy-para\">The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie. RFI, the network operator, is the single largest European recovery fund beneficiary with planned investments of €24bn by 2026. Ferrovie will invest a total of €124bn in infrastructure over the next 10 years.</p><p class=\"yy-para\">But lack of capacity is another problem. Transport economist Andrea Giuricin said the planned investments would bring improvements but disruptions in the meantime were inevitable. “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said. A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</p><p class=\"yy-para\">One of the most important changes the upgrades will bring is the segregation of the high-speed line from the regular one in certain urban centres through the construction of underground rail links.</p><p class=\"yy-para\">Improvements will also come from the high-density technology and satellite signalling that RFI has been investing in for years, say experts. It will allow for a reduction of the distance between high-speed trains travelling on the same line at any given time, which should mean a significant increase in capacity and traffic fluidity, according to Giuricin.</p><p>It can be learned that the mixed system ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "provides a wide choice of routes."
+        },
+        {
+          "letter": "B",
+          "html": "requires extra operational spending."
+        },
+        {
+          "letter": "C",
+          "html": "increases the level of travel comfort."
+        },
+        {
+          "letter": "D",
+          "html": "puts the high-speed network in trouble."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-35",
+      "year": 2026,
+      "number": 35,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">Since the 2008 launch of the high-speed rail network between Rome and Milan, trains have become the preferred means of travel across Italy for locals and tourists alike. Fast trains can cover the 500km between the two cities in three hours. The network also connects Naples, Bologna, Florence and Turin. In many cases, it is the best option — in terms of travel time and cost — for both leisure and business travellers.</p><p class=\"yy-para\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday, which matters for business in a country where tourism accounts for 10 percent of GDP.</p><p class=\"yy-para\">Disruptions have become increasingly frequent with train delays now a fixture in Italian media coverage. Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p class=\"yy-para\">The huge improvements in Italy’s obsolete infrastructure partly explained the disruption, said Ferrovie. RFI, the network operator, is the single largest European recovery fund beneficiary with planned investments of €24bn by 2026. Ferrovie will invest a total of €124bn in infrastructure over the next 10 years.</p><p class=\"yy-para\">But lack of capacity is another problem. Transport economist Andrea Giuricin said the planned investments would bring improvements but disruptions in the meantime were inevitable. “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said. A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</p><p class=\"yy-para\">One of the most important changes the upgrades will bring is the segregation of the high-speed line from the regular one in certain urban centres through the construction of underground rail links.</p><p class=\"yy-para\">Improvements will also come from the high-density technology and satellite signalling that RFI has been investing in for years, say experts. It will allow for a reduction of the distance between high-speed trains travelling on the same line at any given time, which should mean a significant increase in capacity and traffic fluidity, according to Giuricin.</p><p>Improvements to the Italian train network will include ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "reconstructing the regular train lines."
+        },
+        {
+          "letter": "B",
+          "html": "shortening high-speed train intervals."
+        },
+        {
+          "letter": "C",
+          "html": "building more stations in urban centres."
+        },
+        {
+          "letter": "D",
+          "html": "enhancing the safety of high-speed trains."
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>Ferrovie dello Stato Italiane, the publicly controlled group that owns train operator Trenitalia and the national train network RFI, said 23 percent of all high-speed trains it operated were late in 2023.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-36",
+      "year": 2026,
+      "number": 36,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">In 2023, Chicago lost one of its most beloved street festivals. The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024. What began as a small neighborhood gathering blossomed into a massive cultural event, welcoming tens of thousands of people each year over nearly two decades before abruptly shutting down.</p><p class=\"yy-para\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now. The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</p><p class=\"yy-para\">Chicago’s summer festivals are about more than just entertainment; they are economic engines that directly benefit the neighborhoods they’re in and the city of Chicago as whole. Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.</p><p class=\"yy-para\">We often hear people ask why we solicit donations at our entry points, especially when the city’s largest festivals like the Chicago Jazz Festival do not request donations. The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.</p><p class=\"yy-para\">Wicker Park Fest has long been one of Chicago’s most anticipated summer festivals, drawing upward of 70,000 attendees for a full weekend of live indie music, local art, small business vendors and, most importantly, community connection. In 2024, Wicker Park Fest saw record-breaking attendance. Despite the turnout, gate donations reached their lowest point in our history. This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p class=\"yy-para\">This summer, as you enjoy your favorite neighborhood street festival, I hope you’ll remember that they exist because of community support. A thriving summer festival season doesn’t happen by accident; it happens when we all chip in.</p><p>It can be learned from Paragraph 1 that the Silver Room Block Party ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "has been replaced by other festivals."
+        },
+        {
+          "letter": "B",
+          "html": "has gained great international fame."
+        },
+        {
+          "letter": "C",
+          "html": "was held in various neighborhoods."
+        },
+        {
+          "letter": "D",
+          "html": "was an appealing cultural gathering."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-37",
+      "year": 2026,
+      "number": 37,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">In 2023, Chicago lost one of its most beloved street festivals. The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024. What began as a small neighborhood gathering blossomed into a massive cultural event, welcoming tens of thousands of people each year over nearly two decades before abruptly shutting down.</p><p class=\"yy-para\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now. The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</p><p class=\"yy-para\">Chicago’s summer festivals are about more than just entertainment; they are economic engines that directly benefit the neighborhoods they’re in and the city of Chicago as whole. Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.</p><p class=\"yy-para\">We often hear people ask why we solicit donations at our entry points, especially when the city’s largest festivals like the Chicago Jazz Festival do not request donations. The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.</p><p class=\"yy-para\">Wicker Park Fest has long been one of Chicago’s most anticipated summer festivals, drawing upward of 70,000 attendees for a full weekend of live indie music, local art, small business vendors and, most importantly, community connection. In 2024, Wicker Park Fest saw record-breaking attendance. Despite the turnout, gate donations reached their lowest point in our history. This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p class=\"yy-para\">This summer, as you enjoy your favorite neighborhood street festival, I hope you’ll remember that they exist because of community support. A thriving summer festival season doesn’t happen by accident; it happens when we all chip in.</p><p>One reality street festival organizers face is that ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "they are unable to use the donations wisely."
+        },
+        {
+          "letter": "B",
+          "html": "they are unable to get sufficient facilities."
+        },
+        {
+          "letter": "C",
+          "html": "they have to tackle financial difficulties."
+        },
+        {
+          "letter": "D",
+          "html": "they have to step up security measures."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-38",
+      "year": 2026,
+      "number": 38,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">In 2023, Chicago lost one of its most beloved street festivals. The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024. What began as a small neighborhood gathering blossomed into a massive cultural event, welcoming tens of thousands of people each year over nearly two decades before abruptly shutting down.</p><p class=\"yy-para\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now. The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</p><p class=\"yy-para\">Chicago’s summer festivals are about more than just entertainment; they are economic engines that directly benefit the neighborhoods they’re in and the city of Chicago as whole. Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.</p><p class=\"yy-para\">We often hear people ask why we solicit donations at our entry points, especially when the city’s largest festivals like the Chicago Jazz Festival do not request donations. The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.</p><p class=\"yy-para\">Wicker Park Fest has long been one of Chicago’s most anticipated summer festivals, drawing upward of 70,000 attendees for a full weekend of live indie music, local art, small business vendors and, most importantly, community connection. In 2024, Wicker Park Fest saw record-breaking attendance. Despite the turnout, gate donations reached their lowest point in our history. This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p class=\"yy-para\">This summer, as you enjoy your favorite neighborhood street festival, I hope you’ll remember that they exist because of community support. A thriving summer festival season doesn’t happen by accident; it happens when we all chip in.</p><p>According to Paragraphs 3 and 4 Chicago’s street festivals ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "relieve typical urban lifestyles."
+        },
+        {
+          "letter": "B",
+          "html": "are funded by the government."
+        },
+        {
+          "letter": "C",
+          "html": "contribute to the local economy."
+        },
+        {
+          "letter": "D",
+          "html": "are famous for their music shows."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>In 2023, Chicago lost one of its most beloved street festivals.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-39",
+      "year": 2026,
+      "number": 39,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">In 2023, Chicago lost one of its most beloved street festivals. The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024. What began as a small neighborhood gathering blossomed into a massive cultural event, welcoming tens of thousands of people each year over nearly two decades before abruptly shutting down.</p><p class=\"yy-para\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now. The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</p><p class=\"yy-para\">Chicago’s summer festivals are about more than just entertainment; they are economic engines that directly benefit the neighborhoods they’re in and the city of Chicago as whole. Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.</p><p class=\"yy-para\">We often hear people ask why we solicit donations at our entry points, especially when the city’s largest festivals like the Chicago Jazz Festival do not request donations. The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.</p><p class=\"yy-para\">Wicker Park Fest has long been one of Chicago’s most anticipated summer festivals, drawing upward of 70,000 attendees for a full weekend of live indie music, local art, small business vendors and, most importantly, community connection. In 2024, Wicker Park Fest saw record-breaking attendance. Despite the turnout, gate donations reached their lowest point in our history. This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p class=\"yy-para\">This summer, as you enjoy your favorite neighborhood street festival, I hope you’ll remember that they exist because of community support. A thriving summer festival season doesn’t happen by accident; it happens when we all chip in.</p><p>It is implied that the organizers of Wicker Park Fest have to ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "count on amateur artists’ participation."
+        },
+        {
+          "letter": "B",
+          "html": "reduce the number of performances."
+        },
+        {
+          "letter": "C",
+          "html": "give up its most prominent feature."
+        },
+        {
+          "letter": "D",
+          "html": "collaborate with large businesses."
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-40",
+      "year": 2026,
+      "number": 40,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "阅读理解"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following four texts. Answer the questions after each text by choosing A, B, C or D. Mark your answers on the ANSWER SHEET. (40 points)</p><p class=\"yy-para\">In 2023, Chicago lost one of its most beloved street festivals. The Silver Room Block Party, staged by Hyde Park community leader Eric Williams, announced it would not return in 2024. What began as a small neighborhood gathering blossomed into a massive cultural event, welcoming tens of thousands of people each year over nearly two decades before abruptly shutting down.</p><p class=\"yy-para\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now. The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</p><p class=\"yy-para\">Chicago’s summer festivals are about more than just entertainment; they are economic engines that directly benefit the neighborhoods they’re in and the city of Chicago as whole. Street festivals drive foot traffic to local businesses and foster the kind of cultural vibrancy that makes our city special.</p><p class=\"yy-para\">We often hear people ask why we solicit donations at our entry points, especially when the city’s largest festivals like the Chicago Jazz Festival do not request donations. The fact is, unlike those large, city-produced music festivals, your neighborhood street festivals receive no city funding and rely on a combination of sponsorships, vendor fees and gate donations to cover their costs.</p><p class=\"yy-para\">Wicker Park Fest has long been one of Chicago’s most anticipated summer festivals, drawing upward of 70,000 attendees for a full weekend of live indie music, local art, small business vendors and, most importantly, community connection. In 2024, Wicker Park Fest saw record-breaking attendance. Despite the turnout, gate donations reached their lowest point in our history. This year, we’ve been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</p><p class=\"yy-para\">This summer, as you enjoy your favorite neighborhood street festival, I hope you’ll remember that they exist because of community support. A thriving summer festival season doesn’t happen by accident; it happens when we all chip in.</p><p>The author holds that the future of street festivals depends on ______</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "the variety of activities."
+        },
+        {
+          "letter": "B",
+          "html": "the generosity of attendants."
+        },
+        {
+          "letter": "C",
+          "html": "the reputation of neighborhoods."
+        },
+        {
+          "letter": "D",
+          "html": "the management of expenditures."
+        }
+      ],
+      "answer": "B",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> B</p></blockquote><p><strong>定位句：</strong>In 2023, Chicago lost one of its most beloved street festivals.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-41",
+      "year": 2026,
+      "number": 41,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "新题型"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text and match each of the numbered items in the left column to its corresponding information in the right column. There are two extra choices in the right column. Mark your answers on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">In an effort to support restoration programmes, specialists are developing supplies of seeds and seedlings, maintaining gene banks and sequencing the genomes of indigenous trees and other crops. Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p class=\"yy-para\">“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p class=\"yy-para\">Asia is arguably the region most neglected by global efforts to increase diversity in restoration and to study native species. Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year. People need to be ready. “Otherwise, you miss the boat, you lose all the seed and you’ve got to wait another seven years,” says Kettle. “This is a really, really critical issue for restoration in Southeast Asia, because many of the most important timber species and tree species — the ones that will lock up the most carbon — they’re all masting species.”</p><p class=\"yy-para\">Climate change is a driving factor in the push to restore forests, but it also raises questions, such as where trees can thrive in the future. Climate change is also expected to alter relationships between trees, insects, diseases and other forest species. “Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf. This remains a significant knowledge gap. “We know enough to know that this is a concern, but we don’t know enough about how to respond to it yet. That’s a great area to be doing research.” So is soil, says Cindy Prescott, a forest ecologist at the University of British Columbia in Vancouver. “If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.”</p><p class=\"yy-para\">With so much research left to do, leaders in the field have been doing some soul-searching, and acknowledging that restoration can be motivated by — and designed to meet — different needs. “When you talk about conservation or restoration, the first question has to be restoration by whom, for whom?” says Daniel Janzen, a biologist at the University of Pennsylvania.</p><p class=\"yy-para\">The question can have more than one answer. Much of the global funding for restoration is dedicated to developing it as a tool to mitigate climate change, notes restoration ecologist Pedro Brancalion. “But if you ask a farmer in Brazil if he or she is concerned about climate change, they would say, ‘No, I am concerned about water,’ ” he says. Their interests as stewards of the land need to be better integrated with those who have the money to support restoration.</p><p class=\"yy-para\">That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”</p><p>Ramni Jamnadass</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "People must pay attention to the fact that some kinds of trees do not produce seeds annually."
+        },
+        {
+          "letter": "B",
+          "html": "Soil is an important element to be taken into account in forest restoration."
+        },
+        {
+          "letter": "C",
+          "html": "The purpose of restoration efforts may be different from the real needs of the people involved."
+        },
+        {
+          "letter": "D",
+          "html": "Human factors, as well as trees planted, should be emphasized in forest restoration."
+        },
+        {
+          "letter": "E",
+          "html": "The supply of seeds is a tough problem that has to be dealt with."
+        },
+        {
+          "letter": "F",
+          "html": "When it comes to restoration, we have to stay with an awareness of whose interests to serve."
+        },
+        {
+          "letter": "G",
+          "html": "Some creatures in the forest that multiply fast can become a great threat to forest restoration."
+        }
+      ],
+      "answer": "E",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> E</p></blockquote><p><strong>定位句：</strong>That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-42",
+      "year": 2026,
+      "number": 42,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "新题型"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text and match each of the numbered items in the left column to its corresponding information in the right column. There are two extra choices in the right column. Mark your answers on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">In an effort to support restoration programmes, specialists are developing supplies of seeds and seedlings, maintaining gene banks and sequencing the genomes of indigenous trees and other crops. Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p class=\"yy-para\">“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p class=\"yy-para\">Asia is arguably the region most neglected by global efforts to increase diversity in restoration and to study native species. Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year. People need to be ready. “Otherwise, you miss the boat, you lose all the seed and you’ve got to wait another seven years,” says Kettle. “This is a really, really critical issue for restoration in Southeast Asia, because many of the most important timber species and tree species — the ones that will lock up the most carbon — they’re all masting species.”</p><p class=\"yy-para\">Climate change is a driving factor in the push to restore forests, but it also raises questions, such as where trees can thrive in the future. Climate change is also expected to alter relationships between trees, insects, diseases and other forest species. “Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf. This remains a significant knowledge gap. “We know enough to know that this is a concern, but we don’t know enough about how to respond to it yet. That’s a great area to be doing research.” So is soil, says Cindy Prescott, a forest ecologist at the University of British Columbia in Vancouver. “If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.”</p><p class=\"yy-para\">With so much research left to do, leaders in the field have been doing some soul-searching, and acknowledging that restoration can be motivated by — and designed to meet — different needs. “When you talk about conservation or restoration, the first question has to be restoration by whom, for whom?” says Daniel Janzen, a biologist at the University of Pennsylvania.</p><p class=\"yy-para\">The question can have more than one answer. Much of the global funding for restoration is dedicated to developing it as a tool to mitigate climate change, notes restoration ecologist Pedro Brancalion. “But if you ask a farmer in Brazil if he or she is concerned about climate change, they would say, ‘No, I am concerned about water,’ ” he says. Their interests as stewards of the land need to be better integrated with those who have the money to support restoration.</p><p class=\"yy-para\">That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”</p><p>Christopher Kettle</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "People must pay attention to the fact that some kinds of trees do not produce seeds annually."
+        },
+        {
+          "letter": "B",
+          "html": "Soil is an important element to be taken into account in forest restoration."
+        },
+        {
+          "letter": "C",
+          "html": "The purpose of restoration efforts may be different from the real needs of the people involved."
+        },
+        {
+          "letter": "D",
+          "html": "Human factors, as well as trees planted, should be emphasized in forest restoration."
+        },
+        {
+          "letter": "E",
+          "html": "The supply of seeds is a tough problem that has to be dealt with."
+        },
+        {
+          "letter": "F",
+          "html": "When it comes to restoration, we have to stay with an awareness of whose interests to serve."
+        },
+        {
+          "letter": "G",
+          "html": "Some creatures in the forest that multiply fast can become a great threat to forest restoration."
+        }
+      ],
+      "answer": "A",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> A</p></blockquote><p><strong>定位句：</strong>Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-43",
+      "year": 2026,
+      "number": 43,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "新题型"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text and match each of the numbered items in the left column to its corresponding information in the right column. There are two extra choices in the right column. Mark your answers on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">In an effort to support restoration programmes, specialists are developing supplies of seeds and seedlings, maintaining gene banks and sequencing the genomes of indigenous trees and other crops. Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p class=\"yy-para\">“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p class=\"yy-para\">Asia is arguably the region most neglected by global efforts to increase diversity in restoration and to study native species. Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year. People need to be ready. “Otherwise, you miss the boat, you lose all the seed and you’ve got to wait another seven years,” says Kettle. “This is a really, really critical issue for restoration in Southeast Asia, because many of the most important timber species and tree species — the ones that will lock up the most carbon — they’re all masting species.”</p><p class=\"yy-para\">Climate change is a driving factor in the push to restore forests, but it also raises questions, such as where trees can thrive in the future. Climate change is also expected to alter relationships between trees, insects, diseases and other forest species. “Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf. This remains a significant knowledge gap. “We know enough to know that this is a concern, but we don’t know enough about how to respond to it yet. That’s a great area to be doing research.” So is soil, says Cindy Prescott, a forest ecologist at the University of British Columbia in Vancouver. “If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.”</p><p class=\"yy-para\">With so much research left to do, leaders in the field have been doing some soul-searching, and acknowledging that restoration can be motivated by — and designed to meet — different needs. “When you talk about conservation or restoration, the first question has to be restoration by whom, for whom?” says Daniel Janzen, a biologist at the University of Pennsylvania.</p><p class=\"yy-para\">The question can have more than one answer. Much of the global funding for restoration is dedicated to developing it as a tool to mitigate climate change, notes restoration ecologist Pedro Brancalion. “But if you ask a farmer in Brazil if he or she is concerned about climate change, they would say, ‘No, I am concerned about water,’ ” he says. Their interests as stewards of the land need to be better integrated with those who have the money to support restoration.</p><p class=\"yy-para\">That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”</p><p>John Stanturf</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "People must pay attention to the fact that some kinds of trees do not produce seeds annually."
+        },
+        {
+          "letter": "B",
+          "html": "Soil is an important element to be taken into account in forest restoration."
+        },
+        {
+          "letter": "C",
+          "html": "The purpose of restoration efforts may be different from the real needs of the people involved."
+        },
+        {
+          "letter": "D",
+          "html": "Human factors, as well as trees planted, should be emphasized in forest restoration."
+        },
+        {
+          "letter": "E",
+          "html": "The supply of seeds is a tough problem that has to be dealt with."
+        },
+        {
+          "letter": "F",
+          "html": "When it comes to restoration, we have to stay with an awareness of whose interests to serve."
+        },
+        {
+          "letter": "G",
+          "html": "Some creatures in the forest that multiply fast can become a great threat to forest restoration."
+        }
+      ],
+      "answer": "G",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> G</p></blockquote><p><strong>定位句：</strong>“Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-44",
+      "year": 2026,
+      "number": 44,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "新题型"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text and match each of the numbered items in the left column to its corresponding information in the right column. There are two extra choices in the right column. Mark your answers on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">In an effort to support restoration programmes, specialists are developing supplies of seeds and seedlings, maintaining gene banks and sequencing the genomes of indigenous trees and other crops. Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p class=\"yy-para\">“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p class=\"yy-para\">Asia is arguably the region most neglected by global efforts to increase diversity in restoration and to study native species. Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year. People need to be ready. “Otherwise, you miss the boat, you lose all the seed and you’ve got to wait another seven years,” says Kettle. “This is a really, really critical issue for restoration in Southeast Asia, because many of the most important timber species and tree species — the ones that will lock up the most carbon — they’re all masting species.”</p><p class=\"yy-para\">Climate change is a driving factor in the push to restore forests, but it also raises questions, such as where trees can thrive in the future. Climate change is also expected to alter relationships between trees, insects, diseases and other forest species. “Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf. This remains a significant knowledge gap. “We know enough to know that this is a concern, but we don’t know enough about how to respond to it yet. That’s a great area to be doing research.” So is soil, says Cindy Prescott, a forest ecologist at the University of British Columbia in Vancouver. “If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.”</p><p class=\"yy-para\">With so much research left to do, leaders in the field have been doing some soul-searching, and acknowledging that restoration can be motivated by — and designed to meet — different needs. “When you talk about conservation or restoration, the first question has to be restoration by whom, for whom?” says Daniel Janzen, a biologist at the University of Pennsylvania.</p><p class=\"yy-para\">The question can have more than one answer. Much of the global funding for restoration is dedicated to developing it as a tool to mitigate climate change, notes restoration ecologist Pedro Brancalion. “But if you ask a farmer in Brazil if he or she is concerned about climate change, they would say, ‘No, I am concerned about water,’ ” he says. Their interests as stewards of the land need to be better integrated with those who have the money to support restoration.</p><p class=\"yy-para\">That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”</p><p>Pedro Brancalion</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "People must pay attention to the fact that some kinds of trees do not produce seeds annually."
+        },
+        {
+          "letter": "B",
+          "html": "Soil is an important element to be taken into account in forest restoration."
+        },
+        {
+          "letter": "C",
+          "html": "The purpose of restoration efforts may be different from the real needs of the people involved."
+        },
+        {
+          "letter": "D",
+          "html": "Human factors, as well as trees planted, should be emphasized in forest restoration."
+        },
+        {
+          "letter": "E",
+          "html": "The supply of seeds is a tough problem that has to be dealt with."
+        },
+        {
+          "letter": "F",
+          "html": "When it comes to restoration, we have to stay with an awareness of whose interests to serve."
+        },
+        {
+          "letter": "G",
+          "html": "Some creatures in the forest that multiply fast can become a great threat to forest restoration."
+        }
+      ],
+      "answer": "C",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> C</p></blockquote><p><strong>定位句：</strong>Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-45",
+      "year": 2026,
+      "number": 45,
+      "type": "单选",
+      "points": 2,
+      "tags": [
+        "新题型"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Read the following text and match each of the numbered items in the left column to its corresponding information in the right column. There are two extra choices in the right column. Mark your answers on the ANSWER SHEET. (10 points)</p><p class=\"yy-para\">In an effort to support restoration programmes, specialists are developing supplies of seeds and seedlings, maintaining gene banks and sequencing the genomes of indigenous trees and other crops. Their work deals with one of the problems that could block major restoration efforts in different parts of the world.</p><p class=\"yy-para\">“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.</p><p class=\"yy-para\">Asia is arguably the region most neglected by global efforts to increase diversity in restoration and to study native species. Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year. People need to be ready. “Otherwise, you miss the boat, you lose all the seed and you’ve got to wait another seven years,” says Kettle. “This is a really, really critical issue for restoration in Southeast Asia, because many of the most important timber species and tree species — the ones that will lock up the most carbon — they’re all masting species.”</p><p class=\"yy-para\">Climate change is a driving factor in the push to restore forests, but it also raises questions, such as where trees can thrive in the future. Climate change is also expected to alter relationships between trees, insects, diseases and other forest species. “Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf. This remains a significant knowledge gap. “We know enough to know that this is a concern, but we don’t know enough about how to respond to it yet. That’s a great area to be doing research.” So is soil, says Cindy Prescott, a forest ecologist at the University of British Columbia in Vancouver. “If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.”</p><p class=\"yy-para\">With so much research left to do, leaders in the field have been doing some soul-searching, and acknowledging that restoration can be motivated by — and designed to meet — different needs. “When you talk about conservation or restoration, the first question has to be restoration by whom, for whom?” says Daniel Janzen, a biologist at the University of Pennsylvania.</p><p class=\"yy-para\">The question can have more than one answer. Much of the global funding for restoration is dedicated to developing it as a tool to mitigate climate change, notes restoration ecologist Pedro Brancalion. “But if you ask a farmer in Brazil if he or she is concerned about climate change, they would say, ‘No, I am concerned about water,’ ” he says. Their interests as stewards of the land need to be better integrated with those who have the money to support restoration.</p><p class=\"yy-para\">That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”</p><p>Robin Chazdon</p>",
+      "options": [
+        {
+          "letter": "A",
+          "html": "People must pay attention to the fact that some kinds of trees do not produce seeds annually."
+        },
+        {
+          "letter": "B",
+          "html": "Soil is an important element to be taken into account in forest restoration."
+        },
+        {
+          "letter": "C",
+          "html": "The purpose of restoration efforts may be different from the real needs of the people involved."
+        },
+        {
+          "letter": "D",
+          "html": "Human factors, as well as trees planted, should be emphasized in forest restoration."
+        },
+        {
+          "letter": "E",
+          "html": "The supply of seeds is a tough problem that has to be dealt with."
+        },
+        {
+          "letter": "F",
+          "html": "When it comes to restoration, we have to stay with an awareness of whose interests to serve."
+        },
+        {
+          "letter": "G",
+          "html": "Some creatures in the forest that multiply fast can become a great threat to forest restoration."
+        }
+      ],
+      "answer": "D",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> D</p></blockquote><p><strong>定位句：</strong>Christopher Kettle, Biodiversity International’s director for forest genetic resources and restoration in Rome, says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year.</p><p>（本卷解析素材来自备用源审校包的逐题证据句；答案已与两路独立答案串交叉验证，45 题一致。）</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-46",
+      "year": 2026,
+      "number": 46,
+      "type": "解答",
+      "points": 15,
+      "tags": [
+        "翻译"
+      ],
+      "stemHtml": "<p class=\"yy-directions\">Translate the following text into Chinese. Write your translation on the ANSWER SHEET. (15 points)</p><p class=\"yy-para\">The influence of wearables on psychology refers to how the clothes we wear affect our thoughts, feelings, and behaviors. Clothing is not just about covering our bodies; it plays a significant role in shaping our self-perception and interactions with others.</p><p class=\"yy-para\">One aspect of this influence is self-expression. The clothes we choose can reflect our personality, mood, and identity. Whether we opt for bold, colorful outfits or prefer more understated styles, our dress choices convey messages about who we are and how we want to be perceived.</p><p class=\"yy-para\">Additionally, clothing can impact our confidence levels. When we wear clothes that make us feel comfortable and confident, it can positively affect our self-esteem and overall mood.</p><p class=\"yy-para\">Moreover, cultural and societal influences play a significant role in shaping our dress choices. Different cultures have their norms and expectations regarding dress, which can influence the types of clothing people wear and the meanings attributed to them.</p>",
+      "options": [],
+      "answer": "<p>可穿戴设备对心理学的影响是指我们穿的衣服如何影响我们的思想、感觉和行为。衣服不仅仅是用来遮盖我们的身体；它在塑造我们的自我认知和与他人的互动中起着重要作用。</p><p>这种影响的一个方面是自我表达。我们选择的衣服可以反映我们的个性、心情和身份。无论我们是选择大胆、色彩鲜艳的服装，还是更喜欢低调的风格，我们的着装选择都传达了我们是谁以及我们希望别人如何看待我们的信息。</p><p>此外，衣服会影响我们的自信水平。当我们穿着让我们感到舒适和自信的衣服时，它会对我们的自尊和整体情绪产生积极的影响。</p><p>此外，文化和社会影响在塑造我们的着装选择方面起着重要作用。不同的文化对着装有自己的规范和期望，这可能会影响人们穿的衣服的类型和赋予它们的含义。</p>",
+      "refAnalysis": "<blockquote><p><strong>答案：</strong> 参考译文见下文</p></blockquote><p><strong>一、逐句分析</strong></p><ol><li>The influence of wearables on psychology refers to how the clothes we wear affect our thoughts, feelings, and behaviors.<br>可穿戴设备对心理学的影响是指我们穿的衣服如何影响我们的思想、感觉和行为。</li><li>Clothing is not just about covering our bodies; it plays a significant role in shaping our self-perception and interactions with others.<br>衣服不仅仅是用来遮盖我们的身体；它在塑造我们的自我认知和与他人的互动中起着重要作用。</li><li>One aspect of this influence is self-expression.<br>这种影响的一个方面是自我表达。</li><li>The clothes we choose can reflect our personality, mood, and identity.<br>我们选择的衣服可以反映我们的个性、心情和身份。</li><li>Whether we opt for bold, colorful outfits or prefer more understated styles, our dress choices convey messages about who we are and how we want to be perceived.<br>无论我们是选择大胆、色彩鲜艳的服装，还是更喜欢低调的风格，我们的着装选择都传达了我们是谁以及我们希望别人如何看待我们的信息。</li><li>Additionally, clothing can impact our confidence levels.<br>此外，衣服会影响我们的自信水平。</li><li>When we wear clothes that make us feel comfortable and confident, it can positively affect our self-esteem and overall mood.<br>当我们穿着让我们感到舒适和自信的衣服时，它会对我们的自尊和整体情绪产生积极的影响。</li><li>Moreover, cultural and societal influences play a significant role in shaping our dress choices.<br>此外，文化和社会影响在塑造我们的着装选择方面起着重要作用。</li><li>Different cultures have their norms and expectations regarding dress, which can influence the types of clothing people wear and the meanings attributed to them.<br>不同的文化对着装有自己的规范和期望，这可能会影响人们穿的衣服的类型和赋予它们的含义。</li></ol>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-47",
+      "year": 2026,
+      "number": 47,
+      "type": "解答",
+      "points": 10,
+      "tags": [
+        "小作文"
+      ],
+      "stemHtml": "<p>Suppose your friend Jack has shared with you a video of his family’s travel in China. Write an email to tell him:&lt;br&gt;1) how you feel about the video, and&lt;br&gt;2) your wish to learn more about their travel.&lt;br&gt;Write your answer in about 100 words on the ANSWER SHEET.&lt;br&gt;Do not use your own name in your email. Use “Li Ming” instead.</p>",
+      "options": [],
+      "answer": "<p>Dear Jack, I was so thrilled to watch the wonderful video of your family's travel in China that you shared with me yesterday.</p><p>The video is truly amazing! The high-speed train scenes and the smiling faces of your family climbing the Great Wall really impressed me. Seeing how much you all enjoyed tasting traditional dumplings and admiring ancient temples touched my heart deeply. Since my family is also planning a summer trip to the western part of China, I am very eager to learn more about your travel tips, such as the best hotels and local tour guides you would recommend.</p><p>Thank you again for sharing your happy moments with me. I look forward to hearing more stories from your journey. Yours sincerely, Li Ming.</p>",
+      "refAnalysis": "<p><strong>审题要点：</strong>给朋友 Jack 回邮件：1) 表达对其家庭中国旅行视频的感受；2) 表达想进一步了解其行程的愿望。约 100 词，署名 Li Ming。</p><p><strong>范文说明：</strong>以下为备用源提供的参考范文（非官方范文），供对照自评。</p>",
+      "wrongOptions": []
+    },
+    {
+      "id": "yy-2026-48",
+      "year": 2026,
+      "number": 48,
+      "type": "解答",
+      "points": 15,
+      "tags": [
+        "大作文"
+      ],
+      "stemHtml": "<p>Write an essay based on the chart below. In your essay, you should&lt;br&gt;1) describe and interpret the chart, and&lt;br&gt;2) give your comments.&lt;br&gt;Write your answer in about 150 words on the ANSWER SHEET.</p><figure class=\"yy-figure\"><img src=\"images/2026-2-q48.png\" alt=\"2026年英语二大作文图表\" loading=\"lazy\" decoding=\"async\"></figure>",
+      "options": [],
+      "answer": "<p>The chart presents public views on children's outdoor activities. Satisfying curiosity and improving observation are the two leading benefits, cited by 54.6% and 54.5% respectively. Physical fitness accounts for 37.2%, while stronger parent-child interaction is chosen by 33.2%.</p><p>The results show that adults value both cognitive and physical development. Direct contact with plants, weather and neighbourhood life invites questions and trains children to notice details that screens cannot provide. Shared outdoor experiences also give parents and children time to communicate naturally.</p><p>Families and schools should therefore create frequent, safe opportunities for exploration rather than treating outdoor time as an occasional reward. Adults should offer guidance without controlling every step, so children can remain curious, active and connected to others.</p>",
+      "refAnalysis": "<p><strong>审题要点：</strong>图表作文——描述并解读「公众对儿童户外活动益处看法」的调查数据（满足好奇心 54.6%、促进观察力 54.5%、强身健体 37.2%、增强亲子互动 33.2%），并给出评论。约 150 词。</p><p><strong>范文说明：</strong>以下为备用源提供的参考范文（非官方范文），供对照自评。</p>",
+      "wrongOptions": []
+    }
+  ]
+}

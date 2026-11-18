@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2020-47 小作文谋篇：介绍信 + 建议信的「一信两职」结构框架</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：介绍 + 建议双职责',
+    cls: 'key',
+    body: '<p>指令两个动词定内容：<b>tell them about the site</b>（必答点 1：介绍古迹）+ <b>give them some tips for the tour</b>（必答点 2：游览建议）。信型 = <b>介绍信 + 建议信</b>合体。</p><p>身份是安排游览的大学生，收信对象是 <b>a group of international students</b>（留学生群体）→ 语气礼貌亲切、半正式即可。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>指令硬约束：<b>Do not use your own name, use "Li Ming" instead</b> → 落款必须署 <b>Li Ming</b>。书信三件套齐全：称呼（Dear Friends，群体收信人）+ 正文 + 落款（Yours sincerely, Li Ming）。署真名 = 直接踩格式扣分线。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> 表明写信目的、引出古迹名称；<b>段 2</b> 简介古迹信息 + 给出两条游览建议；<b>段 3</b> 表达期待与祝愿。两个必答点分别锚定段 2 的前后半，缺一即结构性掉档。</p><p>古迹自选——范文选兵马俑：位置、构成、价值三句就能撑满，且是留给外国学生的「文化名片」。</p>' },
+  { title: '段 1：目的句一次挂双点',
+    cls: 'good',
+    body: '<p>先给情绪（你们信任我来安排行程，我很高兴），再用一句目的句把两个必答点全部挂上：</p><p><b>I\'m writing to inform you of the historical attraction to visit—the Terracotta Army, one of the greatest archaeological discoveries of all time—and share some travel tips.</b></p><p>破折号插入古迹名称 + 同位语补身份：留学生不一定知道兵马俑是什么，「有史以来最伟大的考古发现之一」一句立住。</p>' },
+  { title: '段 2 介绍：位置 + 构成 + 价值',
+    cls: 'good',
+    body: '<p>游客视角三信息点，三个简单信息压进一句：</p><p><b>Located to the east of downtown Xi\'an</b>（过去分词状语 → 位置）, the Terracotta Army is a massive collection of <b>life-size clay warriors and horses buried in the tomb of China\'s First Emperor</b>（过去分词后置定语 → 构成，压掉「俑马埋于陵墓」的第二个句子）.</p><p>价值句用回指衔接：<b>It offers a fascinating glimpse into the country\'s glorious past.</b>（领略中国辉煌历史）</p>' },
+  { title: '段 2 建议一：动作 + 理由',
+    cls: 'good',
+    body: '<p>建议 1 = 避开中国的公共假日；若必须假日去则提早出发。先给理由再给动作：</p><p><b>To get a better view of these breathtaking sculptures, you may consider avoiding public holidays in China or setting out early if you have to visit the museum on those days.</b></p><p>句型点：consider + 动名词（avoiding / setting out），or 并列两个替代方案。</p>' },
+  { title: '段 2 建议二：形式主语 + which 给好处',
+    cls: 'good',
+    body: '<p>In addition 衔接，建议 2 = 租多语言语音导览，好处用 which 非限制性定语从句带出：</p><p><b>it\'s also advisable to rent a multilingual audio guide at the ticket office, which will certainly make your trip informative.</b></p><p>it 形式主语 + advisable（明智的、可取的）是建议信万能升格句型；informative = 增长见闻的。</p>' },
+  { title: '段 3 收尾 + 落款',
+    cls: 'good',
+    body: '<p>一句期待祝愿收束全信：</p><p><b>Hope this trip suits your taste and that you all enjoy it.</b>（希望行程合你们口味、玩得尽兴）</p><p>落款：<b>Yours sincerely, Li Ming</b>——署名红线再确认一遍。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>historical site/attraction 历史名胜 · archaeological discovery 考古发现 · life-size 与真人等大的 · warrior 战士、武士俑 · breathtaking 惊人的、叹为观止的 · public holidays 公共假日 · multilingual audio guide 多语言语音导览 · informative 增长见闻的 · a glimpse into 一睹、领略 · suit one\'s taste 合某人口味 · advisable 可取的</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>介绍三信息点（位置 + 构成 + 价值），建议动作配理由；目的句一次挂双点；落款 Li Ming</b>。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2020-47 小作文谋篇演示：介绍信 + 建议信的「一信两职」',
+  subtitle: '考点：应用文写作 · 方法：拆指令 → 定框架 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>Dear Friends, I\'m so delighted that you trust me to arrange your trip. I\'m writing to inform you of the historical attraction to visit—the Terracotta Army, one of the greatest archaeological discoveries of all time—and share some travel tips.</p>' +
+      '<p>Located to the east of downtown Xi\'an, the Terracotta Army is a massive collection of life-size clay warriors and horses buried in the tomb of China\'s First Emperor. It offers a fascinating glimpse into the country\'s glorious past. To get a better view of these breathtaking sculptures, you may consider avoiding public holidays in China or setting out early if you have to visit the museum on those days. In addition, it\'s also advisable to rent a multilingual audio guide at the ticket office, which will certainly make your trip informative.</p>' +
+      '<p>Hope this trip suits your taste and that you all enjoy it.</p>' +
+      '<p>Yours sincerely, Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>介绍 + 建议</b>双必答；介绍 = 位置 + 构成 + 价值，建议 = 动作 + 理由；落款红线 <b>Li Ming</b>。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：介绍信 + 建议信的「一信两职」——2020 小作文</h2>
+<p>答案（参考范文口径）：<strong>Dear Friends, I'm so delighted that you trust me to arrange your trip. I'm writing to inform you of the historical attraction to visit—the Terracotta Army, one of the greatest archaeological discoveries of all time—and share some travel tips. Located to the east of downtown Xi'an, the Terracotta Army is a massive collection of life-size clay warriors and horses buried in the tomb of China's First Emperor. It offers a fascinating glimpse into the country's glorious past. To get a better view of these breathtaking sculptures, you may consider avoiding public holidays in China or setting out early if you have to visit the museum on those days. In addition, it's also advisable to rent a multilingual audio guide at the ticket office, which will certainly make your trip informative. Hope this trip suits your taste and that you all enjoy it. Yours sincerely, Li Ming</strong></p>
+<h3>第 0 步：先立机制——小作文按「格式 + 要点 + 升格」三线评分</h3>
+<p>小作文的分数不由文笔单独决定，而是三条线并行：<strong>格式</strong>（称呼/正文/落款是否符合书信规范与指令红线）、<strong>要点</strong>（指令列出的信息点逐条落实）、<strong>语言</strong>（同档内靠句式与用词升格拉开差距）。本题的信型由指令两个动词定死：tell them about the site（<strong>介绍</strong>）+ give them some tips（<strong>建议</strong>）——这是一封"介绍信 + 建议信"的合体。机制立住了，下面每一步都是往这三条线里填内容。</p>
+<h3>第 1 步：拆指令——每条指令对应信里的一个位置</h3>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>planning a tour of a historical site</td><td>你是组织者，任务 = 安排一次古迹游览</td><td>段 1 表明写信目的</td></tr><tr><td>for a group of international students</td><td>收信对象：留学生群体（对中国不一定了解）</td><td>称呼 Dear Friends；介绍要自足</td></tr><tr><td>1) tell them about the site</td><td>必答点 1：介绍古迹</td><td>段 2 前半</td></tr><tr><td>2) give them some tips for the tour</td><td>必答点 2：游览建议</td><td>段 2 后半</td></tr><tr><td>use "Li Ming" instead</td><td>格式红线：署名</td><td>落款 Yours sincerely, Li Ming</td></tr></tbody></table>
+<p>两个必答点缺一即结构性扣分。古迹选哪个由自己定——范文选兵马俑：素材现成（位置、构成、价值三句话就能撑满），且对中国文化的"名片效应"强，留学生读者感兴趣。</p>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1 目的 + 引出</strong>：高兴接到信任（so delighted that you trust me to arrange your trip）后，用一句 I'm writing to inform you of ... and share some travel tips 把<strong>两个必答点一次挂上</strong>——破折号插入古迹名称，一句顶两句。</li><li><strong>段 2 介绍 + 建议</strong>：介绍按"游客视角三信息点"展开——<strong>位置</strong>（位于西安市区以东）、<strong>构成</strong>（秦始皇陵中埋藏的大批真人大小的陶俑陶马）、<strong>价值</strong>（得以领略中国辉煌历史）；建议给两条，每条都带"为什么"：避开公共假日或提早出发 → 为了看得更清楚（To get a better view...）；在售票处租多语言语音导览 → 旅途增长见闻（make your trip informative）。</li><li><strong>段 3 期待收尾</strong>：一句 Hope this trip suits your taste and that you all enjoy it + 落款。</li></ul>
+<h3>第 3 步：语言升格——预判"同档内怎么拿高分"</h3>
+<p>升格的机制是<strong>把简单信息压进高级句法框架</strong>，而不是堆大词：</p>
+<ul><li>三个信息点压进一句：<strong>Located to the east of downtown Xi'an</strong>（过去分词作状语，位置信息前置）+ a massive collection of <strong>life-size clay warriors and horses buried in the tomb of China's First Emperor</strong>（过去分词后置定语，压掉"俑马被埋在陵墓里"的第二个句子）。</li><li>古迹名称配<strong>同位语</strong>补身份：the Terracotta Army, <strong>one of the greatest archaeological discoveries of all time</strong>——对不熟悉中国的留学生，这句"是什么"不可省。</li><li>建议句型升格：you may consider <strong>avoiding</strong>... or <strong>setting out early</strong>（consider + 动名词，or 并列两个方案）；<strong>it's also advisable to do..., which will certainly...</strong>（形式主语 + which 非限制性定语从句给好处）。</li><li>词汇升格：a fascinating glimpse into（领略）、breathtaking（叹为观止的）、multilingual audio guide（多语言语音导览）、informative（增长见闻的）、suit one's taste（合口味）、archaeological discovery（考古发现）。</li></ul>
+<h3>第 4 步：成文自检——三个"为什么"</h3>
+<ul><li><strong>为什么称呼 Dear Friends</strong>：收信对象是一群留学生，群体 + 半正式；生套 Dear Sir or Madam 反而语气失当。</li><li><strong>为什么建议必须配理由</strong>：只罗列"避开假日、租导览"像便条清单；配上目的/好处（看得更清、增长见闻）才有说服力，也是语言分与字数的来源。</li><li><strong>为什么介绍要自足</strong>：默认读者不了解中国史地——位置、构成、价值三信息点齐了，介绍才立得住；只堆朝代年份是"历史课"不是"游览介绍"。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只介绍漏建议 / 只建议漏介绍</strong>：必答点缺失，内容完整性掉档——指令两个动词（tell / give）就是评分清单。</li><li><strong>介绍写成历史课</strong>：堆砌秦朝年份与文物数据，游客关心的"去哪、看什么、值不值"反而没说。</li><li><strong>建议无理由</strong>：avoid public holidays 一句带过，没有 To get a better view 的目的状语，说服力归零。</li><li><strong>语气过度正式</strong>：通篇 I would be most obliged 这类公文腔，对留学生群体失当；半正式、亲切礼貌即可。</li><li><strong>署真名或落款缺失</strong>：指令明令 use "Li Ming" instead；格式红线踩线即扣。</li><li><strong>古迹无同位语解释</strong>：直接甩一个 Terracotta Army 假设对方知道是什么——对留学生读者不成立。</li></ul>
+<blockquote>记忆锚点：介绍 + 建议<strong>双必答</strong>；介绍 = 位置 + 构成 + 价值，建议 = 动作 + 理由；升格三件套——分词状语开头、同位语补身份、it's advisable to...which...；落款红线 <strong>Li Ming</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

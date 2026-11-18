@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-08 · 2014 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 8 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 8 空所在句（插入语），考点：上下文逻辑语义 + 介词短语辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Obesity, <b>__8__</b>, can be divided into moderately obese, severely obese, and very severely obese.</div><p>空格是前后都被逗号隔开的<b>插入语</b>，功能是给句子贴一个“推进方式”的标签。本句内容：肥胖 can be divided into 中度、重度、极重度三级。它接在什么后面？上一句刚把体重分成 normal / overweight / obese 三档——本句是对其中一档（obese）<b>再往下细分</b>。</p>"
+ },
+ {
+  "title": "找证据 · “分级 → 再细分”是顺承递进，不是对比或本质探讨",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上句刚落定“30 以上为肥胖”，本句转而继续分级——顺承接续",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And over 30 is considered obese.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Obesity, <b>__8__</b>, can be divided into moderately obese, severely obese, and very severely obese.</div><p>上句 <b>And over 30 is considered obese</b> 刚落定“30 以上为肥胖”；本句立刻对肥胖继续分级。这是“分层划分、逐级细化”的顺承推进——没有对立面（排除对比），没有上升抽象层级（排除本质探讨），也没有只谈部分（划分是完整的三级）。</p>"
+ },
+ {
+  "title": "逐项分析 · A in essence（本质上）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A in essence（本质上） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>本句讲的是分级结果这一“事实”，没有上升到本质探讨；插上它反而暗示前文都是非本质描述，与段落写作不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：in essence 听着“学术”，在名词句前凭语感加分。</p>"
+ },
+ {
+  "title": "逐项分析 · B in contrast（相比之下）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B in contrast（相比之下） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>contrast 需要一个对照面——本句与前文是细化关系，不是把肥胖和别的概念对着比。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见到“又出现一套分类”，误当成“另一套对立说法”。</p>"
+ },
+ {
+  "title": "逐项分析 · D in part（部分地）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D in part（部分地） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>本句把肥胖完整分成三级、无遗漏，不是“部分肥胖如此”；in part 的模糊限定还会削弱 can be divided 的断言力度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿“某种程度上”的模糊语气兜底。</p>"
+ },
+ {
+  "title": "逐项分析 · C in turn（转而，相应地）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C in turn（转而，相应地） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>in turn 正是“接着上一级往下分”的递进衔接：体重分三档 → 肥胖这一档再分三级，层层推进，逻辑严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（in turn 转而，相应地）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>而肥胖相应地又可再分为中度肥胖、重度肥胖和极重度肥胖。</b></p><p>答案选 <b>C（in turn 转而，相应地）</b>。</p><p><b>记忆锚点</b>：分级之后再分级 → in turn；有对照面才 in contrast；谈本质才 in essence；话说一半才 in part。</p><p style=\"color:#b91c1c\">最易误选：<b>B（in contrast）</b>——把“分级细化”误判为“对比”，找不到真正的对照面。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 8 空 · 分级之后又分级，插入语用哪个",
+  subtitle: "考点：上下文逻辑语义 + 介词短语辨析 · 认推进方式 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“认清推进方式 → 插入语辨析 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（in turn）",
+ "html": "<b>C in turn（转而，相应地）</b>。<br>记忆锚点：分级之后再分级 → in turn；有对照面才 in contrast；谈本质才 in essence；话说一半才 in part。<br>最易误选：<b>B（in contrast）</b>——把“分级细化”误判为“对比”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 8 空 · Obesity, ______, can be divided into...——插入语标识的推进方式</h2>
+<p>答案：<strong>C（in turn 转而，相应地）</strong>。</p>
+<h3>第 0 步：先立机制——插入语题：问清本句对上一句做的是哪种动作</h3>
+<p>插入语的功能是给句子贴“推进方式”标签：本质化（in essence）、对比（in contrast）、递进细化（in turn）、部分限定（in part）。判断依据只有一个——本句对上一句的内容做了什么。上句把体重分成三档，本句对其中的 obese 档再分三级：这是<strong>细化</strong>，不是<strong>对比</strong>（没有另一套说法），不是<strong>本质化</strong>（没有抽象升级），也不是<strong>限定</strong>（三级划分完整无遗）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Obesity, __8__, can be divided into moderately obese, severely obese, and very severely obese.</blockquote>
+<p>本句的谓语 can be divided into + 三个并列宾语，本身就是“再分一次级”的动作；插入语要给这个动作配上正确的推进语气。</p>
+<h3>第 2 步：找证据——上句落定分档，本句顺势细化</h3>
+<blockquote>And over 30 is considered obese.</blockquote>
+<blockquote>Obesity, __8__, can be divided into moderately obese, severely obese, and very severely obese.</blockquote>
+<p>上句的落点是“30 以上为肥胖”，本句主语顺势接住 obesity 继续切分——两句之间是水到渠成的顺承。若插 in contrast，读者会期待“另一套相反的分级标准”；若插 in essence，读者会期待“抛开分级谈本质”——都与下文的三个并列级别对不上。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A in essence</td><td>本质上</td><td>✗ 排除</td><td>本句讲的是分级结果这一事实，没有上升到本质探讨；插上它反而暗示前文都是非本质描述，与段落写作不符。（典型误解：in essence 听着“学术”，在名词句前凭语感加分。）</td></tr><tr><td>B in contrast</td><td>相比之下</td><td>✗ 排除</td><td>contrast 需要一个对照面——本句与前文是细化关系，不是把肥胖和别的概念对着比。（典型误解：见到“又出现一套分类”，误当成“另一套对立说法”。）</td></tr><tr><td>C in turn</td><td>转而，相应地</td><td>✓ 当选</td><td>in turn 正是“接着上一级往下分”的递进衔接：体重分三档 → 肥胖这一档再分三级，层层推进。</td></tr><tr><td>D in part</td><td>部分地</td><td>✗ 排除</td><td>本句把肥胖完整分成三级、无遗漏，不是“部分肥胖如此”；in part 的模糊限定还会削弱 can be divided 的断言力度。（典型误解：拿“某种程度上”的模糊语气兜底。）</td></tr></tbody></table>
+<p>代入后的完整句义：而肥胖相应地又可再分为中度肥胖、重度肥胖和极重度肥胖。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>in turn 不是也有“依次、轮流”义吗，取哪个？</strong>：两义相通：本句既有“承上转而细分”的递进义，又暗含“逐级依次划分”的秩序感。in turn 出现在“分类/因果链”语境时基本取这两义，此处都顺。</li><li><strong>它与 in essence 怎么一句话切开？</strong>：做删除测试：删掉 in turn，句子事实不变，只是少了“递进”提示；删掉 in essence，句子口吻大变（从摆事实变成谈本质）。本段只在摆分级事实，故取 in turn。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（in contrast）</strong>：把“分级细化”误判为“对比”，找不到真正的对照面。</li><li><strong>误选 A（in essence）</strong>：被学术腔迷惑，不看段落是否真的在谈本质。</li><li><strong>误选 D（in part）</strong>：拿模糊语气兜底，忽视“三级完整划分”的语境。</li></ul>
+<blockquote>记忆锚点：分级之后再分级 → in turn；有对照面才 in contrast；谈本质才 in essence；话说一半才 in part。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

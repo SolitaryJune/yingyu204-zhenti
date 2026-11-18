@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-02 · 2011 完形第 2 空 · 隐私与安全能否“兼得”——填哪个逻辑词</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 2 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空前是谓语 be preserved，空后是动名词短语 bringing…", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Can privacy be preserved <b>__2__</b> bringing safety and security to a world that seems increasingly lawless?</div><p>空格夹在“完整谓语 be preserved”与“动名词短语 bringing…”之间：这个词既要能接 doing，又要说清“保护隐私”与“带来安全”两件事的关系。考点：句内逻辑关系。</p>"}, {"title": "找证据 · 上文的两面性铺垫", "cls": "key", "tag": "证据", "log": "找证据：匿名既护隐私又滋犯罪——全段问的是“两者能否兼得”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The Internet affords anonymity to its users, a blessing to privacy and freedom of speech. But that very anonymity is also behind the explosion of cyber-crime.</div><p>匿名有“福（blessing）”与“犯罪推手”的两面，第二段顺势拧成一个总问题：两样好处能不能<b>同时</b>要？→ 同时关系，不是因果、范围或转折。</p>"}, {"title": "逐项分析 · C while（与……同时）", "cls": "good", "tag": "选定 C", "log": "C while（与……同时） ✓ 当选——while+doing 表“在……的同时”", "count": 1, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>while + doing 表伴随：在带来安全保障的同时保护隐私，正是问句“能否兼得”要表达的同时关系。</p>"}, {"title": "逐项分析 · A for（为了；因为）", "cls": "bad", "tag": "排除 A", "log": "A for（为了；因为） ✗ 排除——for 接名词，且句意不是目的关系", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>表目的的 for 是介词，规范用法是接名词（for safety），不能直接接 bringing；表原因也不通。句子的重心是“两件事同时成立吗”，不是“以哪件为目的”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 for 硬译成“为了”就觉得通顺。</p>"}, {"title": "逐项分析 · B within（在……之内）", "cls": "bad", "tag": "排除 B", "log": "B within（在……之内） ✗ 排除——纯介词接不动 doing，语法直接不通", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>within 是纯介词，后面只能接名词性成分，接动名词短语 bringing 语法上立不住，且“范围”义与句意无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看词义语感，没检查空后成分的词性。</p>"}, {"title": "逐项分析 · D though（虽然，尽管）", "cls": "bad", "tag": "排除 D", "log": "D though（虽然，尽管） ✗ 排除——两件事不是对立让步关系", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>though 表转折让步，要求“一正一反”；而“保护隐私”与“带来安全”是要同时成立的两件事，转折无从谈起。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把第一段匿名“既好又坏”的全局张力，误当成这句的句内转折。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（while 与……同时）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>在一个似乎日益失控的世界里，能否在带来安全保障的同时保护住隐私？</b></p><p>答案选 <b>C（while 与……同时）</b>。</p><p><b>记忆锚点</b>：空格两边“谓语 + doing”→ 先判断逻辑关系；两件事同时成立 → while + doing 表伴随；for 接名词、within 只接名词、though 要有让步对象。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 2 空 · 隐私与安全能否“兼得”——填哪个逻辑词",
+  subtitle: "考点：句内逻辑关系（连词/介词辨析） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（while）", "html": "<b>C while（与……同时）</b>：while + doing 表“在带来安全的同时保护隐私”，正是“能否兼得”的同时关系。<br>记忆锚点：空格两边“谓语 + doing”→ 先判逻辑再选词。<br>最易误选：<b>D（though）</b>——把匿名“既好又坏”的宏观张力误当成句内转折。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 2 空 · 隐私与安全能否“兼得”——填哪个逻辑词</h2>
+<p>答案：<strong>C（while 与……同时）</strong>。</p>
+<h3>第 0 步：先立机制——先看清空格两边各是什么</h3>
+<p>空格前是完整的谓语 be preserved（隐私被保护），空格后是动名词短语 bringing safety and security（带来安全保障）。夹在中间的词要同时兼容这两边：既能引出 doing，又要说清“保护隐私”与“带来安全”这两件事是什么关系。所以第一步不是背四个词的释义，而是判断句内逻辑——这正是本空唯一的考点。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Can privacy be preserved __2__ bringing safety and security to a world that seems increasingly lawless?</blockquote>
+<p>全句是一个问句：隐私能否______给一个日益失控的世界带来安全保障？——问的是“隐私”与“安全”这两件事<strong>能否同时成立</strong>，即“兼得”。</p>
+<h3>第 2 步：找证据——上文的两面性铺垫</h3>
+<blockquote>The Internet affords anonymity to its users, a blessing to privacy and freedom of speech. But that very anonymity is also behind the explosion of cyber-crime.</blockquote>
+<p>第一段刚说完匿名有“ blessing（福）”与“犯罪推手”的两面：它既保护隐私，又威胁安全。第二段顺势把两面拧成一个总问题——两样好处能不能同时要？这是“同时”关系，不是因果、范围或转折。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C while</td><td>与……同时</td><td>✓ 当选</td><td>while + doing 表“在……的同时”：在带来安全保障的同时保护隐私，正是“能否兼得”。</td></tr><tr><td>A for</td><td>为了；因为</td><td>✗ 排除</td><td>表目的时 for 是介词，接名词（for safety），不能直接接 doing；表原因也不通。（典型误解：把 for 硬译成“为了”就算通顺。）</td></tr><tr><td>B within</td><td>在……之内</td><td>✗ 排除</td><td>纯介词，后面只能接名词性成分，接 bringing 这个动名词短语语法直接立不住，且“范围”义与句意无关。（典型误解：没检查后接成分的词性。）</td></tr><tr><td>D though</td><td>虽然，尽管</td><td>✗ 排除</td><td>表转折让步：“隐私”与“安全”不是一正一反的否定关系，而是要同时成立的两件事，转折无从谈起。（典型误解：看到匿名“既好又坏”的全局张力，误当成句内转折。）</td></tr></tbody></table>
+<p>代入后的完整句义：在一个似乎日益失控的世界里，能否在带来安全保障的同时保护住隐私？</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>while 不是常译“然而、虽然”吗？</strong>：while 确可表对比让步，但它还有“当……时/与……同时”的义项，且本空空后是 bringing 这种 doing 形式，取“同时”义才能把“兼得”问句讲通。</li><li><strong>为什么不是 for（“为了安全而保护隐私”）？</strong>：句子的重心是“两件事同时成立吗”，不是“以哪件事为目的”；且 for 后接 doing 表目的不是规范用法。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（though）</strong>：把第一段“匿名有福也有祸”的宏观张力误当成这句的句内转折——句内问的是两件事能否同时做到，不存在“尽管保护隐私（却带来安全）”的让步关系。</li><li><strong>误选 B（within）</strong>：只看词义“在……内”语感通顺，没发现后面跟着的是 bringing 动名词短语，介词接不动。</li><li><strong>误选 A（for）</strong>：把 for 的目的义当万能填充，没核对 for + doing 的搭配与句子的逻辑重心。</li></ul>
+<blockquote>记忆锚点：空格两边“谓语 + doing”→ 先判断两件事的逻辑关系；两件事要同时成立 → while（+ doing 表伴随）；for 接名词、within 只接名词、though 要有让步对象。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

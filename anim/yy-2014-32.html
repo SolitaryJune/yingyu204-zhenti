@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-32 · 2014 阅读第 32 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 书的观点藏在“被指代的论点”里",
+  "cls": "key",
+  "tag": "审题",
+  "log": "The authors of Race Against the Machine argue that...：This argument 指什么？",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>The authors of Race Against the Machine argue that ____.</b></p><p>第二段开头：This argument has attracted a lot of attention, <b>via the success of the book Race Against the Machine</b>——这本书让“这个论点”走红。所以书中观点 = <b>This argument 所指的内容</b> = 上一段末句。</p>"
+ },
+ {
+  "title": "定位原文 · 上段末句 + 第二段首句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：jobs once thought to be immune from automation suddenly become threatened = This argument",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When there is <b>rapid improvement in the price and performance of technology</b>, jobs that were once thought to be <b>immune from automation suddenly become threatened</b>.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This argument has attracted a lot of attention, via the success of the book Race Against the Machine...</div><p>回指关系：This argument = “技术快速改进时，连‘免疫岗位’也会突然受威胁”。</p>"
+ },
+ {
+  "title": "推理链 · 技术进步 → 岗位受威胁",
+  "cls": "key",
+  "tag": "推理",
+  "log": "技术快速改进 → 连“免疫岗位”都受威胁 → 技术正在压缩工作机会 → A",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>技术快速进步（rapid improvement in price and performance）→ 连“免疫岗位”都<b>突然受威胁</b>（suddenly become threatened）→ 技术进步正在<b>压缩人的工作机会</b> → A technology is diminishing man's job opportunities。</p>"
+ },
+ {
+  "title": "逐项分析 · A technology is diminishing man's job opportunities",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 技术正减少人们的工作机会 ✓ 当选——jobs suddenly become threatened 的改写",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>= jobs ... suddenly become threatened 的改写：技术改进 → 岗位受威胁。第三段“a powerful argument, and a <b>scary</b> one”的可怕之处也在于此。</p>"
+ },
+ {
+  "title": "逐项分析 · B automation is accelerating technological development",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 自动化加速技术发展 ✗ 排除——因果倒置",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>因果倒置：自动化是技术进步的<b>结果</b>（技术改进 → 更多岗位被自动化），不是技术发展的推动力。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把两个高频名词搭一个“加速”了事，不核对谁推动谁。</p>"
+ },
+ {
+  "title": "逐项分析 · C certain jobs will remain intact after automation",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 某些工作不受自动化影响 ✗ 排除——immune 是被推翻的错觉",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>与定位句相反：immune from automation 原文说的是“曾被<b>认为</b>免疫”的工作“<b>突然受威胁</b>”——免疫是作者推翻的错觉，不是结局。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 immune 原词就往反方向选——把错觉当结论。</p>"
+ },
+ {
+  "title": "逐项分析 · D man will finally win the race against machine",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 人终将赢得竞赛 ✗ 排除——常识干扰，与书中论点相反",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>无中生有 + 常识干扰：这是生活里的乐观直觉，与书名 Race Against the Machine 的对抗意味及书中论点相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用常识替代原文——观点题只认文中人物的立场。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（technology is diminishing man's job opportunities）——This argument 往上句找",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>A（technology is diminishing man's job opportunities）</b>。</p><p><b>记忆锚点</b>：This argument / such a view = 往上一句找内容；immune...suddenly threatened → 技术压缩就业（A）；自动化是技术进步的果不是因；C 是被作者推翻的错觉。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 C（最强干扰）——immune 原词重现。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 32 题 · 《与机器赛跑》作者的观点——This argument 的回指",
+  subtitle: "考点：观点题 · This argument 回指上一段末句：免疫岗位也突然受威胁",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（technology is diminishing man's job opportunities）",
+ "html": "<b>A</b>：技术价格与性能 rapid improvement → 曾被认为 <b>immune</b> from automation 的岗位也 <b>suddenly become threatened</b> → 技术正在压缩工作机会。<br>B 因果倒置；C 把“被推翻的错觉”当结论；D 常识干扰。<br>最易误选：<b>C</b>——immune 原词陷阱。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 32 题 · 《与机器赛跑》作者的观点——This argument 的回指</h2>
+<p>答案：<strong>A（technology is diminishing man's job opportunities）</strong>。</p>
+<h3>第 0 步：先立机制——书的观点藏在"被指代的论点"里</h3>
+<p>题干 The authors of Race Against the Machine argue that... 问书中观点。第二段开头说：This argument has attracted a lot of attention, via the success of the book Race Against the Machine——这本书让"这个论点"走红。所以书中观点 = This argument 所指的内容 = 上一段末句。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>When there is rapid improvement in the price and performance of technology, jobs that were once thought to be immune from automation suddenly become threatened. This argument has attracted a lot of attention, via the success of the book Race Against the Machine...</blockquote>
+<p>回指关系：This argument = "当技术价格与性能快速改进时，曾被认为免疫于自动化的工作也会突然受到威胁"。</p>
+<h3>第 2 步：推理链</h3>
+<p>技术快速进步（rapid improvement in price and performance）→ 连"免疫岗位"都突然受威胁（suddenly become threatened）→ 技术进步正在<strong>压缩人的工作机会</strong> → A technology is diminishing man's job opportunities。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A technology is diminishing man's job opportunities</td><td>技术正减少人们的工作机会</td><td>✓ 当选</td><td>= jobs ... suddenly become threatened 的改写：技术改进 → 岗位受威胁。</td></tr><tr><td>B automation is accelerating technological development</td><td>自动化正加速技术发展</td><td>✗ 排除</td><td>因果倒置：自动化是技术进步的<strong>结果</strong>（技术改进 → 更多岗位被自动化），不是技术发展的推动力。（典型误解：把两个高频名词搭一个"加速"了事。）</td></tr><tr><td>C certain jobs will remain intact after automation</td><td>某些工作将不受自动化影响</td><td>✗ 排除</td><td>与定位句相反：immune from automation 原文说的是"曾被<strong>认为</strong>免疫"的工作"突然受威胁"——免疫是作者推翻的错觉，不是结局。（典型误解：见 immune 原词就往反方向选。）</td></tr><tr><td>D man will finally win the race against machine</td><td>人最终会赢得与机器的竞赛</td><td>✗ 排除</td><td>无中生有 + 常识干扰：这是生活里的乐观直觉，与书名 Race Against the Machine 的对抗意味及书中论点相反。（典型误解：用常识替代原文。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>This argument 一定指上一句吗？</strong>：argument 需要一个"有内容的主张"作先行对象，上一段末句正是全文第一个完整主张；且书名"与机器赛跑"的对抗语义与该主张吻合——双重验证。</li><li><strong>第三段 This is a powerful argument, and a scary one 里的 scary 说明什么？</strong>：可怕之处正在于"被机器夺走工作的范围在扩大"——连免疫岗位都不保，印证 A 的"工作机会正在减少"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：immune from automation 原词重现——原文语义是"曾被以为免疫、其实不然"，选 C 恰好把作者推翻的错觉当成结论。</li><li><strong>误选 B</strong>：automation 与 technology 同句出现、搭配随意；核对方向（谁推动谁）即可排掉。</li></ul>
+<blockquote>记忆锚点：This argument / such a view = 往上一句找内容；immune...suddenly threatened → 技术压缩就业（A）；自动化是技术进步的果不是因；C 是被作者推翻的错觉。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

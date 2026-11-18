@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-02 · 2022 完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 2 所在句，考点：句内语义 + with 短语动词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("He has __2__ it with plumbing, pointing out that a plumber doesn't wake up and say that he can't work with pipes today.") +
+    "<p>it 指代写作（writing）。空格动词与 with plumbing 构成一个动作：把「写作」和「修管道」放在一起做了某件事。</p>"
+ },
+ {
+  "title": "机制 · 四个 with 动词的语义关系",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：全接 with，考的是语义关系不是搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>combine / compare / confuse / confront 都能与 with 搭配，考点在语义关系：</p>" +
+    "<p>- combine A with B = 使 A 与 B <b>结合成一体</b></p>" +
+    "<p>- compare A with B = 把 A 与 B <b>放在一起比较</b></p>" +
+    "<p>- confuse A with B = 把 A <b>误当成</b> B</p>" +
+    "<p>- confront A with B = 使 A <b>面对</b>（不快的）B</p>" +
+    "<p>先从下文读出「作者拿写作和修管道做了什么」，再选动词。</p>"
+ },
+ {
+  "title": "证据 · pointing out 引出的类比内容",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：管道工不会说今天没法修管道——类比作家",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("...pointing out that a plumber doesn't wake up and say that he can't work with pipes today.") +
+    "<p>分词 pointing out 引出类比的两半：管道工不会一早醒来就说「今天没法修管道」——作家也不该一早醒来就说「今天没法写作」。这是把写作与最普通的行业<b>放在一起比</b>：写作并无特殊之处。</p>"
+ },
+ {
+  "title": "逐项分析 · A combined（使…结合）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A combined（使…结合） ✗ 排除——不是结合，是比较",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>「把写作和修管道结合成一体」不成立——下文是「比」，不是「合成一件事」。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只认动词能接 with，不辨语义关系。</p>"
+ },
+ {
+  "title": "逐项分析 · B compared（比较；对比）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B compared（比较；对比） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>compare A with B：将写作与修管道类比，代入读作「他已把写作与修管道作比，指出管道工不会一早醒来就说今天没法修管道」，与 pointing out 的类比内容完全吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · C confused（混淆）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C confused（混淆） ✗ 排除——不是误认",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>「把写作误当成修管道」荒谬——作者头脑清醒地在作比。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：见 with 就套中文「把…和…」。</p>"
+ },
+ {
+  "title": "逐项分析 · D confronted（使面对）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D confronted（使面对） ✗ 排除——写作不会面对修管道",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>confront A with B 是「使 A 面对（不快之事）」——「写作面对修管道」不成立。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只记 confront 有「面对」，不核对谁面对谁。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（compared 比较；对比）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>他已把写作与修管道作比，指出管道工不会一早醒来就说今天没法修管道。</b></p>" +
+    "<p>答案选 <b>B（compared 比较；对比）</b>。</p>" +
+    "<p><b>记忆锚点</b>：combine=结合成一体 / compare=放在一起比 / confuse=误认 / confront=使面对；下文给出「两半类比」→ compare。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>A（combined）</b>——只验证 with 搭配，没读 pointing out 的类比内容。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 2 空 · it ____ with plumbing——四个“with 动词”怎么分",
+  subtitle: "考点：句内语义 + 短语动词辨析 · 读类比内容 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（compared）",
+    html: "<b>B compared（比较；对比）</b>。<br>记忆锚点：combine=结合成一体 / compare=放在一起比 / confuse=误认 / confront=使面对；下文给出「两半类比」→ compare。<br>最易误选：<b>A（combined）</b>——只验证 with 搭配，没读 pointing out 引出的类比内容。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 2 空 · it ____ with plumbing——四个"with 动词"的语义分辨</h2>
+<p>答案：<strong>B（compared 比较；对比）</strong>。</p>
+<h3>第 0 步：先立机制——四个选项全接 with，考的不是搭配而是语义关系</h3>
+<p>combine、compare、confuse、confront 都能与 with 搭配，出题人考的是每个短语背后"动词 + 对象"的语义关系：combine A with B = 使 A 与 B 结合成一体；compare A with B = 把 A 与 B 放在一起比较；confuse A with B = 把 A 误当成 B；confront A with B = 使 A 面对（不快的）B。所以解题顺序是：先从下文读出"作者拿写作和修管道做了什么"，再选能表达这个动作的动词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>He has __2__ it with plumbing, pointing out that a plumber doesn't wake up and say that he can't work with pipes today.</blockquote>
+<p>it 指代写作（writing）。空格动词与 with plumbing 构成一个动作：把"写作"和"修管道"放在一起做了某件事。</p>
+<h3>第 2 步：找证据——pointing out 引出的类比内容</h3>
+<blockquote>...pointing out that a plumber doesn't wake up and say that he can't work with pipes today.</blockquote>
+<p>分词 pointing out 引出的内容是类比的两半：管道工不会一早醒来就说"今天没法修管道"——作家也不该一早醒来就说"今天没法写作"。这正是"拿管道工类比作家"的论证方式：把写作与最普通的行业放在一起比，说明写作并无特殊之处。能表达"比较"的只有 compared。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>搭配含义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A combined</td><td>使…结合</td><td>✗</td><td>"把写作和修管道结合成一体"不成立——下文是"比"，不是"合成一件事"。（典型误解：只认动词能接 with，不辨语义关系。）</td></tr><tr><td>B compared</td><td>比较；对比</td><td>✓</td><td>compare A with B：将写作与修管道类比，被 pointing out 的类比内容证实。</td></tr><tr><td>C confused</td><td>混淆</td><td>✗</td><td>"把写作误当成修管道"荒谬——作者头脑清醒地在作比。（典型误解：见 with 就套中文"把…和…"。）</td></tr><tr><td>D confronted</td><td>使面对</td><td>✗</td><td>confront A with B 是"使 A 面对（不快之事）"，"写作面对修管道"不成立。</td></tr></tbody></table>
+<p>代入后的完整句义：他已把写作与修管道作比，指出管道工不会一早醒来就说今天没法修管道。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么四个词都有 with 还要辨半天？</strong>：with 在不同短语里的语义角色不同：compare 的 with 是"比较的另一方"，combine/confuse/confront 的 with 是"动作涉及的另一个对象"。判断标准永远是下文内容——下文给出的是两条平行陈述（管道工不偷懒/作家也不该偷懒），这是典型的比较结构。</li><li><strong>it 指代什么？方向能不能反？</strong>：it 指代上文反复出现的写作。compare it with plumbing = 把写作跟修管道比；即便读成 compare plumbing with it，核心动作仍是"比"，不影响答案。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（combined）</strong>：只验证"动词能接 with"，没读 pointing out 引出的类比内容。</li><li><strong>误选 C（confused）</strong>：把中文"把写作和管道放在一起"误等于"混淆"。</li></ul>
+<blockquote>记忆锚点：combine=结合成一体 / compare=放在一起比 / confuse=误认 / confront=使面对；下文给出"两半类比" → compare。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

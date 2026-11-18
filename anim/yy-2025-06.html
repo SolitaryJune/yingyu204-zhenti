@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-06 · 2025 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 6 所在句，考点：词义辨析 · have ____ about + 担忧对象",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You might have __6__ about losing control of whatever it is you are asking for help with. Once someone starts to help, perhaps they will take over, or get a credit for your early efforts.</div><p>空格待填正确答案；本题考点：<b>词义辨析 · have ____ about + 担忧对象</b>。方法主线：担忧对象定性 → 词汇场核对 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · 担忧对象是「失去控制」，空格要装担忧本身",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：担忧对象是「失去控制」，空格要装担忧本身",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格作 have 的宾语，被 about losing control of...（对求助之事失去掌控）修饰。语境是刚说完「公开弱点令人不安」，本句（④句）开始<b>列举第一种具体担忧</b>：你可能 ____ 对失去掌控。have concerns about = 担心……，与「担心失控」严丝合缝。</p>"
+ },
+ {
+  "title": "证据 · 下句给出失控的具体画面",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：下句给出失控的具体画面",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>⑤句 Once someone starts to help, perhaps they will take over, or get a credit...（一旦有人开始帮，也许他们会接手、抢功）给出失控的具体画面：担心的对象都是「可能发生的事」——这正是 concern（对可能发生之事的忧虑）的用法方向。</p>"
+ },
+ {
+  "title": "逐项分析 · A doubts（怀疑，不确定）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A doubts（怀疑，不确定） ✗ 排除——doubts about 是怀疑真假，不是担心发生",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>have doubts about = 对……的真实性/可行性拿不准；而 losing control 是「担心它发生」，不是「怀疑真假」，方向不同。</p><p style=\"color:#b91c1c\">⚠ 典型误解：doubts/concerns 都能配 about，只看搭配不辨方向。</p>"
+ },
+ {
+  "title": "逐项分析 · B concerns（担心，忧虑）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B concerns（担心，忧虑） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>have concerns about... = 对……感到担忧；「担心失去掌控」与下文 take over / get a credit 的失控画面全接上。</p>"
+ },
+ {
+  "title": "逐项分析 · C suggestions（建议；提议）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C suggestions（建议；提议） ✗ 排除——「对失去控制提建议」读不通，也与担忧语境无关",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>have suggestions about（提出建议）与「担忧」语境无关，且「对失去控制提建议」读不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只满足 have + 名词 + about 的结构，不核对语义。</p>"
+ },
+ {
+  "title": "逐项分析 · D secrets（秘密；机密）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D secrets（秘密；机密） ✗ 排除——「对失去控制怀有秘密」不成立",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「对失去控制怀有秘密」不成立；secrets 也不属于本段的担忧词汇场。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 have secrets about sth 当成地道表达硬套。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（concerns 担心，忧虑）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>对于你正在求助的事情，你可能会担心失去控制权。</b></p><p>答案选 <b>B（concerns 担心，忧虑）</b>。</p><p><b>记忆锚点</b>：担忧某事**发生**用 concerns about；怀疑某事**真假**才用 doubts about——方向一辨即中；suggestions/secrets 与 worry 词汇场无关。</p><p style=\"color:#b91c1c\">最易误选：<b>A（doubts）</b>——doubts/concerns 都能配 about，只看搭配不辨方向。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 6 空 · You might have ____ about losing control",
+  subtitle: "考点：词义辨析（担忧类名词）· concerns about vs doubts about → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（concerns）",
+ "html": "<b>B concerns（担心，忧虑）</b>。<br>完整句义：对于你正在求助的事情，你可能会担心失去控制权。<br>记忆锚点：担忧某事**发生**用 concerns about；怀疑某事**真假**才用 doubts about——方向一辨即中；suggestions/secrets 与 worry 词汇场无关。<br>最易误选：<b>A（doubts）</b>——doubts/concerns 都能配 about，只看搭配不辨方向。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 6 空 · 词义辨析 · have ____ about + 担忧对象</h2>
+<p>答案：<strong>B（concerns 担心，忧虑）</strong>。</p>
+<h3>第 0 步：先立机制——担忧对象是「失去控制」，空格要装担忧本身</h3>
+<p>空格作 have 的宾语，被 about losing control of...（对求助之事失去掌控）修饰。语境是刚说完「公开弱点令人不安」，本句（④句）开始<strong>列举第一种具体担忧</strong>：你可能 ____ 对失去掌控。have concerns about = 担心……，与「担心失控」严丝合缝。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>You might have __6__ about losing control of whatever it is you are asking for help with. Once someone starts to help, perhaps they will take over, or get a credit for your early efforts.</blockquote>
+<p>⑤句 Once someone starts to help, perhaps they will take over, or get a credit...（一旦有人开始帮，也许他们会接手、抢功）给出失控的具体画面：担心的对象都是「可能发生的事」——这正是 concern（对可能发生之事的忧虑）的用法方向。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A doubts</td><td>怀疑，不确定</td><td>✗ 排除</td><td>have doubts about = 对……的真实性/可行性拿不准；而 losing control 是「担心它发生」，不是「怀疑真假」，方向不同。</td></tr><tr><td>B concerns</td><td>担心，忧虑</td><td>✓ 当选</td><td>have concerns about... = 对……感到担忧；「担心失去掌控」与下文 take over / get a credit 的失控画面全接上。</td></tr><tr><td>C suggestions</td><td>建议；提议</td><td>✗ 排除</td><td>have suggestions about（提出建议）与「担忧」语境无关，且「对失去控制提建议」读不通。</td></tr><tr><td>D secrets</td><td>秘密；机密</td><td>✗ 排除</td><td>「对失去控制怀有秘密」不成立；secrets 也不属于本段的担忧词汇场。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>doubts/concerns 都能配 about，只看搭配不辨方向 → 误选 A（doubts）</strong>：have doubts about = 对……的真实性/可行性拿不准；而 losing control 是「担心它发生」，不是「怀疑真假」，方向不同。</li><li><strong>只满足 have + 名词 + about 的结构，不核对语义 → 误选 C（suggestions）</strong>：have suggestions about（提出建议）与「担忧」语境无关，且「对失去控制提建议」读不通。</li><li><strong>把 have secrets about sth 当成地道表达硬套 → 误选 D（secrets）</strong>：「对失去控制怀有秘密」不成立；secrets 也不属于本段的担忧词汇场。</li></ul>
+<blockquote>记忆锚点：担忧某事<strong>发生</strong>用 concerns about；怀疑某事<strong>真假</strong>才用 doubts about——方向一辨即中；suggestions/secrets 与 worry 词汇场无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

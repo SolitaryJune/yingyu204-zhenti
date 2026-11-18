@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-33 动画：人物观点题：Paul Arnold 担心小额收购危害国家经济</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：人物观点题两件套——站位 + 情感词", "body": "<p>题干：<b>Paul Arnold is concerned that small acquisitions might ____.</b>（阿诺德担忧小额收购可能____。）</p><p>关键词 <code>Paul Arnold</code> + <code>concerned</code>。人物观点题先问两件事：<b>他站在哪</b>（第三段以 <code>complained</code> 出场——微软批评者，担忧的必是\"害处\"）；<b>疑虑如何表达</b>（第四段的疑问句——委婉质疑）。答案在\"他担心的事\"，不在\"他承认的好处\"。</p>", "log": "人物观点题两件套：先定站位（批评者），再抓情感词（疑问句＝质疑）"}, {"cls": "", "ecs": "step", "tag": null, "count": 0, "title": "定位：第三段表态 + 第四段自白", "body": "<div class=\"qq\"><b>第三段：</b>\"They bought the seedlings and closed them down,\" <b>complained</b> Paul Arnold, a partner at San Francisco-based Switch Ventures, putting an end to businesses that might one day turn into competitors. <span class=\"cn\">（译：阿诺德抱怨道——\"他们买下幼苗再关掉\"，让将来可能长成对手的生意终结。）</span></div><div class=\"qq\"><b>第四段：</b>\"I think these things are good for me, if I put my selfish hat on. <b>But are they good for the American economy?</b> I don't know.\" <span class=\"cn\">（译：这些收购对我有利；可它们对美国经济有利吗？我不知道。）</span></div><p>complained 定\"站位\"；concerned ↔ mixed feelings + 疑问句——落点在第四段。</p>", "log": "定位第三、四段：站位是批评者，疑虑落在\"对美国经济好吗？\"的疑问句"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "count": 1, "title": "排除 A：weaken big tech companies", "body": "<p><b>A · weaken big tech companies（削弱大型科技公司）</b><span class=\"bad-dot\"> ✗</span></p><p>方向装反：收购是买下幼苗并关掉未来对手——巨头地位<b>更稳</b>而非更弱；说\"削弱巨头\"反而是好事，绝非批评者的担忧。</p><p>误选＝只记得\"收购\"，没看谁收购谁、也没看 Arnold 站在哪。</p>", "log": "排除 A：收购巩固而非削弱巨头，方向反了", "ribbon": {"k": 1, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "count": 2, "title": "排除 B：worsen market competition", "body": "<p><b>B · worsen market competition（加剧市场竞争）</b><span class=\"bad-dot\"> ✗</span></p><p>第三段言外之意：扼杀潜在竞争者于苗期 → 市场<b>少</b>了竞争（维持现状），不是竞争\"恶化/加剧\"。</p><p>误选＝把\"竞争被削弱\"混说成\"竞争变激烈\"。</p>", "log": "排除 B：消除潜在对手 ≠ 竞争恶化", "ribbon": {"k": 2, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 C", "count": 3, "title": "锁定 C：harm the national economy", "body": "<p><b>C · harm the national economy（损害国家经济）</b><span class=\"ok-dot\"> ✓</span></p><p><code>But are they good for the American economy?</code> 疑问句是委婉的质疑——言下之意\"恐怕不利\"，这正是 <code>concerned</code>（担忧）的落点。</p><p>harm ↔ 对 good for the American economy 的反问。</p>", "log": "锁定 C：疑问句＝质疑＝担心危害美国经济", "ribbon": {"k": 3, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "count": 4, "title": "排除 D：discourage start-up investors", "body": "<p><b>D · discourage start-up investors（挫伤初创企业投资者）</b><span class=\"bad-dot\"> ✗</span></p><p>第四段②句明说 <code>these things are good for me</code>——他这类靠撮合收购吃饭的投资者恰恰<b>受益</b>，与\"挫伤\"相反。</p><p>误选＝只看见 mixed feelings 的一半。</p>", "log": "排除 D：good for me 明说对投资者有利", "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": null, "title": "结论：答案 C", "body": "<p><b>答案 C（harm the national economy）</b>——Arnold 担心小额收购危害美国经济。</p><p>记忆锚点：人物观点题＝站位＋情感词；疑问句表达质疑；<code>are they good for the American economy?</code> 的答案就在问号里。</p>", "log": "结论：站位＋疑问句锁定 C"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-33 · 人物观点题：Paul Arnold 担心小额收购危害国家经济",
+  subtitle: "考点：Text4 人物观点 · 方法：定位人物 → 站位 → 情感词（疑问句）锁定",
+  counterLabel: '已核验',
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 C", "html": "<b>are they good for the American economy?</b> 疑问句＝质疑：Paul Arnold 担心小额收购<b>危害国家经济</b>。记忆锚点：人物观点题＝站位＋情感词；疑问句表达质疑，答案藏在问号里。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：人物观点题——Paul Arnold 担心小额收购危害美国经济</h2>
+<p>答案：<strong>C（harm the national economy）</strong>。</p>
+<h3>第 0 步：先立机制——人物观点题的两件套</h3>
+<p>人物观点题不靠"感觉他说过"，靠两件套：<strong>站位</strong> + <strong>情感词</strong>。</p>
+<ol><li>站位：Paul Arnold 是 Switch Ventures 的合伙人，第三段以 <code>complained</code>（抱怨）出场——他是<strong>微软批评者</strong>的代表。批评者担忧的必然是"小额收购的害处"，不是收购的好处。</li><li>情感词：题干 <code>concerned</code>（担忧）提示去抓他的疑虑表达。第四段他先承认 "good for me"（对我有利——他靠撮合这类收购吃饭），随即话锋一转抛出疑问句。<strong>疑问句不是真发问，而是委婉的质疑</strong>：自问自答后 "I don't know"，言下之意"恐怕不利"。这正是 concerned 的落点。</li></ol>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"I think these things are good for me, if I put my selfish hat on. But are they good for the American economy? I don't know."（"戴上自私的帽子，这些收购对我有利。但它们对美国经济有利吗？我不知道。"）</blockquote>
+<h3>第 2 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>C harm the national economy</td><td>✓</td><td>harm ↔ 对 <code>are they good for the American economy?</code> 的质疑</td></tr><tr><td>A weaken big tech companies</td><td>✗</td><td>收购是在<strong>巩固</strong>巨头地位，方向相反</td></tr><tr><td>B worsen market competition</td><td>✗</td><td>言外之意是消除潜在竞争者，竞争并未"恶化"</td></tr><tr><td>D discourage start-up investors</td><td>✗</td><td><code>good for me</code> 明说对投资者有利</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>误选 A（削弱巨头）</strong>：站反了立场。Arnold 是批评巨头的人，"削弱巨头"对他是好事，绝非担忧之事；真实机制在第三段 <code>bought the seedlings and closed them down</code>——买下幼苗并关掉，巨头地位更稳而非更弱。</li><li><strong>误选 B（加剧竞争）</strong>：把"竞争被削弱"混说成"竞争恶化"。巨头把潜在竞争者扼杀在苗期，结果是市场上<strong>少</strong>了竞争，而不是竞争变激烈。</li><li><strong>误选 D（挫伤投资者）</strong>：只看到 <code>mixed feelings</code> 的一半。他明说 "these things are good for me"——他这类初创投资者恰恰受益，谈不上"挫伤"。</li></ul>
+<blockquote>记忆锚点：人物观点题 = 站位 + 情感词；疑问句 = 委婉质疑；are they good for the American economy? → 担心的是 harm the national economy。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

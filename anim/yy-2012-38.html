@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T2 · 38 · Friedman 论衰退的道德后果 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {title:"审题眼 · 观点题只认“他说的那两句”", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：<b>Benjamin Friedman</b> believes that economic recessions may ____。<b>A</b> 对移民造成更大负担 / <b>B</b> 使人性丑恶面凸显 / <b>C</b> 推动权利与自由进步 / <b>D</b> 缓解种族与阶级矛盾。</p><p>纪律：答案只能来自 Friedman 出现的第三段——②句宾语从句 + ③句延续；别人的引申与后文作者评论一律不作数。</p>",
+  log:"审题：人名观点题——锁定第三段②③句"},
+ {title:"定位原文 · ②句：更狭隘、更不包容", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("...lengthy periods of economic stagnation or decline have almost always left society more mean-spirited and less inclusive, and have usually stopped or reversed the advance of rights and freedoms.")+"<p>长期停滞/衰退几乎总是让社会<b>更狭隘刻薄</b>（mean-spirited）、<b>更不包容</b>（less inclusive），并常使权利与自由的发展<b>停滞或逆转</b>（stopped or reversed）。先记住方向：负。</p>",
+  log:"②句：more mean-spirited and less inclusive，权利自由停滞/逆转"},
+ {title:"定位原文 · ③句：排外与冲突同步加剧", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("Anti-immigrant sentiment typically increases, as does conflict between races and classes.")+"<p>排外情绪<b>上升</b>（increases），种族与阶级矛盾同步加剧（as does...）。两句话连读：都是人性阴暗面被经济衰退<b>放大、释放</b>。</p>",
+  log:"③句：排外情绪与种族阶级矛盾 increases——方向仍是负"},
+ {title:"同义替换 · 负面词合并 = evils of human nature", cls:"key", tag:"替换", count:0, ribbon:null,
+  body:"<p><b>mean-spirited（刻薄狭隘）+ less inclusive（排斥他人）+ 排外/冲突上升</b> → 都是人性中丑恶的一面被凸显：<b>evils of human nature</b> ↔ mean-spirited and less inclusive；<b>bring out</b> ↔ left society more...（使社会变得）。B 是这组负面词的上位概括。</p>",
+  log:"替换：mean-spirited/less inclusive → evils of human nature"},
+ {title:"逐项分析 · A impose a heavier burden on immigrants", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:"<p><b>排除。</b>原文只说排外<b>情绪</b>高涨（anti-immigrant sentiment increases），没说移民的<b>实际负担</b>加重——sentiment ≠ burden，由情绪推后果属于过度推导。</p><p style=\"color:#b91c1c\">⚠ 典型误解：观点题的名词都要能在原文落地，burden 没有落地句。</p>",
+  log:"A impose a heavier burden ✗ 排除——sentiment ≠ burden"},
+ {title:"逐项分析 · C promote the advance of rights and freedoms", cls:"bad", tag:"排除 C", count:2, ribbon:{k:"C", ok:false},
+  body:"<p><b>排除（反向干扰）。</b>原文是 <b>stopped or reversed</b> the advance of rights and freedoms——权利与自由<b>停滞或逆转</b>；promote（推动）方向全反。rights and freedoms 原词保真，动词被反转。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认原词不看动词方向——“原词保真 + 动词反转”是观点题经典陷阱。</p>",
+  log:"C promote the advance ✗ 排除——stopped/reversed 方向反转"},
+ {title:"逐项分析 · D ease conflicts between races and classes", cls:"bad", tag:"排除 D", count:3, ribbon:{k:"D", ok:false},
+  body:"<p><b>排除（反向干扰）。</b>原文 conflict between races and classes 与排外情绪同样 <b>increases</b>（加剧）；ease（缓和）方向相反。同样是“原词保真 + 动词反转”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：与 C 同型——碰到 increases/stopped 先画方向箭头再选。</p>",
+  log:"D ease conflicts ✗ 排除——increases 方向反转"},
+ {title:"逐项分析 · B bring out more evils of human nature", cls:"good", tag:"选定 B", count:3, ribbon:{k:"B", ok:true},
+  body:"<p><b>当选。</b>mean-spirited（刻薄）+ less inclusive（不包容）+ 排外情绪与冲突加剧 = 人性丑恶面被衰退<b>释放、放大</b>——bring out ↔ left society more...，与②③两句的负向方向完全一致。</p>",
+  log:"B bring out more evils of human nature ✓ 上位概括，当选"},
+ {title:"结论 · 方向箭头与记忆锚点", cls:"good", tag:"答案 B", count:3, ribbon:null,
+  body:"<p>方向箭头：stopped or reversed ↓、increases ↑（恶化）→ 选负向概括 B；promote ↑（改善）、ease ↓（缓和）两个正向词先后出局。</p><p>答案选 <b>B（使人性中更丑恶的因素凸显）</b>。</p><p><b>记忆锚点</b>：观点题锁定宾语从句；mean-spirited + less inclusive = 人性丑恶面；C、D 都是“原词保真 + 动词反转”，A 是“情绪推后果”的过度推导。</p>",
+  log:"结论：衰退释放人性丑恶面，答案 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text2 · 38 · Friedman 认为经济衰退会怎样",
+  subtitle: "考点：人物观点题 · 锁定宾语从句 → 同义替换 → 方向判定逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 替换 → 方向判定”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（bring out more evils of human nature）",
+    html: "<b>mean-spirited + less inclusive + 排外/冲突加剧 = 人性丑恶面凸显。</b><br>记忆锚点：观点题只认人物自己的宾语从句；C（promote）、D（ease）是“原词保真 + 动词反转”的反向干扰；A 用情绪（sentiment）冒充后果（burden）。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：人物观点题——Friedman 论衰退的道德后果</h2>
+<p>答案：<strong>B（bring out more evils of human nature 使人性中丑恶的一面凸显）</strong>。</p>
+<h3>第 0 步：先立机制——观点题只认“他说的那两句”</h3>
+<p>人名观点题的纪律：答案只能来自 Friedman 亲口/亲笔的内容，前后段的作者评论与别人的引申一律不作数。Friedman 出现在第三段②句的宾语从句里，③句（排外、冲突）是同一从句的延续，两句合起来才是他的完整观点。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>lengthy periods of economic stagnation or decline have almost always left society more mean-spirited and less inclusive, and have usually stopped or reversed the advance of rights and freedoms.</blockquote>
+<p>长期经济停滞/衰退几乎总是让社会<strong>更狭隘刻薄（mean-spirited）、更不包容（less inclusive）</strong>，并常使权利与自由的发展<strong>停滞或逆转</strong>。</p>
+<blockquote>Anti-immigrant sentiment typically increases, as does conflict between races and classes.</blockquote>
+<p>排外情绪上升，种族与阶级矛盾同步加剧。</p>
+<h3>第 2 步：同义替换</h3>
+<p>mean-spirited（心胸刻薄狭隘）+ less inclusive（排斥他人）+ 排外情绪/矛盾上升 → 都是人性阴暗面被经济衰退<strong>放大、释放</strong>：evils of human nature ↔ mean-spirited and less inclusive；bring out ↔ left society more...（使社会变得……）。B 是这组负面词的上位概括。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A impose a heavier burden on immigrants</td><td>✗ 排除</td><td>过度推导：原文只说排外<strong>情绪</strong>（anti-immigrant sentiment）高涨，没说移民的实际负担加重——sentiment ≠ burden。（典型误解：由情绪推后果。）</td></tr><tr><td>B bring out more evils of human nature</td><td>✓ 当选</td><td>mean-spirited / less inclusive / 排外 / 冲突加剧 = 人性丑恶面凸显</td></tr><tr><td>C promote the advance of rights and freedoms</td><td>✗ 排除</td><td>反向干扰：原文 stopped or reversed（停滞或逆转），promote 方向相反。（典型误解：只认 rights and freedoms 原词，不看动词方向。）</td></tr><tr><td>D ease conflicts between races and classes</td><td>✗ 排除</td><td>反向干扰：原文冲突 increases（加剧），ease（缓和）方向相反。（典型误解：同上——原词保真、动词反转。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C、D 为什么“方向反”就能直接出局？</strong>：原文动词组 stopped or reversed、increases 都是负向；选项 promote、ease 是正向动词——观点题里动词方向与原文相反直接淘汰。</li><li><strong>A 与③句只差一步，为什么也不对？</strong>：情绪（sentiment）≠ 后果（burden）。观点题里每个名词都要能在原文落地：burden 没有落地句。</li></ul>
+<blockquote>记忆锚点：观点题锁定宾语从句；mean-spirited + less inclusive = 人性丑恶面；遇到 stopped/reversed、increases 先画方向箭头再选——C、D 都是“原词保真 + 动词反转”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

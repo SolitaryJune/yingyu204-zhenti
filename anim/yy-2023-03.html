@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-03 · 2023 完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 3 所在句，考点：上下文语义 + 副词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…it harnesses the power of collaboration to focus __3__ on finding ways to grow.</div><p>定义句三要素：构成（跨部门成员）+ 力量（协作）+ 使命（focus __3__ on 增长）；副词修饰 focus，决定专注的“程度”。</p>"
+ },
+ {
+  "title": "找证据 · 上句 prioritize 已定下“专注强度”的基调",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：prioritize（优先）→ exclusively（专门/排他）同强度复现",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">What you need to do is __2__ growth by establishing a growth team.</div><p>上句 prioritize growth = 把增长排第一。本空副词必须接住这个强度：exclusively（专门地）恰好复现“排他性优先”，句内逻辑为“合各部门之力 → 专门只干增长这一件事”。</p>"
+ },
+ {
+  "title": "逐项分析 · A exclusively（专门地；排他地）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A exclusively（专门地；排他地） ✓ 当选",
+  "body": "<p><b>当选。</b>focus exclusively on finding ways to grow：增长团队集各部门合力、专攻增长一件事，既呼应上句 prioritize growth，又解释了下文 BitTorrent 案例里“换个视角专攻增长”的情节。</p>"
+ },
+ {
+  "title": "逐项分析 · B temporarily（短暂地；临时地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B temporarily（短暂地；临时地） ✗ 排除——增长是长期议题，“临时专注”无据",
+  "body": "<p><b>排除。</b>公司要解决的是“让收益再上台阶”的长期课题，增长团队也是常设机制的雏形（后文它带来了 92% 的收益增长）；“临时专注于”既无上下文支持，也与 prioritize 的长期性矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“跨部门抽调人手”的常见场景错移植成“临时性”</p>"
+ },
+ {
+  "title": "逐项分析 · C potentially（潜在地；可能地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C potentially（潜在地；可能地） ✗ 排除——修饰 focus 不搭——focus 无法“潜在地”进行",
+  "body": "<p><b>排除。</b>考生易把 harnesses the power（利用力量）里的“潜能”意味前移，读成“利用协作的潜在力量来潜在地专注”。但空格副词修饰的是 focus：专注是正在进行的行为，谈不上“潜在”；potential 的位置在 power 前，不在这儿。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看串了修饰对象——potential 属于 power，不属于 focus</p>"
+ },
+ {
+  "title": "逐项分析 · D initially（最初；起初）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D initially（最初；起初） ✗ 排除——“起初专注”暗示后来改了，文中无此转折",
+  "body": "<p><b>排除。</b>initially 自带“后半段会变”的暗示。但全文没有说增长团队后来改了专注点——下文的成功案例恰恰证明它一直专注增长直到见效。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见文中有时间词就条件反射“起初”，不核对是否真有转折</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（exclusively 专门地；排他地）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>增长团队利用协作的力量，专门专注于寻找增长方式</b>（与上句 prioritize growth 呼应）。</p><p>答案选 <b>A（exclusively 专门地；排他地）</b>。</p><p><b>记忆锚点</b>：副词题先问修饰谁：focus exclusively on = 专门专注于；强度与上句 prioritize 呼应；potential 在 power 前，initially 自带转折暗示。</p><p style=\"color:#b91c1c\">最易误选：<b>C（potentially）</b>——看串了修饰对象——potential 属于 power，不属于 focus</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 3 空 · “focus ____ on finding ways to grow”该填哪个副词",
+  subtitle: "考点：上下文语义 + 副词辨析 · 副词修饰 focus + prioritize 的强度复现",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（exclusively）", "html": "<b>A exclusively（专门地；排他地）</b>。<br>完整句义：增长团队利用协作的力量，专门专注于寻找增长方式。<br>记忆锚点：副词题先问修饰谁：focus exclusively on = 专门专注于；强度与上句 prioritize 呼应；potential 在 power 前，initially 自带转折暗示。<br>最易误选：<b>C</b>——把 harness the (potential) power 的“潜能”错安到 focus 上"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：上下文语义 + 副词辨析——focus 后面的副词要接住“优先”的强度</h2>
+<p>答案：<strong>A（exclusively 专门地；排他地）</strong>。</p>
+<h3>第 0 步：先立框架——给“增长团队”下定义的三要素 + 副词修饰对象</h3>
+<p>空格句在给新概念下定义：A growth team is made up of members from different departments（构成）, and it harnesses the power of collaboration（力量）to focus __3__ on finding ways to grow（使命）。模型：副词修饰动词 <strong>focus</strong>，它决定“专注到什么程度”。上一句刚说过 <strong>prioritize growth</strong>（把增长置于优先位），空格副词必须接得住这个“优先/排他”的强度。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>…it harnesses the power of collaboration to focus __3__ on finding ways to grow.</blockquote>
+<p>prioritize 的实质是“这件事排第一，别的靠后”，对应的强度副词是“专门地、排他地”。增长团队不是临时小组，也不是“可能专注于”，它的全部使命就是找增长方式——focus exclusively on finding ways to grow，句内（跨部门协作 → 专注增长）与句间（优先考虑增长 → 专门专注增长）双双咬合。</p>
+<blockquote>What you need to do is __2__ growth by establishing a growth team.（上一句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A exclusively</td><td>专门地；排他地</td><td>✅ 当选</td><td>强度与 prioritize 对齐，“合各部门之力专门干增长”</td></tr><tr><td>B temporarily</td><td>短暂地；临时地</td><td>❌ 排除</td><td>增长是长期议题，“临时专注”无据</td></tr><tr><td>C potentially</td><td>潜在地；可能地</td><td>❌ 排除</td><td>修饰 focus 不搭——focus 无法“潜在地”进行</td></tr><tr><td>D initially</td><td>最初；起初</td><td>❌ 排除</td><td>“起初专注”暗示后来改了，文中无此转折</td></tr></tbody></table>
+<p>代入全句：<strong>增长团队利用协作的力量，专门专注于寻找增长方式</strong>（与上句 prioritize growth 呼应）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 B（temporarily 短暂地；临时地）</strong>：把“跨部门抽调人手”的常见场景错移植成“临时性”。公司要解决的是“让收益再上台阶”的长期课题，增长团队也是常设机制的雏形（后文它带来了 92% 的收益增长）；“临时专注于”既无上下文支持，也与 prioritize 的长期性矛盾。</li><li><strong>误选 C（potentially 潜在地；可能地）</strong>：看串了修饰对象——potential 属于 power，不属于 focus。考生易把 harnesses the power（利用力量）里的“潜能”意味前移，读成“利用协作的潜在力量来潜在地专注”。但空格副词修饰的是 focus：专注是正在进行的行为，谈不上“潜在”；potential 的位置在 power 前，不在这儿。</li><li><strong>误选 D（initially 最初；起初）</strong>：见文中有时间词就条件反射“起初”，不核对是否真有转折。initially 自带“后半段会变”的暗示。但全文没有说增长团队后来改了专注点——下文的成功案例恰恰证明它一直专注增长直到见效。</li></ul>
+<blockquote>记忆锚点：副词题先问修饰谁：focus exclusively on = 专门专注于；强度与上句 prioritize 呼应；potential 在 power 前，initially 自带转折暗示。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-36 动画：细节题——“问题多到”看 even</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：so…that 问“后果”，先扫首段",
+  body:"<p>题干：<b>The EU is faced with so many problems that ____.</b>（欧盟面临如此多的问题，以至于____。）</p><p>so…that 句式问的是<b>问题严重到导致什么后果</b>。“问题多”的表述集中在首段，而首段有一个最有冲击力的信号词——<b>even</b>（连…都），它标记的就是“严重程度”。</p>",
+  log:"细节题：so…that 问后果，扫首段找 even"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：首段③句 even 递进链",
+  body:"<div class=\"qq\"><b>首段③：</b>Now <b>even</b> the project's <b>greatest cheerleaders</b> talk of a continent facing a “Bermuda triangle” of debt, population decline and lower growth. <span class=\"cn\">（译：如今连这一事业最热情的支持者都在谈论这片大陆面临的“百慕大三角”——债务、人口下降与低增长。）</span></div><p>cheerleader（拉拉队长）＝最铁杆的支持者；“连支持者都开口谈三重危机”，问题够大。</p>",
+  log:"定位首段③：even the greatest cheerleaders talk of…"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：it has more or less lost faith in markets",
+  body:"<p><b>A（欧盟已多少失去对市场的信任）</b><span class=\"bad-dot\">✗</span>：出处在第二段②句——</p><div class=\"qq\"><b>Markets</b> have lost faith that the euro zone's economies…will one day converge… <span class=\"cn\">（译：市场对欧元区各国终将趋同已失去信心。）</span></div><p>失 faith 的是<b>市场</b>，对象是<b>欧元区</b>；A 说“欧盟失去对<b>市场</b>的信任”——主体与客体全部倒置。</p>",
+  log:"排除 A：失 faith 的是 markets，主客倒置"},
+ {cls:"good", ecs:"ok", tag:"锁定 B", count:2, ribbon:{k:2, ok:true}, title:"锁定 B：even its supporters begin to feel concerned",
+  body:"<p><b>B（连它的支持者也开始忧虑）</b><span class=\"ok-dot\">✓</span>：替换链三步对齐——</p><p>the project ↔ <b>the EU</b>；even the project's greatest <b>cheerleaders</b> ↔ even its <b>supporters</b>；talk of…facing a “Bermuda triangle” of problems ↔ begin to <b>feel concerned</b>。</p><p>“连最强支持者都开始谈论麻烦”＝支持者难以淡定 → B。</p>",
+  log:"锁定 B：greatest cheerleaders ↔ its supporters，talk of ↔ feel concerned"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：some member countries plan to abandon euro",
+  body:"<p><b>C（一些成员国准备放弃欧元）</b><span class=\"bad-dot\">✗</span>：原文只说市场对欧元区经济失去信心（欧元遭遇信任危机）。</p><p>“信任危机”≠“要散伙”：全文没有任何成员国计划 abandon euro 的信息。从“遭遇危机”滑到“计划退出”，属于过度引申。</p>",
+  log:"排除 C：无“放弃欧元”之说法，过度引申"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:4, ribbon:{k:4, ok:false}, title:"排除 D：it intends to deny the possibility of devaluation",
+  body:"<p><b>D（欧盟打算否定货币贬值的可能性）</b><span class=\"bad-dot\">✗</span>：二段②句末 <b>which denies uncompetitive members the quick fix of devaluation</b>——真实含义：共享单一货币的<b>制度</b>，使缺乏竞争力的成员国无法靠“贬值”这剂快药自救。</p><p>denies 的主语是<b>汇率制度</b>，不是欧盟的“intend（打算）”；掐头去尾改语义 → 排除。</p>",
+  log:"排除 D：denies 的主语是单一货币制度，非欧盟打算"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 B",
+  body:"<p><b>答案 B</b>——even the project's greatest cheerleaders talk of…（连最铁杆的支持者都开始谈危机）。</p><p>记忆锚点：so…that 结果题先扫首段；even ＝ 递进信号。A 主客倒置、C 过度引申、D 扭曲 denies 主语。</p>",
+  log:"结论：问题多到连支持者都开始忧虑，答案选 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-36 · 细节题：欧盟问题多到什么程度",
+  subtitle: "考点：Text4 首段 so…that 结果 · 方法：定位 even 递进 → 替换 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>even the project's greatest cheerleaders talk of…</b>（连最铁杆的支持者都在谈危机）＝ even its supporters begin to feel concerned。记忆锚点：A 主客倒置（失 faith 的是 markets）、C 过度引申（放弃欧元无出处）、D 扭曲（denies 的主语是货币制度）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——"问题多到什么程度"看 even</h2>
+<p>答案：<strong>B</strong>（even its supporters begin to feel concerned 连支持者也开始忧虑）。</p>
+<h3>第 0 步：先立机制——so…that 结构把答案锁在首段</h3>
+<p>题干 The EU is faced with so many problems that ____ 是"so…that（如此…以至于）"句式：问的是<strong>问题严重到导致了什么后果</strong>。后果要有冲击力，命题人最爱利用的就是首段的<strong>让步递进词 even</strong>——"连最不该动摇的人都动摇了"，就是"问题够大"的铁证。定位首段即可。</p>
+<h3>第 1 步：定位原文，抓 even 递进链</h3>
+<p>首段③句：</p>
+<blockquote>Now <strong>even</strong> the project's <strong>greatest cheerleaders</strong> talk of a continent facing a "Bermuda triangle" of debt, population decline and lower growth.（如今连这一事业最热情的支持者都在谈论这片大陆面临的"百慕大三角"——债务、人口下降与低增长。）</blockquote>
+<p>替换链三步对齐：</p>
+<ul><li>the project（这项事业）↔ <strong>the EU</strong>；</li><li>even the project's greatest <strong>cheerleaders</strong>（拉拉队长＝最铁杆的支持者）↔ even its <strong>supporters</strong>；</li><li>talk of…facing a "Bermuda triangle" of problems（开口谈三重危机）↔ begin to <strong>feel concerned</strong>（开始忧虑）。</li></ul>
+<p>"连最强支持者都开始谈论麻烦"＝问题多到支持者难以保持淡定 → 选 <strong>B</strong>。</p>
+<h3>第 2 步：干扰项归因——三个坑各挖在第二段</h3>
+<table><thead><tr><th>选项</th><th>原文出处</th><th>失手类型</th></tr></thead><tbody><tr><td>A 失去对市场的信任</td><td>二段② Markets have lost faith</td><td>主客倒置</td></tr><tr><td>B 支持者开始忧虑</td><td>首段③ even cheerleaders</td><td>同义替换 → 正确</td></tr><tr><td>C 成员国计划放弃欧元</td><td>二段②（欧元信任危机）</td><td>过度引申</td></tr><tr><td>D 打算否定贬值可能</td><td>二段② denies…devaluation</td><td>扭曲文意</td></tr></tbody></table>
+<ul><li><strong>误选 A——主语宾语调了个</strong>：二段②句是 <strong>Markets</strong> have lost faith that the euro zone's economies…（<strong>市场</strong>对欧元区各国终将趋同失去信心）。失 faith 的是市场，对象是欧元区；A 却说"欧盟失去对市场的信任"——主体与客体全部倒置。</li><li><strong>误选 C——从"信任危机"滑到"放弃欧元"</strong>：原文只说市场对欧元区失去信心，全文没有任何成员国"plan to abandon euro"的信息；这是把"遭遇危机"过度引申为"要散伙"。</li><li><strong>误选 D——掐头去尾改语义</strong>：②句末 which denies uncompetitive members the quick fix of devaluation 的真实含义：共享单一货币的<strong>制度</strong>使缺乏竞争力的成员国无法靠贬值自救（quick fix 快速解药）；D 把它曲解成"欧盟打算否定货币贬值的可能性"——denies 的主语是汇率制度，不是欧盟的"打算"。</li></ul>
+<blockquote>记忆锚点：so…that 结果题先扫首段；even ＝ 递进信号，"连 cheerleaders（拉拉队长）都在谈危机"＝支持者忧虑 → B；A 主客倒置、C 无中生有、D 扭曲 denies 的主语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-34 细节题：雇主抱怨 H-2A 签证什么——负面词链取交集</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：complain about the H-2A visa for its ____',
+  'body':'<p>题干：<b>Agricultural employers complain about the H-2A visa for its ____.</b>（农业雇主抱怨 H-2A 签证的____。）</p><p>定位双暗号：Agricultural employers（农业雇主）+ complain（抱怨）。抱怨的<b>对象</b>已锁定 H-2A 签证，问的是<b>原因</b>——抱怨句本身只报情绪，原因要看它后面。</p>',
+  'log':'审题：complain about H-2A visa for its ____，定位第六段找原因'},
+ {'cls':'','ecs':'step','tag':'机制','count':0,
+  'title':'机制：抱怨句之后找原因句，负面词链取交集',
+  'body':'<p>机制：抱怨句只说"人不够"，<b>原因在紧随其后的句子</b>。先总说（流程怎么样），再举例（慢到什么程度）。</p><p>把原因句里的负面词排成一列：<b>cumbersome</b>（慢而复杂）、<b>delays</b>（迟滞）、<b>late 22 days</b>（晚 22 天）——交集只有一个字：<b>慢</b>；词链共同指向的主体是 <b>The process</b>（签发流程）。</p>',
+  'log':'机制：抱怨句后找原因；负面词链 cumbersome/delays/late 的交集 = 慢'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第六段②③④句',
+  'body':'<div class="qq"><b>② Even so, employers complain they aren\'t given all the workers they need.</b><span class="cn">（即便如此，雇主仍抱怨未能获得足够的劳工。）</span></div><div class="qq"><b>③ The process is cumbersome, expensive, and unreliable. ④ One survey found that bureaucratic delays led the average H-2A worker to arrive on the job 22 days late.</b><span class="cn">（流程繁琐、昂贵且不可靠。一项调查发现，官僚迟滞使 H-2A 工人平均晚 22 天上工。）</span></div>',
+  'log':'定位第六段：抱怨句 + 原因句（繁琐昂贵不可靠 + 晚 22 天）'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：词链交集 → slow granting procedures',
+  'body':'<table class="aw-mini"><tr><th>选项 A</th><th>原文</th></tr><tr><td><b>slow</b></td><td>cumbersome / delays / late 22 days（慢而复杂、迟滞、晚 22 天）</td></tr><tr><td><b>granting procedures</b></td><td>The process（H-2A 签证的签发流程）</td></tr></table><p>负面词链取交集 = 慢；主体 = 流程 → <b>slow granting procedures</b>。</p>',
+  'log':'替换：slow ← cumbersome/delays/late；procedures ← the process'},
+ {'cls':'bad','ecs':'miss','tag':'排除 B','count':1,'ribbon':{'k':2,'ok':false},
+  'title':'排除 B：限制停留时长',
+  'body':'<p><b>B · limit on duration of stay</b><span class="bad-dot"> ✗</span></p><p>stay longer 出自<b>第二段</b>"更直接的签证本可让外籍工人待得更久、在业内换工作"——停留时间有限确实是现行政策的缺陷，但<b>第六段的抱怨没提它</b>。拿别段的真话<b>张冠李戴</b>。</p>',
+  'log':'排除 B：停留时长是第二段的事，第六段的抱怨没提'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：收紧了要求',
+  'body':'<p><b>C · tightened requirements</b><span class="bad-dot"> ✗</span></p><p>把 cumbersome（耗时、累赘）曲解成"要求多、标准严"。cumbersome 强调的是<b>慢和难</b>，不是"高标准"——<b>词义曲解</b>。</p>',
+  'log':'排除 C：cumbersome = 慢而复杂，不是"要求严"'},
+ {'cls':'bad','ecs':'miss','tag':'排除 D','count':3,'ribbon':{'k':4,'ok':false},
+  'title':'排除 D：控制年度准入名额',
+  'body':'<p><b>D · control of annual admissions</b><span class="bad-dot"> ✗</span></p><p>与①句 <b>The H-2A visa has no numerical cap</b>（H-2A 签证无数量上限）<b>正面相悖</b>——雇主抱怨的恰恰不是签证名额不够发。</p>',
+  'log':'排除 D：与 no numerical cap 正面相悖'},
+ {'cls':'good','ecs':'ok','tag':'锁定 A','count':4,'ribbon':{'k':1,'ok':true},
+  'title':'锁定 A：slow granting procedures',
+  'body':'<p><b>A · slow granting procedures</b><span class="ok-dot"> ✓</span></p><p>procedures 近义替换 process；slow 是对 cumbersome、expensive、unreliable、delays、late 这串负面表达中<b>反复出现的信息</b>"慢"的高度概括。</p>',
+  'log':'锁定 A：签发流程缓慢，正是雇主抱怨的原因'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 A',
+  'body':'<p><b>答案 A（slow granting procedures）</b>——complain 定位后，答案在"抱怨句之后"的原因句里；负面词链 cumbersome / delays / late 取交集 = 慢 → slow granting procedures。</p><p>记忆锚点：complain 只报情绪，原因看后面；负面词链取交集。</p>',
+  'log':'结论：雇主抱怨 H-2A 签证签发流程缓慢，答案选 A'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-34 · 细节题：雇主抱怨 H-2A 签证的什么",
+  subtitle: "考点：Text3 细节定位 · 方法：complain 定位 → 原因句找负面词链交集",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：complain 定位 → 原因句负面词链 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 A",
+    html: "<b>complain 定位第六段，原因在抱怨句之后</b>：cumbersome / delays / late 22 days 取交集 = <b>慢</b>，主体 The process = 签发流程 → <b>slow granting procedures</b>。B 张冠李戴（第二段），C 曲解 cumbersome，D 与 no numerical cap 相悖。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——complain 之后的原因句里找负面词链交集</h2>
+<p>答案：<strong>A（slow granting procedures 签发流程缓慢）</strong>。</p>
+<h3>第 0 步：先立机制——抱怨句只报情绪，原因在它后面</h3>
+<p>细节题的机制：题干给了两个定位暗号——Agricultural employers（农业雇主）+ complain about the H-2A visa（抱怨 H-2A 签证）。第六段②句 Even so, employers complain they aren't given all the workers they need 与暗号严丝合缝；但抱怨句只说"人不够"，<strong>原因要往下看③④句</strong>：先总说 The process is cumbersome, expensive, and unreliable（流程繁琐、昂贵、不可靠），再举例——bureaucratic delays（官僚迟滞）让 H-2A 工人平均<strong>晚 22 天</strong>上工。</p>
+<p>把负面词链排成一列看：cumbersome（慢而复杂）、delays（迟滞）、late 22 days（迟到）——<strong>反复出现的核心信息是"慢"</strong>；而这条词链共同指向的主体是 The process，即 H-2A 签证的<strong>签发流程</strong>。交集合一：slow granting procedures。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>② Even so, employers complain they aren't given all the workers they need. ③ The process is cumbersome, expensive, and unreliable. ④ One survey found that bureaucratic delays led the average H-2A worker to arrive on the job 22 days late.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 A</th><th>原文</th></tr></thead><tbody><tr><td>slow</td><td>cumbersome / delays / late 22 days</td></tr><tr><td>granting procedures</td><td>The process（H-2A 签证的签发流程）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>B（限制停留时长）</strong>：stay longer 出自第二段"更直接的签证本可让外籍工人待得更久"——停留时间有限确实是现行政策的缺陷，但<strong>第六段的抱怨没提它</strong>。拿别段的真话张冠李戴。</li><li><strong>C（收紧了要求）</strong>：把 cumbersome（耗时、累赘）曲解成"要求多、标准严"。cumbersome 强调<strong>慢和难</strong>，不是"高标准"。</li><li><strong>D（控制年度准入名额）</strong>：与①句 The H-2A visa has no numerical cap（无数量上限）<strong>正面相悖</strong>——雇主抱怨的恰恰不是签证名额不够。</li></ul>
+<blockquote>记忆锚点：complain 定位后，答案在"抱怨句之后"的原因句里；负面词链 cumbersome / delays / late 取交集 = 慢 → slow granting procedures。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

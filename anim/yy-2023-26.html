@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023 阅读第 26 题 · 细节题：crisis 是概括词——具体所指在定位句的下文</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2023 阅读第 26 题 · 细节题：crisis 是概括词——具体所指在定位句的下文","subtitle":"考点：事实细节 · 方法：概括词（crisis）→ 向下文找具体展开（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位 crisis → 找具体所指 → 逐项排除”的推理链。","stemEn":"What problem are U.S. national parks faced with?","stemZh":"美国国家公园面临什么问题？（第二段首句 crisis 是概括词——答案在它的具体展开处）","quotes":[{"tag":"定位① · 第二段①句（概括词）","en":"<b>But the government is right about one thing</b>: U.S. national parks are <b>in crisis</b>.","zh":"But 转折肯定政府指出的「危机」是真的。单看这句还解不了题——crisis 的具体内容要看下文。"},{"tag":"定位② · 第二段②③句（危机的内容）","en":"Collectively, they have a <b>maintenance backlog of more than $12 billion</b>. <b>Roads, trails, restrooms, visitor centers and other infrastructure are crumbling</b>.","zh":"积压的维护费超 120 亿美元；道路、步道、卫生间、游客中心等基础设施日渐破败——危机 = 基础设施维护不善。"},{"tag":"机制 · But 的方向提示","en":"It’s easy to dismiss as absurd the federal government’s ideas for plugging <b>the chronic funding gap</b>… But the government is right about one thing: … in crisis.","zh":"首段批政府「办法荒谬」，But 转折肯定政府瞄准的「问题」存在——危机应与政府想解决的 the chronic funding gap（长期资金缺口）相关：没钱 → 没法维护。"}],"opts":[{"k":"A","en":"Decline of business profits.","zh":"营业利润下滑","why":"把 funding gap（资金供应无法满足需求）曲解为「利润亏损」——文中从未谈公园商家利润下滑。"},{"k":"B","en":"Inadequate commercialization.","zh":"商业化不足","why":"商业化（Amazon 配送、餐车）是政府提出的解决办法，不是公园面临的问题；且首段以反问质疑该办法，作者立场恰恰是不该推进商业化。"},{"k":"C","en":"Lack of transportation services.","zh":"交通运输服务欠缺","why":"扭曲——道路、步道（roads, trails）的问题是「亟待维护」，被偷换成「缺乏交通服务」：问题在维护不善，不在有无服务。"},{"k":"D","en":"Poorly maintained infrastructure.","zh":"基础设施维护不善","why":"","good":"maintenance <b>backlog</b>（维护积压）+ infrastructure are <b>crumbling</b>（日渐破败）——「危机」的展开正是基础设施维护不善。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1,2],"state":{}},{"show":[0,1,2],"state":{"A":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"问公园「面临的问题」——题眼在第二段首句 crisis；概括词的答案在它的具体展开处，向下文找","count":0},{"cls":"shift","tag":"定位①crisis","log":"But the government is right about one thing: U.S. national parks are in crisis——But 肯定「危机」属实；但 crisis 具体指什么还要往下读","count":0},{"cls":"shift","tag":"定位②具体所指","log":"maintenance backlog of more than $12 billion + Roads, trails, restrooms… infrastructure are crumbling——维护积压 + 设施破败","count":0},{"cls":"shift","tag":"机制：资金链","log":"首段 chronic funding gap（长期资金缺口）→ 没钱维护 → 设施 crumbling：危机的根子在资金","count":0},{"cls":"miss","tag":"排除 A","log":"A decline of profits ✗：funding gap 是「资金缺口」不是「利润下滑」——偷换概念","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B inadequate commercialization ✗：商业化是政府开出的「药方」不是「病症」；作者还以反问质疑此药方","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C lack of transportation ✗：roads/trails 是「需要维护」不是「没有服务」——问题性质被偷换","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D poorly maintained infrastructure ✓：维护积压 120 亿 + 设施 crumbling——crisis 的具体展开","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：概括词（crisis）→ 下文找展开（backlog + crumbling）；「药方」与「病症」别混淆","count":3,"done":true}],"result":{"big":"答案 D（Poorly maintained infrastructure）","html":"<b>D</b>：维护积压超 <b>$12 billion</b>、道路步道卫生间等基础设施<b>日渐破败</b>——公园的危机就是基础设施维护不善（根子在资金缺口）。<br>A 把「资金缺口」读成「利润下滑」；B 把政府的「药方」当成「病症」；C 把「待维护」扭曲成「缺服务」。<br>记忆锚点：<b>概括词（crisis）→ 答案在下文的具体展开处</b>。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 26 题——crisis 是概括词：答案在下文的具体展开处</h2>
+<p>答案：<strong>D（Poorly maintained infrastructure）</strong>。</p>
+<h3>第一步：先立机制——概括词的答案在它的展开处</h3>
+<p>第二段首句 U.S. national parks are in crisis 中，crisis 是概括词——单看定位句解不了题，要把视野放到下文找 crisis 的具体所指。But the government is right about one thing 的转折同时提示：危机应与政府想解决的 the chronic funding gap（长期资金缺口）相关——没钱，才没法维护。</p>
+<h3>第二步：定位原文——危机的具体内容</h3>
+<blockquote>Collectively, they have a maintenance backlog of more than $12 billion. Roads, trails, restrooms, visitor centers and other infrastructure are crumbling.</blockquote>
+<ul><li>维护积压超 120 亿美元；</li><li>道路、步道、卫生间、游客中心等基础设施日渐破败——危机 = 基础设施维护不善，根子在没钱维护。</li></ul>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A Decline of business profits ✗</strong>：把 funding gap（资金供应无法满足需求）曲解为「营业利润下滑」——文中从未谈公园商家利润。</li><li><strong>B Inadequate commercialization ✗</strong>：商业化（Amazon 配送、餐车）是政府提出的解决办法，不是公园面临的问题；且首段以反问质疑该办法，作者立场恰恰是不该推进商业化。</li><li><strong>C Lack of transportation services ✗</strong>：扭曲——roads、trails 的问题是「亟待维护」，被偷换成「缺乏交通服务」：问题在维护不善，不在有无服务。</li><li><strong>D Poorly maintained infrastructure ✓</strong>：maintenance backlog + infrastructure are crumbling 的概括——「危机」的展开。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（最强干扰）</strong>：Amazon deliveries、food trucks 的商业气息让人把「商业化不足」当成问题——要分清「病症」（公园的问题）与「药方」（政府的建议）。</li><li><strong>误选 A</strong>：funding 的联想陷阱——缺的是「维护经费」，不是商家利润。</li></ul>
+<blockquote>记忆锚点：概括词（crisis）→ 向下文找具体展开；「药方」与「病症」分开认领，别把政府建议当成公园的病。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

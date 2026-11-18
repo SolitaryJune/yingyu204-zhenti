@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-01 · 人类有____不确定性的内在需求：A protect / B resolve / C discuss / D ignore</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 1 在 inherent need to __ uncertainty 的动词位；考点：上下文语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Why do people read negative Internet comments and do other things that will obviously be painful? Because humans have an inherent need to <b>__1__</b> uncertainty, according to a recent study in Psychological Science.</div><p>空 1 是答句里 <b>inherent need to __ uncertainty</b> 的动词：人类对不确定性抱有某种内在需求，空格词说明这种需求要对不确定性做什么。首句是设问（为什么明知负面评论 painful 还要看），Because 答句必须正面回应这个动机。</p>"
+ },
+ {
+  "title": "立机制 · 想知道 = 消除不确定性（need to know 的复现）",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：need to know 复现 inherent need to __ uncertainty → 空格词 = 消除类动词",
+  "body": "<p>下句 <b>The new research reveals that the need to know is so strong...</b> 里，<b>the need to know</b> 正是对 an inherent need to __ uncertainty 的复现：想知道（to know）的实质，就是把不确定变成确定，即<b>消除</b>不确定性。所以空格词 = 与 to know 同向的消除义动词，且能以 uncertainty 作宾语。</p>"
+ },
+ {
+  "title": "找证据 · 主题词链：negative → painful → the need to know",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：首句负面行为 + ③句 the need to know 共同锁定消除未知的方向",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The new research reveals that the need to know is so strong that people will __2__ to satisfy their curiosity even when it is clear the answer will __3__ .</div><p>首句的行为（读负面评论、做明显痛苦的事）只有在迫切想弄清内情时才说得通；③句 the need to know 与 satisfy their curiosity 把这条动机链挑明——curiosity（好奇心）的对象正是那些未知。空 1 的动词要接住 uncertainty，并解释这个动机。</p>"
+ },
+ {
+  "title": "逐项分析 · A protect（保护）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A protect（保护）✗ 排除",
+  "body": "<p><b>排除。</b>保护不确定性 = 让它继续存在、不去弄清，与 the need to know（想知道）的方向恰好相反，也解释不了首句明知痛苦还要点开的行为。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 need to + 宾语就配正面动词，不做方向校验：这里需求的方向是消除未知，不是维持未知。</p>"
+ },
+ {
+  "title": "逐项分析 · B resolve（消除；解决）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B resolve（消除；解决）✓ 当选",
+  "body": "<p><b>当选。</b>resolve uncertainty = 消除不确定性，与 the need to know 构成同义复现：想弄清 = 想把不确定变成确定。</p>"
+ },
+ {
+  "title": "逐项分析 · C discuss（讨论）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C discuss（讨论）✗ 排除",
+  "body": "<p><b>排除。</b>讨论不确定性之后它仍是不确定，动机链断裂；讨论也解释不了读负面评论这种独自发生的追踪行为。</p>"
+ },
+ {
+  "title": "逐项分析 · D ignore（忽视）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D ignore（忽视）✗ 排除",
+  "body": "<p><b>排除。</b>忽视 = 不想知道，与首句行为完全相反，也与下文 satisfy their curiosity 正面冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 need to __ 读成对不确定性的态度，忘掉方向必须与 to know 一致。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 1 填 resolve（消除；解决）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Because humans have an inherent need to <b>resolve</b> uncertainty, according to a recent study in Psychological Science.</div><p>因为人类有一种消除不确定性的内在需求（所以才会去读那些明显令人不快的网络评论）。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（resolve 消除；解决）——见结论卡",
+  "body": "<p>答案选 <b>B（resolve 消除；解决）</b>。</p><p><b>记忆锚点</b>：首句设问 + Because 答句，答案藏在答句与设问的对应里；need to know = need to resolve uncertainty（想知道 = 想消除不确定）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（protect）</b>：把有需求理解成要保护需求对象，忽略 to know 的方向是消除未知、不是维持未知。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 1 空 · 人类有____不确定性的内在需求：A protect / B resolve / C discuss / D ignore",
+  subtitle: "考点：上下文语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（resolve 消除；解决）", "html": "<b>B（resolve 消除；解决）</b>。<br>记忆锚点：首句设问 + Because 答句，答案藏在答句与设问的对应里；need to know = need to resolve uncertainty（想知道 = 想消除不确定）。<br>最易误选：<b>A（protect）</b>——把有需求理解成要保护需求对象，忽略 to know 的方向是消除未知、不是维持未知。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 1 空 · 人类有____不确定性的内在需求</h2>
+<p>答案：<strong>B（resolve 消除；解决）</strong>。</p>
+<h3>第 0 步：先立机制——想知道 = 消除不确定性（need to know 的复现）</h3>
+<p>下句 <strong>The new research reveals that the need to know is so strong...</strong> 里，<strong>the need to know</strong> 正是对 an inherent need to __ uncertainty 的复现：想知道（to know）的实质，就是把不确定变成确定，即<strong>消除</strong>不确定性。所以空格词 = 与 to know 同向的消除义动词，且能以 uncertainty 作宾语。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Why do people read negative Internet comments and do other things that will obviously be painful? Because humans have an inherent need to <strong>__1__</strong> uncertainty, according to a recent study in Psychological Science.</blockquote>
+<p>空 1 是答句里 <strong>inherent need to __ uncertainty</strong> 的动词：人类对不确定性抱有某种内在需求，空格词说明这种需求要对不确定性做什么。首句是设问（为什么明知负面评论 painful 还要看），Because 答句必须正面回应这个动机。</p>
+<h3>第 2 步：找证据——主题词链：negative → painful → the need to know</h3>
+<blockquote>The new research reveals that the need to know is so strong that people will __2__ to satisfy their curiosity even when it is clear the answer will __3__ .</blockquote>
+<p>首句的行为（读负面评论、做明显痛苦的事）只有在迫切想弄清内情时才说得通；③句 the need to know 与 satisfy their curiosity 把这条动机链挑明——curiosity（好奇心）的对象正是那些未知。空 1 的动词要接住 uncertainty，并解释这个动机。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A protect</td><td>保护</td><td>✗ 排除</td><td>保护不确定性 = 让它继续存在、不去弄清，与 the need to know（想知道）的方向恰好相反，也解释不了首句明知痛苦还要点开的行为。（典型误解：见 need to + 宾语就配正面动词，不做方向校验：这里需求的方向是消除未知，不是维持未知。）</td></tr><tr><td>B resolve</td><td>消除；解决</td><td>✓ 当选</td><td>resolve uncertainty = 消除不确定性，与 the need to know 构成同义复现：想弄清 = 想把不确定变成确定。</td></tr><tr><td>C discuss</td><td>讨论</td><td>✗ 排除</td><td>讨论不确定性之后它仍是不确定，动机链断裂；讨论也解释不了读负面评论这种独自发生的追踪行为。</td></tr><tr><td>D ignore</td><td>忽视</td><td>✗ 排除</td><td>忽视 = 不想知道，与首句行为完全相反，也与下文 satisfy their curiosity 正面冲突。（典型误解：把 need to __ 读成对不确定性的态度，忘掉方向必须与 to know 一致。）</td></tr></tbody></table>
+<p>代入后的完整句义：因为人类有一种消除不确定性的内在需求（所以才会去读那些明显令人不快的网络评论）。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（protect）</strong>：把有需求理解成要保护需求对象，忽略 to know 的方向是消除未知、不是维持未知。</li></ul>
+<blockquote>记忆锚点：首句设问 + Because 答句，答案藏在答句与设问的对应里；need to know = need to resolve uncertainty（想知道 = 想消除不确定）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

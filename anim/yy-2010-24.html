@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·24 阅读 · the three Ds 的谓语定型</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：缩写词', cls: 'key',
+    body: '<p>题干问 <b>the three Ds</b> 是什么。机制：缩写词 = <b>破折号里拆成员 + 谓语动词定功能</b>——它做主语时，谓语就是它的定义。</p>',
+    log: '缩写词：成员就近，定义看谓语' },
+  { title: '定位原文', cls: 'key',
+    body: src('“<b>The three Ds – death, debt and divorce – still deliver works of art to the market.</b>”') +
+      '<p>成员：death（死亡）、debt（债务）、divorce（离婚）；谓语：still deliver works of art to the market（仍在把艺术品送进市场）。</p>',
+    log: '成员齐了，谓语是关键' },
+  { title: '谓语定型：推动流通', cls: 'step',
+    body: '<p>市场萧条之下，三大变故<b>仍迫使藏品流出</b>——死亡清算遗产、债务被迫变卖、离婚分割财产。它们的功能 = <b>推动艺术品流通的因素</b>。</p>',
+    log: 'deliver...to the market = promoting circulation' },
+  { title: '同义替换核对 C', cls: 'step',
+    body: '<p>still <b>deliver</b> works of art <b>to the market</b> → <b>promoting artwork circulation</b>；death/debt/divorce 三个变故 → <b>factors</b>。替换闭环。</p>',
+    log: '原文 → C 的替换对上' },
+  { title: 'A：无中生有', cls: 'bad',
+    body: '<p>"拍卖行的最爱"——文中没有拍卖行"偏爱"3D 的任何表述，纯属编造关系。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 无文本支撑' },
+  { title: 'B：无中生有', cls: 'bad',
+    body: '<p>"当代潮流"——3D 是三种<b>生活变故</b>，与"潮流趋势"无关，文中亦无此说法。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 概念凭空' },
+  { title: 'D：张冠李戴', cls: 'bad',
+    body: '<p>"印象派的代表风格"——借第四段 <b>Impressionists</b> 一词设障；印象派是 1989 年日本停购的画派，与 3D 毫无关联。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 抓他段词汇设障' },
+  { title: 'C：定义闭环', cls: 'good',
+    body: '<p>"推动艺术品流通的因素"——正是 still deliver works of art to the market 的同义改写，谓语定型成功。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C = 谓语的定义' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C</b>。记忆锚点：<b>缩写词题两步走</b>——破折号里找成员，谓语动词里找定义：still deliver works of art to the market = promoting circulation。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 24 · the three Ds 的谓语定型',
+  subtitle: 'Text 1（艺术品市场）· 考点：词义推断（缩写词 + 谓语定义）',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C',
+    html: '记忆锚点：<b>缩写词 = 成员 + 谓语</b>——death/debt/divorce 三大变故 still deliver works of art to the market，即"推动艺术品流通的因素"。A/B 无中生有，D 抓第四段 Impressionists 张冠李戴。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：the three Ds——首字母缩写的"谓语定型"</h2>
+<p>答案：<strong>C</strong>。</p>
+<h3>第一步：先立机制——缩写词 = 就近拆读 + 动词定型</h3>
+<p>the three Ds 是三个首字母为 D 的词的缩写，破折号里已给出成员：death, debt, divorce。缩写指什么，<strong>关键看它后接的谓语动词</strong>——缩写词做主语，谓语就是它的"功能定义"。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>The three Ds – death, debt and divorce – still deliver works of art to the market.</blockquote>
+<p>三个 D <strong>仍在把艺术品送进市场</strong>：哪怕市场萧条，死亡、债务、离婚这些生活变故仍迫使藏品流出——它们是<strong>推动艺术品流通的因素</strong>。</p>
+<h3>第三步：同义替换确认 C</h3>
+<table><thead><tr><th>原文</th><th>选项 C</th></tr></thead><tbody><tr><td>still deliver works of art to the market</td><td>promoting artwork circulation</td></tr><tr><td>death, debt and divorce（三大变故）</td><td>factors（三大因素）</td></tr></tbody></table>
+<p>deliver 的本义"递送"在市场语境下引申为"推动流动"——这正是 C 项 promoting circulation 的出处。</p>
+<h3>第四步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A 拍卖行的最爱</td><td>✗</td><td>无中生有：文中没有拍卖行"偏爱"3D 的任何表述</td></tr><tr><td>B 当代潮流</td><td>✗</td><td>无中生有：3D 是三种生活变故，不是潮流趋势</td></tr><tr><td>D 印象派的代表风格</td><td>✗</td><td>张冠李戴：借第四段 Impressionists 一词设障，与 3D 毫无关联</td></tr><tr><td>C 推动艺术品流通的因素</td><td>✓</td><td>still deliver...to the market 的同义改写</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 D</strong>：看到第四段的 Impressionists 顺手搭配。词义题的选项常从<strong>全文其他段落</strong>抓词设障——成员只认破折号里的 death/debt/divorce。</li><li><strong>选 A/B</strong>：脱离谓语动词自由联想。缩写词题若不看谓语，A、B 这类"听起来合理"的泛化描述都能自圆其说。</li></ul>
+<blockquote>记忆锚点：缩写词题两步走——破折号里找成员，谓语动词里找定义：still deliver works of art to the market = promoting artwork circulation。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

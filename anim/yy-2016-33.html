@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-33 · 2016 阅读第 33 题 · 让步-转折切观点 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 问的是 Eberle 的观点", "cls": "key", "tag": "审题", "log": "审题眼：Eberle would agree that scheduling regular times…——观点题，观点在转折后", "count": 0, "ribbon": null, "body": "<p>题干：Eberle would agree that <b>scheduling regular times for reading</b> helps ___. 观点题的铁律：人物真实观点永远落在<b>转折词之后</b>——转折前是「你以为的常识」，是拿来当靶子的。带着这条界线去第四段定位。</p>"},
+ {"title": "定位原文 · You'd think / but in fact 的分界", "cls": "key", "tag": "定位", "log": "定位第四段①②句：设问自答 + You'd think 让步 → but in fact, Eberle notes 转折", "count": 0, "ribbon": null, "body": quote("So what does work? Perhaps surprisingly, scheduling regular times for reading. You&rsquo;d think this might fuel the efficiency mind-set, but in fact, Eberle notes, such ritualistic behaviour helps us &ldquo;step outside time&rsquo;s flow&rdquo; into &ldquo;soul time.&rdquo;") + "<p>结构：①设问自答——有用的是「安排固定时段阅读」；②<b>You'd think</b>（你可能以为会助长效率思维）是让步侧的猜想，<b>but in fact, Eberle notes</b> 才是观点本体：这种惯常行为帮我们「跨出时间之流」进入「灵魂时间」。</p>"},
+ {"title": "同义替换 · soul time = immersive reading", "cls": "key", "tag": "替换", "log": "同义替换：soul time（灵魂时间）与第三段 immersive reading 互为表里", "count": 0, "ribbon": null, "body": quote("Immersive reading, by contrast, depends on being willing to risk inefficiency, goallessness, even time-wasting.") + "<p>「灵魂时间」单看是比喻，到第三段找实义：<b>沉浸式阅读</b> = 敢于低效、无目标甚至「浪费」时间的状态——与「跨出时间之流」互为表里，都在描述<b>挣脱效率计量、全身心沉入书本</b>的状态。锁定 [D]。</p>"},
+ {"title": "逐项分析 · A encourage the efficiency mind-set", "cls": "bad", "tag": "排除 A", "log": "A 助长效率思维 ✗ ——让步侧内容，正是被 Eberle 否定的猜想", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>You'd think this might fuel the efficiency mind-set 是<b>让步侧</b>的惯常猜想；且第三段明说 &ldquo;becoming more efficient&rdquo; is part of the problem（效率本身是问题的一部分）。把被反驳的观点当成他的观点。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看字面出现，不核对语法位置在 You'd think 从句里。</p>"},
+ {"title": "逐项分析 · B develop online reading habits", "cls": "bad", "tag": "排除 B", "log": "B 培养在线阅读习惯 ✗ ——手段偷换成作用，且与原文方向相反", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>④句 limit distractions by <b>reading only physical books</b>, or on single-purpose e-readers 是减少干扰的<b>手段</b>，且「只读纸质书」与「在线阅读」方向相反——B 再把它偷换成「固定时段阅读的作用」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把同段的手段建议当成观点的作用。</p>"},
+ {"title": "逐项分析 · C promote ritualistic reading", "cls": "bad", "tag": "排除 C", "log": "C 促进例行性阅读 ✗ ——ritualistic behaviour 是主语不是宾语，逻辑原地打转", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>such <b>ritualistic behaviour</b>（这种惯常行为）说的就是「安排固定时段阅读」<b>这件事本身</b>，是行为的名字，不是它带来的作用——「固定时段阅读促进例行性阅读」在逻辑上原地打转。常识上再顺口，Eberle 也没说过这层关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用生活经验替作者发言——观点题要「内容真＋归属真」双查。</p>"},
+ {"title": "逐项分析 · D achieve immersive reading", "cls": "good", "tag": "选定 D", "log": "D 实现沉浸式阅读 ✓ ——soul time = immersive reading，转折后的真观点", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>step outside time's flow → &ldquo;soul time&rdquo;（跨出时间之流进入灵魂时间），与第三段 immersive reading depends on being willing to risk inefficiency… 互为同义改写——这正是 Eberle 转折后的真观点。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（achieve immersive reading）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>安排固定时段阅读 → such ritualistic behaviour 帮我们跨出时间之流、进入「灵魂时间」→ 与第三段「沉浸式阅读」同义 → 选 D。</b></p><p>答案选 <b>D（achieve immersive reading）</b>。</p><p><b>记忆锚点</b>：观点题先切 You'd think / but in fact——让步侧是靶子，转折侧才是观点；soul time = immersive reading；ritualistic behaviour 是主语不是宾语。</p><p style=\"color:#b91c1c\">最易误选：<b>C（promote ritualistic reading）</b>——把行为本身当成了行为的作用。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 33 题 · 观点题的「让步-转折」——Eberle 的观点只在 but 之后",
+  subtitle: "考点：观点细节题 · You'd think / but in fact 分界 + soul time 同义替换",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（achieve immersive reading）", "html": "<b>D 实现沉浸式阅读</b>：soul time ＝ step outside time's flow ＝ 第三段 immersive reading。<br>记忆锚点：让步侧（You'd think）是靶子，转折侧（but in fact）才是观点；ritualistic behaviour 是主语不是宾语。<br>最易误选：<b>C（promote ritualistic reading）</b>——行为本身被当成行为的作用。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 33 题 · 观点题的"让步-转折"——Eberle 的观点只在 but 之后</h2>
+<p>答案：<strong>D（achieve immersive reading 实现沉浸式阅读）</strong>。</p>
+<h3>第 0 步：先立机制——You'd think 之后不是观点，but in fact 之后才是</h3>
+<p>题干问 Eberle would agree that...（埃伯利会赞同……）。观点题的铁律：<strong>作者/人物的真实观点永远落在转折词之后</strong>，转折前是"你以为的常识"，是被拿来当靶子的。第四段的结构恰好是一颗标准样本：先抛问题 So what does work?（到底什么才有用？），再给答案 scheduling regular times for reading（安排固定时段阅读），接着用 <strong>You'd think... but in fact, Eberle notes...</strong> 的让步-转折把惯常猜想与 Eberle 的真话分开。审题时先划清这条界线，四个选项有一半会自动落到"让步侧"出局。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>So what does work? Perhaps surprisingly, scheduling regular times for reading. You'd think this might fuel the efficiency mind-set, but in fact, Eberle notes, such ritualistic behaviour helps us "step outside time's flow" into "soul time."</blockquote>
+<p>结构：①设问自答——有用的是"安排固定时段阅读"；②<strong>You'd think</strong> this might fuel the efficiency mind-set（你可能以为这会助长效率思维）是让步侧的猜想；<strong>but in fact, Eberle notes</strong> 才是观点本体：这种惯常行为帮助我们"跨出时间之流"，进入"灵魂时间"。</p>
+<h3>第 2 步：同义替换——"灵魂时间"就是"沉浸式阅读"</h3>
+<p>"soul time"（灵魂时间）单看是比喻，要到第三段找它的实义：</p>
+<blockquote>Immersive reading, by contrast, depends on being willing to risk inefficiency, goallessness, even time-wasting.</blockquote>
+<p>沉浸式阅读 = 敢于低效、无目标甚至"浪费"时间的状态——这正与"跨出时间之流、进入灵魂时间"互为表里：两者都在描述一种<strong>挣脱效率计量、全身心沉入书本</strong>的状态。于是 soul time = immersive reading，锁定 [D]。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A encourage the efficiency mind-set</td><td>✗</td><td>让步侧内容：You'd think this might fuel the efficiency mind-set 是被 Eberle 否定的"惯常猜想"，且第三段明说 "becoming more efficient" is part of the problem（效率本身是问题的一部分）——把被反驳的观点当成了他的观点</td></tr><tr><td>B develop online reading habits</td><td>✗</td><td>手段偷换：④句 "limit distractions by reading only physical books, or on single-purpose e-readers"（只读纸质书或单一功能阅读器）是减少干扰的<strong>手段</strong>，还与"在线阅读"方向相反——把它偷换成"固定时段阅读的作用"</td></tr><tr><td>C promote ritualistic reading</td><td>✗</td><td>字面复现：such ritualistic behaviour 说的<strong>就是</strong>"安排固定时段阅读"这件事本身，是行为的名字，不是它带来的作用——"固定时段阅读促进例行性阅读"在逻辑上原地打转</td></tr><tr><td>D achieve immersive reading</td><td>✓</td><td>step outside time's flow → soul time，与第三段 immersive reading 互为同义改写，是 Eberle 转折后的真观点</td></tr></tbody></table>
+<h3>预判追问：C 从常识上看很对，为什么不选？</h3>
+<p>"安排固定时段确实会养成习惯性阅读"——常识上没错，但题干限定 <strong>Eberle would agree</strong>：观点题要"内容真 + 归属真"双查。ritualistic behaviour 在文中是被引用的<strong>行为描述</strong>，Eberle 谈的是它的作用（进入灵魂时间），从没说它"促进例行性阅读"这层关系。选 C 是用生活经验替作者发言——观点题最忌这一手。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：只看到 efficiency mind-set 在定位句里字面出现，没核对它的语法位置在 You'd think 让步从句里——转折前的一切都不是观点。</li><li><strong>误选 B</strong>：被同段④句的 limit distractions 建议吸走，且把"单一功能阅读器"误读成"在线阅读习惯"。</li><li><strong>误选 C</strong>：定位正确、替换错误——把主语（行为本身）当成了宾语（行为的作用）。</li></ul>
+<blockquote>记忆锚点：观点题先切 <strong>You'd think / but in fact</strong>——让步侧是靶子，转折侧才是观点；soul time = step outside time's flow = immersive reading；ritualistic behaviour 是主语不是宾语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

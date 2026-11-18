@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 4 空 · only to do：预言落空后“收回立场”——reverse oneself · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · only to do：落差方向定动词", "cls": "key", "tag": "审题", "log": "先立机制：only to do：落差方向定动词", "count": 0, "ribbon": null, "body": "<p>空格在不定式 to 之后，填及物动词，宾语是 itself（回指预言者 Business Week）。它挂在 only to ___ itself several years later 上——only to do 是固定结果状语，专门引出与预期相反、令人失望的结果。预言说得越满（soon revolutionize），后面 only to 的落差就要越大：预言落空之后，杂志对自己那句预言做的事，只能是“收回、改口”。</p>"}, {"title": "定位原文 · 空 4 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 4 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, Business Week predicted in 1975 that electronic means of payment would soon \"revolutionize the very __3__ of money itself,\" only to <b>__4__</b> itself several years later.</div><p>空格是及物动词位，宾语 itself，挂在 only to do 的结果状语里；四个候选词形相近（re- 开头），先看谁能接 oneself，再看语义方向是否与“落空”一致。</p>"}, {"title": "找证据 · 主语链：predicted → Business Week → itself", "cls": "key", "tag": "证据", "log": "找证据：主语链：predicted → Business Week → itself", "count": 0, "ribbon": null, "body": "<p>预言的主语是《商业周刊》，几年后 it itself 做出的动作，就是对自己预言的处置。reverse oneself (on sth) 是固定短语：“（就某事）收回原有立场、承认错误”——与 only to 的落空方向严丝合缝。</p>"}, {"title": "逐项分析 · A reverse（承认错误，放弃（立场））", "cls": "good", "tag": "选定 A", "log": "A reverse（承认错误，放弃（立场））✓ 当选——固定短语：收回立场", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>reverse oneself (on sth) = 收回原有立场：“杂志预言将革命货币概念，结果几年后自己收回”，正接住 only to 的落差。</p>"}, {"title": "逐项分析 · B resist（抵抗；抵制）", "cls": "bad", "tag": "排除 B", "log": "B resist（抵抗；抵制）✗ 排除——resist oneself 不成搭配", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>resist oneself 不是英语搭配，“杂志抵制自己”语义荒谬。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“预言没实现”就往“抵抗变化”上靠。</p>"}, {"title": "逐项分析 · C resume（重新开始；继续）", "cls": "bad", "tag": "排除 C", "log": "C resume（重新开始；继续）✗ 排除——“继续”方向相反", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>resume oneself 不成搭配，且“继续”意味着坚持原预言，与 only to 的落空方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记 resume = 继续，没有核对方向。</p>"}, {"title": "逐项分析 · D reward（奖励；回报）", "cls": "bad", "tag": "排除 D", "log": "D reward（奖励；回报）✗ 排除——语义无关", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>reward oneself（犒劳自己）搭配成立但语义无关——预言落空无关奖赏。</p><p style=\"color:#b91c1c\">⚠ 典型误解：reward / reverse 形近看串。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（reverse 承认错误，放弃（立场））——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”，结果几年后自己收回了这一说法。</b></p><p>答案选 <b>A（reverse 承认错误，放弃（立场））</b>。</p><p><b>记忆锚点</b>：only to do = 结果却（意外/失望）；reverse oneself (on sth) = 收回立场、承认错误；预言落空 → 杂志收回预言。</p><p style=\"color:#b91c1c\">最易误选：<b>C（resume）</b>——只记“resume = 继续”的人最多，但“继续”恰好与落空方向相反。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 4 空 · only to do：预言落空后“收回立场”——reverse oneself",
+  subtitle: "考点：only to do 结果状语 + reverse oneself 短语 · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 A（reverse 承认错误，放弃（立场））", "html": "<b>A reverse（承认错误，放弃（立场））</b>。<br>完整句义：例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”，结果几年后自己收回了这一说法。<br>记忆锚点：only to do = 结果却（意外/失望）；reverse oneself (on sth) = 收回立场、承认错误；预言落空 → 杂志收回预言。<br>最易误选：<b>C（resume）</b>——只记“resume = 继续”的人最多，但“继续”恰好与落空方向相反。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 4 空 · only to do：预言落空后“收回立场”——reverse oneself</h2>
+<p>答案：<strong>A（reverse 承认错误，放弃（立场））</strong>。</p>
+<h3>第 0 步：先立机制——only to do：落差方向定动词</h3>
+<p>空格在不定式 to 之后，填及物动词，宾语是 itself（回指预言者 Business Week）。它挂在 only to ___ itself several years later 上——only to do 是固定结果状语，专门引出与预期相反、令人失望的结果。预言说得越满（soon revolutionize），后面 only to 的落差就要越大：预言落空之后，杂志对自己那句预言做的事，只能是“收回、改口”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For example, Business Week predicted in 1975 that electronic means of payment would soon "revolutionize the very <code>__3__</code> of money itself," only to <code>__4__</code> itself several years later.</blockquote>
+<p>空格是及物动词位，宾语 itself，挂在 only to do 的结果状语里；四个候选词形相近（re- 开头），先看谁能接 oneself，再看语义方向是否与“落空”一致。</p>
+<h3>第 2 步：找证据——主语链：predicted → Business Week → itself</h3>
+<p>预言的主语是《商业周刊》，几年后 it itself 做出的动作，就是对自己预言的处置。reverse oneself (on sth) 是固定短语：“（就某事）收回原有立场、承认错误”——与 only to 的落空方向严丝合缝。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A reverse</td><td>承认错误，放弃（立场）</td><td>✓ 当选</td><td>reverse oneself (on sth) = 收回原有立场：“杂志预言将革命货币概念，结果几年后自己收回”，正接住 only to 的落差。（易错警示：reverse 的“逆转”义要用在趋势上（reverse a trend）；本题考的是 reverse oneself 的短语义。）</td></tr><tr><td>B resist</td><td>抵抗；抵制</td><td>✗ 排除</td><td>resist oneself 不是英语搭配，“杂志抵制自己”语义荒谬。（典型误解：见“预言没实现”就往“抵抗变化”上靠。）</td></tr><tr><td>C resume</td><td>重新开始；继续</td><td>✗ 排除</td><td>resume oneself 不成搭配，且“继续”意味着坚持原预言，与 only to 的落空方向相反。（典型误解：只记 resume = 继续，没有核对方向。）</td></tr><tr><td>D reward</td><td>奖励；回报</td><td>✗ 排除</td><td>reward oneself（犒劳自己）搭配成立但语义无关——预言落空无关奖赏。（典型误解：reward / reverse 形近看串。）</td></tr></tbody></table>
+<p>代入后的完整句义：例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”，结果几年后自己收回了这一说法。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>reverse 的“逆转”义在这里为什么不对？</strong>：单独的“逆转”义要求宾语是趋势或决定（reverse a trend / a decision）；本句宾语是 itself（回指杂志），走的是固定短语 reverse oneself (on sth)——“收回立场、承认错误”。</li><li><strong>only to do 和 in order to 差在哪？</strong>：only to do 是结果状语，专表“结果却（意外、失望）”；in order to 表目的。本句的落空感正是 only to 提供的。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（resist）</strong>：见“预言没实现”就往“抵抗变化”上靠。</li><li><strong>误选 C（resume）</strong>：只记 resume = 继续，没有核对方向。</li><li><strong>误选 D（reward）</strong>：reward / reverse 形近看串。</li></ul>
+<blockquote>记忆锚点：only to do = 结果却（意外/失望）；reverse oneself (on sth) = 收回立场、承认错误；预言落空 → 杂志收回预言。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

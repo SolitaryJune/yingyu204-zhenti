@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 9 空 · For these __（名词 + 固定搭配）：A claims / B judgments / C reasons / D methods</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 9 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 9 在「For these __（名词 + 固定搭配）」位；考点：固定搭配（for...reasons）+ 上下文逻辑",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For these <b>__9__</b>, I stopped weighing myself every day and switched to a bimonthly weighing schedule instead.</div><p>空 9 在 For these __ 状语里，修饰整个主句：“我”停止每日称重、改为每月称两次。these 是复数回指——上文的某些东西，正是“改变做法”的理由。</p>"
+ },
+ {
+  "title": "立机制 · 改变做法需要理由：these 回指上文",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：改变做法需要理由：these 回指上文",
+  "body": "<p>上文第二、三段刚列举了过度称重的两条弊端：误导健身方向（盯数字、乱改计划）、无法准确反映锻炼成果（体重变化滞后）。“做法有弊 → 弃之改之”，因果闭合。For these reasons（出于这些原因）既是固定搭配，又正好接住复数 these。</p>"
+ },
+ {
+  "title": "找证据 · these 回指上文两条弊端",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：these 回指上文两条弊端",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That was bad to my overall fitness goals... did not provide an accurate depiction of the hard work and progress...</div><p>第二、三段各摆了一条弊端（bad to my overall fitness goals；did not provide an accurate depiction...）：两条理由明明白白摆在“改变”之前。</p>"
+ },
+ {
+  "title": "逐项分析 · A claims（声称，主张）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A claims（声称，主张）✗ 排除",
+  "body": "<p><b>排除。</b>claims 是“某人主张的具体内容”，上文是客观弊端陈述，不是谁的主张；for these claims 表意不明。</p>"
+ },
+ {
+  "title": "逐项分析 · B judgments（判断（力））",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B judgments（判断（力））✗ 排除",
+  "body": "<p><b>排除。</b>judgments 是主观评价，同样不能充当“改变做法”的依据；语义与搭配双输。</p>"
+ },
+ {
+  "title": "逐项分析 · C reasons（原因，理由）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C reasons（原因，理由）✓ 当选",
+  "body": "<p><b>当选。</b>For these reasons = 出于这些原因：回指上文两条弊端，因果链完整，for...reasons 也是常见搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · D methods（方法）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D methods（方法）✗ 排除",
+  "body": "<p><b>排除。</b>“出于这些方法（所以改变做法）”不通——方法是“怎么做”，不是“为什么做”。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 9 填 reasons（原因，理由）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For these <b>reasons</b>, I stopped weighing myself every day and switched to a bimonthly weighing schedule instead.</div><p>出于这些原因，我不再每日称重，而是改为每月称两次。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "log": "答案 C（reasons 原因，理由）——见结论卡",
+  "body": "<p>答案选 <b>C（reasons 原因，理由）</b>。</p><p><b>记忆锚点</b>：these 复数回指上文列举；上文列弊端 + 下句改行为 → For these reasons（for...reasons 固定搭配）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（methods）</b>：见“改为 bimonthly schedule”就想到“方法”；For these... 解释的是“为什么改”，不是“怎么改”。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 9 空 · For these __（名词 + 固定搭配）：A claims / B judgments / C reasons / D methods",
+  subtitle: "考点：固定搭配（for...reasons）+ 上下文逻辑 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（reasons 原因，理由）", "html": "<b>C（reasons 原因，理由）</b>。<br>记忆锚点：these 复数回指上文列举；上文列弊端 + 下句改行为 → For these reasons（for...reasons 固定搭配）。<br>最易误选：<b>D（methods）</b>——见“改为 bimonthly schedule”就想到“方法”；For these... 解释的是“为什么改”，不是“怎么改”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 9 空 · For these __（名词 + 固定搭配）</h2>
+<p>答案：<strong>C（reasons 原因，理由）</strong>。</p>
+<h3>第 0 步：先立机制——改变做法需要理由：these 回指上文</h3>
+<p>上文第二、三段刚列举了过度称重的两条弊端：误导健身方向（盯数字、乱改计划）、无法准确反映锻炼成果（体重变化滞后）。“做法有弊 → 弃之改之”，因果闭合。For these reasons（出于这些原因）既是固定搭配，又正好接住复数 these。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For these <strong>__9__</strong>, I stopped weighing myself every day and switched to a bimonthly weighing schedule instead.</blockquote>
+<p>空 9 在 For these __ 状语里，修饰整个主句：“我”停止每日称重、改为每月称两次。these 是复数回指——上文的某些东西，正是“改变做法”的理由。</p>
+<h3>第 2 步：找证据——these 回指上文两条弊端</h3>
+<blockquote>That was bad to my overall fitness goals... did not provide an accurate depiction of the hard work and progress...</blockquote>
+<p>第二、三段各摆了一条弊端（bad to my overall fitness goals；did not provide an accurate depiction...）：两条理由明明白白摆在“改变”之前。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A claims</td><td>声称，主张</td><td>✗ 排除</td><td>claims 是“某人主张的具体内容”，上文是客观弊端陈述，不是谁的主张；for these claims 表意不明。</td></tr><tr><td>B judgments</td><td>判断（力）</td><td>✗ 排除</td><td>judgments 是主观评价，同样不能充当“改变做法”的依据；语义与搭配双输。</td></tr><tr><td>C reasons</td><td>原因，理由</td><td>✓ 当选</td><td>For these reasons = 出于这些原因：回指上文两条弊端，因果链完整，for...reasons 也是常见搭配。</td></tr><tr><td>D methods</td><td>方法</td><td>✗ 排除</td><td>“出于这些方法（所以改变做法）”不通——方法是“怎么做”，不是“为什么做”。</td></tr></tbody></table>
+<p>代入后的完整句义：For these reasons, I stopped weighing myself every day and switched to a bimonthly weighing schedule instead.（出于这些原因，我不再每日称重，而是改为每月称两次。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（methods）</strong>：见“改为 bimonthly schedule”就想到“方法”；For these... 解释的是“为什么改”，不是“怎么改”。</li></ul>
+<blockquote>记忆锚点：these 复数回指上文列举；上文列弊端 + 下句改行为 → For these reasons（for...reasons 固定搭配）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T1 · 34 · “Each meeting was packed”句意推断 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {title:"审题眼 · 句意题的答案不在字面上", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：By saying “<b>Each meeting was packed</b>”, the author means that ____。四个选项：<b>A</b> 最高法院很有权威 / <b>B</b> BIO 是个强大组织 / <b>C</b> 基因专利是重大问题 / <b>D</b> 律师热衷参会。</p><p>句意题（the author means）的机制：考点句高度概括，作者意图藏在句子的<b>服务对象</b>里——先问“这句话在为哪个话题服务”，别急着选字面最顺的。</p>",
+  log:"审题：句意题——意图优先于字面"},
+ {title:"定位原文 · 会议内容 + 会议状态", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("The BIO recently held a convention which included sessions to coach lawyers on the shifting landscape for patents. Each meeting was packed.")+"<p>两个信息：①内容——就“<b>不断变化的专利形势</b>”培训律师；②状态——每场会议<b>座无虚席</b>。推断句意的原料就是这两条。</p>",
+  log:"定位第六段末两句：培训内容=专利形势，状态=场场爆满"},
+ {title:"建立因果 · 爆满的原因在“内容”", cls:"key", tag:"推理", count:0, ribbon:null,
+  body:"<p>律师为什么抢着来？不是 BIO 有面子，而是“<b>基因专利形势正在变化</b>”牵动每个从业者的饭碗。全文话题就是基因专利——会议爆满 = 基因专利备受各方关注。</p><p>句子含义必须<b>跳出句子本身</b>、结合全文话题推导。</p>",
+  log:"推理：专利形势培训场场爆满 → 基因专利是重大问题"},
+ {title:"逐项分析 · A the supreme court was authoritative", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:"<p><b>排除。</b>最高法院将听审 Mayo 案确有其事（末段①句），但“法院权威”与“律师来参会”之间没有因果链。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把段落里的其他事实当成本句的言外之意。</p>",
+  log:"A the supreme court was authoritative ✗ 排除——与本句无因果"},
+ {title:"逐项分析 · B the BIO was a powerful organisation", cls:"bad", tag:"排除 B", count:2, ribbon:{k:"B", ok:false},
+  body:"<p><b>排除（最易误选）。</b>只看“座无虚席”推导“组织强大”，是对本句的<b>表面因果</b>：爆满的原因是培训内容受关注，不是 BIO 本身有号召力。</p><p style=\"color:#b91c1c\">⚠ 典型误解：不做全文主旨推理，把“人多”归给“主办方强”。</p>",
+  log:"B the BIO was a powerful organisation ✗ 排除——归因给组织而非话题"},
+ {title:"逐项分析 · C gene patenting was a great concern", cls:"good", tag:"选定 C", count:2, ribbon:{k:"C", ok:true},
+  body:"<p><b>当选。</b>会议内容是“基因专利形势培训”，场场爆满 = 产业界与律师群体都高度关注基因专利——与全文话题（基因专利）呼应，是对“爆满”的合理意图解读。</p>",
+  log:"C gene patenting was a great concern ✓ 话题呼应，当选"},
+ {title:"逐项分析 · D lawyers were keen to attend conventions", cls:"bad", tag:"排除 D", count:3, ribbon:{k:"D", ok:false},
+  body:"<p><b>排除。</b>“律师爱开会”只是字面复述（爆满 → 律师积极），停留在句子表层，没有回答“作者为什么写这句话”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：句意题选了“字面复述层”——句意题与细节题的根本区别就在这里。</p>",
+  log:"D lawyers were keen to attend conventions ✗ 排除——字面复述层"},
+ {title:"结论 · 意图层级与记忆锚点", cls:"good", tag:"答案 C", count:3, ribbon:null,
+  body:"<p>意图层级：字面（律师积极，D）→ 表面归因（BIO 强大，B）→ <b>话题归因（基因专利受关注，C）</b>。</p><p>答案选 <b>C（gene patenting was a great concern）</b>。</p><p><b>记忆锚点</b>：句意题问“作者为什么写它”；爆满 ≠ 组织强，爆满 = 话题热；培训的内容是“专利形势”，所以热的是基因专利。</p>",
+  log:"结论：会议爆满凸显基因专利受关注，答案 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text1 · 34 · “Each meeting was packed”到底在强调什么",
+  subtitle: "考点：句意推断 · 定位 → 内容/状态拆解 → 话题归因 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 因果归因 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（gene patenting was a great concern）",
+    html: "<b>会议爆满凸显的是话题热，不是主办方强。</b><br>意图层级：字面复述（D）＜表面归因（B）＜话题归因（C）。<br>记忆锚点：句意题问“作者为什么写它”；培训内容是“专利形势”→ 爆满热的是基因专利。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句意推断题——“Each meeting was packed”到底在强调什么</h2>
+<p>答案：<strong>C（gene patenting was a great concern 基因专利是个重大问题）</strong>。</p>
+<h3>第 0 步：先立机制——句意题的答案不在句子字面上</h3>
+<p>句子含义题（By saying ..., the author means that ...）的命题规律：考点句往往是<strong>内容高度概括</strong>的句子，作者的真实意图藏在句子的<strong>服务对象</strong>里。所以第一步不是翻译这句话，而是问：这句话在为哪个话题服务？会议为什么爆满——答案要从“会议内容”里来，不能从“爆满”表面来。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The BIO recently held a convention which included sessions to coach lawyers on the shifting landscape for patents. Each meeting was packed.</blockquote>
+<p>两个信息：会议内容 = 就“不断变化的专利形势”（the shifting landscape for patents）培训律师；会议状态 = 每一场都座无虚席。</p>
+<h3>第 2 步：建立因果——爆满的原因在“内容”，不在“组织”</h3>
+<p>律师为什么抢着来？不是 BIO 有号召力，而是“基因专利形势正在变化”这件事牵动每个从业者的饭碗。结合全文话题（基因专利）推理：会议爆满 → 基因专利是各方高度关注的重大问题。这正是 C。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A the supreme court was authoritative</td><td>✗ 排除</td><td>最高法院将听审 Mayo 案确有其事（末段①句），但“法院权威”与“律师参会”之间没有因果链。（典型误解：把段落里的其他事实当成本句意图。）</td></tr><tr><td>B the BIO was a powerful organisation</td><td>✗ 排除</td><td>最易误选：只看“座无虚席”推导“组织强大”。爆满的原因是培训内容受关注，不是 BIO 本身有面子。（典型误解：不做全文主旨推理，只对本句做表面因果。）</td></tr><tr><td>C gene patenting was a great concern</td><td>✓ 当选</td><td>会议内容（专利形势培训）场场爆满 = 基因专利备受关注，与全文话题呼应</td></tr><tr><td>D lawyers were keen to attend conventions</td><td>✗ 排除</td><td>字面复述：会议爆满→律师爱开会，停留在句子表层，没有回答作者为什么写它。（典型误解：句意题选“字面复述层”——这是句意题与细节题的根本区别。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D 说的不就是事实吗？</strong>：事实对，但它只是这句话的字面信息。句意题问的是“作者的意图”，字面复述层永远不是答案。</li><li><strong>B 与 C 差在哪？</strong>：B 把“爆满”归因于组织者，C 归因于话题。判断依据是会议内容（coach lawyers on the shifting landscape for patents）与全文主旨（基因专利）的呼应。</li></ul>
+<blockquote>记忆锚点：句意题问“作者为什么写它”；爆满 ≠ 组织强，爆满 = 话题热；培训的内容是“专利形势”，所以热的是基因专利。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

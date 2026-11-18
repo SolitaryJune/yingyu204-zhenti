@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-44 · 2015 新题型第 44 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 先抓祈使句，再数支撑",
+  "cls": "key",
+  "tag": "方法",
+  "log": "首句建议 you are not alone 与标题原词复现",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本段首句就是一个完整的建议句：you should always remember that <b>you are not alone</b>。小标题题里，标题与首句建议构成原词复现，等于答案直接写在段首。剩下的动作是验证：后文是否都在支撑这一句。</p>"
+ },
+ {
+  "title": "定位段落 ·【44】三层支撑",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位【44】段：everyone wants to help / circle of friends / online communities",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">No matter how isolated you might feel and how serious the situation is, you should always remember that you are not alone. … almost everyone respects and wants to help you … You may have a circle of friends … try to participate in several online communities, full of people who are always willing to share advice and encouragement.</div><p>首句立论（你并不孤独）之后给三层支撑：①几乎人人尊重你、愿意帮你，尤其至亲至近的人；②朋友圈提供欢笑、帮助与陪伴；③连没有亲友的人也能在社区找到愿意分享建议的人。三层支撑全部指向同一判断：<b>愿意帮你的人一直都在</b>。</p>"
+ },
+ {
+  "title": "提炼段旨 · 支撑全部指向「你不孤独」",
+  "cls": "key",
+  "tag": "提炼",
+  "log": "三层支撑同一判断：你并不是一个人在战斗",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>①②③层支撑（人人愿帮 / 亲友陪伴 / 网络社区）没有跑题——都在论证首句的 <b>you are not alone</b>。支撑得住，标题就是它。</p>"
+ },
+ {
+  "title": "逐项分析 · G There are many things to be grateful for（有很多值得感恩的）",
+  "cls": "bad",
+  "tag": "排除 G",
+  "log": "G 值得感恩 ✗ ——把「人愿意帮你」偷换成「事物值得感恩」",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>willing to <b>share advice and encouragement</b> 说的是「<b>人</b>愿意帮你」，G 把它偷换成「<b>事物</b>值得感恩」——对象从人换成了物。</p>",
+  "body": {
+   "k": "G",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B Experience helps you grow（经历助你成长）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 经历助成长 ✗ ——make a good change 只是获得帮助的前提",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>make a <b>good change</b> in your life 容易联想到「改变、成长」，但「做出改变」只是获得帮助的前提条件，不是段落主旨。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · A You are not alone（你并不孤独）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 你并不孤独 ✓ ——首句建议原词复现",
+  "count": 2,
+  "ribbon": "<p><b>当选。</b>[A] You are not alone 与首句主句 <b>you are not alone</b> 原词复现，且三层支撑全部指向它。</p>",
+  "body": {
+   "k": "A",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 让步与主句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（You are not alone）——标题取主句判断",
+  "count": 2,
+  "ribbon": null,
+  "body": "<p>答案选 <b>A（You are not alone）</b>。</p><p><b>记忆锚点</b>：you are not alone 原词复现 = 标题；三层支撑（人人愿帮 / 亲友 / 网络社区）。</p><p style=\"color:#b91c1c\">易混提醒：首句 No matter how <b>isolated</b> you might feel 是让步状语，标题取主句判断——与【41】段「转折后取重心」同一原理。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 新题型【44】· 原词复现级别的标题",
+  subtitle: "考点：小标题匹配 · 首句建议 + 支撑验证 · 让步不进标题",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（You are not alone）",
+ "html": "<b>A You are not alone（你并不孤独）</b>。<br>首句建议原词复现 + 三层支撑（人人愿帮 / 亲友 / 网络社区）全部指向同一判断。<br>易混提醒：isolated 是让步成分，标题取主句。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：小标题题【44】——原词复现级别的标题</h2>
+<p>答案：<strong>A（You are not alone）</strong>。</p>
+<h3>第 0 步：先立方法——先抓祈使句，再数支撑句</h3>
+<p>本段首句就是一个完整的建议句：you should always remember that <strong>you are not alone</strong>。小标题题里，标题与首句建议构成原词复现，等于答案直接写在段首。剩下的动作是验证：后文是否都在支撑这一句——支撑得住，标题就是它。</p>
+<h3>第 1 步：定位段落，数一数三层支撑</h3>
+<blockquote>No matter how isolated you might feel and how serious the situation is, you should always remember that you are not alone. ... almost everyone respects and wants to help you ... especially your dearest and nearest people. You may have a circle of friends ... If you have no friends or relatives, try to participate in several online communities, full of people who are always willing to share advice and encouragement.</blockquote>
+<p>首句立论（你并不孤独）之后给了三层支撑：①几乎人人尊重你、愿意帮你，尤其是至亲至近的人；②朋友圈提供欢笑、帮助与陪伴；③连没有亲友的人也能在社区里找到愿意分享建议与鼓励的人。三层支撑全部指向同一判断：愿意帮你的人一直都在——[A] You are not alone 原词当选。</p>
+<h3>第 2 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>G There are many things to be grateful for</td><td>✗</td><td>偷换名词：willing to share advice and encouragement 说的是"人愿意帮你"，G 把它偷换成"事物值得感恩"——对象从人换成了物</td></tr><tr><td>B Experience helps you grow</td><td>✗</td><td>错位嫁接：make a good change in your life 容易联想到"改变、成长"，但"做出改变"只是获得帮助的前提条件，不是段落主旨</td></tr></tbody></table>
+<h3>预判追问：首句的 isolated（孤立无援）会不会把标题引向"孤独"？</h3>
+<p>不会。No matter how isolated you might feel 是让步状语——先承认"你可能觉得孤立无援"，随即翻转到主句"你并不孤独"。让步成分是铺垫，标题取的是主句判断；这与【41】段"转折后取重心"、40 题"转折后取半边"是同一个原理在不同位置的用法。</p>
+<blockquote>记忆锚点：you are not alone 原词复现 = 标题 A；三层支撑（人人愿帮 / 亲友陪伴 / 网络社区）；share advice ≠ be grateful for things。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

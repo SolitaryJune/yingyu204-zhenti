@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-45</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>左列人名 <b>Erica Gwyn</b>（Kaleidoscope Careers Academy 执行总监）。B、D 两项都含\"打动大学\"的味道（impress），先标记 B、D 为备选；B 项关键词 their community、a scholarship。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第十三段）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · High school students who have had a <b>strong positive influence on their community</b> through an extracurricular activity may <b>impress a college and win a scholarship</b>, says Erica Gwyn.</p><p>Gwyn 的观点：用课外活动实实在在造福社区的学生，可能打动大学并拿到奖学金。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ B",
+    "body": "<p>B 项 <code>Students whose extracurricular activity has benefited their community are likely to win a scholarship</code>：benefited their community = strong positive influence on their community；are likely to = may（语气精准对应）；win a scholarship 原词复现。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 D：撞词不撞义",
+    "body": "<p>D 项\"表现出创业能力的学生能给大学留下印象\"——impress colleges 确与段中 impress a college 撞词，但\"经商/创业\"是第八段 <b>Olivia Valdes</b> 的例子（starting a profitable small business）。Gwyn 的话题是\"造福社区\"，不是\"会做生意\"。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论（全盘核对）",
+    "body": "<p>答案 <b>B（Students whose extracurricular activity has benefited their community are likely to win a scholarship）</b>。全篇核对：已用 C / E / A / G / B，未用干扰项 D 归 Olivia（经商）、F 归 Joseph（非常规 + 投入）——一人一选项，无复用。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 新题型 · 第 45 题：Erica Gwyn 的观点",
+  "subtitle": "考点：多项匹配 · 备选项辨析（B/D），撞词不撞义",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 B",
+    "html": "记忆锚点：Gwyn ⇒ <b>strong positive influence on their community ⇒ benefited their community</b>；may ⇒ are likely to；win a scholarship 原词复现。D 的 impress colleges <b>撞词不撞义</b>（经商是 Valdes 的）；本篇未用干扰项：D、F。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 新题型第 45 题 · Erica Gwyn 的观点</h2>
+<p>答案：<strong>B（Students whose extracurricular activity has benefited their community are likely to win a scholarship 所参加的课外活动造福了社区的学生很可能获得奖学金）</strong>。</p>
+<h3>第 0 步：先立机制——撞词不撞义，收尾先"全盘对账"</h3>
+<p>备选组合 <strong>B / D</strong>：两项都含"打动大学"（impress）。到了最后一题，还应做一次全篇对账：本篇已配出 C（Rexford）、E（Harberson）、A（Kelley）、G（Levine），B 与 D 必有一个多余——这正是检验"一人一选项"原则的地方。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>High school students who have had a <strong>strong positive influence on their community</strong> through an extracurricular activity <strong>may impress a college and win a scholarship</strong>, says Erica Gwyn.</blockquote>
+<p>Gwyn 的观点：用课外活动实实在在造福社区的学生，可能打动大学并拿到奖学金。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>has benefited their community = have had a strong positive influence on their community（简化改写）；are likely to = <strong>may</strong>（语气精准对应——"可能"不夸大成"必然"）；win a scholarship 原词复现。B 当选。</p>
+<h3>第 3 步：排除 D（撞词不撞义）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>D A student who exhibits abilities in doing business can impress colleges</td><td>✗</td><td>impress colleges 与段中 impress a college <strong>撞词</strong>，但"经商/创业能力"是第八段 Olivia Valdes 的例子（starting a profitable small business），Gwyn 的话题是"造福社区"。（典型误解：只看 impress 就配对——impress 是全篇高频表达，Harberson、Gwyn 段都出现过。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>unused 干扰项 D、F 的最终归属？</strong>：D = 第八段 Olivia（创业例子 impress colleges）；F = 第九段 Joseph（unconventional activities + serious commitment）。二者在原文都有出处，只是不属于本题左列任何一人。</li><li><strong>are likely to 为什么重要？</strong>：原文 may 是"有可能"；B 用 are likely to 精确保留这层不确定，而过于绝对的选项（如 will）就露馅——语气词是匹配题的隐形考点。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：impress 撞词 + "能力"字面诱惑，实际命题主体是 Valdes。</li><li><strong>忘记全盘对账</strong>：五题配完后应核对未用项是否都有归属——若某干扰项找不到主人，说明某题大概率配错了。</li></ul>
+<blockquote>记忆锚点：Gwyn ⇒ strong positive influence on their community ⇒ benefited their community；may ⇒ are likely to；win a scholarship 原词复现；D 的 impress colleges 撞词不撞义（经商属 Valdes）；本篇未用项：D、F。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

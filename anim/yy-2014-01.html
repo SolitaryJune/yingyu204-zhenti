@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-01 · 2014 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 1 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 1 空所在句，考点：上下文语义 + 动词与 that 从句的搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A number of studies have <b>__1__</b> that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</div><p>空格是谓语动词：主语是 <b>A number of studies</b>（多项研究），宾语是 <b>that</b> 引导的宾语从句（内容：与超重者相比，体重正常的人患某些疾病的风险其实更高）。“研究”对一整套 that 从句能做的动作有限——可以先问：下文究竟是顺着从句内容展开，还是反对它？</p>"
+ },
+ {
+  "title": "找证据 · 首句立场与下文例证都在从句这一侧",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：首句 Thinner isn’t always better 定调，下文一路例证“超重有益”——从句内容是文章要立的论点",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Thinner isn’t always better.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And there are health conditions for which being overweight is actually <b>__2__</b>.</div><p>首句 <b>Thinner isn’t always better</b>（更瘦不总是更好）给全文定调；第 2 空所在句 And there are health conditions for which being overweight is actually protective 还在继续说超重的好处。所以从句“正常体重者风险更高”正是支撑首句的论点——研究对它只能是“得出”，不能是否认或怀疑。</p>"
+ },
+ {
+  "title": "逐项分析 · A denied（否认）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A denied（否认） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>deny + that 从句 = 断言从句内容为假。若研究“否认”正常体重者风险更高，等于说“瘦更好”，与首句立场正面相撞，方向完全反了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只检查“动词能接 that 从句”的语法，不核对从句内容与全文立场是否同向。</p>"
+ },
+ {
+  "title": "逐项分析 · C doubted（怀疑）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C doubted（怀疑） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>doubt 表示对从句内容的真实性存疑——但首段下文全是支持性例证（不易缺钙、老年人微胖更健康），文章在立论，不在质疑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 doubt 与 deny 混为一谈，忘了看下文的展开方向。</p>"
+ },
+ {
+  "title": "逐项分析 · D ensured（确保）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D ensured（确保） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>ensure 指“确保某事发生/属实”，主语通常是人或措施；“研究”只能对结论“得出”判断，不能“担保”从句内容成立——研究是发现者，不是担保人。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把中文“研究表明”里的“表明”错配成“确保”。</p>"
+ },
+ {
+  "title": "逐项分析 · B concluded（得出结论；推断）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B concluded（得出结论；推断） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>conclude that... 是“研究得出结论”的标准搭配；从句内容（正常体重者某些疾病风险反而更高）与全文“瘦未必好”的立场完全同向，并被下文例证一路支持。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（concluded 得出结论）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>多项研究已得出结论：与超重者相比，体重正常的人其实患某些疾病的风险更高。</b></p><p>答案选 <b>B（concluded 得出结论；推断）</b>。</p><p><b>记忆锚点</b>：studies + that 结论 → conclude；deny=断言假，doubt=存疑，ensure=担保；首句 Thinner isn’t always better 定全文立场。</p><p style=\"color:#b91c1c\">最易误选：<b>C（doubted）</b>——忽略下文全是支持性例证，把立论文章读成了质疑文章。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 1 空 · 研究对“正常体重者风险更高”做了什么",
+  subtitle: "考点：上下文语义 + 动词与宾语从句搭配 · 定位 → 立场 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立场核对 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（concluded）",
+ "html": "<b>B concluded（得出结论；推断）</b>。<br>记忆锚点：studies + that 结论 → conclude；deny=断言假，doubt=存疑，ensure=担保；首句 Thinner isn’t always better 定全文立场。<br>最易误选：<b>C（doubted）</b>——忽略下文全是支持性例证，把立论文章读成了质疑文章。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 1 空 · “研究 ______ that 从句”——研究对结论只能做什么</h2>
+<p>答案：<strong>B（concluded 得出结论；推断）</strong>。</p>
+<h3>第 0 步：先立机制——动词题先看主语和宾语，再让立场裁决</h3>
+<p>空格是谓语动词：主语是 A number of studies（多项研究），宾语是 that 引导的宾语从句（内容：与超重者相比，体重正常的人患某些疾病的风险其实更高）。“研究”对一整套 that 从句能做的动作有限：可以得出、否认、怀疑一个结论，但不能“确保”它。这一步先把 D 划出候选圈。</p>
+<p>剩下三个词的取舍不由语法决定，而由<strong>立场</strong>决定：从句内容与全文走向一致还是相悖？</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>A number of studies have __1__ that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</blockquote>
+<p>空格谓语的宾语是一个完整的判断句：“体重正常者患病风险反而更高”。这句话是全文的论点还是被反驳的对象，决定了动词的正负方向。</p>
+<h3>第 2 步：找证据——首句立场与下文例证都在从句这一侧</h3>
+<blockquote>Thinner isn’t always better.</blockquote>
+<blockquote>And there are health conditions for which being overweight is actually __2__.</blockquote>
+<p>首句 Thinner isn’t always better（更瘦不总是更好）给全文定调；紧随其后的第 2 空所在句仍在说超重的好处，再往后 For example、Likewise 两条例证（不易缺钙、老年人微胖更健康）继续加码。可见从句“正常体重者风险更高”正是文章要立的论点——研究对它的动作只能是“得出”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A denied</td><td>否认</td><td>✗ 排除</td><td>deny + that 从句 = 断言从句内容为假：若研究“否认”正常体重者风险更高，等于说“瘦更好”，与首句立场正面相撞。（典型误解：只检查“动词 + that 从句”的语法可行性，不核对从句内容与全文立场是否同向。）</td></tr><tr><td>B concluded</td><td>得出结论；推断</td><td>✓ 当选</td><td>conclude that... 是“研究得出结论”的标准搭配；从句内容与全文“瘦未必好”的立场完全同向，并被下文例证一路支持。</td></tr><tr><td>C doubted</td><td>怀疑</td><td>✗ 排除</td><td>doubt 表示对从句内容的真实性存疑——但首段下文全是支持性例证（不易缺钙、老年人微胖更健康），文章在立论，不在质疑。（典型误解：把 doubt 与 deny 混为一谈，忘了先看下文的展开方向。）</td></tr><tr><td>D ensured</td><td>确保</td><td>✗ 排除</td><td>ensure 指“确保某事发生/属实”，主语通常是人或措施；“研究”只能对结论“得出”判断，不能“担保”从句内容成立——研究是发现者，不是担保人。（典型误解：把中文“研究表明”里的“表明”错配成“确保”。）</td></tr></tbody></table>
+<p>代入后的完整句义：多项研究已得出结论：与超重者相比，体重正常的人其实患某些疾病的风险更高。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 B、C 都能接 that 从句，还要再挑？</strong>：conclude that 呈现的是“研究的结果”，doubt that 呈现的是“对结果的存疑”；判断依据不在语法而在下文走向：首段后面一路在给“超重有益”补充证据，说明这个结论已被研究确立，不处于“被怀疑”状态。</li><li><strong>denied 与 doubted 中文都带“否”意，怎么分？</strong>：deny 是断言其为假，doubt 是不能断定真假。本题两个都不成立，但错误路径不同：选 A 是把立场读反，选 C 是把文章性质读错（把立论读成质疑）。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（doubted）</strong>：忽略下文全是支持性例证，把立论文章读成了质疑文章。</li><li><strong>误选 A（denied）</strong>：只机械检查“动词 + that 从句”的语法，没把从句内容放到全文立场里核对。</li><li><strong>误选 D（ensured）</strong>：把“研究表明”里的“表明”脑补成“确保”，混淆了“发现结论”与“担保属实”。</li></ul>
+<blockquote>记忆锚点：studies + that 结论 → conclude；deny=断言假，doubt=存疑，ensure=担保；首句 Thinner isn’t always better 定全文立场。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

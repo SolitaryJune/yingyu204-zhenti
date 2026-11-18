@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-38 动画：观点细节题——配额能帮女性得到什么</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：观点题 + 抽象修辞要翻译",
+  body:"<p>题干：<b>According to Reding, quotas may help women ____.</b>（在瑞丁看来，配额可以帮助女性____。）</p><p>定位第四段。难点不在定位而在<b>修辞翻译</b>：原文用 open the way to equality、break through the glass ceiling 这类抽象表达，选项全是具体动作——先把修辞翻成\"人话\"再对号入座。</p>",
+  log:"观点题：第四段找 Reding 原话，翻译修辞"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：瑞丁原话 + 法国例证",
+  body:"<div class=\"qq\"><b>第四段：</b>Quotas get action: they \"<b>open the way to equality</b> and they <b>break through the glass ceiling</b>,\" according to Reding, a result seen in France and other countries with legally binding provisions on <b>placing women in top business positions</b>. <span class=\"cn\">（译：配额促成行动：它打开平等之路、打破玻璃天花板——法国等有强制条款让女性进入企业高层的国家已经看到这种效果。）</span></div><p>三步翻译：glass ceiling ＝ 晋升无形障碍 → break through ＝ 冲上去 → 落点＝进入企业高层。</p>",
+  log:"定位第四段：修辞 + placing women in top business positions"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:1, ribbon:{k:2, ok:false}, title:"排除 B：see through the glass ceiling",
+  body:"<p><b>B（看透职业晋升障碍）</b><span class=\"bad-dot\">✗</span>：字面义陷阱。see through 可取\"看穿、识破\"，仿佛配额帮女性\"识破潜规则\"；但原文动词是 <b>break through</b>（冲破）——真正翻越障碍<b>到达高层</b>，不是\"看破\"。差一个动词，意思差千里。</p>",
+  log:"排除 B：break through ≠ see through"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:2, ribbon:{k:3, ok:false}, title:"排除 C：balance work and family",
+  body:"<p><b>C（平衡工作和家庭）</b><span class=\"bad-dot\">✗</span>：出处第三段——women…climb the corporate ladder <b>as they balance work and family</b>。\"平衡工作与家庭\"是配额目标人群的<b>画像</b>（一边养家一边攀爬阶梯的女性），不是配额要改善的方面。把人物背景错当政策目的。</p>",
+  log:"排除 C：work and family 是人群画像，不是目的"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:3, ribbon:{k:4, ok:false}, title:"排除 D：anticipate legal results",
+  body:"<p><b>D（预测法律结果）</b><span class=\"bad-dot\">✗</span>：借第四段 <b>legally binding provisions</b>（有法律约束力的条款）拼贴出\"预测法律结果\"。原文用法是以法国等国立法后的成效<b>佐证</b>瑞丁观点，推不出\"帮女性预测结果\"。</p>",
+  log:"排除 D：legally 是例证用词，不是\"预测\""},
+ {cls:"good", ecs:"ok", tag:"锁定 A", count:4, ribbon:{k:1, ok:true}, title:"锁定 A：get top business positions",
+  body:"<p><b>A（获得企业高层职位）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p>quotas may help women ____ ↔ <b>placing women in top business positions</b>（让女性进入企业高层）；break through the glass ceiling ＝ 冲破晋升障碍升到高层。原文后半句已把修辞的\"人话\"写明 → A。</p>",
+  log:"锁定 A：break through the glass ceiling = get top positions"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 A",
+  body:"<p><b>答案 A</b>——get top business positions（获得企业高层职位）。</p><p>记忆锚点：glass ceiling ＝ 晋升无形障碍；see through ≠ break through（B 字面陷阱）；第三段 work and family 是画像不是目的。</p>",
+  log:"结论：配额可帮女性获得企业高层职位，答案选 A"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-38 · 观点细节题：配额能帮女性得到什么",
+  subtitle: "考点：Text2 第四段抽象修辞 · 方法：定位原话 → 翻译修辞 → 对号入座",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 A",
+    html: "<b>get top business positions</b>（获得企业高层职位）＝ <b>break through the glass ceiling</b> + placing women in top business positions。记忆锚点：see through ≠ break through（B 字面陷阱）；第三段 work and family 是人群画像不是政策目的（C）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：观点细节题——配额能帮女性得到什么</h2>
+<p>答案：<strong>A</strong>（get top business positions，获得企业高层职位）。</p>
+<h3>第 0 步：先立机制——抽象修辞要"翻译成人话"</h3>
+<p>题干 <strong>According to Reding, quotas may help women ____</strong>：人物观点题，定位第四段。本题难点不在定位，而在原文用了一串<strong>抽象修辞</strong>——open the way to equality（打开平等之路）、break through the glass ceiling（打破玻璃天花板）。选项全是具体动作，所以必须把修辞<strong>翻译回具体行为</strong>再对号入座。</p>
+<h3>第 1 步：定位瑞丁的原话并"翻译"</h3>
+<p>第四段瑞丁观点：</p>
+<blockquote>Quotas get action: they "<strong>open the way to equality</strong> and they <strong>break through the glass ceiling</strong>," according to Reding, a result seen in France and other countries with legally binding provisions on <strong>placing women in top business positions</strong>.</blockquote>
+<p>三步翻译：</p>
+<ul><li><strong>glass ceiling</strong>（玻璃天花板）＝ 女性晋升途中的无形障碍 → break through it ＝ 冲破晋升障碍、<strong>升到高层</strong>；</li><li>后半句 "placing women in <strong>top business positions</strong>" 已经把翻译结果写明——法、瑞丁观点落到"女性进入企业高层"；</li><li>替换链：help women get ____ ↔ open the way to equality / break through the glass ceiling / placing women in top business positions。</li></ul>
+<p>→ 选 <strong>A</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B see through the glass ceiling</td><td>✗</td><td>字面义陷阱</td></tr><tr><td>C balance work and family</td><td>✗</td><td>背景信息冒充</td></tr><tr><td>D anticipate legal results</td><td>✗</td><td>原词拼贴</td></tr></tbody></table>
+<ul><li><strong>误选 B——把"玻璃天花板"读成字面</strong>：see through 有两个义项："看穿（识破）"与"透过…看见"。B 取"看透/识破玻璃天花板"，仿佛配额帮女性"识破职场潜规则"。但 break through（<strong>冲破</strong>）说的是真正翻越障碍到达高层，不是"看破"。差一个动词，意思差千里。</li><li><strong>误选 C——把"背景"当"目的"</strong>：balance work and family 源自第三段 women…climb the corporate ladder <strong>as they balance work and family</strong>——那是配额目标人群的<strong>画像</strong>（一边养家一边攀爬阶梯的女性），不是配额要改善的对象。把人物背景错当政策目的。</li><li><strong>误选 D——拿"法律"拼"预测"</strong>：legally binding provisions（有法律约束力的条款）在第四段出现过，D 借它拼出"预测法律结果"。原文用法是"以法国等国立法后的成效<strong>佐证</strong>瑞丁观点"，推不出"帮女性预测结果"。</li></ul>
+<blockquote>记忆锚点：glass ceiling ＝ 晋升无形障碍，break through it ＝ 升进高层 → A（top business positions）；see through ≠ break through（B 字面陷阱）；第三段的 work and family 是人群画像不是政策目的。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·23 阅读 · NOT true 的三真一假</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：否定设问', cls: 'key',
+    body: '<p>题干 <b>Which is NOT true?</b>——机制反转：要找<b>与原文矛盾</b>的一项，其余三项要逐个"证真"。题干无定位信息 → 逐项回原文。</p>',
+    log: 'NOT true = 三真一假' },
+  { title: 'A 证真：销售额骤降', cls: 'step',
+    body: src('“At its peak in 2007 it was worth some $65 billion... <b>Sales of contemporary art fell by two-thirds</b>, and in the most overheated sector, they were <b>down by nearly 90%</b> in the year to November 2008.”') +
+      '<p>2007 → 2008 当代艺术销售额骤降三分之二、热门领域近 90%——A"大幅下滑"为真。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A 有 ②③ 句支撑 → 真' },
+  { title: 'C 证真：各方面普遍下行', cls: 'step',
+    body: src('“...prices are about <b>40% down on their peak</b> on average... the world’s two biggest auction houses... had to pay out nearly $200m in guarantees...”') +
+      '<p>消费低迷、销售额大跌、价格平均跌 40%、拍卖行赔保证金——C"整体走低"为真。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 有 ③④ 段多处支撑 → 真' },
+  { title: 'D 证真：离场观望', cls: 'step',
+    body: src('“But anyone who does not have to sell is <b>keeping away, waiting for confidence to return</b>.”') +
+      '<p>不必出手的人离场、等待信心回归 → "部分经营者等待更好时机"，D 为真。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D = 第五段末句改写 → 真' },
+  { title: 'B 回原文：两头对不上', cls: 'key',
+    body: src('“The world art market had already been <b>losing momentum</b> for a while... it brings together great wealth... in a way <b>matched by few other industries</b>.”') +
+      '<p>① 句：市场<b>早已失去势头</b>；④ 句：比较的是"聚拢财富、贪婪与争议的<b>方式</b>"，不是势头。</p>',
+    log: 'B 踩中两个坑' },
+  { title: 'B：矛盾 + 维度偷换', cls: 'bad',
+    body: '<p>"在<b>发展势头</b>上超过许多行业"——与 ① 句"早已失去势头"<b>直接矛盾</b>；又把 ④ 句的比较维度（方式）偷换成 momentum。<b>B 与原文不符，正是答案</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 双重错误 → 答案' },
+  { title: '易错点：别被 few other industries 带走', cls: 'step',
+    body: '<p>见到"少有行业能比"就选"超过他行"——忽略了 ① 句的明示矛盾。matched by few other industries 的主语是 <b>a way（聚拢方式）</b>。</p>',
+    log: '比较维度要看主语' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B</b>（说法不成立）。记忆锚点：<b>NOT true = 三真一假</b>；matched by few other industries 比的是"方式"，momentum 只属于 ① 句且是"失去"。</p>',
+    log: '锁定 B' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 23 · NOT true 的三真一假',
+  subtitle: 'Text 1（艺术品市场）· 考点：否定设问 + 逐项定位证真',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B',
+    html: '记忆锚点：<b>NOT true = 三真一假</b>——A/C/D 都能在原文找到依据；B 与 ① 句"早已失去势头"矛盾，又把 ④ 句"聚拢方式少有行业能比"偷换成"势头超越他行"。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：NOT true 题——把每个选项按到原文上</h2>
+<p>答案：<strong>B</strong>。</p>
+<h3>第一步：先立机制——否定设问要"证真"</h3>
+<p>NOT true 的机制反转：要找的是<strong>与原文矛盾</strong>的那一个，其余三项必须能在原文找到依据。题干没有定位信息，只能<strong>逐项定位、逐个证真</strong>，最后落空的那项即答案。</p>
+<h3>第二步：逐项证真</h3>
+<ul><li><strong>A 为真</strong>：② At its peak in 2007 it was worth some $65 billion... 加第三段 ③ Sales of contemporary art fell by two-thirds... down by nearly 90% in the year to November 2008——2007 到 2008 年当代艺术销售额骤降，"大幅下滑"成立。</li><li><strong>C 为真</strong>：第三段 ① 消费变得不合时宜、③ 销售额下降三分之二、④ 拍卖行赔付近 2 亿美元保证金，加第四段 ② 价格较峰值平均下跌约 40%——市场各方面普遍下行，"整体走低"成立。</li><li><strong>D 为真</strong>：⑤ anyone who does not have to sell is keeping away, waiting for confidence to return——不必出手的人离场观望、等待时机，即"部分经营者等待更好时机"的同义改写。</li></ul>
+<h3>第三步：B 为什么矛盾</h3>
+<blockquote>The world art market had already been losing momentum for a while... But the market generates interest far beyond its size because it brings together great wealth, enormous egos, greed, passion and controversy in a way matched by few other industries.</blockquote>
+<p>① 句说艺术市场<strong>早已失去发展势头</strong>（losing momentum）；④ 句说它"聚拢财富、自我、贪婪与争议的<strong>方式</strong>少有行业能比"——比较的是聚拢方式，不是势头。B "在发展势头上超过许多其他行业"既与 ① 句直接矛盾，又把 ④ 句的比较维度偷换成 momentum。</p>
+<h3>易错点</h3>
+<ul><li><strong>被 ④ 句的 few other industries 吸引</strong>：见到"少有行业能比"就选"超过他行"，忽略两个坑——比较维度是"方式"不是"势头"；① 句明说势头早已失去。</li><li><strong>A 掉向</strong>：把"销售额下降"记成"较 2007 年上升"。核对时间方向：2007 峰值 → 2008 年 11 月骤降，A 是"下跌"而非"上涨"。</li></ul>
+<blockquote>记忆锚点：NOT true = 三真一假；④ 句 matched by few other industries 比的是"聚拢财富与争议的方式"，momentum 只属于 ① 句且是"失去"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

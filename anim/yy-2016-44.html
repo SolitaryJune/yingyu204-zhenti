@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-44 · 2016 新题型第 44 题 · 让步-转折后才是段落建议 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 让步铺垫困境，转折才给建议", "cls": "key", "tag": "方法", "log": "「破」在前、「立」在后——标题收编「立」的那一半；只读首句必被带偏", "count": 0, "ribbon": null, "body": "<p>本段首句先摆困难（成年人有一大堆严肃事务），第二句用 <b>But as adults we also have the luxury of…</b> 转折——「但我们也有能掌控日程的便利」。这与【41】【45】段共享同一机制：<b>「破」在前、「立」在后，标题收编「立」的那一半</b>。只读首句的人，会被带去选错误方向。</p>"},
+ {"title": "定位段落 · 困境 → 转折 → 建议展开", "cls": "key", "tag": "定位", "log": "定位【44】段：严肃事务一大堆 → But 能掌控日程，给所爱之事划时间 → 乐子标准只有 enjoyable", "count": 0, "ribbon": null, "body": quote("The problem with being a grownup is that there&rsquo;s an awful lot of serious stuff to deal with… But as adults we also have the luxury of being able to control our own diaries and it&rsquo;s important that we <b>schedule in time to enjoy the things we love</b>. Those things might be social, sporting, creative or completely random (dancing around the living room, anyone?) &ndash; it doesn&rsquo;t matter, so long as they&rsquo;re <b>enjoyable</b>…") + "<p>推进链：①困境——工作、房贷、晚饭，严肃事务一大堆；②转折——成年人反而有掌控日程的便利，要<b>给所爱之事划出时间</b>；③展开——乐子可以社交、运动、创作、甚至纯属瞎闹，标准只有一条：<b>enjoyable</b>（开心）。末句补充反面条件（酗酒、疯狂购物不算），仍在圈定「玩乐」的边界。</p>"},
+ {"title": "提炼段旨 · 唯一反复出现的建议动作", "cls": "key", "tag": "提炼", "log": "提炼段旨：schedule in time to enjoy + enjoyable → 给乐子腾时间", "count": 0, "ribbon": null, "body": "<p>全段唯一反复出现的建议动作：<b>给乐子腾时间、让所爱之事进日程表</b>（schedule in time to enjoy the things we love ＋ so long as they're enjoyable）。seriously 的「严肃事务」只是衬托它出场的背景板。</p>"},
+ {"title": "逐项分析 · B Have fun（尽情玩乐）", "cls": "good", "tag": "选定 B", "log": "B 尽情玩乐 ✓ ——schedule in time to enjoy ＋ enjoyable 的压缩", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>[B] Have fun：「安排时间玩」是全段的建议动作——给乐子腾时间（schedule in time）、所爱之事进日程、标准只有 enjoyable。「安排享乐」同时接住了转折句与展开句。</p>"},
+ {"title": "逐项分析 · C Ask for help（寻求帮助）", "cls": "bad", "tag": "排除 C", "log": "C 寻求帮助 ✗ ——半句诱饵：「忙」被臆测成「该求助」，转折后强调的是自己掌控日程", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>首句「严肃事务一大堆」容易被臆测成「忙不过来 → 该求助」，但转折之后强调的是「<b>自己能掌控日程、安排享乐</b>」——求助话题全段一字未提。C 也是全篇两个多余项之一，又一次「客串」诱饵。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被「忙」字带出求助联想。</p>"},
+ {"title": "逐项分析 · A Be silly（傻一点）", "cls": "bad", "tag": "排除 A", "log": "A 傻一点 ✗ ——例证冒充：客厅跳舞够「傻」，但它是乐子的例证不是动作本体", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>客厅跳舞（dancing around the living room）确实够「傻」，容易联想【43】段的 Be silly——但它在本段只是「completely random（纯属瞎闹）」乐子的<b>例证</b>，本段的建议是「安排玩乐」，「傻」不是动作本体。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例子当成段落动作。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（Have fun）——见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>困境（事务缠身）→ But 转折（能掌控日程）→ 建议 schedule in time to enjoy → 标题压缩为 Have fun。</b></p><p>其余选项归宿：D Express your emotions（【41】）、F Be easily pleased（【42】）、A Be silly（【43】）、E Don't overthink it（【45】）；C Ask for help 与 G Notice things 为全篇多余项。</p><p><b>记忆锚点</b>：让步在前、建议在后——标题取「立」的那一半；dancing 是例证不是动作；首句信息最靠前、词面最具体，最容易抢走注意力。</p><p style=\"color:#b91c1c\">标题题务必读到转折与建议句再下手——铺垫与反衬永远不进标题。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 新题型第 44 题 ·「让步一转折」后才是段落建议",
+  subtitle: "考点：小标题题 · 让步-转折结构 + 例证与建议的动作区分",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位推进链 → 提炼建议动作 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（Have fun）", "html": "<b>B 尽情玩乐</b>：schedule in time to enjoy the things we love ＋ enjoyable 的压缩。<br>记忆锚点：让步铺垫困境（serious stuff），But 之后才是建议——标题取「立」的那一半。<br>最险的坑：<b>C（Ask for help）</b>「忙」被臆测成求助；<b>A（Be silly）</b> 例证冒充动作。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 新题型第 44 题——"让步一转折"后才是段落建议</h2>
+<p>答案：<strong>B（Have fun 尽情玩乐）</strong>。</p>
+<h3>第 0 步：先立方法——让步句铺垫困境，转折句才给建议</h3>
+<p>本段首句先摆困难（成年人有一大堆严肃事务），第二句用 <strong>But as adults we also have the luxury of...</strong> 转折——"但我们也有能掌控日程的便利"，随后落在 it's important that we <strong>schedule in time to enjoy the things we love</strong>。这与【41】【45】段共享同一机制：<strong>"破"在前、"立"在后，标题收编"立"的那一半</strong>。只读首句（一肚子要紧事）的人，会被带去选错误方向。</p>
+<h3>第 1 步：定位段落</h3>
+<blockquote>The problem with being a grownup is that there's an awful lot of serious stuff to deal with... But as adults we also have the luxury of being able to control our own diaries and it's important that we <strong>schedule in time to enjoy the things we love</strong>. Those things might be social, sporting, creative or completely random (dancing around the living room, anyone?) – it doesn't matter, so long as they're <strong>enjoyable</strong>...</blockquote>
+<p>推进链：①困境——工作、房贷、晚饭做什么，严肃事务一大堆；②转折——成年人反而有掌控日程的便利，要<strong>给所爱之事划出时间</strong>；③展开——乐子可以社交、运动、创作、甚至纯属瞎闹（客厅里跳舞，要不要试试？），标准只有一条：enjoyable（开心）。末句补充反面条件（酗酒、疯狂购物之类不算），仍在圈定"玩乐"的边界。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[B] <strong>Have fun</strong>——schedule in time to enjoy the things we love ＋ so long as they're enjoyable 的压缩：给乐子腾时间、让所爱之事进日程表。"安排时间玩"是全段唯一反复出现的建议动作；seriously 的"严肃事务"只是衬托它出场的背景板。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>C Ask for help</td><td>✗</td><td>半句诱饵：首句"严肃事务一大堆"容易被臆测成"忙不过来→该求助"，但转折之后强调的是"自己能掌控日程、安排享乐"——求助话题全段一字未提；C 也是全篇两个多余项之一</td></tr><tr><td>A Be silly</td><td>✗</td><td>例证冒充：客厅跳舞（dancing around the living room）确实够"傻"，容易联想【43】段的 Be silly——但它在本段只是"completely random（纯属瞎闹）"的乐子<strong>例证</strong>，本段的建议是"安排玩乐"，"傻"不是动作本体</td></tr></tbody></table>
+<p>其余 D Express your emotions（【41】段情绪表达）、E Don't overthink it（【45】段别太刻意）、F Be easily pleased（【42】段容易满足）、G Notice things（多余项）各有归宿，本段内容与之无涉。</p>
+<h3>预判追问：首句说"成年人要应付一大堆事"，为什么标题不落在"事情多"上？</h3>
+<p>因为"事情多"在本段只当<strong>让步铺垫</strong>：它的功能是给转折蓄力——"正因为事务缠身，才更要主动给玩乐划时间"。段落的重心由 But 之后的 it's important that we schedule in time... 承担。这与阅读细节题"让步之后是重点"、与【41】段"孩子是参照物不进标题"是同一条机制：<strong>铺垫与反衬永远不进标题，建议才进</strong>。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：被"忙"字带出"该找人帮忙"的联想——求助不是作者给的方向，"掌控日程"才是。</li><li><strong>误选 A</strong>：把客厅跳舞的例子当成段落动作——例证永远代替不了建议句。</li><li><strong>只读首句</strong>：让步句信息最靠前、词面最具体，最容易抢走注意力；标题题务必读到转折与建议句再下手。</li></ul>
+<blockquote>记忆锚点：让步在前（严肃事务一大堆）、建议在后（schedule time to enjoy）——标题取"立"的那一半；dancing 是例证不是动作；C 是多余项的又一次"客串"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

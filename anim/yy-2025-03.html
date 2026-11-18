@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-03 · 2025 完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 3 所在句，考点：词义辨析 · 抽象名词靠下文「下定义」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Asking for help takes __3__. It involves communicating a need on your part — there's something you can't do.</div><p>空格待填正确答案；本题考点：<b>词义辨析 · 抽象名词靠下文「下定义」</b>。方法主线：空盒名词 → 下文找定义 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · takes X 的 X，去下文找它的「定义句」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：takes X 的 X，去下文找它的「定义句」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>Asking for help takes ____ 是「主谓宾」骨架：求助<b>需要</b>某种东西。抽象名词题，本句一个词给不出答案，答案藏在下文——②句 It involves communicating a need... there's something you can't do：求助意味着承认「有件事我做不到」。③~⑥句再补上「公开弱点、怕失控被抢功、怕添麻烦」。整段的难，难在<b>心理关</b>：要拉下脸承认不足，需要的品质是勇气。</p>"
+ },
+ {
+  "title": "证据 · ②句给空格划了范围",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：②句给空格划了范围",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>②句把求助拆成具体动作：communicating a need（传达需求）= 告诉别人「有些事你做不到」。③~⑥句列举的难处（公开弱点、怕失控被接手抢功、怕添麻烦）都在解释这一步为什么难——难在<b>要正视并承认自己的不足</b>，这正是 courage（勇气）的定义域。</p>"
+ },
+ {
+  "title": "逐项分析 · A attention（专心；注意）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A attention（专心；注意） ✗ 排除——后文的难处是心理障碍，不是注意力问题",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>后文的难处是心理障碍（承认不足、怕被看低），不是「注意力」类问题，语义接不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「takes + 名词」当固定搭配硬配常见词。</p>"
+ },
+ {
+  "title": "逐项分析 · B talent（天赋；天才）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B talent（天赋；天才） ✗ 排除——求助不是才能型活动，难的是拉下脸不是门槛",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>求助不是一种才能型活动：它人人可为，难的从来不是能力门槛，而是拉下脸的心理成本；「需要天赋才能求助」与①句「人人都会觉得难」矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 takes ____ 就联想到 takes talent 这一常见搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · C courage（勇气；胆量）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C courage（勇气；胆量） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>承认「这事我做不到」、公开自己的弱点，需要的正是勇气；与②③④句的心理难处全部咬合。</p>"
+ },
+ {
+  "title": "逐项分析 · D patience（耐心；忍耐力）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D patience（耐心；忍耐力） ✗ 排除——文中没有「等待、耗时」的信息",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>文中没有「等待、耗时间」的信息——求助之难不在过程漫长，而在开口那一下。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「求助费时费力」脑补进文中。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（courage 勇气；胆量）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>寻求帮助需要勇气。</b></p><p>答案选 <b>C（courage 勇气；胆量）</b>。</p><p><b>记忆锚点</b>：抽象名词 = 空盒子，定义句在下文：takes ____ →「承认自己做不到」→ courage；talent 是「才能型」搭配陷阱，attention/patience 与心理难处无关。</p><p style=\"color:#b91c1c\">最易误选：<b>B（talent）</b>——看到 takes ____ 就联想到 takes talent 这一常见搭配。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 3 空 · Asking for help takes ____",
+  subtitle: "考点：词义辨析（抽象名词）· 下文定义句 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（courage）",
+ "html": "<b>C courage（勇气；胆量）</b>。<br>完整句义：寻求帮助需要勇气。<br>记忆锚点：抽象名词 = 空盒子，定义句在下文：takes ____ →「承认自己做不到」→ courage；talent 是「才能型」搭配陷阱，attention/patience 与心理难处无关。<br>最易误选：<b>B（talent）</b>——看到 takes ____ 就联想到 takes talent 这一常见搭配。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 3 空 · 词义辨析 · 抽象名词靠下文「下定义」</h2>
+<p>答案：<strong>C（courage 勇气；胆量）</strong>。</p>
+<h3>第 0 步：先立机制——takes X 的 X，去下文找它的「定义句」</h3>
+<p>Asking for help takes ____ 是「主谓宾」骨架：求助<strong>需要</strong>某种东西。抽象名词题，本句一个词给不出答案，答案藏在下文——②句 It involves communicating a need... there's something you can't do：求助意味着承认「有件事我做不到」。③~⑥句再补上「公开弱点、怕失控被抢功、怕添麻烦」。整段的难，难在<strong>心理关</strong>：要拉下脸承认不足，需要的品质是勇气。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Asking for help takes __3__. It involves communicating a need on your part — there's something you can't do.</blockquote>
+<p>②句把求助拆成具体动作：communicating a need（传达需求）= 告诉别人「有些事你做不到」。③~⑥句列举的难处（公开弱点、怕失控被接手抢功、怕添麻烦）都在解释这一步为什么难——难在<strong>要正视并承认自己的不足</strong>，这正是 courage（勇气）的定义域。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A attention</td><td>专心；注意</td><td>✗ 排除</td><td>后文的难处是心理障碍（承认不足、怕被看低），不是「注意力」类问题，语义接不上。</td></tr><tr><td>B talent</td><td>天赋；天才</td><td>✗ 排除</td><td>求助不是一种才能型活动：它人人可为，难的从来不是能力门槛，而是拉下脸的心理成本；「需要天赋才能求助」与①句「人人都会觉得难」矛盾。</td></tr><tr><td>C courage</td><td>勇气；胆量</td><td>✓ 当选</td><td>承认「这事我做不到」、公开自己的弱点，需要的正是勇气；与②③④句的心理难处全部咬合。</td></tr><tr><td>D patience</td><td>耐心；忍耐力</td><td>✗ 排除</td><td>文中没有「等待、耗时间」的信息——求助之难不在过程漫长，而在开口那一下。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「takes + 名词」当固定搭配硬配常见词 → 误选 A（attention）</strong>：后文的难处是心理障碍（承认不足、怕被看低），不是「注意力」类问题，语义接不上。</li><li><strong>看到 takes ____ 就联想到 takes talent 这一常见搭配 → 误选 B（talent）</strong>：求助不是一种才能型活动：它人人可为，难的从来不是能力门槛，而是拉下脸的心理成本；「需要天赋才能求助」与①句「人人都会觉得难」矛盾。</li><li><strong>把「求助费时费力」脑补进文中 → 误选 D（patience）</strong>：文中没有「等待、耗时间」的信息——求助之难不在过程漫长，而在开口那一下。</li></ul>
+<blockquote>记忆锚点：抽象名词 = 空盒子，定义句在下文：takes ____ →「承认自己做不到」→ courage；talent 是「才能型」搭配陷阱，attention/patience 与心理难处无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

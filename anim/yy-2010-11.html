@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-11 · 2010 完形第 11 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （协议特性、概念辨析、计算题的推理链、协议字段、特性对比……）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 11 所在句，考点：上下文语义 + 形容词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But in late September 2009, officials reported there was __11__ flu activity in almost every state and that virtually all the samples tested are the new swine flu, not seasonal flu.</div><p>空格是定语形容词，修饰 flu activity（流感活动、蔓延情况），所在句以 But 开头。</p>"
+ },
+ {
+  "title": "找证据 · fade 与 But 的对照",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：fade 与 But 的对照",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">new cases seemed to fade as warmer weather arrived. But ...</div><p>fade（似乎减少）与 But 形成对照：表面回落 → 实际蔓延。修饰 flu activity 的词要传达“蔓延得足以引人注意”，significant（显著的、影响明显的）正是此义。</p>"
+ },
+ {
+  "title": "逐项分析 · A excessive（过度的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A excessive（过度的） ✗ 排除——excessive 强调“过分、过量”（常修饰花费、",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>excessive 强调“过分、过量”（常修饰花费、饮酒等行为），带贬义批评；“流感活动过度”不是原文要传达的重点。</p><p style=\"color:#b91c1c\">⚠ 典型误解：找到褒贬相近的词就停手，不再核对修饰对象。</p>"
+ },
+ {
+  "title": "逐项分析 · B enormous（巨大的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B enormous（巨大的） ✗ 排除——enormous 说的是尺寸、体量之巨",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>enormous 说的是尺寸、体量之巨，修饰 activity 不搭；原文强调的是“每个州都有、值得警惕”，不是绝对数量巨大。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“严重”粗略等同于“巨大”。</p>"
+ },
+ {
+  "title": "逐项分析 · C significant（显著的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C significant（显著的） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>significant = 大到足以察觉、有可见影响：几乎每个州都有明显的流感活动——与 But 的转折语气和“遍布各州”的分布描述双重吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · D magnificent（壮丽的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D magnificent（壮丽的） ✗ 排除——magnificent 形容外观宏伟壮丽（建筑、景色",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>magnificent 形容外观宏伟壮丽（建筑、景色），与疫情语境完全不搭。</p><p style=\"color:#b91c1c\">⚠ 典型误解：词形与 significant 相近导致误认。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（significant 显著的；影响明显的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>但 2009 年 9 月末，官方报告几乎每个州都有明显的流感活动，且几乎所有检测样本都是新型猪流感而非季节性流感。</b></p><p>答案选 <b>C（significant 显著的；影响明显的）</b>。</p><p><b>记忆锚点</b>：But 之后重新定调：flu activity 配 significant（显著、引人注意）；enormous 管体量，magnificent 管外观。</p><p style=\"color:#b91c1c\">最易误选：<b>B（enormous）</b>——用“巨大”粗略对号，没注意 enormous 修饰体量而 flu activity 需要的是“可察觉的蔓延”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2010 完形第 11 空 · ______ flu activity in almost every state：But 之后的重新定调",
+  subtitle: "考点：上下文语义 + 形容词辨析 · 定位 → 复现 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（significant）",
+ "html": "<b>C significant（显著的；影响明显的）</b>。<br>记忆锚点：But 之后重新定调：flu activity 配 significant（显著、引人注意）；enormous 管体量，magnificent 管外观。<br>最易误选：<b>B（enormous）</b>——用“巨大”粗略对号，没注意 enormous 修饰体量而 flu activity 需要的是“可察觉的蔓延”。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2010 完形第 11 空 · ______ flu activity in almost every state：But 之后的重新定调</h2>
+<p>答案：<strong>C（significant 显著的；影响明显的）</strong>。</p>
+<h3>第 0 步：先立机制——本空的线索结构</h3>
+<p>空格修饰 flu activity，句子用 But 与前句“新病例似乎随着天气转暖而减少”反转：9 月末几乎每个州都有____的流感活动。转折后要表达的是“实际情况不容小觑”，所以形容词要能表达“明显、值得注意”，而不是笼统的“大”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But in late September 2009, officials reported there was __11__ flu activity in almost every state and that virtually all the samples tested are the new swine flu, not seasonal flu.</blockquote>
+<p>空格是定语形容词，修饰 flu activity（流感活动、蔓延情况），所在句以 But 开头。</p>
+<h3>第 2 步：找证据——fade 与 But 的对照</h3>
+<blockquote>new cases seemed to fade as warmer weather arrived. But ...</blockquote>
+<p>fade（似乎减少）与 But 形成对照：表面回落 → 实际蔓延。修饰 flu activity 的词要传达“蔓延得足以引人注意”，significant（显著的、影响明显的）正是此义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A excessive</td><td>过度的</td><td>✗ 排除</td><td>excessive 表“过分、过量”，修饰对象是行为不是疫情活动。（典型误解：找到褒贬相近的词就停手，不再核对修饰对象。）</td></tr><tr><td>B enormous</td><td>巨大的</td><td>✗ 排除</td><td>enormous 管体量大小，flu activity 需要的是“可察觉的蔓延”。（典型误解：把“严重”粗略等同于“巨大”。）</td></tr><tr><td>C significant</td><td>显著的</td><td>✓ 当选</td><td>significant 表“可察觉、有可见影响”，与 But 语气和分布描述双合。</td></tr><tr><td>D magnificent</td><td>壮丽的</td><td>✗ 排除</td><td>magnificent 管外观壮丽，与疫情语境无关，纯词形干扰。（典型误解：词形与 significant 相近导致误认。）</td></tr></tbody></table>
+<p>代入后的完整句义：但 2009 年 9 月末，官方报告几乎每个州都有明显的流感活动，且几乎所有检测样本都是新型猪流感而非季节性流感。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>significant 到底强调“大”还是“重要”？</strong>：它强调“大到能被察觉、有可见影响”（large enough to be noticeable），与 enormous 的“绝对体积大”不同。flu activity 的蔓延用“可察觉”描述最准。</li><li><strong>为什么 magnificent 这种词也会出现在选项里？</strong>：完形常用形近词制造干扰：magnificent 与 significant 共享词尾，靠词形相似引诱粗心的考生——辨析时永远先回到“修饰对象 + 语境”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（enormous）</strong>：用“巨大”粗略对号，没注意 enormous 修饰体量而 flu activity 需要的是“可察觉的蔓延”。</li><li><strong>误选 D（magnificent）</strong>：词形相近误认，或干脆没把词代入语境。</li></ul>
+<blockquote>记忆锚点：But 之后重新定调：flu activity 配 significant（显著、引人注意）；enormous 管体量，magnificent 管外观。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

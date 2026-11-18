@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-22 · 2021 阅读第 22 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：例子题的观点永远在例子前后",
+  "body": "<p>题干：<b>AT&amp;T is cited to show ____</b>（引用 AT&amp;T 是为了说明 ____）。</p><p>cite / show 类题目考的是「例子论证了什么观点」：观点不在例子内部，而在<b>引出例子之前的议论句</b>里——先看例子怎么被引出。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：AT&amp;T 例证句",
+  "body": "<div class='qq'><b>原文：</b>AT&amp;T is often given as the gold standard of a company who decided to do a massive reskilling program rather than go with a fire-and-hire strategy.</div><p>例子本身：AT&amp;T 被誉为「决定大规模再培训、<b>而不是</b>裁员再雇」的金标准公司。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：例子前的议论句才是论点",
+  "body": "<div class='qq'><b>原文：</b>For individual companies, the temptation is always to let go of workers whose skills are no longer in demand and replace them with those whose skills are. That does not always happen.</div><p>铺垫：公司的本能是「辞掉技能过时的员工，再雇新的」（fire-and-hire）；紧接着 That does not always happen 一转——而 AT&amp;T 正是「<b>没有走这条路</b>」的金标准案例。例子证明的论点即：再培训是「先辞后雇」之外<b>另一种选择</b>。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：fire-and-hire 的替代方案——rather than 划出取舍",
+  "body": "<p><b>A · an alternative to the fire-and-hire strategy（「先辞后雇」策略的替代方案）</b> <span class='ok-dot'>✓</span></p><p>decided to do a massive reskilling program <b>rather than</b> go with a fire-and-hire strategy——「而不是」划出的正是两个策略的取舍关系：reskilling 是 fire-and-hire 之外的<b>另一种选择（an alternative）</b>。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：急需政府支持——话题错位",
+  "body": "<p><b>B · an immediate need for government support（对政府支持的即时需求）</b> <span class='bad-dot'>✗</span></p><p>政府是<b>另一层</b>话题（技能错配上升到整体经济时才转向政府）；AT&amp;T 例子讲的是公司自己的选择。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：员工考核标准——无中生有",
+  "body": "<p><b>C · the importance of staff appraisal standards（员工考核标准的重要性）</b> <span class='bad-dot'>✗</span></p><p>例子中没有任何 appraisal / 考核内容，无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：再培训项目的特点——把例证误读成介绍",
+  "body": "<p><b>D · the characteristics of reskilling programs（再培训项目的特点）</b> <span class='bad-dot'>✗</span></p><p>例子证明的是「存在另一种策略」这一<b>论点</b>，不是在介绍 reskilling 项目长什么样。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（an alternative to the fire-and-hire strategy）</b>。</p><p>记忆锚点：例子题先读例子<b>前一句</b>（That does not always happen）；rather than 连接的两端互为 alternative。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 D（the characteristics...）——把「例证观点」误读成「介绍特点」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-22 · 阅读第 22 题：AT&T 例子的论证作用",
+  subtitle: "考点：Text1 第 2 段 · 举例论证题（观点在例子前后）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A",
+ "html": "<b>A an alternative to the fire-and-hire strategy</b>：reskilling program <b>rather than</b> fire-and-hire → 再培训是「先辞后雇」的替代方案。<br>记忆锚点：例子题先读例子前一句；rather than 两端互为 alternative。<br>最易误选：D——把例证误读成介绍。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 22 题——AT&amp;T 例子的论证作用</h2>
+<p>答案：<strong>A</strong>（an alternative to the fire-and-hire strategy）。</p>
+<h3>第 0 步：先立机制——例子题的观点永远在例子前后</h3>
+<p>cite / show 类题目考的是「例子论证了什么观点」：观点不在例子内部，而在<strong>引出例子之前的议论句</strong>里。本题的议论句是例子前一句 That does not always happen——它先说公司本能是「辞掉技能过时的员工，再雇新的」（fire-and-hire），再说「并非总是如此」，AT&amp;T 就是被拉来证明「并非总是如此」的案例。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>For individual companies, the temptation is always to let go of workers whose skills are no longer in demand and replace them with those whose skills are. That does not always happen. AT&amp;T is often given as the gold standard of a company who decided to do a massive reskilling program rather than go with a fire-and-hire strategy.</blockquote>
+<p>decided to do a massive reskilling program <strong>rather than</strong> go with a fire-and-hire strategy——「而不是」划出两个策略的取舍关系：reskilling 是 fire-and-hire 之外的<strong>另一种选择</strong>，即 an alternative to the fire-and-hire strategy。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（an immediate need for government support）</strong>：话题错位——政府是另一层话题（技能错配上升到整体经济才转向政府）；AT&amp;T 例子讲的是公司自己的选择。</li><li><strong>C（the importance of staff appraisal standards）</strong>：无中生有——例子中没有任何员工考核内容。</li><li><strong>D（the characteristics of reskilling programs）</strong>：把「例证」误读成「介绍」——例子证明「存在另一种策略」这一论点，不是介绍 reskilling 项目的特点。</li></ul>
+<blockquote>记忆锚点：例子题先读例子<strong>前一句</strong>；rather than 连接的两端互为 alternative。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

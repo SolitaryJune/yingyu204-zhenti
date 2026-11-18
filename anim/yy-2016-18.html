@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·18 完形 · hints at 的宾语身份锁定</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：动词 + at 搭配题', cls: 'key',
+    body: '<p>四个选项都带介词 at，介词不构成筛选条件；真正的筛子是<b>宾语的“身份”</b>。流程：先看空格动词的宾语是谁 → 判断哪类动词能和它搭配 → 再回上文验语气。</p>',
+    log: '搭配题先验宾语身份' },
+  { title: '定位原文', cls: 'key',
+    body: src('“____ this doesn’t prove that happiness causes firms to invest more..., the authors believe it at least ____ at that possibility.”') +
+      '<p>空格动词的宾语：<b>that possibility（那种可能性）</b>。可能性可以被“暗示、指向”，但<b>不能被“达成”、被“匆忙抓住”、更不能被“打击”</b>。</p>',
+    log: '宾语 = that possibility，只能被“暗示”' },
+  { title: '语气阶梯：prove → hint', cls: 'step',
+    body: '<p>上句刚说完“<b>不能证明</b>”（prove 被否定），本句用 <b>at least</b> 收住：证明不了，但至少能<b>暗示</b>。prove（强断言）→ hint（弱断言）是一条向下的语气阶梯，“让步 + 保留”就此闭合。</p>',
+    log: 'at least 信号：弱断言才接得上' },
+  { title: 'A arrives at：达成（协议/结论）', cls: 'bad',
+    body: '<p>arrive at a conclusion 是固定搭配，但 arrive at 意味着<b>已经达到、落实</b>——“达成可能性” = 已实现，恰好越过了“证明不了，只到暗示为止”的界限。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 达成 = 已实现，越过界限' },
+  { title: 'B jumps at：匆忙抓住（机会）', cls: 'bad',
+    body: '<p>jump at 的宾语是 offer / opportunity / conclusion（机会、结论）——<b>possibility 既非机会也非结论</b>，搭配身份错位。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 宾语身份不匹配' },
+  { title: 'C hints at：暗示、示意', cls: 'good',
+    body: '<p>“不能证明 → 但至少<b>暗示</b>”语气完美衔接：hint 的典型宾语正是 possibility，弱断言接住 at least 的让步。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 暗示 = 弱断言，命中' },
+  { title: 'D strikes at：打击、危害', cls: 'bad',
+    body: '<p>strike at 的宾语是打击<b>目标</b>；“打击可能性”宾语不当，且作者正在为研究辩护，“打击”态度全反。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 态度相反，宾语不当' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（hints at）</b>。记忆锚点：<b>possibility 只能 be hinted at</b>；prove → hint 是“证明→暗示”的降级，<b>at least 就是这道降级的信号灯</b>。</p>',
+    log: '锁定 C（hints at）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 18 · hints at——可能性只能被暗示',
+  subtitle: '考点：动词短语搭配 · 宾语身份 · 语气衔接 · 选项 arrives at / jumps at / hints at / strikes at',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开宾语身份与语气判定。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（hints at）',
+    html: '记忆锚点：动词短语题先验<b>宾语身份</b>——that possibility 只能被 <b>hint at（暗示）</b>；arrive at = 已达成（越界），jump at 宾语须是机会/结论，strike at 态度全反。at least 是“证明→暗示”降级的信号灯。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：hints at——"可能性"只能被暗示，不能被达成</h2>
+<p>答案：<strong>C（hints at）</strong>。</p>
+<h3>第一步：先立机制——动词短语题先看宾语的"身份"</h3>
+<p>四个选项都是"动词 + at"结构，所以介词不构成筛选条件，真正的筛子是<strong>宾语</strong>。空格所在句的后半句是 the authors believe it at least ____ <strong>at that possibility</strong>——宾语是 that possibility（那种可能性）。谓语动词必须能与"可能性"发生合理搭配：可能性可以被"暗示、指向"，但<strong>不能被"达成"、被"匆忙抓住"、更不能被"打击"</strong>。先定身份，再验语义，最后回上文验语气。</p>
+<h3>第二步：定位原文，验语气衔接</h3>
+<blockquote>____ this doesn't prove that happiness causes firms to invest more..., the authors believe it at least hints at that possibility.</blockquote>
+<p>上句刚说完"不能<strong>证明</strong>"（prove 被否定），本句用 at least 收住：证明不了，但<strong>至少</strong>能暗示。prove（强断言）→ hints at（弱断言）是一条向下的语气阶梯，正好构成"让步 + 保留"。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>搭配义</th><th>与宾语 that possibility</th></tr></thead><tbody><tr><td>A arrives at</td><td>到达某地；达成（协议/结论）</td><td>"达成可能性" = 已实现，与"不能证明"的限定制剂冲突</td></tr><tr><td>B jumps at</td><td>匆忙抓住（机会）；匆忙做出（结论）</td><td>possibility 既非机会也非结论，搭配错位</td></tr><tr><td>C hints at</td><td>暗示、示意</td><td>可能性正是"暗示"的典型宾语，且语气弱于 prove，衔接 at least</td></tr><tr><td>D strikes at</td><td>打击、危害；朝……打去</td><td>"打击可能性"宾语不当，与作者的肯定态度相反</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A（arrives at）</strong>：把 arrive at a conclusion 的搭配迁移过来——但 arrive at 意味着"已经达到、落实"，而全句立场是"证明不了，只到暗示为止"，A 恰好越过了这个界限。</li><li><strong>选 B（jumps at）</strong>：只记短语"急切接受"，没核对宾语身份；jump at 的宾语是 offer/opportunity/conclusion，possibility 不在其列。</li><li><strong>选 D（strikes at）</strong>：被 strike 的"击中目标"义误导——但作者在为研究辩护，"打击"态度全反。</li></ul>
+<blockquote>记忆锚点：动词短语题先验宾语身份——<strong>possibility 只能 be hinted at</strong>；prove → hint 是"证明→暗示"的降级，at least 就是这道降级的信号灯。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

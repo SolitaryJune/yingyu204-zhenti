@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-23 · 2018 Text1 第 23 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第五段因果链",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第五段②③句，考点：段落推理（今昔对比）",
+  "body": quote("Manufacturing is not the economic engine that it once was. The job security that the US economy <b>once</b> offered to high school graduates <b>has largely evaporated</b>.") + "<p>第五段是一条环环相扣的因果链。本题主语锁定：<b>高中毕业生</b>——文中唯一直接谈他们的就是③句的 job security。</p>"
+ },
+ {
+  "title": "立机制 · 扫时间标记，把“今”和“昔”切开",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：once / not...it once was / new 三个标记切开时间轴——过去：机会多；现在：安稳不再",
+  "body": "<p>②句 not the economic engine <b>that it once was</b>：制造业今不如昔。</p><p>③句 <b>once</b> offered... has largely <b>evaporated</b>：曾经的工作安稳已消逝。</p><p>④句 More education is the <b>new</b> principle：如今的新原则。时间轴切成两半——<b>过去</b>：制造业繁荣、高中毕业生工作安稳机会多；<b>现在</b>：衰落、安稳不再、追求更多教育。</p>"
+ },
+ {
+  "title": "选项归位 · A/B 说过去，C/D 说现在",
+  "cls": "key",
+  "tag": "归位",
+  "count": 0,
+  "ribbon": null,
+  "log": "归位：A used to / B used to 描述“过去”；C reluctant / D entitled to 关乎“现在”",
+  "body": "<p>先把四个选项按时间轴归位：</p><p><b>A</b> used to have big financial concerns、<b>B</b> used to have more job opportunities——都用 used to，描述<b>过去</b>。</p><p><b>C</b> are reluctant to work、<b>D</b> are entitled to——现在时，关乎<b>现在</b>。归位后逐一对表。</p>"
+ },
+ {
+  "title": "逐项分析 · B used to have more job opportunities",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "log": "B ✓ 当选——“安稳曾经存在现已消逝”的反向同义 = 过去机会比现在多",
+  "body": "<p><b>当选。</b>job security once offered... has largely evaporated 读成时间轴两件事：<b>从前有</b>（安稳=有活干有保障），<b>现在没了</b>。</p><p>B 项用 used to 把“从前有”钉死，more job opportunities 是“工作安稳”的反向同义——原文“失去”翻译成“曾经拥有”。</p>"
+ },
+ {
+  "title": "逐项分析 · A used to have big financial concerns",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ✗ 排除——时间轴贴反：困扰是“现在”，过去恰恰是安稳",
+  "body": "<p><b>排除。</b>由“曾经的工作保障<b>消失</b>”只能推出<b>现在</b>的毕业生困扰更大。</p><p>A 却把“巨大经济困扰”放在<b>过去</b>——used to 贴错了对象：过去是安稳，不是困扰。</p><p style='color:#b91c1c'>⚠ 典型误解：“经济”“困扰”能从③句牵出，就不查时间轴方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C are reluctant to work in manufacturing",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C ✗ 排除——因果颠倒：制造业衰落导致安稳不再，不是毕业生不愿进制造业",
+  "body": "<p><b>排除。</b>②③句的逻辑是：制造业<b>衰落</b> → 工作安稳不再——衰落是原因，毕业生就业难是结果。</p><p>C 却说“毕业生<b>不愿意</b>进制造业（导致衰落）”——把结果错当原因，因果链读反。</p><p style='color:#b91c1c'>⚠ 典型误解：贴着原词 manufacturing 选，不查因果方向。</p>"
+ },
+ {
+  "title": "逐项分析 · D are entitled to more educational privileges",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——曲解④⑤句：把“社会的新要求”偷换成“已兑现的教育特权”",
+  "body": "<p><b>排除。</b>More education is the new principle / We want more for our kids 的主语是“我们（家长、社会）”——说的是<b>愿望与原则</b>。</p><p>D 的 entitled to（有资格享有）把它读成已落到毕业生头上的<b>权利</b>——愿望 ≠ 事实，主体也换了人。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（used to have more job opportunities）——反向同义：安稳消逝 → 过去机会更多",
+  "body": "<p>完整逻辑：<b>制造业引擎熄火，高中毕业生曾坐享的工作安稳大面积蒸发——他们“曾经”拥有远多于今天的工作机会。</b></p><p>答案选 <b>B（used to have more job opportunities）</b>。</p><p><b>记忆锚点</b>：段落推理题三步——扫时间标记（once / not...it once was / new）→ 按轴归位选项 → 反向同义对表；used to 锁“过去”，entitled to 锁“已兑现”。</p><p style='color:#b91c1c'>⚠ 最易误选 A：语义牵得出来，时间轴贴反。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text1 第 23 题 · 从第五段推知高中毕业生____",
+  subtitle: "考点：段落推理（今昔对比） · 定位 → 立机制 → 归位 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 时间轴机制 → 归位 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（used to have more job opportunities）", "html": "<b>B</b>：job security once offered... has evaporated 的反向同义——安稳消逝，反推“过去机会更多”。<br>记忆锚点：扫 once / not...it once was / new 三个时间标记 → 选项按轴归位 → 反向同义对表。<br>最易误选：<b>A</b>——困扰是“现在”的事，used to 贴反时间轴。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text1 第 23 题 · 从第五段推知"高中毕业生"过去与现在</h2>
+<p>答案：<strong>B（used to have more job opportunities）</strong>。</p>
+<h3>第 0 步：先立机制——推理题的第一件事是把"今"和"昔"分开</h3>
+<p>段落推理题的底层机制：<strong>把定位段的信息按时间轴整理，再与选项比对</strong>。第五段是一个环环相扣的因果链，句里埋着清晰的时间标记：②句 <code>Manufacturing is not the economic engine that it once was</code>（制造业已<strong>不再是</strong>昔日引擎——今不如昔），③句 <code>The job security that the US economy **once** offered...has largely evaporated</code>（<strong>曾经</strong>提供的工作安稳已<strong>消逝</strong>），④句 <code>More education is the **new** principle</code>（如今的新原则）。三个标记把时间轴切成两半：<strong>过去</strong>——制造业繁荣、高中毕业生工作安稳、机会多；<strong>现在</strong>——制造业衰落、安稳不再、于是全社会转而追求"更多教育"。四个选项里 A、B 描述"过去"，C、D 关乎"现在"——先把选项按时间轴归位，再逐一对表，这就是本题的全部算法。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Manufacturing is not the economic engine that it once was. The job security that the US economy <strong>once</strong> offered to high school graduates <strong>has largely evaporated</strong>.</blockquote>
+<ul><li>主语：<code>the job security</code>（工作安稳）——过去时态框架（once offered）+ 完成时结果（has evaporated）；</li><li>句义：美国经济曾给高中毕业生的工作保障，如今已大部分消失。</li></ul>
+<h3>第 2 步：同义替换——"安稳消逝" = "过去机会更多"</h3>
+<p><code>job security...once offered...has largely evaporated</code> 读成时间轴上的两件事：<strong>从前有</strong>（安稳=有活干、有保障），<strong>现在没了</strong>。B 项 <code>used to have more job opportunities</code> 用过去时 used to 把"从前有"钉死，<code>more job opportunities</code>（更多工作机会）正是"工作安稳"的反向同义——原文说"现在没了"，反推就是"过去比现在多"。这是推理题里典型的<strong>反向同义表述</strong>：正确项不重复原词，而是把原文的"失去"翻译成"曾经拥有"。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A used to have big financial concerns</td><td>曾有巨大经济困扰</td><td>✗ 排除</td><td>推理方向错：由"曾经的工作保障<strong>消失</strong>"只能推出<strong>现在</strong>的毕业生困扰更大——A 却把困扰放在"过去"，时间轴贴反。</td></tr><tr><td>B used to have more job opportunities</td><td>曾有更多工作机会</td><td>✓ 当选</td><td>③句的反向同义：安稳曾经存在现已消逝 → 过去的机会比现在多。</td></tr><tr><td>C are reluctant to work in manufacturing</td><td>不愿进制造业</td><td>✗ 排除</td><td>因果颠倒：②③句的逻辑是"制造业<strong>衰落</strong>导致工作安稳不再"，不是"毕业生<strong>不愿意</strong>干制造业导致制造业衰落"——把结果错当原因。</td></tr><tr><td>D are entitled to more educational privileges</td><td>被赋予更多教育特权</td><td>✗ 排除</td><td>曲解④⑤句：More education 是社会新<strong>要求</strong>（要孩子们读得更多），不是"给予毕业生更多教育<strong>特权</strong>"——把"更高的期望"偷换成"已兑现的优待"。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不是 D？</strong>：⑤句 <code>We want more for our kids, and rightfully so</code> 的主语是"我们（家长/社会）"，说的是<strong>愿望与原则</strong>；" entitled to（有资格享有）"却把它读成了已落到毕业生头上的权利——愿望 ≠ 事实。</li><li><strong>推理题的正确项长什么样？</strong>：它通常<strong>抽象化 + 反向表述</strong>（原文"失去"→选项"曾经有"），而干扰项常"贴原词 + 贴时态错误"。A 用了 used to 却贴错对象，C 贴了 manufacturing 却贴错因果。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：看到"经济"与"困扰"在语义上能从③句牵出，没检查<strong>时间轴方向</strong>——现在是困扰，过去恰恰是安稳。</li><li><strong>误选 C</strong>：把"制造业衰落"与"毕业生就业难"之间的因果链读反。</li></ul>
+<blockquote>记忆锚点：段落推理题三步——<strong>扫时间标记（once / not...it once was / new）→ 按轴归位选项 → 反向同义对表</strong>；used to 锁"过去"，entitled to 锁"已兑现"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

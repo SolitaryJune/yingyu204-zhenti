@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-27 · 2014 阅读第 27 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 定义题：答案在带引号的定义句里",
+  "cls": "key",
+  "tag": "审题",
+  "log": "Visual recognition is believed to be...：定位定义句，取材三个关键词",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>Visual recognition is believed to be people's ____.</b></p><p>定义题：术语在文中被如何界定。定位句直接给出<b>带引号的定义</b>，定义里的三个关键词（automatic / rapidly and intuitively / little or no conscious deliberation）就是选项的取材库——选与三者<b>全部兼容</b>的那一个。</p>"
+ },
+ {
+  "title": "定位原文 · 第三段③句（引号定义）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：an automatic psychological process, occurring rapidly and intuitively with little or no apparent conscious deliberation",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Visual recognition, reads the study, is \"<b>an automatic psychological process, occurring rapidly and intuitively with little or no apparent conscious deliberation</b>\".</div><p>逐词拆定义：automatic（自动的）、occurring rapidly and intuitively（快速且凭直觉）、with little or no apparent conscious deliberation（几乎没有刻意思考）。</p>"
+ },
+ {
+  "title": "同义替换 · 三关键词的交集",
+  "cls": "key",
+  "tag": "替换",
+  "log": "快速 + 凭直觉 + 无刻意思考 → intuitive response",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>“自动 + 快速 + 凭直觉 + 无刻意思考”的<b>心理过程</b> → 一次直觉反应：<b>C intuitive response</b>（intuitive ↔ intuitively；response ↔ psychological process 的通俗化）。</p>"
+ },
+ {
+  "title": "逐项分析 · A rapid matching（迅速匹配）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 迅速匹配 ✗ 排除——rapidly 只是修饰语，识别不是“配对”动作",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>rapidly 只是速度修饰语；“识别”是<b>心理过程</b>，不是“配对”动作——被试在辨认自己，不是在配对。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓住 rapid 就收——速度词是定义题的边缘信息。</p>"
+ },
+ {
+  "title": "逐项分析 · B conscious choice（刻意选择）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 刻意选择 ✗ 排除——与“没有刻意思考”正相反",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>与定义正相反：with little or no apparent <b>conscious deliberation</b> 明说“没有刻意思考”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“自己选照片”的实验操作当成“刻意”。</p>"
+ },
+ {
+  "title": "逐项分析 · C intuitive response（直觉反应）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C 直觉反应 ✓ 当选——与定义三关键词全部兼容",
+  "count": 0,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>直觉（intuitively）、无刻意思考（little conscious deliberation）、心理过程（response 的通俗化）——三关键词全部兼容。</p>"
+ },
+ {
+  "title": "逐项分析 · D automatic self-defence（无意识的自我防护）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 自动自我防护 ✗ 排除——跨段拼词：automatic + 第一段的 defensive",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>杂糅：automatic 来自本句定义，defensive 来自第一段“被批评时变得戒备”（become defensive when criticised）——跨段拼词，“视觉识别”与“自我防护”无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：automatic 原词重现即有好感——捆绑即掺假，任何一半错，整项就错。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（intuitive response）——定义句关键词的交集",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（intuitive response）</b>。</p><p><b>记忆锚点</b>：定义题抄定义句关键词：automatic / rapidly and intuitively / little conscious deliberation → intuitive response；跨段拼词（automatic + defensive）= 掺假。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 D（最强干扰）——automatic 原词重现的诱惑。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 27 题 · visual recognition 是什么——定义题抄定义句关键词",
+  subtitle: "考点：词义/概念题 · 引号定义句：automatic / intuitively / little conscious deliberation",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（intuitive response）",
+ "html": "<b>C</b>：定义句 = an automatic psychological process, occurring <b>rapidly and intuitively</b> with <b>little or no apparent conscious deliberation</b> → 直觉反应。<br>A 抓边缘速度词；B 与“无刻意思考”正相反；D 跨段拼词（automatic + defensive）。<br>最易误选：<b>D</b>——原词捆绑陷阱。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 27 题 · visual recognition 是什么——定义题抄定义句关键词</h2>
+<p>答案：<strong>C（intuitive response）</strong>。</p>
+<h3>第 0 步：先立机制——被定义术语的答案就在带引号的定义句里</h3>
+<p>Visual recognition is believed to be people's ____ 是定义题：术语在文中被如何界定。定位句直接给出带引号的定义，定义里的三个关键词（automatic / rapidly and intuitively / little or no conscious deliberation）就是选项的取材库——选与三者全部兼容的那一个。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Visual recognition, reads the study, is "an automatic psychological process, occurring rapidly and intuitively with little or no apparent conscious deliberation".</blockquote>
+<p>逐词拆定义：automatic（自动的）、occurring rapidly and intuitively（快速且凭直觉地发生）、with little or no apparent conscious deliberation（几乎没有明显的刻意思考）。</p>
+<h3>第 2 步：同义替换</h3>
+<p>"自动 + 快速 + 凭直觉 + 无刻意思考"的<strong>心理过程</strong> → 一次直觉反应：C intuitive response（intuitive ↔ intuitively；response ↔ psychological process 的通俗化）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C intuitive response</td><td>直觉反应</td><td>✓ 当选</td><td>与定义三关键词全部兼容：凭直觉（intuitively）、无刻意思考（little conscious deliberation）。</td></tr><tr><td>A rapid matching</td><td>迅速匹配</td><td>✗ 排除</td><td>杂糅：rapidly 只是速度修饰语；"识别"是心理过程，不是"配对"动作——被试在辨认自己，不是在配对。（典型误解：抓住 rapid 就收。）</td></tr><tr><td>B conscious choice</td><td>刻意选择</td><td>✗ 排除</td><td>与定义正相反：with little or no apparent conscious deliberation 明说"没有刻意思考"。（典型误解：把"自己选照片"的实验操作当成"刻意"。）</td></tr><tr><td>D automatic self-defence</td><td>无意识的自我防护</td><td>✗ 排除</td><td>杂糅：automatic 来自本句定义，defensive 来自第一段"被批评时变得戒备"（become defensive when criticised）——跨段拼词，"视觉识别"与"自我防护"无关。（典型误解：原词重现即有好感。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>automatic 为什么不能直接当选？</strong>：四个选项里没有单独的 automatic；D 把它和 self-defence 捆绑贩卖——捆绑即掺假，捆绑项里任何一半错，整项就错。</li><li><strong>被试"选择照片"不是选择吗？</strong>：那是实验操作（identify an original photograph from a lineup），不是视觉识别本身的性质；题干问的是"视觉识别被认为是人们的什么心理特质"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（最强干扰）</strong>：automatic 原词重现的诱惑；defensive 是第一段谈"被批评时"的词，跟"看照片认自己"无关。</li><li><strong>误选 A</strong>：速度词永远是定义题的边缘信息，核心是"直觉 + 无意识"。</li></ul>
+<blockquote>记忆锚点：定义题抄定义句关键词：automatic / rapidly and intuitively / little conscious deliberation → intuitive response；跨段拼词（automatic + defensive）= 掺假。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

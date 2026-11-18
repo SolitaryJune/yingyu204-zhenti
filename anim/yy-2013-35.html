@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-35 动画：态度题——作者对扭转快决策趋势怎么看</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：态度题看结论句的程度词",
+  body:"<p>题干：<b>The author's attitude toward reversing the high-speed trend is ____.</b>（作者对扭转高速决策趋势的态度是____。）</p><p>态度题不凭感觉词乱猜：把末段证据链摆出来——先立论、再让步、最后结论，<b>结论句里的程度词</b>（still / can / might / although）才是态度指纹。</p>",
+  log:"态度题：末段找结论句，抓程度词"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：末段证据链四步走",
+  body:"<table class=\"aw-mini\"><tr><th>末段句子</th><th>角色</th></tr><tr><td>① pause 能力是人区别于动物之处</td><td>立论：人有这能力</td></tr><tr><td>② 历史上约 12% 的时间在思考长远</td><td>例证：是常态</td></tr><tr><td>③ Although technology <b>might</b> change…, it <b>hasn't changed our nature</b></td><td>让步：科技改不了天性</td></tr><tr><td>④ <b>We still have the imaginative capacity</b> to…reverse the high-speed trend</td><td>结论：有能力扭转</td></tr></table>",
+  log:"末段骨架：立论 → 例证 → 让步 → 结论"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：tolerant（容忍的）",
+  body:"<p><b>A（容忍的）</b><span class=\"bad-dot\">✗</span>：出处是③句 Although technology <b>might</b> change the way we react——\"可能、放任\"的味道来自让步句。但让步句的作用是<b>衬托</b>后半句\"科技改变不了我们的天性\"；\"容忍\"在原文没有任何落点。</p>",
+  log:"排除 A：might 是让步修辞，不是态度"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:2, ribbon:{k:3, ok:false}, title:"排除 C：uncertain（不确定的）",
+  body:"<p><b>C（不确定的）</b><span class=\"bad-dot\">✗</span>：④句 <b>We still have the imaginative capacity</b> 是清晰的肯定判断——\"仍然拥有想象力与能力\"。把肯定读成\"拿不准\"，方向反了。</p>",
+  log:"排除 C：still have the capacity 是肯定，不是摇摆"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:3, ribbon:{k:4, ok:false}, title:"排除 D：doubtful（怀疑的）",
+  body:"<p><b>D（怀疑的）</b><span class=\"bad-dot\">✗</span>：同样是反向干扰。might 修饰的是\"科技改变反应方式\"这个<b>次要事实</b>，不是作者对\"扭转趋势\"的判断；判断句在④句，语气坚决——没有任何怀疑对象。</p>",
+  log:"排除 D：怀疑无对象，判断句语气坚决"},
+ {cls:"good", ecs:"ok", tag:"锁定 B", count:4, ribbon:{k:2, ok:true}, title:"锁定 B：optimistic（乐观的）",
+  body:"<p><b>B（乐观的）</b><span class=\"ok-dot\">✓</span>：结论句——</p><div class=\"qq\"><b>末段④：</b><b>We still have the imaginative capacity</b> to rise above temptation and reverse the high-speed trend. <span class=\"cn\">（译：我们仍然有想象力去超越诱惑、扭转这种高速趋势。）</span></div><p><b>still</b>（仍然）＋ <b>have the capacity</b>（有能力）＝ 对\"扭转趋势\"有信心 → 乐观。</p>",
+  log:"锁定 B：still + capacity = 有信心，乐观"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 B",
+  body:"<p><b>答案 B</b>——optimistic（乐观的）。</p><p>记忆锚点：态度题看结论句程度词；Although / might 是让步不是犹豫，从让步句找态度必落 A、D 的坑。</p>",
+  log:"结论：作者对扭转高速趋势持乐观态度，答案选 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-35 · 作者态度题：对扭转快决策趋势的看法",
+  subtitle: "考点：Text1 末段结论句 · 方法：立论 → 让步 → 结论，程度词定态度",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>optimistic</b>（乐观的）＝ 末段 <b>We still have the imaginative capacity to rise above temptation and reverse the high-speed trend</b>。记忆锚点：态度看结论句；<b>Although / might 是让步，不是犹豫</b>——A、D 都是从让步句里硬抠态度的坑。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：作者态度题——对"扭转快速决策趋势"怎么看</h2>
+<p>答案：<strong>B</strong>（optimistic，乐观的）。</p>
+<h3>第 0 步：先立机制——态度题找"证据链"，不找"感觉词"</h3>
+<p>态度题最容易凭印象乱猜。正确做法是把作者表达态度的<strong>证据链</strong>摆出来：他先说了什么（承认现实），再说了什么（给出能力判断），最后落在哪（结论句）。结论句里的<strong>程度词</strong>（still、can、might、although）才是态度的真正指纹。</p>
+<p>末段的结构：</p>
+<table><thead><tr><th>句子</th><th>角色</th><th>态度信号</th></tr></thead><tbody><tr><td>① pause 能力是人区别于动物之处</td><td>立论</td><td>人有这种能力</td></tr><tr><td>② 历史上我们约 12% 的时间在思考长远</td><td>例证</td><td>一直是我们的常态</td></tr><tr><td>③ Although technology might change the way we react, it hasn't changed our nature</td><td>让步</td><td>科技可能加速反应，但<strong>改变不了天性</strong></td></tr><tr><td>④ <strong>We still have the imaginative capacity</strong> to rise above temptation and reverse the high-speed trend</td><td>结论</td><td>still + 有能力 → 有信心</td></tr></tbody></table>
+<h3>第 1 步：定位结论句，锁定 B</h3>
+<p>题干关键词 reversing the high-speed trend 正落在末段④句：</p>
+<blockquote><strong>We still have the imaginative capacity to rise above temptation and reverse the high-speed trend.</strong>（我们仍有想象力去超越诱惑、扭转这种高速趋势。）</blockquote>
+<p><strong>still</strong>（仍然）＋ <strong>have the capacity</strong>（有能力）——作者对"扭转趋势"这件事给出的是肯定且带信心的判断 → <strong>乐观（optimistic）</strong>，选 <strong>B</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A tolerant</td><td>✗</td><td>让步句误读</td></tr><tr><td>C uncertain</td><td>✗</td><td>反向干扰</td></tr><tr><td>D doubtful</td><td>✗</td><td>反向干扰</td></tr></tbody></table>
+<ul><li><strong>误选 A——把"让步"当"容忍"</strong>：③句 Although technology <strong>might</strong> change…（科技或许会改变我们的反应方式）里虽有"可能、放任"的味道，但它是让步句，作用是衬托后半句"科技改变不了我们的天性"。让步是修辞动作，不是态度本身；"容忍"在原文没有任何落点。</li><li><strong>误选 C / D——把"肯定"读成"拿不准/怀疑"</strong>：④句 still have the capacity 是清晰的肯定判断，C（不确定）、D（怀疑）都把方向反了。尤其注意：虽然③句出现 might，但它修饰的是"科技改变反应方式"这个次要事实，<strong>不是</strong>作者对"扭转趋势"的判断——判断句在④句，且语气坚决。</li></ul>
+<blockquote>记忆锚点：态度题看结论句的程度词；still have the capacity = 有信心 → optimistic（B）；Although/might 是让步，不是犹豫，A、D 从让步句里找态度必错。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

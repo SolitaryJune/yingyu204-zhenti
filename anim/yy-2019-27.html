@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-27 · 2019 阅读 Text 2 第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · 细节题=定位句与选项的逐词对账", "cls": "key", "tag": "定位", "log": "carbon sinks 是路标不是考点；题眼在“需要做什么”", "count": 0, "ribbon": null, "body": "<p>题干：To maintain forests as valuable “carbon sinks,” we may need to ____.</p><p>carbon sinks（碳汇）只是<b>定位路标</b>——不认识它也能做题。题眼在“需要做什么”：到定位句里找 may require 后面的动作。</p>"}, {"title": "定位原文 · 第二段②句", "cls": "key", "tag": "证据", "log": "helping forests flourish as carbon sinks may require reducing capacity now", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Helping forests flourish as valuable “carbon sinks” long into the future may require reducing their capacity to absorb carbon now.</div><p>逐词对账：maintain...as valuable “carbon sinks” ↔ help forests flourish as valuable “carbon sinks”；we may need to ↔ may require；<b>reducing their capacity to absorb carbon now</b> 就是题干要的动作。</p>"}, {"title": "逐项分析 · A preserve the diversity of species in them", "cls": "bad", "tag": "排除 A", "log": "A preserve the diversity of species in them ✗ 排除——曲解：第三段的 young trees、brush（幼树、灌木）被加工成“生物多样性”；文意是“减少幼树和灌木数量”", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>曲解：第三段的 young trees、brush（幼树、灌木）被加工成“生物多样性”；文意是“减少幼树和灌木数量”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由“有两种植物”联想到“要保护多样性”——定位句之外的加工。</p>"}, {"title": "逐项分析 · B accelerate the growth of young trees", "cls": "bad", "tag": "排除 B", "log": "B accelerate the growth of young trees ✗ 排除——与第三段①句 thin out young trees（疏伐、使稀疏）相悖——疏伐是减量，不是加速生长", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>与第三段①句 thin out young trees（疏伐、使稀疏）相悖——疏伐是减量，不是加速生长。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由“剩余树长得更好”误推出“促进幼树生长”；直接动作是减数量。</p>"}, {"title": "逐项分析 · C strike a balance among different plants", "cls": "bad", "tag": "排除 C", "log": "C strike a balance among different plants ✗ 排除——同 A：由“幼树/灌木”两类植物臆造出“植物间平衡”；文中的 subtle balance 是“短期吸碳力 vs 长期吸碳力”的权衡，对象不是植物", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>同 A：由“幼树/灌木”两类植物臆造出“植物间平衡”；文中的 subtle balance 是“短期吸碳力 vs 长期吸碳力”的权衡，对象不是植物。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓到 balance 字样就安在植物头上。</p>"}, {"title": "逐项分析 · D lower their present carbon-absorbing capacity", "cls": "good", "tag": "选定 D", "log": "D lower their present carbon-absorbing capacity ✓ 当选——reduce（降低）→ lower；now（现在）→ present；capacity to absorb carbon → carbon-absorbing capacity——换词不换义的完全对应", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>reduce（降低）→ lower；now（现在）→ present；capacity to absorb carbon → carbon-absorbing capacity——换词不换义的完全对应。</p><p>对应关系：reducing their capacity to absorb carbon <b>now</b> ↔ lower their <b>present</b> carbon-absorbing capacity。</p>"}, {"title": "结论 · 换词不换义与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（lower their present carbon-absorbing capacity）——同义替换逐词对上", "count": 3, "ribbon": null, "body": "<p>答案选 <b>D（lower their present carbon-absorbing capacity 降低它们现有的吸碳能力）</b>。</p><p><b>记忆锚点</b>：may require reducing ... now ↔ may need to lower ... present——细节题的答案通常“换词不换义”；干扰项常来自<b>定位句之外</b>的段落（本题 A/B/C 全来自第三段）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>B</b>：把“疏伐幼树”脑补成“促进幼树成长”——thin out 是剪稀，剩余树受益不等于计划在“催生长”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 2 第 27 题 · 养护“碳汇”需要做什么（细节题）",
+  subtitle: "考点：事实细节题 · 定位句逐词对账 → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（lower their present carbon-absorbing capacity）", "html": "<b>D lower their present carbon-absorbing capacity（降低现有吸碳能力）</b>：reducing their capacity to absorb carbon now 的换词复现。<br>最易误选：<b>B</b>——thin out 是疏伐减量，不是加速生长。<br>记忆锚点：专业名词只当路标；干扰项常来自定位句之外的段落。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——专业名词 carbon sinks 不难，难在“逐词对上”</h2>
+<p>答案：<strong>D（lower their present carbon-absorbing capacity 降低现有的吸碳能力）</strong>。</p>
+<h3>第 0 步：先立机制——细节题=定位句与选项的逐词对账</h3>
+<blockquote>Helping forests flourish as valuable "carbon sinks" long into the future may require reducing their capacity to absorb carbon now.</blockquote>
+<p>carbon sinks（碳汇）只是<strong>定位路标</strong>——不认识它也能做题。题眼在“需要做什么”。题干与定位句逐词对应：</p>
+<table><thead><tr><th>题干</th><th>定位句</th></tr></thead><tbody><tr><td>maintain...as valuable "carbon sinks"</td><td>help forests flourish as valuable "carbon sinks"</td></tr><tr><td>we may need to</td><td>may require</td></tr><tr><td>____（现在做什么）</td><td>reducing their capacity to absorb carbon <strong>now</strong></td></tr></tbody></table>
+<h3>第 1 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A preserve the diversity of species</td><td>✗</td><td>曲解：第三段 young trees、brush 被加工成“生物多样性”，文意是“减少幼树和灌木数量”</td></tr><tr><td>B accelerate the growth of young trees</td><td>✗</td><td>与①句 thin out young trees（疏伐、使稀疏）相悖</td></tr><tr><td>C strike a balance among different plants</td><td>✗</td><td>同 A：由“幼树/灌木”两类植物臆造“植物间平衡”；subtle balance 的对象是短期/长期吸碳力</td></tr><tr><td>D lower their present carbon-absorbing capacity</td><td>✓</td><td>reduce → lower；now → present；capacity to absorb carbon → carbon-absorbing capacity</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>纠结 carbon sinks 词义</strong>：碳汇（吸收并储存碳的森林）只是定位路标，题眼在“需要做什么”——不认识它也能做题。</li><li><strong>误选 B</strong>：把“疏伐幼树”脑补成“促进幼树成长”。thin out 是<strong>剪稀</strong>，虽然剩余树长得更好，但计划的直接动作是“减少数量”。</li></ul>
+<blockquote>记忆锚点：may require reducing ... now ↔ may need to lower ... present——细节题的答案通常是“换词不换义”；干扰项常来自<strong>定位句之外</strong>的段落（本题 A/C/B 全来自第三段）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

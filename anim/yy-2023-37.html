@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-37 动画：研究推断题——定性句 + 新旧对比锁“新”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：研究题核对两层",
+  "body": "<p>题干：<b>It can be learned from Paragraph 2 that Crone’s study ____.</b>（从第二段可知，克罗恩的研究____。）</p><p>研究类推断题核对两层：<b>①句研究发现</b> + <b>②句研究定位</b>（A is sth 判断句，作者直接给研究定性）。③④句再用新旧对比把“新”坐实。</p>",
+  "log": "审题：研究发现（①句）+ 研究定位（②句）双层核对"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位①",
+  "count": 0,
+  "title": "①句：研究发现",
+  "body": "<div class=\"qq\"><b>①句：</b>A new study published in the journal Child Development, by Eveline Crone of the University of Leiden and colleagues, suggests that <b>the positive and negative sides of teenagers go hand in hand</b>. <span class=\"cn\">（克罗恩的新研究表明，青少年的积极面和消极面相伴随行。）</span></div>",
+  "log": "①句研究发现：积极面与消极面相伴随行"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位②③④",
+  "count": 0,
+  "title": "②句定性 + ③④新旧对比",
+  "body": "<div class=\"qq\"><b>②句：</b>The study is <b>part of a new wave of thinking about adolescence</b>. <span class=\"cn\">（这项研究属于青春期新思潮的一部分。）</span></div><div class=\"qq\"><b>③④句：</b>For a long time, ... teenagers were <b>a problem that needed to be solved</b>. The new work emphasizes that adolescence is <b>a time of opportunity as well as risk</b>. <span class=\"cn\">（旧观念：青少年是需要解决的问题；新研究：青春期是机遇与风险并存的时期。）</span></div>",
+  "log": "②句定性“新思潮”，③④对比坐实“新”"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 1,
+  "title": "锁定 C：对青春期的新见解",
+  "body": "<p><b>C · provides a new insight into adolescence</b> <span class=\"ok-dot\">✓</span></p><p><b>a new wave of thinking about adolescence</b> ↔ <b>a new insight into adolescence</b>：new wave of thinking ↔ new insight。②句定性 + ③④新旧对比双重依据，当选。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "log": "锁定 C：new wave of thinking = new insight"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 2,
+  "title": "排除 A：亲社会 ≠ 社会责任",
+  "body": "<p><b>A · explores teenagers’ social responsibilities</b> <span class=\"bad-dot\">✗</span></p><p>亲社会性（prosocial）≠ 社会责任：研究课题是“亲社会与叛逆两种<b>人格特征</b>”，不是“青少年该承担什么”。典型误解：看到 social 就联想到 responsibility。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "log": "排除 A：prosocial 嫁接成 social responsibility"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 3,
+  "title": "排除 B：张冠李戴 + 概念偷换",
+  "body": "<p><b>B · examines teenagers’ emotional problems</b> <span class=\"bad-dot\">✗</span></p><p>双重错位：强调“青少年是问题”的是③句的<b>传统观点</b>，不是新研究；且两面性指亲社会/叛逆两种<b>行为特质</b>，不是“情绪”。典型误解：张冠李戴 + 概念偷换。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "log": "排除 B：“问题”是传统观点的话，“情绪”是偷换"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "title": "排除 D：只取 risk 半句",
+  "body": "<p><b>D · highlights negative adolescent behavior</b> <span class=\"bad-dot\">✗</span></p><p>④句是 <b>opportunity as well as risk</b>——机遇与风险并列，只取 risk 半句即断章取义。典型误解：延续“青春期 = 叛逆”的刻板印象去读文章。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "log": "排除 D：断章取义只取风险半句"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（provides a new insight into adolescence）</b>——②句定性 + ③④对比共同指向“新”。</p><p>记忆锚点：研究题认准定性句 A is sth；new wave of thinking = new insight；For a long time vs The new work 是新旧分界。</p>",
+  "log": "结论：new wave of thinking 改写为 new insight，答案选 C"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-37 · 研究推断题：克罗恩的研究提供了什么",
+ "subtitle": "考点：Text 2 第二段 · 方法：研究发现 + 研究定位双层核对",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位原文 → 双层核对 → 逐项排除。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 C",
+  "html": "<b>The study is part of a new wave of thinking about adolescence</b> ↔ provides a new insight——定性句 + 新旧对比双重依据。记忆锚点：研究题认准 A is sth 定性句；For a long time（旧）vs The new work（新）是分界线。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 阅读 Text 2 第 37 题 · 克罗恩的研究提供了什么</h2>
+<p>答案：<strong>C（provides a new insight into adolescence 提供了对青春期的新见解）</strong>。</p>
+<h3>第 0 步：先立机制——研究类推断题 = "研究发现 + 研究定位"双层核对</h3>
+<p>问某项研究"怎么样"，要同时核对两层：研究发现了什么（①句），以及这项研究在学术版图上的位置（②句——它是新思潮的一部分）。②句是一个 A is sth 判断句，作者直接给出对研究的定性；③④句再用"新旧对比"把这个"新"坐实。判断句和对比句都是命题高发点。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>A new study published in the journal Child Development, by Eveline Crone of the University of Leiden and colleagues, suggests that the positive and negative sides of teenagers go hand in hand. The study is part of a new wave of thinking about adolescence. For a long time, scientists and policy makers concentrated on the idea that teenagers were a problem that needed to be solved. The new work emphasizes that adolescence is a time of opportunity as well as risk.</blockquote>
+<p>①句：研究发现——青少年的积极面与消极面相伴随行；②句：定性——这项研究是"青春期新思潮"的一部分；③④句：对比——旧观念（青少年是需要解决的问题）vs 新研究（青春期是机遇与风险并存的时期）。</p>
+<h3>第 2 步：同义替换对上 C</h3>
+<p>part of a new wave of thinking about adolescence ↔ provides a new insight into adolescence：new wave of thinking ↔ new insight，about adolescence ↔ into adolescence。再加上③④句"旧问题观 → 新机遇观"的对比，"新见解"有双重依据，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A explores teenagers' social responsibilities</td><td>✗</td><td>亲社会性（prosocial）≠ 社会责任：研究课题是"亲社会与叛逆两种人格特征"，不是"青少年该承担什么"。（典型误解：看到 social 就联想到 responsibility。）</td></tr><tr><td>B examines teenagers' emotional problems</td><td>✗</td><td>双重错位：强调"青少年是问题"的是③句的传统观点，不是新研究；且两面性指的是亲社会/叛逆两种行为特质，不是"情绪"。（典型误解：张冠李戴 + 概念偷换。）</td></tr><tr><td>C provides a new insight into adolescence</td><td>✓</td><td>new wave of thinking ↔ new insight；③④新旧对比再证"新"。</td></tr><tr><td>D highlights negative adolescent behavior</td><td>✗</td><td>④句是 opportunity as well as risk——机遇与风险并列，只取 risk 半句即断章取义。（典型误解：延续"青春期 = 叛逆"的刻板印象去读文章。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>研究"发现两面性并存"，为什么答案不是概括①句的选项？</strong>：四个选项里没有①句的准确改写；而②句判断句 + ③④对比共同指向"新"，C 是全场唯一与"新"对齐的选项。研究类题优先认"定性句"。</li><li><strong>For a long time 这个时间标志有什么用？</strong>：它标记旧观念，与 The new work 形成时态与语义的双重对照——新旧的分界线就是本题答案的分界线。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/D</strong>：都被"传统认知"带偏——传统才把青春期当问题和负面，新研究恰恰在纠正这个偏见。</li><li><strong>误选 A</strong>：把 prosocial 的"社会"嫁接到 responsibility 上。</li></ul>
+<blockquote>记忆锚点：研究题认准定性句 A is sth；new wave of thinking = new insight；For a long time vs The new work 是新旧分界。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

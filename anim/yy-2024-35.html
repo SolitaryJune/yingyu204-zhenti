@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-35</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>Dugan thinks that the solution to the problems of crashes may lie in ____</code>。观点题之\"建议类\"：去人物最后发言处找 <b>we need…</b> 型呼吁句；结构通常是\"先否定错误方案，再给真方案\"。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文·否定半段（末段①②③句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>As long as</b> there are other cars on the roads, <b>self-driving cars won't solve the problems of crashes</b>… Avoiding dangers posed by all those human drivers would require <b>too many algorithms</b>.</p><p>前半段先把\"自动驾驶\"方案毙掉：路上还有人开的车，自动驾驶就不可能终结车祸。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文·建议半段（末段④句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>But</b> we need to do more to improve safety… <b>If we're going to have 100-year lives, we need cars that a 90-year-old can drive comfortably.</b></p><p><b>But 是分界线</b>：转折后的 we need… 才是杜根的真方案。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ B",
+    "body": "<p>B 项 <code>developing senior-friendly cars</code>（开发老年人友好型汽车）↔ cars that <b>a 90-year-old can drive comfortably</b>——\"让 90 岁老人也能舒心驾驶的车\"就是\"老年友好型汽车\"，同义改写严丝合缝。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 A：被否定方案的\"复活\"",
+    "body": "<p>A 项 upgrading self-driving vehicles = self-driving cars + improve 两处碎片拼接。而原文恰恰说自动驾驶<b>解决不了</b>车祸（won't solve），方向完全相反。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C 与 D：无据臆断 / 断章取义",
+    "body": "<p>C 项 renovating transport facilities 从 do more to improve safety 臆断出\"维修交通设施\"——improve safety 是泛泛呼吁，\"交通设施\"无据可依。D 项 adjusting the age limit 抓住 a 90-year-old 断章取义——原文要造\"老人也能开的车\"，不是\"调年龄门槛\"。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>B（developing senior-friendly cars 开发老年人友好型汽车）</b>。口诀：<b>转折词后才是观点落点</b>；先被否定的方案常被做成干扰项。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 1 · 第 35 题：杜根认为解决车祸的办法在哪",
+  "subtitle": "考点：人物观点题（建议类）· 转折词后找方案",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 B",
+    "html": "记忆锚点：<b>But 后找建议</b>：①②③句否定自动驾驶（won't solve / too many algorithms），④句给方案（cars that a 90-year-old can drive comfortably ⇒ senior-friendly cars）。A 是\"被否定方案复活\"，C/D 碎片臆断。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 1 第 35 题 · 杜根认为解决车祸的办法在哪</h2>
+<p>答案：<strong>B（developing senior-friendly cars 开发老年人友好型汽车）</strong>。</p>
+<h3>第 0 步：先立机制——建议类观点题，转折词后才是方案</h3>
+<p>题干问 solution（解决办法）。人物给方案的典型结构是"先否定别人提的方案，再亮自己的"：转折词 <strong>But</strong> 把末段一分为二——But 之前是"此路不通"，之后才是"我认为该做什么"。读建议题的第一件事，就是找到这条分界线。</p>
+<h3>第 1 步：定位原文（否定半段）</h3>
+<blockquote><strong>As long as</strong> there are other cars on the roads, <strong>self-driving cars won't solve the problems of crashes</strong>... Avoiding dangers posed by all those human drivers would require <strong>too many algorithms</strong>.</blockquote>
+<p>杜根先否掉"自动驾驶"方案：只要路上还有人开车，自动驾驶就终结不了车祸；要规避所有人类驾驶者的风险，需要太多算法。</p>
+<h3>第 2 步：定位原文（建议半段）</h3>
+<blockquote><strong>But</strong> we need to do more to improve safety... "If we're going to have 100-year lives, <strong>we need cars that a 90-year-old can drive comfortably</strong>."</blockquote>
+<p>转折后的落点：需要"让 90 岁老人也能舒心驾驶的汽车"——这正是 answer：<strong>开发老年人友好型汽车（senior-friendly cars）</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A upgrading self-driving vehicles</td><td>✗</td><td>self-driving cars + improve 两处碎片拼接；原文恰恰说自动驾驶<strong>解决不了</strong>问题。（典型误解：见"要改善安全"就往"升级自动驾驶"上靠——方向反了。）</td></tr><tr><td>C renovating transport facilities</td><td>✗</td><td>从 do more to improve safety 臆断"维修交通设施"；improve safety 是泛泛呼吁，"交通设施"无据。（典型误解：把"多做点事"具体化成某个没有出现的对象。）</td></tr><tr><td>D adjusting the age limit for drivers</td><td>✗</td><td>抓住 a 90-year-old 断章取义——原文要造"老人也能开的车"，不是"调年龄门槛"。（典型误解：见年龄数字就配年龄政策。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 improve safety 不选 C？</strong>：动词短语"多做事提高安全"没有任何落地对象，选项却给出了"交通设施"这个具体载体——凭空补料即错。</li><li><strong>A 的"自相矛盾"在哪？</strong>：末段前三句的论证目标就是否定自动驾驶，把被否定的方案再包装成答案，是建议题最常见的反向干扰。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：被"自动驾驶"这个高频词吸引，漏读 won't solve 的否定。</li><li><strong>误选 D</strong>：只看数字 90-year-old，不看它修饰的是 cars 而非 limit。</li></ul>
+<blockquote>记忆锚点：But 之后才是观点落点；won't solve / too many algorithms 枪毙自动驾驶；cars that a 90-year-old can drive comfortably ⇒ senior-friendly cars；被否定的方案 = 最危险的干扰项。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

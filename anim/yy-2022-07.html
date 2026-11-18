@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-07 · 2022 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 7 所在句，考点：句内语义 + 动词词义辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("And today, even writers who are fairly well-known often have to do other work to __7__ their writing income.") +
+    "<p>空格动词的宾语是 their writing income（写作收入），逻辑主语是 do other work（干别的活）。</p>"
+ },
+ {
+  "title": "机制 · 目的句的因果方向",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：别的活产生的是别的收入——对写作收入只能“贴补”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>不定式 to ____ their writing income 表示「干别的活」的目的，逻辑必须自洽：写作之外的活动产生的是<b>别的收入</b>，它相对于「写作收入」只能处于辅助地位。</p>" +
+    "<p>干别的活是为了给不够用的写作收入「贴补」→ 空格词要表达「增补/补贴」。</p>"
+ },
+ {
+  "title": "证据 · 与上句的平行证据",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：earn a living ↔ supplement writing income",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("most bestselling authors began writing when they were doing other things to earn a living.") +
+    "<p>上句：做别的事来「谋生」（earn a living）——写作尚不能糊口。本句：干别的活来「贴补写作收入」——写作收入仍不够。</p>" +
+    "<p>两句同构：other work 都是写作的「经济外援」。上句 earn a living ↔ 本句 supplement their writing income 构成「谋生 ↔ 补贴」对应。</p>"
+ },
+ {
+  "title": "逐项分析 · A donate（捐赠）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A donate（捐赠） ✗ 排除——方向不对",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>「捐出写作收入」方向都不对：目的是补收入，不是把收入捐出去，全文也无捐赠语境。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只看动词能接 income，不看语义方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C supplement（增补；补充）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C supplement（增补；补充） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "C", "ok": true},
+  "body": "<p><b>当选。</b>干别的活补贴写作收入，与上句 earn a living 平行，经济逻辑自洽。代入读作「即便是相当知名的作家也往往不得不干点别的活儿来<b>贴补</b>他们的写作收入」。</p>"
+ },
+ {
+  "title": "逐项分析 · B generate（产生）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B generate（产生） ✗ 排除——因果错位",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>「干别的活来产生写作收入」因果错位——别的活产生的是别的收入，写作收入只能由写作产生。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只看动词能接 income，忽略逻辑主语是 other work。</p>"
+ },
+ {
+  "title": "逐项分析 · D calculate（计算）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D calculate（计算） ✗ 排除——搭配对但功能不对",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>calculate 与 income 搭配成立，但「算收入」不是「干别的活」的目的，全文无计算语境。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：把「搭配正确」当「语义正确」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（supplement 增补；补充）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>而且如今，即便是相当知名的作家也往往不得不干点别的活儿来贴补他们的写作收入。</b></p>" +
+    "<p>答案选 <b>C（supplement 增补；补充）</b>。</p>" +
+    "<p><b>记忆锚点</b>：other work 是「经济外援」→ supplement（贴补）writing income；generate 的主语只能是收入来源本身；donate / calculate 与语境无关。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>B（generate）</b>——只看动词能接 income，忽略逻辑主语是 other work。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 7 空 · 干别的活是为了____写作收入",
+  subtitle: "考点：句内语义 + 句间逻辑 · 因果方向 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（supplement）",
+    html: "<b>C supplement（增补；补充）</b>。<br>记忆锚点：other work 是「经济外援」→ supplement（贴补）writing income；generate 的主语只能是收入来源本身；donate / calculate 与语境无关。<br>最易误选：<b>B（generate）</b>——只看动词能接 income，忽略逻辑主语是 other work。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 7 空 · 干别的活是为了____写作收入——补贴，不是"产生"</h2>
+<p>答案：<strong>C（supplement 增补；补充）</strong>。</p>
+<h3>第 0 步：先立机制——目的句的逻辑方向由"谁产生谁"决定</h3>
+<p>空格句：even writers who are fairly well-known often have to do other work to __7__ their writing income。不定式 to ____ their writing income 表示"干别的活"的目的。目的句的逻辑必须自洽：写作之外的活动（other work）产生的是"别的收入"，它相对于"写作收入（writing income）"只能处于辅助地位——干别的活是为了给不够用的写作收入"贴补"。空格词要表达"增补/补贴"，supplement 正是"给主体额外补充"的意思。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And today, even writers who are fairly __6__ often have to do other work to __7__ their writing income.</blockquote>
+<p>空格动词的宾语是 their writing income，逻辑主语是 do other work。</p>
+<h3>第 2 步：找证据——与上句的平行证据</h3>
+<blockquote>most bestselling authors began writing when they were doing other things to earn a living.</blockquote>
+<p>上句：做别的事来"谋生"（earn a living）——写作尚不能糊口。本句：干别的活来"贴补写作收入"——写作收入仍不够。两句同构：other work 都是写作的"经济外援"。能表达"从外部补充"的是 supplement；上句的 earn a living 与本句 supplement their writing income 也构成"谋生 ↔ 补贴"的对应。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A donate</td><td>捐赠</td><td>✗</td><td>"捐出写作收入"方向都不对：目的是补收入，不是把收入捐出去，全文也无捐赠语境。</td></tr><tr><td>B generate</td><td>产生</td><td>✗</td><td>"干别的活来产生写作收入"因果错位——别的活产生的是别的收入，写作收入只能由写作产生。</td></tr><tr><td>C supplement</td><td>增补；补充</td><td>✓</td><td>干别的活补贴写作收入，与上句 earn a living 平行，经济逻辑自洽。</td></tr><tr><td>D calculate</td><td>计算</td><td>✗</td><td>calculate 与 income 搭配成立，但"算收入"不是"干别的活"的目的，全文无计算语境。（典型误解：搭配成立就选，不看语义功能。）</td></tr></tbody></table>
+<p>代入后的完整句义：而且如今，即便是相当知名的作家也往往不得不干点别的活儿来贴补他们的写作收入。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>generate 为什么不行？作家写作不就在 generate income 吗？</strong>：注意修饰语——空格动词的逻辑主语是 do other work，不是 writing。"干别的活 → 产生写作收入"在因果上是错的；supplement 才能表达"以别处收入补给写作收入"的流向。</li><li><strong>本题和第 6 题为什么放一起看？</strong>：两句共用一组平行结构（bestselling ↔ well-known；earn a living ↔ supplement their writing income），任何一空的不确定都会传导到另一空，两空互为印证。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（generate）</strong>：只看动词能接 income，忽略逻辑主语是 other work。</li><li><strong>误选 D（calculate）</strong>：把"搭配正确"当"语义正确"。</li></ul>
+<blockquote>记忆锚点：other work 是"经济外援" → supplement（贴补）writing income；generate 的主语只能是收入来源本身；donate / calculate 与语境无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

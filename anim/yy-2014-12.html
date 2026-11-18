@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-12 · 2014 完形第 12 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 12 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 12 空所在句，考点：上下文语义 + 动词 as 搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, many collegiate and professional football players <b>__12__</b> as obese, though their percentage body fat is low.</div><p>空格动词 + <b>as obese</b> 构成谓语，主语是 many collegiate and professional football players（许多大学和职业足球运动员），后接 though 让步从句：他们<b>体脂率其实很低</b>。句意方向：按 BMI 衡量，这些运动员“够得上”肥胖标准——要表达“被归类为/算作”，而不是职业起点或终点。</p>"
+ },
+ {
+  "title": "找证据 · 本句是“高 BMI 却 fit”的例证，though 反差靠“算作”成立",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上句论点“BMI 与体格错位”，本句 For example 举证——as 后接的是状态不是身份",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Some people with a high BMI are in fact extremely fit, while others with a low BMI may be in poor shape.</div><p>上句刚说 some people with a high BMI are in fact extremely fit——本句是 <b>For example</b> 引出的例证：球员 BMI 高（按标准算作肥胖）但体脂低（其实健壮）。空格动词要表达“按标准被算作”，才能与 though 的让步形成反差。另注意硬约束：<b>as 的宾语 obese 是形容词性状态</b>，不是职业身份。</p>"
+ },
+ {
+  "title": "逐项分析 · A start（开始）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A start（开始） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>start as 指“从……（职业/身份）做起”（start as a trainee），as 宾语必须是身份；“以肥胖状态做起”搭配断裂。</p><p style=\"color:#b91c1c\">⚠ 典型误解：start as 是常见搭配，忽略 as 宾语必须是“身份”。</p>"
+ },
+ {
+  "title": "逐项分析 · C retire（退休）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C retire（退休） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>retire as 指“以……身份退役”（retire as captain），同样要求身份宾语；“以肥胖身份退役”荒谬。</p><p style=\"color:#b91c1c\">⚠ 典型误解：与 start as 同型，误把状态词当身份词。</p>"
+ },
+ {
+  "title": "逐项分析 · D stay（保持）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D stay（保持） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>stay 后直接接形容词（stay healthy / stay obese），<b>不接 as</b>；本空位置强制 as，搭配直接断裂。</p><p style=\"color:#b91c1c\">⚠ 典型误解：stay obese 单看成立，漏看了 as 这个硬约束。</p>"
+ },
+ {
+  "title": "逐项分析 · B qualify（可算作是）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B qualify（可算作是） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>qualify as obese = 符合肥胖标准、被算作肥胖——按 BMI 的标准归类；有了“算作”，though“体脂其实很低”的让步反差才成立：尺子把他们量成了肥胖，尺子本身有问题。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（qualify 可算作）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>例如，许多大学和职业足球运动员按标准可算作肥胖，但他们的体脂率其实很低。</b></p><p>答案选 <b>B（qualify 可算作是）</b>。</p><p><b>记忆锚点</b>：__ as obese：身份词才能配 start/retire as；stay 不接 as；“够上标准” → qualify as。</p><p style=\"color:#b91c1c\">最易误选：<b>A（start）</b>——记搭配不查 as 宾语类型。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 12 空 · “players ______ as obese”该填哪个动词",
+  subtitle: "考点：上下文语义 + 动词 as 搭配 · 定句意方向 → 查 as 约束 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定句意方向 → 查 as 的硬约束 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（qualify）",
+ "html": "<b>B qualify（as）（可被认为是，可算作是）</b>。<br>记忆锚点：__ as obese——身份词才能配 start/retire as；stay 不接 as；“够上标准” → qualify as。<br>最易误选：<b>A（start）</b>——记搭配不查 as 宾语类型。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 12 空 · many football players ______ as obese——动词与 as 的搭配及句意</h2>
+<p>答案：<strong>B（qualify 可算作是）</strong>。</p>
+<h3>第 0 步：先立机制——两道闸门：先定句意方向，再查 as 的硬约束</h3>
+<p>本题有两道闸门。第一道是<strong>句意方向</strong>：though 让步从句说“体脂率其实很低”，说明主句必须表达“按 BMI 标准<strong>被算作</strong>肥胖”——反差才有意义。第二道是<strong>as 的约束</strong>：四个候选里 start as、retire as 要求 as 宾语是职业身份（a captain、a trainee），stay 干脆不接 as；而空格后是 obese——一个形容词性状态。两道闸门叠加，只有 qualify 通过。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For example, many collegiate and professional football players __12__ as obese, though their percentage body fat is low.</blockquote>
+<p>For example 表明本句是上句论点（高 BMI 未必 fit）的例证；though 表明主句与“体脂低”构成让步反差。</p>
+<h3>第 2 步：找证据——例证身份 + 让步反差，共同指向“被算作”</h3>
+<blockquote>Some people with a high BMI are in fact extremely fit, while others with a low BMI may be in poor shape.</blockquote>
+<p>论点：BMI 与真实体格可以错位。例证选了最有冲击力的一群人——职业球员：肌肉密度大、体重沉，BMI 直奔“肥胖”区间，体脂率却很低。要写出这种“被尺子冤枉”的效果，谓语必须是“够上标准/被算作”（qualify as），而非职业起止（start/retire）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A start</td><td>开始</td><td>✗ 排除</td><td>start as 指“从……（职业/身份）做起”（start as a trainee），as 宾语必须是身份；“以肥胖状态做起”搭配断裂。（典型误解：start as 是常见搭配，忽略 as 宾语必须是“身份”。）</td></tr><tr><td>B qualify</td><td>可算作是</td><td>✓ 当选</td><td>qualify as obese = 符合肥胖标准、被算作肥胖——按 BMI 的标准归类；有了“算作”，though“体脂其实很低”的让步反差才成立。</td></tr><tr><td>C retire</td><td>退休</td><td>✗ 排除</td><td>retire as 指“以……身份退役”（retire as captain），同样要求身份宾语；“以肥胖身份退役”荒谬。（典型误解：与 start as 同型，误把状态词当身份词。）</td></tr><tr><td>D stay</td><td>保持</td><td>✗ 排除</td><td>stay 后直接接形容词（stay healthy / stay obese），不接 as；本空位置强制 as，搭配直接断裂。（典型误解：stay obese 单看成立，漏看了 as 这个硬约束。）</td></tr></tbody></table>
+<p>代入后的完整句义：例如，许多大学和职业足球运动员按标准可算作肥胖，但他们的体脂率其实很低。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>qualify as 与 be classified as 差在哪？</strong>：qualify as 强调“满足条件从而够格被归入”（主动够格义），be classified as 强调“被归入”的动作。原文视角是“按 BMI 这把尺子量下来够上了肥胖线”，qualify as 更传神，也解释了为什么 though 体脂低——尺子本身有问题。</li><li><strong>为什么 start/retire 错得这么整齐？</strong>：它们共享“as + 身份”的语法约束：as 宾语是职业角色，而 obese 是形容词性状态。看见 as 就检查宾语类型，一次排除两个。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（start）</strong>：记搭配不查 as 宾语类型。</li><li><strong>误选 D（stay）</strong>：忽略 as 的强制存在，stay 不接 as。</li><li><strong>误选 C（retire）</strong>：与 start 同型的错误：把状态词当身份词。</li></ul>
+<blockquote>记忆锚点：<code>__</code> as obese：身份词才能配 start/retire as；stay 不接 as；“够上标准” → qualify as。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

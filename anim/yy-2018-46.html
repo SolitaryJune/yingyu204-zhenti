@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-46 · 2018 翻译难句拆解动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：长难句结构拆解——主干 / 修饰 / 从句分色框，逐句"拆→定→组"。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+// 原文引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 结构分色框：标签 + 颜色 + 内容
+function seg(label, color, bg, text){
+  return '<div style="display:flex;align-items:flex-start;gap:8px;margin:4px 0">' +
+    '<span style="flex:none;font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;color:#fff;background:' + color + '">' + label + '</span>' +
+    '<div style="flex:1;background:' + bg + ';border-left:3px solid ' + color + ';border-radius:0 8px 8px 0;padding:6px 10px;font-size:13px;line-height:1.75;color:#1e293b">' + text + '</div></div>';
+}
+function trunk(t){ return seg('主干', '#2563eb', '#eff6ff', t); }
+function mod(t){   return seg('修饰', '#d97706', '#fffbeb', t); }
+function cl(t){    return seg('从句', '#059669', '#ecfdf5', t); }
+function out(t){   return seg('译文', '#7c3aed', '#f5f3ff', t); }
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ { title: "审句 · 全篇 9 句，考点落在哪",
+  cls: "key",
+  tag: "审句",
+  log: "审句：全篇 9 句两大段（童年 → 如今），失分点集中在四类",
+  count: 0,
+  body: "<p>语篇两层：<b>第一段“童年”</b>——家庭作业引出男孩对“读书与职业道路”的理解；<b>第二段“如今”</b>——That boy 揭示身份（比尔盖茨），Nowadays / recently 今昔对比。失分点集中在四类：</p>" +
+        "<p>① 系表 + 宾语从句（is convinced）；② so...that 结果链；③ not even after 内含<b>让步</b>；④ 熟词僻义（institute / title / avenue）。</p>" +
+        "<p>策略：拆（找谓语定主干）→ 定（僻义靠语境定音）→ 组（从句在中文里找对位置）。</p>"
+ },
+ { title: "难句① 拆主干：be convinced 当动词用",
+  cls: "key",
+  tag: "难句①拆",
+  log: "难句①拆主干：be convinced 是系表心理状态 = 及物动词短语，that 从句整体作宾语",
+  count: 0,
+  body: quote("The boy is convinced that if he reads enough, he can explore as many career paths as he likes.") +
+        trunk("The boy is convinced") +
+        cl("that if he reads enough, he can explore as many career paths as he likes") +
+        "<p><b>be convinced 不是“被说服”的被动</b>：系动词 + convinced / sure / afraid 这类心理形容词 = 一个及物动词短语，后面 that 从句作它的宾语——“这个男孩相信……”。译成被动，从句就无处安放。</p>"
+ },
+ { title: "难句① 从句内部：条件层与比较层",
+  cls: "step",
+  tag: "难句①从句",
+  log: "从句内部两层：if 译“只要”（充分条件）；as many as he likes 补全 to explore",
+  count: 0,
+  body: mod("if he reads enough → <b>只要</b>他读得够多（if 本译“如果”，但“读书多 → 能探索道路”是坚信的充分条件，译“只要”才与 is convinced 的笃定配套）") +
+        mod("as many career paths as he likes → 补全为 as many (career paths) as he likes (to explore)：想探索多少职业道路就可以探索多少") +
+        "<p style=\"color:#b91c1c\">⚠ 逐字硬搬“和他喜欢的职业道路一样多”——中文不成话；比较结构必须补出被省略的动词。</p>"
+ },
+ { title: "难句① 组装译文",
+  cls: "good",
+  tag: "难句①落定",
+  log: "难句①落定：信念句译文完整落笔",
+  count: 1,
+  body: out("这个男孩子相信，只要他读得够多，那么他想探索多少职业道路都可以。") +
+        "<p>得分点：is convinced 当动词译“相信”；if → <b>只要</b>；as many as he likes 补全为“想……多少就可以多少”。</p>"
+ },
+ { title: "难句② 拆结构：so...that 结果链",
+  cls: "key",
+  tag: "难句②拆",
+  log: "难句②拆结构：so...that 结果状语从句，结果反过来证明程度",
+  count: 1,
+  body: quote("He reads so passionately that his parents have to institute a \"no reading policy\" at the dinner table.") +
+        trunk("He reads so passionately") +
+        cl("that his parents have to institute a \"no reading policy\" at the dinner table") +
+        "<p>结果（父母立规矩）反过来证明程度（读书痴迷）——<b>“以至于”必须落出来</b>，这是本句的结构得分眼。</p>"
+ },
+ { title: "难句② 熟词僻义三连定音",
+  cls: "step",
+  tag: "难句②定音",
+  log: "定音三连：institute=制定；policy→规矩；at the dinner table→吃饭时",
+  count: 1,
+  body: mod("institute：熟义名词“学院” → 此处是<b>动词</b>“制定、实行”——由“读书太狂热 → 父母出手遏制”定方向") +
+        mod("policy：语境是家庭生活，“政策”落一档为<b>规矩</b>") +
+        mod("at the dinner table：字面两义“餐桌旁 / 就餐”，由“不许看书的规矩”推定取就餐义 → <b>吃饭时</b>；passionately 由“连吃饭都看”上提为“如饥似渴地”") +
+        "<p style=\"color:#b91c1c\">⚠ 译“学院”“在餐桌旁立政策”，都是没走语境定音这一步。</p>"
+ },
+ { title: "难句② 组装译文",
+  cls: "good",
+  tag: "难句②落定",
+  log: "难句②落定：痴迷句译文完整落笔",
+  count: 2,
+  body: out("他如饥似渴地读书，以至于他的父母不得不立下一条吃饭时“不许看书的规矩”。") +
+        "<p>得分点：“以至于”结果链；institute a policy = <b>立下规矩</b>；吃饭时（取就餐义）。</p>"
+ },
+ { title: "难句③ 拆主干：并列 + 回指",
+  cls: "key",
+  tag: "难句③拆",
+  log: "难句③拆主干：That boy 回指第一段男孩；完成时锁死“延续至今”",
+  count: 2,
+  body: quote("That boy was Bill Gates, and he hasn't stopped reading yet – not even after becoming one of the most successful people on the planet.") +
+        trunk("That boy was Bill Gates") +
+        trunk("and he hasn't stopped reading yet") +
+        mod("– not even after becoming one of the most successful people on the planet") +
+        "<p><b>That boy 回指第一段的 the boy</b>——第二段句①是全篇接榫，指代接不上两段就散；hasn't stopped reading yet 用现在完成时把“幼时的习惯延续至今”锁死。</p>"
+ },
+ { title: "难句③ not even after：让步 + 省略",
+  cls: "step",
+  tag: "难句③让步",
+  log: "even 是信号词 → after 取让步义；破折号后 not 复现前文否定，省略不译",
+  count: 2,
+  body: mod("after 可表纯时间 / 因果 / <b>让步</b>三种关系，取哪种看信号词：<b>even = 强调出乎意料</b>（功成名就后本可以不读，竟还在读）→ 取让步义：“即便 / 甚至在成为……之后”") +
+        mod("破折号后的 not 是前文 hasn't 否定的<b>复现</b>，其后省略 stopped reading——前半句已完整表达，补齐反而累赘 → <b>省略不译</b>") +
+        "<p style=\"color:#b91c1c\">⚠ 只译时间“在……之后没停止”丢掉 even 的出乎意料，让步语气就塌了。</p>"
+ },
+ { title: "难句③ 组装译文",
+  cls: "good",
+  tag: "难句③落定",
+  log: "难句③落定：过渡句译文完整落笔",
+  count: 3,
+  body: out("那个男孩就是比尔盖茨，他没有停止阅读，甚至在他成为这个星球上最成功的人士之一后，仍旧没有停下来。") +
+        "<p>得分点：That boy 回指落“那个男孩就是”；完成时落“没有停止阅读……仍旧没有停下来”；after 取让步义 + not 省略不译。</p>"
+ },
+ { title: "难句④ 冒号补去向 + title 定音",
+  cls: "step",
+  tag: "难句④拆",
+  log: "难句④：has changed from 冒号补去向；title 定音“作品”；because 套“……，是因为……”",
+  count: 3,
+  body: quote("Nowadays, his reading material has changed from science fiction and reference books: recently, he revealed that he reads at least 50 nonfiction books a year.") +
+        trunk("his reading material has changed from science fiction and reference books") +
+        mod("英文只说“从……变了”，<b>去向由冒号后补出</b> → 中文接通：“已经不再是科幻小说和工具书了”；at least 的强调要留住（复现“痴迷”）") +
+        quote("Gates chooses nonfiction titles because they explain how the world works.") +
+        mod("title：熟义“标题” → 此处指“(书刊的)一种、一本” → <b>作品</b>；because 强调选择理由 → 套汉语习惯“<b>……，是因为……</b>”；how the world works 是 explain 的宾语从句：“世界是如何运作的”")
+ },
+ { title: "难句④ 组装译文",
+  cls: "good",
+  tag: "难句④落定",
+  log: "难句④落定：转向句两句译文完整落笔",
+  count: 4,
+  body: out("现在，他的阅读材料已经不再是科幻小说和工具书了：最近据他所说，他一年内至少读了50本非科幻小说。比尔盖茨选择非科幻小说类书籍，是因为这类书籍解释了世界是如何运作的。“每本书都开辟了新的知识探索渠道。”盖茨说。") +
+        "<p>得分点：冒号补去向；title = 作品；“……，是因为……”；avenue（大街 → 途径）落“知识探索渠道”。</p>"
+ },
+ { title: "结论 · 其余各句顺手落准 + 记忆锚点",
+  cls: "good",
+  tag: "结论",
+  log: "结论：四组难句全部落定，其余各句按“定语前置 / 回指 / 同位补充”处理",
+  count: 4,
+  body: "<p>其余各句不设陷阱但要求落准：句① to select... 不定式<b>后置定语前置</b>——“一份要求从职业列表中选择将来职业道路的家庭作业”；句② it 回指 scientist、as well 的“也”；句④ everything from... to... 表范围——“什么都看”收口。</p>" +
+        "<p style=\"color:#b91c1c\">最易失分：<b>institute 译“学院”、title 译“标题”、not even after 只译时间</b>——三处都是跳过了“语境定音”这一步。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'key' ? 'shift' : 'step')),
+    tag: s.tag, log: s.log, count: s.count,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 翻译 · 比尔盖茨的阅读人生：难句四连拆",
+  subtitle: "考点：系表+宾语从句 · so...that 结果链 · after 让步 · 熟词僻义（institute / title / avenue）",
+  counterLabel: '已落定难句组',
+  intro: '点击「▶ 播放」逐步展开“拆主干 → 定音 → 组装译文”的难句拆解链。蓝色为主干、琥珀为修饰与定音、绿色为从句、紫色为译文。',
+  snaps: snaps,
+  result: {
+    big: "四组难句全部落定",
+    html: "<b>记忆锚点</b>：is convinced + that 从句 = 相信（系表当动词用）；if 充分条件译<b>只要</b>；as many as he likes 补出“想……多少就可以多少”；institute a policy = <b>立下规矩</b>；title = 作品；avenue = 途径；not even after = <b>即便……之后也没有</b>（让步）；changed from... 冒号补去向；强调理由套“……，是因为……”。<br>最易失分：institute 译“学院”、title 译“标题”、破折号 not 补译——都是跳过“语境定音 / 省略不译”的结果。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 翻译——比尔盖茨的阅读人生：两处熟词僻义定音 + 四类从句装得下才译得出</h2>
+<p>答案（参考译文）：<strong>一个五年级学生拿到一份家庭作业，要求从一份职业列表中选择将来的职业道路。他勾选了“宇航员”，但很快在表上添加了“科学家”，并将它也选上。这个男孩子相信，只要他读得够多，那么他想探索多少职业道路都可以。于是，他就这样读书——从百科全书到科幻小说，什么都看。他如饥似渴地读书，以至于他的父母不得不立下一条吃饭时“不许看书的规矩”。那个男孩就是比尔盖茨，他没有停止阅读，甚至在他成为这个星球上最成功的人士之一后，仍旧没有停下来。现在，他的阅读材料已经不再是科幻小说和工具书了：最近据他所说，他一年内至少读了50本非科幻小说。比尔盖茨选择非科幻小说类书籍，是因为这类书籍解释了世界是如何运作的。“每本书都开辟了新的知识探索渠道。”盖茨说。</strong></p>
+<h3>第 0 步：先立机制——拆、定、组：本篇考什么</h3>
+<p>英语二翻译是一段小语篇：全篇 9 句，句子结构总体简单，失分点集中在三类——<strong>从句装换</strong>（宾语从句、条件、比较、结果、原因五种从句要在中文里各找对位置）、<strong>熟词僻义定音</strong>（institute、title、avenue）、<strong>逻辑关系保真</strong>（after 内含的让步、破折号内的省略）。动笔前先立“拆—定—组”三步：</p>
+<table><thead><tr><th>动作</th><th>干什么</th><th>本篇的落点</th></tr></thead><tbody><tr><td>拆</td><td>找谓语定主干，从句、修饰各自归位</td><td>is convinced + that 宾语从句；so...that 结果状语；not even after 让步</td></tr><tr><td>定</td><td>熟词僻义靠语境定音，不逐字硬搬</td><td>institute（制定→立下规矩）、title（标题→作品）、avenue（大街→途径）</td></tr><tr><td>组</td><td>条件译“只要”、理由套“是因为”、省略不译</td><td>if he reads enough；Gates chooses... because...；破折号 not</td></tr></tbody></table>
+<p>语篇分两层：第一段“童年”——一份家庭作业引出男孩对“读书与职业道路”的理解，so...that 收尾；第二段“如今”——That boy 揭示身份（比尔盖茨），Nowadays / recently 今昔对比，阅读从科幻转向非虚构。指代链必须接住：<strong>That boy 回指第一段的 the boy</strong>——第二段句①是全篇的接榫，译断它两段就散了。</p>
+<h3>第 1 步：句③——信念句：is convinced 当动词用 + 两层从句各归各位</h3>
+<p><code>The boy is convinced that if he reads enough, he can explore as many career paths as he likes.</code></p>
+<ul><li><strong>be convinced 不是“被说服”的被动</strong>，而是系表结构的心理状态：系动词 + convinced/sure/afraid 这类心理形容词 = 一个及物动词短语，后面的 that 从句整体作它的宾语——“这个男孩相信……”，从句说明相信的内容；</li><li>从句内部第一层 <strong>if he reads enough</strong>：if 本译“如果”，但“读书多 → 能探索职业道路”是男孩坚信的充分条件，译<strong>“只要”</strong>才贴合力度——“如果”偏假设、“只要”偏笃定，与 is convinced 的坚信语气配套；</li><li>第二层 <strong>as many career paths as he likes</strong>：比较结构补全后是 as many (career paths) as he likes (to explore)——“想要探索多少职业道路就可以探索多少”；逐字硬搬“和他喜欢的职业道路一样多”，中文立刻不成话。</li></ul>
+<p>组装：<strong>这个男孩子相信，只要他读得够多，那么他想探索多少职业道路都可以。</strong></p>
+<h3>第 2 步：句⑤——痴迷句：so...that 结果链 + institute 定音</h3>
+<p><code>He reads so passionately that his parents have to institute a “no reading policy” at the dinner table.</code></p>
+<ul><li><strong>so...that 是结果状语从句</strong>：结果（父母立规矩）反过来证明程度（读书痴迷）——“以至于”必须落出来，这是本句的结构得分眼；</li><li><strong>institute 是本篇第一处定音</strong>：熟义名词“学院”，此处是<strong>动词</strong>“制定、实行”。路径：先从动宾搭配“……政策”锁定方向在“制定/废除”之间，再由前文 he reads so passionately（读书太狂热）推定父母是要<strong>遏制</strong>狂热势头——取“制定”；</li><li>policy 不硬译“政策”：语境是家庭生活，落“规矩”才贴场景；at the dinner table 两个字面义“在餐桌旁/就餐”，由“不许看书的规矩”推定取就餐义——“吃饭时”；passionately 熟义“热情地”，由下文“连吃饭都看”上提为“如饥似渴地”。</li></ul>
+<p>组装：<strong>他如饥似渴地读书，以至于他的父母不得不立下一条吃饭时“不许看书的规矩”。</strong></p>
+<h3>第 3 步：句Ⅱ①——过渡句：not even after 内含让步</h3>
+<p><code>That boy was Bill Gates, and he hasn't stopped reading yet – not even after becoming one of the most successful people on the planet.</code></p>
+<ul><li>That boy 回指第一段的男孩——“那个男孩就是比尔盖茨”；hasn't stopped reading yet 用现在完成时把“幼时的习惯延续至今”锁死；</li><li>本句真正的难点在破折号后：<strong>after 不只是“之后”</strong>。它可表纯时间（午饭后动身）、可表因果（获奖后一夜成名）、也可表让步（尽管我们劝阻他仍坚持要去）。取哪种全看信号词——<strong>even 的词义就是强调“出乎意料”</strong>：功成名就之后本可以不读了，他竟然还在读，主句与 after 结构之间是让步关系，故落成“甚至/即便在他成为……人士之一后，仍旧没有停下来”；</li><li>破折号后的 <strong>not 是前文 hasn't 否定的复现</strong>，其后省略 stopped reading——前半句已完整表达“没有停止阅读”，补齐反而累赘，<strong>省略不译</strong>。</li></ul>
+<p>组装：<strong>那个男孩就是比尔盖茨，他没有停止阅读，甚至在他成为这个星球上最成功的人士之一后，仍旧没有停下来。</strong></p>
+<h3>第 4 步：句Ⅱ②③——转向句：冒号补去向 + title 定音 + “是因为”</h3>
+<p><code>Nowadays, his reading material has changed from science fiction and reference books: recently, he revealed that he reads at least 50 nonfiction books a year.</code></p>
+<ul><li>has changed from...：英文只说“从……变了”，<strong>去向由冒号后补出</strong>——中文把前后接通：“他的阅读材料已经不再是科幻小说和工具书了”（reference books 不取“参考书”而落“工具书”）；</li><li>at least 50 nonfiction books a year：“一年内至少读了 50 本”——at least 的强调要留住，它复现“痴迷”；参考译文把 nonfiction 处理为“非科幻小说”，严格说 nonfiction 是“非虚构类作品”，考场两者皆可，口径跟参考答案走即可。</li></ul>
+<p><code>Gates chooses nonfiction titles because they explain how the world works.</code></p>
+<ul><li><strong>title 是本篇第二处定音</strong>：熟义“标题”，此处指“(书刊的)一种、一本”，落“作品”——译“选择非虚构标题”整句露馅；</li><li>because 的因果不必句句“因为”：本句强调选择的理由，套汉语习惯的“……，是因为……”更强调——“比尔盖茨选择非科幻小说类书籍，是因为这类书籍解释了世界是如何运作的”；</li><li>how the world works 是 explain 的宾语从句：“世界是如何运作的”——works 是“运转、运作”，不是“工作”。</li></ul>
+<h3>第 5 步：其余各句——顺手但要落准</h3>
+<ul><li>句① to select his future career path from a list of occupations 是不定式作后置定语修饰 assignment：“一份要求从职业列表中选择将来职业道路的家庭作业”——中文定语必须压到名词前；</li><li>句② ticks 勾选、adds “scientist” to the list 在表上添加、selects it as well 将它也选上——it 回指 scientist，as well 的“也”要落；</li><li>句④ everything from encyclopedias to science fiction novels 是 reads 的同位补充：from...to... 表范围，“从百科全书到科幻小说，什么都看”收口；</li><li>句⑥ avenue 熟义“大街”，此处“途径、渠道”——opens up new avenues of knowledge to explore：“开辟了新的知识探索渠道”（to explore 后置定语前移进“探索”）。</li></ul>
+<h3>易错点：每处失分对应哪种误解</h3>
+<ul><li><strong>is convinced 译被动</strong>：“这个男孩被说服”——be convinced 是系表心理状态，that 从句是它的宾语；译被动则从句无处安放。</li><li><strong>if 译“如果”</strong>：丢掉充分条件的笃定语气，与 is convinced 的“坚信”不配套——本题口径是“只要”。</li><li><strong>as many as he likes 不补全</strong>：“和他喜欢的职业道路一样多”不是中文——补出 to explore 后落“想探索多少……就可以探索多少”。</li><li><strong>institute 译“学院”或漏译</strong>：institute 此处是动词“制定”；policy 在家庭语境再落一档为“规矩”。</li><li><strong>title 译“标题”</strong>：“选择非虚构标题”——title 此处指“(书刊的)一种”，即“作品”。</li><li><strong>not even after 只译时间</strong>：“在成为最成功人士之后也没有停止”丢掉 even 的出乎意料——这里藏着让步：“即便成为……之后”。</li><li><strong>破折号 not 补译</strong>：后半句再补一遍“没有停止读书”——not 复现前文否定，已译过就省略不译。</li><li><strong>has changed from 只译一半</strong>：“阅读材料从科幻小说变了”——去向在冒号后，中文要接通“已经不再是科幻小说和工具书了”。</li><li><strong>at the dinner table 死译“在餐桌旁”</strong>：由“不许看书的规矩”推定取就餐义——“吃饭时”。</li></ul>
+<blockquote>记忆锚点：is convinced + that 从句 = 相信（系表当动词用）；if 充分条件译<strong>只要</strong>；as many as he likes 补出“想……多少就可以多少”；institute a policy = 立下规矩；title = 作品；avenue = 途径；not even after = 即便……之后也没有（让步）；changed from... 冒号补去向；强调理由套“……，是因为……”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

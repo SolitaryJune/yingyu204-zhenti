@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-10 · 2014 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 10 空所在句（并列分句）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 10 空所在句，考点：句内逻辑关系（连接词）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Some people with a high BMI are in fact extremely fit, <b>__10__</b> others with a low BMI may be in poor <b>__11__</b>.</div><p>空格连接两个并列分句。前分句：<b>Some people with a high BMI are in fact extremely fit</b>——BMI 高的人反而体格极好；后分句：<b>others with a low BMI may be in poor shape</b>——BMI 低的人反而可能身材不佳（shape 第 11 空填出后句意才完整，建议先做第 11 空）。两句主语互补（some / others），内容一正一反。</p>"
+ },
+ {
+  "title": "找证据 · 两分句共同展开“体重 ≠ 体脂”的论点",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上句“肥胖关乎体脂而非体重”——本句用两组事实并置对照强化反差",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Obesity is probably less a matter of weight than body fat.</div><p>上句亮出论点：<b>Obesity is probably less a matter of weight than body fat</b>（肥胖关乎体脂多于体重）。本句正是论点的展开：BMI（体重指标）与真实体格可以错位——两组事实一正一反并置，**对照关系**最能强化反差；因果、条件在这里都无从谈起。</p>"
+ },
+ {
+  "title": "逐项分析 · A so（因此（表结果））",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A so（因此（表结果）） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“高 BMI 者很 fit”推不出“低 BMI 者身材差”——前者不是后者的原因，两句是并列事实。</p><p style=\"color:#b91c1c\">⚠ 典型误解：some...others 结构见多了，习惯性找因果串联。</p>"
+ },
+ {
+  "title": "逐项分析 · C since（因为，既然（表原因））",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C since（因为，既然（表原因）） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表原因时同样立不住：两句无因果链条，取“自从”的时间义也毫无着落。</p><p style=\"color:#b91c1c\">⚠ 典型误解：since 引导原因状语从句是高频语法点，见到就往因果上靠。</p>"
+ },
+ {
+  "title": "逐项分析 · D unless（除非（表条件））",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D unless（除非（表条件）） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>unless 表“如果不”的假设条件；两句都是对现实的陈述，不存在任何假设情境。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没抓 some/others 的对照结构，把句子读成了条件假设。</p>"
+ },
+ {
+  "title": "逐项分析 · B while（然而，而（表对比））",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B while（然而，而（表对比）） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>while 取对比义“然而/而”：把“高 BMI 却 fit”与“低 BMI 却 poor shape”并置，反差立现——正是论点需要的对照。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（while 然而）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>有些 BMI 高的人实际上体格极好，而另一些 BMI 低的人却可能身材不佳。</b></p><p>答案选 <b>B（while 然而，而（表对比））</b>。</p><p><b>记忆锚点</b>：some...others 两分句一正一反 → while（对比）；so/since 要因果、unless 要假设，三者都缺语境。</p><p style=\"color:#b91c1c\">最易误选：<b>A（so）</b>——强行给并列事实造因果。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 10 空 · “Some... fit, ______ others...”的连接词",
+  subtitle: "考点：句内逻辑关系 · 提炼两分句 → 判关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“提炼两分句 → 判逻辑关系 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（while）",
+ "html": "<b>B while（然而，而，表对比）</b>。<br>记忆锚点：some...others 两分句一正一反 → while（对比）；so/since 要因果、unless 要假设，三者都缺语境。<br>最易误选：<b>A（so）</b>——强行给并列事实造因果。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 10 空 · Some... extremely fit, ______ others... in poor shape——分句之间什么关系</h2>
+<p>答案：<strong>B（while 然而，而（表对比））</strong>。</p>
+<h3>第 0 步：先立机制——连接词题：先提炼两个分句的核心信息，再判关系</h3>
+<p>前分句：BMI 高的人体格极好（high BMI → fit）；后分句：BMI 低的人身材不佳（low BMI → poor shape）。主语 some / others 互补，内容一正一反——这是<strong>对照</strong>关系：把两组“指标与实际不符”的事实并排摆出来，反差越大，越能说明“BMI 这把尺子不可靠”。因果、条件在结构上都不成立。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Some people with a high BMI are in fact extremely fit, __10__ others with a low BMI may be in poor __11__.</blockquote>
+<p>空格处于两个逗号隔开的并列分句之间，只承担“关系词”职能——它不改变任何分句的内部语义，只决定读者该用哪种关系去读后句。</p>
+<h3>第 2 步：找证据——论点句先行，本句是论点的对照式展开</h3>
+<blockquote>Obesity is probably less a matter of weight than body fat.</blockquote>
+<p>论点句说“肥胖关乎体脂多于体重”。要论证“体重指标（BMI）不可靠”，最有力的写法就是给出两极反例：高 BMI 却健壮、低 BMI 却身材差——两组事实并置，不加因果、不设条件。while 的对比义恰好承担这种并置。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A so</td><td>因此（表结果）</td><td>✗ 排除</td><td>“高 BMI 者很 fit”推不出“低 BMI 者身材差”——前者不是后者的原因，两句是并列事实。（典型误解：some...others 结构见多了，习惯性找因果串联。）</td></tr><tr><td>B while</td><td>然而，而（表对比）</td><td>✓ 当选</td><td>while 取对比义“然而/而”：把“高 BMI 却 fit”与“低 BMI 却 poor shape”并置，反差立现——正是论点需要的对照。</td></tr><tr><td>C since</td><td>因为，既然（表原因）</td><td>✗ 排除</td><td>表原因时同样立不住：两句无因果链条，取“自从”的时间义也毫无着落。（典型误解：since 引导原因状语从句是高频语法点，见到就往因果上靠。）</td></tr><tr><td>D unless</td><td>除非（表条件）</td><td>✗ 排除</td><td>unless 表“如果不”的假设条件；两句都是对现实的陈述，不存在任何假设情境。（典型误解：没抓 some/others 的对照结构，把句子读成了条件假设。）</td></tr></tbody></table>
+<p>代入后的完整句义：有些 BMI 高的人实际上体格极好，而另一些 BMI 低的人却可能身材不佳。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>while 既可表“当……时”又可表“虽然”，这里是哪个？</strong>：都不是：这里取对比义“然而/而”。判据是两句结构完全对称（some / others），语义一正一反；让步义（= although）需要“主句意外于从句”的单向依附，此处是平级并置，不满足。</li><li><strong>为什么建议放在第 11 空之后做？</strong>：后分句的表语 in poor shape 没确定时，后分句语义不完整，“对比”关系无从谈起。先实词后虚词——与第 3 空先做第 4 空是同一原则。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（so）</strong>：强行给并列事实造因果。</li><li><strong>误选 C（since）</strong>：把并列事实读成因果论证。</li><li><strong>误选 D（unless）</strong>：忽略 some/others 的对称对照结构，误造假设条件。</li></ul>
+<blockquote>记忆锚点：some...others 两分句一正一反 → while（对比）；so/since 要因果、unless 要假设，三者都缺语境。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

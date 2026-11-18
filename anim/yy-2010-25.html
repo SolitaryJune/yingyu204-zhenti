@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·25 阅读 · 标题题的主线覆盖</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：标题题', cls: 'key',
+    body: '<p>题干 <b>the most appropriate title</b>。机制：把各段功能串成一条线，标题必须<b>覆盖这条线</b>，而不是某一段的细节。</p>',
+    log: '标题 = 全文主线的一句话版本' },
+  { title: '主线梳理：① ② 段', cls: 'key',
+    body: src('“The longest bull run in a century of art-market history <b>ended</b> on a dramatic note... The world art market had already been <b>losing momentum</b> for a while...”') +
+      '<p>① 牛市终结（引出话题）→ ② 衰退早有前兆：涨势趋缓、市值从 650 亿缩至 500 亿。</p>',
+    log: '① ② 段：终结 + 前兆' },
+  { title: '主线梳理：③ 段', cls: 'key',
+    body: src('“...spending of any sort became deeply unfashionable... Sales of contemporary art <b>fell by two-thirds</b>... down by nearly 90%...”') +
+      '<p>③ 危机冲击：消费低迷、销售额大跌、拍卖行赔付保证金——衰退全面显形。</p>',
+    log: '③ 段：危机冲击' },
+  { title: '主线梳理：④ ⑤ 段', cls: 'key',
+    body: src('“...prices are about <b>40% down on their peak</b> on average... not a lack of demand but a lack of good work to sell... waiting for confidence to return.”') +
+      '<p>④ ⑤ 现状评估：跌 40%、号称触底、仍有买家但卖家观望——衰退后的盘整。</p>',
+    log: '④ ⑤ 段：现状评估' },
+  { title: '主线浮出：衰退', cls: 'good',
+    body: '<p>五段全挂在"<b>艺术品市场由盛转衰</b>"一个轴上：引子、前兆、冲击、评估。<b>Art Market in Decline</b> 恰是这条主线的命名。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 覆盖五段主线' },
+  { title: 'A：以偏概全', cls: 'bad',
+    body: '<p>"艺术品<b>价格</b>波动"——价格数据只在第四段，且为"市场下滑"主题服务；标题若只覆盖一段，就是细节不是主线。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 只覆盖第四段' },
+  { title: 'B：曲解 unfashionable', cls: 'bad',
+    body: '<p>"<b>最新</b>艺术品拍卖"——第三段 unfashionable 说的是"消费变得不合时宜"，不是在办"最新拍卖"；B 概念凭空。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 曲解修辞句' },
+  { title: 'D：兴趣没转移', cls: 'bad',
+    body: '<p>"对艺术的兴趣转移"——末段说"缺好作品 + 观望"：兴趣没变，变的是出手意愿；"兴趣转移"属主观臆断。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 给结论补假设' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（Art Market in Decline）</b>。记忆锚点：<b>标题题三查</b>——查覆盖（贯穿全文还是一段）、查对象（衰退的主体是 market 不是 prices）、查添加（文中不存在的概念）。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 25 · 标题题的主线覆盖',
+  subtitle: 'Text 1（艺术品市场）· 考点：全文主旨/标题概括',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（Art Market in Decline）',
+    html: '记忆锚点：<b>标题必须覆盖五段主线</b>——牛市终结 → 前兆 → 危机冲击 → 现状评估，全部挂在"市场衰退"一个轴上。A 以偏概全（只覆盖价格段）、B 曲解 unfashionable、D 兴趣转移无据。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：标题题——全文主线是"衰退"，不是某段的数据</h2>
+<p>答案：<strong>C（Art Market in Decline）</strong>。</p>
+<h3>第一步：先立机制——标题 = 主线的一句话版本</h3>
+<p>标题题的机制：把各段功能串成一条线，标题必须<strong>覆盖这条线</strong>，而不是其中一段的细节。本文五段功能：① 牛市在一场破纪录拍卖后终结（引出话题）→ ② 衰退早有前兆（涨势趋缓、市值缩水）→ ③ 危机冲击、消费低迷 → ④⑤ 现状评估（跌 40%、已触底、仍有买家观望）。</p>
+<h3>第二步：主线浮出</h3>
+<p>五段都挂在"艺术品市场由盛转衰"这一个轴上——引子、前兆、冲击、评估，全是"衰退"的不同侧面。Art Market in Decline 恰是这条主线的命名。</p>
+<h3>第三步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A Fluctuation of Art Prices（艺术品价格波动）</td><td>✗</td><td>以偏概全：价格数据（40%、波动更大）只在第四段出现，为"市场下滑"主题服务</td></tr><tr><td>B Up-to-date Art Auctions（最新艺术品拍卖）</td><td>✗</td><td>曲解：第三段 unfashionable 说的是"消费不合时宜"，不是在办"最新拍卖"专栏</td></tr><tr><td>C Art Market in Decline（艺术品市场在衰退）</td><td>✓</td><td>覆盖五段主线：终结 → 前兆 → 冲击 → 评估</td></tr><tr><td>D Shifted Interest in Arts（对艺术的兴趣转移）</td><td>✗</td><td>主观臆断：末段说"缺好作品 + 观望"，不是人们的兴趣变了</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：被第四段 40%、far more fluctuant 的具体数字吸引。判断标准：标题若只覆盖一段，就是细节不是主线——例子和数据是为主题服务的。</li><li><strong>选 D</strong>：把 lack of good work to sell 引申成"兴趣转移"。原文没有"兴趣变化"的信息，这是给结论补假设；人们的兴趣没变，变的是出手的意愿。</li></ul>
+<blockquote>记忆锚点：标题题三查——查覆盖（贯穿全文还是一段）、查对象（衰退的主体是 market 不是 prices）、查添加（有没有文中不存在的概念）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

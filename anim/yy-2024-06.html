@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-06 · 2024 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 6 所在句，考点：句间逻辑 + 插入语",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Anyone can feel lonely at any time. This might be especially true if, __6__, you are working from home and you are missing out on the usual social conversations that happen in an office.</div><p>空格为第 6 空，待填一词。考点：<b>句间逻辑 + 插入语</b>；方法主线：概述 → 例证，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 先辨逻辑关系，再贴标签",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先辨逻辑关系，再贴标签",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格被两个逗号夹在 if 从句中间，是<b>插入语</b>——它不参与句子结构，唯一任务是给上下文的逻辑关系「贴标签」。先判断关系：上句 Anyone can feel lonely at any time 是全称概括；本句以 This might be especially true if...（This 指代上句）摆出一个具体情形：居家办公。从「任何情形」到「居家办公这一种情形」，正是<b>概述 → 例证</b>关系。空格词就是给「举例」这个动作起名字。</p>"
+ },
+ {
+  "title": "证据 · This 指代 + 具体情形入列",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：This 指代 + 具体情形入列",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>This 复指上句的「任何人任何时候都可能孤独」；随后 if 从句给出的「居家办公」只是诸多情形中的一种——句意重心是「尤其会在这种情形下成立」，即<b>举一个最典型的例子</b>，而非转折、补充或下结论。</p>"
+ },
+ {
+  "title": "逐项分析 · A in fact（事实上；确切地说）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A in fact（事实上；确切地说） ✗ 排除——把 in fact 当万能强调词",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>两种用法都对不上：既不是「实际情况与上文相反」的转折强调，也不是对上文的细节补充；「居家办公」藏在从句里，不是一条相对独立的信息。</p><p style='color:#b91c1c'>⚠ 典型误解：把 in fact 当万能强调词——in fact 的两种义项（转折强调 / 补充确切说法）都要求前后是两段独立信息，本句不满足。</p>"
+ },
+ {
+  "title": "逐项分析 · B of course（当然；自然）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B of course（当然；自然） ✗ 排除——用常识替代上下文逻辑",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>利用「居家办公容易孤独」的惯常思维设障；插进 if 从句后语感变成「当然，如果居家办公的话必然孤独」——把影响绝对化，违背常理。</p><p style='color:#b91c1c'>⚠ 典型误解：用常识替代上下文逻辑——插入语题只认逻辑关系；「当然」把一种情形说成必然，超出了原文的语气。</p>"
+ },
+ {
+  "title": "逐项分析 · C for example（例如；譬如）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C for example（例如；譬如） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>专司举例：恰能引出「容易感到孤独的典型情形」，契合第四、五句「概述—例证」的逻辑。</p>"
+ },
+ {
+  "title": "逐项分析 · D on average（平均来看；大体上）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D on average（平均来看；大体上） ✗ 排除——把「总体而言」混入「举例」",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>用于对频次或统计下结论（On average, women live five to seven years longer than men.）；句中是具体情形的列举，不是统计口径。</p><p style='color:#b91c1c'>⚠ 典型误解：把「总体而言」混入「举例」——on average 收束的是数字与频次；这里只有一个具体情景，没有统计对象。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（for example 例如；譬如）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>任何人都可能在任何时候感到孤独——尤其当你（比如）居家办公、错过了办公室里惯常的社交闲聊时。</b></p><p>答案选 <b>C（for example 例如；譬如）</b>。</p><p><b>记忆锚点</b>：逗号插入语 = 逻辑标签；全称概括（Anyone...at any time）+ 摆出一种情形 = 举例 → for example。</p><p style='color:#b91c1c'>最易误选：<b>B（of course）</b>——常识脑补「居家办公当然孤独」；插入语题只认上下文逻辑关系，不认常识。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 6 空 · This might be especially true if, ____, you are working from home…",
+  subtitle: "考点：句间逻辑 + 插入语 · 概述 → 例证 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（for example）",
+    html: "<b>C for example（例如；譬如）</b>。<br>完整句义：任何人都可能在任何时候感到孤独——尤其当你（比如）居家办公、错过了办公室里惯常的社交闲聊时。<br>记忆锚点：逗号插入语 = 逻辑标签；全称概括（Anyone...at any time）+ 摆出一种情形 = 举例 → for example。<br>最易误选：<b>B（of course）</b>——常识脑补「居家办公当然孤独」；插入语题只认上下文逻辑关系，不认常识。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 6 空 · 句间逻辑 + 插入语</h2>
+<p>答案：<strong>C（for example 例如；譬如）</strong>。</p>
+<h3>第 0 步：先立机制——插入语题：先辨逻辑关系，再贴标签</h3>
+<p>空格被两个逗号夹在 if 从句中间，是<strong>插入语</strong>——它不参与句子结构，唯一任务是给上下文的逻辑关系「贴标签」。先判断关系：上句 Anyone can feel lonely at any time 是全称概括；本句以 This might be especially true if...（This 指代上句）摆出一个具体情形：居家办公。从「任何情形」到「居家办公这一种情形」，正是<strong>概述 → 例证</strong>关系。空格词就是给「举例」这个动作起名字。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Anyone can feel lonely at any time. This might be especially true if, __6__, you are working from home and you are missing out on the usual social conversations that happen in an office.</blockquote>
+<p>This 复指上句的「任何人任何时候都可能孤独」；随后 if 从句给出的「居家办公」只是诸多情形中的一种——句意重心是「尤其会在这种情形下成立」，即<strong>举一个最典型的例子</strong>，而非转折、补充或下结论。</p>
+<h3>第 2 步：语义对号：谁专司「举前文一例」</h3>
+<p>for example 专司「解释或举例说明前文所述」——恰能引出「容易感到孤独的典型情形之一：居家办公」，把第四、五句的「概述—例证」结构标注清楚。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A in fact</td><td>事实上；确切地说</td><td>✗ 排除</td><td>两种用法都对不上：既不是「实际情况与上文相反」的转折强调，也不是对上文的细节补充；「居家办公」藏在从句里，不是一条相对独立的信息。</td></tr><tr><td>B of course</td><td>当然；自然</td><td>✗ 排除</td><td>利用「居家办公容易孤独」的惯常思维设障；插进 if 从句后语感变成「当然，如果居家办公的话必然孤独」——把影响绝对化，违背常理。</td></tr><tr><td>C for example</td><td>例如；譬如</td><td>✓ 当选</td><td>专司举例：恰能引出「容易感到孤独的典型情形」，契合第四、五句「概述—例证」的逻辑。</td></tr><tr><td>D on average</td><td>平均来看；大体上</td><td>✗ 排除</td><td>用于对频次或统计下结论（On average, women live five to seven years longer than men.）；句中是具体情形的列举，不是统计口径。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把 in fact 当万能强调词 → 误选 A（in fact）</strong>：in fact 的两种义项（转折强调 / 补充确切说法）都要求前后是两段独立信息，本句不满足。</li><li><strong>用常识替代上下文逻辑 → 误选 B（of course）</strong>：插入语题只认逻辑关系；「当然」把一种情形说成必然，超出了原文的语气。</li><li><strong>把「总体而言」混入「举例」 → 误选 D（on average）</strong>：on average 收束的是数字与频次；这里只有一个具体情景，没有统计对象。</li></ul>
+<blockquote>记忆锚点：逗号插入语 = 逻辑标签；全称概括（Anyone...at any time）+ 摆出一种情形 = 举例 → for example。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

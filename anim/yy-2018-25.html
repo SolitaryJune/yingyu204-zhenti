@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-25 · 2018 Text1 第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 末段定音句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：末段 a wake-up call，考点：作者态度（对象隔离 + 评价串链）",
+  "body": quote("Koziatek's school is <b>a wake-up call</b>. When education becomes <b>one-size-fits-all</b>, it risks overlooking a nation's diversity of gifts.") + "<p>态度题的机制是<b>对象隔离</b>：全文两类事物——新事物（Koziatek 的学校）与旧事物（一刀切的学历教育），作者对两者态度相反：贬旧、扬新。</p><p>只认“主语是学校或 Koziatek”的句子计入态度链。</p>"
+ },
+ {
+  "title": "串评价链 · 五环全褒",
+  "cls": "key",
+  "tag": "串链",
+  "count": 0,
+  "ribbon": null,
+  "log": "串链：pioneering → learning in everything → 批偏见同侧 → trying to fill that gap → a wake-up call",
+  "body": "<p><b>第 2 段</b>：part of something <b>pioneering</b>（开创性）——褒。</p><p><b>第 3 段</b>：<b>There is learning in just about everything</b>（装自行车也能学几何）——褒。</p><p><b>第 4 段</b>：他发现的偏见是 <b>insidious</b>——作者与学校同侧批偏见——褒。</p><p><b>第 7 段</b>：is trying to <b>fill that gap</b>（填补岗位缺口）——褒。</p><p><b>第 8 段</b>：is <b>a wake-up call</b>——褒。五环全褒，无一转折。</p>"
+ },
+ {
+  "title": "逐项分析 · A supportive（支持的）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A supportive ✓ 当选——评价链方向统一全褒，无一处转折",
+  "body": "<p><b>当选。</b>pioneering → trying to fill that gap → a wake-up call，五环评价方向一致。</p><p>批旧即扬新：末句批判 one-size-fits-all 的旧体制，与对学校的褒扬互为表里。supportive 与全文一致。</p>"
+ },
+ {
+  "title": "逐项分析 · B tolerant（容忍的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——把“贬旧 + 扬新”混合色彩平均化成“总体可接受”",
+  "body": "<p><b>排除。</b>文中确实有褒有贬——但贬义词条条指向<b>传统教育</b>（mechanical、forcing、misses an important point）。</p><p>把对旧事物的评判和对学校的论述<b>糅杂</b>在一起，才会误判成“有肯定有批驳、总体容忍”。</p><p style='color:#b91c1c'>⚠ 典型误解：没做对象隔离，色彩平均化。</p>"
+ },
+ {
+  "title": "逐项分析 · C disappointed（失望的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C ✗ 排除——对象错位：mechanical / forcing 等贬义词的主语是“传统教育”",
+  "body": "<p><b>排除。</b>mechanical memorization、forcing students、misses an important point 这些贬义表述的<b>主语</b>都是当前的传统教育/一刀切做法。</p><p>把它们错挂到“Koziatek 学校”头上，就得出“失望”——先问“这句话的主语是谁”。</p>"
+ },
+ {
+  "title": "逐项分析 · D cautious（谨慎的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——曲解开篇 justify 与文末 it risks：前者鸣不平，后者批旧体制",
+  "body": "<p><b>排除。</b>开篇 It is curious that... he <b>has to justify</b> 是替 Koziatek <b>鸣不平</b>：明明正当的努力却仿佛要辩解——不是作者存疑。</p><p>文末 it risks overlooking 的主语是一刀切的教育——批的是<b>旧体制</b>。两处都不构成“对该模式有所保留”。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（supportive）——对象隔离后评价链全褒：批旧即扬新",
+  "body": "<p>完整逻辑：<b>这所学校开创、有用、在补缺口、是一记警钟——作者对它自始至终是支持。</b></p><p>答案选 <b>A（supportive）</b>。</p><p><b>记忆锚点</b>：态度题 = <b>对象隔离 + 评价串链</b>；主语是“学校”的句子才计入；批旧即扬新；开篇 curious 是鸣不平，不是存疑。</p><p style='color:#b91c1c'>⚠ 最易误选 C（disappointed）：贬义词出现在文中 ≠ 贬义指向本题对象。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text1 第 25 题 · 作者对 Koziatek 学校的态度：supportive / tolerant / disappointed / cautious",
+  subtitle: "考点：作者态度（对象隔离 + 评价串链） · 定位 → 串链 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 五环评价链 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（supportive）", "html": "<b>A supportive</b>：pioneering → learning in everything → fill that gap → a wake-up call，五环全褒。<br>记忆锚点：态度题 = 对象隔离 + 评价串链；批旧即扬新；curious 开篇是鸣不平。<br>最易误选：<b>C disappointed</b>——把对“传统教育”的贬义词错挂到学校头上。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text1 第 25 题 · 作者对 Koziatek 学校的态度</h2>
+<p>答案：<strong>A（supportive）</strong>。</p>
+<h3>第 0 步：先立机制——态度题要区分"评价谁"和"用什么词"</h3>
+<p>作者态度题的底层机制是<strong>对象隔离</strong>：全文会出现两类事物——新事物（Koziatek 的学校）和旧事物（传统学历教育/一刀切的教育）。作者对两者态度相反：贬旧、扬新。解题动作不是找一个词定调，而是<strong>把全文对"Koziatek 学校"的直接评价串成链</strong>，检查每环的方向是否一致。串链时只认"主语是学校或 Koziatek"的句子，主语是"当前教育/accepted wisdom"的一律归到另一边。这条纪律能防住本题所有干扰项——它们几乎全是把"作者对旧事物的贬义词"错挂到"学校"头上，或者把"学校面对质疑"误读成"作者对学校存疑"。</p>
+<h3>第 1 步：串全文评价链（主语 = Koziatek / 学校）</h3>
+<table><thead><tr><th>位置</th><th>原文</th><th>方向</th></tr></thead><tbody><tr><td>第 2 段</td><td>Mr. Koziatek is part of something <strong>pioneering</strong></td><td>褒（开创性）</td></tr><tr><td>第 3 段</td><td><strong>There is learning in just about everything</strong>（处处皆学问，装自行车也能学几何）</td><td>褒</td></tr><tr><td>第 4 段</td><td>他发现的是 <strong>insidious prejudice</strong>——作者与学校同侧去批偏见</td><td>褒（学校是受害者/斗士）</td></tr><tr><td>第 7 段</td><td>Koziatek's school is <strong>trying to fill that gap</strong>（正在填补工人岗位缺口）</td><td>褒（解决问题）</td></tr><tr><td>第 8 段</td><td>Koziatek's school is <strong>a wake-up call</strong>（一记警钟，令人清醒）</td><td>褒（警示价值高）</td></tr></tbody></table>
+<p>五环全褒，没有一处转折——链路方向统一，态度锁定"支持"。</p>
+<h3>第 2 步：定位原文（末段定音）</h3>
+<blockquote>Koziatek's school is <strong>a wake-up call</strong>. When education becomes <strong>one-size-fits-all</strong>, it risks overlooking a nation's diversity of gifts.</blockquote>
+<p>末句主语是 one-size-fits-all 的教育（= 当前学历至上的一刀切），<code>risks overlooking</code>（冒着忽视天赋多样性的风险）批判的箭头指向<strong>旧体制</strong>——这与对学校的褒扬互为表里：批旧即扬新。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A supportive</td><td>支持的</td><td>✓ 当选</td><td>五环评价链全褒：pioneering → trying to fill that gap → a wake-up call，方向统一、无转折。</td></tr><tr><td>B tolerant</td><td>容忍的</td><td>✗ 排除</td><td>误把"文中有褒有贬"当"总体可接受"——其实贬义词条条指向<strong>传统教育</strong>，与对学校的评价混在一起就误判成"容忍"。</td></tr><tr><td>C disappointed</td><td>失望的</td><td>✗ 排除</td><td>把 mechanical、forcing、misses an important point 等<strong>对传统教育</strong>的贬义词错挂到学校头上——对象错位。</td></tr><tr><td>D cautious</td><td>谨慎的</td><td>✗ 排除</td><td>曲解开篇 has to justify（他*似乎*不得不为自己的努力辩护——作者替他鸣不平）与文末 it risks（批判的是一刀切教育）——误读成"作者对该模式有所保留"。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>开篇 It is curious that... he has to justify 是不是质疑学校？</strong>：不是——这句话是替 Koziatek 鸣不平：给学生的努力明明正当，却仿佛需要辩解。它解释的是"为什么这所学校值得写"，而不是"作者持保留态度"。</li><li><strong>态度题的正确项为什么这么"平"？</strong>：态度词（supportive 等）只表方向与强度；考研阅读的态度正确项多为中性偏温和的明确方向词，极端词（indifferent / hostile）几乎必错，"支持"与全文一致即选。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（disappointed）</strong>：贬义词出现在文中 ≠ 贬义指向本题对象——先问"这句话的主语是谁"。</li><li><strong>误选 B（tolerant）</strong>：把"批旧 + 扬新"的混合色彩平均化，误判成"可接受但有限度"。</li></ul>
+<blockquote>记忆锚点：态度题 = <strong>对象隔离 + 评价串链</strong>；主语是"学校"的句子才计入；批旧即扬新；开篇 curious 是鸣不平，不是存疑。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

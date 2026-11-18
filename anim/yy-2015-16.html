@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-16 · 2015 考研英语（二）完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 16 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 16 所在句，考点：名词语境义 + 交通工具场景", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the commuters thought their __16__ would be more pleasant if they sat on their own,” The New York Times summarizes.</div><p>空格是 their 后的<b>名词</b>，指“通勤者拥有的那段什么”，且要在“独自坐着的假设下”变得 more pleasant——能“坐着、更愉悦或更难受”的，只能是一段行程。</p>"}, {"title": "机制 · 场景三维锁定：人物 + 交通工具 + 动作", "cls": "key", "tag": "证据", "log": "机制：train commuters + train + sat on their own——三个坐标圈定 ride", "count": 0, "ribbon": null, "body": "<p>三个场景坐标同时锁定空格：</p><p>1. <b>人物</b>：their 指 commuters（通勤者）；</p><p>2. <b>交通工具</b>：前文写明 train（火车）、train station；</p><p>3. <b>动作</b>：sat on their own（独自坐在座位上）——有座可坐，必是乘车。</p><p>所以空格是“<b>乘车出行</b>”这个可数名词：ride。</p>"}, {"title": "逐项分析 · A voyage（航行）", "cls": "bad", "tag": "排除 A", "log": "A voyage ✗ 排除——航行的专属场景是船；且带长程水上语域", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>voyage 指“航行”，专属交通工具是船（海上、长程）；火车场景装不下它。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“通勤出行”泛化成“长途出行”。</p>"}, {"title": "逐项分析 · B flight（飞行）", "cls": "bad", "tag": "排除 B", "log": "B flight ✗ 排除——飞行的专属场景是飞机；前文写的是 train", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>flight（飞行、航班）对应飞机；本实验的交通工具已写明是 train，flight 与坐标冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“通勤”泛化成“出行”，忽略交通工具已锁定火车。</p>"}, {"title": "逐项分析 · C walk（步行）", "cls": "bad", "tag": "排除 C", "log": "C walk ✗ 排除——sat on their own 直接排除“步行”：步行者无座可坐", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>walk（步行）与 sat on their own（独自坐在座位上）直接矛盾——步行者没有座位可坐，也谈不上 train commuters。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略 sat on their own 这个动作坐标。</p>"}, {"title": "逐项分析 · D ride（乘坐；（乘车的）一段行程）", "cls": "good", "tag": "选定 D", "log": "D ride ✓ 当选——their ride = 他们这一程；train/bus/car 的专属行程词", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>ride（乘车出行）正是 train/bus/car 场景的专属行程名词：their ride = 他们这一程；火车 + 有座可坐，坐标全中。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（ride 乘坐；一段行程）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>通勤者认为，如果独自坐着，他们的这一程会更愉快。</b></p><p>答案选 <b>D（ride）</b>。</p><p><b>记忆锚点</b>：行程名词跟交通工具走——train/bus/car → ride，plane → flight，ship → voyage；sat on their own 一票定音。</p><p style=\"color:#b91c1c\">最易误选：<b>B（flight）</b>——把“通勤”泛化成“出行”，忘了交通工具是火车。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 16 空 · “这一程”叫什么——行程名词跟交通工具走",
+  subtitle: "考点：名词语境义 + 交通工具场景 · 三维坐标锁定 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（ride 乘坐；一段行程）", "html": "<b>D ride</b>——their ride“他们这一程”：train commuters + train + sat on their own 三坐标全中。<br>记忆锚点：行程名词跟交通工具走——train/bus/car → ride，plane → flight，ship → voyage。<br>最易误选：<b>B（flight）</b>——交通工具已锁定火车，不是飞机。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 16 空 · “行程”名词跟着交通工具走</h2>
+<p>答案：<strong>D（ride）</strong>。</p>
+<h3>第 0 步：先立机制——空格名词被场景“三维锁定”</h3>
+<p><code>the commuters thought their __16__ would be more pleasant if they sat on their own</code>：空格受 their（= commuters 的）限定，指“通勤者拥有的那段行程”。三个坐标同时锁定它：(1) <strong>人物</strong> = train commuters（火车通勤者）；(2) <strong>交通工具</strong> = train（前文写明）；(3) <strong>动作</strong> = sat on their own（独自坐在座位上——有座可坐，必是乘车）。所以空格是“<strong>乘车出行</strong>”这个可数名词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"When Dr. Epley and Ms. Schroeder asked other people in the same train station to __15__ predict how they would feel after talking to a stranger, the commuters thought their __16__ would be more pleasant if they sat on their own," The New York Times summarizes.</blockquote>
+<p>本空是纯词汇题，但选项全靠场景筛：四个“出行”名词各有专属交通工具，场景坐标一票定音。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>专属交通工具</th><th>判定</th></tr></thead><tbody><tr><td>A voyage</td><td>航行</td><td>船（且带长程水上语域）</td><td>✗ 排除</td></tr><tr><td>B flight</td><td>飞行，航班</td><td>飞机</td><td>✗ 排除</td></tr><tr><td>C walk</td><td>步行</td><td>双腿（与 sat 矛盾）</td><td>✗ 排除</td></tr><tr><td>D ride</td><td>乘坐；一段行程</td><td>火车/公交/汽车</td><td>✓ 当选</td></tr></tbody></table>
+<p>代入后的完整句义：通勤者认为，如果独自坐着，他们的这一程会更愉快。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>flight 不也表示“行程”吗？</strong>：表示行程没问题，问题是交通工具坐标：前文两处（train commuters、train station）已把场景钉死在火车；flight 的专属场景是飞机，坐错交通工具了。</li><li><strong>walk 为什么直接出局？</strong>：sat on their own（独自坐在座位上）与步行正面矛盾——步行者无座可坐。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（flight）</strong>：把“通勤出行”泛化，忘了交通工具是火车——最常见错法。</li><li><strong>误选 A（voyage）</strong>：语域（长程、水上）双重不合。</li><li><strong>误选 C（walk）</strong>：动作坐标（sat）没看见。</li></ul>
+<blockquote>记忆锚点：行程名词跟交通工具走——train/bus/car → ride，plane → flight，ship → voyage；sat on their own 一票定音。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

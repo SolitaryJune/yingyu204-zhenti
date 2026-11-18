@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-12 · 2016 完形第 12 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 12 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段④句，考点：熟词僻意 + even 让步逻辑",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The link between happiness and investment generally <b>__12__</b> even after accounting for these things.</div><p>结构：The link ... generally __ even after...（即便在考虑了这些因素之后，幸福与投资的关联仍然普遍____）。本空动词的主语是 <b>link（关联）</b>——关联能“做”什么？候选只有：成立、消失、中断、显现……方向由 even 定。</p>"
+ },
+ {
+  "title": "找证据 · even 让步 + ③句列出的被控因素",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：even 让步语气→排除干扰后关联“依然成立”；these things=③句的因素与指标",
+  "body": "<p><b>even</b> 是让步信号：退一步说——即便把“城市因素”“宜居指标”都考虑进去，先前发现的那层关联（第四段①句 correlated）<b>依然没有被推翻</b>。所以空格方向是“维持原状、继续成立”。</p><p><b>hold 熟词僻意</b>：continue to be true/valid，“（论点、关系）成立、有效”；generally hold = 普遍成立。</p>"
+ },
+ {
+  "title": "逐项分析 · C held（继续成立）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C held（继续成立）✓ 当选——generally hold 普遍成立（熟词僻意）",
+  "body": "<p><b>当选。</b>The link ... generally <b>held</b> even after accounting for these things——“即便考虑了这些因素，幸福与投资的关联依然普遍成立”。held 取熟词僻意“继续适用、有效”，与 even 的让步方向严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · A resumed（重新开始）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A resumed（重新开始）✗ 排除——前提是先中断，关联从未中断",
+  "body": "<p><b>排除。</b>resume 表示“中断之后继续”：填入即暗示关联曾经中断过。但①句发现关联、③④句控制变量，全程关联都在，不存在中断。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 resume 的“继续”当万能词，没检查它的“先中断”前提。</p>"
+ },
+ {
+  "title": "逐项分析 · B emerged（显现）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B emerged（显现）✗ 排除——“此时才初次出现”与前文已发现矛盾",
+  "body": "<p><b>排除。</b>emerge 是“（新事物）浮现、显现”：填入即“考虑其他因素后关联才初次出现”——但关联早在本段①句就被发现了，控制变量只是复核，不是首演。</p><p style=\"color:#b91c1c\">⚠ 典型误解：认为“排除干扰后结论才成立”，忽略关联早已建立。</p>"
+ },
+ {
+  "title": "逐项分析 · D broke（失效）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D broke（打破）✗ 排除——反向干扰，与 even 语气和全文观点相反",
+  "body": "<p><b>排除。</b>broke 是<b>反向</b>动词：“关联就此失效”。这与 even 的让步预期（本该动摇却没动摇）和全文反复重申的“幸福与投资相关”完全相悖。</p>"
+ },
+ {
+  "title": "结论 · 让步链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（held 继续成立）——让步链见结论卡",
+  "body": "<p>让步链：<b>even 让步 → 关联未被动摇 → generally held（依然普遍成立）。</b></p><p>答案选 <b>C（held：hold 的熟词僻意“继续适用/有效”）</b>。</p><p><b>记忆锚点</b>：The link/argument holds = 关联/论点成立；even after... 之后的动词只能是“维持成立”方向；resumed 要先中断、emerged 要初次、broke 是反向。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 12 空 · even 之后：这层关联普遍____",
+  subtitle: "考点：熟词僻意 + 让步逻辑（even）+ 关系动词辨析",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → even 定方向 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（held）", "html": "<b>C held（继续成立）</b>——hold 熟词僻意：continue to be true/valid。<br>记忆锚点：even after... 让步 → 动词取“维持成立”方向；generally hold = 普遍成立；resumed 需先中断、emerged 需初次显现、broke 反向。<br>最易误选：<b>B（emerged）</b>——把“排除干扰后的复核”误当成“关联初次显现”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 12 空 · even 之后：这层关联普遍____</h2>
+<p>答案：<strong>C（held：hold 熟词僻意“继续适用/有效”）</strong>。</p>
+<h3>第 0 步：先立机制——主语是 link，方向由 even 定</h3>
+<p>本空动词的主语是 the link（幸福与投资的关联）：关联能“做”的动作只有“成立、消失、中断、显现”这一类，本题实际考<strong>方向</strong>。even 是让步信号：退一步——即便考虑了所有干扰因素，先前那层关联的命运如何？让步句式的预期答案永远是“<strong>没被动摇</strong>”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The link between happiness and investment generally __12__ even after accounting for these things.</blockquote>
+<p>these things 回指③句控制的各种因素与宜居指标。</p>
+<h3>第 2 步：找证据——关联早已建立，控制变量只是复核</h3>
+<p>本段①句已发现 correlated；③句控制变量；④句给出复核结果。关联全程存在：既没中断（排除 resumed），也非此刻初次出现（排除 emerged）。<strong>hold 的熟词僻意</strong>正中靶心：continue to be true, good, available——“继续成立、有效”；generally hold = 普遍成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A resumed</td><td>重新开始</td><td>✗ 排除</td><td>前提是先中断；关联从未中断。（典型误解：把 resume 的“继续”当万能词。）</td></tr><tr><td>B emerged</td><td>显现</td><td>✗ 排除</td><td>“此刻才初次出现”与①句已发现矛盾。（典型误解：认为排除干扰后结论才成立。）</td></tr><tr><td>C held</td><td>继续成立</td><td>✓ 当选</td><td>熟词僻意 generally hold，与 even 让步方向吻合。</td></tr><tr><td>D broke</td><td>失效</td><td>✗ 排除</td><td>反向动词，与让步预期和全文观点相反。</td></tr></tbody></table>
+<p>代入后的完整句义：即便在考虑了这些因素之后，幸福与投资之间的关联依然普遍成立。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>hold 为什么不是“拿着/举行”？</strong>：hold 的核心义是“保持住（某种状态）”，落到论点/关系上就是“站得住、成立”——The argument holds（这个论点站得住）。熟词僻意正是本题考点：见到“link/argument + 动词”，优先想 holds = 成立。</li><li><strong>even 的方向为什么如此确定？</strong>：让步结构 “even after X, Y still...” 的固定功能是强调 Y 在不利条件 X 下依然保持；若填反向词（broke），让步就失去了强调对象。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（emerged）</strong>：把“复核确认”误读成“初次显现”。</li><li><strong>误选 D（broke）</strong>：方向装反，忽略 even 的让步预期。</li></ul>
+<blockquote>记忆锚点：link/argument + hold = 成立（熟词僻意）；even after... 之后动词只能取“维持”方向；resumed 要先中断、emerged 要初次。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

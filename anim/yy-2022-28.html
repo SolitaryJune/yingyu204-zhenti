@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 28 题 · 数据密集段抓主题句：One reason ↔ partly due to</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 28 题 · 数据密集段抓主题句：One reason ↔ partly due to","subtitle":"考点：事实细节题（同义转述）· 方法：概述—详述结构 → 段首主题句给答案，数据只服务段首（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位主题句 → 同义替换 → 逐项排除”的推理链。","stemEn":"Retirement patterns are changing partly due to <b>____</b>.","stemZh":"退休模式正在发生变化，部分原因在于____。（题干与第五段首句直接对应）","quotes":[{"tag":"定位 · 第五段①句（主题句）","en":"<b>One reason for the change in retirement patterns: Americans are living longer.</b>","zh":"冒号后直接给出原因：美国人的寿命越来越长。"},{"tag":"数据铺垫 · 第五段②③④句","en":"Older Americans are also the fastest-growing segment of the U.S. workforce… The percentage of retirement-age people in the labor force has <b>doubled</b> over the past three decades… About 20%…up from an all-time low of 10% in January 1985, according to <b>money manager United Income</b>.","zh":"段中数据只是首句的详细说明——命题人恰恰爱用这些数据设陷阱。"}],"opts":[{"k":"A","en":"labor shortage.","zh":"劳动力短缺","why":"由“退休年龄人口在劳动力中的比例翻番”臆断“劳动力短缺”——占比变化反映不了劳动力总量的增减。"},{"k":"B","en":"population growth.","zh":"人口增长","why":"曲解指标——②句说的是老年人的占比（share / percentage），不是“人口总量增长”。"},{"k":"C","en":"longer life expectancy.","zh":"预期寿命延长","why":"","good":"One reason ↔ partly due to；Americans are living longer ↔ longer life expectancy——一步同义转述。"},{"k":"D","en":"rising living costs.","zh":"生活成本上涨","why":"糅合陷阱——把 up from an all-time low（修饰老年劳动力占比）与 money manager（说明 United Income 是资金管理公司）拼成“生活成本上涨”，零件都不指向物价。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}}],"snaps":[{"cls":"step","tag":"审题","log":"Retirement patterns are changing 直接对应第五段首句；数据密集段的原则：抓主题句、不纠缠细节","count":0},{"cls":"shift","tag":"定位主题句","log":"One reason for the change in retirement patterns: Americans are living longer——原因直接给出","count":0},{"cls":"shift","tag":"认识数据铺垫","log":"段中 doubled / up from 10% to 20% / money manager 等数据只是首句的详细说明——为段首服务","count":0},{"cls":"shift","tag":"同义替换","log":"One reason ↔ partly due to；living longer ↔ longer life expectancy → C","count":0},{"cls":"miss","tag":"排除 A","log":"A labor shortage ✗：“老年劳动力占比翻番”推不出“劳动力短缺”——占比反映不了总量","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B population growth ✗：把“老年人占比变化”曲解为“人口总量增长”","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"ok","tag":"选定 C","log":"C longer life expectancy ✓：living longer 的标准同义转述","count":2,"ribbon":{"k":"C","ok":true}},{"cls":"miss","tag":"排除 D","log":"D rising living costs ✗：up from low + money 两个眼熟零件的杂糅——都不指向物价","count":2,"ribbon":{"k":"D","ok":false}},{"cls":"done","tag":"结论","log":"答案 C：数据段 = 主题句 + 数据服务；答案永远在段首主题句，不在数据细节里","count":2,"done":true}],"result":{"big":"答案 C（longer life expectancy）","html":"<b>C</b>：第五段①句 <b>One reason...: Americans are living longer</b> → One reason ↔ partly due to，living longer ↔ longer life expectancy。<br>A 占比翻番推不出总量短缺；B 老年人占比 ≠ 人口总量；D up from low + money 的杂糅。<br>最易误选：<b>A</b>（“占比上升”与“劳动力短缺”表面有因果感，实则推不出）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 28 题——主题句同义转述：One reason ↔ partly due to</h2>
+<p>答案：<strong>C（longer life expectancy）</strong>。</p>
+<h3>第一步：先立机制——数据密集段，答案在段首主题句</h3>
+<p>第五段是典型的"概述—详述"结构：<strong>首句给原因，后面全部是数据铺垫</strong>。题干 Retirement patterns are changing 与第五段首句直接对应。数据段做题原则：<strong>抓住主题句，不纠缠细节</strong>——命题人恰恰爱用段中数据设陷阱。</p>
+<h3>第二步：定位原文——一句话给出原因</h3>
+<blockquote>One reason for the change in retirement patterns: Americans are living longer.</blockquote>
+<ul><li><strong>One reason</strong> ↔ 题干的 <strong>partly due to</strong>（部分原因）；</li><li><strong>Americans are living longer</strong> ↔ <strong>longer life expectancy</strong>（预期寿命延长）。</li></ul>
+<p>同义替换一步到位，选 C。段中的 doubled、up from 10% to 20% 等数据只是首句的详细说明，不提供新原因。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A labor shortage ✗</strong>：由"退休年龄人口在劳动力中的比例翻番"臆断"劳动力短缺"——占比变化<strong>反映不了劳动力总量</strong>的增减。</li><li><strong>B population growth ✗</strong>：曲解指标——②句说的是<strong>老年人的占比</strong>（share / percentage），不是"人口总量增长"。</li><li><strong>D rising living costs ✗</strong>：糅合陷阱——把 up from an all-time low（修饰老年劳动力占比）与 money manager（说明 United Income 是资金管理公司）拼成"生活成本上涨"，两个零件都不指向物价。</li><li><strong>C longer life expectancy ✓</strong>：living longer 的标准同义转述。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（最强干扰）</strong>：数据段里"老年劳动力占比上升"与"劳动力短缺"表面上有因果感；但占比上升其实是<strong>老龄化 + 继续工作</strong>的结果，推不出总量短缺。</li><li><strong>误选 D</strong>：up、money 等眼熟词的杂糅——每个词都来自本段，拼起来的结论却是假的。</li></ul>
+<blockquote>记忆锚点：数据段的段落结构 = 主题句 + 数据服务；One reason ↔ partly due to、living longer ↔ longer life expectancy。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

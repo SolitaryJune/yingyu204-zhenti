@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-08 · 知道哪些笔带电 = 知道将会____什么：A continue / B happen / C disappear / D change</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 8 在 knew what would __ 的动词位；考点：句内语义 + 上下文对照复现",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would <b>__8__</b> .</div><p>空 8 在比较级从句 <b>than the students who knew what would __</b> 里：知道组的知道内容是什么，要与另一组的不知道一一对应。</p>"
+ },
+ {
+  "title": "立机制 · 对照组复现：told which... vs knew what would __",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：did not know which ones would shock ↔ knew what would happen（知道会发生什么）",
+  "body": "<p>本句是比较结构：<b>did not know which ones would shock them</b>（不知道哪些笔会电击）对比 <b>knew what would __</b>（知道会____什么）。两组的信息差在上句已写明：一组 told <b>which pens were electrified</b>（知道哪些笔带电），另一组只 told <b>that some were</b>（只知道有些带电）。知道哪些笔带电，翻译过来就是知道按下去<b>会发生</b>什么——what would happen 正是这个信息差的自然表达。</p>"
+ },
+ {
+  "title": "找证据 · 上句分组设定就是答案的对照句",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：told which pens were electrified ↔ knew what would happen 一一对应",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Twenty-seven students were told which pens were electrified; another twenty-seven were told only that some were electrified.</div><p>上一句把两组的信息设定写得清清楚楚。比较结构两侧必须<b>一一对应</b>：did not know which ones... ↔ knew what would __。空 8 要填的是知道的宾语内容——按下去会发生什么。happen（发生）是不带预设的中性动词，正好承载这个信息差。</p>"
+ },
+ {
+  "title": "逐项分析 · A continue（继续）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A continue（继续）✗ 排除",
+  "body": "<p><b>排除。</b>继续得先有一个已在进行且被知道的情况；知道组只知道哪些笔带电这个静态事实，谈不上什么会继续。</p><p style=\"color:#b91c1c\">⚠ 典型误解：从知道哪些笔带电引申出知道电击会持续，脑补了原文没有的信息。</p>"
+ },
+ {
+  "title": "逐项分析 · B happen（发生）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B happen（发生）✓ 当选",
+  "body": "<p><b>当选。</b>knew what would happen = 知道将会发生什么，与 told which pens were electrified 构成对照组复现，信息差严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · C disappear（消失）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C disappear（消失）✗ 排除",
+  "body": "<p><b>排除。</b>同 continue：不存在某个会被知道会消失的情况；静态事实谈不上消失。</p>"
+ },
+ {
+  "title": "逐项分析 · D change（改变）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D change（改变）✗ 排除",
+  "body": "<p><b>排除。</b>改变同样需要一个已知的原状态作参照；两组的信息差只在知不知道哪些笔带电，没有某情况会变的含义。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 8 填 happen（发生）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would <b>happen</b> .</div><p>当被单独留在房间里时，不知道哪些笔会电击自己的学生，比知道将会发生什么的学生按了更多的笔、遭受了更多的电击。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（happen 发生）——见结论卡",
+  "body": "<p>答案选 <b>B（happen 发生）</b>。</p><p><b>记忆锚点</b>：完形比较结构两侧信息必须一一对应：did not know which ones ↔ knew what would happen；happen 是无预设的中性动词，最适合承载信息差。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（continue）</b>：从知道哪些笔带电脑补出知道电击会持续、变化等具体走向；原文两组的信息差只是知道与不知道哪些笔带电。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 8 空 · 知道哪些笔带电 = 知道将会____什么：A continue / B happen / C disappear / D change",
+  subtitle: "考点：句内语义 + 上下文对照复现 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（happen 发生）", "html": "<b>B（happen 发生）</b>。<br>记忆锚点：完形比较结构两侧信息必须一一对应：did not know which ones ↔ knew what would happen；happen 是无预设的中性动词，最适合承载信息差。<br>最易误选：<b>A（continue）</b>——从知道哪些笔带电脑补出知道电击会持续、变化等具体走向；原文两组的信息差只是知道与不知道哪些笔带电。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 8 空 · 知道哪些笔带电 = 知道将会____什么</h2>
+<p>答案：<strong>B（happen 发生）</strong>。</p>
+<h3>第 0 步：先立机制——对照组复现：told which... vs knew what would __</h3>
+<p>本句是比较结构：<strong>did not know which ones would shock them</strong>（不知道哪些笔会电击）对比 <strong>knew what would __</strong>（知道会____什么）。两组的信息差在上句已写明：一组 told <strong>which pens were electrified</strong>（知道哪些笔带电），另一组只 told <strong>that some were</strong>（只知道有些带电）。知道哪些笔带电，翻译过来就是知道按下去<strong>会发生</strong>什么——what would happen 正是这个信息差的自然表达。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>When left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would <strong>__8__</strong> .</blockquote>
+<p>空 8 在比较级从句 <strong>than the students who knew what would __</strong> 里：知道组的知道内容是什么，要与另一组的不知道一一对应。</p>
+<h3>第 2 步：找证据——上句分组设定就是答案的对照句</h3>
+<blockquote>Twenty-seven students were told which pens were electrified; another twenty-seven were told only that some were electrified.</blockquote>
+<p>上一句把两组的信息设定写得清清楚楚。比较结构两侧必须<strong>一一对应</strong>：did not know which ones... ↔ knew what would __。空 8 要填的是知道的宾语内容——按下去会发生什么。happen（发生）是不带预设的中性动词，正好承载这个信息差。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A continue</td><td>继续</td><td>✗ 排除</td><td>继续得先有一个已在进行且被知道的情况；知道组只知道哪些笔带电这个静态事实，谈不上什么会继续。（典型误解：从知道哪些笔带电引申出知道电击会持续，脑补了原文没有的信息。）</td></tr><tr><td>B happen</td><td>发生</td><td>✓ 当选</td><td>knew what would happen = 知道将会发生什么，与 told which pens were electrified 构成对照组复现，信息差严丝合缝。</td></tr><tr><td>C disappear</td><td>消失</td><td>✗ 排除</td><td>同 continue：不存在某个会被知道会消失的情况；静态事实谈不上消失。</td></tr><tr><td>D change</td><td>改变</td><td>✗ 排除</td><td>改变同样需要一个已知的原状态作参照；两组的信息差只在知不知道哪些笔带电，没有某情况会变的含义。</td></tr></tbody></table>
+<p>代入后的完整句义：当被单独留在房间里时，不知道哪些笔会电击自己的学生，比知道将会发生什么的学生按了更多的笔、遭受了更多的电击。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（continue）</strong>：从知道哪些笔带电脑补出知道电击会持续、变化等具体走向；原文两组的信息差只是知道与不知道哪些笔带电。</li></ul>
+<blockquote>记忆锚点：完形比较结构两侧信息必须一一对应：did not know which ones ↔ knew what would happen；happen 是无预设的中性动词，最适合承载信息差。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

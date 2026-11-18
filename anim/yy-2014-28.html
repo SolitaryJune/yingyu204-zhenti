@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-28 · 2014 阅读第 28 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · Epley found + higher self-esteem 定位到“对应”句",
+  "cls": "key",
+  "tag": "审题",
+  "log": "两个人物条件：Epley found / people with higher self-esteem → 第四段对应句",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>Epley found that people with higher self-esteem tended to ____.</b></p><p>第四段的证据链用一个 <b>corresponded with</b> 把两群人焊在一起：把美化照片当真的人 ↔ 在其他方面显示更高自尊的人。焊点拆开就是答案。</p>"
+ },
+ {
+  "title": "定位原文 · 第四段对应句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：those who thought the images ... were real directly corresponded with those who showed markers for higher self-esteem",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In fact, those who <b>thought that the images higher up the attractiveness scale were real</b> directly <b>corresponded with</b> those who showed other markers for <b>having higher self-esteem</b>.</div><p>直译：认为“更美化（更靠上）的照片才是真实自己”的人，恰与“其他指标上更高自尊”的人<b>重合</b>。</p>"
+ },
+ {
+  "title": "同义替换 · 双向对齐",
+  "cls": "key",
+  "tag": "替换",
+  "log": "把美化照当真 ↔ 相信自身吸引力；Epley 注释：people generally thinking well of themselves",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>thought the images higher up the attractiveness scale were real ↔ believe in their attractiveness</b>（相信自身的吸引力）。</p><p>Epley 的注释也印证：It's a reflection simply of <b>people generally thinking well of themselves</b>（人们普遍对自己感觉良好）。</p>"
+ },
+ {
+  "title": "逐项分析 · A underestimate their insecurities",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 低估自身不安全感 ✗ 排除——“弥补不安全感”已被 no evidence 否决",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>上一句刚说 <b>Nor was there any evidence</b> that those who self-enhanced the most were doing so to make up for profound insecurities——“没有任何证据表明自我拉抬是为了弥补不安全感”，他们并不缺安全感，谈不上“低估不安全感”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见自我拉抬就配“内心不安”的大众心理学直觉——原文用 Nor was there any evidence 明确否决。</p>"
+ },
+ {
+  "title": "逐项分析 · B believe in their attractiveness",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B 相信自身的吸引力 ✓ 当选——对应句的双向改写",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>= 认为美化照是真实自己 ↔ 更高自尊，双向对齐；Epley 注释“人们普遍对自己感觉良好”再证。</p>"
+ },
+ {
+  "title": "逐项分析 · C cover up their depressions",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 掩饰抑郁 ✗ 排除——抑郁与自我拉抬互斥，不是掩饰关系",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>段末 <b>If you are depressed, you won't be self-enhancing</b> 说的是“抑郁的人不会自我拉抬”——抑郁与自我拉抬互斥，不是“掩饰”关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 depressed 就往“遮掩”上靠。</p>"
+ },
+ {
+  "title": "逐项分析 · D oversimplify their illusions",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 过于简化自己的错觉 ✗ 排除——delusion/simply 两碎片缝出的选项",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>delusion 出自 Epley 的<b>否定句</b>“I don't think the findings ... are any evidence of personal delusion”（这不是个人妄想）+ simply（“只是人们对自己评价不错”）——两个碎片缝出的选项，本身不成义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词出现就有好感——不看句子是让步还是否定。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（believe in their attractiveness）——corresponded with 双向推",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>B（believe in their attractiveness）</b>。</p><p><b>记忆锚点</b>：X corresponded with Y = 两组人重合、可双向推；把美化照当真 ↔ 高自尊 ↔ believe in attractiveness；“弥补不安全感”已被 no evidence 否决。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 A（次强干扰）——“自我拉抬 = 掩饰自卑”的常识直觉。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 28 题 · 高自尊的人倾向于做什么——一个 corresponded with 对齐的长句",
+  subtitle: "考点：细节题 · “把美化照当真 ↔ 更高自尊”双向对齐 → believe in their attractiveness",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（believe in their attractiveness）",
+ "html": "<b>B</b>：把美化照当真的人 <b>directly corresponded with</b> 更高自尊者 → 高自尊 ↔ 相信自身吸引力（Epley：people generally thinking well of themselves）。<br>A“弥补不安全感”被 no evidence 否决；C 抑郁与自我拉抬互斥；D 碎片拼凑。<br>最易误选：<b>A</b>。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 28 题 · 高自尊的人倾向于做什么——一个 corresponded with 对齐的长句</h2>
+<p>答案：<strong>B（believe in their attractiveness）</strong>。</p>
+<h3>第 0 步：先立机制——Epley found + higher self-esteem 定位到"对应"句</h3>
+<p>题干给两个人物条件：Epley found + people with higher self-esteem。第四段的证据链用一个 corresponded with 把两群人焊在一起：把美化照片当真的人 ↔ 在其他方面显示更高自尊的人。焊点拆开就是答案——自尊更高的人，相信自己真的更有吸引力。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In fact, those who thought that the images higher up the attractiveness scale were real directly corresponded with those who showed other markers for having higher self-esteem.</blockquote>
+<p>直译：认为"吸引力刻度上更靠上（更美化）的照片才是真实自己"的人，恰恰与"在其他指标上表现出更高自尊"的人重合。对应关系是双向的：高自尊 ↔ 把美化照当真 ↔ 相信自己更有吸引力。</p>
+<h3>第 2 步：同义替换</h3>
+<p>thought the images higher up the attractiveness scale were real ↔ believe in their attractiveness（相信自身的吸引力）。Epley 自己的注释也印证：It's a reflection simply of people generally thinking well of themselves（人们普遍对自己感觉良好）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B believe in their attractiveness</td><td>相信自身的吸引力</td><td>✓ 当选</td><td>= 认为美化照是真实自己 ↔ 更高自尊，双向对齐。</td></tr><tr><td>A underestimate their insecurities</td><td>低估自身的不安全感</td><td>✗ 排除</td><td>反向：上一句刚说 Nor was there any evidence that those who self-enhanced the most were doing so to make up for profound insecurities——"没有任何证据表明自我拉抬是为了弥补不安全感"，他们并不缺安全感，谈不上"低估不安全感"。（典型误解：见自我拉抬就配"内心不安"的大众心理学直觉。）</td></tr><tr><td>C cover up their depressions</td><td>掩饰抑郁情绪</td><td>✗ 排除</td><td>断章：段末 If you are depressed, you won't be self-enhancing 说的是"抑郁的人不会自我拉抬"——抑郁与自我拉抬互斥，不是掩饰关系。（典型误解：见 depressed 就往"遮掩"上靠。）</td></tr><tr><td>D oversimplify their illusions</td><td>过于简化自己的错觉</td><td>✗ 排除</td><td>拼凑：delusion 出自 Epley 的否定句"I don't think the findings ... are any evidence of personal delusion"（这不是个人妄想）+ simply（"只是人们对自己评价不错"）——两个碎片缝出的选项，本身不成义。（典型误解：原词出现就有好感。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>corresponded with 为什么能反推？</strong>：X corresponded with Y = 两组人重合，A ↔ B 双向成立。题干从 B 端（higher self-esteem）发问，答 A 端的内容（把美化照当真 = 相信吸引力）。</li><li><strong>Epley 怎么定性这现象？</strong>：I don't think the findings ... are any evidence of personal delusion——不是"个人妄想"，只是"人们普遍对自己感觉良好"，这恰是 B 的作者版注释。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（次强干扰）</strong>："自我拉抬 = 掩饰自卑"是常识直觉，原文用 Nor was there any evidence 明确否决。</li><li><strong>误选 C/D</strong>：原词（depressed / delusion）出现即抓，不看句子是让步还是否定。</li></ul>
+<blockquote>记忆锚点：X corresponded with Y = 两组人重合、可双向推；把美化照当真 ↔ 高自尊 ↔ believe in attractiveness；"弥补不安全感"已被 no evidence 否决。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

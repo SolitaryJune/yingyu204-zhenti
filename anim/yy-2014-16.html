@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-16 · 2014 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 16 空所在句（先拆骨架）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 16 空所在句，考点：句内语义 + 过去分词搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Stereotypes <b>__16__</b> with obesity include laziness, lack of will power, and lower prospects for success.</div><p>句法骨架：主语 <b>Stereotypes</b>（刻板印象）+ <b>__ with obesity</b> 作后置定语 + 谓语 <b>include</b> laziness, lack of will power, and lower prospects for success（懒惰、缺乏意志力、成功前景差）。空格要回答：这些刻板印象与肥胖是什么关系？四个选项都是过去分词，语法上全部可行——**本题考的是搭配语义，不是语法**。</p>"
+ },
+ {
+  "title": "找证据 · include 的宾语都是“贴在肥胖者身上”的标签",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：懒惰、缺乏意志力、前景差——都是社会附加给肥胖的标签，即“与肥胖相关的”刻板印象",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The overweight are sometimes pictured in the media with their faces covered.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Teachers, employers, and health professionals have been shown to harbor biases against the obese.</div><p>include 后列举的懒惰、缺乏意志力、成功前景渺茫，都是人们<b>附加到肥胖者身上</b>的标签——即“与肥胖**相关联**的”刻板印象（stereotypes associated with obesity）。本段语境也在论证社会对肥胖的偏见：媒体遮脸、刻板印象、职业偏见环环相扣。</p>"
+ },
+ {
+  "title": "逐项分析 · A compared（与……相比）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A compared（与……相比） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>compared with obesity = 与肥胖相比——刻板印象是与肥胖“作比较”的对象？比较需要同类，“懒惰”与“肥胖”无从比起。</p><p style=\"color:#b91c1c\">⚠ 典型误解：compared with 是高频搭配，凭眼熟直接选。</p>"
+ },
+ {
+  "title": "逐项分析 · B combined（与……结合）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B combined（与……结合） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>combined with = 与……联合、叠加；“与肥胖结合的刻板印象”读得勉强但逻辑错位——刻板印象不是与肥胖“合并”出来的新东西，而是“关于肥胖的”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：combined with 能通读就放过，不深究“结合”是否真的成立。</p>"
+ },
+ {
+  "title": "逐项分析 · C settled（与……和解）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C settled（与……和解） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>settle with sb 表“与某人和解/结清”；“与肥胖和解的刻板印象”完全不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：对 settle with 的义项不熟，被四个 -ed 词形带偏。</p>"
+ },
+ {
+  "title": "逐项分析 · D associated（相关联）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D associated（相关联） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>stereotypes associated with obesity = 与肥胖相关的刻板印象——associate A with B 是固定表达，其过去分词作后置定语的用法也极常见；include 的列举宾语全部是“贴在肥胖身上”的标签，关联关系严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（associated 相关联）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>与肥胖相关的刻板印象包括懒惰、缺乏意志力和较渺茫的成功前景。</b></p><p>答案选 <b>D（associated 相关联）</b>。</p><p><b>记忆锚点</b>：stereotypes associated with（与……相关的刻板印象）固定表达；compare=相比、combine=合并、settle=和解；-ed 后置定语四选一靠语义场。</p><p style=\"color:#b91c1c\">最易误选：<b>A（compared）</b>——高频搭配的“眼熟陷阱”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 16 空 · “Stereotypes ______ with obesity include...”",
+  subtitle: "考点：句内语义 + 过去分词搭配辨析 · 拆句法骨架 → 定关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“拆句法骨架 → 定刻板印象与肥胖的关系 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（associated）",
+ "html": "<b>D associated（with）（与……相关联）</b>。<br>记忆锚点：stereotypes associated with（与……相关的刻板印象）固定表达；compare=相比、combine=合并、settle=和解；-ed 后置定语四选一靠语义场。<br>最易误选：<b>A（compared）</b>——高频搭配的“眼熟陷阱”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 16 空 · Stereotypes ______ with obesity include laziness...——刻板印象与肥胖的关系</h2>
+<p>答案：<strong>D（associated 相关联）</strong>。</p>
+<h3>第 0 步：先立机制——四个 -ed 语法全通，胜负手在搭配语义</h3>
+<p>句法骨架：主语 Stereotypes + <code>__</code> with obesity 后置定语 + include + 三个并列宾语。四个候选都是过去分词，作后置定语的语法身份完全相同——所以本题排除的依据只能是<strong>搭配语义</strong>：include 后的懒惰、缺乏意志力、成功前景差，都是社会观念里“附加在肥胖身上”的标签。观念层面的“把两者联系起来”，用的正是 associate。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Stereotypes __16__ with obesity include laziness, lack of will power, and lower prospects for success.</blockquote>
+<p>本句是第 16 空所在段的核心句：Stereotypes（刻板印象）是被定义的对象，with obesity 限定“哪些刻板印象”，include 引出具体内容。</p>
+<h3>第 2 步：找证据——列举宾语 + 段落语境双重验证“关联”关系</h3>
+<blockquote>The overweight are sometimes pictured in the media with their faces covered.</blockquote>
+<blockquote>Teachers, employers, and health professionals have been shown to harbor biases against the obese.</blockquote>
+<p>本段在论证社会对肥胖的偏见：媒体遮脸、刻板印象、职业偏见环环相扣。刻板印象不是与肥胖“相比”的对象（比较需同类）、不是与肥胖“合并”的产物（合并出的是新东西）、更不与肥胖“和解”——它们是观念里与肥胖<strong>挂钩</strong>的一组标签。associated 的“联想、关联”义正中要害。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A compared</td><td>与……相比</td><td>✗ 排除</td><td>compared with obesity = 与肥胖相比——刻板印象是与肥胖“作比较”的对象？比较需要同类，“懒惰”与“肥胖”无从比起。（典型误解：compared with 是高频搭配，凭眼熟直接选。）</td></tr><tr><td>B combined</td><td>与……结合</td><td>✗ 排除</td><td>combined with = 与……联合、叠加；“与肥胖结合的刻板印象”读得勉强但逻辑错位——刻板印象不是与肥胖“合并”出来的新东西，而是“关于肥胖的”。（典型误解：combined with 能通读就放过，不深究“结合”是否真的成立。）</td></tr><tr><td>C settled</td><td>与……和解</td><td>✗ 排除</td><td>settle with sb 表“与某人和解/结清”；“与肥胖和解的刻板印象”完全不通。（典型误解：对 settle with 的义项不熟，被四个 -ed 词形带偏。）</td></tr><tr><td>D associated</td><td>相关联</td><td>✓ 当选</td><td>stereotypes associated with obesity = 与肥胖相关的刻板印象——associate A with B 是固定表达，过去分词作后置定语用法极常见。</td></tr></tbody></table>
+<p>代入后的完整句义：与肥胖相关的刻板印象包括懒惰、缺乏意志力和较渺茫的成功前景。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>associate with 与 combine with 都可译“和……有关/一起”，怎么分？</strong>：associate with = 在观念上“把两者联系起来”（联想、关联）；combine with = 物理或抽象地“合并成一体”。刻板印象是观念里的联想，不是合并物，必选 associated。</li><li><strong>这个空的语法身份是什么？</strong>：过去分词短语作后置定语，等价于定语从句 stereotypes which are associated with obesity。四个选项语法上全部可行，排除只能靠语义场——这正是“语法通 ≠ 语义对”的典型题。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（compared）</strong>：高频搭配的“眼熟陷阱”。</li><li><strong>误选 B（combined）</strong>：以“能读通”代替“逻辑成立”。</li><li><strong>误选 C（settled）</strong>：义项不清，被词形一致性迷惑。</li></ul>
+<blockquote>记忆锚点：stereotypes associated with（与……相关的刻板印象）固定表达；compare=相比、combine=合并、settle=和解；-ed 后置定语四选一靠语义场。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

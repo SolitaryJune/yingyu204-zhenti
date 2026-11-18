@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-04 · 2023 完形第 4 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 4 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 4 所在句，考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Let’s look at a real-world __4__ .</div><p>路标句模型：Let’s look at a real-world ____ 决定本段走向；上段理论、下文故事，空格名词须能概括“BitTorrent 一段”的性质。</p>"
+ },
+ {
+  "title": "找证据 · 下文是一家真实公司的完整案例",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：BitTorrent 真实案例 = real-world example",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Prior to forming a growth team, the software company BitTorrent had 50 employees working in the __5__ departments of engineering, marketing and product development.</div><p>下文以 BitTorrent 为主角完整叙述：传统部门 → 2012 增长停滞 → 组建增长团队 → 收益 +92%。一家真实公司的既有经历 = 实例、范例。</p>"
+ },
+ {
+  "title": "逐项分析 · A experiment（实验；尝试）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A experiment（实验；尝试） ✗ 排除——实验强调主观尝试，文中是客观叙述既有情形",
+  "body": "<p><b>排除。</b>experiment 侧重为获得经验而主观进行的尝试。但 BitTorrent 的故事是既成的经营经历（had 50 employees... their growth plateaued），文中没有任何“测试/验证某个假设”的意味。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“尝试新管理模式”的常见表述代入，没核对叙述性质</p>"
+ },
+ {
+  "title": "逐项分析 · B proposal（提议；建议）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B proposal（提议；建议） ✗ 排除——提议是“未发生的方案”，下文全是已发生的事实",
+  "body": "<p><b>排除。</b>proposal 与 real-world 搭配生硬；更重要的是下文全部使用过去时叙述已发生的事实，不存在“提出一个方案待讨论”的语篇走向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：以为本段要承接上段继续“给建议”，没先扫一眼下文</p>"
+ },
+ {
+  "title": "逐项分析 · C debate（讨论；争论）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C debate（讨论；争论） ✗ 排除——下文没有争论，多角色 ≠ 多方辩论",
+  "body": "<p><b>排除。</b>考生看到 50 employees、departments、customers 等复数角色，容易脑补“多方讨论”。但文中没有观点交锋，只有一家公司的经营叙事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被下文的复数名词误导，脑补出“辩论现场”</p>"
+ },
+ {
+  "title": "逐项分析 · D example（典型；范例）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D example（典型；范例） ✓ 当选",
+  "body": "<p><b>当选。</b>Let’s look at a real-world example 是“理论→实例”的标准过渡语；它一言概括第二段：BitTorrent 组建增长团队前后收益从停滞到 +92% 的真实案例。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（example 典型；范例；例子）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>让我们来看一个现实世界中的范例</b>（承上启下：理论 → 实例）。</p><p>答案选 <b>D（example 典型；范例；例子）</b>。</p><p><b>记忆锚点</b>：段首过渡句 = 下文的路牌；real-world + 一家真实公司的既有经历 = example；Let’s look at a real-world example 高频套语，先扫下文再定路标。</p><p style=\"color:#b91c1c\">最易误选：<b>B（proposal）</b>——以为本段要承接上段继续“给建议”，没先扫一眼下文</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 4 空 · “a real-world ____”该填哪个名词",
+  subtitle: "考点：上下文语义 + 名词辨析 · 承上启下路标句",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（example）", "html": "<b>D example（典型；范例；例子）</b>。<br>完整句义：让我们来看一个现实世界中的范例。<br>记忆锚点：段首过渡句 = 下文的路牌；real-world + 一家真实公司的既有经历 = example；Let’s look at a real-world example 高频套语，先扫下文再定路标。<br>最易误选：<b>B</b>——没看下文叙述性质，把“继续给建议”当成了语篇走向"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：上下文语义 + 名词辨析——承上启下句的“路标”功能</h2>
+<p>答案：<strong>D（example 典型；范例；例子）</strong>。</p>
+<h3>第 0 步：先立框架——段首过渡句是下文的路牌</h3>
+<p>第二段首句 Let’s look at a real-world __4__. 是全篇的路标句。模型：完形里的段首过渡句决定下文走向——上段是理论（增长团队是什么、为何组建），本段开始讲 BitTorrent 的故事。<strong>路标指向什么，取决于后面写的是什么</strong>：后面写的是一家真实公司已经发生的经历，不是谁做的实验、提的建议或吵的架。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>Let’s look at a real-world __4__ .</blockquote>
+<p>下文整段：Prior to forming a growth team, the software company BitTorrent had 50 employees... This brought them good results until 2012...——客观叙述一家真实公司“组建增长团队之前 vs 之后”的对照经历。real-world（真实世界的）+ 一家真实公司的既有案例 = example（范例）。</p>
+<blockquote>Prior to forming a growth team, the software company BitTorrent had 50 employees working in the __5__ departments of engineering, marketing and product development.（下文）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A experiment</td><td>实验；尝试</td><td>❌ 排除</td><td>实验强调主观尝试，文中是客观叙述既有情形</td></tr><tr><td>B proposal</td><td>提议；建议</td><td>❌ 排除</td><td>提议是“未发生的方案”，下文全是已发生的事实</td></tr><tr><td>C debate</td><td>讨论；争论</td><td>❌ 排除</td><td>下文没有争论，多角色 ≠ 多方辩论</td></tr><tr><td>D example</td><td>典型；范例</td><td>✅ 当选</td><td>real-world example 高频套语，概括整个第二段</td></tr></tbody></table>
+<p>代入全句：<strong>让我们来看一个现实世界中的范例</strong>（承上启下：理论 → 实例）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（experiment 实验；尝试）</strong>：把“尝试新管理模式”的常见表述代入，没核对叙述性质。experiment 侧重为获得经验而主观进行的尝试。但 BitTorrent 的故事是既成的经营经历（had 50 employees... their growth plateaued），文中没有任何“测试/验证某个假设”的意味。</li><li><strong>误选 B（proposal 提议；建议）</strong>：以为本段要承接上段继续“给建议”，没先扫一眼下文。proposal 与 real-world 搭配生硬；更重要的是下文全部使用过去时叙述已发生的事实，不存在“提出一个方案待讨论”的语篇走向。</li><li><strong>误选 C（debate 讨论；争论）</strong>：被下文的复数名词误导，脑补出“辩论现场”。考生看到 50 employees、departments、customers 等复数角色，容易脑补“多方讨论”。但文中没有观点交锋，只有一家公司的经营叙事。</li></ul>
+<blockquote>记忆锚点：段首过渡句 = 下文的路牌；real-world + 一家真实公司的既有经历 = example；Let’s look at a real-world example 高频套语，先扫下文再定路标。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

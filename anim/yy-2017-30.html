@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-30 · 2017 Text 2 第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 分句群 → particularly 重点 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 观点细节题先分句群",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：According to Tronick, kids’ use of screens may ____ → 第四段分两组：孩子用屏幕 / 父母用设备",
+  "body": "<p>题干：According to Tronick, <b>kids&rsquo; use of screens</b> may ____.</p><p>第四段全是 Tronick，但对象分两组：①②句谈**孩子用屏幕**，③④句谈**父母用设备**。题干锁定前者——机制：先分句群，再抓重点。</p>"
+ },
+ {
+  "title": "定位原文 · ②句与 particularly 例证",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：②句—— particularly if it gives parents time to have a shower, do housework or simply have a break",
+  "body": quote("② Tronick believes that just because a child isn&rsquo;t learning from the screen doesn&rsquo;t mean there&rsquo;s no value to it &ndash; <b>particularly if it gives parents time to have a shower, do housework or simply have a break</b> from their child.") + "<p>多重否定先放过，语义重点在 particularly 之后的例证里。</p>"
+ },
+ {
+  "title": "找证据 · 三件事的共同上位概念",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：shower / housework / break = 父母可以自由支配的时间",
+  "body": "<p>孩子用屏幕的价值：让父母有时间——</p><p>① <b>have a shower</b>（洗个澡）；② <b>do housework</b>（做家务）；③ <b>have a break from their child</b>（抽身歇口气）。</p><p>三件事合并：<b>给父母腾出自由支配的时间</b> → give their parents some free time。</p>"
+ },
+ {
+  "title": "逐项分析 · A give their parents some free time",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A give their parents some free time ✓ 当选——particularly 例证的概括替换",
+  "body": "<p><b>当选。</b>shower / housework / break 三例的上位概念正是“一些自由时间”；give their parents ← gives parents time to...，替换干净。</p>"
+ },
+ {
+  "title": "逐项分析 · B make their parents more creative",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B make their parents more creative ✗ 排除——对象错位（父母用设备）＋“获益”被填成“创造力”",
+  "body": "<p><b>排除。</b>③句 get a lot out of using their devices 说的是**父母使用设备**的获益（和朋友聊天、处理完工作）——对象已不是“孩子用屏幕”；且获益内容里没有“创造力”。</p><p style='color:#b91c1c'>⚠ 典型误解：见 get a lot 就自行填空。</p>"
+ },
+ {
+  "title": "逐项分析 · C help them with their homework",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C help them with their homework ✗ 排除——多重否定被绕晕后往常识猜",
+  "body": "<p><b>排除。</b>②句 just because...doesn&rsquo;t mean there&rsquo;s no value：**没从屏幕学到东西 ≠ 没有价值**——价值指“给父母腾时间”，不是“帮孩子做作业”；原文全程没提作业。</p><p style='color:#b91c1c'>⚠ 典型误解：多重否定绕晕后向常识投降。</p>"
+ },
+ {
+  "title": "逐项分析 · D help them become more attentive",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D help them become more attentive ✗ 排除——观点错位（那是 Radesky 的话）＋沉迷≠专注",
+  "body": "<p><b>排除。</b>suck you in / maximal engagement 出自**第一段 Radesky**，指“沉迷”——不是 Tronick 的观点；且“被吸住”与“变得更专注（attentive）”方向相反。</p><p style='color:#b91c1c'>⚠ 典型误解：跨观点拼接 + engagement 拆成 attentive。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A——分句群 + 抓 particularly：屏幕给父母腾出时间",
+  "body": "<p>答案选 <b>A（give their parents some free time）</b>。</p><p><b>记忆锚点</b>：观点题先分句群（孩子用屏幕 vs 父母用设备）；<b>particularly 之后是语义重点</b>——shower / housework / break = 给父母腾时间。</p><p style='color:#b91c1c'>⚠ 最易误选 D（attentive）：先核说话人，再核语义方向。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 2 第 30 题 · Tronick 认为：孩子用屏幕可以 free time / creative / homework / attentive",
+  subtitle: "考点：观点细节题（分句群 + particularly 重点） · 审题 → 定位 → 替换 → 排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 分句群 → 抓重点 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（give their parents some free time）", "html": "<b>A</b>：particularly 之后——shower / housework / break = 屏幕让父母喘口气、腾出自由时间。<br>记忆锚点：先分句群再抓 particularly。<br>最易误选：<b>D（attentive）</b>——suck you in 是 Radesky 的“沉迷”，不是 Tronick 的观点。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 2 第 30 题 · 孩子用屏幕对父母的好处（Tronick 观点）</h2>
+<p>答案：<strong>A（give their parents some free time）</strong>。</p>
+<h3>第 0 步：先立机制——观点细节题先"分句群"</h3>
+<p>第四段从头到尾都在讲 Tronick，但论述对象分成两组：①②句谈<strong>"孩子用屏幕"</strong>，③④句谈<strong>"父母用设备"</strong>。题干问 kids' use of screens → 只认①②句。再往细处走：②句的主张在 <strong>particularly</strong> 引出的例证里——<code>it gives parents time to have a shower, do housework or simply have a break</code>。"洗澡、做家务、歇口气"三件事的共同上位概念：<strong>给了父母自由支配的时间</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>② Tronick believes that just because a child isn't learning from the screen doesn't mean there's no value to it – <strong>particularly if it gives parents time to have a shower, do housework or simply have a break from their child</strong>.</blockquote>
+<h3>第 2 步：找证据——同义替换三连</h3>
+<ul><li><code>gives parents time to have a shower</code>（让父母有时间洗个澡）</li><li><code>do housework</code>（做家务）</li><li><code>have a break from their child</code>（从孩子身边抽身歇口气）</li></ul>
+<p>→ give their parents <strong>some free time</strong>：洗澡/家务/休息 = 支配得起的自由时间。替换直给。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A give their parents some free time</td><td>✓ 当选</td><td>对②句 particularly 例证的概括：屏幕给了父母喘口气的时间。</td></tr><tr><td>B make their parents more creative</td><td>✗ 排除</td><td>双重错位：③句 get a lot out of using their devices 说的是<strong>父母使用设备</strong>获益，对象已是父母不是孩子用屏幕；且"获益"（和朋友聊天、处理完工作）里没有"创造力"。（典型误解：见 get a lot 就自行填空"获得创造力"。）</td></tr><tr><td>C help them with their homework</td><td>✗ 排除</td><td>句式曲解：②句是多重否定 just because...doesn't mean there's <strong>no value</strong>（没从屏幕学到东西 ≠ 没价值）——"有价值"指的是给父母腾时间，不是"帮孩子做作业"。（典型误解：多重否定绕晕后往常识方向猜。）</td></tr><tr><td>D help them become more attentive</td><td>✗ 排除</td><td>观点错位＋语义偷换：suck you in / maximal engagement 是<strong>第一段 Radesky</strong> 说的"沉迷"，既不是 Tronick 的观点，沉迷也不等于"更专注"。（典型误解：engagement 拆成 attentive，还忘了归属。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 C 的"价值"读成了别的？</strong>：②句结构是"虽然没学到东西，但仍有价值——尤其当它……"。价值的内容在 particularly 之后说清楚了（给父母腾时间）；跳过 particularly 直接谈价值，就会被常识带走。</li><li><strong>怎么防 D？</strong>：两道保险——①核对说话人（那是 Radesky 的话，题干问 According to Tronick）；②核对语义（suck you in 是"吸住你"，与 become more attentive "变得更专注"方向相反）。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（more creative）</strong>：把"父母获益"的内容留白，让"创造力"钻进来。</li><li><strong>误选 D（attentive）</strong>：跨观点拼接＋沉迷/专注混谈。</li></ul>
+<blockquote>记忆锚点：观点题先分句群（孩子用屏幕 vs 父母用设备）；particularly 之后是语义重点——shower / housework / break = 给父母腾时间。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

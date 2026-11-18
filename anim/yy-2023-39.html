@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-39 动画：因果链推知——例子归纳即改写</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：末两段是因果链",
+  "body": "<p>题干：<b>It can be learned from the last two paragraphs that teenagers ____.</b>（从最后两段可推知，青少年____。）</p><p>第六段设问并给出假说 <b>reward sensitivity</b>（回报敏感性），第七段落点——青少年对“社交奖励”格外敏感。推知题从<b>落点句</b>往上取证据。</p>",
+  "log": "审题：第六段给假说，第七段是落点"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位⑥",
+  "count": 0,
+  "title": "第六段：设问 + 假说",
+  "body": "<div class=\"qq\"><b>第六段：</b>Is there some <b>common factor</b> that underlies these apparently contradictory developments? One idea is that teenage behavior is related to what researchers call “<b>reward sensitivity</b>.” <span class=\"cn\">（两种看似矛盾的发展趋势背后有无共同因素？一种观点认为与“回报敏感性”有关。）</span></div>",
+  "log": "第六段：矛盾趋势背后有共同因素——回报敏感性"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位⑦",
+  "count": 0,
+  "title": "第七段：落点句 + 三个例子",
+  "body": "<div class=\"qq\"><b>第七段①句：</b>Teenagers are <b>particularly sensitive to social rewards</b>—winning the game, impressing a new friend, getting that boy to notice you. <span class=\"cn\">（青少年对社交奖励格外敏感：赢得比赛、打动新朋友、引起某人注意。）</span></div><p>三个例子的共同内核 = <b>获得外界的关注与认可</b>。</p>",
+  "log": "第七段落点：对社交奖励格外敏感，例子内核是被认可"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 1,
+  "title": "锁定 B：在乎社会认可",
+  "body": "<p><b>B · care a lot about social recognition</b> <span class=\"ok-dot\">✓</span></p><p><b>are particularly sensitive to social rewards</b> ↔ <b>care a lot about social recognition</b>：sensitive to ↔ care about；三个例子向上概括为 social recognition。例子归纳型改写，当选。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "log": "锁定 B：例子归纳 = social rewards → social recognition"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 2,
+  "title": "排除 A：方向颠倒",
+  "body": "<p><b>A · overstress their influence on others</b> <span class=\"bad-dot\">✗</span></p><p>impressing a new friend、getting that boy to notice you 说的是“<b>自己被认可、被注意</b>”，不是“自己影响别人”。典型误解：只看动词 notice / impress 不看主宾。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "log": "排除 A：被认可 ≠ 影响他人"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "title": "排除 C：趋势描述 ≠ 主观情绪",
+  "body": "<p><b>C · become anxious about their future</b> <span class=\"bad-dot\">✗</span></p><p>“回报敏感性随年龄下降”是<b>客观趋势描述</b>，推不出青少年“对未来焦虑”的主观情绪。典型误解：由“以后会更少”倒推“现在担心”。推断题不允许跨情绪加工。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "log": "排除 C：客观趋势推不出主观焦虑"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "title": "排除 D：话题偷换到生活目的",
+  "body": "<p><b>D · endeavor to live a joyful life</b> <span class=\"bad-dot\">✗</span></p><p>文中讨论的是<b>决策权衡</b>（拿多大回报覆盖风险），不是“追求快乐生活”。典型误解：把 rewards 泛化成 happy life——决策偏好 ≠ 人生追求。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "log": "排除 D：决策权衡 ≠ 快乐生活"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（care a lot about social recognition）</b>——第七段①句的例子归纳改写。</p><p>记忆锚点：例子归纳即改写——winning / impressing / getting noticed = social recognition；趋势描述 ≠ 主观情绪。</p>",
+  "log": "结论：例子归纳出“在乎社会认可”，答案选 B"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-39 · 推知题：青少年在乎社会认可",
+ "subtitle": "考点：Text 2 第六七段 · 方法：因果链落点句 → 例子归纳 → 逐项排除",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位原文 → 例子归纳 → 逐项排除。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 B",
+  "html": "<b>particularly sensitive to social rewards（赢得比赛、被打动、被注意）↔ care a lot about social recognition</b>。记忆锚点：推知题从落点句取证据；三个例子向上归纳即同义替换；趋势描述推不出主观情绪。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 阅读 Text 2 第 39 题 · 从最后两段推知青少年的特点</h2>
+<p>答案：<strong>B（care a lot about social recognition 十分关注社会认可度）</strong>。</p>
+<h3>第 0 步：先立机制——因果链推知题 = 站在链条末端看结论</h3>
+<p>最后两段是全文的"原因分析"部分：第六段设问（两种矛盾趋势背后有无共同因素）并给出假说 reward sensitivity（回报敏感性），第七段把这个假说落到青少年身上——他们对"社交奖励"格外敏感。推知题要从"落点句"（第七段①句）往上取证据，而不是从中间的抽象概念往下猜。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Is there some common factor that underlies these apparently contradictory developments? One idea is that teenage behavior is related to what researchers call "reward sensitivity."...<br/>Teenagers are particularly sensitive to social rewards—winning the game, impressing a new friend, getting that boy to notice you.</blockquote>
+<p>第六段：青少年行为与"回报敏感性"有关；第七段①句给具体表现：青少年对社交奖励（赢得比赛、打动新朋友、引起某人注意）格外敏感——三个例子共同的内核是"获得外界的关注与认可"。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>are particularly sensitive to social rewards ↔ care a lot about social recognition：sensitive to ↔ care about；social rewards（赢得比赛、被人注意等）向上概括为 social recognition。例子归纳型改写，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A overstress their influence on others</td><td>✗</td><td>impressing a new friend、getting that boy to notice you 说的是"自己被认可、被注意"，不是"自己影响别人"——方向颠倒。（典型误解：只看动词 notice / impress 不看主宾。）</td></tr><tr><td>B care a lot about social recognition</td><td>✓</td><td>particularly sensitive to social rewards 的改写，三个例子归纳为"社会认可"。</td></tr><tr><td>C become anxious about their future</td><td>✗</td><td>②句"回报敏感性随年龄下降"是客观趋势描述，推不出青少年"对未来焦虑"的主观情绪。（典型误解：由"以后会更少"倒推"现在担心"。）</td></tr><tr><td>D endeavor to live a joyful life</td><td>✗</td><td>文中讨论的是决策权衡（拿多大回报覆盖风险），"追求快乐生活"把话题偷换到生活目的层面。（典型误解：把 rewards 泛化成 happy life。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>"对社交奖励敏感"和"在乎社会认可"是一个意思吗？</strong>：是。第七段破折号后的三个例子全部落在"被注意、被认可"上——social rewards 在此语境里就是社会认可，这正是"举例 → 归纳"型同义替换。</li><li><strong>为什么 C 不能算合理推断？</strong>：推断题允许一步改写，不允许跨情绪加工——原文从头到尾没有出现焦虑、担心的心理描写。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：impress / get sb to notice 的主语是青少年自己，受益方向是"自己被看见"。</li><li><strong>误选 D</strong>：rewards ≠ joyful life，决策偏好 ≠ 人生追求。</li></ul>
+<blockquote>记忆锚点：例子归纳即改写——winning / impressing / getting noticed = social recognition；趋势描述 ≠ 主观情绪。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

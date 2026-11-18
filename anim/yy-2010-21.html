@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·21 阅读 · a last victory 的因果推断</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼', cls: 'key',
+    body: '<p>题干问 <b>because</b>（为什么是"a last victory"）。但题眼句本身不解释原因 → 推断题机制：<b>问原因，看题眼句的前后句</b>。</p>',
+    log: '因果不在题眼句，在邻居句' },
+  { title: '定位原文：胜利的盛况', cls: 'key',
+    body: src('“All but two pieces sold, fetching more than £70m, a record for a sale by a single artist. <b>It was a last victory.</b>”') +
+      '<p>56 件作品卖出 54 件、进账超 7000 万英镑、创个人拍卖纪录——一场辉煌的胜利，却叫"last"。</p>',
+    log: '①② 句：盛况 + 题眼句' },
+  { title: '定位原文：④ 句是钥匙', cls: 'key',
+    body: src('“<b>As</b> the auctioneer called out bids, in New York one of the oldest banks on Wall Street, <b>Lehman Brothers, filed for bankruptcy</b>.”') +
+      '<p>拍卖师喊价的同时，<b>雷曼兄弟申请破产</b>——2008 年 9 月 15 日，全球金融危机的标志性起点。</p>',
+    log: 'as 同时发生：拍卖 vs 雷曼破产' },
+  { title: '机制推演：分水岭', cls: 'step',
+    body: '<p>雷曼破产 = 金融危机开始 → 拍卖<b>恰好赶在危机爆发前</b>成功举行 → 此后市场转衰 → 这场胜利成了"最后的胜利"。</p>',
+    log: '危机前夜的成功 = 最后的胜利' },
+  { title: '同义替换核对 D', cls: 'step',
+    body: '<p>filed for bankruptcy → <b>world financial crisis</b>；as 暗含的前后脚 → <b>just before</b>；创纪录成交 → <b>successfully made</b>。替换链完整成立。</p>',
+    log: '原文 → D 的替换全部对上' },
+  { title: 'A：无中生有', cls: 'bad',
+    body: '<p>"艺术品市场已见证<b>一系列</b>胜利"——文中没有"此前连胜"的任何表述；last 的落点是<b>危机将至</b>，不是此前连胜。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A"一系列胜利"无文本支撑' },
+  { title: 'B：数字方向篡改', cls: 'bad',
+    body: '<p>"以最高价<b>得到那两件</b>"——all but two pieces sold = 只有 2 件<b>没卖出</b>！数字陷阱必查方向，B 把"没卖"改成"拍到"。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B all but two = 除 2 件外全卖出' },
+  { title: 'C：主题名不是作品', cls: 'bad',
+    body: '<p>"Beautiful Inside My Head Forever 胜过所有杰作"——它是拍卖会的<b>主题名</b>，不是艺术品，与"杰作"无从比较。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 曲解：主题名 ≠ 作品' },
+  { title: 'D：替换闭环', cls: 'good',
+    body: '<p>"恰在全球金融危机爆发前成功举办"——<b>just before the world financial crisis</b> 正是 ④ 句 as + 雷曼破产的深层解读。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D = 危机前夜的最后一胜' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D</b>。记忆锚点：<b>as 伴随状语常暗含"同时发生"</b>；两句并置 + 雷曼破产常识 = 因果推断；all but two = "除 2 件外全部"，数字题先核方向。</p>',
+    log: '锁定 D' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 21 · a last victory 的因果推断',
+  subtitle: 'Text 1（艺术品市场）· 考点：段落内因果推断 + as 伴随状语的隐含逻辑',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D',
+    html: '记忆锚点：问原因看<b>题眼句的邻居句</b>——④ 句 as 引导的"拍卖 vs 雷曼破产"并置，暗含<b>危机前夜</b>的因果；选项 A 无中生有、B 篡改 all but two 的方向、C 把拍卖主题名当成作品。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：a last victory——as 从句里藏着"分水岭"</h2>
+<p>答案：<strong>D</strong>。</p>
+<h3>第一步：先立机制——问原因，看题眼句的邻居句</h3>
+<p>题干问 because，但题眼句 It was a last victory. 本身不解释原因。推断题的机制：<strong>因果往往不在题眼句里，而在它前后句</strong>。第一段 ④ 句用 as 引导伴随状语，形式上是"拍卖的同时"，逻辑上暗含"危机的到来"——两句并置就是答案。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>All but two pieces sold, fetching more than £70m, a record for a single artist. It was a last victory. As the auctioneer called out bids, in New York one of the oldest banks on Wall Street, Lehman Brothers, filed for bankruptcy.</blockquote>
+<p>拍卖师喊价的同时，雷曼兄弟申请破产——2008 年 9 月 15 日，全球金融危机的标志性起点。赫斯特拍卖<strong>恰好赶在危机爆发前</strong>成功落槌，此后市场转衰，所以它是"最后的胜利"。</p>
+<h3>第三步：同义替换确认 D</h3>
+<table><thead><tr><th>原文</th><th>选项 D</th></tr></thead><tbody><tr><td>As the auctioneer called out bids（拍卖进行的同时）</td><td>just before</td></tr><tr><td>Lehman Brothers filed for bankruptcy</td><td>the world financial crisis</td></tr><tr><td>56 件作品成交、创纪录（successfully made）</td><td>it was successfully made</td></tr></tbody></table>
+<h3>第四步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A 艺术品市场已见证一系列胜利</td><td>✗</td><td>无中生有：bull run 是背景，但 last 的落点在"危机将至"，不在"此前连胜"</td></tr><tr><td>B 拍卖商最终以最高价得到那两件</td><td>✗</td><td>篡改方向：all but two pieces sold = 只有 2 件<strong>没卖出</strong>，不是"拍得了 2 件"</td></tr><tr><td>C "在我脑海，美丽永恒"胜过所有杰作</td><td>✗</td><td>曲解：Beautiful Inside My Head Forever 是拍卖会<strong>主题名</strong>，不是作品，无从比较</td></tr><tr><td>D 恰在全球金融危机爆发前成功举办</td><td>✓</td><td>雷曼破产 = 危机标志；as 暗含的"前后脚"关系</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 B</strong>：被数字 two 诱惑。all but two 是"除 2 件外全部"——数字陷阱必查方向：没卖的是 2 件，不是卖出的。</li><li><strong>选 A</strong>：把"最后"望文生义成"此前有一连串胜利"。文本依据只有 ④ 句的危机事件，A 的"一系列胜利"没有任何句子支撑。</li></ul>
+<blockquote>记忆锚点：as 引导伴随状语常暗含"事件同时发生"；两句并置 + 雷曼破产常识 = 因果推断。all but two = "除 2 件外全部"，数字题先核方向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-22 · 2018 Text1 第 22 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第四段偏见句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段 prejudice 总起 + 引号内偏见内容，考点：事实细节（同义改写）",
+  "body": quote("But he's also found a kind of insidious prejudice. ... Schools in the family of vocational education \"have that stereotype...that <b>it's for kids who can't make it academically</b>,\" he says.") + "<p>prejudice 全文只在第四段出现。段落是“总—分”结构：①句总起发现偏见，②③句分说。答案源<b>只在③句引号里</b>。</p>"
+ },
+ {
+  "title": "立机制 · 分清两句的分工",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：②句谈“体力劳动被鄙视”，③句引号才落到“职业教育面向谁”——题目只考后者",
+  "body": "<p>②句：Working with your hands is seen as a mark of <b>inferiority</b>——社会对<b>体力劳动</b>的偏见。</p><p>③句：才落到题目问的<b>职业教育</b>——it 回指 vocational education，偏见内容是：面向 “can't make it <b>academically</b>” 的孩子。本题答案源只在③句，②句只是背景。</p>"
+ },
+ {
+  "title": "逐项分析 · C are not academically successful",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C ✓ 当选——not academically successful ↔ can't make it academically，教科书级同义改写",
+  "body": "<p><b>当选。</b>make it 是习语“成功、办成”，academically = “学业上”——can't make it academically = 在学业上做不成、进不了大学。</p><p>C 项 are not academically successful：not...successful ↔ can't make it，academically 原样保留——语义、主体、方向全对，改写力度恰到好处。</p>"
+ },
+ {
+  "title": "逐项分析 · A have a stereotyped mind（思维模式化）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ✗ 排除——主宾颠倒：stereotype 是“学校”持有的成见，不是“孩子”的思维方式",
+  "body": "<p><b>排除。</b>stereotype 的主语是 Schools——是职业学校<b>持有</b>这个成见，不是孩子们<b>具有</b>模式化思维。</p><p>命题人把“持有偏见的人”与“被偏见描述的人”对调了。</p><p style='color:#b91c1c'>⚠ 典型误解：被原词 stereotype 吸引，没看主语。</p>"
+ },
+ {
+  "title": "逐项分析 · B have no career motivation（没有职业动机）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——断章取义：can't make it 被曲解成“缺乏动机”",
+  "body": "<p><b>排除。</b>can't make it 是“成功不了”，不是“不想成功”——文中没提孩子们的职业动机。</p><p>“学业不行”与“不想进步”是两回事；细节题拒绝用常识补文。</p><p style='color:#b91c1c'>⚠ 典型误解：用“去职校=不想读书”的直觉补原文没有的信息。</p>"
+ },
+ {
+  "title": "逐项分析 · D are financially disadvantaged（经济条件差）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——曲解 inferiority：低劣指“体力劳动被视为低于脑力”，与家境无关",
+  "body": "<p><b>排除。</b>②句的 inferiority 说的是体力劳动<b>被视为</b>比脑力劳动低等——这是社会评价，不是经济状况。</p><p>文中没有任何“贫穷”信息；用“职校学生家境差”的刻板印象补文，恰恰犯了与偏见本身同样的错。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（are not academically successful）——偏见内容锁定引号内：can't make it academically",
+  "body": "<p>完整逻辑：<b>职业教育“收留”学业成功不了的孩子——这正是作者要批驳的偏见。</b></p><p>答案选 <b>C（are not academically successful）</b>。</p><p><b>记忆锚点</b>：细节题答案源锁定<b>引号内</b>；make it = 成功；偏见题先分清“谁持有偏见、谁被偏见描述”。</p><p style='color:#b91c1c'>⚠ 最易误选 A（stereotyped mind）：原词复现 + 主宾颠倒的双重陷阱。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text1 第 22 题 · 偏见认为职业教育面向____的孩子",
+  subtitle: "考点：事实细节（同义改写） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 分工机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（are not academically successful）", "html": "<b>C</b>：can't make it academically = 学业上成功不了——答案源锁定③句引号内。<br>记忆锚点：make it = 成功；偏见题分清“谁持有、谁被描述”；细节题拒绝常识补文。<br>最易误选：<b>A stereotyped mind</b>——原词复现陷阱，stereotype 的主语是学校不是孩子。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text1 第 22 题 · "职业教育面向的孩子"是什么偏见</h2>
+<p>答案：<strong>C（are not academically successful）</strong>。</p>
+<h3>第 0 步：先立机制——偏见的具体内容在引号里</h3>
+<p>本题考"偏见的具体内容"，定位词非常明确：<code>prejudice</code> 只在第四段出现。段落结构是标准的"总—分"：①句总起（But he's also found a kind of insidious prejudice——发现一种偏见），②③句分说。机制上要先分清两句话的<strong>分工</strong>：②句说的是社会对"体力劳动"的偏见（动手干活被视为低劣），③句才落到题目问的"职业教育"上——用引号直接给出了偏见的具体内容：职业学校的孩子们 "have that stereotype...that it's for kids who can't make it academically"。所以本题的答案源<strong>只在③句引号里</strong>，其余句子只是背景。把 <code>can't make it academically</code> 与选项做同义比对，就是全部工作；四个选项都是"who 后的定语从句"，命题人玩的正是"换词不移义"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But he's also found a kind of insidious prejudice. Working with your hands is seen as almost a mark of inferiority. Schools in the family of vocational education "have that stereotype...that <strong>it's for kids who can't make it academically</strong>," he says.</blockquote>
+<ul><li><code>it</code> 回指 vocational education（职业教育）；</li><li><code>can't make it academically</code> = 在学业上"成功不了"——这是偏见内容的<strong>原句</strong>。</li></ul>
+<h3>第 2 步：同义替换——"学业上成功不了" = "学业不成功"</h3>
+<p><code>make it</code> 是习语"成功、办成"，<code>academically</code> 是"学业上"。两者合起来：那些在学业上做不成、进不了大学的孩子。C 项 <code>are not academically successful</code> 是教科书级的同义改写：not...successful ↔ can't make it，academically 原样保留。改写力度恰到好处——既不是原词照搬（那会成为 D 式陷阱），也没有添油加醋。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A have a stereotyped mind</td><td>思维模式化</td><td>✗ 排除</td><td>主宾颠倒：stereotype 是<strong>职业学校</strong>持有的成见（Schools...have that stereotype），不是<strong>孩子</strong>的思维方式——命题人把"持有偏见的人"与"被偏见描述的人"对调了。</td></tr><tr><td>B have no career motivation</td><td>没有职业动机</td><td>✗ 排除</td><td>断章取义：can't make it 被曲解成"缺乏动机"。文中没提孩子们的职业动机——"学业不行"与"不想成功"是两回事。</td></tr><tr><td>C are not academically successful</td><td>学业不成功</td><td>✓ 当选</td><td>is for kids who can't make it academically 的同义改写：not academically successful ↔ can't make it academically，语义、主体、方向全对。</td></tr><tr><td>D are financially disadvantaged</td><td>经济条件差</td><td>✗ 排除</td><td>曲解 inferiority：②句的"低劣"说的是体力劳动<strong>被视为</strong>比脑力劳动低等，与家庭经济条件无关——文中没有任何"贫穷"信息。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么"学业不行"和"没有职业动机"容易被混？</strong>：直觉里"去职校"似乎意味着"不想读书"，这是用常识补文——原文只说了"make it 不成"，没说"不想 make it"；细节题拒绝常识补漏。</li><li><strong>②句 inferiority 为什么不算答案源？</strong>：题目问的是"职业教育面向<strong>谁</strong>"，②句谈的是"体力劳动被如何看待"——虽同属偏见，但对象不同，细节题必须逐句对号，不能跨句合并。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（stereotyped mind）</strong>：被原词 stereotype 吸引，没注意主语是 Schools——原词复现陷阱。</li><li><strong>误选 D（financially disadvantaged）</strong>：用"职校学生家境差"的刻板印象补文，犯了与偏见本身同样的错。</li></ul>
+<blockquote>记忆锚点：细节题答案源锁定<strong>引号内</strong>；make it = 成功；偏见题先分清"谁持有偏见、谁被偏见描述"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

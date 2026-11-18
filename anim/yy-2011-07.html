@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-07 · 2011 完形第 7 空 · 数字凭证与特定电脑之间的______关系</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 7 所在句", "cls": "key", "tag": "定位", "log": "定位原文：过去分词后置定语——a digital credential __7__ to a specific computer", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The system might use a smart identity card, or a digital credential <b>__7__</b> to a specific computer, and would authenticate users at a range of online services.</div><p>四个动词都能接 to，考点不是“谁能接”，而是<b>关系类型</b>：数字凭证（软件层）与一台特定电脑之间是什么关系。</p>"}, {"title": "找证据 · 句尾用途反过来限定关系", "cls": "key", "tag": "证据", "log": "找证据：凭证要“认证用户”——只有“连接于”电脑才能干活", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…and would authenticate users at a range of online services.</div><p>凭证的功能是在多家在线服务上认证身份：认证要靠凭证与设备之间的<b>连接</b>完成。被“拴住”“对准”“相比”的凭证都干不了这个活。</p>"}, {"title": "逐项分析 · A linked（连接）", "cls": "good", "tag": "选定 A", "log": "A linked(to)（连接） ✓ 当选——凭证连接/绑定到电脑", "count": 1, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>linked to a computer：“连接/绑定到一台电脑”，正是数字凭证的存放与使用方式，与句尾 authenticate users at online services 呼应。</p>"}, {"title": "逐项分析 · B directed（对准；发给）", "cls": "bad", "tag": "排除 B", "log": "B directed(to) ✗ 排除——对象多是言论/措施，“对准电脑”不通", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>direct sth at/to sb 的对象多是言论、措施、邮件（a letter directed to me）；“凭证对准电脑”不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：directed to 有“送达”义，就想成“发给电脑”。</p>"}, {"title": "逐项分析 · C chained（拴住，束缚）", "cls": "bad", "tag": "排除 C", "log": "C chained(to) ✗ 排除——铁链拴缚是物理动作且含贬义", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>chain sb/sth to sth 是用链条拴住（防逃跑/防盗）的物理动作，带束缚色彩；软件凭证谈不上被拴。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“固定在一台”对应成“拴”，忽略物理意象与贬义。</p>"}, {"title": "逐项分析 · D compared（与……相比）", "cls": "bad", "tag": "排除 D", "log": "D compared(to) ✗ 排除——原文没有比较结构", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>compared to 引出比较对象；“凭证被拿来和电脑比”语义崩坏。</p><p style=\"color:#b91c1c\">⚠ 典型误解：compare to 太熟，语感抢答。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（linked 连接）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>该系统可能使用一张智能身份卡，或一个连接到特定电脑上的数字凭证，并能在多家在线服务上认证用户。</b></p><p>答案选 <b>A（linked 连接）</b>。</p><p><b>记忆锚点</b>：四词都接 to → 比“关系类型”；凭证 ↔ 电脑 = linked to；chain=铁链拴缚、direct=对准对象、compare=相比。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 7 空 · 数字凭证与特定电脑之间的______关系",
+  subtitle: "考点：动词过去分词 + to 搭配与语义辨析 · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（linked）", "html": "<b>A linked(to)（连接）</b>：数字凭证“连接/绑定”到特定电脑，与句尾 authenticate users 呼应。<br>记忆锚点：都能接 to → 比关系类型；chain 是物理拴缚、direct 是对准、compare 是相比。<br>最易误选：<b>C（chained）</b>——把“固定在一台”错配成“拴”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 7 空 · 数字凭证与特定电脑之间的______关系</h2>
+<p>答案：<strong>A（linked 连接）</strong>。</p>
+<h3>第 0 步：先立机制——四个动词都接 to，比的是“关系类型”</h3>
+<p>空格是过去分词作后置定语，修饰 a digital credential（数字凭证），并与 to a specific computer（一台特定的电脑）搭配。A、B、C、D 四个动词<strong>都能</strong>与 to 连用——所以考点不是“谁能接 to”，而是“凭证与电脑之间是哪一种关系”：凭证是软件层的东西，它要在某台电脑上被使用，二者是“连接/绑定”关系。选词就是给这段关系挑一个准确的动词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The system might use a smart identity card, or a digital credential __7__ to a specific computer, and would authenticate users at a range of online services.</blockquote>
+<p>数字凭证“______于”一台特定电脑；句尾还交代了它的用途：在多家在线服务上认证用户身份。</p>
+<h3>第 2 步：找证据——句尾用途反过来限定关系类型</h3>
+<blockquote>…and would authenticate users at a range of online services.</blockquote>
+<p>凭证的功能是“认证”：认证要靠凭证与设备、与在线服务之间的<strong>连接</strong>才能完成。被“拴住”“对准”“相比”的凭证都干不了这个活——只有“连接于（linked to）”某台电脑的凭证才能随身认证。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A linked (to)</td><td>连接</td><td>✓ 当选</td><td>linked to a computer “连接/绑定到一台电脑”，正是数字凭证的存放与使用方式，与句尾 authenticate users 呼应。</td></tr><tr><td>B directed (to)</td><td>对准；发给</td><td>✗ 排除</td><td>direct sth at/to sb 的对象多是言论、措施、邮件，“凭证对准电脑”不成立。（典型误解：directed to 有“送达”义，就想成“发给电脑”。）</td></tr><tr><td>C chained (to)</td><td>拴住，束缚</td><td>✗ 排除</td><td>chain sb/sth to sth 是用链条拴住（防止逃跑/被盗）的<strong>物理动作</strong>，带束缚色彩；软件凭证谈不上被拴。（典型误解：觉得“固定在一台电脑上”≈“拴”，忽略 chain 的物理意象与贬义。）</td></tr><tr><td>D compared (to)</td><td>与……相比</td><td>✗ 排除</td><td>compared to 引出比较对象，此处不是比较关系；“凭证被拿来和电脑比”语义崩坏。（典型误解：compare to 太熟，语感抢答。）</td></tr></tbody></table>
+<p>代入后的完整句义：该系统可能使用一张智能身份卡，或一个连接（绑定）到特定电脑上的数字凭证，并能在多家在线服务上认证用户。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>chained to“拴在一台电脑上”不是更有“绑定一台”的意思吗？</strong>：chain 的意象是铁链拴牲口、锁单车——防逃跑防盗窃，是物理束缚且含贬义；数字凭证与电脑的关系是技术上的“连接”，两者意象完全不同。</li><li><strong>directed to 什么时候对？</strong>：用于“把某物对准/送往某人”：a letter directed to me。对象是“电脑”这种设备时，表达“连接”只有 linked to。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（chained）</strong>：把“固定在某一台”的中文意思直接对应“拴”，没意识到 chain 是物理动作且含束缚贬义。</li><li><strong>误选 B（directed）</strong>：看到 to 就想到“发给”，没核对 directed 的宾语类型。</li><li><strong>误选 D（compared）</strong>：compare to 的“打比方”义抢跑，忘了原文并无比较结构。</li></ul>
+<blockquote>记忆锚点：四词都接 to → 比“关系类型”；数字凭证 ↔ 电脑 = linked to（连接/绑定）；chain 是“铁链拴缚”、direct 是“对准对象”、compare 是“相比”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

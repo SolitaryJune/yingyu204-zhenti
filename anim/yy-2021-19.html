@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-19 · 2021 完形第 19 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：not only...but also 两侧共说「目标」",
+  "body": "<div class='qq'><b>原文：</b>The trick is not only to __19__ just one or even two dimensions of the objective, but also to understand how to help people better __20__ the objective.</div><p>not only...but also 平行结构：空格动词与 but also 侧的 understand 并列，共享「the objective（目标）」这一话题。主语 trick（诀窍）要求空格说出「设定目标」时的一个动作，其宾语是 <b>dimensions of the objective（目标的维度）</b>——能作用于「维度」的动词，先决条件是有「明确指出 / 列明」一类含义。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "找证据：目标多维，维度靠「列明」",
+  "body": "<div class='qq'><b>原文：</b>Most work-related behaviors have multiple components.</div><div class='qq'><b>原文：</b>All good targets should have multiple criteria __18__ critical factors such as time, money, quality and customer feedback.</div><p>首尾两处机制句互相呼应：工作行为是<b>多成分</b>的，好目标要有<b>多重标准</b>。既然维度众多，「把一两个维度<b>列明</b>」正是设定目标时真实发生的动作——just one or even two 的让步口吻也只有在「列明」上才成立。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：specify（列明）——设定目标的动作",
+  "body": "<p><b>A · specify（具体指明、列明）</b> <span class='ok-dot'>✓</span></p><p>「只<b>列明</b>目标的一两个维度」——specify 与多重标准的机制呼应，也与后半句「还要懂得帮人实现目标」构成诀窍的两半。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：predict（预测）——维度不是未来事件",
+  "body": "<p><b>B · predict（预测）</b> <span class='bad-dot'>✗</span></p><p>predict 预设「维度尚未出现、需要预言」——维度本就摆在目标里等人去界定，不是未来事件。</p><p style='color:#b91c1c'>⚠ 典型误解：把全文「预见负面后果（unforeseen）」的主题词误迁移到本空。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：restore（恢复）——前提不成立",
+  "body": "<p><b>C · restore（修复、复原）</b> <span class='bad-dot'>✗</span></p><p>restore 的前提是某物曾被破坏；文中从未说目标维度受损，「恢复维度」无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：create（创造）——维度不能被「发明」",
+  "body": "<p><b>D · create（创造）</b> <span class='bad-dot'>✗</span></p><p>create 把「目标的维度」当成可造之物——维度是目标固有的构成面，人只能「指出、列明」它，不能「发明」它。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A（specify）",
+  "body": "<p><b>答案 A（specify）</b>。</p><p>完整句义：诀窍不仅在于只明确目标的一两个维度，还在于懂得如何帮助人们更好地实现目标。</p><p>记忆锚点：specify dimensions of the objective = 列明目标的维度；not only...but also 两侧动词要与宾语同场成立——列明维度 ↔ 帮人实现目标。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 B（predict）——unforeseen 主题词误迁移：本空动作对象是「现成的维度」，不是未来事件。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-19 · 完形第 19 空：「诀窍」的第一个动作",
+  subtitle: "考点：not only...but also 平行结构 + 动宾搭配核验",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 找证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（specify）",
+ "html": "<b>A specify（列明）</b>：specify just one or even two dimensions of the objective = 只列明目标的一两个维度。<br>记忆锚点：工作多维（multiple components）→ 维度靠「列明」；predict 预设未来、restore 预设破坏、create 预设可造，均不成立。<br>最易误选：B（predict）。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 19 空——「诀窍」的第一个动作</h2>
+<p>答案：<strong>A</strong>（specify）。</p>
+<h3>第 0 步：先立机制——not only...but also 两侧要与宾语同场成立</h3>
+<p>The trick is not only to __19__ just one or even two dimensions of the objective, but also to understand how to help people better __20__ the objective。空格动词与 understand 并列于 not only...but also 结构两侧，共享「the objective（目标）」这一话题。主语 trick（诀窍）要求空格说出「设定目标」时的一个动作，其宾语是 <strong>dimensions of the objective（目标的维度）</strong>——能作用于「维度」的动词，先决条件是有「明确指出 / 列明」一类含义。</p>
+<h3>第 1 步：A 对号入座——specify one or two dimensions</h3>
+<blockquote>Most work-related behaviors have multiple components.</blockquote>
+<blockquote>All good targets should have multiple criteria __18__ critical factors such as time, money, quality and customer feedback.</blockquote>
+<p>首尾两处机制句互相呼应：工作行为是<strong>多成分</strong>的，好目标要有<strong>多重标准</strong>。既然维度众多，「把一两个维度<strong>列明</strong>」正是设定目标时真实发生的动作；just one or even two 的让步口吻也只有在「列明」上才成立。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（predict 预测）</strong>：预设「维度尚未出现、需要预言」——维度本就摆在目标里等人界定，不是未来事件；这是把全文「预见负面后果（unforeseen）」的主题词误迁移到本空。</li><li><strong>C（restore 恢复）</strong>：前提是某物曾被破坏；文中从未说目标维度受损，「恢复维度」无中生有。</li><li><strong>D（create 创造）</strong>：把「目标的维度」当成可造之物——维度是目标固有的构成面，人只能「指出、列明」它，不能「发明」它。</li></ul>
+<blockquote>记忆锚点：specify dimensions of the objective = 列明目标的维度；not only...but also 两侧动词要与宾语同场成立：列明维度 ↔ 帮人实现目标。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

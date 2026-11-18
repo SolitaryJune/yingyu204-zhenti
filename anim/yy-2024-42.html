@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-42</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>左列人名 <b>Sara Harberson</b>（大学招生顾问）。注意第五段刚说完\"冷门活动更容易出众\"，别急着配 F（uncommon activities）——先看 Harberson 本人接的是什么话。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第六段）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · \"The competition to stand out and make an impact is going to be <b>much stiffer</b>, and so <b>if they're going to do a popular activity</b>, I'd say, <b>be the best at it</b>,\" says Sara Harberson.</p><p>语境：热门（校园常见）活动竞争更激烈（stiffer）；Harberson 给的对策是\"那就做到最好\"。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ E",
+    "body": "<p>E 项 <code>High school students participating in a popular activity should excel in it</code>：a popular activity <b>原词复现</b>；excel in it = be the best at it（做到最好）；participating in = do。原词 + 同义双保险。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 F：频道不同",
+    "body": "<p>F 项\"参加非常规活动展现决心与专注\"是第九段 Joseph 的观点（unconventional + serious commitment）。Harberson 的话题是\"热门活动怎么办\"，与\"冷门活动显决心\"完全两个频道。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 D：例子归属他人",
+    "body": "<p>D 项\"经商能力给大学留下印象\"是第八段 Olivia Valdes 的创业例子（starting a profitable small business）。人名导航的价值：先归属、再比对。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>E（High school students participating in a popular activity should excel in it）</b>。第五、六段是姐妹句：冷门易出众 → 热门要做到最好；题问的是后者。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 新题型 · 第 42 题：Sara Harberson 的观点",
+  "subtitle": "考点：多项匹配 · 热门活动要做就做到最好",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 E",
+    "html": "记忆锚点：Harberson ⇒ <b>a popular activity ⇒ be the best at it ⇒ excel in it</b>。第五段\"冷门易出众\"、第六段\"热门要做到最好\"是配套观点；F（uncommon + 决心）是第九段 Joseph 的，别混。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 新题型第 42 题 · Sara Harberson 的观点</h2>
+<p>答案：<strong>E（High school students participating in a popular activity should excel in it 参加热门课外活动的高中生应当在其中力争上游）</strong>。</p>
+<h3>第 0 步：先立机制——警惕"上一段的尾巴"</h3>
+<p>第五段刚说完"在常见活动中脱颖而出更难"，第六段 Harberson 接话给<strong>对策</strong>。读新题型要顺着话头走：上一段提出"难"，本段回答"那怎么办"——把 F（uncommon activities）当答案，就等于把"问题"当成了"解法"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"The competition to stand out and make an impact is going to be <strong>much stiffer</strong>, and so <strong>if they're going to do a popular activity</strong>, I'd say, <strong>be the best at it</strong>," says Sara Harberson.</blockquote>
+<p>语境：热门活动竞争激烈得多；Harberson 的对策是——既然要做热门活动，就做到最好。</p>
+<h3>第 2 步：同义替换对上 E</h3>
+<p>a popular activity <strong>原词复现</strong>；excel in it（出类拔萃）= be the best at it；participating in = do。原词 + 同义双保险，E 当选。</p>
+<h3>第 3 步：排除干扰</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>F Engaging in uncommon activities can demonstrate students' determination and dedication</td><td>✗</td><td>F 是第九段 Joseph 的观点（unconventional + serious commitment）；Harberson 的话题是"热门活动怎么办"，两个频道。（典型误解：见第五段"冷门易出众"就顺手配 F——那是铺垫句，不是 Harberson 的话。）</td></tr><tr><td>D A student who exhibits abilities in doing business can impress colleges</td><td>✗</td><td>"经商能力"是第八段 Olivia Valdes 的创业例子（starting a profitable small business），与 Harberson 无关。（典型误解：impress colleges 是全篇高频表达，撞词不撞人。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>第五段"冷门更易出众"与 E 矛盾吗？</strong>：不矛盾，是配套论证——正因为冷门易出众，做热门才要拼命做到最好。两句都为"如何脱颖而出"服务，但本题问的是 Harberson 说出口的那句。</li><li><strong>stiffer 起什么作用？</strong>：它解释了对策的必要性——竞争更激烈 ⇒ 必须做到最好，衔接词把"现象"与"建议"焊在一起。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 F</strong>：话题方向反了——F 谈冷门，Harberson 谈热门。</li><li><strong>误选 D</strong>：被 impress colleges 撞词误导。</li></ul>
+<blockquote>记忆锚点：Harberson ⇒ a popular activity ⇒ be the best at it ⇒ excel in it；第五段"冷门易出众"、第六段"热门要做到最好"是姐妹句；F 属第九段 Joseph。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

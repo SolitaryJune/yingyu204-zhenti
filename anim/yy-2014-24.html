@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-24 · 2014 阅读第 24 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · According to the last paragraph → 答案是末段评价句的改写",
+  "cls": "key",
+  "tag": "审题",
+  "log": "题干点名“末段 + Happy Money”：末段④句让步、⑤句转折，But 之后才是总评",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>According to the last paragraph, Happy Money ____.</b></p><p>末段是作者对书的集中评价：④句让步（并非人人赞同其政策理念）、⑤句转折（但多数人读完觉得物有所值）。<b>让步句永远让位于转折句</b>——同义替换就在⑤句。</p>"
+ },
+ {
+  "title": "定位原文 · 末段④⑤句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位末句：But most people will come away from this book believing it was money well spent",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Not everyone will agree with the authors' policy ideas, which range from mandating more holiday time to reducing tax incentives for American homebuyers. <b>But</b> most people will come away from this book believing <b>it was money well spent</b>.</div><p>it was money well spent（这笔钱花得值）说的正是“<b>买这本书</b>”这件事本身——书值得买。</p>"
+ },
+ {
+  "title": "同义替换 · money well spent ↔ worthwhile purchase",
+  "cls": "key",
+  "tag": "替换",
+  "log": "money well spent ↔ worthwhile purchase；come away believing ↔ may prove to be",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>money well spent ↔ worthwhile purchase</b>（值得的购买）；most people will come away from this book believing（多数读者的读后感）↔ <b>may prove to be</b>（可能被证实）。→ B 项。</p>"
+ },
+ {
+  "title": "逐项分析 · A has left much room for readers' criticism",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 留下许多批评空间 ✗ 排除——把一句让步放大成总评",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>④句只是“并非人人赞同某些政策理念”，属正常保留意见，作者整体认同；“并非人人同意 X” ≠ “留下大量批评空间”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 Not everyone will agree 就判书“充满争议”，忽略 But 的转折力度。</p>"
+ },
+ {
+  "title": "逐项分析 · B may prove to be a worthwhile purchase",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B 可能被证实是值得的购买 ✓ 当选——= it was money well spent",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>= it was money well spent 的同义改写，且说的正是“买书”这笔消费。</p>"
+ },
+ {
+  "title": "逐项分析 · C has predicted a wider income gap in the US",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 预言美国更大的收入差距 ✗ 排除——rich/poor 拼凑，与“美国差距”无关",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>②句 wealthier countries / poor ones 讲的是“富国比穷国人更幸福”，与美国国内收入差距无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 rich/poor 就联想收入差距——信息碎片拼凑。</p>"
+ },
+ {
+  "title": "逐项分析 · D may give its readers a sense of achievement",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 给读者成就感 ✗ 排除——readers/fulfilment 碎片重组，主语错位",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>readers + “满足感”碎片重组：书的目的是教人“<b>花钱买满足</b>”，不是“给读者成就感”；且 fulfilment ≠ achievement。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见正向词就收，词对、意思错位。</p>"
+ },
+ {
+  "title": "结论 · 替换链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（may prove to be a worthwhile purchase）——But 之后才是结论",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>同义替换链：<b>money well spent ↔ worthwhile purchase</b>。</p><p>答案选 <b>B（may prove to be a worthwhile purchase）</b>。</p><p><b>记忆锚点</b>：末段评价看 But 之后；让步句（Not everyone...）不是结论；fulfilment ≠ achievement。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 A——把一句让步放大成总评。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 24 题 · 末段评《快乐金钱》——money well spent 的同义改写",
+  subtitle: "考点：末段细节题 · 让步句（Not everyone...）让位于转折句（But...）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（may prove to be a worthwhile purchase）",
+ "html": "<b>B</b>：末句 But most people will come away from this book believing <b>it was money well spent</b> ↔ a worthwhile purchase（买这本书本身值得）。<br>A 把让步放大成总评；C 收入差距系拼凑；D 成就感系碎片重组（fulfilment ≠ achievement）。<br>记忆锚点：末段评价看 But 之后。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 24 题 · 末段评《快乐金钱》——money well spent 的同义改写</h2>
+<p>答案：<strong>B（may prove to be a worthwhile purchase）</strong>。</p>
+<h3>第 0 步：先立机制——According to the last paragraph → 答案是末段评价句的改写</h3>
+<p>题干点名"末段 + Happy Money 这本书"。末段是作者对书的集中评价：④句让步（并非人人赞同其政策理念）、⑤句转折（但多数人读完觉得物有所值）。让步句永远让位于转折句——But 之后才是作者的真实评价，同义替换就在⑤句。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Not everyone will agree with the authors' policy ideas, which range from mandating more holiday time to reducing tax incentives for American homebuyers. But most people will come away from this book believing it was money well spent.</blockquote>
+<p>it was money well spent（这笔钱花得值）说的就是"买这本书"这件事本身——书值得买 ↔ B 项 a worthwhile purchase。</p>
+<h3>第 2 步：同义替换</h3>
+<p>money well spent ↔ worthwhile purchase；most people will come away from this book believing（多数读者的读后感）↔ may prove to be（可能被证实）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B may prove to be a worthwhile purchase</td><td>可能被证实是值得的购买</td><td>✓ 当选</td><td>= it was money well spent，且说的正是"买书"这笔消费。</td></tr><tr><td>A has left much room for readers' criticism</td><td>给读者留下许多批评空间</td><td>✗ 排除</td><td>夸大：④句只是"并非人人赞同某些政策理念"，属正常保留意见，作者整体认同；"并非人人同意" ≠ "留下大量批评空间"。（典型误解：把一句让步放大成总评。）</td></tr><tr><td>C has predicted a wider income gap in the US</td><td>预言了美国更大的收入差距</td><td>✗ 排除</td><td>拼凑：②句 wealthier countries / poor ones 讲的是"富国比穷国人更幸福"，与美国国内收入差距无关。（典型误解：见 rich/poor 就联想收入差距。）</td></tr><tr><td>D may give its readers a sense of achievement</td><td>可能给读者成就感</td><td>✗ 排除</td><td>拼凑：①句 readers、③句 feeling good 碎片重组；书的目的是教人"花钱买满足"，不是"给读者成就感"。（典型误解：见正向词就收。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>④句"并非人人赞同"算不算书的缺点？</strong>：算轻微保留，但题干问末段对书的定位——⑤句 But 之后"多数人认为钱花得值"才是段落结论；让步句不是结论句。</li><li><strong>D 里的"满足感"不是书里的核心词吗？</strong>：是，但原文说的是读者渴望 fulfilment（满足感）、作者建议把钱花在能带来满足感的地方；"成就感（achievement）"是另一个词，且主语错位——是"读者从花钱中获得满足"，不是"书给读者成就感"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：只看到 Not everyone will agree 就判书"充满争议"，忽略 But 的转折力度。</li><li><strong>误选 D</strong>：被 fulfilment 这类原文词汇吸引；词对、意思错位。</li></ul>
+<blockquote>记忆锚点：末段评价看 But 之后——it was money well spent ↔ worthwhile purchase；让步句（Not everyone...）不是结论；fulfilment ≠ achievement。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

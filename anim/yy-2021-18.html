@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-18 · 2021 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：空 18 的语法岗位是「后置定语」",
+  "body": "<div class='qq'><b>原文：</b>All good targets should have multiple criteria __18__ critical factors such as time, money, quality and customer feedback.</div><p>空格夹在 criteria（标准）与 critical factors（关键因素）两个名词之间，后面还挂着 such as 列举的四个因素——这是<b>短语动词作后置定语</b>的结构：要填的短语必须把「多重标准」与这些因素<b>挂接</b>起来，构成「关于……的标准」。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "找证据：标准与因素之间是「涉及」关系",
+  "body": "<div class='qq'><b>原文：</b>Most jobs are multidimensional, with multiple criteria.</div><p>末段点明机制：工作是<b>多维的</b>，所以好目标才需要多重标准。criteria 与 factors 之间是「<b>涉及 / 关联</b>」关系——标准覆盖这些维度，谁也不「导致」谁、谁也不「需要」谁。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：leading to（导致）——方向反置",
+  "body": "<p><b>A · leading to（导致）</b> <span class='bad-dot'>✗</span></p><p>标准是人定的考核尺度，因素是客观存在的维度，不能说标准「<b>导致</b>」这些因素。</p><p style='color:#b91c1c'>⚠ 典型误解：熟悉 A leading to B 的因果句式，却没核对主宾逻辑。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：calling for（需要）——主语错位",
+  "body": "<p><b>B · calling for（需要、呼吁）</b> <span class='bad-dot'>✗</span></p><p>calling for 的主语通常是局面、行动或人——「标准」本身不会去「需要」几个客观因素，「标准呼唤因素」不通。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：relating to（涉及）——标准覆盖多维因素",
+  "body": "<p><b>C · relating to（与……相关、涉及）</b> <span class='ok-dot'>✓</span></p><p>「涉及时间、金钱、质量与客户反馈等关键因素的<b>多重标准</b>」——恰好表达标准对多维因素的<b>覆盖</b>，呼应「工作是多维的」这一全文机制。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：accounting for——「占比 / 解释」对不上",
+  "body": "<p><b>D · accounting for（占比；解释原因）</b> <span class='bad-dot'>✗</span></p><p>account for 的看家义项是「占（比例）」或「解释（原因）」，如 account for 80 per cent。「标准解释因素」在文中无从谈起，数量与原因两个义项都对不上。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C（relating to）",
+  "body": "<p><b>答案 C（relating to）</b>。</p><p>完整句义：所有好目标都应有涉及时间、金钱、质量、客户反馈等关键因素的多重标准。</p><p>记忆锚点：criteria relating to factors = 「关于……的标准」；leading to 管因果、accounting for 管占比 / 解释、calling for 管需求。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 D（accounting for）——把「占比 / 解释」义项当成万能「关于」用。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-18 · 完形第 18 空：「多重标准」与「关键因素」的挂接",
+  subtitle: "考点：短语动词作后置定语 + 主宾关系核验",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 找证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（relating to）",
+ "html": "<b>C relating to（涉及）</b>：multiple criteria <b>relating to</b> critical factors = 涉及各关键因素的多重标准。<br>记忆锚点：标准与因素是「涉及」关系；leading to 管因果、accounting for 管占比 / 解释、calling for 管需求，均接不稳「标准 + 因素」。<br>最易误选：D（accounting for）。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 18 空——「多重标准」与「关键因素」的挂接</h2>
+<p>答案：<strong>C</strong>（relating to）。</p>
+<h3>第 0 步：先立机制——空格的语法岗位：后置定语</h3>
+<p>All good targets should have multiple criteria __18__ critical factors such as time, money, quality and customer feedback。空格夹在 criteria（标准）与 critical factors（关键因素）两个名词之间，后面还挂着 such as 列举的四个因素——这是典型的「短语动词作后置定语」结构：要填的短语必须把「多重标准」与这些因素<strong>挂接</strong>起来，构成「关于……的标准」。先判断关系方向：standard / criteria 与 factor 之间是「涉及 / 关联」——标准<strong>覆盖</strong>这些维度，谁也不「导致」谁、谁也不「需要」谁。</p>
+<h3>第 1 步：C 对号入座——multiple criteria relating to critical factors</h3>
+<blockquote>Most jobs are multidimensional, with multiple criteria.</blockquote>
+<p>末段点明机制：工作是<strong>多维的</strong>，所以好目标才需要多重标准。relating to =「与……相关、涉及」：multiple criteria relating to critical factors such as... 读作「涉及时间、金钱、质量与客户反馈等关键因素的多重标准」，语义与语法双双落定。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（leading to 导致）</strong>：方向反置——标准是人定的考核尺度，因素是客观维度，不能说标准「导致」这些因素；误选者熟悉因果句式，没核对主宾逻辑。</li><li><strong>B（calling for 需要）</strong>：主语错位——calling for 的主语通常是局面、行动或人，「标准」本身不会去「需要」几个客观因素。</li><li><strong>D（accounting for 占比 / 解释）</strong>：义项错位——account for 的看家义项是「占（比例）」「解释（原因）」，「标准解释因素」在文中无从谈起。</li></ul>
+<blockquote>记忆锚点：criteria relating to factors =「关于……的标准」；leading to 管因果、accounting for 管占比 / 解释、calling for 管需求，三者都接不稳「标准 + 因素」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

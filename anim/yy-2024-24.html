@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-24 · 2024 阅读第 24 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 例证题问“数据为什么存在”',
+    cls: 'key',
+    tag: '审题',
+    log: 'Several American cities are mentioned to show ____——答案在例子服务的观点里',
+    count: 0,
+    body: '<p>题干是写作目的题：例子本身不是答案。定位第四至六段：<code>a handful of prosperous cities</code>（第四段）→ 具体数据（第五段）→ dominance 与后果（第六段）。把例子串成线，才能看出用意。</p>'
+  },
+  { title: '定位原文 · 第五段的数据串',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：8 城占 38% 科技岗位；15 城占全美 2/3 AI 资产——高度集中',
+    count: 0,
+    body: quote('According to the Brookings Institution, a short list of eight American cities... had roughly 38% of all tech jobs by 2019. New AI technologies are particularly concentrated: ...just 15 cities account for two-thirds of the AI assets and capabilities in the United States.') +
+      '<p>两个数字指向同一件事：<b>AI／科技资源高度集中于少数城市</b>——particularly concentrated 是作者给出的定性。</p>'
+  },
+  { title: '定位原文 · 第六段点破用意',
+    cls: 'key',
+    tag: '定位',
+    log: '第六段：dominance → disparities soar——集中即不均',
+    count: 0,
+    body: quote('The dominance of a few cities in the invention and commercialization of AI means that geographical disparities in wealth will continue to soar.') +
+      '<p>少数城市的<b>主导（dominance）</b>导致地域财富差距飙升——数据存在的理由正是“分布不均”，且定下负面基调。</p>'
+  },
+  { title: '找证据 · 负面词群锁定方向',
+    cls: 'key',
+    tag: '证据',
+    log: ' resentment / disparities / unrest / hold back——全是负面词，用意方向确定',
+    count: 0,
+    body: quote('Not only will this foster political and social unrest, but it could... hold back the sorts of AI technologies needed for regional economies to grow.') +
+      '<p>定位段群的感情色彩清一色负面：不满（resentment）、差距飙升（disparities soar）、动荡（unrest）、拖累（hold back）。例证用意只能是<b>指出问题</b>，不是夸赞。</p>'
+  },
+  { title: 'A：uneven distribution —— 观点句闭环',
+    cls: 'good',
+    tag: '锁定 A',
+    log: 'A AI 技术分布不均 ✓——concentrated / dominance 的同义概括',
+    count: 0,
+    ribbon: { k: 1, ok: true },
+    body: '<p>8 城占 38% 科技岗位、15 城占 2/3 AI 资产、少数城市主导 AI 的发明与商业化——<b>高度集中 = 分布不均</b>。A 是对定位段群的合理概括，与全文“AI 不平等”主旨严丝合缝。</p>'
+  },
+  { title: 'B：disappointing prospect of tech jobs —— 杂糅',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 科技岗位前景堪忧 ✗——不满与拖累是“不均的后果”，不是岗位前景',
+    count: 1,
+    ribbon: { k: 2, ok: false },
+    body: '<p>把第四段 resentment、第六段 hold back...economies to grow 与第五段 tech jobs 杂糅。原文说 8 城占 38% 岗位，落点是<b>集中</b>，不是岗位数量萎缩或前景黯淡。</p><p style="color:#b91c1c">⚠ 典型误解：把“不均的后果”安到“岗位前景”上。</p>'
+  },
+  { title: 'C：fast progress of regional economies —— 色彩相反',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C 区域经济发展迅速 ✗——断章取义 + 正面色彩与负面词群相悖',
+    count: 2,
+    ribbon: { k: 3, ok: false },
+    body: '<p>“少数城市拥有大部分 AI 资产”被断章成“区域发展快”；但列举城市的真实用意是指出<b>不平等引发动荡、拖累经济</b>——定位段群清一色负面，正面评价直接出局。</p><p style="color:#b91c1c">⚠ 典型误解：只看数字表面，不对感情色彩。</p>'
+  },
+  { title: 'D：increasing significance of AI assets —— 同样断章',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D AI 资产重要性上升 ✗——“15 城占 2/3”说明的是集中度，不是重要度',
+    count: 3,
+    ribbon: { k: 4, ok: false },
+    body: '<p>与 C 同性质：“几个城市占大头”确实让人想到“资产要紧”，但脱离了上下文主旨——作者列举数据是为了说明 <b>AI 资源的地域分布极度不均</b>，不是评价资产重要性。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 A',
+    log: '答案 A（the uneven distribution of AI technologies）——例证题先对色彩再对主旨',
+    count: 3,
+    body: '<p>答案选 <b>A（the uneven distribution of AI technologies in the US）</b>。</p><p><b>记忆锚点</b>：例证题的答案在例子外的观点句——<code>particularly concentrated / dominance / disparities</code>；负面词群里挑不出正面选项，C、D 秒排。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 24 题 · 提及几个美国城市的用意',
+  subtitle: 'Text 1 · 考点：写作目的（例证题）· 数据串 → 观点句 → 感情色彩速排',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“定位数据串 → 点破用意 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（uneven distribution）',
+    html: '数据：<b>8 城 38% 科技岗位 / 15 城 2/3 AI 资产</b>；观点句：<b>particularly concentrated → dominance → disparities soar</b>——集中即不均。<br>记忆锚点：例证题先对感情色彩（负面词群秒排 C、D），再对主旨（AI 不平等）。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 24 题 · 提及几个美国城市的用意</h2>
+<p>答案：<strong>A（the uneven distribution of AI technologies in the US 美国 AI 技术分布不均）</strong>。</p>
+<h3>第 0 步：先立机制——例证题问的是“数据为什么存在”</h3>
+<p>Several American cities are mentioned to show ____ 是写作目的题：例子本身不是答案，例子服务的观点才是。定位第四至六段：a handful of prosperous cities（第四段）→ 八城占 38% 科技岗位、15 城占全美三分之二 AI 资产（第五段）→ a few cities 的 dominance 导致 wealth disparities soar（第六段）。例子串成一条线：AI 资源高度集中于少数城市 = 分布不均。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>According to the Brookings Institution, a short list of eight American cities... had roughly 38% of all tech jobs by 2019. New AI technologies are particularly concentrated: ...just 15 cities account for two-thirds of the AI assets and capabilities in the United States.<br/>The dominance of a few cities in the invention and commercialization of AI means that geographical disparities in wealth will continue to soar.</blockquote>
+<h3>第 2 步：找证据——负面词群锁定用意方向</h3>
+<blockquote>Not only will this foster political and social unrest, but it could... hold back the sorts of AI technologies needed for regional economies to grow.</blockquote>
+<p>定位段群的感情色彩全是负面：resentment（不满）、disparities...soar（差距飙升）、unrest（动荡）、hold back（拖累）。作者列举城市数据的用意只能是说明“分布不均”的问题，不是夸“区域发展快”或“AI 资产重要”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A the uneven distribution of AI technologies</td><td>AI 技术分布不均</td><td>✓</td><td>8 城占 38% 科技岗位、15 城占 2/3 AI 资产、少数城市主导 AI——高度集中即不均</td></tr><tr><td>B the disappointing prospect of tech jobs</td><td>科技岗位前景堪忧</td><td>✗</td><td>杂糅：resentment、hold back 描述的是“不均的后果”，不是岗位前景</td></tr><tr><td>C the fast progress of US regional economies</td><td>区域经济发展迅速</td><td>✗</td><td>断章取义 + 色彩相反：定位段群全是负面论述，“发展快”与用意相悖</td></tr><tr><td>D the increasing significance of US AI assets</td><td>AI 资产重要性上升</td><td>✗</td><td>同为断章取义：“15 城占 2/3 资产”说明的是集中度，不是重要度</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 C、D 可以秒排？</strong>：例证题先对感情色彩——定位段群 resentment / disparities / unrest / hold back 清一色负面，而 C、D 是正面评价，方向就不对；再对主旨——全文焦点是 AI 不平等问题，“发展快”“资产重要”都不在其中。</li><li><strong>B 为什么错？文中确实提到 tech jobs</strong>：第五段说 8 城占 38% 科技岗位，落点是“岗位集中在少数城市”，不是“岗位数量或前景如何”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C／D</strong>：只看数字表面（城市占大头 → 发展快/资产重要），脱离段群的负面语义与全文主旨。</li><li><strong>误选 B</strong>：把第四、六段关于“不满”与“拖累经济”的信息杂糅成“岗位前景”问题。</li></ul>
+<blockquote>记忆锚点：例证题答案在例子外的观点句——particularly concentrated、dominance、disparities；感情色彩先行，负面词群里挑不出正面选项。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

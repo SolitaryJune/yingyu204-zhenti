@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-23 · 2021 阅读第 23 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：评价句先定色彩，再抠精确义项",
+  "body": "<p>题干：<b>Efforts to resolve the skills mismatch in Canada ____</b>（加拿大解决技能错配的努力 ____）。</p><p>「努力」被评价——先在原文找到评价词定<b>感情色彩</b>，再靠结果句把义项抠准：是「不足」「反复」还是「遭反对」。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：languid at best 的评价句",
+  "body": "<div class='qq'><b>原文：</b>Efforts in Canada and elsewhere have been arguably languid at best, and have given us a situation where we frequently hear of employers begging for workers, even at times and in regions where unemployment is high.</div><p>评价词：<b>languid at best</b>（充其量懒散无力）——<b>负面评价</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：结果句坐实「不足」",
+  "body": "<div class='qq'><b>原文：</b>When the skills mismatch is in the broader economy though, the focus usually turns to government to handle.</div><p>上文交代：整体经济的技能错配通常转交给政府处理。结果句更直白——失业率高的时间和地区，雇主却「求着招人（begging for workers）」：有闲置劳动力却补不上缺口，正是「努力<b>不足</b>」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：推高劳动力成本——无中生有",
+  "body": "<p><b>A · have driven up labour costs（推高了劳动力成本）</b> <span class='bad-dot'>✗</span></p><p>文中没有任何成本信息，无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：前后不一——languid 不是 inconsistent",
+  "body": "<p><b>B · have proved to be inconsistent（已被证明前后不一）</b> <span class='bad-dot'>✗</span></p><p>languid 说的是<b>力度不足</b>，不是「一会儿紧一会儿松」的不一致性——义项错位。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：激烈反对——文中无反对者",
+  "body": "<p><b>C · have met with fierce opposition（遭到激烈反对）</b> <span class='bad-dot'>✗</span></p><p>文中没有反对者；人们只是「无力地」应对，没有谁站出来反对。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：显得不足——评价词 + 结果句双证据",
+  "body": "<p><b>D · have appeared to be insufficient（显得不足）</b> <span class='ok-dot'>✓</span></p><p>languid at best（充其量懒散无力）→ <b>appeared to be insufficient</b>；证据还在结果里：失业率高企之地雇主却「求着招人」——努力没补上缺口。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（have appeared to be insufficient）</b>。</p><p>记忆锚点：languid at best =「充其量也就有气无力」；评价句 + 结果句（begging for workers despite high unemployment）双证据锁定 insufficient。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 B（inconsistent）——languid 说「力度不足」，不是「反复无常」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-23 · 阅读第 23 题：加拿大应对技能错配的努力",
+  subtitle: "考点：Text1 第 2 段 · 细节题（评价句 + 结果句双证据）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D",
+ "html": "<b>D have appeared to be insufficient</b>：languid at best（充其量懒散无力）→ 显得不足；失业率高企却雇主「求着招人」坐实缺口。<br>记忆锚点：评价句 + 结果句双证据。<br>最易误选：B——languid 说「力度不足」，不是「前后不一」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 23 题——加拿大应对技能错配的努力</h2>
+<p>答案：<strong>D</strong>（have appeared to be insufficient）。</p>
+<h3>第 0 步：先立机制——评价句先定色彩，再抠精确义项</h3>
+<p>题干 Efforts to resolve the skills mismatch in Canada 是评价句的主语：先在原文找到对「努力」的评价词定<strong>感情色彩</strong>——languid at best（充其量懒散无力），负面评价。但负面评价不止一种（不足、反复、遭反对），还要靠结果句把义项抠准。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>Efforts in Canada and elsewhere have been arguably languid at best, and have given us a situation where we frequently hear of employers begging for workers, even at times and in regions where unemployment is high.</blockquote>
+<p>两条证据同向：评价词 languid at best → <strong>显得不足</strong>（have appeared to be insufficient）；结果句更直白——失业率高的时间和地区，雇主却「求着招人」（begging for workers）：有闲置劳动力却补不上缺口，正是「努力不足」。上文 the focus usually turns to government 交代背景：这种错配通常转交给政府处理，Canada 一句正是评这种应对。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（have driven up labour costs）</strong>：无中生有——文中没有任何成本信息。</li><li><strong>B（have proved to be inconsistent）</strong>：义项错位——languid 说的是<strong>力度不足</strong>，不是「一会儿紧一会儿松」的前后不一。</li><li><strong>C（have met with fierce opposition）</strong>：无中生有——文中没有反对者，只有「无力地」应对。</li></ul>
+<blockquote>记忆锚点：languid at best =「充其量也就有气无力」；评价句 + 结果句（begging for workers despite high unemployment）双证据锁定 insufficient。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

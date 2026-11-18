@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-40 · 2022 阅读 Text 4 第 40 题 · Schwitzgebel 认为行为改变源于什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · suspects + 回指“行为改变”",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：末段——题干“行为改变”需回指上文研究结果",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>定位词 <b>Eric Schwitzgebel suspects</b> → 末段。题干“学生的行为改变”末段没有原词，需回指上文的研究结果：<b>肉餐购买率从 52% 降到 45%</b>。末段整段都在解释这一改变的原因。</p><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Schwitzgebel suspects the greatest impact came from social influence—classmates or teaching assistants leading the discussions may have shared their own vegetarianism…</div>"
+  },
+  {
+   "title": "机制 · 单句不够，升维读句群",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：以 greatest / Second / Least 逻辑标志词为骨架收齐因素清单",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>首句只讲了一个因素（社交影响），单句信息不够——升维动作：以段内<b>逻辑标志词</b>（greatest → Second → Least）为骨架读句群，把影响从高到低的清单收齐。</p><p>Now（后续研究）/ Meanwhile（作者自我调侃）两句与“原因”无关，剪枝略读。</p>"
+  },
+  {
+   "title": "证据 · 三层因素清单",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：①社交影响 ②视频情绪感染 ③理性说理——三层并列",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Second, the video may have had an emotional impact. Least rousing, he thinks, was rational argument…</div><p>①最大——社交影响（同学/助教分享素食主义）；②其次——视频的情绪感染；③最小——理性说理。<b>may have</b> 的推测语气与 suspects 呼应。</p>"
+  },
+  {
+   "title": "逐项分析 · A can bring psychological benefits",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A can bring psychological benefits ✗ 排除——对象与方向双偷换",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>emotional impact 是“<b>视频</b>对学生”的情绪影响——被曲解成“行为改变给学生带来心理<b>益处</b>”：谁影响谁、是感染还是益处，两处都偷换了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：emotional = 心理益处。</p>"
+  },
+  {
+   "title": "逐项分析 · B can be analyzed statistically",
+   "cls": "bad",
+   "tag": "排除 B",
+   "log": "B can be analyzed statistically ✗ 排除——未来计划不是结论",
+   "count": 2,
+   "ribbon": {
+    "k": "B",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>probing 指向<b>未来</b>的后续研究（教学风格、助教饮食习惯、视频暴露），不是本次研究的属性；statistically 原文无据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“正在探究”当成“可统计分析”。</p>"
+  },
+  {
+   "title": "逐项分析 · C is a result of multiple factors",
+   "cls": "good",
+   "tag": "选定 C",
+   "log": "C is a result of multiple factors ✓ 当选——三层合并",
+   "count": 2,
+   "ribbon": {
+    "k": "C",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>greatest impact came from + Second + Least rousing 三个层次合并 = 影响因素不止一个 = <b>is a result of multiple factors</b>。Least rousing（最不奏效）也算因素——排名末位说明理性论证也参与了，只是贡献最小。</p>"
+  },
+  {
+   "title": "逐项分析 · D is a sign of self-development",
+   "cls": "bad",
+   "tag": "排除 D",
+   "log": "D is a sign of self-development ✗ 排除——主观拔高",
+   "count": 3,
+   "ribbon": {
+    "k": "D",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>由“肉餐购买率下降”主观拔高成“道德提升/自我成长”，文中无据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：替作者升华主题。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 C",
+   "log": "答案 C（a result of multiple factors）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>suspects → 末段句群 → greatest（社交）+ Second（视频）+ Least（说理）→ 多因素共同作用</b>。</p><p>答案选 <b>C（is a result of multiple factors）</b>。</p><p><b>记忆锚点</b>：suspects + 因果题，单句不够升维读句群——greatest / Second / Least = 多因素；emotional impact 是“视频的感染”不是“心理益处”。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——只抓一个词，没核对对象与方向。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 阅读 Text 4 第 40 题 · Schwitzgebel 认为行为改变源于什么",
+  subtitle: "考点：观点 + 因果题 · 单句不够升维句群（greatest/Second/Least）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 C（a result of multiple factors）",
+  "html": "<b>C is a result of multiple factors（多种因素作用的结果）</b>。<br>greatest impact came from social influence + Second, the video… + Least rousing… rational argument = 影响因素不止一个。<br>记忆锚点：suspects + 因果题，单句不够就升维读句群；Now/Meanwhile 句剪枝略读。<br>最易误选：<b>A</b>——emotional impact 是“视频的感染”，不是“心理益处”。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 阅读 Text 4 第 40 题 · Schwitzgebel 认为学生行为改变源于什么</h2>
+<p>答案：<strong>C（is a result of multiple factors 是多种因素作用的结果）</strong>。</p>
+<h3>第 0 步：先立机制——" suspects"后接的是一套因果分析，要读出句群结构</h3>
+<p>题干问 Schwitzgebel <strong>suspects</strong>（认为/推测）学生行为改变是什么。定位到末段后会发现首句只讲了一个因素（社交影响），单句信息不够——这时机制动作是"升维"：以段内逻辑标志词（First/greatest、Second、Least）为骨架读<strong>句群</strong>，把一、二、三名因素收齐。三个层次并列 = 多因素共同作用，这就是"从句子到句群"的标准解题路径。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Schwitzgebel suspects the greatest impact came from social influence—classmates or teaching assistants leading the discussions may have shared their own vegetarianism... Second, the video may have had an emotional impact. Least rousing, he thinks, was rational argument...</blockquote>
+<p>他把行为改变的原因按影响从高到低排了序：①最大——社交影响（同学/助教分享自己的素食主义）；②其次——视频的情绪感染；③最小——理性说理。此外 may have/may 的推测语气与 suspects 呼应。</p>
+<h3>第 2 步：句群概括对上 C</h3>
+<p>greatest impact came from + Second + Least rousing 三个层次合并 = 影响因素不止一个 = is a result of multiple factors。当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A can bring psychological benefits</td><td>✗</td><td>emotional impact 是"视频对学生"的情绪影响，被曲解成"行为改变给学生带来心理益处"——对象与方向双偷换。（典型误解：emotional = 心理益处。）</td></tr><tr><td>B can be analyzed statistically</td><td>✗</td><td>probing 指向<strong>未来</strong>的后续研究（教学风格、助教饮食习惯、视频暴露），statistically 原文无据。（典型误解：把"正在探究"当成"可统计分析"。）</td></tr><tr><td>C is a result of multiple factors</td><td>✓</td><td>三个层次的因果分析合并概括：社交影响 + 视频感染 + 理性说理。</td></tr><tr><td>D is a sign of self-development</td><td>✗</td><td>由"肉餐购买率下降"主观拔高成"道德提升/自我成长"，文中无据。（典型误解：替作者升华主题。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>题干说"学生的行为改变"，末段没提这个词，定位错了吗？</strong>：没错。"行为改变"需回指上文的研究结果——肉餐购买率从 52% 降到 45%。末段整段都在解释这一改变的原因，定位正确；这也解释了为什么必须读句群而非单句。</li><li><strong>Least rousing（最不奏效）也算"因素"吗？</strong>：算。它排在影响因素清单的末位，说明理性论证也参与了作用，只是贡献最小——"从高到低"的排序恰恰证明因素是复数的。</li><li><strong>Now / Meanwhile 两句为什么略读？</strong>：Now 后是后续研究方向，Meanwhile 后是作者的自我调侃（收回前言），都与"行为改变的原因"无关——句群阅读也要学会剪枝。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：只抓 emotional impact 一个词，没核对谁影响谁、是益处还是感染。</li><li><strong>误选 B</strong>：把未来计划（probing）当成已完成研究的属性。</li></ul>
+<blockquote>记忆锚点：suspects + 因果题，单句不够就升维读句群：greatest... / Second... / Least... = 多因素；emotional impact 是"视频的感染"，不是"心理益处"；probing 是下一步研究。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

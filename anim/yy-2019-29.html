@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-29 · 2019 阅读 Text 2 第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · 题眼词 essential 找原文镜像", "cls": "key", "tag": "定位", "log": "essential ↔ vital；vital 后面的不定式就是答案", "count": 0, "ribbon": null, "body": "<p>题干：What is <b>essential</b> to California’s plan according to Paragraph 5?</p><p>“关键”这类题眼词在原文里有镜像：第五段②句的 it will be <b>vital</b> to...。vital 与 essential 互为同义替换，vital 后面的不定式就是答案。</p>"}, {"title": "定位原文 · 先看“为什么 vital”", "cls": "key", "tag": "证据", "log": "年处理量 35,000 英亩 ≪ 可受益总量 50 万英亩 → 必须挑最危急的先处理", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">California plans to treat 35,000 acres of forest a year by 2020, and 60,000 by 2030 – financed from the proceeds of the state’s emissions-permit auctions. That’s only a small share of the total acreage that could benefit, about half a million acres in all, so it will be vital to prioritize areas at greatest risk of fire or drought.</div><p>逻辑链：年处理量（35,000 英亩）≪ 可受益总量（约 50 万英亩）→ 面积不够用 → <b>必须优先处理火灾或干旱风险最大的区域</b>（prioritize areas at greatest risk of fire or drought）。</p>"}, {"title": "逐项分析 · A To handle the areas in serious danger first", "cls": "good", "tag": "选定 A", "log": "A To handle the areas in serious danger first ✓ 当选——prioritize ↔ handle...first；areas at greatest risk of fire or drought ↔ areas in serious danger——vital 的内容被完整改写", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>prioritize ↔ handle...first；areas at greatest risk of fire or drought ↔ areas in serious danger——vital 的内容被完整改写。</p><p>对应关系：it will be <b>vital</b> to <b>prioritize</b> areas at greatest risk ↔ essential to handle areas in serious danger <b>first</b>。</p>"}, {"title": "逐项分析 · B To carry it out before the year of 2020", "cls": "bad", "tag": "排除 B", "log": "B To carry it out before the year of 2020 ✗ 排除——时间偷换：by 2020 是“年处理面积达到 35,000 英亩”的节点，不是计划落实的最后期限", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>时间偷换：by 2020 是“年处理面积达到 35,000 英亩”的节点，不是计划落实的最后期限。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把面积目标的时间刻度当成 deadline。</p>"}, {"title": "逐项分析 · C To perfect the emissions-permit auctions", "cls": "bad", "tag": "排除 C", "log": "C To perfect the emissions-permit auctions ✗ 排除——材料误用：emissions-permit auctions（排放许可拍卖）只是资金来源，一句带过，未说是“关键”", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>材料误用：emissions-permit auctions（排放许可拍卖）只是资金来源，一句带过，未说是“关键”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：段落里“出现了”不等于“是关键”。</p>"}, {"title": "逐项分析 · D To obtain enough financial support", "cls": "bad", "tag": "排除 D", "log": "D To obtain enough financial support ✗ 排除——同上：资金信息存在，但“关键与否”文中未论证；vital 后面的内容才配得上“关键”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>同上：资金信息存在，但“关键与否”文中未论证；vital 后面的内容才配得上“关键”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“钱很重要”的常识带偏。</p>"}, {"title": "结论 · “关键”= vital 的镜像", "cls": "good", "tag": "答案 A", "log": "答案 A（To handle the areas in serious danger first）——只认 vital 后面的内容", "count": 3, "ribbon": null, "body": "<p>答案选 <b>A（To handle the areas in serious danger first 首先处理有严重危险的区域）</b>。</p><p><b>记忆锚点</b>：essential ↔ vital；prioritize = 按风险排序、先处理最危急的；by 2020 是面积目标的时间刻度，不是 deadline。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>B/D</b>：第五段出现的时间（2020）与资金（auctions）都是段落里的“实词钩子”，但题干问 essential——只认 vital 后面的不定式。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 2 第 29 题 · 加州计划的关键是什么（细节题）",
+  subtitle: "考点：细节题 · essential ↔ vital 定位 → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（To handle the areas in serious danger first）", "html": "<b>A To handle the areas in serious danger first（先处理高危区域）</b>：it will be vital to prioritize areas at greatest risk of fire or drought 的同义改写。<br>最易误选：<b>B/D</b>——by 2020 是面积节点，资金只是来源，“出现了”≠“是关键”。<br>记忆锚点：essential ↔ vital；prioritize = handle...first。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——“关键”= vital 的同义替换</h2>
+<p>答案：<strong>A（To handle the areas in serious danger first 首先处理有严重危险的区域）</strong>。</p>
+<h3>第 0 步：先立机制——题眼词 essential 找原文镜像</h3>
+<p>题干 What is <strong>essential</strong> to California's plan ↔ 第五段②句 it will be <strong>vital</strong> to...：vital 与 essential 互为镜像，vital 后面的不定式就是答案。</p>
+<h3>第 1 步：定位并理解“为什么 vital”</h3>
+<blockquote>California plans to treat 35,000 acres of forest a year by 2020, and 60,000 by 2030 – financed from the proceeds of the state's emissions-permit auctions. That's only a small share of the total acreage that could benefit, about half a million acres in all, so it will be vital to prioritize areas at greatest risk of fire or drought.</blockquote>
+<p>逻辑链：年处理量（35,000 英亩）≪ 可受益总量（约 50 万英亩）→ 面积不够用 → <strong>必须挑最危急的先处理</strong>。</p>
+<h3>第 2 步：同义替换确认 A</h3>
+<table><thead><tr><th>原文</th><th>选项 A</th></tr></thead><tbody><tr><td>it will be vital to</td><td>essential</td></tr><tr><td>prioritize（优先处理）</td><td>handle...first</td></tr><tr><td>areas at greatest risk of fire or drought</td><td>areas in serious danger</td></tr></tbody></table>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B To carry it out before the year of 2020</td><td>✗</td><td>时间偷换：by 2020 是“年处理面积达到 35,000 英亩”的节点，不是计划落实的最后期限</td></tr><tr><td>C To perfect the emissions-permit auctions</td><td>✗</td><td>材料误用：拍卖收益只是资金来源，一句带过，未说是“关键”</td></tr><tr><td>D To obtain enough financial support</td><td>✗</td><td>同上：资金信息存在，但“关键”与否文中未论证</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/D</strong>：第五段出现的时间（2020）与资金（emissions-permit auctions）都是段落里的“实词钩子”，但题干问 essential——只认 vital 后面的内容。段落里“出现了”≠“是关键”。</li></ul>
+<blockquote>记忆锚点：essential ↔ vital；prioritize = 按风险排序、先处理最危急的；by 2020 是面积目标的时间刻度，不是 deadline。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

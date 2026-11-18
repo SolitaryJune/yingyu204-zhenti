@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-24 · 2017 Text 1 第 24 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 分栏定位 → 证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · should 题先分栏：现状 vs 应然",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：governments should ____ → 第四段信息分“作者批判的现状 / 作者建议的应然”两栏",
+  "body": "<p>题干：With regard to mass sports, the author holds that <b>governments should</b> ____.</p><p>should 题的机制：答案只可能来自**作者建议**栏。信号词：should / need to / it is...to do 引出应然；Instead of / But 之前的、带 absurd 等贬义词的，全是作者批判的现状——**干扰项的老巢**。</p>"
+ },
+ {
+  "title": "定位原文 · 批判栏（①③句）",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "批判栏：政府插手草根规划 = absurd；历届政府卖绿地、压资金、轻体育",
+  "body": quote("① ...there is something a little <b>absurd</b> in the state getting involved in the planning of such a fundamentally &ldquo;<b>grassroots</b>&rdquo; concept... ③ <b>But</b> successive governments have presided over <b>selling green spaces, squeezing money</b> from local authorities and <b>declining attention</b> on sport in education.") + "<p>这两句是作者**否定**的做法——选项若从这里来，必是陷阱。</p>"
+ },
+ {
+  "title": "定位原文 · 建议栏（②④句）",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "建议栏：it should really be providing common goods；future governments need to provide the conditions",
+  "body": quote("② If there is a role for government, it <b>should</b> really be getting involved in <b>providing common goods</b> &ndash; making sure there is <b>space for playing fields</b> and <b>the money to pave tennis and netball courts</b>... ④ ...future governments need to do more to <b>provide the conditions for sport to thrive</b>.") + "<p>应然清单：场地空间＋铺场资金＋学校体育 = 政府出钱出地建<b>公共体育设施</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · D invest in public sports facilities",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "log": "D invest in public sports facilities ✓ 当选——common goods（场地＋资金）的概括",
+  "body": "<p><b>当选。</b>invest in public sports facilities 正是对②句 providing common goods（space for playing fields、the money to pave courts）与④句 provide the conditions 的概括改写：政府该做的是**投资公共体育设施**。</p>"
+ },
+ {
+  "title": "逐项分析 · A organize “grassroots” sports events",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A organize “grassroots” sports events ✗ 排除——把作者批判的现状当成建议",
+  "body": "<p><b>排除。</b>①句政府插手规划 grassroots 概念，紧挨着的评语是 <b>absurd</b>（有点荒唐）——这是作者**反对**的现状，不是建议。</p><p style='color:#b91c1c'>⚠ 典型误解：grassroots 与题干“大众体育”字面呼应就选——眼熟的选项先查立场。</p>"
+ },
+ {
+  "title": "逐项分析 · B supervise local sports associations",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B supervise local sports associations ✗ 排除——断章取义＋立场颠倒",
+  "body": "<p><b>排除。</b>③句 presided over squeezing money from local authorities 是**批判**（政府一直压缩地方资金），且原文根本没提“监管协会”这回事。</p><p style='color:#b91c1c'>⚠ 典型误解：把 preside over（掌管）读成“监管职责”，再把贬义句读成褒义建议。</p>"
+ },
+ {
+  "title": "逐项分析 · C increase funds for sports clubs",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C increase funds for sports clubs ✗ 排除——偷换对象：钱给公共设施，不给俱乐部",
+  "body": "<p><b>排除。</b>②句确实谈钱（the money to pave courts），但**投向**是公共场地设施，不是“体育俱乐部”。“给钱”方向对，“给谁”错了。</p><p style='color:#b91c1c'>⚠ 典型误解：见 the money 就联想“加大投资”，不核对宾语。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D——should / need to 后面才是作者建议：投资公共体育设施",
+  "body": "<p>答案选 <b>D（invest in public sports facilities）</b>。</p><p><b>记忆锚点</b>：should / need to 后面 = 作者建议；Instead of / But 前面 = 作者批判；common goods（场地＋资金）= 公共体育设施。</p><p style='color:#b91c1c'>⚠ 最易误选 A（organize grassroots events）：字面最眼熟的选项，恰是作者否定的现状。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 1 第 24 题 · 关于大众体育，作者认为政府应该：grassroots events / supervise / clubs / public facilities",
+  subtitle: "考点：作者建议题（现状/应然分栏） · 审题 → 分栏 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 分栏 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（invest in public sports facilities）", "html": "<b>D</b>：it should really be providing common goods（场地＋铺场资金）＋ provide the conditions → 投资公共体育设施。<br>记忆锚点：should / need to 后面是建议；absurd / But / Instead of 前后是批判。<br>最易误选：<b>A（organize grassroots events）</b>——把批判的现状当建议。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 1 第 24 题 · 作者建议政府做什么</h2>
+<p>答案：<strong>D（invest in public sports facilities）</strong>。</p>
+<h3>第 0 步：先立机制——先分栏，再选答案</h3>
+<p>governments <strong>should</strong> 题的核心机制：第四段里政府的信息分两栏——<strong>作者批判的"现状"</strong>与<strong>作者建议的"应然"</strong>。分栏信号词十分显眼：①句 there is something a little <strong>absurd</strong>（批判现状：政府插手草根运动的规划）；②句 it <strong>should</strong> really be...（应然：提供公共物品）；③句 <strong>But</strong> successive governments have presided over...（批判现状：反着干）；④句 <strong>Instead of</strong> wordy, worthy strategies, future governments <strong>need to</strong>...（应然：提供条件）。<strong>should / need to 后面的内容才是答案区；Instead of / But 前后的内容负责供干扰项。</strong></p>
+<h3>第 1 步：定位原文（第四段两栏）</h3>
+<blockquote>① ...there is something a little <strong>absurd</strong> in the state getting involved in the planning of such a fundamentally "<strong>grassroots</strong>" concept... ② If there is a role for government, it <strong>should</strong> really be getting involved in <strong>providing common goods</strong> – making sure there is <strong>space for playing fields</strong> and <strong>the money to pave tennis and netball courts</strong>, and encouraging the provision of all these activities in schools. ③ <strong>But</strong> successive governments have presided over <strong>selling green spaces, squeezing money</strong>... ④ <strong>Instead of</strong> wordy, worthy strategies, future governments need to do more to <strong>provide the conditions for sport to thrive</strong>.</blockquote>
+<h3>第 2 步：找证据——"应然"栏在说什么</h3>
+<p>②句给出建议的具体清单：<strong>场地空间</strong>（space for playing fields）＋<strong>铺球场地的资金</strong>（the money to pave courts）＋<strong>学校开展体育</strong>；④句再概括为"为体育繁荣<strong>提供条件</strong>"。三件事的共同上位概念：政府出钱出地，建的是<strong>公共体育设施</strong>。D 的 invest in public sports facilities ← providing common goods – space / money to pave courts，概括改写。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D invest in public sports facilities</td><td>✓ 当选</td><td>对②句 providing common goods（场地＋铺场资金）与④句 provide the conditions 的概括：投资公共体育设施。</td></tr><tr><td>A organize "grassroots" sports events</td><td>✗ 排除</td><td>把批判当建议：①句 getting involved in the planning of "grassroots" concepts 正是作者嘲讽 a little absurd 的<strong>现状</strong>。（典型误解：grassroots 一词眼熟就选，没看它挂在 absurd 之下。）</td></tr><tr><td>B supervise local sports associations</td><td>✗ 排除</td><td>断章取义＋立场颠倒：③句 presided over squeezing money from local authorities 是<strong>批判</strong>（政府压缩地方资金），且原文压根没提"监管协会"。（典型误解：preside over 理解成"监管职责"。）</td></tr><tr><td>C increase funds for sports clubs</td><td>✗ 排除</td><td>偷换对象：②句的钱给的是<strong>公共设施</strong>（铺球场、建场地），不是"体育俱乐部"。（典型误解：见 the money 就联想到"加大投资"，不看投给谁。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>怎么快速确认"应然"栏？</strong>：认三类信号——建议句式（should、need to、it is...to do）、逻辑路标（Instead of、But 之后是作者立场）、褒贬词（absurd、wordy 是批判，provide conditions 是建设性）。</li><li><strong>为什么 A 最危险？</strong>：grassroots 直接来自题干讨论区（大众体育），字面重合度最高；但作者对"政府组织草根活动"的态度恰恰是<strong>否定</strong>——字面眼熟的选项要先查立场。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（organize grassroots events）</strong>：把作者批判的现状当成作者的建议——本题最大的坑。</li><li><strong>误选 C（sports clubs）</strong>：投资方向被偷换，"给钱"没错、"给谁"错了。</li></ul>
+<blockquote>记忆锚点：should / need to 后面是作者建议，Instead of / But 前面是作者批判；common goods（场地＋资金）= 公共体育设施，不是俱乐部。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

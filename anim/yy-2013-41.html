@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-41 动画：新题型选标题——【41】段 Planning is everything</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：新题型 7 选 5，标题＝主旨极简版",
+  body:"<p>要求：为 Skint Foodie 的省钱吃饭建议【41】–【45】段从 A–G 中选小标题，<b>有两个多余项</b>。判断依据按优先级：① 段首句（建议句开头就亮出来）→ ② 全段重复的词 → ③ 首尾呼应。先看【41】段。</p>",
+  log:"小标题题：首句主旨优先，再排除已用项"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：【41】段首句即主旨句",
+  body:"<div class=\"qq\"><b>【41】首句：</b><b>Impulsive spending isn't an option, so plan your week's menu in advance</b>, making shopping lists for your ingredients in their exact quantities. <span class=\"cn\">（译：冲动消费不可取，所以要提前计划一周菜单，并按精确数量列购物清单。）</span></div><p>后两句展开：计划的好处——cost effective（省钱）、balance your diet（均衡膳食）；尾句补操作细节（daily shopping）。全段关键词：<b>plan</b>。</p>",
+  log:"定位【41】段：首句 plan your week's menu in advance"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:1, ribbon:{k:2, ok:false}, title:"排除 B：Balance your diet",
+  body:"<p><b>B（均衡膳食）</b><span class=\"bad-dot\">✗</span>：balance your diet 确实在段中出现（it's <b>not just</b> cost effective <b>but</b> helps you balance your diet）——但它是\"提前计划\"的<b>第二层好处</b>，not just…but 结构里排在省钱之后。标题要的是\"这段劝你做什么\"（做计划），不是计划顺带的好处（膳食均衡）。</p>",
+  log:"排除 B：not just…but 里的次要好处，冒充不了主旨"},
+ {cls:"bad", ecs:"miss", tag:"排除 E", count:2, ribbon:{k:5, ok:false}, title:"排除 E：Stick to what you need（他段关键词）",
+  body:"<p><b>E（坚持只买所需）</b><span class=\"bad-dot\">✗</span>：本段\"按精确数量买\"（exact quantities）看似沾边，但\"该买多少\"的展开在【42】段——超市匿名性、只买 350 g 牛腱肉不买预包装分量。E 的关键词 <b>need</b> 属于【42】段，先给那一段留出名额。</p>",
+  log:"排除 E：need 是【42】段关键词，全局观排除"},
+ {cls:"good", ecs:"ok", tag:"锁定 F", count:3, ribbon:{k:6, ok:true}, title:"锁定 F：Planning is everything",
+  body:"<p><b>F（计划就是一切）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p>plan your week's menu <b>in advance</b> ↔ <b>Planning is everything</b>（提前计划 ↔ 计划就是一切）；so（因此）表明首句是因果式建议句：冲动消费不可取 → 必须计划。全段词频：plan / planning 一线贯穿。</p>",
+  log:"锁定 F：plan…in advance = Planning is everything"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, title:"结论：答案 F",
+  body:"<p><b>答案 F</b>——Planning is everything（计划就是一切）。</p><p>记忆锚点：小标题题 = 首句主旨 + 排除已用/他段关键词；B 是 not just…but 的次要好处，E 留给【42】段。多余项：A Live like a peasant、B Balance your diet。</p>",
+  log:"结论：【41】段标题为 Planning is everything，答案选 F"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-41 · 新题型：【41】段的小标题",
+  subtitle: "考点：7 选 5 段落主旨 · 方法：首句主旨 → 全段关键词 → 排除已用/他段项",
+  counterLabel: "已核验",
+  ribbonTitle: "小标题（✓ 命中 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位段落主旨 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 F",
+    html: "<b>Planning is everything</b>（计划就是一切）＝ 首句 <b>plan your week's menu in advance</b>。记忆锚点：B（balance your diet）是 not just…but 的次要好处冒充主旨；E 的 need 属于【42】段——7 选 5 要留全局观，两个多余项是 A、B。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型选标题——【41】段的小标题</h2>
+<p>答案：<strong>F</strong>（Planning is everything，计划就是一切）。</p>
+<h3>第 0 步：先立机制——小标题题靠"首句主旨 + 排除已用项"</h3>
+<p>新题型（7 选 5）的玩法：给出 Skint Foodie 博主的省钱吃饭建议，第 2–6 段缺小标题，从 A–G 里给每段选一个，<strong>有两个是多余的</strong>。小标题 = 段落主旨的极简版，判断依据按优先级排：<strong>① 段首句</strong>（建议句几乎都开头就亮出来）→ <strong>② 全段重复出现的词</strong> → <strong>③ 首句和尾句的呼应</strong>。另外要把"已选定的标题"随手排除，缩小范围。</p>
+<h3>第 1 步：读【41】段，抓主旨句</h3>
+<blockquote><strong>Impulsive spending isn't an option, so plan your week's menu in advance</strong>, making shopping lists for your ingredients in their exact quantities.</blockquote>
+<p>首句即建议：<strong>冲动消费不可取 → 提前计划一周菜单、按精确数量列购物清单</strong>。随后两句都是这一计划的好处（cost effective 省钱、balance your diet 均衡膳食），最后还补了一个操作细节（daily shopping，天天买，顺带可改主意）。全段围绕一个词：<strong>plan（计划）</strong>。</p>
+<p>替换链：plan your week's menu <strong>in advance</strong> ↔ <strong>Planning is everything</strong>（计划就是一切）→ 选 <strong>F</strong>。</p>
+<h3>第 2 步：干扰项归因——这个段里最容易"顺手"选错的是 B</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>F Planning is everything</td><td>✓</td><td>首句 plan…in advance 的同义概括</td></tr><tr><td>B Balance your diet</td><td>✗</td><td>细节冒充主旨</td></tr><tr><td>E Stick to what you need</td><td>✗</td><td>属于【42】段的关键词</td></tr></tbody></table>
+<ul><li><strong>误选 B——把"好处之一"当"主旨"</strong>：balance your diet 确实在段中出现（it's not just cost effective <strong>but helps you balance your diet</strong>），但那是"提前计划"带来的<strong>第二层好处</strong>，not just…but 结构里它排在省钱之后。标题要的是"这一段劝你做什么"（做计划），不是"计划顺带的好处"（膳食均衡）。</li><li><strong>别拿 E 起念</strong>：Stick to what you need（只买所需）的关键词是 need——本段说的是按清单<strong>精确数量</strong>购买，看似沾边，但"该买多少"的细节展开在【42】段（超市匿名性、只买 350 g 牛腱肉），E 是留给那一段的。做新题型要留全局观：<strong>先排除别的段的关键词，再确认本段</strong>。</li></ul>
+<blockquote>记忆锚点：小标题题 = 首句主旨 + 排除已用/他段关键词；Impulsive spending isn't an option, so plan…in advance → Planning is everything（F）；B 是 not just…but 里的"次要好处"，冒充不了主旨。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

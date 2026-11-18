@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-02 · 无工作世界将以____为特征：A inequality / B instability / C unreliability / D uncertainty</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：define by 的宾语名词 + 冒号解释；考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Some imagine that the coming work-free world will be defined by <b>__2__</b>: A few wealthy people will own all the capital, and the masses will struggle in an impoverished wasteland.</div><p>空 2 是介词 by 的宾语名词，被 define by（以……为特征）框住，后面跟着冒号引出的解释。</p>"
+ },
+ {
+  "title": "立机制 · “下定义”式空格由冒号后内容反推",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：冒号 = 解释说明 → 答案是冒号后画面的一句话概括",
+  "body": "<p>define by 是“以……为特征”的下定义句式，随后的冒号是<b>解释说明</b>标记：冒号后的整句话就是空格词的白描。所以方向不是挑“哪个词更高级”，而是先把冒号后内容读成一句概括，再回头认领。</p>"
+ },
+ {
+  "title": "找证据 · 两组对比画出“财富分配严重不均”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：wealthy VS masses 两组对比 → 财富分配极度不均",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A few wealthy people will own all the capital, and the masses will struggle in an impoverished wasteland.</div><p>两组对比：<b>wealthy VS masses</b>（富人 VS 大众）、<b>own all the capital VS struggle in an impoverished wasteland</b>（垄断资本 VS 挣扎于贫困荒地）。两组共同指向<b>财富分配的极度不均衡</b>——只有 inequality（不平等）能一句话收拢。</p>"
+ },
+ {
+  "title": "逐项分析 · A inequality（不平等）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A inequality（不平等）✓ 当选",
+  "body": "<p><b>当选。</b>完整概括“富人垄断资本、大众挣扎贫困”的两组对比，与 define by 的下定义功能吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · B instability（不稳定）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B instability（不稳定）✗ 排除",
+  "body": "<p><b>排除。</b>由“贫富悬殊”过度推出“不稳定”；instability 通常还需限定主体（economic/political instability），此处无。财富分化 ≠ 充满变数。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把社会问题一律引申为“动荡”。</p>"
+ },
+ {
+  "title": "逐项分析 · C unreliability（不可靠）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C unreliability（不可靠）✗ 排除",
+  "body": "<p><b>排除。</b>reliable 用于人、机器、方法或信息“可被信赖/属实”；主语是客观环境的“世界”，谈不上“不能信赖”。</p>"
+ },
+ {
+  "title": "逐项分析 · D uncertainty（不确定）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D uncertainty（不确定）✗ 排除",
+  "body": "<p><b>排除。</b>贫富严重分化是一幅确定的图景，“分化 ≠ 不确定”；与 instability 的交集也不能替代冒号后的对比。</p><p style=\"color:#b91c1c\">⚠ 典型误解：B、D 语感相近就随便取一，未回原文找落点。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（inequality 不平等）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>一些人想象，即将到来的无工作世界将以不平等为特征：少数富人掌握全部资本，大众在贫困的荒地中挣扎。</b></p><p>答案选 <b>A（inequality 不平等）</b>。</p><p><b>记忆锚点</b>：define by 后接冒号 → 冒号内容 = 空格词的白描；wealthy VS masses 的对比概括出 inequality。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B/D（instability/uncertainty）：跳过冒号后的具体画面，凭“负面抽象名词”的语感乱配；名词题的答案必须能在下文找到落点。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 2 空 · 无工作世界将以____为特征：A inequality / B instability / C unreliability / D uncertainty",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 A（inequality 不平等）",
+ "html": "<b>A inequality（不平等）</b>。<br>记忆锚点：define by 后接冒号 → 冒号内容 = 空格词的白描；wealthy VS masses 的对比概括出 inequality。<br>最易误选：<b>B/D（instability/uncertainty）</b>——跳过冒号后的具体画面，凭“负面抽象名词”的语感乱配；名词题的答案必须能在下文找到落点。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 2 空 · 无工作世界将“以____为特征”</h2>
+<p>答案：<strong>A（inequality 不平等）</strong>。</p>
+<h3>第 0 步：先立机制——“下定义”式空格由冒号后内容反推</h3>
+<p>空 2 位于 Some imagine that the coming work-free world will be defined by __2__：define by 是“以……为特征”的下定义句式，紧随其后的冒号是<strong>解释说明</strong>标记——冒号后的整句话就是空格词的白描。所以解题方向不是辨析四个名词谁更“高级”，而是先把冒号后内容读成一句概括，再回头认领。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Some imagine that the coming work-free world will be defined by __2__: A few wealthy people will own all the capital, and the masses will struggle in an impoverished wasteland.</blockquote>
+<h3>第 2 步：找证据——两组对比画出“财富分配严重不均”</h3>
+<ul><li>A few <strong>wealthy</strong> people will <strong>own all the capital</strong> ↔ the <strong>masses</strong> will <strong>struggle</strong> in an <strong>impoverished</strong> wasteland。</li><li>富人 VS 大众、垄断全部资本 VS 挣扎于贫困荒地：两组对比共同指向<strong>财富分配的极度不均衡</strong>——只有 inequality（不平等）能一句话收拢这两组画面。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A inequality</td><td>不平等</td><td>✓ 当选</td><td>完整概括“富人垄断资本、大众挣扎贫困”的对比，与 define by 的下定义功能吻合。</td></tr><tr><td>B instability</td><td>不稳定</td><td>✗ 排除</td><td>由“贫富悬殊”过度推出“不稳定”；该词通常还需限定主体（economic/political instability），此处无。（典型误解：把社会问题一律引申为“动荡”。）</td></tr><tr><td>C unreliability</td><td>不可靠</td><td>✗ 排除</td><td>reliable 用于人、机器、方法或信息“可被信赖/属实”；主语是客观环境的“世界”，谈不上“不能信赖”。</td></tr><tr><td>D uncertainty</td><td>不确定</td><td>✗ 排除</td><td>财富严重分化是一幅确定的图景，“分化 ≠ 充满变数”；与 instability 的交集也不能替代冒号后的对比。</td></tr></tbody></table>
+<p>代入后的完整句义：一些人想象，即将到来的无工作世界将以不平等为特征：少数富人掌握全部资本，大众在贫困的荒地中挣扎。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/D</strong>：跳过冒号后的具体画面，凭“负面抽象名词”的语感乱配；名词辨析题的答案必须能在下文找到落点。</li><li><strong>误选 C</strong>：把“世界糟糕”理解成“世界不可靠”，混淆 reliable 的适用对象。</li></ul>
+<blockquote>记忆锚点：define by 后接冒号 → 冒号内容 = 空格词的白描；对比结构（wealthy VS masses）概括出 inequality。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

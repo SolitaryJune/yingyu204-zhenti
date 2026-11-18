@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 12 空 · observe and __（短语动词）：A depend on / B approve of / C hold onto / D account for</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 12 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 12 在「observe and __（短语动词）」位；考点：短语动词辨析（account for = 解释；查明）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Weighing every other week allows me to observe and <b>__12__</b> any significant weight changes.</div><p>空 12 与 observe 由 and 并列，共同说明隔周称重的好处（allows me to...）：能发现并 __ 任何明显的体重变化。</p>"
+ },
+ {
+  "title": "立机制 · 隔周称重的好处：发现 + 查明",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：隔周称重的好处：发现 + 查明",
+  "body": "<p>本句的好处要与上段“每日称重的弊端”对照着看：每日称，变化滞后，数字说明不了问题；隔周称，变化已显现——先 observe（发现变化），再 __（搞清变化从哪来：是训练效果还是饮食问题），从而判断是否调整方案（下句 That tells me whether I need to adjust）。能接“变化”并表达“查明原因”的短语是 account for（解释；查明原因）。</p>"
+ },
+ {
+  "title": "找证据 · 下句点明“查明原因”的用途",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下句点明“查明原因”的用途",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That tells me whether I need to adjust my training program.</div><p>下句点明用途：搞清变化的原因，才能决定要不要调整训练计划——“发现 + 查明”两步缺一不可。</p>"
+ },
+ {
+  "title": "逐项分析 · A depend on（取决于；依赖）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A depend on（取决于；依赖）✗ 排除",
+  "body": "<p><b>排除。</b>“依赖体重变化”？前文没有“依赖变化而做的某事/某人”，宾语与动词间无着落。</p>"
+ },
+ {
+  "title": "逐项分析 · B approve of（赞成，认可）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B approve of（赞成，认可）✗ 排除",
+  "body": "<p><b>排除。</b>惯性思维“科学称重让人理性看待（认可）体重波动”，但 significant（大幅的）变化无可“赞成”；approve of 后须接明确对象（如 approve of her marriage），接“变化”语义不明。</p>"
+ },
+ {
+  "title": "逐项分析 · C hold onto（抓紧，保住）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C hold onto（抓紧，保住）✗ 排除",
+  "body": "<p><b>排除。</b>利用中文“守住”臆断为“保持体重不变”，但空格宾语是“变化（changes）”而非“体重”；hold onto sth 指“不放弃/不转送某物”，搭配与语义都不成立。</p>"
+ },
+ {
+  "title": "逐项分析 · D account for（解释；查明）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D account for（解释；查明）✓ 当选",
+  "body": "<p><b>当选。</b>observe and account for any significant weight changes = 发现并解释体重的任何明显变化。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 12 填 account for（解释；查明）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Weighing every other week allows me to observe and <b>account for</b> any significant weight changes.</div><p>隔周称重让我能发现并解释体重的任何明显变化。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "log": "答案 D（account for 解释；查明）——见结论卡",
+  "body": "<p>答案选 <b>D（account for 解释；查明）</b>。</p><p><b>记忆锚点</b>：observe（看到现象）+ account for（讲清原因）两步连用；account for 此处 = 解释，不是“占（比例）”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>C（hold onto）</b>：被“保住体重”的中文直觉带走；宾语是 changes（变化），“保住变化”不成话。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 12 空 · observe and __（短语动词）：A depend on / B approve of / C hold onto / D account for",
+  subtitle: "考点：短语动词辨析（account for = 解释；查明） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（account for 解释；查明）", "html": "<b>D（account for 解释；查明）</b>。<br>记忆锚点：observe（看到现象）+ account for（讲清原因）两步连用；account for 此处 = 解释，不是“占（比例）”。<br>最易误选：<b>C（hold onto）</b>——被“保住体重”的中文直觉带走；宾语是 changes（变化），“保住变化”不成话。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 12 空 · observe and __（短语动词）</h2>
+<p>答案：<strong>D（account for 解释；查明）</strong>。</p>
+<h3>第 0 步：先立机制——隔周称重的好处：发现 + 查明</h3>
+<p>本句的好处要与上段“每日称重的弊端”对照着看：每日称，变化滞后，数字说明不了问题；隔周称，变化已显现——先 observe（发现变化），再 __（搞清变化从哪来：是训练效果还是饮食问题），从而判断是否调整方案（下句 That tells me whether I need to adjust）。能接“变化”并表达“查明原因”的短语是 account for（解释；查明原因）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Weighing every other week allows me to observe and <strong>__12__</strong> any significant weight changes.</blockquote>
+<p>空 12 与 observe 由 and 并列，共同说明隔周称重的好处（allows me to...）：能发现并 __ 任何明显的体重变化。</p>
+<h3>第 2 步：找证据——下句点明“查明原因”的用途</h3>
+<blockquote>That tells me whether I need to adjust my training program.</blockquote>
+<p>下句点明用途：搞清变化的原因，才能决定要不要调整训练计划——“发现 + 查明”两步缺一不可。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A depend on</td><td>取决于；依赖</td><td>✗ 排除</td><td>“依赖体重变化”？前文没有“依赖变化而做的某事/某人”，宾语与动词间无着落。</td></tr><tr><td>B approve of</td><td>赞成，认可</td><td>✗ 排除</td><td>惯性思维“科学称重让人理性看待（认可）体重波动”，但 significant（大幅的）变化无可“赞成”；approve of 后须接明确对象（如 approve of her marriage），接“变化”语义不明。</td></tr><tr><td>C hold onto</td><td>抓紧，保住</td><td>✗ 排除</td><td>利用中文“守住”臆断为“保持体重不变”，但空格宾语是“变化（changes）”而非“体重”；hold onto sth 指“不放弃/不转送某物”，搭配与语义都不成立。</td></tr><tr><td>D account for</td><td>解释；查明</td><td>✓ 当选</td><td>observe and account for any significant weight changes = 发现并解释体重的任何明显变化。</td></tr></tbody></table>
+<p>代入后的完整句义：Weighing every other week allows me to observe and account for any significant weight changes.（隔周称重让我能发现并解释体重的任何明显变化。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（hold onto）</strong>：被“保住体重”的中文直觉带走；宾语是 changes（变化），“保住变化”不成话。</li></ul>
+<blockquote>记忆锚点：observe（看到现象）+ account for（讲清原因）两步连用；account for 此处 = 解释，不是“占（比例）”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

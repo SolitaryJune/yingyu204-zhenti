@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-20 · 2019 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 20 所在句", "cls": "key", "tag": "定位", "log": "定位原文：末段 Rather than 结构，考点：取舍逻辑 + 动词短语辨析", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Rather than __20__ over the scale, turn your focus to how you look, feel, how your clothes fit and your overall energy level.</div><p><b>Rather than A, do B</b> = “不要 A，而要 B”——A 与 B 必须语义相反。B 是“把注意力<b>转向</b>外观、感受、衣服合身度”，反推 A = “注意力被体重计<b>占据</b>”。</p>"}, {"title": "找同义复现 · 第二段早已预演", "cls": "key", "tag": "证据", "log": "obsessing over the scale 与第二段 focusing solely on the scale 首尾呼应", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">As for me, weighing myself every day caused me to shift my focus from being generally healthy and physically active, to focusing <b>solely on the scale</b>.</div><p>第二段写的是“每日称重让我把注意力全放在秤上”（focusing solely on the scale）；末段劝人别再如此——<b>obsess over sth</b>（对……痴迷/过分担心）正是它的回声：全文开头“只盯着秤”，结尾“别再只盯着秤”，首尾圆合。</p>"}, {"title": "逐项分析 · A obsessing（使迷恋，使心神不宁）", "cls": "good", "tag": "选定 A", "log": "A obsessing（使迷恋，使心神不宁） ✓ 当选——obsess over sth/sb 为固定搭配（对某事/某人过分担心、痴迷）；代入后与 turn your focus to 相反、与第二段 focusing solely on the scale 复现", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>obsess over sth/sb 为固定搭配（对某事/某人过分担心、痴迷）；代入后与 turn your focus to 相反、与第二段 focusing solely on the scale 复现。</p><p>代入读作：“<b>不要痴迷于</b>体重计，而要把注意力转向你的外观、感觉与整体能量”。</p>"}, {"title": "逐项分析 · B dominating（支配，控制）", "cls": "bad", "tag": "排除 B", "log": "B dominating（支配，控制） ✗ 排除——dominate over sth/sb 表“支配、控制某事物/某人”，但体重计不是被“我”支配的对象——人支配不了秤", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>dominate over sth/sb 表“支配、控制某事物/某人”，但体重计不是被“我”支配的对象——人支配不了秤。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认得 dominate over 这个搭配，没检查动宾逻辑是否成立。</p>"}, {"title": "逐项分析 · C puzzling（使困惑，使迷惑）", "cls": "bad", "tag": "排除 C", "log": "C puzzling（使困惑，使迷惑） ✗ 排除——puzzle over 表“（因无法理解或解决某事而）苦思冥想”；秤上的读数一看便知，作者的痛点是“太在意”而不是“看不懂”", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>puzzle over 表“（因无法理解或解决某事而）苦思冥想”；秤上的读数一看便知，作者的痛点是“太在意”而不是“看不懂”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“纠结体重数字”理解成“琢磨不透”。</p>"}, {"title": "逐项分析 · D triumphing（战胜，获胜）", "cls": "bad", "tag": "排除 D", "log": "D triumphing（战胜，获胜） ✗ 排除——triumph over 虽是固定搭配，但作者要战胜的是不健康的称重习惯与焦虑，不是体重计本身——“战胜的对象”错了", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>triumph over 虽是固定搭配，但作者要战胜的是不健康的称重习惯与焦虑，不是体重计本身——“战胜的对象”错了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 over 相同的介词迷惑，忽略“胜过谁”才是语义核心。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（obsessing 痴迷）——rather than 反推 + 首尾同义复现", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>与其痴迷于体重计，不如把注意力转向你的外观与感受、衣服是否合身以及整体能量水平。</b></p><p>答案选 <b>A（obsessing 使迷恋，使心神不宁）</b>。</p><p><b>记忆锚点</b>：rather than 结构先写 B 反推 A；obsess over = focus solely on 的同义复现；triumph over / puzzle over / dominate over 的“对象”各有讲究。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>C（puzzling）</b>：puzzle over 的对象必须是“无法理解之事”——秤上的数字不存在理解障碍。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 完形第 20 空 · Rather than ____ over the scale",
+  subtitle: "考点：句内语义逻辑 + 动词短语辨析 · 取舍反推 → 首尾复现 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（obsessing 痴迷）", "html": "<b>A obsessing（使迷恋）</b>：obsess over sth 固定搭配；与 turn your focus to 语义相反，与第二段 focusing solely on the scale 首尾复现。<br>最易误选：<b>C（puzzling）</b>——秤上的数字不是“想不通”的事。<br>记忆锚点：rather than A, do B 先反推 A；四个 over 短语比“对象”不比“搭配”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：空 20 的动名词——rather than 的“舍前取后”</h2>
+<p>答案：<strong>A（obsessing 痴迷/过分担心）</strong>。</p>
+<h3>第 0 步：先立机制——rather than A, do B = 不要 A，要 B</h3>
+<blockquote>Rather than __20__ over the scale, turn your focus to how you look, feel, how your clothes fit and your overall energy level.</blockquote>
+<p>rather than 前后必须语义相反：B 是“把注意力<strong>转向</strong>外观、感受、衣服合身度”，反推 A = “注意力被体重计<strong>占据</strong>”。</p>
+<h3>第 1 步：找同义复现——第二段早已预演</h3>
+<blockquote>As for me, weighing myself every day caused me to shift my focus from being generally healthy and physically active, to focusing solely on the scale.</blockquote>
+<p>obsessing over the scale 正是 focusing solely on the scale 的首尾呼应：全文开头“只盯着秤”，结尾劝人“别再只盯着秤”。</p>
+<h3>第 2 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>搭配与词义</th><th>判定</th></tr></thead><tbody><tr><td>A obsessing</td><td>obsess over sth/sb 对…过分担心、痴迷</td><td>✓ 与 turn your focus 相反 + 与 focusing solely on the scale 复现</td></tr><tr><td>B dominating</td><td>dominate over 支配、控制</td><td>✗ 体重计不是被“我”支配的对象——人支配不了秤</td></tr><tr><td>C puzzling</td><td>puzzle over （因想不通而）苦思冥想</td><td>✗ 秤上的数字不是难解之谜，痛点是“太在意”</td></tr><tr><td>D triumphing</td><td>triumph over 战胜</td><td>✗ 要战胜的是不健康的称重习惯，不是体重计本身</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：把“纠结体重数字”理解成“琢磨不透”。puzzle over 的对象必须是无法理解之事，而体重计读数一看便知，作者的问题是“太在意”。</li><li><strong>误选 D</strong>：被 over 误导——triumph over 虽是固定搭配，但“战胜的对象”错了：作者全文战胜的是习惯与焦虑，不是秤。</li><li><strong>误选 B</strong>：只记 dominate over 搭配存在，没检查动宾逻辑。</li></ul>
+<blockquote>记忆锚点：rather than 结构先写 B 反推 A；obsess over = focus solely on 的同义复现；triumph over / puzzle over / dominate over 的对象各有讲究。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-23 · 2013 阅读第 23 题 · 第四段引言说明了什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 引言为谁服务",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "题干问第四段引言说明什么——先读引语前的中心句，再看引语本身",
+  "count": 0,
+  "body": "<p>题干：The quotation in Paragraph 4 explains that ___。引言、数据都是为<b>段落论点</b>服务的——先读引语前的中心句，再回头看引语细节。</p>"
+ },
+ {
+  "title": "中心句定调",
+  "cls": "key",
+  "tag": "中心句",
+  "log": "第四段①②句：新技术一直在“吃掉”工作，且出现了加速度——两个关键词 eating jobs / acceleration",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Yes, new technology has been eating jobs forever, and always will. But there’s been an acceleration.</div><p>第四段①②句：新技术一直在“吃掉”工作，而且<b>还会有</b>（But there’s been an acceleration——出现了加速度）。两个关键词：<b>eating jobs（岗位被吞掉）</b>、<b>acceleration（加速）</b>。引语就是来证明这两句的。</p>"
+ },
+ {
+  "title": "读引语 · 对信息",
+  "cls": "key",
+  "tag": "引语",
+  "log": "引语数据：十年间工厂裁员极快，约三分之一制造业岗位（600 万）消失",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In the 10 years ending in 2009, [U.S.] factories shed workers so fast that they erased almost all the gains of the previous 70 years; roughly one out of every three manufacturing jobs – about 6 million in total – disappeared.</div><p>戴维森的数据：截至 2009 年的十年里，美国工厂裁员极快，几乎抹掉了此前 70 年的岗位增量；约三分之一的制造业岗位（共约 600 万个）消失——正是“岗位<b>加速</b>消失”的例证。</p>"
+ },
+ {
+  "title": "选项 B · 工作机会正在快速消失",
+  "cls": "good",
+  "tag": "当选 B",
+  "log": "B job opportunities are disappearing at a high speed ✓ 当选——shed workers so fast / disappeared 的同义改写",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>同义改写：shed workers so fast + roughly one out of every three ... disappeared → <b>job opportunities are disappearing at a high speed</b>。与中心句 eating jobs + acceleration 完全一致。</p>"
+ },
+ {
+  "title": "选项 A · 技术的收益被抹去",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A gains of technology have been erased ✗ 排除——gains 指岗位增量，不是技术收益",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>偷换 gains 的指代：原文 erased almost all the gains 指的是“此前 70 年<b>累计增加的岗位数</b>被抹掉”，不是“技术带来的收益被抹除”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 gains 脱离语境直译成“收益”。</p>"
+ },
+ {
+  "title": "选项 C · 工厂盈利大不如前",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C factories are making much less money ✗ 排除——引言未涉及利润，无中生有",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>引言只谈裁员数量与速度，没有任何利润信息——由“裁人”推“亏钱”是把常识推理当原文依据，无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用自己的商业常识脑补原文没有的信息。</p>"
+ },
+ {
+  "title": "选项 D · 新工作新服务已提供",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D new jobs and services have been offered ✗ 排除——张冠李戴：信息来自第五段",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>张冠李戴：new jobs, new services 出自<b>第五段</b>①句（变化总会带来新东西），不是第四段引言的内容；引言的语气是对岗位加速消失的震惊与惋惜。</p><p style=\"color:#b91c1c\">⚠ 典型误解：定位漂移——把相邻段落的信息安到本题头上。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（工作机会正在高速消失）——中心句 + 引语 + 同义改写三步合围",
+  "count": 3,
+  "body": "<p>答案选 <b>B（job opportunities are disappearing at a high speed 工作机会正在高速消失）</b>。</p><p><b>记忆锚点</b>：例证题三步走——中心句 → 引语 → 同义改写；gains 的指代要看它的修饰语（the previous 70 years 的岗位增量）；相邻段落的信息（D 项）要核对出处。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 23 题 · 第四段引言说明了什么",
+  "subtitle": "考点：例证题 · 引言为段落中心句服务 · 先抓中心句再读引语",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（job opportunities are disappearing at a high speed）",
+ "html": "<b>B 工作机会正在高速消失</b>：中心句 eating jobs + acceleration → 引语 shed workers so fast / 600 万岗位 disappeared。<br>最易误选：<b>A</b>——erased the gains 的 gains 指“此前 70 年的岗位增量”，不是“技术收益”。<br>记忆锚点：引言为中心句服务；先读引语前的①②句再选。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 23 题 · 第四段引言说明了什么</h2>
+<p>答案：<strong>B（job opportunities are disappearing at a high speed 工作机会正在高速消失）</strong>。</p>
+<h3>第 0 步：先立机制——引言为中心句服务</h3>
+<p>引言、数据、实验都是“论据”，它们的使命是证明所在段的<strong>中心句</strong>。所以例证题的正确顺序是：先读引语前的①②句抓中心 → 再读引语核对细节 → 最后与选项做同义改写核对。直接读引语本身，会被它内部的词（gains、factories）带偏。</p>
+<h3>第 1 步：中心句定调</h3>
+<blockquote>Yes, new technology has been eating jobs forever, and always will. But there's been an acceleration.</blockquote>
+<p>第四段①②句：新技术一直在“吃掉”工作，But 转折补充——<strong>还出现了加速度</strong>。两个关键词：eating jobs（岗位被吞掉）、acceleration（加速）。引语就是来证明这两句的。</p>
+<h3>第 2 步：读引语核对细节</h3>
+<blockquote>In the 10 years ending in 2009, [U.S.] factories shed workers so fast that they erased almost all the gains of the previous 70 years; roughly one out of every three manufacturing jobs – about 6 million in total – disappeared.</blockquote>
+<p>戴维森的数据：截至 2009 年的十年里，工厂裁员极快，几乎抹掉此前 70 年的岗位增量；约三分之一的制造业岗位（约 600 万个）消失——正是“岗位<strong>加速</strong>消失”的例证。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A gains of technology have been erased</td><td>✗ 排除</td><td>偷换 gains 的指代：erased almost all the gains 指“此前 70 年<strong>累计增加的岗位数</strong>被抹掉”，不是“技术收益被抹除”。（典型误解：把 gains 脱离语境直译成“收益”。）</td></tr><tr><td>B job opportunities are disappearing at a high speed</td><td>✓ 当选</td><td>shed workers so fast + roughly one out of every three ... disappeared 的同义改写，与中心句 eating jobs + acceleration 一致。</td></tr><tr><td>C factories are making much less money</td><td>✗ 排除</td><td>引言只谈裁员数量与速度，无任何利润信息——由“裁人”推“亏钱”是把常识推理当原文依据。（典型误解：用自己的商业常识脑补原文。）</td></tr><tr><td>D new jobs and services have been offered</td><td>✗ 排除</td><td>张冠李戴：new jobs, new services 出自<strong>第五段</strong>①句（变化总会带来新东西），不是第四段引言的内容。（典型误解：定位漂移——把相邻段落的信息安到本题头上。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>gains 到底指什么？</strong>：看它的修饰语——the gains of the previous 70 years，“此前 70 年的增量”。结合上下文（工厂 shed workers），这是指 70 年里逐步<strong>增加的岗位</strong>在这十年里几乎被裁光，不是“技术红利被抹掉”。</li><li><strong>引言为什么以 manufacturing（制造业）为例就够了？</strong>：引言以制造业为缩影说明整个就业市场——例证题选“与中心句同向的概括”，B 正是对“eating jobs + acceleration”的复述，无需扩大到“所有行业”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：gains 一词脱离语境直译，指代判断失误。</li><li><strong>误选 D</strong>：定位漂移到第五段——核对出处（quotation in Paragraph 4）就能排除。</li></ul>
+<blockquote>记忆锚点：例证题三步走——中心句 → 引语 → 同义改写；gains 的指代看修饰语（the previous 70 years 的岗位增量）；相邻段落的信息要核对出处。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

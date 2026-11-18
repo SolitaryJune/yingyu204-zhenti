@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-45 新题型匹配：Julie Gurner——not A but rather B 的取舍</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：45 · Julie Gurner（房地产分析师）',
+  'body':'<p>新题型机制：<b>人名是锚点</b>；观点若由<b>因果链</b>给出（前提 → 结论），选项必须匹配到<b>结论那一环</b>，取舍结构 not A but rather B 是本题钥匙。</p><p>Julie Gurner 锚定第十四、十五段。</p>',
+  'log':'审题：人名锚点 Julie Gurner → 第十四、十五段因果链'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第十四段前提 + 第十五段结论',
+  'body':'<div class="qq"><b>第十四段：</b>Parents need to remind their children that <b>their needs and desires may change over time</b>, said <b>Julie Gurner</b>.<span class="cn">（父母要提醒孩子：他们的需求和愿望会随时间变化。）</span></div><div class="qq"><b>第十五段：</b>"Their opinions <b>can change tomorrow</b>... <b>that decision should likely not be made contingent on a child\'s opinions, but rather made for them</b> with great consideration into <b>what home can meet their needs best</b>..."<span class="cn">（"他们的意见明天就可能变……购房决定不应取决于孩子的意见，而应充分考虑哪种房子最能满足他们的需要，替他们做。"）</span></div>',
+  'log':'定位：Gurner 因果链——意见善变 → 看需要、别看意见'},
+ {'cls':'','ecs':'step','tag':'拆句','count':0,
+  'title':'拆句：not A but rather B = B rather than A',
+  'body':'<table class="aw-mini"><tr><th>取舍结构</th><th>内容</th></tr><tr><td>not A（舍弃端）</td><td>not be made contingent on a child\'s <b>opinions</b>（不取决于意见）</td></tr><tr><td>but rather B（选择端）</td><td>made for them... meet their <b>needs</b> best（按需要替他们定）</td></tr></table><p>前提"需要相对稳定、意见说变就变" → 结论：<b>看需要，别看意见</b>。not A but rather B 与选项的 B rather than A 是同一取舍的两种写法。</p>',
+  'log':'拆句：not A but rather B ↔ B rather than A，同一取舍'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：based on needs rather than opinions',
+  'body':'<table class="aw-mini"><tr><th>选项 F</th><th>原文</th></tr><tr><td><b>be based on</b></td><td>be made contingent on</td></tr><tr><td><b>children\'s needs</b></td><td>meet their needs best</td></tr><tr><td><b>rather than their opinions</b></td><td>not... on a child\'s opinions, but rather...</td></tr></table>',
+  'log':'替换：contingent on ↔ based on；needs ↔ needs best；取舍对译'},
+ {'cls':'good','ecs':'ok','tag':'锁定 F','count':1,'ribbon':{'k':6,'ok':true},
+  'title':'锁定 F：基于孩子的需要而非意见',
+  'body':'<p><b>F · believes that homebuying decisions should be based on children\'s needs rather than their opinions.</b><span class="ok-dot"> ✓</span></p><p>取舍两端全对上：needs ↔ meet their needs best；rather than ↔ not... but rather...</p>',
+  'log':'锁定 F：看需要、别看意见，取舍结构完整对上'},
+ {'cls':'bad','ecs':'miss','tag':'辨析 C/D','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'辨析 C / D：近似项差在哪一端',
+  'body':'<p><b>C · 购房不应只基于孩子的意见</b><span class="bad-dot"> ✗</span>——最强近似项，但那是 <b>Hampson</b> 的原话（solely），且只否定"意见"一端；Gurner <b>补上了另一端</b>"应基于需要"。取舍结构完整者胜。</p><p><b>D · 给孩子参与感</b><span class="bad-dot"> ✗</span>——那是 <b>Bailey</b> 的主张；Gurner 恰说"替他们做"（made for them），方向相反。B（隐瞒）无人认领。</p>',
+  'log':'辨析：C 是 Hampson 的且缺一端；D 是 Bailey 的'},
+ {'cls':'good','ecs':'done','tag':'结论','count':2,
+  'title':'结论：45 选 F',
+  'body':'<p><b>45 → F</b>——not A but rather B ↔ B rather than A；"看需要别看意见"完整对上。</p><p>记忆锚点：匹配题盯紧取舍结构；"别只看意见"（Hampson）与"看需要别看意见"（Gurner）差在补上的那一端。</p>',
+  'log':'结论：Julie Gurner → F，答案 F'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-45 · 新题型匹配：Julie Gurner 的观点",
+  subtitle: "考点：Text5（买房与孩子）观点匹配 · 方法：人名锚点 → 因果链 → 取舍结构对译",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 匹配 / ✗ 落选）",
+  intro: "点击「▶ 播放」逐步展开：人名定位 → 拆取舍结构 → 同义替换 → 干扰项辨析。",
+  snaps: snaps,
+  result: {
+    big: "45 → F",
+    html: "<b>取舍结构是钥匙</b>：not be made contingent on a child\'s opinions, <b>but rather</b>... meet their <b>needs</b> best ↔ based on children\'s needs <b>rather than</b> their opinions。“别只看意见”（Hampson 的 C）缺了“基于需要”那一端。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——not A but rather B 取舍结构定答案（Julie Gurner）</h2>
+<p>答案：<strong>F（believes that homebuying decisions should be based on children's needs rather than their opinions）</strong>。</p>
+<h3>第 0 步：先立机制——人名锚点 + 因果链推出"取舍端"</h3>
+<p>Julie Gurner 锚定第十四、十五段。论证是一条因果链：前提（第十四段）——父母要提醒孩子，<strong>他们的需求和愿望会随时间变化</strong>；结论（第十五段引语）——their opinions <strong>can change tomorrow</strong>（意见明天就可能变），所以购房决定<strong>不应取决于孩子的意见</strong>（not be made contingent on a child's opinions），而应<strong>以最能满足他们的需要为准</strong>来替他们做（but rather made for them... meet their needs best）。前提"需要相对稳定"、意见"说变就变"，自然推出：<strong>看需要，别看意见</strong> → F。not A but rather B 与 B rather than A 是同一取舍的两种写法。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"Harsh as it may be to say, that decision should likely not be made contingent on a child's opinions, but rather made for them with great consideration into what home can meet their needs best – and give them an opportunity to customize it a bit and make it their own."</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 F</th><th>原文</th></tr></thead><tbody><tr><td>be based on</td><td>be made contingent on</td></tr><tr><td>children's needs</td><td>meet their needs best</td></tr><tr><td>rather than their opinions</td><td>not... on a child's opinions, but rather...</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>C（购房不应只基于孩子的意见）</strong>：最强近似项——但它是 <strong>Hampson</strong> 的原话（solely），且只否定"意见"这一端；Gurner <strong>补上了另一端</strong>"应基于需要"。"只说别只看意见"与"看需要别看意见"，取舍结构完整者胜。</li><li><strong>D（应给孩子参与感）</strong>：那是 <strong>Adam Bailey</strong> 的主张；Gurner 恰恰说"替他们做"（made for them），与"让孩子感觉在选择"方向相反。</li><li><strong>B（对孩子隐瞒购房决定）</strong>：第三段老一辈做法，无人认领。</li></ul>
+<blockquote>记忆锚点：匹配题盯紧取舍结构——not A but rather B ↔ B rather than A；"别只看意见"（Hampson）与"看需要别看意见"（Gurner）差在补上的那一端。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

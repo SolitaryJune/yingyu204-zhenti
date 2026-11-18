@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-09 · 疾病问题____特定人群：A under / B beyond / C alongside / D among</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 9 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：介词连接“疾病问题”与“特定人群”；考点：句内语义 + 介词用法",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the explanation for rising rates of mortality, mental-health problems, and addiction <b>__9__</b> poorly-educated, middle-aged people is a shortage of well-paid jobs.</div><p>空 9 是介词，插在“疾病问题”与“特定人群”之间，交代两者的范围关系。</p>"
+ },
+ {
+  "title": "立机制 · 介词题先立“两端”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：圈出介词两端 → 判断关系类型（内含/并列/控制）",
+  "body": "<p>介词没有实义，它只回答“两端是什么关系”。左边 mortality, mental-health problems, addiction（疾病问题），右边 poorly-educated, middle-aged people（特定人群）：问题<b>发生在人群之中</b>——内含关系 → among。</p>"
+ },
+ {
+  "title": "找证据 · 上句“人群中的比例”句式复现",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：上句“在失业美国人中 20% 患病”早已示范 among 式框架",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">One Gallup poll found that 20 percent of Americans who have been unemployed for at least a year report having depression.</div><p>上句 Gallup poll 用的框架是“某人群<b>内部</b>的比例”（在失业美国人中 20% 患抑郁）；本句延续同一框架：“在这群人中，问题率上升的原因是缺高薪工作”。among（在……中间）把疾病问题安放进人群内部。</p>"
+ },
+ {
+  "title": "逐项分析 · A under（由……控制；在……手下）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A under（由……控制；在……手下）✗ 排除",
+  "body": "<p><b>排除。</b>under 表控制/隶属关系；“问题”不“隶属”于人群。</p>"
+ },
+ {
+  "title": "逐项分析 · B beyond（超出（理解能力等））",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B beyond（超出（理解能力等））✗ 排除",
+  "body": "<p><b>排除。</b>“问题超出人群的理解”与句义无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 beyond 的抽象义硬套上来。</p>"
+ },
+ {
+  "title": "逐项分析 · C alongside（和……在一起）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C alongside（和……在一起）✗ 排除",
+  "body": "<p><b>排除。</b>alongside 表并肩同行；“问题与人群并排走”不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没分清“内含”与“并列”两种关系。</p>"
+ },
+ {
+  "title": "逐项分析 · D among（在……中间）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D among（在……中间）✓ 当选",
+  "body": "<p><b>当选。</b>问题出现在人群之中，内含关系；与上句“人群中的比例”句式复现。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（among 在……中间）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>……在受教育程度低的中年人当中，死亡率、心理健康问题及成瘾率上升的原因是缺少高薪工作。</b></p><p>答案选 <b>D（among 在……中间）</b>。</p><p><b>记忆锚点</b>：问题/比例 + 人群 → among；上句的 among 式句型是最好的范本。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（alongside）：把“人群”误当“并肩的伙伴”；among 是“整体之中”，alongside 是“并列两物”。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 9 空 · 疾病问题____特定人群：A under / B beyond / C alongside / D among",
+  subtitle: "考点：句内语义 + 介词用法 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 D（among 在……中间）",
+ "html": "<b>D among（在……中间）</b>。<br>记忆锚点：问题/比例 + 人群 → among；上句的 among 式句型是最好的范本。<br>最易误选：<b>C（alongside）</b>——把“人群”误当“并肩的伙伴”；among 是“整体之中”，alongside 是“并列两物”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 9 空 · 疾病问题____特定人群</h2>
+<p>答案：<strong>D（among 在……中间）</strong>。</p>
+<h3>第 0 步：先立机制——介词题先立“两端”</h3>
+<p>空 9 的两端：左边 mortality, mental-health problems, and addiction（疾病相关问题），右边 poorly-educated, middle-aged people（特定人群）。介词要回答的是：<strong>这些问题与这群人是什么范围关系？</strong> 问题“发生在人群之中”——内含关系 → among。回看上句的现成模板：20 percent of Americans <strong>who have been unemployed...</strong>（在失业美国人当中 20% 患病）——同为“人群中的问题比例”，句式早已示范过一次。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Also, some research suggests that the explanation for rising rates of mortality, mental-health problems, and addiction __9__ poorly-educated middle-aged people is a shortage of well-paid jobs.</blockquote>
+<h3>第 2 步：找证据——上句“人群中的比例”句式复现</h3>
+<p>上句 Gallup poll 用的框架是“某人群内部的比例”（在失业美国人中 20% 患抑郁，是就业者的两倍）；本句延续同一框架：“在这群人中，问题率上升的原因是缺少高薪工作”。among（在……中间）把疾病问题安放进人群内部，介词逻辑顺滑。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A under</td><td>由……控制；在……手下</td><td>✗ 排除</td><td>表控制/隶属，“问题”不“隶属”于人群。</td></tr><tr><td>B beyond</td><td>超出（理解能力等）</td><td>✗ 排除</td><td>“问题超出人群的理解”与句义无关。（典型误解：把 beyond 的抽象义硬套上来。）</td></tr><tr><td>C alongside</td><td>与……一起</td><td>✗ 排除</td><td>表并肩同行，“问题与人群一起”不成立。（典型误解：没分清“内含”与“并列”两种关系。）</td></tr><tr><td>D among</td><td>在……中间</td><td>✓ 当选</td><td>问题出现在人群之中，内含关系，与上句句式复现。</td></tr></tbody></table>
+<p>代入后的完整句义：……在受教育程度低的中年人当中，死亡率、心理健康问题及成瘾率上升的原因是缺少高薪工作。</p>
+<h3>预判追问</h3>
+<ul><li><strong>介词两端怎么找？</strong>：介词是没有实义的“关系词”，先圈出它前后的两个名词短语（疾病问题 / 特定人群），再问它们在真实世界里是什么关系（部分属于整体？并列？控制？），最后让四个选项对号入座。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（alongside）</strong>：把“人群”误当“并肩的伙伴”；among 是“整体之中”，alongside 是“并列两物”。</li></ul>
+<blockquote>记忆锚点：问题/比例 + 人群 → among；上句的 among 式句型是最好的范本。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

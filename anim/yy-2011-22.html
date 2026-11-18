@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-22 · 2011 阅读第 22 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 角色细节题：“身份名词＋修饰特征”两件套",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：We learn from Paragraph 2 that outside directors are supposed to be ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>be supposed to be 是“应然”细节题：答案要同时锁定两层——<b>身份名词</b>（是什么）＋<b>修饰特征</b>（什么样的）。定位指令：Paragraph 2 首句。</p>"
+ },
+ {
+  "title": "定位原文 · 首句定身份，次句补特征",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：serve as helpful, yet less biased, advisers… have enough independence…",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Outside directors are supposed to serve as helpful, yet less biased, advisers on a firm’s board.") + quote("Having made their wealth and their reputations elsewhere, they presumably have enough independence to disagree with the chief executive’s proposals.") + "<p>首句的 be supposed to 与题干完全同构：身份＝ <b>advisers（顾问）</b>；特征＝ <b>less biased（少偏见）</b>。次句解释原因：名成利就在别处 → 有足够 <b>independence</b> 否决董事长提案。</p>"
+ },
+ {
+  "title": "同义替换 · less biased ＋ independence → independent",
+  "cls": "key",
+  "tag": "替换",
+  "log": "同义替换：helpful, yet less biased, advisers ＋ enough independence → independent advisers",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>independence ＝ less biased 的具体化，两个特征词同指一件事。身份＋特征拼起来＝ <b>independent advisers（独立的顾问）</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · D independent advisers（独立的顾问）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D independent advisers（独立的顾问） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "body": "<p><b>当选。</b>身份（advisers）＋特征（less biased / independence）双层对应——两层证据都指向 D。</p>"
+ },
+ {
+  "title": "逐项分析 · B unbiased executives（无偏倚的主管）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B unbiased executives ✗ 排除——特征对得上，身份名词偷换了",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>less biased ≈ unbiased 没错，但尾词换人了：原文身份是 advisers；executive 在文中专指 chief executive（董事长）——外部董事的工作恰恰是<b>否决</b>他的提案，不是自己当 executive。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只核对修饰词，不核对身份名词。</p>"
+ },
+ {
+  "title": "逐项分析 · A generous investors（慷慨的投资者）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A generous investors ✗ 排除——wealth 的近义迁移",
+  "count": 2,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>made their wealth and their reputations elsewhere 说的是“在别处功成名就”（这正是独立性的来源），与“慷慨投资”无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 wealth 就联想到“投资／慷慨”。</p>"
+ },
+ {
+  "title": "逐项分析 · C share price forecasters（股价的预测者）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C share price forecasters ✗ 排除——情境不是职能",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>If the sky, and the share price is falling 是假设情境：股价跌时他们应凭经验<b>提建议</b>，不是“预测股价”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把背景情境读成职能定义。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（independent advisers）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>外部董事被认为是董事会中有益而少偏见的顾问；他们已在别处名成利就，拥有足够的独立性去否决董事长的提案。</b></p><p>答案选 <b>D（independent advisers 独立的顾问）</b>。</p><p><b>记忆锚点</b>：角色题两件套——身份名词看 serve as 后的词（advisers），修饰特征看 yet 后的词（less biased）＋次句的 independence；advisers ≠ executives，提建议的人不当家。</p><p style=\"color:#b91c1c\">最易误选：<b>B（unbiased executives）</b>——特征对上了，身份偷换了。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 22 题 · 外部董事“应该”是什么角色",
+  subtitle: "考点：第二段细节重组 · 身份名词＋修饰特征两件套",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（independent advisers）",
+    html: "<b>D independent advisers（独立的顾问）</b>。<br>记忆锚点：身份看 serve as 后的 advisers，特征看 less biased ＋ independence；advisers ≠ executives。<br>最易误选：<b>B（unbiased executives）</b>——特征对上了，身份偷换了。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 22 题 · be supposed to be 的角色，两个特征词拼出答案</h2>
+<p>答案：<strong>D（independent advisers 独立的顾问）</strong>。</p>
+<h3>第 0 步：先立机制——角色细节题，"名词身份＋修饰特征"两件套</h3>
+<p>题干问 outside directors are <strong>supposed to be</strong> 什么角色：这是"应然"细节题，答案必须同时锁定两层——<strong>身份名词</strong>（是什么）＋<strong>修饰特征</strong>（什么样的）。第一段首句恰好把两层都给了：serve as helpful, yet less biased, <strong>advisers</strong>——身份是 adviser（顾问）；特征是 less biased（少偏见）。再看后面有没有补强：independence 正是 less biased 的展开。两层拼起来＝ independent advisers。</p>
+<h3>第 1 步：定位原文——首句定身份，次句补特征</h3>
+<blockquote>Outside directors are supposed to serve as helpful, yet less biased, advisers on a firm's board.</blockquote>
+<blockquote>Having made their wealth and their reputations elsewhere, they presumably have enough <strong>independence</strong> to disagree with the chief executive's proposals.</blockquote>
+<p>首句的 be supposed to 与题干完全同构，advisers 直接给定身份；次句解释"为什么少偏见"——因为已在别处名成利就，所以有足够的独立性去否决董事长的提案。independence ＝ less biased 的具体化。两个特征词同指一件事。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A generous investors</td><td>慷慨的投资者</td><td>made their wealth and their reputations elsewhere 曲解：说的是"在别处功成名就"，与"慷慨投资"无关</td></tr><tr><td>B unbiased executives</td><td>无偏倚的主管</td><td>advisers → executives 角色偷换；less biased 修饰的是 advisers，executive 在原文指 chief executive（董事长），是被提意见的对象</td></tr><tr><td>C share price forecasters</td><td>股价的预测者</td><td>If the sky, and the share price is falling 曲解：原文说股价跌时他们应凭经验提建议，不是"预测股价"</td></tr><tr><td>D independent advisers</td><td>独立的顾问</td><td>✓ 身份（advisers）＋特征（less biased / independence）双层对应</td></tr></tbody></table>
+<h3>预判追问：为什么 B 比 D 更"像"？</h3>
+<p>B 与 D 的区别在尾词：adviser（提建议的人）还是 executive（管理者）。原文首句的 serve as advisers 是身份判断的唯一出处，executive 在原文里专指 chief executive——外部董事的工作恰恰是<strong>监督和否决</strong>这位 executive 的提案，而不是自己当 executive。把"少偏见的顾问"偷换成"无偏倚的主管"，身份就换人了。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（unbiased executives）</strong>：less biased 与 unbiased 对得上，就忘了核对身份名词——advisers ≠ executives。</li><li><strong>误选 A（generous investors）</strong>：wealth 的近义迁移；原文强调"名成利就带来独立性"，不是"慷慨"。</li><li><strong>误选 C（share price forecasters）</strong>：把"股价下跌的情境"读成"预测股价的能力"；情境是背景，不是职能。</li></ul>
+<blockquote>记忆锚点：be supposed to be ＋ 角色 → 身份名词看 serve as 后的词（advisers），修饰特征看 yet 后的词（less biased）＋ 次句的 independence；advisers ≠ executives，提建议的人不当家。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

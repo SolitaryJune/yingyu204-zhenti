@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-20 · 2015 完形第 20 空 · “It’s that ___”——冒号后面的内容决定形容词 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 表语形容词＋冒号解释", "cls": "key", "tag": "审题", "log": "审题眼：空格是 It’s that __ 的表语形容词，冒号后的整句就是它的解释——词义要从冒号后取", "count": 0, "ribbon": null, "body": "<p>句式 “It’s that <b>__20__</b>: …” 中，形容词作表语描述 it，而<b>冒号负责解释</b>。四个选项 funny / simple / logical / rare 都是评价性形容词，答案取决于：冒号里的内容该被定性为什么。</p>"},
+ {"title": "定位原文 · 全文的收束句", "cls": "key", "tag": "定位", "log": "定位原文：It’s that __20__: Talking to strangers can make you feel connected.", "count": 0, "ribbon": null, "body": quote("It’s that __20__: Talking to strangers can make you feel connected.") + "<p>这是全文最后一句：前文刚说完“有交流的通勤更愉快，这完全说得通，因为人类靠社会交往而兴旺”。末句要把整篇文章收拢成一句话。</p>"},
+ {"title": "找证据 · it 指代的道理朴素易行", "cls": "key", "tag": "证据", "log": "找证据：冒号内容“交谈就能感到相连”是一拍即通的朴素道理", "count": 0, "ribbon": null, "body": "<p>it 指向前文铺垫的判断（与陌生人交谈让人感到相连）。冒号后把这个道理摊开：聊一聊，就有联结感。不需要成本、不需要论证，人人可做——这是一个<b>显而易见的简单道理</b>。英语里现成的收束句式就是 It’s that simple。</p>"},
+ {"title": "逐项分析 · B simple（简单的）", "cls": "good", "tag": "选定 B", "log": "B simple（简单的） ✓ 当选——It’s that simple 惯用收束，道理浅显易行", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>It’s that simple＝“道理就这么简单”，是英语惯用表达。冒号内容“交谈就能感到相连”正是一个一做就通的朴素道理，simple 定性精准。</p>"},
+ {"title": "逐项分析 · A funny（有趣的）", "cls": "bad", "tag": "排除 A", "log": "A funny（有趣的） ✗ 排除——全文是平实说理，无“有趣”评价", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>全文语气是平实的说理＋实验佐证，没有把“与陌生人交谈”当作有趣、新奇之事来讲。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“陌生人”话题的新鲜感带偏成 funny。</p>"},
+ {"title": "逐项分析 · C logical（合乎逻辑的）", "cls": "bad", "tag": "排除 C", "log": "C logical（合乎逻辑的） ✗ 排除——末句叹的是“道理浅显”，不是“论证严密”", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>logical 强调“推理链条严密、逻辑上站得住”。但末句不是在评价论证的严密性，而是在感叹这件事本身简单易行——侧重点完全不同。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到全文有实验推理，就把“讲道理”误判成“逻辑严密”。</p>"},
+ {"title": "逐项分析 · D rare（稀有的）", "cls": "bad", "tag": "排除 D", "log": "D rare（稀有的） ✗ 排除——与“人人受用的普遍道理”方向相反", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>rare ＝“稀有的、少见的”。全文的立论恰恰是“人人可做、随时可验证”的普遍现象（thrive off of social connections），与“稀有”背道而驰。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没把全文“普遍人性”的基调读进去。</p>"},
+ {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（simple 简单的）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>道理就这么简单：与陌生人交谈，能让你感到与人相连。</b></p><p>答案选 <b>B（simple 简单的）</b>。</p><p><b>记忆锚点</b>：冒号＝解释，表语形容词的意思从冒号后取；It’s that simple＝道理就这么简单（惯用收束句式）；funny＝有趣、logical＝推理严密、rare＝稀有。</p><p style=\"color:#b91c1c\">最易误选：<b>C（logical）</b>——把“道理浅显”误判成“逻辑严密”。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 完形第 20 空 · “It’s that ___”——冒号后面的内容决定形容词",
+  subtitle: "考点：上下文语义＋惯用句式 It’s that simple（收束全文的朴素道理）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（simple）", "html": "<b>B simple（简单的）</b>：冒号内容“交谈就能感到相连”是人人可做的朴素道理，It’s that simple 惯用收束。<br>记忆锚点：冒号＝解释，形容词词义从冒号后取。<br>最易误选：<b>C（logical）</b>——末句叹的是“浅显易行”，不是“论证严密”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 20 空 · "It's that ___"——冒号后面的内容决定形容词</h2>
+<p>答案：<strong>B（simple 简单的）</strong>。</p>
+<h3>第 0 步：先立机制——表语形容词的语义由"冒号后的解释"供给</h3>
+<p>空格在 "It's that __20__ : Talking to strangers can make you feel connected." 中，作表语的形容词描述的是 it，而冒号正是全文给读者的提示：冒号后的整句就是在解释 it 到底"怎么样"。it 所指是全文收束的判断——"与陌生人交谈能让你感到与人相连"。这是一个不需要论证、人人可用的朴素道理，作者用 "It's that + 形容词" 的句式把它拍板定案。英语里这个搭配有一个现成的惯用表达：<strong>It's that simple（道理就这么简单）</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It's that __20__: Talking to strangers can make you feel connected.</blockquote>
+<ul><li>前文刚说完：有交流的通勤更愉快，这完全说得通，因为人类靠社会交往而兴旺；</li><li>本句是全文末句，把整篇文章收拢成一句话；</li><li>冒号后给出这句话的内容：与陌生人交谈 → 感到与人相连。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A funny</td><td>有趣的</td><td>✗ 排除</td><td>全文没有把"与陌生人交谈"当作有趣之事来讲，通篇语气是平实的说理</td></tr><tr><td>B simple</td><td>简单的</td><td>✓ 当选</td><td>冒号内容"交谈就能感到相连"是一个显而易见、一做就通的朴素道理；It's that simple 是英语惯用表达</td></tr><tr><td>C logical</td><td>合乎逻辑的</td><td>✗ 排除</td><td>logical 强调"推理严密、逻辑上站得住"，而作者强调的是道理本身浅显易行，不存在"推理链条是否严密"的问题</td></tr><tr><td>D rare</td><td>稀有的</td><td>✗ 排除</td><td>全文说的是人人可做、随时可验证的普遍现象，与"稀有"方向相反</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>道理讲得头头是道，为什么不是 logical？</strong>：logical 的适用场景是"论证过程环环相扣、逻辑严密"。本文虽然引用了实验和专家观点，但末句不是在评价"论证的严密性"，而是在感叹"这件事本身很简单——聊一聊就能获得联结感"。侧重点是"简单易行"，不是"逻辑自洽"。</li><li><strong>It's that ___ 里 that 起什么作用？</strong>：that 指向前文铺垫的判断（交谈让人感到相连），"It's that simple"＝"事情就是这么简单"——that 是收束指代，形容词负责给这个判断定性。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（logical）</strong>：看到全文有实验、有专家、有推理，就把"讲道理"误判成"逻辑严密"；漏掉末句的重心是"道理浅显"而非"论证严密"。</li><li><strong>误选 A（funny）</strong>：被"与陌生人交谈"这种新鲜话题误导成"有趣"；文章通篇没有幽默或新奇的评价语气。</li><li><strong>误选 D（rare）</strong>：与全文"普遍人性"的立论方向相反——thrive off of social connections 说的正是人人都受用的道理。</li></ul>
+<blockquote>记忆锚点：冒号＝解释，表语形容词的意思从冒号后取；It's that simple ＝ 道理就这么简单（惯用收束句式）；funny＝有趣、logical＝推理严密、rare＝稀有，都不接"朴素易行的道理"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

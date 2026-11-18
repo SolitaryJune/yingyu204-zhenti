@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-45 · 2018 新题型第 45 题 · 「记细节」段的列举式标题 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 列举式段落→名词收拢式标题", "cls": "key", "tag": "方法", "log": "对策＋三个以上并列名词的段落，标题往往直接取对象清单；暗规则：多余项过度联想", "count": 0, "ribbon": null, "body": "<p>七选五小标题题：找<b>对象</b>＋找<b>建议</b>。本段群是“尴尬情境 → 对策 → 列举”结构——对策动词（remember）已在段中明说，标题只需把“<b>记什么</b>”的清单收拢成几个名词。警惕：多余项爱把“顺理成章的下一步”当作者的话。</p>"},
+ {"title": "定位段群 ·【45】忘名的尴尬→记细节", "cls": "key", "tag": "定位", "log": "定位⑬⑭段：forgotten their name 痛点 → remember the little details 对策 → places/things 列举", "count": 0, "ribbon": null, "body": quote("…after some time you may have met again and have <b>forgotten their name</b>. Isn't that awkward! So, <b>remember the little details</b> of the people you met…; perhaps the <b>places</b> they have been to, the places they want to go, the <b>things</b> they like, the things they hate…") + "<p>推进链三层：①痛点——重逢却<b>忘了名字</b>（name），好尴尬；②对策——记住对方的<b>小细节</b>（little details）；③列举——<b>places</b>（去过/想去的地方）＋<b>things</b>（喜欢/讨厌的事物）。痛点与对策共享同一对象域：name ＋ places ＋ things。</p>"},
+ {"title": "提炼段旨 · 对象清单＝name/places/things", "cls": "key", "tag": "提炼", "log": "提炼段旨：对策动词 remember 已明说，标题只需收拢“记什么”的清单", "count": 0, "ribbon": null, "body": "<p>讨论对象 = <b>对方的细节信息</b>（little details）；作者建议 = <b>记住它们</b>。三个并列名词各有所本：name（别再忘）、places（去过/想去）、things（喜欢/讨厌）——列举式标题＝名词收拢，一个都不能多、一个都不能错。</p>"},
+ {"title": "逐项分析 · D Name, places, things", "cls": "good", "tag": "选定 D", "log": "D 名字、地点、事物 ✓ ——三个名词恰好收拢段群全部列举项", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>[D] <b>Name, places, things</b> ↔ forgotten their <b>name</b>（痛点对象）＋ the <b>places</b> they have been to / want to go ＋ the <b>things</b> they like / hate（对策列举）——三个名词各自都能在段中找到出处，合起来恰好覆盖整个段群。</p>"},
+ {"title": "逐项分析 · C Pay a unique compliment", "cls": "bad", "tag": "排除 C", "log": "C 给予独特赞美 ✗ ——过度联想：compliment 全段全篇无一处出现", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>本段群关键词是 <b>remember the details</b>，[C] 把“记住细节”脑补成它的目的——“给予独特的赞美”。但 <b>compliment</b> 二字全篇无据；记住细节的真正目的是避免尴尬、维系关系（become investor in their wellbeing），不是夸人。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“顺理成章的下一步”当成“作者说的话”——主观臆测。</p>"},
+ {"title": "逐项分析 · B / E 的错位归宿", "cls": "bad", "tag": "排除 B·E", "log": "B 在场／E 找共同点 ✗ ——分别是【44】【43】段的标题", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>[B] <b>Be present</b> 是【44】段“交谈时全心投入”的标题——本段谈的是见面<b>之后</b>记住对方；[E] <b>Find the “me too”s</b> 是【43】段“找共同点”的标题——本段列的是对方的<b>信息</b>（places/things），不是两人的<b>交集</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：信息归属（对方的事）≠ 双方交集（共同点）。</p>"},
+ {"title": "结论 · 清单收拢，缺一不可", "cls": "good", "tag": "答案 D", "log": "答案 D（Name, places, things）—— 见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>痛点（忘名）→ 对策（remember the little details）→ 列举（places/things）→ [D] Name, places, things。</b>name 虽是“被忘掉”的对象，但对策“记细节”的对象域里自然包括“别再忘的名字”——痛点与对策共享对象域。</p><p>答案选 <b>D（Name, places, things）</b>。</p><p><b>记忆锚点</b>：列举式标题＝名词收拢，三个名词各有所本、缺一不可；定位要覆盖整个段群（别漏①句的 name）；compliment 全篇无据＝过度联想。</p><p style=\"color:#b91c1c\">最易误选：<b>C（Pay a unique compliment）</b>——记住细节的顺延目的被当成了标题。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 新题型第 45 题 ·「记细节」段——列举式标题的名词收拢",
+  subtitle: "考点：小标题题 · 对策＋列举的名词收拢 + 过度联想识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段群 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（Name, places, things）", "html": "<b>D 名字、地点、事物</b>：forgotten their <b>name</b>（痛点）＋ remember the little details：the <b>places</b> they have been to / want to go ＋ the <b>things</b> they like / hate（列举）。<br>记忆锚点：列举式标题＝名词收拢，各有所本、缺一不可；compliment 全篇无据＝过度联想。<br>最易误选：<b>C（Pay a unique compliment）</b>——顺延目的被当成标题。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 新题型第 45 题 · 小标题题——"记细节"段的列举式标题</h2>
+<p>答案：<strong>D（Name, places, things 名字、地点、事物）</strong>。</p>
+<h3>第 0 步：先立机制——"尴尬情境 → 对策 → 列举"的段群，标题取对策的对象清单</h3>
+<p>本段群（⑬⑭段）三层推进：①<strong>尴尬情境</strong>——你们聊过、后来再见面，却忘了对方的名字（forgotten their name. Isn't that awkward!）；②<strong>对策</strong>——So, remember the little details of the people you met（记住你认识的那些人的小细节）；③<strong>列举</strong>——perhaps the places they have been to, the places they want to go, the things they like, the things they hate（去过的/想去的地方，喜欢/讨厌的事物）。清单文里这种"对策＋三个以上并列名词"的段落，标题往往直接取<strong>对象清单</strong>——把列举项收拢成几个名词，就是答案的形状。</p>
+<h3>第 1 步：定位段群</h3>
+<blockquote>...after some time you may have met again and have <strong>forgotten their name</strong>. Isn't that awkward! So, <strong>remember the little details</strong> of the people you met or you talked with; perhaps the <strong>places</strong> they have been to, the places they want to go, the <strong>things</strong> they like, the things they hate...</blockquote>
+<p>推进链：①痛点——忘名（name）的尴尬；②对策——记住小细节（little details）；③清单——places（去过/想去）＋things（喜欢/讨厌）。①的 name 虽然是"被忘掉"的对象，但它与③的 places、things 一起构成"该记住什么"的完整清单——name ＋ places ＋ things。</p>
+<h3>第 2 步：同义替换——三个名词收拢一段列举</h3>
+<p>[D] <strong>Name, places, things</strong> 恰好是本段群列举项的直接收拢：<strong>name</strong> ↔ forgotten their name（忘名是痛点，记住名字是对策的反面提醒）；<strong>places</strong> ↔ the places they have been to / want to go；<strong>things</strong> ↔ the things they like / hate。标题没有用任何动词——因为对策动词 remember 已在段中明说，标题只需把"记什么"的清单列出来，这正是列举式标题的写法。</p>
+<h3>第 3 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>C Pay a unique compliment</td><td>✗</td><td>过度联想：本段群关键词是 remember the details，[C] 把"记住细节"脑补成它的目的——"给予独特的赞美"。但"赞美"（compliment）二字全段全篇无一处出现；记住细节的真正目的是避免尴尬、维系关系（become investor in their wellbeing），不是夸人——主观臆测把"顺理成章的下一步"当成了"作者说的话"</td></tr><tr><td>B Be present</td><td>✗</td><td>错位归宿：【44】段"全心在场"的标题；本段谈的是见面<strong>之后</strong>记住对方，不是交谈时的投入状态</td></tr><tr><td>E Find the "me too"s</td><td>✗</td><td>错位归宿：【43】段"找共同点"的标题；本段列的是对方的<strong>信息</strong>（places/things），不是两人的<strong>交集</strong></td></tr></tbody></table>
+<p>（[A] Just say it、【41】段；[F] Skip the small talk、【42】段；[G] Ask for an opinion 全篇无属——本段群同样接不住。）</p>
+<h3>预判追问：name 在段里是"被忘掉"的，怎么反而进了标题？</h3>
+<p>标题的名词不必须是"正面动作的对象"，而是"对策针对的对象"：②句对策是 remember the little details——<strong>记住</strong>的对象自然包括"别再忘掉的名字"。原文的痛点（忘名）与对策（记细节）共享同一个对象域：name。命题人把③句的具体列举（places/things）与①句的痛点对象（name）合并成三个名词，考查的是"清单收拢"能力——三个名词各自都能在段中找到出处，一个都不能多，一个都不能错。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：把"记细节"的顺延目的脑补成"赞美"——compliment 全篇无据，典型过度联想。</li><li><strong>漏掉 name</strong>：只看见③句的 places/things、没接住①句的 forgotten their name——[D] 三个名词少一个都凑不齐，这也提醒我们定位要覆盖整个段群。</li><li><strong>误选 E</strong>：把"记住对方去过的地方"混成"找到共同点"——信息归属（对方的事）≠ 双方交集（共同点）。</li></ul>
+<blockquote>记忆锚点：本段群＝<strong>痛点（忘名）→ 对策（remember the little details）→ 列举（places/things）</strong>，标题取对策对象的清单 → Name, places, things；三个名词各有所本、缺一不可；compliment 全篇无据是过度联想；列举式标题＝名词收拢。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

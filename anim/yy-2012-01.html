@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 完形第 1 空 · 二战里“who __1__”的那些人做了什么 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 1 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 1 所在句，考点：句内语义 + 动词辨析（serve 的“服役”义）", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">To the men and women who __1__ in World War Ⅱ and the people they liberated, the G.I. was the common man grown into hero.</div><p>空格填谓语动词，与 in World War Ⅱ 搭配：某人“在二战中”做了什么。线索有三层：who 指后来的“英雄”，they liberated 指“他们解放的人们”，两者之间是参战者与被解放者的关系。</p>"}, {"title": "找证据 · 同段的受难与战斗清单已经预演了这个形象", "cls": "key", "tag": "证据", "log": "找证据：同段的受难与战斗清单已经预演了这个形象", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...who slept in cold foxholes, who went without the necessities of food and shelter, who stuck it out and drove back the Nazi reign of murder.</div><p>睡散兵坑、缺吃少住、硬撑到底、打退纳粹——整段把 G.I. 塑造成正面参战者。空格里的动作必须与“解放他人、击退纳粹”同向：是“参战服役”，不是反叛、背叛，更不是表演。</p>"}, {"title": "逐项分析 · A served（服役；服务）", "cls": "good", "tag": "选定 A", "log": "A served（服役；服务）✓ 当选", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>serve in World War Ⅱ 是地道说法：serve 兼有“在军队中服役”的义项（熟词僻义），代入后与“他们解放了的人们”因果顺畅。</p>"}, {"title": "逐项分析 · B performed（执行；表演）", "cls": "bad", "tag": "排除 B", "log": "B performed（执行；表演）✗ 排除——没有“从军服役”义", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>perform 表“执行”需要接 task/duty 之类的宾语，此处只有状语 in World War Ⅱ；若取“表演”义，“在战争中演出”更是荒谬。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 perform 的“表现、执行”义硬套，忽略它没有“服役”义项。</p>"}, {"title": "逐项分析 · C rebelled（反叛；反抗）", "cls": "bad", "tag": "排除 C", "log": "C rebelled（反叛；反抗）✗ 排除——缺介词 against，且立场相反", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>rebel 是不及物动词，反叛须说 rebel against sb/sth，本空后面没有介词缺口可填；而且“反叛者”与“解放者”立场相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“战争”就联想“反战、哗变”，不核对介词搭配与人物立场。</p>"}, {"title": "逐项分析 · D betrayed（背叛；出卖）", "cls": "bad", "tag": "排除 D", "log": "D betrayed（背叛；出卖）✗ 排除——与“解放人民”的正面形象矛盾", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>betray in World War Ⅱ 语义方向完全相反：全文在为 G.I. 正名（that’s not how it used to be），不存在“背叛”叙事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背词义不看褒贬基调：本段是正面塑造，负面动词全部出局。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（served 服役）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>对于曾在二战中服役的男男女女以及被他们解放的人们来说，G.I. 是成长为英雄的普通人。</b></p><p>答案选 <b>A（served 服役）</b>。</p><p><b>记忆锚点</b>：serve in the war = 服役；“解放他人”语境 → 正面参战 → serve；rebel 必带 against；本段基调为正，负向词先出局。</p><p style=\"color:#b91c1c\">最易误选：<b>B（performed）</b>——它是最“眼熟”的战争高频词，但 perform 只是“执行、表演”，与“服役”无关。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 完形第 1 空 · 二战里“who __1__”的那些人做了什么",
+  subtitle: "考点：句内语义 + 动词辨析（serve 的“服役”义） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 A（served 服役）", "html": "<b>A served（服役）</b>。<br>完整句义：对于曾在二战中服役的男男女女以及被他们解放的人们来说，G.I. 是成长为英雄的普通人。<br>记忆锚点：serve in the war = 服役；“解放他人”语境 → 正面参战 → serve；rebel 必带 against；本段基调为正，负向词先出局。<br>最易误选：<b>B（performed）</b>——它是最“眼熟”的战争高频词，但 perform 只是“执行、表演”，与“服役”无关。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2012 完形第 1 空 · 二战里“who __1__”的那些人做了什么</h2>
+<p>答案：<strong>A（served 服役）</strong>。</p>
+<h3>第 0 步：先立机制——本空的解题结构</h3>
+<p>who 引导定语从句修饰 the men and women，空格是谓语动词位，后面 in World War Ⅱ 是状语不是宾语；同一句里还有 the people they liberated——“他们所解放的人们”。能“解放”他人的，只可能是在二战中参战服役的士兵。所以本题不用背四个词的全部释义，先问一句：这群人在二战中做的哪个动作，能带出“被他们解放的人们”？</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>To the men and women who __1__ in World War Ⅱ and the people they liberated, the G.I. was the common man grown into hero.</blockquote>
+<p>空格填谓语动词，与 in World War Ⅱ 搭配：某人“在二战中”做了什么。线索有三层：who 指后来的“英雄”，they liberated 指“他们解放的人们”，两者之间是参战者与被解放者的关系。</p>
+<h3>第 2 步：找证据——同段的受难与战斗清单已经预演了这个形象</h3>
+<blockquote>...who slept in cold foxholes, who went without the necessities of food and shelter, who stuck it out and drove back the Nazi reign of murder.</blockquote>
+<p>睡散兵坑、缺吃少住、硬撑到底、打退纳粹——整段把 G.I. 塑造成正面参战者。空格里的动作必须与“解放他人、击退纳粹”同向：是“参战服役”，不是反叛、背叛，更不是表演。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A served</td><td>服役；服务</td><td>✓ 当选</td><td>serve in World War Ⅱ 是地道说法：serve 兼有“在军队中服役”的义项（熟词僻义），代入后与“他们解放了的人们”因果顺畅。</td></tr><tr><td>B performed</td><td>执行；表演</td><td>✗ 排除</td><td>perform 表“执行”需要接 task/duty 之类的宾语，此处只有状语 in World War Ⅱ；若取“表演”义，“在战争中演出”更是荒谬。（典型误解：把 perform 的“表现、执行”义硬套，忽略它没有“服役”义项。）</td></tr><tr><td>C rebelled</td><td>反叛；反抗</td><td>✗ 排除</td><td>rebel 是不及物动词，反叛须说 rebel against sb/sth，本空后面没有介词缺口可填；而且“反叛者”与“解放者”立场相反。（典型误解：见“战争”就联想“反战、哗变”，不核对介词搭配与人物立场。）</td></tr><tr><td>D betrayed</td><td>背叛；出卖</td><td>✗ 排除</td><td>betray in World War Ⅱ 语义方向完全相反：全文在为 G.I. 正名（that’s not how it used to be），不存在“背叛”叙事。（典型误解：只背词义不看褒贬基调：本段是正面塑造，负面动词全部出局。）</td></tr></tbody></table>
+<p>代入后的完整句义：对于曾在二战中服役的男男女女以及被他们解放的人们来说，G.I. 是成长为英雄的普通人。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>serve 不接宾语也对吗？</strong>：serve 作“服役”讲时是不及物用法：serve in the army / serve in a war；作“服务、上菜”讲时才及物。本空 in World War Ⅱ 是介词短语状语，不是缺宾语。</li><li><strong>误选 B 的人是怎么理解的？</strong>：把 performed 读成“在战争中有过表现”——perform 确有“表现”义，但要落在 perform well/badly 这类结构上，且“有表现”推不出“他们解放了的人们”这个结果。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（performed）</strong>：把“执行/表现”当万能动词，忽略 perform 没有“从军服役”义。</li><li><strong>误选 C（rebelled）</strong>：不查介词：rebel against 才完整，本空立不住。</li><li><strong>误选 D（betrayed）</strong>：脱离全文褒贬基调：正名文段容不下“背叛”。</li></ul>
+<blockquote>记忆锚点：serve in the war = 服役；“解放他人”语境 → 正面参战 → serve；rebel 必带 against；本段基调为正，负向词先出局。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

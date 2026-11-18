@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 7 空 · 因果介词短语：A due to / B regardless of / C aside from / D along with</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 7 在「因果介词短语」位；考点：句内逻辑（介词短语辨析：因果）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It takes about three weeks to a month to notice significant changes in your weight <b>__7__</b> altering your training program.</div><p>空 7 引出 altering your training program（改变训练计划），说明它与“体重出现明显变化”的关系。主干：注意到明显的体重变化需要三周到一个月。</p>"
+ },
+ {
+  "title": "立机制 · 手段与结果的因果对",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：手段与结果的因果对",
+  "body": "<p>沿用第 4 题确立的事实：作者改变训练计划，正是为了改变体重（压数字）。所以“改变训练计划（因）→ 体重变化（果）”：因改变训练计划而产生的明显体重变化，要三周到一个月才看得到。能引出原因、且可接动名词 altering 的介词短语是 due to（由于）。</p>"
+ },
+ {
+  "title": "找证据 · 第二段已锁定因果：改计划 → 变体重",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：第二段已锁定因果：改计划 → 变体重",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">thinking only of lowering the number on the scale, I altered my training program.</div><p>第二段已确立“改计划 → 为了改变体重”：改训练计划是手段，体重变化是结果。空格介词短语要挑明这层因果，方向不能反。</p>"
+ },
+ {
+  "title": "逐项分析 · A due to（由于）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A due to（由于）✓ 当选",
+  "body": "<p><b>当选。</b>due to altering your training program = 由于改变训练计划（而出现的体重变化）：因果方向正确，且可接动名词。</p>"
+ },
+ {
+  "title": "逐项分析 · B regardless of（不顾，不管）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B regardless of（不顾，不管）✗ 排除",
+  "body": "<p><b>排除。</b>“不管是否改变训练计划，都要三周才显现”——把二者的联系掐断；可改计划的目的就是改变体重，文意不允许“无关”。</p>"
+ },
+ {
+  "title": "逐项分析 · C aside from（除……以外）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C aside from（除……以外）✗ 排除",
+  "body": "<p><b>排除。</b>“除改变计划之外（还要三周）”——“改变计划”与“变化显现耗时”不在同一维度，加不出并列。</p>"
+ },
+ {
+  "title": "逐项分析 · D along with（与……一道）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D along with（与……一道）✗ 排除",
+  "body": "<p><b>排除。</b>利用中文“随着”干扰：along with 只表“伴随、一起”，不传因果；且其后习惯接名词（如 along with two other children），接分词 altering 不妥。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 7 填 due to（由于）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">significant changes in your weight <b>due to</b> altering your training program</div><p>因改变训练计划而产生的明显体重变化</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "log": "答案 A（due to 由于）——见结论卡",
+  "body": "<p>答案选 <b>A（due to 由于）</b>。</p><p><b>记忆锚点</b>：认出“手段 → 效果”就选因果词：改计划（因）→ 体重变化（果）→ due to；along with ≠ “随着”，它只是“和……一起”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（along with）</b>：中文“随着训练计划的改变”顺口就对号；英文 along with 只有“伴随”义，没有因果义。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 7 空 · 因果介词短语：A due to / B regardless of / C aside from / D along with",
+  subtitle: "考点：句内逻辑（介词短语辨析：因果） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（due to 由于）", "html": "<b>A（due to 由于）</b>。<br>记忆锚点：认出“手段 → 效果”就选因果词：改计划（因）→ 体重变化（果）→ due to；along with ≠ “随着”，它只是“和……一起”。<br>最易误选：<b>D（along with）</b>——中文“随着训练计划的改变”顺口就对号；英文 along with 只有“伴随”义，没有因果义。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 7 空 · 因果介词短语</h2>
+<p>答案：<strong>A（due to 由于）</strong>。</p>
+<h3>第 0 步：先立机制——手段与结果的因果对</h3>
+<p>沿用第 4 题确立的事实：作者改变训练计划，正是为了改变体重（压数字）。所以“改变训练计划（因）→ 体重变化（果）”：因改变训练计划而产生的明显体重变化，要三周到一个月才看得到。能引出原因、且可接动名词 altering 的介词短语是 due to（由于）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It takes about three weeks to a month to notice significant changes in your weight <strong>__7__</strong> altering your training program.</blockquote>
+<p>空 7 引出 altering your training program（改变训练计划），说明它与“体重出现明显变化”的关系。主干：注意到明显的体重变化需要三周到一个月。</p>
+<h3>第 2 步：找证据——第二段已锁定因果：改计划 → 变体重</h3>
+<blockquote>thinking only of lowering the number on the scale, I altered my training program.</blockquote>
+<p>第二段已确立“改计划 → 为了改变体重”：改训练计划是手段，体重变化是结果。空格介词短语要挑明这层因果，方向不能反。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A due to</td><td>由于</td><td>✓ 当选</td><td>due to altering your training program = 由于改变训练计划（而出现的体重变化）：因果方向正确，且可接动名词。</td></tr><tr><td>B regardless of</td><td>不顾，不管</td><td>✗ 排除</td><td>“不管是否改变训练计划，都要三周才显现”——把二者的联系掐断；可改计划的目的就是改变体重，文意不允许“无关”。</td></tr><tr><td>C aside from</td><td>除……以外</td><td>✗ 排除</td><td>“除改变计划之外（还要三周）”——“改变计划”与“变化显现耗时”不在同一维度，加不出并列。</td></tr><tr><td>D along with</td><td>与……一道</td><td>✗ 排除</td><td>利用中文“随着”干扰：along with 只表“伴随、一起”，不传因果；且其后习惯接名词（如 along with two other children），接分词 altering 不妥。</td></tr></tbody></table>
+<p>代入后的完整句义：significant changes in your weight due to altering your training program（因改变训练计划而产生的明显体重变化）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（along with）</strong>：中文“随着训练计划的改变”顺口就对号；英文 along with 只有“伴随”义，没有因果义。</li></ul>
+<blockquote>记忆锚点：认出“手段 → 效果”就选因果词：改计划（因）→ 体重变化（果）→ due to；along with ≠ “随着”，它只是“和……一起”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

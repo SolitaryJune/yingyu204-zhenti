@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-35 · 2017 Text C · 35 题 · 全文标题题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "先立机制 · 标题题在考什么", "cls": "key", "tag": "机制", "count": 0, "ribbon": null, "log": "机制：议论文标题=关键词+作者站位；黄金结构“首段现象→But 观点→下文论证”里，标题落在 But 之后", "body": "<p>标题题的机制：考研阅读以议论文为主，作者立意在于表达主张，所以标题必须同时罩住<b>全文关键词</b>（本文=the gap year）与<b>作者立场</b>。典型结构是：首段摆现象 → <b>But 之后亮观点</b> → 三四段论证。标题的方向，跟着 But 走。</p>"}, {"title": "首段 · 摆现象：间隔年被忽视", "cls": "key", "tag": "现象", "count": 0, "ribbon": null, "log": "首段：社会压力让学生“完全忽视”间隔年——这是铺垫，不是立场", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today, widespread social pressure to immediately go to college ... often causes students to <b>completely overlook</b> the possibility of taking a gap year.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第一段①句</p><p>首段写的是<b>普遍现象与他人视角</b>：“大家都直奔大学，休一年显得很傻”。注意 doesn't it? 的商量口吻——作者在替大众说话，为下文反转蓄力。</p>"}, {"title": "第二段 · But 之后亮观点：不该贬斥间隔年", "cls": "key", "tag": "观点", "count": 0, "ribbon": null, "log": "第二段：not a good enough reason to condemn + does not hinder... enhances——立场反转为“支持”", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>But</b> while this may be true, it's <b>not a good enough reason to condemn gap years</b>. ... a gap year <b>does not hinder</b> the success of academic pursuits – in fact, it probably <b>enhances</b> it.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第二段①③句</p><p>But 一转，作者亮牌：拿“怕落后”当贬斥间隔年的理由站不住脚；间隔年非但不拖累学业，反而<b>促进</b>（enhances）。这一句就是全文论点。</p>"}, {"title": "三、四段 · 双线论证", "cls": "key", "tag": "论证", "count": 0, "ribbon": null, "log": "论证：第三段“学业”（准备更足、表现更好）+ 第四段“经济”（少转专业、省补学分费）", "body": "<p>第三段引美国与澳大利亚的研究：间隔年学生<b>准备更充分、大学表现更好</b>；第四段算经济账：先想清楚兴趣，<b>少花转专业补学分的冤枉钱</b>。学业+经济两路证据，全部指向“间隔年值得”。</p>"}, {"title": "逐项分析 · A In Favor of the Gap Year", "cls": "good", "tag": "选定 A", "count": 0, "ribbon": {"k": "A", "ok": true}, "log": "A In Favor of the Gap Year（支持间隔年）✓ 当选——关键词+立场双覆盖", "body": "<p><b>当选。</b>the Gap Year 是全文关键词；In Favor of（支持）准确对应 But 之后的立意——“为间隔年正名”。关键词与作者站位双双覆盖，没有遗漏也没有跑偏。</p>"}, {"title": "逐项分析 · B The ABCs of the Gap Year", "cls": "bad", "tag": "排除 B", "count": 1, "ribbon": {"k": "B", "ok": false}, "log": "B 间隔年基本知识 ✗ 排除——说明文标题，覆盖不了作者的鲜明主张", "body": "<p><b>排除。</b>ABCs（入门基本知识）暗示全文是“是什么/怎么由来”的科普说明文。但本文从头到尾在论证“间隔年有用”，作者有明确主张，不是中立介绍。</p><p style=\"color:#b91c1c\">⚠ 典型误解：标题只看关键词、不看文体与立场，议论文被读成说明文。</p>"}, {"title": "逐项分析 · C The Gap Year Comes Back", "cls": "bad", "tag": "排除 C", "count": 2, "ribbon": {"k": "C", "ok": false}, "log": "C 间隔年再度兴起 ✗ 排除——文中现象是“被忽视”，不存在“回潮”叙事", "body": "<p><b>排除。</b>Comes Back 需要“曾经衰落→如今复兴”的故事线；而首段明说间隔年正被<b>完全忽视</b>（overlook），连“兴起”都谈不上，“再度”更是无根之木。</p>"}, {"title": "逐项分析 · D The Gap Year: A Dilemma", "cls": "bad", "tag": "排除 D", "count": 3, "ribbon": {"k": "D", "ok": false}, "log": "D 两难抉择 ✗ 排除——作者立场鲜明，无利弊参半的摇摆", "body": "<p><b>排除。</b>Dilemma（两难）暗示作者认为利弊参半、难以取舍。但文章立场一边倒：not a good enough reason to condemn、enhances、pushes them ahead、save money——全是在给间隔年加分。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“首段罗列反对理由”误当成作者犹豫不决。</p>"}, {"title": "结论 · 解题链与记忆锚点", "cls": "good", "tag": "答案 A", "count": 3, "ribbon": null, "log": "答案 A（In Favor of the Gap Year）——标题=关键词+But 之后的立场", "body": "<p>解题链：<b>关键词 the Gap Year → 首段现象是铺垫、But 后亮观点 → 三四段双线论证“支持” → 标题取 In Favor of。</b></p><p><b>答案选 A（In Favor of the Gap Year 支持间隔年）。</b></p>"}];
+
+AW.init({
+  title: "2017 Text C · 35 题 · 全文标题题",
+  subtitle: "考点：主旨题——标题 = 全文关键词 + 作者立意",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“立机制 → 串结构 → 定标题”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（In Favor of the Gap Year）", "html": "标题=全文关键词（the Gap Year）+ 作者立意（But 之后：支持）。<br>记忆锚点：<b>标题跟着 But 走</b>；ABCs=说明文、Comes Back 要有复兴叙事、Dilemma 要摇摆，三者都与“一边倒力挺”不符。<br>最易误选：<b>D</b>——把首段的反对声音当成了作者的纠结。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text C 第 35 题 · 全文标题题</h2>
+<p>答案：<strong>A（In Favor of the Gap Year 支持间隔年）</strong>。</p>
+<h3>第 0 步：先立机制——标题 = 关键词 + 作者立意</h3>
+<p>考研阅读以议论文为主：作者立意在于表达主张，标题必须同时罩住<strong>全文关键词</strong>（本文 = the gap year）与<strong>作者立场</strong>。典型结构：首段摆现象 → <strong>But 之后亮观点</strong> → 下文论证。首段的“反对声音”是铺垫，标题的方向跟着 But 走。</p>
+<h3>第 1 步：定位全文结构</h3>
+<blockquote>首段：...social pressure ... causes students to <strong>completely overlook</strong> the possibility of taking a gap year.（现象：间隔年被完全忽视）</blockquote>
+<p>&gt;</p>
+<blockquote><strong>But</strong> while this may be true, it's <strong>not a good enough reason to condemn gap years</strong>. ... a gap year <strong>does not hinder</strong> the success of academic pursuits – in fact, it probably <strong>enhances</strong> it.（第二段：立场反转）</blockquote>
+<h3>第 2 步：找证据——But 之后立场一边倒</h3>
+<p>But 一转，作者亮牌：怕落后不足以成为贬斥间隔年的理由；间隔年非但不拖累学业，反而促进（enhances）。第三段学业账（准备更充分、表现更好）+ 第四段经济账（少花转专业补学分的冤枉钱）双线论证，全部指向“间隔年值得”——作者的姿态是<strong>为间隔年正名</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A In Favor of the Gap Year</td><td>支持间隔年</td><td>✓ 当选</td><td>关键词 the Gap Year + In Favor of 的支持立场，双覆盖全文立意。</td></tr><tr><td>B The ABCs of the Gap Year</td><td>间隔年基本知识</td><td>✗ 排除</td><td>ABCs 是说明文（科普“是什么/怎么由来”）的标题；本文是议论文，作者有鲜明主张。（典型误解：只看关键词，不看文体与立场。）</td></tr><tr><td>C The Gap Year Comes Back</td><td>间隔年再度兴起</td><td>✗ 排除</td><td>“再度兴起”需要“由衰转盛”的叙事；首段明说间隔年正被完全忽视（overlook），“回潮”无从谈起。</td></tr><tr><td>D The Gap Year: ADilemma</td><td>两难抉择</td><td>✗ 排除</td><td>Dilemma 暗示利弊参半、态度摇摆；全文 not a good enough reason to condemn / enhances / pushes them ahead / save money 一边倒加分。（典型误解：把首段的反对声音当成作者的纠结。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>首段全在说间隔年的“坏话”，标题为何不选负面？</strong>：首段是让步铺垫（doesn't it? 的商量口吻、替大众说话），But 之后才表态。议论文标题永远跟着转折后的立意走。</li><li><strong>C 与 A 的差别在哪？</strong>：C 也能体现“重视间隔年”，但 come back 是“现象回潮”的说明框架，凸显不了“批评忽视现象、为其正名”的论战站位——覆盖不了议论文的主张性。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（The Gap Year: ADilemma）</strong>：把首段罗列的反对理由当成作者的摇摆。</li><li><strong>误选 B（The ABCs of the Gap Year）</strong>：议论文被读成说明文。</li></ul>
+<blockquote>记忆锚点：<strong>标题 = 关键词 + But 之后的立场</strong>；ABCs=说明文、Comes Back 要复兴叙事、Dilemma 要摇摆——本文一边倒力挺，取 In Favor of。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

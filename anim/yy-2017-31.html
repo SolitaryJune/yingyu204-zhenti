@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-31 · 2017 Text 3 第 31 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 因果链定位 → 感受词对接 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · “原因之一”提示因果链不止一环",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：One of the reasons ... is ____ → 读完首段整条因果链再比对，别抓第一组因果词就定案",
+  "body": "<p>题干：One of the reasons for high-school graduates <b>not taking a gap year</b> is that ____.</p><p>not taking a gap year 呼应①句 overlook the possibility；One of the reasons 说明原因可能有多个——机制：因果链读完整，答案对“与选项表述对得上”的那一环。</p>"
+ },
+ {
+  "title": "定位原文 · 首段三句因果链",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：①causes（客观压力）→ ②After all（显得傻）→ ③And（感觉不自然）",
+  "body": quote("① ...widespread social pressure to immediately go to college... <b>causes</b> students to completely overlook the possibility of taking a gap year. ② <b>After all</b>, if <b>everyone you know</b> is going to college in the fall, it <b>seems silly</b> to stay back a year... ③ And..., it <b>doesn&rsquo;t feel natural</b> to spend a year doing something that isn&rsquo;t academic.") + "<p>①客观氛围，②③主观感受——After all / And 是同一原因的层层补充。</p>"
+ },
+ {
+  "title": "找证据 · “与众不同”+“感觉怪”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：everyone you know is going ↔ differently from others；seems silly / doesn't feel natural ↔ feels strange",
+  "body": "<p>②③句给出两个要素：</p><p>参照系：身边**所有人都**直接升学——停下来的一年就是“与众不同”；</p><p>感受词：<b>seems silly</b>（显得傻）＋ <b>doesn&rsquo;t feel natural</b>（感觉不自然）——主观的不适。</p><p>合并：<b>做和别人不一样的事，让人感觉怪怪的</b> → 选项 C。</p>"
+ },
+ {
+  "title": "逐项分析 · C it feels strange to do differently from others",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C it feels strange to do differently from others ✓ 当选——②③句的合并概括",
+  "body": "<p><b>当选。</b>do differently from others ← everyone you know is going to college；feels strange ← seems silly ＋ doesn&rsquo;t feel natural。两个要素都落点，且与①句的社会压力氛围完全兼容。</p>"
+ },
+ {
+  "title": "逐项分析 · A they think it academically misleading",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A academically misleading ✗ 排除——isn't academic 是中性描述，不是“误导学业”",
+  "body": "<p><b>排除。</b>③句 something that <b>isn&rsquo;t academic</b> 只是说间隔年做的“不是学业的事”——中性陈述；“在学业上误人子弟（misleading）”是无中生有的贬义。</p><p style='color:#b91c1c'>⚠ 典型误解：academic 词根对上就选，丢了 isn&rsquo;t 与 misleading 的语义落差。</p>"
+ },
+ {
+  "title": "逐项分析 · B they have a lot of fun to expect in college",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B a lot of fun to expect ✗ 排除——动机错位：升学是社会压力，不是期待乐趣",
+  "body": "<p><b>排除。</b>①句 immediately go to college 挂在 <b>widespread social pressure</b> 之下——急着升学源于从众压力；high expectations 说的是快速世界对人的**要求**。“期待大学乐趣”是自行补写的动机。</p><p style='color:#b91c1c'>⚠ 典型误解：从①句碎片拼出“向往大学生活”。</p>"
+ },
+ {
+  "title": "逐项分析 · D it seems worthless to take off-campus courses",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D off-campus courses ✗ 排除——偷换概念：间隔年 ≠ 校外课程",
+  "body": "<p><b>排除。</b>间隔年做的是“学业以外的**事情**”（体验、探索兴趣），不是“修读校外课程”；“没价值（worthless）”更是无据。</p><p style='color:#b91c1c'>⚠ 典型误解：把“非学业体验”具体化成“校外课程”。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C——因果链读完整：从众压力下的“与众不同感”",
+  "body": "<p>答案选 <b>C（it feels strange to do differently from others）</b>。</p><p><b>记忆锚点</b>：One of the reasons = 原因不止一个，读完因果链再比对；seems silly / doesn&rsquo;t feel natural ↔ feels strange；everyone you know is going ↔ differently from others。</p><p style='color:#b91c1c'>⚠ 最易误选 A（academically misleading）：中性描述被读成贬义曲解。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 3 第 31 题 · 毕业生不选间隔年的原因：misleading / fun / strange / off-campus courses",
+  subtitle: "考点：因果题（One of the reasons，因果链读完整） · 审题 → 定位 → 对接 → 排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 因果链 → 对接 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（feels strange to do differently from others）", "html": "<b>C</b>：别人都直入大学，休一年显得傻、不自然——与众不同的不适感。<br>记忆锚点：One of the reasons = 读完因果链再比对；seems silly / doesn't feel natural ↔ feels strange。<br>最易误选：<b>A（academically misleading）</b>——isn't academic 是中性描述。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 3 第 31 题 · 毕业生不选间隔年的一个原因</h2>
+<p>答案：<strong>C（it feels strange to do differently from others）</strong>。</p>
+<h3>第 0 步：先立机制——"one of the reasons" 提示原因不止一个</h3>
+<p>因果题遇到 <code>One of the reasons... is ____</code> 要先立一条规矩：原文很可能给了<strong>多个原因</strong>（或一个原因的多层表述），答案可以是其中任何一环的概括——所以必须把因果链<strong>读完整</strong>再比对，抓到第一组因果词就定答案是这类题的头号死法。首段的因果链：①句客观原因（社会压力 + 高期望 → causes students to overlook）→②③句 After all / And 引出<strong>主观感受</strong>（人人升学，自己休一年显得傻；读了 12 年书，去干非学业的事感觉不自然）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>① Today, widespread social pressure to immediately go to college ... <strong>causes</strong> students to completely overlook the possibility of taking a gap year. ② <strong>After all</strong>, if <strong>everyone you know</strong> is going to college in the fall, it <strong>seems silly</strong> to stay back a year, doesn't it? ③ And after going to school for 12 years, it <strong>doesn't feel natural</strong> to spend a year doing something that isn't academic.</blockquote>
+<h3>第 2 步：找证据——感受词与"与众不同"的对接</h3>
+<ul><li><code>if everyone you know is going to college</code>：身边<strong>所有人都</strong>直接升学——"与众不同"的参照系；</li><li><code>it seems silly to stay back a year</code>：停下来一年"显得傻"——不合群的评价压力；</li><li><code>it doesn't feel natural</code>：感觉"不自然/不正常"——主观的不适感。</li></ul>
+<p>→ <strong>feels strange</strong>（seems silly + doesn't feel natural 的概括）＋ <strong>to do differently from others</strong>（大家都在走，你停下来 = 与众不同）。C 把②③句合成一句话。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C it feels strange to do differently from others</td><td>✓ 当选</td><td>do differently from others ← everyone you know is going to college（唯你停下）；feels strange ← seems silly / doesn't feel natural：②③句的合并概括。</td></tr><tr><td>A they think it academically misleading</td><td>✗ 排除</td><td>感情色彩曲解：isn't academic 是<strong>中性描述</strong>（做非学业的事），不是"在学业上误人子弟"。（典型误解：academic 词根一对上就选，丢了 isn't 与 misleading 的语义落差。）</td></tr><tr><td>B they have a lot of fun to expect in college</td><td>✗ 排除</td><td>动机错位：①句 immediately go to college 源于 <strong>widespread social pressure</strong>（社会压力），不是"期待乐趣"；high expectations 指快速世界对人的<strong>要求</strong>。（典型误解：把"急着升学"读成"向往大学生活"。）</td></tr><tr><td>D it seems worthless to take off-campus courses</td><td>✗ 排除</td><td>偷换概念：间隔年干的是"学业以外的<strong>事情</strong>"（something that isn't academic），不是"修读校外课程"；"没价值"文中也无从谈起。（典型误解：把"非学业体验"具体化成"校外课程"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>①句不也是原因吗？为什么答案对②③？</strong>：①句确实是原因（社会压力），但四个选项里没有一句在说"社会压力"本身；C 的落点是<strong>主观感受</strong>（feels strange），必须由②③句的 seems silly / doesn't feel natural 支撑。因果题问 one of the reasons，答案对的是"与选项表述对得上"的那一环——①句负责供干扰项（B 就是从①句长出来的）。</li><li><strong>C 与①句矛盾吗？</strong>：不矛盾——widespread social pressure 正是"人人如此"的氛围，②③句是这股压力在个人心里的样子，三句同讲一件事。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（academically misleading）</strong>：把"非学业"读成"反学业"。</li><li><strong>误选 B（fun to expect）</strong>：从①句碎片自行补写动机。</li></ul>
+<blockquote>记忆锚点：One of the reasons = 原因不止一个，读完因果链再比对；seems silly / doesn't feel natural ↔ feels strange；everyone you know is going ↔ differently from others。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

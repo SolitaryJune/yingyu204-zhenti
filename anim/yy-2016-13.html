@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-13 · 2016 完形第 13 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 13 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第五段①句，考点：果因逻辑 + __ to 搭配",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The correlation between happiness and investment was particularly strong for younger firms, which the authors <b>__13__</b> to “less codified decision making process” and the possible presence of “younger and less __14__ managers...”</div><p>结构：which 从句里，前面是“果”——关联在年轻公司尤其明显；to 之后是“因”——两个候选解释（决策过程不那么刻板、管理者年轻易受情绪影响）。空 13 的动作：把<b>果</b>____<b>因</b>。</p>"
+ },
+ {
+  "title": "找证据 · which 前后 = 果 与 因",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：which 指代“关联在年轻公司更强”这一现象；to 后是解释它的两个原因",
+  "body": "<p>which 指代前面整个主句陈述的现象（关联在年轻公司尤其明显）；to 之后两个引号内容都是“年轻公司为什么会这样”的解释——“不那么固守成规的决策过程”与“管理者更年轻、更易受情绪影响”。</p><p>果在前、因在后，中间缺的动词是“<b>归因</b>”：attribute A to B = 把 A 归因于 B。</p>"
+ },
+ {
+  "title": "逐项分析 · B attribute（归因于）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B attribute（归因于）✓ 当选——把现象归因于两个原因",
+  "body": "<p><b>当选。</b>which the authors <b>attribute to</b> two causes——“作者将这一现象归因于……”：果（现象）____（归）因（to 后），语义与结构双双对位。</p>"
+ },
+ {
+  "title": "逐项分析 · A assign（分配、指派）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A assign（分配）✗ 排除——assign sth to sb 是“派任务给某人”",
+  "body": "<p><b>排除。</b>assign to 的对象是“人/岗位”：把任务指派给某人（assign the task to her）。to 后面接的是两个抽象“原因”，不是可接受指派的对象。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看 assign 能接 to，不检查 to 后宾语的语义类别。</p>"
+ },
+ {
+  "title": "逐项分析 · C transfer（转移）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C transfer（转移）✗ 排除——transfer to 是地点/归属的转移",
+  "body": "<p><b>排除。</b>transfer (from...) to 表示人或物在地点、归属上的移动（调往、转到）。“现象转移到两个原因”既无移动主体也无方向语义。</p>"
+ },
+ {
+  "title": "逐项分析 · D compare（比较、比作）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D compare（比较/比作）✗ 排除——果与因之间无可比性",
+  "body": "<p><b>排除。</b>compare A to B 是“把 A 与 B 比较”或“把 A 比作 B”。这里 which 前后是<b>果与因</b>的关系，不是两个可比较的同类事物，“现象比作决策过程”语义不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：compare to 更眼熟，凭眼熟不凭结构。</p>"
+ },
+ {
+  "title": "结论 · 果因链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（attribute 归因于）——果因链见结论卡",
+  "body": "<p>果因链：<b>果（关联在年轻公司尤其明显）→ attribute to → 因（决策不刻板 + 管理者年轻缺经验）。</b></p><p>答案选 <b>B（attribute 归因于）</b>。</p><p><b>记忆锚点</b>：果 attribute to 因；assign to 派给“人”、transfer to 移向“地点”、compare to 是“比作”——四个 to 搭配全合法，结构关系（果/因）说了算。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 13 空 · 作者把年轻公司关联更强____两个原因",
+  subtitle: "考点：句内逻辑（果因结构）+ __ to 搭配辨析",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 判果因结构 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（attribute）", "html": "<b>B attribute（归因于）</b>——which the authors attribute to 两个原因。<br>记忆锚点：which 前果后因 → attribute A to B；assign to 派给人、transfer to 移向地点、compare to 是比作——结构关系说了算。<br>最易误选：<b>D（compare）</b>——凭眼熟不凭结构，忽略果因之间无可比性。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 13 空 · 作者把年轻公司关联更强____两个原因</h2>
+<p>答案：<strong>B（attribute 归因于）</strong>。</p>
+<h3>第 0 步：先立机制——先判 which 前后的逻辑关系，再选 to 前动词</h3>
+<p>句子骨架：The correlation... was particularly strong for younger firms, which the authors __ to “两个引号里的解释”。which 指代主句陈述的<strong>现象</strong>（果）；to 之后是<strong>原因</strong>（因）。空 13 要填的是“把果____因”的那个动词——这是果因结构，不是比较、分配或转移。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The correlation between happiness and investment was particularly strong for younger firms, which the authors __13__ to “less codified decision making process” and the possible presence of “younger and less __14__ managers who are more likely to be influenced by sentiment.”</blockquote>
+<h3>第 2 步：找证据——to 后全是解释性的“原因”</h3>
+<p>两个引号内容：决策过程不那么固守成规；可能存在更年轻、更易受情绪影响的管理者。它们都是“年轻公司为何关联更强”的<strong>解释</strong>。果在前、因在后，中间的动词 = <strong>归因</strong>：attribute A to B。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A assign</td><td>分配、指派</td><td>✗ 排除</td><td>assign sth to sb 派任务给“人”；to 后是抽象原因。（典型误解：只看能接 to。）</td></tr><tr><td>B attribute</td><td>归因于</td><td>✓ 当选</td><td>果 attribute to 因，语义结构双对位。</td></tr><tr><td>C transfer</td><td>转移</td><td>✗ 排除</td><td>地点/归属的移动；“现象转移到原因”不通。</td></tr><tr><td>D compare</td><td>比较、比作</td><td>✗ 排除</td><td>果与因无可比性。（典型误解：凭眼熟不凭结构。）</td></tr></tbody></table>
+<p>代入后的完整句义：幸福与投资的关联在较年轻的公司尤其明显，作者将其归因于“不那么固守成规的决策过程”以及“更年轻、更易受情绪影响的管理者”的可能存在。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>四个选项都能接 to，裁决依据是什么？</strong>：to 搭配题的机制是“to 后宾语的语义类别 + 前后逻辑关系”。to 后是“原因”，主句与 which 从句是果因关系——只有 attribute to 的框架容纳这种关系。</li><li><strong>which 到底指代什么？</strong>：指代前面整个主句陈述的现象（关联在年轻公司尤其明显），不是单个名词 firms——这也是为什么从句里能装下“归因”这个动作。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（compare）</strong>：compare to 更常见更眼熟，忽略“果与因不能互比”。</li><li><strong>误选 A/C</strong>：只做“能接 to”的形式验证，不检查宾语类别。</li></ul>
+<blockquote>记忆锚点：果 attribute to 因；assign to 派给人、transfer to 移向地点、compare to 是比作——to 搭配题看宾语类别与逻辑关系。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-18 · 2025 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 括号是前句的注脚",
+    "cls": "key",
+    "tag": "审题",
+    "log": "括号注脚：解释“帮忙为什么让施助者感觉好”",
+    "count": 0,
+    "body": "<p>空格句在括号里：<code>(for most people, having the chance to help someone is highly __18__)</code>。括号的职能是<b>解释前文</b>：前句刚说求助者低估了“帮忙会让施助者感觉多么好”，括号随即回答“为什么”——因为有机会帮人本身就是____的事。主语是动名词短语，表语要给“帮人这件事”一个正向评价，并呼应“施助者的愉悦感”。</p>"
+  },
+  {
+    "title": "定位原文 · 括号所在句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "定位段[4]第 2 句括号内：对施助者愉悦的注脚",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The findings showed that help-seekers generally underestimate how __17__ (willing，第 17 题答案) other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly __18__).</div><p>第 17 空已定为 willing；本空在括号内，是对“施助者愉悦”的归因说明。</p>"
+  },
+  {
+    "title": "证据 · highly 与 for most people 定基调",
+    "cls": "key",
+    "tag": "证据",
+    "log": "正向 + 普遍规律 ⇒ 空格是稳定的正向评价词",
+    "count": 0,
+    "body": "<p>highly（非常）表程度高的褒义评价；for most people（对大多数人而言）提示这是普遍规律而非个别意外。空格须是<b>稳定的正向评价词</b>，并与“施助者感觉好”构成因果：帮人值得，所以帮人快乐。</p>"
+  },
+  {
+    "title": "逐项分析 · A relaxing（令人放松的）",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A relaxing ✗ 排除——正向但错位：帮忙并不“放松”",
+    "count": 1,
+    "body": "<p><b>排除。</b>relaxing（令人放松的）虽是褒义，但帮忙通常要出力出时间，谈不上放松；且“放松”解释不了“为什么帮忙让施助者快乐”——注脚职能落空。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见褒义词就选，不核对括号的解释职能。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B surprising（令人吃惊的）",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B surprising ✗ 排除——与普遍规律的确定语气冲突",
+    "count": 2,
+    "body": "<p><b>排除。</b>surprising（令人吃惊的）与 for most people 的普遍性陈述不合：研究发现的是稳定结论，不是意外；也与 underestimate how good 的确定正向方向相斥。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C rewarding（值得做的）",
+    "cls": "good",
+    "tag": "选定 C",
+    "log": "C rewarding ✓ 当选——词根 reward 正中注脚职能",
+    "count": 2,
+    "body": "<p><b>当选。</b>rewarding 来自 reward（奖赏），表“有回报的、值得做的”：帮人本身就是一种精神奖赏，恰好解释施助者的愉悦感（how good it will make the help-giver feel），因果呼应闭环。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D demanding（费力的）",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D demanding ✗ 排除——反向词：费力与“感觉好”矛盾",
+    "count": 3,
+    "body": "<p><b>排除。</b>demanding（费力的、要求高的）偏负面，与“让施助者感觉好”方向相反；代入后括号不但解释不了前文，反而拆台。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“帮忙要花时间精力”的常识带偏，忘了本句在讲正向研究结论。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 完整句义与记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C（rewarding 值得做的）——reward 词根点题",
+    "count": 3,
+    "body": "<p>完整句义：<b>（对大多数人来说，有机会帮助别人是非常值得的、有意义的。）</b>答案选 <b>C（rewarding）</b>。</p><p><b>记忆锚点</b>：括号＝注脚，必须解释前句；reward → rewarding（值得的）≠ relax → relaxing（放松的）；“出力”被“精神回报”抵消——这才是“感觉好”的来源。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 完形第 18 空 · “有机会帮人是很____的”填哪个形容词",
+  "subtitle": "考点：词义辨析（形容词）· 括号注脚职能 + 词根 reward",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“括号职能 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 C（rewarding 值得做的）",
+    "html": "<b>C rewarding（值得做的；有意义的）</b>——括号注脚解释“帮忙为何让施助者感觉好”：帮人本身就是精神奖赏。<br>记忆锚点：reward → rewarding；relaxing 褒义但错位；surprising 与普遍规律冲突；demanding 反向。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 18 空 · “有机会帮人是很____的”填哪个形容词</h2>
+<p>答案：<strong>C（rewarding 值得做的；有意义的）</strong>。</p>
+<h3>第 0 步：先立机制——括号是前句的“注脚”</h3>
+<p>空格句在括号里：(for most people, having the chance to help someone is highly __18__)。括号的职能是<strong>解释前文</strong>：前句刚说求助者低估了“帮忙会让施助者感觉多么好”，括号随即回答“为什么”——因为对大多数人来说，有机会帮人本身就是____的事。主语是动名词短语 having the chance to help someone（有机会帮助别人），表语要给这件事一个<strong>稳定的正向评价</strong>，且必须与“施助者的愉悦感”呼应：帮人值得，所以帮人快乐。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The findings showed that help-seekers generally underestimate how willing (第 17 空已解) other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly __18__).</blockquote>
+<p>highly（非常）表程度高的褒义评价；for most people（对大多数人而言）提示这是研究发现的普遍规律，不是个别意外。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A relaxing</td><td>令人放松的</td><td>✗</td><td>正向但错位：帮忙要出力出时间，谈不上“放松”；“放松”解释不了“帮人为何让施助者快乐”，注脚职能落空</td></tr><tr><td>B surprising</td><td>令人吃惊的</td><td>✗</td><td>与 for most people 的普遍性陈述不合：研究发现的是稳定结论，不是意外；与 how good 的确定正向语气也相斥</td></tr><tr><td>C rewarding</td><td>值得做的；有意义的</td><td>✓</td><td>来自 reward（奖赏）：帮人本身就是一种精神奖赏，恰好解释施助者的愉悦感，因果呼应闭环</td></tr><tr><td>D demanding</td><td>费力的；要求高的</td><td>✗</td><td>反向词：与“让施助者感觉好”方向相反，代入后括号不但解释不了前文，反而拆台</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么 relaxing 不行？它也是褒义词</strong>：褒义不等于贴合。括号要解释的是“帮人为什么让人愉快”——rewarding 指向“精神回报”，relaxing 指向“省力舒适”；帮忙恰恰通常要付出，A 与职能和常识双重脱节。</li><li><strong>词根提示</strong>：reward（奖赏）→ rewarding（带来奖赏感的、值得的），近义表达是 fulfilling / satisfying；记住“帮人有回报”这一层，褒义近义词自然不会选错方向。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（relaxing）</strong>：见褒义词就选，不核对“括号是给施助者愉悦作注脚”这一职能。</li><li><strong>误选 D（demanding）</strong>：被“帮忙要花时间精力”的常识带偏；原文在陈述研究的正向结论，不是抱怨帮忙累。</li></ul>
+<blockquote>记忆锚点：括号＝注脚，必须解释前句；帮人让施助者 feel good 的原因是帮人 highly rewarding；reward → rewarding（值得的）≠ relax → relaxing（放松的）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

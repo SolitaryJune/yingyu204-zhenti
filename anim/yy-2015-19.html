@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-19 · 2015 完形第 19 空 · “这完全说得通”的理由——逗号后需要一个“因为” · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 先看空格的岗位：从属连词", "cls": "key", "tag": "审题", "log": "审题眼：空格在逗号后、直接接完整从句 human beings thrive…——岗位是从属连词", "count": 0, "ribbon": null, "body": "<p>四个选项 unless / whereas / if / since 全是从属连词，语法上都能站进这个岗位，所以答案只能靠<b>句内逻辑关系</b>来定：前后到底是什么关系？</p>"},
+ {"title": "定位原文 · 判断＋理由的结构", "cls": "key", "tag": "定位", "log": "定位原文：makes absolute sense（这完全说得通）→ __19__ → 人类靠社会交往而兴旺", "count": 0, "ribbon": null, "body": quote("…these commutes were reportedly more enjoyable compared with those without communication, which makes absolute sense, __19__ human beings thrive off of social connections.") + "<p>前半句是一个待解释的判断“有交流的通勤更愉快”；which makes absolute sense 给它盖章“完全说得通”；空格后面是解释的理由。</p>"},
+ {"title": "找证据 · 用公认道理解释具体现象＝因果", "cls": "key", "tag": "证据", "log": "找证据：human beings thrive off of social connections 是公认理由，解释“说得通”", "count": 0, "ribbon": null, "body": "<p>“人类靠社会交往而兴旺”是一条<b>公认的普遍道理</b>，它不是假设、不是条件，而是拿来解释“有交流的旅途更愉快，这不足为奇”的理由——这是标准的<b>因果结构</b>，需要“因为/既然”。</p>"},
+ {"title": "逐项分析 · D since（因为；既然）", "cls": "good", "tag": "选定 D", "log": "D since（因为；既然） ✓ 当选——用公认事实解释“完全说得通”", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>since 表“因为/既然”，引导双方公认的已知理由：既然人类靠交往而兴旺，那么有交流的通勤更愉快就完全说得通。解释力度与 makes absolute sense 的语气恰好匹配。</p>"},
+ {"title": "逐项分析 · A unless（除非）", "cls": "bad", "tag": "排除 A", "log": "A unless（除非） ✗ 排除——自带否定含义的条件词，代入后句义不通", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>unless＝“如果不…就不”，表否定条件。“除非人类靠交往而发展”把既定事实降格成了前提假设，句义无法成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略 unless 自带否定。</p>"},
+ {"title": "逐项分析 · B whereas（然而；鉴于）", "cls": "bad", "tag": "排除 B", "log": "B whereas（然而；鉴于） ✗ 排除——主功能是对比；表“鉴于”时多位于句首正式文体", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>whereas 的主功能是“然而、对比”，前后两句没有对照关系；它偶有“鉴于”义，但多位于句首、用于正式公文，与本句逗号后接理由的岗位不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：背过“鉴于”义项就硬套。</p>"},
+ {"title": "逐项分析 · C if（如果）", "cls": "bad", "tag": "排除 C", "log": "C if（如果） ✗ 排除——把既定事实降格成假设，原文是在解释不是在设条件", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>if 建立的是“如果…才…”的真值假设。原文并没有说“只有在人类靠交往发展的前提下旅途才更愉快”——社会交往使人受益是文章的<b>立论前提</b>，被拿来作解释。</p><p style=\"color:#b91c1c\">⚠ 典型误解：分不清“解释原因”与“提出条件”。</p>"},
+ {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（since 因为）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>据称这些通勤比无交流的更愉快——这完全说得通，因为人类本就靠社会交往而兴旺发展。</b></p><p>答案选 <b>D（since 因为）</b>。</p><p><b>记忆锚点</b>：makes absolute sense / not surprising 之后常接 since 引出解释性理由；先看空格岗位（逗号后接完整从句＝从属连词），再辨逻辑（理由 vs 条件 vs 对比）；unless 自带否定。</p><p style=\"color:#b91c1c\">最易误选：<b>C（if）</b>——把“解释理由”误判成“提出条件”。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 完形第 19 空 · “这完全说得通”的理由——逗号后需要一个“因为”",
+  subtitle: "考点：从属连词逻辑辨析（因果 since vs 条件 unless/if vs 对比 whereas）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（since）", "html": "<b>D since（因为；既然）</b>：用公认道理“人类靠社会交往而兴旺”解释“有交流的通勤更愉快，这完全说得通”。<br>记忆锚点：makes absolute sense 之后接 since 引理由；unless 自带否定；if 把事实降格成假设；whereas 主打对比。<br>最易误选：<b>C（if）</b>——把解释理由误判成提出条件。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 19 空 · "这完全说得通"的理由——逗号后需要一个"因为"</h2>
+<p>答案：<strong>D（since 因为）</strong>。</p>
+<h3>第 0 步：先立机制——先看清空格在句子里的岗位</h3>
+<p>空格在 "these commutes were reportedly more enjoyable..., which makes absolute sense, __19__ human beings thrive off of social connections" 中，位于逗号之后、直接接一个完整的句子（human beings thrive off of social connections 是主谓齐全的从句）。这个岗位要求填一个<strong>从属连词</strong>，负责回答"makes absolute sense（完全说得通）凭什么说得通"。前面的"有交流的通勤更令人愉悦"是一个待解释的判断，后面"人类靠社会交往而发展兴旺"是一条公认的普遍道理——用普遍道理去解释具体现象，这是标准的<strong>因果</strong>结构。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>these commutes were reportedly more enjoyable compared with those without communication, which makes absolute sense, __19__ human beings thrive off of social connections.</blockquote>
+<ul><li>主句：有交流的通勤据称比无交流的更愉快；</li><li>which makes absolute sense：这完全说得通（给前面的现象盖章）；</li><li>空格后：人类靠社会交往而兴旺——为什么"说得通"的理由。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A unless</td><td>除非</td><td>✗ 排除</td><td>表否定条件；"人类靠交往发展"不是"旅途更愉快"成立与否的条件</td></tr><tr><td>B whereas</td><td>然而；鉴于</td><td>✗ 排除</td><td>表对比；前后两句没有对照关系。虽然 whereas 偶可表"鉴于"，但多位于句首、用于正式文体，与本句逗号后接原因的用法不符</td></tr><tr><td>C if</td><td>如果</td><td>✗ 排除</td><td>表条件；"如果人类靠交往而发展"改变了句义——原文是在陈述既定事实作解释，不是提假设</td></tr><tr><td>D since</td><td>因为；既然</td><td>✓ 当选</td><td>表原因/既然，用公认事实"人类靠社会交往兴旺"解释"有交流的通勤更愉快，这完全说得通"</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>"人类靠交往发展"不是更愉快的"原因"，只是背景，since 合适吗？</strong>：since 的用法之一正是"既然"，引导双方公认的已知理由，对主句的判断给出解释性支撑——它表"原因"比 because 更轻，恰好匹配"makes absolute sense（这不足为奇）＋理由"的语气。</li><li><strong>为什么条件词（unless/if）一定不对？</strong>：条件句建立的是"如果…才…"的真值假设。原文并没有说"只有在人类靠交往发展的前提下旅途才更愉快"——社会交往使人受益是文章的立论前提，被拿来作解释，而非被假设。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（if）</strong>：只看到前后句"说得通"，没区分"解释原因"与"提出条件"；if 会把既定事实降格成假设。</li><li><strong>误选 B（whereas）</strong>：把 whereas 背过"鉴于"义项就硬上；实际它表原因时多位于句首且用于正式公文，此处逗号后接理由的岗位是 since/for 的地盘。</li><li><strong>误选 A（unless）</strong>：忽视 unless 本身携带否定含义（除非＝如果不），代入后句义无法成立。</li></ul>
+<blockquote>记忆锚点：makes absolute sense / not surprising 之后常用 since 引出解释性理由；先看空格岗位（逗号后接完整从句＝从属连词），再辨逻辑（理由 vs 条件 vs 对比）；unless 自带否定。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

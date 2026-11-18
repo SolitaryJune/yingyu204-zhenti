@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-03 · 2020 完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 3 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 3 空所在句，考点：上下文语义逻辑（段际过渡）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">__3__ , there's another sort of parent that's a bit easier to __4__ : a patient parent.</div><p>空格位于段首，是段与段之间的路标词：它的语义必须同时承接上一段的结论，又开启本段的话题。</p>"
+ },
+ {
+  "title": "梳理段间逻辑 · tricky 与 easier 的呼应",
+  "cls": "key",
+  "tag": "梳理",
+  "log": "上段\"难界定\"、本段\"好描述\"：退而求其次的对比，且带有庆幸色彩——Fortunately",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">__3__ , there's another sort of parent that's a bit easier to __4__ : a patient parent.</div><p>上段结论 tricky（难界定）↔ 本句 easier（好描述）：对比关系；\"虽难、幸好还有一条标准可依\"——路标词需兼具\"对比 + 庆幸\"。</p>"
+ },
+ {
+  "title": "逐项分析 · A Fortunately（幸运地，幸而）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A Fortunately（幸运地，幸而） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>双层语义全中：与上段\"难\"形成对比，又携带\"幸好还有可依标准\"的正面情感。</p>"
+ },
+ {
+  "title": "逐项分析 · B Occasionally（偶尔，有时候）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Occasionally（偶尔，有时候） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表频度：读成\"耐心的父母只是偶尔存在\"，与作者\"介绍一种确定可依的标准\"的意图相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把\"另一种父母\"理解成\"偶尔出现的类型\"。</p>"
+ },
+ {
+  "title": "逐项分析 · C Accordingly（因此；相应地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Accordingly（因此；相应地） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表因果：上段\"难界定\"与本句\"存在另一种父母\"之间没有因果链条——\"难\"推不出\"有\"。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到上段说难、本段给出路，就当因果衔接。</p>"
+ },
+ {
+  "title": "逐项分析 · D Eventually（最后，终于）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Eventually（最后，终于） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>表时间：本句是话题的展开，不是任何过程的最终结局。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（Fortunately 幸运地，幸而）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>所幸，还有一种父母要更容易描述一些：有耐心的父母。</b></p><p>答案选 <b>A（Fortunately 幸运地，幸而）</b>。</p><p><b>记忆锚点</b>：段首路标 = 上段结论 ↔ 本段首句；Fortunately = 对比 + 庆幸；tricky ↔ easier 前后咬合。</p><p style=\"color:#b91c1c\">最易误选：<b>C（Accordingly）</b>——把\"退而求其次的对比\"误读成\"因果关系\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 3 空 · 段首路标：从\"难界定\"到\"好描述\"——对比加庆幸",
+  subtitle: "考点：上下文语义逻辑（段际过渡） · 定位 → 梳理段间逻辑 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 梳理段间逻辑 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（Fortunately）",
+ "html": "<b>A Fortunately（幸运地，幸而）</b>。<br>完整句义：所幸，还有一种父母要更容易描述一些：有耐心的父母。<br>记忆锚点：段首路标 = 上段结论 ↔ 本段首句；Fortunately = 对比 + 庆幸；tricky ↔ easier 前后咬合。<br>最易误选：<b>C（Accordingly）</b>——把\"退而求其次的对比\"误读成\"因果关系\"。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 3 空 · 段首路标：从"难界定"到"好描述"——对比加庆幸</h2>
+<p>答案：<strong>A（Fortunately 幸运地，幸而）</strong>。</p>
+<h3>第 0 步：先立机制——段首路标词要同时 carrying 两件事</h3>
+<p>段首空格的路标词干两件事：一是承接上段结论——上段收束于"界定好父母很难（tricky）"；二是开启本段话题——本段开局就给出另一种父母"更好描述（easier）"：耐心的父母。从"难"退到"易"，是难度上的对比；从情感上说，"虽难有完美标准，幸好还有一条可依"——作者带着庆幸。所以路标词要同时携带"对比/转折"与"正面庆幸"两层信息，四个选项里同时满足两者的只有一个。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>__3__ , there's another sort of parent that's a bit easier to __4__ : a patient parent.</blockquote>
+<p>空格位于段首，是段与段之间的路标词：它的语义必须同时承接上一段的结论，又开启本段的话题。</p>
+<h3>第 2 步：梳理段间逻辑——tricky 与 easier 的呼应</h3>
+<ul><li><strong>上段结论</strong>：defining...is very tricky（界定好父母难）；</li><li><strong>本段首句</strong>：another sort of parent that's a bit easier to __4__（另一种父母更好描述）；</li><li><strong>两段关系</strong>：不是因果（"难"推不出"存在另一种父母"），不是频度（不是"偶尔有"），不是时间（不是"最终"）——是"退而求其次"的对比，且作者庆幸退而有解。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Fortunately</td><td>幸运地，幸而</td><td>✓ 当选</td><td>双层语义全中：与上段"难"形成对比，又携带"幸好还有可依标准"的正面情感。</td></tr><tr><td>B Occasionally</td><td>偶尔，有时候</td><td>✗ 排除</td><td>表频度：读成"耐心的父母只是偶尔存在"，与作者"介绍一种确定可依的标准"的意图相反。（典型误解：把"另一种父母"理解成"偶尔出现的类型"。）</td></tr><tr><td>C Accordingly</td><td>因此；相应地</td><td>✗ 排除</td><td>表因果：上段"难界定"与本句"存在另一种父母"之间没有因果链条——"难"推不出"有"。（典型误解：看到上段说难、本段给出路，就当因果衔接。）</td></tr><tr><td>D Eventually</td><td>最后，终于</td><td>✗ 排除</td><td>表时间：本句是话题的展开，不是任何过程的最终结局。</td></tr></tbody></table>
+<p>代入后的完整句义：所幸，还有一种父母要更容易描述一些：有耐心的父母。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>Accordingly 不正是"上段说难，所以本段给另一条路"吗？</strong>：因果要求前件能推出后件："难以界定"本身推不出"世界上存在耐心的父母"——后者不是前者的结果，而是作者退而求其次另起的话头；两句之间是对比，不是因果。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（Accordingly）</strong>：把"退而求其次的对比"误读成"因果关系"。</li></ul>
+<blockquote>记忆锚点：段首路标 = 上段结论 ↔ 本段首句；Fortunately = 对比 + 庆幸；tricky ↔ easier 前后咬合。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

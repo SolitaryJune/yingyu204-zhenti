@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-33 动画：人物观点题——Hagel 怎么评价美国的工作</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：观点题盯住观点动词",
+   "body": "<p>题干：<b>Hagel argues that jobs in the U.S. are often ____.</b>（哈格尔认为美国的工作通常怎样？）</p><p>人物观点题的铁律：<b>says / argues 后面的宾语从句才是观点本体</b>。全文两个观点人物——Brynjolfsson 与 McAfee（第二段）、John Hagel（第三段）；题干点名 Hagel + jobs in the U.S.，第四段首句正好是 Hagel says we have designed jobs in the U.S. …</p>",
+   "log": "审题：观点题只认 says/argues 后面的内容，锁定第四段"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：第四段首句 + 一个否定开关",
+   "body": "<div class='qq'><b>第四段：</b>Hagel says we have designed jobs in the U.S. that tend to be <b>\u201ctightly scripted\u201d</b> and <b>\u201chighly standardized\u201d</b> ones that <b>leave no room for</b> \u201cindividual initiative or creativity\u201d. <span class='cn'>（译：美国的工作被设计得\u201c高度按剧本走、高度标准化\u201d，没给个人主动性与创造力留出空间。）</span></div><p>枢纽短语 <b>leave no room for</b>（不留空间给）是个<b>否定开关</b>：工作僵化 → 创造力被关在门外。</p>",
+   "log": "定位第四段：tightly scripted / highly standardized，外加否定开关 leave no room for"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 A", "count": 1,
+   "title": "排除 A：performed by innovative minds",
+   "ribbon": {"k": 1, "ok": false},
+   "body": "<p><b>A · performed by innovative minds</b>（由具有创新思想的人完成）<span class='bad-dot'>✗</span></p><p>它与原文 creativity 词汇相关，却忽略 <b>leave no room for 已经把\u201c创造力\u201d否定</b>。</p><p>更深一层偷换：原文说\u201c工作缺创造性\u201d，A 说\u201c由创新者完成\u201d——把形容词偷换成主语。</p>",
+   "log": "排除 A：leave no room for 已否定创造力，且偷换主语"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 B", "count": 2,
+   "title": "排除 B：scripted with an individual style",
+   "ribbon": {"k": 2, "ok": false},
+   "body": "<p><b>B · scripted with an individual style</b>（具有个性风采）<span class='bad-dot'>✗</span></p><p>scripted 与 individual 两个词都是原文的，但拼起来意思反了：<b>tightly scripted = 按剧本走 = 僵化</b>，不是\u201c个性风格\u201d。</p><p>典型干扰手法：原词拼贴 + 反向改写。</p>",
+   "log": "排除 B：原词拼贴却反向改写——scripted 是僵化不是个性"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 C", "count": 3,
+   "title": "排除 C：standardized without a clear target",
+   "ribbon": {"k": 3, "ok": false},
+   "body": "<p><b>C · standardized without a clear target</b>（标准化，没有清晰目标）<span class='bad-dot'>✗</span></p><p><b>standardized 原词复现是诱饵</b>，但 without a clear target 在原文无处推出。</p><p>注意区分：第四段末的 giant <b>target</b> sign 里 target 是\u201c靶子\u201d（比喻被动挨打），不是\u201c目标\u201d。</p>",
+   "log": "排除 C：standardized 是原词诱饵，without a clear target 无处推出"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 D", "count": 4,
+   "title": "锁定 D：designed against human creativity",
+   "ribbon": {"k": 4, "ok": true},
+   "body": "<p><b>D · designed against human creativity</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文</th><th>选项 D</th><th>替换关系</th></tr><tr><td>we have designed jobs</td><td>designed against …</td><td>designed 原词复现</td></tr><tr><td>leave no room for creativity</td><td>against creativity</td><td>\u201c不留空间\u201d = \u201c与之相悖\u201d</td></tr></table><p>正确项往往<b>不用原词</b>，而是把否定结构改写成 against。</p>",
+   "log": "锁定 D：leave no room for = against，同义替换成立"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 D",
+   "body": "<p><b>答案 D（designed against human creativity）</b>——美国的工作被设计得僵化，不给创造力留空间。</p><p>记忆锚点：观点题盯住 says / argues 后的从句；<b>leave no room for = 否定开关 = against</b>；原词复现的选项常配编造半句。</p>",
+   "log": "结论：哈格尔认为美国的工作设计不利于创造力，选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-33 · 人物观点题：Hagel 怎么评价美国的工作",
+  subtitle: "考点：Text3 观点细节 · 方法：锁定观点动词 → 定位 → 同义替换 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>Hagel：美国的工作被设计得 tightly scripted、highly standardized，leave no room for creativity——即 designed against human creativity。</b>记忆锚点：观点题盯住 says / argues 后的从句；leave no room for = 否定开关 = against；原词复现的选项常配编造半句（如 C 的 without a clear target）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：人物观点题——Hagel 怎么评价美国的工作</h2>
+<p>答案：<strong>D</strong>。</p>
+<h3>第 0 步：先立方法——观点题的答案藏在观点动词之后</h3>
+<p>题干问 Hagel argues that jobs in the U.S. are often ____。人物观点题的铁律：<strong>观点动词（says / argues / notes）后面的宾语从句才是观点本体</strong>，作者转述的背景、书名、例子都只是外壳。全文有两个观点人物：Brynjolfsson 与 McAfee（第二段出场）和 John Hagel（第三段出场）。题干点名 Hagel、点名 jobs in the U.S.，而第四段首句恰好是 "Hagel says we have designed jobs in the U.S. ..."——定位即成。</p>
+<h3>第 1 步：定位原文，先找"否定开关"</h3>
+<blockquote>Hagel says we have designed jobs in the U.S. that tend to be "tightly scripted" and "highly standardized" ones that leave no room for "individual initiative or creativity".（译：哈格尔说，我们把美国的工作设计成了"高度按剧本走、高度标准化"的类型，没有给"个人主动性与创造力"留出空间。）</blockquote>
+<p>这句话的枢纽是 <strong>leave no room for</strong>（不留空间给）——它是个否定开关：工作被设计得僵化，创造力被关在门外。而这恰好是机器比人干得好的那种工作，所以美国工人背上被贴了"靶子"（a giant target sign）。</p>
+<h3>第 2 步：同义替换对号入座</h3>
+<table><thead><tr><th>原文</th><th>选项 D</th><th>替换关系</th></tr></thead><tbody><tr><td>we have designed jobs</td><td>designed against human creativity</td><td>designed 原词复现</td></tr><tr><td>leave no room for ... creativity</td><td>against（不利于）creativity</td><td>"不留空间" 即 "与之相悖"</td></tr></tbody></table>
+<h3>第 3 步：逐项排除（每个错误项对应哪种误解）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A performed by innovative minds</td><td>✗</td><td>与原文 creativity 词汇相关，却忽略 leave no room for 已把该内容否定；还把"工作缺创造性"偷换成"由创新的人完成"——连主语都换了</td></tr><tr><td>B scripted with an individual style</td><td>✗</td><td>scripted 与 individual 两词拼凑；tightly scripted 的本义是"按剧本走 = 僵化"，却被反向改成"具有个性风采"</td></tr><tr><td>C standardized without a clear target</td><td>✗</td><td>standardized 原词复现是诱饵；without a clear target 无处推出。原文 giant target sign 里的 target 是"靶子"（比喻被动挨打），不是"清晰目标"</td></tr></tbody></table>
+<h3>预判追问：为什么 C 看起来最像？</h3>
+<p>因为它是唯一复现原词的选项。但观点题的正确答案往往<strong>不用原词</strong>（D 的 against 正是对 leave no room for 的改写），干扰项最爱<strong>原词 + 编造半句</strong>。看到半真半假的选项，先问一句：后半句在原文哪里？</p>
+<blockquote>记忆锚点：观点题盯住 says / argues 之后的从句；leave no room for = 否定开关 = against。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

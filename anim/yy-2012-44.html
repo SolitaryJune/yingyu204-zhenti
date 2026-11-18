@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 新题型 · 44 · Thomas Carlyle：难以模仿的英雄 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 序号带 1–7 对应选项 A–G。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, ribbon:null, title:"审题眼：同名三处出现，认“画像段”",
+  body:"<p>题干：<b>Thomas Carlyle</b> ____。右栏 7 个观点（A–G）。</p><p>机制：Carlyle 全文出现三次——首段引言（伟人史观引子）、第五段（传记对象画像）、末段（被取代者）。配对必须落在<b>描述他本人画像</b>的第五段：引言与“被取代”都不携带画像信息。</p>",
+  log:"审题：Carlyle —— 三次出现认画像段"},
+ {cls:"key", ecs:"shift", tag:"定位", count:0, ribbon:null, title:"定位：第五段路德、克伦威尔、拿破仑",
+  body:"<div class=\"qq\"><b>第五段：</b>This was all a bit bourgeois for <b>Thomas Carlyle</b>, who <b>focused his biographies on the truly heroic lives of Martin Luther, Oliver Cromwell and Napoleon Bonaparte</b>. <b>These epochal figures represented lives hard to imitate</b>, but to be acknowledged as possessing higher authority than mere mortals. <span style=\"color:#64748b;font-size:12.5px\">（卡莱尔嫌前述路数太市民气，他写路德、克伦威尔、拿破仑的真正英雄人生；这些划时代人物的人生难以模仿，却拥有高于凡人的权威。）</span></div><p>These epochal figures <b>回指</b>首句三个人物——画像就在这一段内闭环。</p>",
+  log:"定位第五段：focused on ... heroic lives；These epochal figures"},
+ {cls:"good", ecs:"ok", tag:"锁定 C", count:0, ribbon:{k:"3", ok:true}, title:"锁定 C：focused on epochal figures whose lives were hard to imitate",
+  body:"<p><b>C（聚焦人生难以模仿的划时代人物）</b><span class=\"ok-dot\">✓</span>：逐字对齐——</p><p><b>focused</b> his biographies on ... ↔ <b>focused on</b>；These <b>epochal figures</b> 原词保真；<b>lives hard to imitate</b> 原词保真。C 与第五段画像近乎逐字对应。</p>",
+  log:"锁定 C：focused on + epochal figures + hard to imitate 全保真"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:1, ribbon:{k:"4", ok:false}, title:"排除 D：opened up new realms of understanding the great men in history",
+  body:"<p><b>D（开启理解历史伟人的新领域）</b><span class=\"bad-dot\">✗</span>（诱惑最大）：两处偷换——</p><p>①原文末段④句 opened up 的是理解<b>历史</b>的新领域（gender/race/cultural studies），选项改成“理解历史<b>伟人</b>”；②末段②句 <b>In place of Thomas Carlyle</b>——开创者是<b>取代</b>卡莱尔的一批人（Hill/Thompson/Hobsbawm），不是卡莱尔本人。</p><p style=\"color:#b91c1c\">⚠ 两个“半真”（原词 + 同段露名）拼出的选项最像真的——查动宾搭配与动作主人。</p>",
+  log:"排除 D：宾语被偷换 + 动作主人是取代者"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:2, ribbon:{k:"1", ok:false}, title:"排除 A：emphasized the virtue of classical heroes",
+  body:"<p><b>A（强调古典英雄的美德）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Petrarch</b>（41 题答案）——文艺复兴时期的古典英雄，不是 19 世纪笔下的革命家与军事强人。</p><p style=\"color:#b91c1c\">⚠ 都写“英雄”，但英雄的时空完全不同。</p>",
+  log:"排除 A：古典英雄属 Petrarch"},
+ {cls:"bad", ecs:"miss", tag:"排除 G", count:3, ribbon:{k:"7", ok:false}, title:"排除 G：depicted the worthy lives of engineers...",
+  body:"<p><b>G（描绘工程师、实业家、探险家的有价值人生）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Samuel Smiles</b>（43 题答案）——第五段首句的 bourgeois（市民气）正是 Carlyle 给 G 这条路数贴的差评，两者是对照组。</p><p style=\"color:#b91c1c\">⚠ “嫌它 bourgeois”说明画像相反，不能冒领。</p>",
+  log:"排除 G：worthy lives 属 Smiles，恰被 Carlyle 嫌弃"},
+ {cls:"", ecs:"step", tag:"归主", count:3, ribbon:null, title:"其余选项归主：一张表看全篇",
+  body:"<table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr>" +
+    "<tr><td class=\"mine\">A 古典英雄美德</td><td class=\"mine\">Petrarch（41 题）</td></tr>" +
+    "<tr><td class=\"mine\">B 艺术家公共荣耀</td><td class=\"mine\">The Romantics</td></tr>" +
+    "<tr><td class=\"ans\">C 难以模仿的划时代人物</td><td class=\"ans\">Thomas Carlyle ✓ 本题</td></tr>" +
+    "<tr><td class=\"mine\">D 理解历史的新领域</td><td class=\"mine\">“自下而上”史学（Hill 等）</td></tr>" +
+    "<tr><td class=\"mine\">E 大众的历史与斗争记录</td><td class=\"mine\">Marx & Engels（45 题）</td></tr>" +
+    "<tr><td class=\"mine\">F 领袖无须美德</td><td class=\"mine\">Machiavelli（42 题）</td></tr>" +
+    "<tr><td class=\"mine\">G 工程师们有价值的人生</td><td class=\"mine\">Samuel Smiles（43 题）</td></tr></table>",
+  log:"归主：7 项各归其位，C 属 Carlyle"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, ribbon:null, title:"结论：答案 C",
+  body:"<p><b>答案 C</b>——卡莱尔的传记聚焦路德、克伦威尔、拿破仑这些人生难以模仿的划时代人物。</p><p><b>记忆锚点</b>：These epochal figures 回指第五段首句三人；D 的陷阱 = 原词（opened up new realms）+ 错主人（In place of 的人才配得上）；同名多处时认“画像段”。</p>",
+  log:"结论：Carlyle 聚焦难以模仿的划时代人物，答案 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "2012 新题型 · 44 · Thomas Carlyle 的画像",
+  subtitle: "考点：人物观点配对 · 方法：画像段定位 → 逐字比对 → “半真”选项拆穿",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 1–7 对应 A–G（✓ 认领 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位 → 比对 → 拆穿 D 的两处偷换。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>focused on epochal figures whose lives were hard to imitate</b>——These epochal figures 回指路德、克伦威尔、拿破仑。记忆锚点：D 的 opened up new realms 是原词但主人是“取代卡莱尔的人”（In place of Thomas Carlyle），宾语也被从“理解历史”偷换成“理解伟人”。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——Carlyle 的“英雄崇拜”：难以模仿的划时代人物</h2>
+<p>答案：<strong>C（focused on epochal figures whose lives were hard to imitate 聚焦人生难以复制的划时代人物）</strong>。</p>
+<h3>第 0 步：先立机制——同名人物多处出现时，认“他自己的段落”</h3>
+<p>Carlyle 全文出现三次：首段引言（伟人史观的引子）、第五段（他的传记对象画像）、末段（被取代者 In place of Thomas Carlyle）。配对必须落在<strong>描述他本人画像</strong>的第五段——首段引言与末段“被取代”都不携带他的画像信息。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>This was all a bit bourgeois for Thomas Carlyle, who focused his biographies on the truly heroic lives of Martin Luther, Oliver Cromwell and Napoleon Bonaparte. These epochal figures represented lives hard to imitate, but to be acknowledged as possessing higher authority than mere mortals.</blockquote>
+<p>Carlyle 嫌 Smiles 式画像太市民气，他写路德、克伦威尔、拿破仑的真正英雄人生；这些 epochal figures（划时代人物）的人生难以模仿，却拥有高于凡人的权威。</p>
+<h3>第 2 步：逐字比对</h3>
+<p>focused his biographies on ... heroic lives ↔ <strong>focused on</strong>；These <strong>epochal figures</strong> ↔ <strong>epochal figures</strong>（回指路德等三人）；<strong>lives hard to imitate</strong> 原词保真——C 与原句的对应近乎逐字。</p>
+<h3>第 3 步：干扰项归主</h3>
+<table><thead><tr><th>选项</th><th>主人</th><th>排除理由</th></tr></thead><tbody><tr><td>D opened up new realms of understanding the great men in history</td><td>“自下而上”史学（末段④句）</td><td>两处偷换：①原文 opened up 的是理解<strong>历史</strong>的新领域（性别、种族、文化研究），选项改成“理解历史伟人”；②末段②句 In place of Thomas Carlyle 表明开创者是取代卡莱尔的一批人（Hill/Thompson/Hobsbawm），不是卡莱尔本人</td></tr><tr><td>A emphasized the virtue of classical heroes</td><td>Petrarch（41 题答案）</td><td>文艺复兴时期的古典英雄，非 19 世纪的革命家、军事强人</td></tr><tr><td>G depicted the worthy lives of engineers...</td><td>Samuel Smiles（43 题答案）</td><td>正是 Carlyle 嫌其 bourgeois 的对照组</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D 为什么诱惑力最大？</strong>：opened up new realms 是末段原词，而 Carlyle 又在末段②句露了名——两个“半真”拼在一起最像真的。破法：检查动宾搭配（understanding 后接什么）与动作主人（In place of Thomas Carlyle）。</li><li><strong>首段 Carlyle 的引言（Universal history ... Great Men）算不算答案？</strong>：那是他史观的引子，只证明他持伟人史观，不携带“划时代、难模仿”这类画像细节；配对以画像段落为准。</li></ul>
+<blockquote>记忆锚点：These epochal figures 回指路德、克伦威尔、拿破仑；D 的陷阱 = 原词（opened up new realms）+ 错主人（In place of 的人才配得上）；同名多处时认“画像段”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

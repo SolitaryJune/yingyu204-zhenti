@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-34 · 2018 阅读第 34 题 · 用户不是消费者的身份定位问题 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 因果题先拆“果→因”链", "cls": "key", "tag": "审题", "log": "审题眼：can hardly protect Facebook users because ___ —— 原因在⑤⑥⑦句的推理链里", "count": 0, "ribbon": null, "body": "<p>题干：Competition law <b>as presently interpreted</b> can hardly protect Facebook users <b>because</b> ___. 果：竞争法护不住用户；因：要到原因链里找。定位锚 as presently interpreted 在原文⑥句<b>原词复现</b>，直接钉住第三段后半。</p>"},
+ {"title": "定位原文 · 法律只护“付费的消费者”", "cls": "key", "tag": "定位", "log": "定位⑤⑥⑦句：概念性问题 → 法律管消费者经济损失 → 用户不付费 → 用户不是顾客", "count": 0, "ribbon": null, "body": quote("But there is a deeper conceptual problem… Competition law as presently interpreted deals with <b>financial disadvantage to consumers</b> and this is not obvious when <b>the users of these services don't pay</b> for them. <b>The users of their services are not their customers.</b>") + "<p>原因链三环：①法律保护的<b>对象</b>是 consumers（消费者），保护内容是经济损失；②但用户 <b>don't pay</b>（不付费）——“免费用户受损”算不算“消费者受损”，法律概念里说不清（not obvious）；③作者下判词：<b>用户不是顾客</b>。最后一环就是答案母本。</p>"},
+ {"title": "同义替换 · not their customers = not defined as customers", "cls": "key", "tag": "替换", "log": "同义替换：A 是⑦句的同义改写——“是/不是”换成“被定义为/不被定义为”", "count": 0, "ribbon": null, "body": "<p>[A] <b>they are not defined as customers</b> ↔ The <b>users</b> of their services <b>are not</b> their <b>customers</b>：users ↔ they；are not ↔ are not defined as（原文的“身份不在范围内”说成“没被定义为”——恰好点破“法律概念身份”这层意思）；customers ↔ customers。锁定 [A]。</p>"},
+ {"title": "逐项分析 · A they are not defined as customers", "cls": "good", "tag": "选定 A", "log": "A 没被定义为消费者 ✓ ——⑦句“用户不是顾客”的改写，正中概念问题要害", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>⑤句“更深的<b>概念</b>问题”＋⑥句“用户不付费”＋⑦句“用户不是顾客”三环收拢：法律护的是付费的消费者，免费用户在概念上不是顾客——[A] 正是这个身份定位问题。</p>"},
+ {"title": "逐项分析 · B they are not financially reliable", "cls": "bad", "tag": "排除 B", "log": "B 经济状况不可靠 ✗ ——“不用付费”被篡改成“没能力付费”", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>⑥句 <b>don't pay</b> for them 是“<b>不用</b>付费”（免费服务的事实），[B] 篡改成“<b>没能力</b>付费”（not financially reliable 经济上不可靠）——不买单 ≠ 买不起，原因的性质被偷换。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“免费”脑补成“贫穷”，don't pay 与 can't pay 一字之差。</p>"},
+ {"title": "逐项分析 · C the services are generally digital", "cls": "bad", "tag": "排除 C", "log": "C 服务总体上是数字的 ✗ ——答非所问：保护效力与服务性质无关", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>竞争法护不护得住你，取决于你<b>是不是消费者</b>，与服务是不是数字的毫无关系——digital 只是本文话题背景（数字巨头、数字经济），不是护不住人的原因。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿全文高频词当某题的因果原因。</p>"},
+ {"title": "逐项分析 · D the services are paid for by advertisers", "cls": "bad", "tag": "排除 D", "log": "D 服务由广告主买单 ✗ ——主宾偷换：广告主买的是 advertising，不是 the services", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>⑧句 That would be the people who <b>buy advertising</b> from them：广告主是“买广告”的顾客，[D] 放大成“<b>服务</b>由广告主买单”。买单对象是 advertising，不能放大成 the services；且本题问的是<b>用户为什么不受保护</b>（身份不是顾客），不是“谁在替用户付钱”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把⑧句“真正的顾客是谁”读成“谁替服务付钱”——答错了层面。</p>"},
+ {"title": "结论 · 身份定位决定保护范围", "cls": "good", "tag": "答案 A", "log": "答案 A（they are not defined as customers）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>法律只护 consumers（经济损失）→ 用户 don't pay，损害说不清 → users are not customers → [A]。</b>这正是⑤句所说的“更深的概念性问题”：法律对保护对象的身份定位，让它护不住该护的人。</p><p>答案选 <b>A（they are not defined as customers）</b>。</p><p><b>记忆锚点</b>：因果题先拆“果→因”链；法律只护 consumers，用户 don't pay → <b>users are not customers</b>；不买单 ≠ 买不起，advertising ≠ the services。</p><p style=\"color:#b91c1c\">最易误选：<b>D</b>——⑧句是补刀“真正的顾客是谁”，不是解释用户不受保护的原因。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 34 题 · 因果细节题——「用户不是消费者」的身份定位问题",
+  subtitle: "考点：因果细节题 · 原因链三环拆解 + users are not customers 同义改写",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位原文 → 拆原因链 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（they are not defined as customers）", "html": "<b>A 没被定义为消费者</b>：法律只护付费的 consumers，用户 don't pay → The users of their services are not their customers。<br>记忆锚点：因果题先拆“果→因”链；不买单 ≠ 买不起，advertising ≠ the services。<br>最易误选：<b>D</b>——“谁买广告”被偷换成“谁为服务付钱”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 34 题 · 因果细节题——"用户不是消费者"的身份定位问题</h2>
+<p>答案：<strong>A（they are not defined as customers 他们没有被定义为消费者）</strong>。</p>
+<h3>第 0 步：先立机制——因果题先找"原因链"的三环</h3>
+<p>题干 Competition law as presently interpreted can hardly protect Facebook users <strong>because</strong> ____ 是因果细节题。因果题的机制：先把"果"和"因"各自的句子分开——本题的果在⑤句（竞争法存在更深的概念性问题，所以护不住用户），因在⑥⑦句的推理链里。这条链有环环相扣的三步：①法律保护的<strong>对象</strong>是 consumers（消费者），保护的内容是 financial disadvantage（经济损失）；②但 Facebook 用户 <strong>don't pay</strong>（不付费）——"没花钱受损"算不算"消费者受损"，法律说不清；③于是作者下一句给出定性结论：<strong>The users of their services are not their customers</strong>（用户不是顾客）。原因链的最后一环就是答案的母本。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Competition law as presently interpreted deals with financial disadvantage to consumers and this is not obvious when the users of these services don't pay for them. The users of their services are not their customers.</blockquote>
+<p>结构：⑥句说法律管的是"消费者的经济损失"，而用户不付费，这种损害在法律概念里"说不清"（not obvious）；⑦句紧跟着下判词——<strong>用户不是顾客</strong>。题干 as presently interpreted 是原词复现的定位锚，直接钉在⑥句。</p>
+<h3>第 2 步：同义替换——"不是顾客"就是"没被定义为消费者"</h3>
+<p>[A] they are not defined as customers ↔ The users of their services are not their customers：<strong>users</strong> ↔ they；<strong>are not</strong> ↔ are not defined as（原文的"是/不是"在选项里说成"被定义为/不被定义为"——恰好点破了这层"法律概念身份"的味道）；<strong>customers</strong> ↔ customers。选项没有换一个词，而是换了一种说法——把"身份不在保护范围内"说成"没被定义为消费者"。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B they are not financially reliable</td><td>✗</td><td>偷换原因性质：⑥句 don't pay for them 是"<strong>不用</strong>付费"（免费服务的事实），B 篡改成"<strong>没能力</strong>付费"（经济状况不可靠）——不买单 ≠ 买不起</td></tr><tr><td>C the services are generally digital</td><td>✗</td><td>答非所问：保护效力由"对象<strong>是否是消费者</strong>"决定，与服务是不是数字的无关——数字只是本文话题背景，不是法律护不住人的原因</td></tr><tr><td>D the services are paid for by advertisers</td><td>✗</td><td>偷换主宾：⑧句 That would be the people who <strong>buy advertising</strong> from them 说的是"广告主是买广告的顾客"，D 扭曲成"<strong>服务</strong>由广告主买单"——买单的对象是 advertising，不能放大成 the services</td></tr><tr><td>A they are not defined as customers</td><td>✓</td><td>⑦句 The users of their services are not their customers 的同义改写，正中⑤句"概念性问题"的要害</td></tr></tbody></table>
+<h3>预判追问：D 看似也在说"广告主付费"，为什么不行？</h3>
+<p>D 的错误很隐蔽：⑧句确实说真正的 customers 是买广告的人，于是有考生推出"服务靠广告主养活"。但"广告主买的是广告"不等于"广告主为一切服务买单"——广告收入只是 Facebook 的重要收入来源之一，不是每一项服务的付费方。更关键的是，本题问的是<strong>用户为什么不受保护</strong>：因为用户<strong>身份上不是</strong>顾客（概念定位问题），而不是"谁在替用户付钱"。D 把"谁是顾客"偷换成了"谁付的钱"，答的就不是题目问的那一层。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：don't pay 读成"付不起"——原文用户是免费用户，与经济能力无关。</li><li><strong>误选 C</strong>：拿话题背景（digital）当因果原因——保护与否只看"是不是消费者"。</li><li><strong>误选 D</strong>：advertising 被放大成 the services——⑧句的功能是补一刀"真正的顾客是谁"，不是解释用户不受保护的原因。</li></ul>
+<blockquote>记忆锚点：因果题先拆"果→因"链；法律只护 consumers，用户 don't pay → <strong>users are not customers</strong> → 没被定义为消费者；不买单 ≠ 买不起，advertising ≠ the services。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

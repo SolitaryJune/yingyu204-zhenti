@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 12 空 · 资金从账户里“划走”——withdraw · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 支票结算的资金流", "cls": "key", "tag": "审题", "log": "先立机制：支票结算的资金流", "count": 0, "ribbon": null, "body": "<p>空格在 funds are ___ from the issuer’s account：被动语态，动作对象是 funds（资金），from 短语给出出发点（出票人账户）。支票兑现的结算流程是：银行把出票人（开支票的人）账户里的钱划出，交给收款人。所以空格动词必须是“从银行账户里取/划资金”的标准动词，方向是“流出”。</p>"}, {"title": "定位原文 · 空 12 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 12 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…it takes several days before a check is cashed and funds are <b>__12__</b> from the issuer’s account, which means that the writer of the check can earn interest on the funds in the meantime.</div><p>funds are ___ from the issuer’s account：过去分词 + from。kept / borrowed / withdrawn / released 四选一，判定标准：哪个动词描述“账户资金流出”。</p>"}, {"title": "找证据 · a check is cashed（支票兑现）联动资金划转", "cls": "key", "tag": "证据", "log": "找证据：a check is cashed（支票兑现）联动资金划转", "count": 0, "ribbon": null, "body": "<p>兑现支票，在银行侧的动作就是把出票人账户中的款子取出、付给持票人。withdraw money / funds from an account 是银行英语的标准搭配；它同时服务第 11 空的浮动期叙事——正因为“划走”发生在几天之后，出票人才有时间吃利息。</p>"}, {"title": "逐项分析 · A kept（使分开；保留）", "cls": "bad", "tag": "排除 A", "log": "A kept（使分开；保留）✗ 排除——方向变成“没离开”", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>be kept from ≈ 被挡在……之外：钱“没离开”账户，与“兑现划款”方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：keep from 的“阻止”义与 from 的“来源”义混淆。</p>"}, {"title": "逐项分析 · B borrowed（借入）", "cls": "bad", "tag": "排除 B", "log": "B borrowed（借入）✗ 排除——借入≠划出", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>borrow 是“借入”，主语应是借款人；资金正从出票人账户流出，不是被借进来。</p><p style=\"color:#b91c1c\">⚠ 典型误解：贷款场景的词硬套结算场景。</p>"}, {"title": "逐项分析 · C withdrawn（提取；取（款））", "cls": "good", "tag": "选定 C", "log": "C withdrawn（提取；取（款））✓ 当选——账户取款标准动词", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>withdraw funds from an account = 从账户提取资金——银行结算的标准动词，被动式成立，且支撑浮动期叙事。</p>"}, {"title": "逐项分析 · D released（公开；发布）", "cls": "bad", "tag": "排除 D", "log": "D released（公开；发布）✗ 排除——release 管消息不管钱", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>release 的宾语多为消息、影片、人员，“资金被公布”不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：新闻语境词的惯性带入。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（withdrawn 提取；取（款））——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>……支票兑现、资金从出票人账户中被提取之前要隔上好几天，出票人在此期间可以赚取利息。</b></p><p>答案选 <b>C（withdrawn 提取；取（款））</b>。</p><p><b>记忆锚点</b>：withdraw funds from an account = 从账户取款；支票兑现 = 出票人账户的资金流出；release 管消息不管钱。</p><p style=\"color:#b91c1c\">最易误选：<b>B（borrowed）</b>——金融语境里 borrowed 最眼熟，但方向是“借入”而非“划出”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 12 空 · 资金从账户里“划走”——withdraw",
+  subtitle: "考点：句内语义（动词辨析 · 账户取款） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（withdrawn 提取；取（款））", "html": "<b>C withdrawn（提取；取（款））</b>。<br>完整句义：……支票兑现、资金从出票人账户中被提取之前要隔上好几天，出票人在此期间可以赚取利息。<br>记忆锚点：withdraw funds from an account = 从账户取款；支票兑现 = 出票人账户的资金流出；release 管消息不管钱。<br>最易误选：<b>B（borrowed）</b>——金融语境里 borrowed 最眼熟，但方向是“借入”而非“划出”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 12 空 · 资金从账户里“划走”——withdraw</h2>
+<p>答案：<strong>C（withdrawn 提取；取（款））</strong>。</p>
+<h3>第 0 步：先立机制——支票结算的资金流</h3>
+<p>空格在 funds are ___ from the issuer’s account：被动语态，动作对象是 funds（资金），from 短语给出出发点（出票人账户）。支票兑现的结算流程是：银行把出票人（开支票的人）账户里的钱划出，交给收款人。所以空格动词必须是“从银行账户里取/划资金”的标准动词，方向是“流出”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>…it takes several days before a check is cashed and funds are <code>__12__</code> from the issuer’s account, which means that the writer of the check can earn interest on the funds in the meantime.</blockquote>
+<p>funds are ___ from the issuer’s account：过去分词 + from。kept / borrowed / withdrawn / released 四选一，判定标准：哪个动词描述“账户资金流出”。</p>
+<h3>第 2 步：找证据——a check is cashed（支票兑现）联动资金划转</h3>
+<p>兑现支票，在银行侧的动作就是把出票人账户中的款子取出、付给持票人。withdraw money / funds from an account 是银行英语的标准搭配；它同时服务第 11 空的浮动期叙事——正因为“划走”发生在几天之后，出票人才有时间吃利息。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A kept</td><td>使分开；保留</td><td>✗ 排除</td><td>be kept from ≈ 被挡在……之外：钱“没离开”账户，与“兑现划款”方向相反。（典型误解：keep from 的“阻止”义与 from 的“来源”义混淆。）</td></tr><tr><td>B borrowed</td><td>借入</td><td>✗ 排除</td><td>borrow 是“借入”，主语应是借款人；资金正从出票人账户流出，不是被借进来。（典型误解：贷款场景的词硬套结算场景。）</td></tr><tr><td>C withdrawn</td><td>提取；取（款）</td><td>✓ 当选</td><td>withdraw funds from an account = 从账户提取资金——银行结算的标准动词，被动式成立，且支撑浮动期叙事。（易错警示：borrowed 在金融语境里最眼熟，但方向是“借入”不是“划出”。）</td></tr><tr><td>D released</td><td>公开；发布</td><td>✗ 排除</td><td>release 的宾语多为消息、影片、人员，“资金被公布”不成立。（典型误解：新闻语境词的惯性带入。）</td></tr></tbody></table>
+<p>代入后的完整句义：……支票兑现、资金从出票人账户中被提取之前要隔上好几天，出票人在此期间可以赚取利息。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>withdraw 的名词与日常用法？</strong>：名词 withdrawal（取款、撤回），ATM 取款就叫 withdrawal；动词搭配 withdraw money / funds from an account。</li><li><strong>kept from 为什么方向反了？</strong>：be kept from sth / doing 是“被阻止、被隔绝”义，方向是“不发生”；本句的资金流明确在“发生流出”——从出票人账户划走。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（kept）</strong>：keep from 的“阻止”义与 from 的“来源”义混淆。</li><li><strong>误选 B（borrowed）</strong>：贷款场景的词硬套结算场景。</li><li><strong>误选 D（released）</strong>：新闻语境词的惯性带入。</li></ul>
+<blockquote>记忆锚点：withdraw funds from an account = 从账户取款；支票兑现 = 出票人账户的资金流出；release 管消息不管钱。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

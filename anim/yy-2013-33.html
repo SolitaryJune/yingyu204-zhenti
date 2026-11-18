@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-33 动画：对策细节题——扭转快决策靠什么</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：对策题，问的是\"我们该怎么办\"",
+  body:"<p>题干：<b>To reverse the negative influences of snap decisions, we should ____.</b>（要扭转快速决策的负面影响，我们应该____。）</p><p><b>reverse…influences + should</b> 是对策题记号：答案不会照抄例子字面，而是例子背后<b>论点的概括</b>——例子比论点永远低一层。</p>",
+  log:"对策题：先找论点，再看例子，答案要上浮一层"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第四段 = 论点 + 两个例子",
+  body:"<div class=\"qq\"><b>第四段①：</b><b>Yet we can reverse such influences.</b> <span class=\"cn\">（译：然而我们可以逆转这类影响。）</span></div><div class=\"qq\"><b>例1：</b>we can <b>take a moment before buying</b>（知道会为笑脸商品冲动，买前先停一停）</div><div class=\"qq\"><b>例2：</b>we can help screeners understand their biases（帮面试官认识偏见，或换人筛简历）</div><p>两条例子的公共动作：先想清楚，再动手。</p>",
+  log:"定位第四段：论点① + 例1 take a moment before buying + 例2"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：trust our first impression",
+  body:"<p><b>A（相信第一印象）</b><span class=\"bad-dot\">✗</span>：全文立论恰恰相反——首段 <b>snap overreactions</b> 会带来 negative effects，末段说要靠 pause 来 <b>mute</b> 我们的 hard-wired reactions（抑制本能反应）。</p><p>\"相信第一印象\"＝不假思索就行动，把作者批评的对象当成了对策：典型的<b>反向干扰</b>。</p>",
+  log:"排除 A：第一印象是要被 mute 的对象，方向反了"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:2, ribbon:{k:3, ok:false}, title:"排除 C：do as people usually do",
+  body:"<p><b>C（照人们通常的做法做）</b><span class=\"bad-dot\">✗</span>：第四段连用 <b>If we know…, we can…</b> 的\"我们\"句式，容易被带偏成\"人做我做\"。其实句式说的是\"我们<b>有能力暂停</b>\"，全文没有任何\"随大流\"信息——凭句式<b>无中生有</b>。</p>",
+  log:"排除 C：If we know…, we can… 不等于随大流"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:3, ribbon:{k:4, ok:false}, title:"排除 D：ask for expert advice",
+  body:"<p><b>D（咨询专家意见）</b><span class=\"bad-dot\">✗</span>：第五段确实出现婚姻专家 <b>John Gottman</b>，但那一节回答的是另一个问题——<b>可靠的快速反应从哪来</b>（靠长期研究打底，见第 34 题），并非教普通人去求助专家。<b>张冠李戴</b>。</p>",
+  log:"排除 D：Gottman 是第 34 题的人物，不是本题对策"},
+ {cls:"good", ecs:"ok", tag:"锁定 B", count:4, ribbon:{k:2, ok:true}, title:"锁定 B：think before we act",
+  body:"<p><b>B（三思而后行）</b><span class=\"ok-dot\">✓</span>：替换链逐段对上——</p><p>we should ____ ↔ <b>we can take a moment before buying</b>；think ↔ <b>take a moment</b>（停一下＝想一想）；before we act ↔ <b>before buying</b>。首段 <b>if we take a moment and think about how we are likely to react</b> 再次印证：\"停一下再想\"贯穿全文。</p><p>它同时是两条例子的公共概括 → 上浮一层后的论点。</p>",
+  log:"锁定 B：take a moment before buying = think before we act"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 B",
+  body:"<p><b>答案 B</b>——think before we act（三思而后行）。</p><p>记忆锚点：例子设题 → 上浮一层找论点；A 把\"三思\"反转成\"凭直觉\"，C 无中生有，D 张冠李戴。</p>",
+  log:"结论：扭转快决策的负面影响要三思而后行，答案选 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-33 · 对策细节题：扭转快决策的负面影响靠什么",
+  subtitle: "考点：Text1 第四段例子设题 · 方法：找论点 → 对例子做概括 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>think before we act</b>（三思而后行）＝ 第四段 <b>take a moment before buying</b> 的概括。记忆锚点：例子设题要上浮一层找论点；A 反向（第一印象正是要抑制的对象）、C 无中生有（we can ≠ 随大流）、D 张冠李戴（Gottman 属于第 34 题）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：对策细节题——扭转快决策的负面影响靠什么</h2>
+<p>答案：<strong>B</strong>（think before we act，三思而后行）。</p>
+<h3>第 0 步：先立机制——例子题要"上浮一层"读</h3>
+<p>题干问 To reverse the negative influences of snap decisions, we should ____：这是<strong>对策题</strong>。命题套路在第四段：作者先亮论点（这种影响可以被逆转），随后连举两个例子。例子永远比论点低一层——<strong>正确项 = 例子背后那个论点的概括</strong>，不能停在例子的字面。</p>
+<p>先把第四段的骨架摆出来：</p>
+<table><thead><tr><th>句子</th><th>角色</th></tr></thead><tbody><tr><td>① Yet we can reverse such influences</td><td>论点：影响可以被逆转</td></tr><tr><td>② 知道会为笑脸商品冲动 → take a moment before buying</td><td>例 1：买前先停一下</td></tr><tr><td>③ 知道面试官排斥漂亮女性 → 帮其认识偏见或换人筛简历</td><td>例 2：先想办法再行动</td></tr></tbody></table>
+<p>两条例子的公共动作都是"<strong>先想清楚，再动手</strong>"。</p>
+<h3>第 1 步：对号入座，锁定 B</h3>
+<p>例子①的 <strong>take a moment before buying</strong>（买之前先停一停）正是 <strong>think before we act</strong> 的原文改写：take a moment ↔ think；before buying ↔ before we act。它同时是两条例子的公共概括 → 选 <strong>B</strong>。而且第一段早就埋了题眼：if we <strong>take a moment and think</strong> about how we are likely to react——"停一下再想"贯穿全文。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A trust our first impression</td><td>✗</td><td>反向干扰</td></tr><tr><td>C do as people usually do</td><td>✗</td><td>无中生有</td></tr><tr><td>D ask for expert advice</td><td>✗</td><td>张冠李戴</td></tr></tbody></table>
+<ul><li><strong>误选 A——把"快决策"当好事</strong>：全文立论恰是 snap overreactions 有负面效应、要靠 pause 来 mute（首段与末段）。"相信第一印象"＝不假思索就行动，与"三思而后行"方向相反。</li><li><strong>误选 C——被 we can 句式带偏</strong>：第四段连用 If we know…, we can… 的"我们"句式，容易读成"人做我做"。其实句式说的是"我们有能力暂停"，没有"随大流"的信息，C 是凭句式无中生有。</li><li><strong>误选 D——抓第五段的专家</strong>：第五段出现婚姻专家 John Gottman，有人把"专家"搬来当对策。但第五段是在回答另一个问题——可靠的快速反应从哪来（第 34 题考点），并非教普通人求助于专家。</li></ul>
+<blockquote>记忆锚点：例子设题 → 上浮一层找论点；take a moment before buying = think before we act → B；A 把"三思"反转成"凭直觉"，方向性错误。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

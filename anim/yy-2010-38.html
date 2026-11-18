@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-38 动画：女性为何少见陪审名单</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：because 问原因", "body": "<p>题干：<b>Even in the 1960s, women were seldom on the jury list in some states because ____</b>（60 年代女性仍少见陪审名单，因为____）</p><p>因果题机制：找原文<b>因果标记</b>——③句给\"事实\"，④句 justified by the claim that… 给\"原因\"。</p>", "log": "because 问原因 → 去第三段找 justified by"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：第三段③④句", "body": "<div class=\"qq\"><b>第三段③④：</b>Even then several states automatically exempted women from jury duty unless they personally asked… This practice was justified by the claim that women were needed at home… <span class=\"cn\">（译：一些州自动豁免女性陪审义务（除非本人申请）；这种做法的依据是\"家里需要女性\"的论断。）</span></div>", "log": "justified by（以……为依据）= 本题的 because"}, {"cls": "", "ecs": "step", "tag": "替换", "count": 0, "title": "同义替换：needed at home → domestic duties", "body": "<table class=\"aw-mini\"><tr><th>选项 C</th><th>原文④句</th></tr><tr><td>were supposed to 被认为应</td><td>the claim that 论断称</td></tr><tr><td>perform domestic duties 承担家庭职责</td><td>women were needed at home 家里需要女性</td></tr></table><p>题干 seldom on the jury list ≈ ③句 automatically exempted…unless…，整体改写闭环。</p>", "log": "domestic duties = needed at home，同义改写成立"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "title": "排除 A：被州法律自动禁止", "body": "<p><b>A · 被州法律自动禁止</b><span class=\"bad-dot\">✗</span></p><p>automatically <b>exempted</b>（自动豁免，除非本人申请）≠ 法律禁止——女性仍可主动加入；且这是\"事实\"，④句才是\"原因\"。</p>", "log": "排除 A：被州法律自动禁止", "count": 1, "ribbon": {"k": 1, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "title": "排除 B：远不具备所需条件", "body": "<p><b>B · 远不具备所需条件</b><span class=\"bad-dot\">✗</span></p><p>与②句方向相反：40 年代起多数州已赋予资格（made women <b>eligible</b>），不是能力不够。</p>", "log": "排除 B：远不具备所需条件", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 C", "title": "锁定 C：应承担家庭职责", "body": "<p><b>C · 应承担家庭职责</b><span class=\"ok-dot\">✓</span></p><p>④句 the claim that <b>women were needed at home</b> 的同义改写——<b>原因对上</b>。</p>", "log": "锁定 C：应承担家庭职责", "count": 3, "ribbon": {"k": 3, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "title": "排除 D：她们往往逃避公共事务", "body": "<p><b>D · 她们往往逃避公共事务</b><span class=\"bad-dot\">✗</span></p><p>无中生有：\"需要在家\"是别人安在她们头上的论断（the claim，暗含作者不认同），原文没有女性自己逃避的表述。</p>", "log": "排除 D：她们往往逃避公共事务", "count": 4, "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 C", "body": "<p><b>答案 C（domestic duties）</b>——\"家里需要女性\"= 家庭职责。</p><p>记忆锚点：因果题盯 justified by；exempted unless 是可申请的豁免，不是禁止。</p>", "log": "结论：原因是\"应承担家庭职责\"，答案选 C"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-38 · 因果细节题：女性为何少见陪审名单",
+  subtitle: "考点：Text2 因果细节 · 方法：cause 标记定位 → 同义改写 → 归因排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>\"This practice was justified by the claim that women were needed at home\"（依据是\"家里需要女性\"）= were supposed to perform domestic duties</b>。易错：A 把\"可申请的豁免\"读成\"法律禁止\"；D 无中生有\"女性自己逃避\"。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：因果细节题——女性为何少见陪审团名单</h2>
+<p>答案：<strong>C</strong>（they were supposed to perform domestic duties）。</p>
+<h3>第 0 步：先立机制——问"because"，就找"justified by"</h3>
+<p>题干 women were seldom on the jury list in some states <strong>because</strong> ____ 问原因。因果细节题机制不变：原因必须由原文因果标记托底。第三段③句给出"事实"（自动豁免），④句紧跟 <strong>This practice was justified by the claim that…</strong>——justified by（以……为依据）就是本题的"because"。</p>
+<h3>第 1 步：定位与同义替换</h3>
+<blockquote>Even then several states automatically exempted women from jury duty unless they personally asked to have their names included on the jury list. This practice was justified by the claim that <strong>women were needed at home</strong>, and it kept juries unrepresentative of women through the 1960s.（即便那时，一些州仍自动豁免女性的陪审义务，除非她们本人申请列入名单。这种做法的依据是"<strong>家里需要女性</strong>"的论断，它使整个 60 年代的陪审团都少有女性。）</blockquote>
+<p>选项 C：were supposed to perform <strong>domestic duties</strong>（被认为应承担家庭职责）≈ women were <strong>needed at home</strong>（家里需要女性）。题干 seldom on the jury list ≈ ③句 automatically exempted…unless…——题干与正确项合起来正是③④两句的改写。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（被州法律自动禁止）</strong>：两处偏差——automatically <strong>exempted</strong>（自动豁免）是"除非本人申请就除名"，女性仍可主动加入，不是"法律禁止"；而且豁免是"事实"（③句），④句的 claim 才是题干要的"原因"。</li><li><strong>B（远不具备所需条件）</strong>：与②句方向相反——20 世纪 40 年代起多数州已赋予女性资格（made women <strong>eligible</strong> for jury duty），不是能力不够。</li><li><strong>D（她们往往逃避公共事务）</strong>：无中生有——"需要在家"是别人安在她们头上的论断（the <strong>claim</strong>，暗含作者不认同），原文没有任何女性自己逃避的表述。</li></ul>
+<blockquote>记忆锚点：因果题盯 justified by / because of / due to；needed at home = domestic duties；exempted unless…是"可申请的豁免"，不是"禁止"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

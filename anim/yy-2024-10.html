@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-10 · 2024 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 10 所在句，考点：句际顺承逻辑 + 固定短语",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">There are ways to regain a social life, but it can feel overwhelming __10__. It's a great idea to start by thinking about hobbies you enjoy.</div><p>空格为第 10 空，待填一词。考点：<b>句际顺承逻辑 + 固定短语</b>；方法主线：but 转折 + start 呼应，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 先定位「岗位」，再找呼应点",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先定位「岗位」，再找呼应点",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格所在分句主系表结构完整（it can feel overwhelming），所以空格短语是<b>句末状语</b>，功能是说明「在什么阶段/情形下 overwhelming」。两条线索锁答案：①<b>but</b>——前句说「有很多办法」，本句转折「但会让人不知所措」（it 指代 to regain a social life）；②下句 <b>It's a great idea to start by...</b>（从……做起是个好主意）。start 把空格的时间点反手锁定在「起步阶段」——所以状语要说的是「（重拾社交生活）一开始会让人觉得千头万绪」。</p>"
+ },
+ {
+  "title": "证据 · 「难题—对策」的隔句呼应",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：「难题—对策」的隔句呼应",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本句抛出难题：办法虽多，但（it = to regain a social life）起初让人千头万绪；下句给出对策：好主意是<b>先从</b>爱好想起（start by...）。at first 与 start 隔句呼应，「难题 → 对策」的衔接由此闭合。</p>"
+ },
+ {
+  "title": "逐项分析 · A at first（起初；起先）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A at first（起初；起先） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与下句 start by 呼应，串出「难题—对策」：重拾社交起初千头万绪 → 所以建议先从爱好做起。</p>"
+ },
+ {
+  "title": "逐项分析 · B in turn（依次；转而；相应地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B in turn（依次；转而；相应地） ✗ 排除——把「办法多 → 却不知所措」误读成因果链",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「依次」需要多个主体轮流做某事，文中没有；「转而/相应地」引出互为因果的连环事件，但 but 表明前后是转折而非因果。</p><p style='color:#b91c1c'>⚠ 典型误解：把「办法多 → 却不知所措」误读成因果链——but 本身就宣布了转折；in turn 的「相应地」需要承接关系，方向不匹配。</p>"
+ },
+ {
+  "title": "逐项分析 · C on time（按时；于指定时间）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C on time（按时；于指定时间） ✗ 排除——被 calendar 一词带偏（联想到时间表）",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「某种感受会于指定时间准时发生」不合常理，下文也没有任何「指定时间」的铺垫。</p><p style='color:#b91c1c'>⚠ 典型误解：被 calendar 一词带偏（联想到时间表）——calendar 出现在后文第 15 空的句子里，与本句无关；本句谈的是感受的阶段，不是时刻。</p>"
+ },
+ {
+  "title": "逐项分析 · D by chance（偶然；意外）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D by chance（偶然；意外） ✗ 排除——把「不知所措」归因于「偶然」",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>指非计划的巧合（I met her by chance at the airport.）；「重拾社交生活碰巧让人不知所措」不合语义逻辑。</p><p style='color:#b91c1c'>⚠ 典型误解：把「不知所措」归因于「偶然」——overwhelming 是重拾社交的普遍起步体验，不是随机偶发事件。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（at first 起初；起先）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>有很多办法可以重拾社交生活，但它一开始可能让人感觉千头万绪。</b></p><p>答案选 <b>A（at first 起初；起先）</b>。</p><p><b>记忆锚点</b>：主系表完整 → 空格是状语；下句 start by 反手锁定「起步阶段」→ at first 与 start 隔句呼应。</p><p style='color:#b91c1c'>最易误选：<b>B（in turn）</b>——把「办法多 → 却不知所措」读成承接链；but 本身就宣布了转折，不是因果。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 10 空 · but it can feel overwhelming ____",
+  subtitle: "考点：句际顺承逻辑 + 固定短语 · but 转折 + start 呼应 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（at first）",
+    html: "<b>A at first（起初；起先）</b>。<br>完整句义：有很多办法可以重拾社交生活，但它一开始可能让人感觉千头万绪。<br>记忆锚点：主系表完整 → 空格是状语；下句 start by 反手锁定「起步阶段」→ at first 与 start 隔句呼应。<br>最易误选：<b>B（in turn）</b>——把「办法多 → 却不知所措」读成承接链；but 本身就宣布了转折，不是因果。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 10 空 · 句际顺承逻辑 + 固定短语</h2>
+<p>答案：<strong>A（at first 起初；起先）</strong>。</p>
+<h3>第 0 步：先立机制——状语短语题：先定位「岗位」，再找呼应点</h3>
+<p>空格所在分句主系表结构完整（it can feel overwhelming），所以空格短语是<strong>句末状语</strong>，功能是说明「在什么阶段/情形下 overwhelming」。两条线索锁答案：①<strong>but</strong>——前句说「有很多办法」，本句转折「但会让人不知所措」（it 指代 to regain a social life）；②下句 <strong>It's a great idea to start by...</strong>（从……做起是个好主意）。start 把空格的时间点反手锁定在「起步阶段」——所以状语要说的是「（重拾社交生活）一开始会让人觉得千头万绪」。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>There are ways to regain a social life, but it can feel overwhelming __10__. It's a great idea to start by thinking about hobbies you enjoy.</blockquote>
+<p>本句抛出难题：办法虽多，但（it = to regain a social life）起初让人千头万绪；下句给出对策：好主意是<strong>先从</strong>爱好想起（start by...）。at first 与 start 隔句呼应，「难题 → 对策」的衔接由此闭合。</p>
+<h3>第 2 步：语义对号：谁与 start 呼应</h3>
+<p>at first 意为「起初；起先」——「重拾社交生活<strong>起初</strong>会让人觉得千头万绪」→「所以一个好主意是<strong>先</strong>从……做起」，一呼一应，逻辑闭环。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A at first</td><td>起初；起先</td><td>✓ 当选</td><td>与下句 start by 呼应，串出「难题—对策」：重拾社交起初千头万绪 → 所以建议先从爱好做起。</td></tr><tr><td>B in turn</td><td>依次；转而；相应地</td><td>✗ 排除</td><td>「依次」需要多个主体轮流做某事，文中没有；「转而/相应地」引出互为因果的连环事件，但 but 表明前后是转折而非因果。</td></tr><tr><td>C on time</td><td>按时；于指定时间</td><td>✗ 排除</td><td>「某种感受会于指定时间准时发生」不合常理，下文也没有任何「指定时间」的铺垫。</td></tr><tr><td>D by chance</td><td>偶然；意外</td><td>✗ 排除</td><td>指非计划的巧合（I met her by chance at the airport.）；「重拾社交生活碰巧让人不知所措」不合语义逻辑。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「办法多 → 却不知所措」误读成因果链 → 误选 B（in turn）</strong>：but 本身就宣布了转折；in turn 的「相应地」需要承接关系，方向不匹配。</li><li><strong>被 calendar 一词带偏（联想到时间表） → 误选 C（on time）</strong>：calendar 出现在后文第 15 空的句子里，与本句无关；本句谈的是感受的阶段，不是时刻。</li><li><strong>把「不知所措」归因于「偶然」 → 误选 D（by chance）</strong>：overwhelming 是重拾社交的普遍起步体验，不是随机偶发事件。</li></ul>
+<blockquote>记忆锚点：主系表完整 → 空格是状语；下句 start by 反手锁定「起步阶段」→ at first 与 start 隔句呼应。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

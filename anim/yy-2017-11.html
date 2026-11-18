@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-11 · But 之后 doesn’t ____ follow：A statistically / B occasionally / C necessarily / D economically</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：But 转折句中修饰 follow 的副词；考点：句内语义 + 副词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But it doesn’t <b>__11__</b> follow from findings like these that a world without work would be filled with unease.</div><p>空 11 是 doesn't __ follow 中的语气副词，修饰“从这些发现推出结论”。</p>"
+ },
+ {
+  "title": "立机制 · But 之后是作者立场，语气要“委婉否定”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：But 开启作者立场段 → 委婉否定 not necessarily",
+  "body": "<p>But 一转，作者开始反驳前两段的悲观推测。反驳的力度有讲究：不说“错”，而说“<b>不一定</b>成立”——not necessarily（不一定）是留有余地的委婉否定，也为下文从“社会观念”层面说理留出空间。</p>"
+ },
+ {
+  "title": "找证据 · 下文的积极转向印证“委婉”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：第三段一路弱化“无工作=不安” → 分寸感 = not necessarily",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In the absence of work, a society designed with other ends in mind could yield strikingly different circumstances.</div><p>本句是第三段主旨句，此后作者一路<b>弱化</b>“无工作 = 不安”：担忧只是基于“以就业为本的社会里的失业缺点”；没有工作的社会可能造就截然不同的情形；工作的好处可能被夸大。not necessarily 的分寸感正好接住这一转向。</p>"
+ },
+ {
+  "title": "逐项分析 · A statistically（统计上）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A statistically（统计上）✗ 排除",
+  "body": "<p><b>排除。</b>引入“统计学视角”，但上下文是宏观说理，并无统计口径的对照。</p><p style=\"color:#b91c1c\">⚠ 典型误解：上文有 poll 就配 statistically——poll 只是论据，本句谈“结论推出的必然性”。</p>"
+ },
+ {
+  "title": "逐项分析 · B occasionally（偶尔）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B occasionally（偶尔）✗ 排除",
+  "body": "<p><b>排除。</b>not occasionally 双重否定成“绝非偶然”，反而强化结论的必然性，与下文矛盾。</p>"
+ },
+ {
+  "title": "逐项分析 · C necessarily（必然地）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C necessarily（必然地）✓ 当选",
+  "body": "<p><b>当选。</b>not necessarily = “不一定”，委婉否定，承上启下开启作者立场段。</p>"
+ },
+ {
+  "title": "逐项分析 · D economically（经济上）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D economically（经济上）✗ 排除",
+  "body": "<p><b>排除。</b>引入“经济学视角”，下文并无经济维度的论证。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（necessarily 必然地）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>但是，从这些调查发现中不一定能推出：无工作的世界将充满不安。</b></p><p>答案选 <b>C（necessarily 必然地）</b>。</p><p><b>记忆锚点</b>：But 开段 = 作者立场；委婉反驳用 not necessarily；双重否定先算方向再代入。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B（occasionally）：没算清双重否定的方向——not occasionally 变成肯定且更绝对，与作者意图相反。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 11 空 · But 之后 doesn’t ____ follow：A statistically / B occasionally / C necessarily / D economically",
+  subtitle: "考点：句内语义 + 副词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 C（necessarily 必然地）",
+ "html": "<b>C necessarily（必然地）</b>。<br>记忆锚点：But 开段 = 作者立场；委婉反驳用 not necessarily；双重否定先算方向再代入。<br>最易误选：<b>B（occasionally）</b>——没算清双重否定的方向——not occasionally 变成肯定且更绝对，与作者意图相反。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 11 空 · “不一定能推出”——But 转折处的语气副词</h2>
+<p>答案：<strong>C（necessarily 必然地）</strong>。</p>
+<h3>第 0 步：先立机制——But 之后是作者立场，语气要“委婉否定”</h3>
+<p>空 11 修饰动词 follow（从……推出）：But it doesn't __11__ follow from findings like these that a world without work would be filled with unease。But 一转，作者开始反驳前两段的悲观推测。反驳的力度有讲究：不说“错”，而说“<strong>不一定</strong>成立”——not necessarily（不一定）正是这种留有余地的委婉否定，也为下文从“社会观念”层面展开说理留出空间。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But it doesn't __11__ follow from findings like these that a world without work would be filled with unease.</blockquote>
+<h3>第 2 步：找证据——下文的积极转向印证“委婉”</h3>
+<p>本句是第三段主旨句，此后作者一路<strong>弱化</strong>“无工作 = 不安”的结论：这些担忧只是基于“以就业为本的社会里的失业缺点”（第 12 空句）；没有工作的社会可能造就截然不同的情形（第 13/14 空句）；工作的好处可能被夸大（第 15 空句）。not necessarily 的分寸感正好接住这一转向。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A statistically</td><td>统计上</td><td>✗ 排除</td><td>引入“统计学视角”，但上下文是宏观说理，并无统计口径的对照。（典型误解：上文有 poll 就配 statistically——poll 只是论据，本句谈的是“结论推出的必然性”。）</td></tr><tr><td>B occasionally</td><td>偶尔</td><td>✗ 排除</td><td>not occasionally 双重否定成“绝非偶然”，反而强化结论的必然性，与下文矛盾。</td></tr><tr><td>C necessarily</td><td>必然地</td><td>✓ 当选</td><td>not necessarily = “不一定”，委婉否定，承上启下开启作者立场段。</td></tr><tr><td>D economically</td><td>经济上</td><td>✗ 排除</td><td>引入“经济学视角”，下文并无经济维度的论证。</td></tr></tbody></table>
+<p>代入后的完整句义：但是，从这些调查发现中不一定能推出：无工作的世界将充满不安。</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么不是 statistically？</strong>：上文确实有 Gallup poll，但 poll 只是论据；本句讨论的是“结论能否从论据推出”的<strong>逻辑必然性</strong>，不是“统计上是否显著”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（occasionally）</strong>：没算清双重否定的方向——not occasionally 变成肯定且更绝对，恰好与作者意图相反。</li></ul>
+<blockquote>记忆锚点：But 开段 = 作者立场；委婉反驳用 not necessarily；双重否定先算方向再代入。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

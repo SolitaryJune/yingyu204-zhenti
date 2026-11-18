@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-18 · 2014 完形第 18 空</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 双逗号之间的分词短语是“插入的定语”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "主干：Negative attitudes ... have stimulated ...；插入语回答“态度从哪里来”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>主干：<b>Negative attitudes toward obesity ... have stimulated a number of anti-obesity policies</b>。两个逗号之间的 <b>__18__ in health concerns</b> 是过去分词短语作插入语，功能上等于定语从句 which are __ in health concerns。</p><p>它要回答的问题只有一个：这些负面态度<b>从哪里来、立足点是什么</b>？</p>"
+ },
+ {
+  "title": "定位原文 · 空 18 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：Negative attitudes toward obesity, __18__ in health concerns, have stimulated...",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Negative attitudes toward obesity, <b>__18__</b> in health concerns, have stimulated a number of anti-obesity policies.</div><p>注意主干谓语 <b>have stimulated</b>（已经催生）——下文医院禁糖、雇主推健身、第一夫人发起运动，一连串<b>真实存在的行动</b>。</p>"
+ },
+ {
+  "title": "找证据 · “催生行动”的态度必然真实有力",
+  "cls": "key",
+  "tag": "证据",
+  "log": "have stimulated 是最硬证据：态度存在且有力 → 插入语只能是“支撑/来源”类动词",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>能“催生”出成串政策的负面态度，不但存在，还相当有力量。插入语只能填<b>交代来源</b>的动词：这份态度<b>立足于</b>对健康的担忧（健康担忧是地基，态度是建筑，政策是产物）。</p>"
+ },
+ {
+  "title": "逐项分析 · A despised（轻视）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A despised（轻视） ✗ 排除——被轻视的态度不会有号召力",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“被轻视的态度”激不起任何行动，与 have stimulated“已催生一批政策”矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：全文在批“歧视肥胖”，条件反射填贬义动词。</p>"
+ },
+ {
+  "title": "逐项分析 · B corrected（纠正）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B corrected（纠正） ✗ 排除——被纠正的态度应已消退",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“被纠正的态度”应当趋于消失，而下文政策恰恰是它的<b>产物</b>——因果链立不住。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“抗肥胖政策”误当成“纠正负面态度”的证据，方向搞反：态度 → 政策，不是政策 → 消灭态度。</p>"
+ },
+ {
+  "title": "逐项分析 · C ignored（忽视）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C ignored（忽视） ✗ 排除——被忽视的态度同样激不起行动",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“被忽视”的状态撑不起 have stimulated 的力度——被忽视的东西不会催生行动。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只盯空格句本身，不读主干谓语的力度。</p>"
+ },
+ {
+  "title": "逐项分析 · D grounded（以……为根据）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D grounded（以……为根据） ✓ 当选——grounded in health concerns 根植于健康担忧",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>be grounded in = “以……为地基”：担忧是地基，态度是建筑，政策是建筑盖出的产物——与 have stimulated 的力度严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（grounded）——插入定语交代态度来源，主干谓语定“态度真实有力”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>出于健康担忧的对肥胖的负面态度，已经催生了一系列抗肥胖政策。</b></p><p>答案选 <b>D（grounded 以……为根据）</b>。</p><p><b>记忆锚点</b>：双逗号 + 过去分词 = 插入定语，先找修饰对象、再问“它给主干补什么”；grounded in = 根植于；have stimulated 是“态度真实有力”的最硬证据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 B——把“抗肥胖政策”误读成“在纠正负面态度”，实际政策恰恰源于这些态度。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 完形第 18 空 · “根植于健康担忧的负面态度”——插入的分词短语在修饰谁",
+  subtitle: "考点：过去分词插入语 + 上下文语义 · grounded in = 根植于",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（grounded）",
+ "html": "<b>D grounded in health concerns（根植于健康担忧）</b>：插入的分词短语交代负面态度的来源。<br>主干谓语 have stimulated（已催生成串政策）证明态度真实有力——A 被轻视 / B 被纠正 / C 被忽视都撑不起“催生行动”。<br>记忆锚点：双逗号 + 过去分词 = 插入定语；grounded in = 以……为地基。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 18 空 · "根植于健康担忧的负面态度"——插入的分词短语在修饰谁</h2>
+<p>答案：<strong>D（grounded 以……为根据）</strong>。</p>
+<h3>第 0 步：先立机制——双逗号之间的过去分词短语是"插入的定语"</h3>
+<blockquote>Negative attitudes toward obesity, __18__ in health concerns, have stimulated a number of anti-obesity policies.</blockquote>
+<p>主干是 Negative attitudes ... have stimulated a number of anti-obesity policies（负面态度已催生一批抗肥胖政策）。两个逗号之间的 "__ in health concerns" 是过去分词短语作插入语，功能上等于定语从句 which are __ in health concerns——它要回答的问题只有一个：这些负面态度<strong>从哪里来、立足点是什么</strong>？</p>
+<h3>第 1 步：找证据——主干谓语已经宣判了态度的"状态"</h3>
+<p>谓语 <strong>have stimulated</strong>（已经催生）：下文医院禁售含糖饮料、雇主推行减肥健身计划、第一夫人发起高调运动——一连串真实存在的行动证明这份负面态度不但存在，还相当有力量。能"催生行动"的态度，插入语只能填"支撑/来源"类动词：这份态度<strong>立足于</strong>对健康的担忧。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D grounded</td><td>以……为根据</td><td>✓ 当选</td><td>be grounded in health concerns = "根植于健康担忧"，交代态度的来源，与 have stimulated 的力度严丝合缝。</td></tr><tr><td>A despised</td><td>轻视</td><td>✗ 排除</td><td>"被轻视的态度"不会有号召力，与"已催生一堆政策"矛盾。（典型误解：全文在批"歧视肥胖"，条件反射填贬义动词。）</td></tr><tr><td>B corrected</td><td>纠正</td><td>✗ 排除</td><td>"被纠正的态度"应已消退，下文政策却正是它的产物。（典型误解：把"抗肥胖政策"误当成"纠正态度"的证据。）</td></tr><tr><td>C ignored</td><td>忽视</td><td>✗ 排除</td><td>"被忽视的态度"激不起任何行动，同样与 stimulated 冲突。（典型误解：只盯空格句，不读主干谓语的力度。）</td></tr></tbody></table>
+<p>代入后的完整句义：出于健康担忧的对肥胖的负面态度，已经催生了一系列抗肥胖政策。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>grounded 凭什么赢？只靠固定搭配吗？</strong>：不止搭配。be grounded in 的意象是"以……为地基"——担忧是地基，态度是建筑，政策是建筑盖出的产物。下文政策成串出现，说明地基确实存在，整条因果链完整。</li><li><strong>A/B/C 都是"态度被削弱"的方向，会不会反而呼应 anti-obesity？</strong>：方向别搞反——anti-obesity policies 是被负面态度<strong>催生</strong>的（态度 → 政策），不是用来削弱态度的（政策 → 消灭态度）；"被轻视/被纠正/被忽视"三种状态都撑不起 have stimulated。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（corrected）</strong>：把下文的"抗肥胖政策"误读成"在纠正对肥胖的负面态度"；实际政策恰恰源于这些态度。</li><li><strong>误选 A/C</strong>：没抓住主干谓语 have stimulated 这条最硬的证据——被轻视、被忽视的态度不可能催生行动。</li></ul>
+<blockquote>记忆锚点：双逗号 + 过去分词 = 插入定语，先找修饰对象、再问"它给主干补什么"；grounded in = 根植于；have stimulated 是"态度真实有力"的最硬证据。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

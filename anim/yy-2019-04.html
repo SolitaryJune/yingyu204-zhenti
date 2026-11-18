@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 4 空 · but 转折后的动机动词：A recording / B lowering / C explaining / D accepting</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 4 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 4 在「but 转折后的动机动词」位；考点：句内语义（but 转折 + 动词辨析）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I had gained weight in the form of muscle mass, but thinking only of <b>__4__</b> the number on the scale, I altered my training program.</div><p>空 4 在分词结构 thinking only of __ the number 里，整个结构是主句 I altered my training program 的原因状语：因为只想着把体重计上的数字怎样，“我”才改了训练计划。前半句先说“我以肌肉的形式增了重”，中间隔着 but。</p>"
+ },
+ {
+  "title": "立机制 · but 是反向开关：增重 ↔ 想降数字",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：but 是反向开关：增重 ↔ 想降数字",
+  "body": "<p>but 要求前后反向：前句“增重”（对健身者是好事——肌肉重量）↔ 后句必然是与之相反的诉求“降数字”。作者的问题正是只想把数字压下去，于是改动训练计划（少练增肌、多刷脂），这与“如何训练才能实现目标”相悖（下句 conflicted with）。空格动词 = “降低（数字）”。</p>"
+ },
+ {
+  "title": "找证据 · 下句给“改计划”定了性：与训练需求冲突",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下句给“改计划”定了性：与训练需求冲突",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That conflicted with how I needed to train to reach my goals.</div><p>下句明说“改计划”是错误动作（conflicted with）；错误动作的动机正是“只盯数字往下压”——空格动词要能解释这个偏执的动机。</p>"
+ },
+ {
+  "title": "逐项分析 · A recording（记录）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A recording（记录）✗ 排除",
+  "body": "<p><b>排除。</b>记录数字是中性动作，不会把人逼到“改变训练计划”；“记录数字”构不成改计划的动机，“目标→途径”链断裂。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“称重 = 记录数据”的中性动作填进去，既满足不了 but 的反向要求，也给“改计划”提供不了动机。</p>"
+ },
+ {
+  "title": "逐项分析 · B lowering（降低，减少）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B lowering（降低，减少）✓ 当选",
+  "body": "<p><b>当选。</b>thinking only of lowering the number = 一门心思想降数字：与 but 前“增重（肌肉）”构成反向对照，又解释了“改计划”这个行为。</p>"
+ },
+ {
+  "title": "逐项分析 · C explaining（解释）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C explaining（解释）✗ 排除",
+  "body": "<p><b>排除。</b>解释数字同样驱动不了“改训练计划”；与 but 所要求的“增重 ↔ 降重”反向对比也对不上。</p>"
+ },
+ {
+  "title": "逐项分析 · D accepting（接受）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D accepting（接受）✗ 排除",
+  "body": "<p><b>排除。</b>接受数字意味着不焦虑、无需改计划，与 thinking only of（偏执于一件事）的语气和下文 conflicted with 的懊悔语境相反。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 4 填 lowering（降低，减少）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">but thinking only of <b>lowering</b> the number on the scale, I altered my training program.</div><p>但因为只想着降低体重计上的数字，我改变了训练计划。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "log": "答案 B（lowering 降低，减少）——见结论卡",
+  "body": "<p>答案选 <b>B（lowering 降低，减少）</b>。</p><p><b>记忆锚点</b>：but = 反向开关：gained weight（增重，好事）↔ lowering the number（想降数字，执念）；增肌变重不是错，错在“只看数字”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（recording）</b>：“称重 = 记录数据”是中性动作：but 要求前后反向（增重 ↔ 降数字），且“改计划”需要足够的动机，记录给不了。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 4 空 · but 转折后的动机动词：A recording / B lowering / C explaining / D accepting",
+  subtitle: "考点：句内语义（but 转折 + 动词辨析） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（lowering 降低，减少）", "html": "<b>B（lowering 降低，减少）</b>。<br>记忆锚点：but = 反向开关：gained weight（增重，好事）↔ lowering the number（想降数字，执念）；增肌变重不是错，错在“只看数字”。<br>最易误选：<b>A（recording）</b>——“称重 = 记录数据”是中性动作：but 要求前后反向（增重 ↔ 降数字），且“改计划”需要足够的动机，记录给不了。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 4 空 · but 转折后的动机动词</h2>
+<p>答案：<strong>B（lowering 降低，减少）</strong>。</p>
+<h3>第 0 步：先立机制——but 是反向开关：增重 ↔ 想降数字</h3>
+<p>but 要求前后反向：前句“增重”（对健身者是好事——肌肉重量）↔ 后句必然是与之相反的诉求“降数字”。作者的问题正是只想把数字压下去，于是改动训练计划（少练增肌、多刷脂），这与“如何训练才能实现目标”相悖（下句 conflicted with）。空格动词 = “降低（数字）”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>I had gained weight in the form of muscle mass, but thinking only of <strong>__4__</strong> the number on the scale, I altered my training program.</blockquote>
+<p>空 4 在分词结构 thinking only of __ the number 里，整个结构是主句 I altered my training program 的原因状语：因为只想着把体重计上的数字怎样，“我”才改了训练计划。前半句先说“我以肌肉的形式增了重”，中间隔着 but。</p>
+<h3>第 2 步：找证据——下句给“改计划”定了性：与训练需求冲突</h3>
+<blockquote>That conflicted with how I needed to train to reach my goals.</blockquote>
+<p>下句明说“改计划”是错误动作（conflicted with）；错误动作的动机正是“只盯数字往下压”——空格动词要能解释这个偏执的动机。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A recording</td><td>记录</td><td>✗ 排除</td><td>记录数字是中性动作，不会把人逼到“改变训练计划”；“记录数字”构不成改计划的动机，“目标→途径”链断裂。（典型误解：把“称重 = 记录数据”的中性动作填进去，既满足不了 but 的反向要求，也给“改计划”提供不了动机。）</td></tr><tr><td>B lowering</td><td>降低，减少</td><td>✓ 当选</td><td>thinking only of lowering the number = 一门心思想降数字：与 but 前“增重（肌肉）”构成反向对照，又解释了“改计划”这个行为。</td></tr><tr><td>C explaining</td><td>解释</td><td>✗ 排除</td><td>解释数字同样驱动不了“改训练计划”；与 but 所要求的“增重 ↔ 降重”反向对比也对不上。</td></tr><tr><td>D accepting</td><td>接受</td><td>✗ 排除</td><td>接受数字意味着不焦虑、无需改计划，与 thinking only of（偏执于一件事）的语气和下文 conflicted with 的懊悔语境相反。</td></tr></tbody></table>
+<p>代入后的完整句义：but thinking only of lowering the number on the scale, I altered my training program.（但因为只想着降低体重计上的数字，我改变了训练计划。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（recording）</strong>：“称重 = 记录数据”是中性动作：but 要求前后反向（增重 ↔ 降数字），且“改计划”需要足够的动机，记录给不了。</li></ul>
+<blockquote>记忆锚点：but = 反向开关：gained weight（增重，好事）↔ lowering the number（想降数字，执念）；增肌变重不是错，错在“只看数字”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

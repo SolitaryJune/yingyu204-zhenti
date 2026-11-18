@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 12 空 · There is another __12__: people became immensely inventive in hitting targets：A purpose / B problem / C prejudice / D policy</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 12 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 12 在「There is another __12__: people became immensely inventive in hitting targets」；考点：段际逻辑 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">There is another <b>__12__</b>: people became immensely inventive in hitting targets.</div><p>空 12 是 another 修饰的名词，冒号后是对它的具体展开；本段末句提供褒贬依据。</p>"
+ },
+ {
+  "title": "立机制 · another = 与上文并列的另一个“负面影响”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：another = 与上文并列的另一个“负面影响”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">There is another <b>__12__</b>: people became immensely inventive in hitting targets.</div><p>段际机制：another 表示与上文<b>并列</b>——上文已讲目标设定的负面影响之一（重视一个要素，其余被扭曲）；本段冒号后讲另一负面影响：<b>为达目标不择手段</b>。immensely inventive（极其有创意）是反话正说：为准时“发明”了延长时刻表这种操作。</p><p>“还有另一个 __” + 冒号后的投机操作 + 段末“一小时航程号称两小时”的贬义色彩 → 空格必须是负面名词 ⇒ problem（问题）。</p>"
+ },
+ {
+  "title": "找证据 · 段末证据：一小时航程号称两小时",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：段末证据：一小时航程号称两小时",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A one-hour flight is now billed as a two-hour flight.</div><p>billed（宣传为）暗示航空公司公然把一小时航程包装成两小时——为了准时这一目标不惜改写时刻表。这种“创意”显然是贬义的问题，而非什么“目的”或“原则”。</p>"
+ },
+ {
+  "title": "逐项分析 · A purpose（目的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A purpose（目的）✗ 排除",
+  "body": "<p><b>排除。</b>purpose（目的）中性偏正面；another purpose 语法通顺，但冒号后的“不择手段”与段末贬义容不下中性词。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被全文高频词 target 带节奏，another purpose 读起来顺口；段际并列 + 冒号后内容定褒贬，才是名词题的裁判。</p>"
+ },
+ {
+  "title": "逐项分析 · B problem（问题）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B problem（问题）✓ 当选",
+  "body": "<p><b>当选。</b>problem（问题）与上文“负面影响”并列，接住贬义内容。</p>"
+ },
+ {
+  "title": "逐项分析 · C prejudice（偏见）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C prejudice（偏见）✗ 排除",
+  "body": "<p><b>排除。</b>prejudice（偏见）虽是负面词，但指“负面态度 / 看法”，接不上“人们变得极具创意”这一事态变化。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到“负面”就选 prejudice；prejudice 的对象是“人或群体的看法”，不是“事态变化”。</p>"
+ },
+ {
+  "title": "逐项分析 · D policy（政策；原则）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D policy（政策；原则）✗ 排除",
+  "body": "<p><b>排除。</b>policy（政策 / 原则）是中性词，且“行事原则”是常态描述，与“已然发生的投机操作”不符。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（problem 问题）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>There is another problem: people became immensely inventive in hitting targets.（还有另外一个问题：人们在达成目标方面变得极其有创意。）</b></p><p>答案选 <b>B（problem 问题）</b>。</p><p><b>记忆锚点</b>：another __ = 与上文并列的另一个负面问题；immensely inventive 反话正说 = 不择手段。</p><p style=\"color:#b91c1c\">⚠ 最易误选 A（purpose）：被全文高频词 target 带节奏，another purpose 读起来顺口；段际并列 + 冒号后内容定褒贬，才是名词题的裁判。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 12 空 · There is another __12__: people became immensely inventive in hitting targets：A purpose / B problem / C prejudice / D policy",
+  subtitle: "考点：段际逻辑 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 B（problem 问题）",
+ "html": "<b>B problem（问题）</b>。<br>完整句：There is another problem: people became immensely inventive in hitting targets.（还有另外一个问题：人们在达成目标方面变得极其有创意。）<br>记忆锚点：another __ = 与上文并列的另一个负面问题；immensely inventive 反话正说 = 不择手段。<br>最易误选：<b>A purpose（目的）</b>——被全文高频词 target 带节奏，another purpose 读起来顺口；段际并列 + 冒号后内容定褒贬，才是名词题的裁判。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 12 空 · another 的并列对象与冒号后的贬义内容</h2>
+<p>答案：<strong>B（problem 问题）</strong>。</p>
+<h3>第 0 步：先立机制——another = 与上文并列的另一个“负面影响”</h3>
+<blockquote>There is another <strong>__12__</strong>: people became immensely inventive in hitting targets.</blockquote>
+<p>段际机制：another 表示与上文<strong>并列</strong>——上文已讲目标设定的负面影响之一（重视一个要素，其余被扭曲）；本段冒号后讲另一负面影响：<strong>为达目标不择手段</strong>。immensely inventive（极其有创意）是反话正说：为准时“发明”了延长时刻表这种操作。</p>
+<p>“还有另一个 __” + 冒号后的投机操作 + 段末“一小时航程号称两小时”的贬义色彩 → 空格必须是负面名词 ⇒ problem（问题）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>There is another <strong>__12__</strong>: people became immensely inventive in hitting targets.</blockquote>
+<p>空 12 是 another 修饰的名词，冒号后是对它的具体展开；本段末句提供褒贬依据。</p>
+<h3>第 2 步：找证据——段末证据：一小时航程号称两小时</h3>
+<blockquote>A one-hour flight is now billed as a two-hour flight.</blockquote>
+<p>billed（宣传为）暗示航空公司公然把一小时航程包装成两小时——为了准时这一目标不惜改写时刻表。这种“创意”显然是贬义的问题，而非什么“目的”或“原则”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A purpose</td><td>目的</td><td>✗ 排除</td><td>purpose（目的）中性偏正面；another purpose 语法通顺，但冒号后的“不择手段”与段末贬义容不下中性词。（典型误解：被全文高频词 target 带节奏，another purpose 读起来顺口；段际并列 + 冒号后内容定褒贬，才是名词题的裁判。）</td></tr><tr><td>B problem</td><td>问题</td><td>✓ 当选</td><td>problem（问题）与上文“负面影响”并列，接住贬义内容。</td></tr><tr><td>C prejudice</td><td>偏见</td><td>✗ 排除</td><td>prejudice（偏见）虽是负面词，但指“负面态度 / 看法”，接不上“人们变得极具创意”这一事态变化。（典型误解：看到“负面”就选 prejudice；prejudice 的对象是“人或群体的看法”，不是“事态变化”。）</td></tr><tr><td>D policy</td><td>政策；原则</td><td>✗ 排除</td><td>policy（政策 / 原则）是中性词，且“行事原则”是常态描述，与“已然发生的投机操作”不符。</td></tr></tbody></table>
+<p>代入后的完整句义：There is another problem: people became immensely inventive in hitting targets.（还有另外一个问题：人们在达成目标方面变得极其有创意。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么说 inventive 是“反话正说”？</strong>：inventive 本是褒义的“有创造力”，但此处“创造”的是修改航程时长这类规避目标的手段——表面夸奖，实则讽刺“为达标不择手段”，所以冒号前必须用贬义的 problem。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（purpose）</strong>：被 target 话题惯性带入。名词题先判褒贬：another 连接的是与上文并列的另一条负面影响。</li></ul>
+<blockquote>记忆锚点：another __ = 与上文并列的另一个负面问题；immensely inventive 反话正说 = 不择手段。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

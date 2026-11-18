@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-19 · 2025 完形第 19 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 衔接词＝句间关系的路标",
+    "cls": "key",
+    "tag": "审题",
+    "log": "末段四句：总起 → 建议① → 建议② → 原因解释",
+    "count": 0,
+    "body": "<p>空格位于末段第 2 句句首，后接祈使句 <code>take care over who you ask and when you ask them</code>（谨慎挑选求助对象与时机）。衔接词填的是<b>上句与本句的逻辑关系</b>——先把末段四句的关系图立起来：① So bear all this in mind...（总起建议）→ ② __19__, take care...（又一条建议）→ ③ And if someone can&#39;t help right now...（再一条）→ ④ They might just be too busy...（解释）。</p>"
+  },
+  {
+    "title": "定位原文 · ①→② 之间是追加",
+    "cls": "key",
+    "tag": "定位",
+    "log": "①总起与②建议之间是“追加”，不是因果／转折",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">So bear all this in mind the next time you need to ask for help. __19__, take care over who you ask and when you ask them.</div><p>So 承接上文研究结论并收束为“记住这一切”；空格句另起一条具体建议——<b>并列追加</b>语境。</p>"
+  },
+  {
+    "title": "证据 · And 引出的第 3 句锁定“清单未完”",
+    "cls": "key",
+    "tag": "证据",
+    "log": "第 3 句以 And 起头 ⇒ 第 2 句不是 Finally 的位置",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And if someone can&#39;t help right now, avoid taking it personally.</div><p>第 3 句以 And 开头，又是一条建议——第 2 句<b>不是清单的最后一条</b>，且与第 1 句方向一致（都在给建议）。“还有后续＋方向一致”合起来指向“此外”类衔接词。</p>"
+  },
+  {
+    "title": "逐项分析 · A Thus（因此）",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A Thus ✗ 排除——“记住结论”推不出“挑好对象”",
+    "count": 1,
+    "body": "<p><b>排除。</b>Thus（因此）引出结果或推论；但第 2 句（挑好求助对象与时机）并非第 1 句（记住研究结论）的推论，两条是并列的建议，无因果链。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B Also（此外）",
+    "cls": "good",
+    "tag": "选定 B",
+    "log": "B Also ✓ 当选——追加同类建议",
+    "count": 1,
+    "body": "<p><b>当选。</b>Also（此外；也）用于追加同类内容：第 1 句总建议之后，第 2 句补充一条具体建议，Also 恰好标示“还有一条”，与第 3 句 And 的追加语气一脉相承。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · C Finally（最后）",
+    "cls": "bad",
+    "tag": "排除 C",
+    "log": "C Finally ✗ 排除——后面还有 And 引出的建议",
+    "count": 2,
+    "body": "<p><b>排除。</b>Finally（最后）用于收束列举；但第 2 句之后第 3 句又以 And 引出一条建议，清单未完，第 2 句不占“最后”之位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“末段”当成“列举的最后一条”。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · D Instead（反而）",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D Instead ✗ 排除——两句话方向一致，无“相反”",
+    "count": 3,
+    "body": "<p><b>排除。</b>Instead（反而；却）引出与上文相反或替代的情况；第 2 句与第 1 句同为建议、方向一致，无取代或对立关系。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 句间关系与记忆锚点",
+    "cls": "good",
+    "tag": "答案 B",
+    "log": "答案 B（Also 此外）——建议清单用追加词",
+    "count": 3,
+    "body": "<p>答案选 <b>B（Also 此外）</b>。</p><p><b>记忆锚点</b>：衔接词先画句间关系图；祈使句建议清单里第 2 条用 Also；后面还有 And 就不能选 Finally；Thus 要有“果”、Instead 要有“反”，本段两样都没有。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 完形第 19 空 · 末段第二条建议前填哪个衔接词",
+  "subtitle": "考点：逻辑关系（衔接副词）· 末段句间关系图",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“句间关系图 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 B（Also 此外）",
+    "html": "<b>B Also（此外）</b>——末段“总起 → 追加建议 → 再追加”的清单结构，第 2 条用 Also 标示追加。<br>记忆锚点：Thus 要有因果、Instead 要有转折、Finally 要有收尾位置；三样都不满足，只剩 Also。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 19 空 · 末段第二条建议前填哪个衔接词</h2>
+<p>答案：<strong>B（Also 此外）</strong>。</p>
+<h3>第 0 步：先立机制——衔接词题先画“句间关系图”</h3>
+<p>空格位于末段第 2 句句首，其后是祈使句：take care over who you ask and when you ask them（谨慎挑选求助对象与时机）。衔接词填的是<strong>上一句与本句的逻辑关系</strong>，所以先把末段四句的关系立起来：</p>
+<ol><li>So bear all this in mind the next time you need to ask for help.（总起：下次求助时记住上文的研究结论）</li><li>__19__, take care over who you ask and when you ask them.（建议一：挑好求助的人与时机）</li><li>And if someone can't help right now, avoid taking it personally.（建议二：被拒绝别往心里去）</li><li>They might just be too __20__...（解释原因）</li></ol>
+<p>第 1 句已给出总建议；第 2 句是<strong>另一条</strong>具体建议——与第 1 句是“并列追加”，不是因果，不是转折，也不是“最后一条”（第 3 句的 And 又引出一条）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>So bear all this in mind the next time you need to ask for help. __19__, take care over who you ask and when you ask them.</blockquote>
+<p>So 收束上文的“研究结论”；空格句另起一条“行动建议”——典型的追加语境。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A Thus</td><td>因此</td><td>✗</td><td>因果词：第 2 句不是第 1 句的推论——“记住结论”推不出“挑好对象时机”，两者是并列的两条建议</td></tr><tr><td>B Also</td><td>此外；也</td><td>✓</td><td>追加同类内容：总建议之后补充一条具体建议，Also 恰好标示“还有一条”</td></tr><tr><td>C Finally</td><td>最后</td><td>✗</td><td>列举收尾词：但第 2 句后面还有 And 引出的第 3 句建议，它不占“最后一条”之位</td></tr><tr><td>D Instead</td><td>反而；却</td><td>✗</td><td>转折替代词：第 2 句与第 1 句同为建议、方向一致，无“取代／相反”关系</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么不选 C？行文确实快到文章结尾了</strong>：Finally 认定的是“建议清单的最后一条”，不是“文章的最后一段”。第 3 句 And if someone can't help... 显然又是一条建议，清单没有结束。</li><li><strong>第 1 句已有 So，第 2 句再填 Also 会不会重复</strong>：不重复——So 收束上文的“研究结果”，Also 开启下文的“行动建议”，一个向后看、一个向前接，分工不同。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（Thus）</strong>：把“记住这一切”与“谨慎挑人”误读成因果；实质是“总起—追加”的并列关系。</li><li><strong>误选 C（Finally）</strong>：只看位置（末段）不看内容（后面还有一条 And 建议）。</li></ul>
+<blockquote>记忆锚点：衔接词题先画句间关系图；祈使句建议清单里第 2 条用 Also；后面还有 And 就不能选 Finally；Thus 要有“果”、Instead 要有“反”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

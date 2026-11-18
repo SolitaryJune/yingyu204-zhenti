@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-32 · 2019 阅读 Text 3 第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · trouble 题=抓定位段的“负面词”", "cls": "key", "tag": "定位", "log": "agricultural workforce ↔ 第三段；先扫 aging、hard on older bodies 等负面表达", "count": 0, "ribbon": null, "body": "<p>题干：One <b>trouble</b> with U.S. agricultural workforce is ____.</p><p>机制：trouble（麻烦）要在定位段里找<b>负面表达</b>。U.S. agricultural workforce ↔ 第三段 the agricultural workforce，扫读该段：aging（老龄化）、hard on older bodies（老年身体吃不消）——负面词集中在此。</p>"}, {"title": "定位原文 · 第三段拼出“老龄化+外籍为主”", "cls": "key", "tag": "证据", "log": "aging：35 岁以上从 1/3 升到过半；predominantly born in Mexico：外籍为主", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Perhaps half of U.S. farm laborers are undocumented immigrants. As fewer such workers enter the country, the characteristics of the agricultural workforce are changing.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today’s farm laborers, while still predominantly born in Mexico, are more likely to be settled rather than migrating and more likely to be married than single. They’re also aging. At the start of this century, about one-third of crop workers were over the age of 35. Now more than half are. And picking crops is hard on older bodies.</div><p>两个信息合并：①④⑤句 aging——35 岁以上占比从三分之一升到<b>过半</b>，且 picking crops is hard on older bodies（收庄稼对上了年纪的身体很吃力）；③句 still <b>predominantly born in Mexico</b>——当前劳动力以<b>外籍</b>为主。⇒ 麻烦 = <b>外籍农工的老龄化</b>。</p>"}, {"title": "逐项分析 · A the rising number of illegal immigrants", "cls": "bad", "tag": "排除 A", "log": "A the rising number of illegal immigrants ✗ 排除——数字反向：②句 fewer such workers enter the country——进入的非法移民在减少，不是增加", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>数字反向：②句 fewer such workers enter the country——进入的非法移民在减少，不是增加。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词复现（undocumented immigrants）+ 方向拧反（fewer → rising）——反向干扰的典型。</p>"}, {"title": "逐项分析 · B the high mobility of crop workers", "cls": "bad", "tag": "排除 B", "log": "B the high mobility of crop workers ✗ 排除——与③句相悖：more likely to be settled rather than migrating——更定居、更已婚，流动性在下降", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>与③句相悖：more likely to be settled rather than migrating——更定居、更已婚，流动性在下降。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“外籍工人多”默认成“流动性高”——与原文的“定居化”相反。</p>"}, {"title": "逐项分析 · C the lack of experienced laborers", "cls": "bad", "tag": "排除 C", "log": "C the lack of experienced laborers ✗ 排除——拼贴干扰：shortages 确实复现于首段，但 experienced（有经验）在文中无迹可寻", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>拼贴干扰：shortages 确实复现于首段，但 experienced（有经验）在文中无迹可寻。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只对上“短缺”这个词就选，没做逐词对账。</p>"}, {"title": "逐项分析 · D the aging of immigrant farm workers", "cls": "good", "tag": "选定 D", "log": "D the aging of immigrant farm workers ✓ 当选——aging 复现于④⑤句并有害处佐证（hard on older bodies）；③句 predominantly born in Mexico 补上“外籍”限定", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>aging 复现于④⑤句并有害处佐证（hard on older bodies）；③句 predominantly born in Mexico 补上“外籍”限定。</p><p>对应关系：They’re also aging + predominantly born in Mexico ↔ the aging of immigrant farm workers。</p>"}, {"title": "结论 · 反向干扰的识别", "cls": "good", "tag": "答案 D", "log": "答案 D（the aging of immigrant farm workers）——负面词定位+两个信息合并", "count": 3, "ribbon": null, "body": "<p>答案选 <b>D（the aging of immigrant farm workers 外籍农工的老龄化）</b>。</p><p><b>记忆锚点</b>：trouble/问题题先扫定位段的负面词（aging、hard on older bodies）；反向干扰的特征 = 原词复现 + 方向相反（fewer vs rising、settled vs mobility）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>C</b>：shortages 原词在文中，但选项的另一个实词 experienced 找不到出处——细节题要逐词对账。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 3 第 32 题 · 美国农业劳动力的麻烦（细节题）",
+  subtitle: "考点：事实细节题 · 负面词定位 → 信息合并 → 反向干扰识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 因果链/关键词比对 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（the aging of immigrant farm workers）", "html": "<b>D the aging of immigrant farm workers（外籍农工的老龄化）</b>：aging（35 岁以上过半）+ predominantly born in Mexico（外籍为主）合并。<br>最易误选：<b>C</b>——shortages 复现但 experienced 无出处。<br>记忆锚点：trouble 题=扫负面词；反向干扰=原词复现+方向拧反（fewer/rising、settled/mobility）。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——“麻烦”藏在负面表达 aging 里</h2>
+<p>答案：<strong>D（the aging of immigrant farm workers 外籍农工的老龄化）</strong>。</p>
+<h3>第 0 步：先立机制——trouble 题=抓定位段里的“负面词”</h3>
+<blockquote>Today's farm laborers, while still predominantly born in Mexico, are more likely to be settled rather than migrating and more likely to be married than single. They're also aging. At the start of this century, about one-third of crop workers were over the age of 35. Now more than half are. And picking crops is hard on older bodies.</blockquote>
+<ul><li>③句：仍以<strong>墨西哥出生者为主</strong>（外籍为主）；</li><li>④⑤⑥句：<strong>aging</strong>——35 岁以上占比从 1/3 升到过半；</li><li>⑦句：picking crops is <strong>hard on older bodies</strong>——老龄化确实碍事。</li><li>合并：美国农业劳动力的麻烦 = <strong>外籍农工的老龄化</strong> → D。</li></ul>
+<h3>第 1 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A the rising number of illegal immigrants</td><td>✗</td><td>数字反向：②句 fewer such workers enter the country——进入的非法移民在减少</td></tr><tr><td>B the high mobility of crop workers</td><td>✗</td><td>与③句相悖：more likely to be settled rather than migrating——更定居，流动性在降</td></tr><tr><td>C the lack of experienced laborers</td><td>✗</td><td>拼贴：shortages 确实复现，但 experienced（有经验）无迹可寻</td></tr><tr><td>D the aging of immigrant farm workers</td><td>✓</td><td>aging + predominantly born in Mexico 合并</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：只对上“短缺（shortage）”这个词就选。细节题要<strong>逐词对账</strong>：选项的每个实词都得在原文有着落，experienced 找不到出处。</li><li><strong>误选 A/B</strong>：A、B 与原文的比较级/方向词（fewer、more likely to be settled）恰好相反——反向干扰项的特征是“词汇复现、方向拧反”。</li></ul>
+<blockquote>记忆锚点：trouble/问题题先扫定位段的负面词（aging、hard on older bodies）；反向干扰的特征 = 原词复现 + 方向相反（fewer vs rising，settled vs mobility）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

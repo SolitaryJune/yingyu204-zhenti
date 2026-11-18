@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-45 · 2017 新题型 · 45 · Julie Parks 的观点</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "先立机制 · 人物—观点匹配怎么破", "cls": "key", "tag": "机制", "count": 0, "ribbon": null, "log": "机制：人名回文定位 → 抓观点标记词（says/points to/双引号）锁定观点 → 与选项同义替换比对", "body": "<p>本篇新题型是<b>人物—观点匹配</b>：左列 5 个人物，右列 7 个观点（2 个多余）。解法三步：<b>① 人名回文定位</b>——人物名字只在某一段出现，直接跳到那一段；<b>② 抓观点标记词</b>——says / points to / says + 双引号，标记词管到哪儿，观点就到哪儿；<b>③ 同义替换比对</b>——选项几乎都是原文观点的改写，比关键词复现与语义等值。</p>"}, {"title": "定位第十一段 · Parks 说了什么", "cls": "key", "tag": "定位", "count": 0, "ribbon": null, "log": "定位第十一段：①句 points to 给出关键词 a work/life balance，双引号补充说明", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Julie Parks of Grand Rapids Community College <b>points to</b> another key to <b>luring Millennials into manufacturing</b>: <b>a work/life balance</b>. While their parents were content to work long hours, young people value flexibility. “<b>Overtime is not attractive to this generation. They really want to live their lives</b>,” she says.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第十一段①②句</p><p>观点标记词换了个说法：<b>points to</b>（指出）。她点的“关键”是 <b>a work/life balance</b>——老一辈甘愿加班，年轻人看重弹性，“加班对这代人没有吸引力，他们真的要过自己的生活”。</p>"}, {"title": "同义比对 · F 当选", "cls": "good", "tag": "选定 F", "count": 1, "ribbon": {"k": "F", "ok": true}, "log": "F ✓ 当选——a work/life balance 原词复现，luring ↔ attract 同义替换", "body": "<p><b>当选 F。</b>“points out that <b>a work/life balance</b> can <b>attract</b> young people into manufacturing.”——a work/life balance 原词照搬；attract ↔ luring（吸引）；young people ↔ Millennials。冒号后的关键词与选项严丝合缝。</p>"}, {"title": "逐项归位 · C 的主人是Donald Trump", "cls": "bad", "tag": "C→Donald", "count": 0, "ribbon": {"k": "C", "ok": false}, "log": "C ✗ 排除——该选项属于Donald Trump（第一段）", "body": "<p><b>排除 C。</b>points out that the US doesn't manufacture anything anymore.</p><p>依据（第一段）：“We don't make anything anymore,” he told Fox News</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · D 的主人是Robert Roth", "cls": "bad", "tag": "D→Robert", "count": 0, "ribbon": {"k": "D", "ok": false}, "log": "D ✗ 排除——该选项属于Robert Roth（第六段）", "body": "<p><b>排除 D。</b>believes that it is important to keep a close eye on the age of his workers.</p><p>依据（第六段）：Robert Roth keeps a close eye on the age of his nearly 200 workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · A 的主人是Jason Stenquist", "cls": "bad", "tag": "A→Jason ", "count": 0, "ribbon": {"k": "A", "ok": false}, "log": "A ✗ 排除——该选项属于Jason Stenquist（第七段）", "body": "<p><b>排除 A。</b>says that he switched to electrical engineering because he loves working with tools.</p><p>依据（第七段）：considered medical school before switching to electrical engineering / “I love working with tools. I love creating.”</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · E 的主人是Jay Dunwell", "cls": "bad", "tag": "E→Jay Du", "count": 0, "ribbon": {"k": "E", "ok": false}, "log": "E ✗ 排除——该选项属于Jay Dunwell（第五段）", "body": "<p><b>排除 E。</b>says that for factory owners, workers are harder to find because of stiff competition.</p><p>依据（第五段）：“They're harder to find and they have job offers” + ①句 stiff competition for workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · G 的主人是Birgit Klohs", "cls": "bad", "tag": "G→Birgit", "count": 0, "ribbon": {"k": "G", "ok": false}, "log": "G ✗ 排除——该选项属于Birgit Klohs（第八段）", "body": "<p><b>排除 G。</b>says that the manufacturing recession is to blame for the lay-off of the young people's parents.</p><p>依据（第八段）：“remember their father and mother both were laid off. They blame it on the manufacturing recession,” says Birgit Klohs</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · B 的主人是Rob Spohr", "cls": "bad", "tag": "B→Rob Sp", "count": 0, "ribbon": {"k": "B", "ok": false}, "log": "B ✗ 排除——该选项属于Rob Spohr（第十段）", "body": "<p><b>排除 B。</b>points out that there are enough people to fill the jobs that don't need much skill.</p><p>依据（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "结论 · 匹配链与记忆锚点", "cls": "good", "tag": "答案 F", "count": 7, "ribbon": null, "log": "45 = F——观点标记词不止 says，points to 同样算数", "body": "<p>匹配链：<b>人名 Julie Parks → 第十一段 → points to → “工作—生活平衡能吸引年轻人进制造业” → F。</b></p><p>观点标记词家族：says / points to / notes / argues / 双引号——见到人名先圈标记词，<b>答案选 F</b>。</p>"}];
+
+AW.init({
+  title: "2017 新题型 · 45 · Julie Parks 的观点",
+  subtitle: "考点：人物—观点匹配——定位 + 观点标记词 + 同义替换",
+  counterLabel: "已比对",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 归属他人）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 比对 → 逐项归位”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "45 → F（Julie Parks）", "html": "Parks：<b>工作—生活平衡能把年轻人吸引进制造业</b>（a work/life balance ↔ 原词；attract ↔ luring）。<br>记忆锚点：观点标记词不止 says——<b>points to / notes / argues</b> 都是；标记词辖到哪，观点就到哪。<br>最易误选：<b>B</b>——同为“岗位与人力”话题，但“低技能岗位不缺人”出自第十段 Spohr。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 新题型第 45 题 · Julie Parks 的观点</h2>
+<p>答案：<strong>F（points out that a work/life balance can attract young people into manufacturing.）</strong>。</p>
+<h3>第 0 步：先立机制——观点标记词不止 says</h3>
+<p>（三步法同前。）本题看点：标记词是 <strong>points to</strong>（指出）——观点标记词家族：says / points to / notes / argues / 双引号。见到人名先圈标记词，标记词辖到哪，观点就到哪。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Julie Parks of Grand Rapids Community College <strong>points to</strong> another key to <strong>luring Millennials into manufacturing</strong>: <strong>a work/life balance</strong>. While their parents were content to work long hours, young people value flexibility. “<strong>Overtime is not attractive to this generation. They really want to live their lives</strong>,” she says.（第十一段①②句）</blockquote>
+<h3>第 2 步：找证据——冒号后的关键词</h3>
+<p>points to 点出的“关键”是 a work/life balance；后续两句补充理由：老一辈甘愿加班，年轻人看重弹性、要过自己的生活。与 F 项比对：a work/life balance 原词照搬；attract ↔ luring；young people ↔ Millennials。</p>
+<h3>第 3 步：逐项排除（归位到主人）</h3>
+<table><thead><tr><th>选项</th><th>观点内容</th><th>判定</th><th>主人与依据</th></tr></thead><tbody><tr><td>A</td><td>says that he switched to electrical engineering because he loves working with tools.</td><td>✗ 排除</td><td>Jason Stenquist（第七段）：considered medical school before switching to electrical engineering；“I love working with tools. I love creating.”</td></tr><tr><td>B</td><td>points out that there are enough people to fill the jobs that don’t need much skill.</td><td>✗ 排除</td><td>Rob Spohr（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</td></tr><tr><td>C</td><td>points out that the US doesn’t manufacture anything anymore.</td><td>✗ 排除</td><td>Donald Trump（第一段）：“We don't make anything anymore,” he told Fox News</td></tr><tr><td>D</td><td>believes that it is important to keep a close eye on the age of his workers.</td><td>✗ 排除</td><td>Robert Roth（第六段）：keeps a close eye on the age of his nearly 200 workers</td></tr><tr><td>E</td><td>says that for factory owners, workers are harder to find because of stiff competition.</td><td>✗ 排除</td><td>Jay Dunwell（第五段）：“They're harder to find and they have job offers” + For factory owners, it all adds up to stiff competition for workers</td></tr><tr><td>F</td><td>points out that a work/life balance can attract young people into manufacturing.</td><td>✓ 当选（本题）</td><td>Julie Parks（第十一段）：points to another key to luring Millennials into manufacturing: a work/life balance</td></tr><tr><td>G</td><td>says that the manufacturing recession is to blame for the lay-off of the young people’s parents.</td><td>✗ 排除</td><td>Birgit Klohs（第八段）：“remember their father and mother both were laid off. They blame it on the manufacturing recession”</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>luring 为什么算替换 attract？</strong>：lure = 吸引、诱使，attract = 吸引，且后面都接 into manufacturing——同义词对。</li><li><strong>本篇七选项为何每题都全列？</strong>：命题把全篇观点都放进右列，多余的用来干扰——所以每题只做一件事：本题人物的观点 vs 选项的主人。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>漏掉 points to</strong>：只认识 says，跟丢标记词。</li><li><strong>误选 B（points out that there are enough people to fill the jobs that don’t need much skill.）</strong>：同话题不同主人——“低技能岗位不缺人”出自第十段 Spohr。</li></ul>
+<blockquote>记忆锚点：观点标记词家族——<strong>says / points to / notes / argues / 双引号</strong>；lure ↔ attract；冒号后的名词短语常是观点关键词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

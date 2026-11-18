@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015-48 大作文谋篇：春节开支饼图的「解读→归因→评论」与 80% 人情消费</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2014-48 成品范式）：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：饼图读构成，两指令定两件事',
+    cls: 'key',
+    body: '<p><b>1) interpret the chart</b>（必答点 1：解读图表）+ <b>2) give your comments</b>（必答点 2：发表评论）。题型 = <b>饼图（占比图）</b>，150 词。读图动作由题型决定：柱状/线图读<b>趋势</b>，饼图读<b>构成</b>——排序（谁最大）、归类（哪些同属一类）、合计（加起来到什么程度）。interpret 不等于逐块报数，comments 要含立论 + 反面 + 建议。</p>' },
+  { title: '审图表：四块数据排序、归类、合计',
+    cls: 'step',
+    body: '<p>图表主题：某市居民春节期间开支构成。四块占比：<b>新年礼物 40%</b> ＞ <b>聚会吃饭 20%</b> = <b>交通 20%</b> ＞ 其他 20%。</p><p>归类：前三项（送礼 + 聚餐 + 出行）合计 <b>80%</b>，全部指向<b>人情往来</b>——这就是全文的解读抓手：数据 → 现象（春节开支以人情消费为主）→ 归因（团圆节日的文化属性）→ 评论（人情消费要理性）。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> interpret：图表性质句 + 数据呈现句（冒号同位列举）+ 占比汇总句（account for 80%）。<b>段 2</b> 归因：判断句（80% = 维系人际关系）→ 文化归因（春节 = 团圆节）→ 意义层（人际交往有益个人幸福）。<b>段 3</b> comments：转折立论（不过极端）→ 反面情形（爱面子人群）→ 后果（浪费 + 负担）→ 建议（理性消费，幸福才是重点）。功能错位（第一段只报数、第三段空赞）是图表作文最大丢分源。</p>' },
+  { title: '段 1 性质句：reflect + types and respective proportions',
+    cls: 'good',
+    body: '<p><b>The chart reflects the Spring Festival spending types and their respective proportions.</b></p><p>reflect 说清图表「反映了什么」，<b>types and respective proportions</b>（类型与各自的比例）正是饼图信息的精确概括——性质句一句立起，不写 The chart is about... 这类含糊话。</p>' },
+  { title: '段 1 呈现句 + 汇总句：先归类再列举，合计一锤定音',
+    cls: 'good',
+    body: '<p><b>Chinese people\u2019s money is mainly used for three purposes during the Spring Festival: traveling, New Year\u2019s gift giving and having dinners with friends or relatives. They account for 80% of total spending.</b></p><p>钱作主语 + <b>is used for</b> 被动式 + 冒号后<b>同位列举</b>三个名目（出行 / 送新年礼物 / 聚餐）——先归类（three purposes）再列举，数据呈现句的标准形。<b>account for</b> = 占，80% 是<b>三项合计</b>：归类的意义一锤定音，比逐块罗列更有信息量。</p>' },
+  { title: '段 2 判断句：承接数据直接下判断',
+    cls: 'key',
+    body: '<p><b>Most spending is used to maintain or facilitate interpersonal relationship.</b></p><p>首句承上：most spending 指的就是那 80%——把「花钱」翻译成它的真实用途：<b>maintain or facilitate interpersonal relationship</b>（维护或促进人际关系）。数据 → 现象的转换一步到位，归因段由此开篇。</p>' },
+  { title: '段 2 文化归因 + 意义层：since 给原因',
+    cls: 'good',
+    body: '<p><b>This finding is not strange, since the Spring Festival is a Chinese traditional festival for family reunion. Developing relationship is beneficial and necessary for a person\u2019s fulfillment and investing on people we love is sweet and happy.</b></p><p><b>since</b> 给出归因：春节本质是<b>团圆节</b>，人情开支与节日性质同向，所以数据「不奇怪」。再落一层价值判断：人际交往对个人幸福有益且必要、为所爱之人投资是甜蜜的——归因不停在文化，段 2 才厚实。</p>' },
+  { title: '段 3 转折立论：However, we should not go to extremes',
+    cls: 'bad',
+    body: '<p><b>However, we should not go to extremes.</b></p><p>评论三层的第一锤：肯定了人情消费的合理性之后，用 <b>However + go to extremes</b>（走向极端）转折立论——不是全盘否定人情消费，而是反对「过犹不及」。comments 的立场先立稳，后面才有展开的骨架。</p>' },
+  { title: '段 3 反面情形：后置定语刻画「爱面子」人群',
+    cls: 'bad',
+    body: '<p><b>In China, there are many people fond of appearing extraordinary and hating to be known as weaker and poorer. They use handsome money to blindly pursue pride.</b></p><p>形容词短语 <b>fond of...</b> 与分词短语 <b>hating to...</b> 后置并列修饰 people，一正一反：爱显得不凡、怕被认为弱与穷——「爱面子」画像两笔画完。<b>handsome</b> 取「大量的」（handsome money = 大笔的钱，熟词僻义），<b>pride</b> 此处指「面子」而非「自豪」。</p>' },
+  { title: '段 3 后果：impose burden + 过去分词定语',
+    cls: 'bad',
+    body: '<p><b>Such intention causes huge waste of money and imposes heavy economic burden on people involved. The pride gotten by squandering money is transient and can only be a topic for gossip soon forgotten by others.</b></p><p>后果两层：巨大浪费 + <b>impose heavy economic burden on</b> people involved（给当事人造成沉重经济负担）；再补一刀——<b>gotten by squandering money</b> 过去分词定语压紧主语，<b>transient</b>（短暂的）钉死结论：挥霍换来的面子不长久，只能沦为八卦谈资。</p>' },
+  { title: '段 3 建议：先破后立，强调句收尾',
+    cls: 'good',
+    body: '<p><b>Therefore, we should think rationally before opening our purses. We should remember it is happiness that is the main concern.</b></p><p>建议落两条：打开钱包前<b>理性思考</b>（rationally）；再用强调句 <b>It is happiness that...</b> 把强调点钉在 happiness 上——落点从「钱」挪回「幸福」，评论收在价值上，三层（立论 → 反面 → 建议）齐了。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>解读（性质 + 呈现 + 占比合计 80%）→ 归因（判断 + 团圆节文化 + 意义）→ 评论（不过极端 → 爱面子情形 → 浪费与负担 → 理性建议）</b>；饼图读法 = 排序 + 归类 + 合计；高分词块：account for 占、handsome money 大笔的钱、pursue pride 追面子、impose burden on、transient、It is... that... 强调句。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2015-48 大作文谋篇演示：春节开支饼图的「解读→归因→评论」',
+  subtitle: '考点：图表作文（饼图）· 方法：审数据（排序/归类/合计 80%）→ 定三段功能 → 逐段升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>The chart reflects the Spring Festival spending types and their respective proportions. Chinese people\u2019s money is mainly used for three purposes during the Spring Festival: traveling, New Year\u2019s gift giving and having dinners with friends or relatives. They account for 80% of total spending.</p>' +
+      '<p>Most spending is used to maintain or facilitate interpersonal relationship. This finding is not strange, since the Spring Festival is a Chinese traditional festival for family reunion. Developing relationship is beneficial and necessary for a person\u2019s fulfillment and investing on people we love is sweet and happy.</p>' +
+      '<p>However, we should not go to extremes. In China, there are many people fond of appearing extraordinary and hating to be known as weaker and poorer. They use handsome money to blindly pursue pride. Such intention causes huge waste of money and imposes heavy economic burden on people involved. The pride gotten by squandering money is transient and can only be a topic for gossip soon forgotten by others. Therefore, we should think rationally before opening our purses. We should remember it is happiness that is the main concern.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>解读 → 归因 → 评论</b>；饼图 = 排序 + 归类 + 合计（80% 人情消费）；归因扣团圆节；评论三层 = 转折立论 → 反面情形与后果 → 理性建议；handsome = 大量的、pride = 面子。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 大作文——春节开支饼图：排序归类读出"人情消费" → 归因 → 理性评论</h2>
+<p>答案（范文）：<strong>The chart reflects the Spring Festival spending types and their respective proportions. Chinese people's money is mainly used for three purposes during the Spring Festival: traveling, New Year's gift giving and having dinners with friends or relatives. They account for 80% of total spending.</strong></p>
+<p><strong>Most spending is used to maintain or facilitate interpersonal relationship. This finding is not strange, since the Spring Festival is a Chinese traditional festival for family reunion. Developing relationship is beneficial and necessary for a person's fulfillment and investing on people we love is sweet and happy.</strong></p>
+<p><strong>However, we should not go to extremes. In China, there are many people fond of appearing extraordinary and hating to be known as weaker and poorer. They use handsome money to blindly pursue pride. Such intention causes huge waste of money and imposes heavy economic burden on people involved. The pride gotten by squandering money is transient and can only be a topic for gossip soon forgotten by others. Therefore, we should think rationally before opening our purses. We should remember it is happiness that is the main concern.</strong></p>
+<h3>第 0 步：先立机制——饼图的重心不是"变化"而是"构成"</h3>
+<p>图表作文三段各司其职，但读图动作由题型决定：柱状图/线图读<strong>趋势</strong>，<strong>饼图读构成占比</strong>——排序（谁最大）、归类（哪些同属一类）、合计（加起来到什么程度）。</p>
+<table><thead><tr><th>段落</th><th>功能</th><th>判分点</th></tr></thead><tbody><tr><td>段 1 interpret the chart</td><td>图表性质 + 数据呈现 + 占比汇总</td><td>不是逐块报数，而是归纳出主次</td></tr><tr><td>段 2 归因</td><td>解释数据背后的人情/文化逻辑</td><td>归因要与数据同向：人情开支 ↔ 团圆节日</td></tr><tr><td>段 3 give your comments</td><td>评价：立论 + 反面 + 建议</td><td>转折后要有具体情形与后果，不喊空口号</td></tr></tbody></table>
+<p>本题数据自己"会说话"：四个占比里三个有名目——新年礼物 40%、聚会吃饭 20%、交通 20%，合计 80%，全部指向<strong>人情往来</strong>。这就是全文的解读抓手：数据 → 现象（春节开支以人情消费为主）→ 归因（团圆节日的文化属性）→ 评论（人情消费要理性）。</p>
+<h3>第 1 步：审图表——四块数据排序、归类、合计</h3>
+<table><thead><tr><th>数据</th><th>占比</th><th>归类</th></tr></thead><tbody><tr><td>新年礼物</td><td>40%</td><td>人情往来（送礼）</td></tr><tr><td>聚会吃饭</td><td>20%</td><td>人情往来（聚餐）</td></tr><tr><td>交通</td><td>20%</td><td>人情往来（返乡团圆/出行）</td></tr><tr><td>其他</td><td>20%</td><td>其余杂项</td></tr></tbody></table>
+<p>排序：礼物 &gt; 聚会 = 交通 &gt; 其他；归类：前三项合计 <strong>80%</strong>，都是人情交往开支，与春节"团圆节"的性质相符。段 1 由此排出三个信息：图表性质（开支类型与占比）→ 三个名目 → 合计占比。范文把"交通"表述为 traveling（出行），写作时保持这一口径即可。</p>
+<h3>第 2 步：段 1 写法——性质句 + 呈现句 + 汇总句</h3>
+<ul><li>性质句 <code>The chart reflects the Spring Festival spending types and their respective proportions</code>：reflect + types and respective proportions（各自的比例），一句说清图表"是什么"。</li><li>呈现句 <code>Chinese people's money is mainly used for three purposes...: traveling, New Year's gift giving and having dinners with friends or relatives</code>：钱作主语、is used for 被动式、冒号后同位列举三个名目——数据呈现句的标准形：先归类（three purposes）再列举。</li><li>汇总句 <code>They account for 80% of total spending</code>：account for = 占；80% 是<strong>三项合计</strong>——归类的意义一锤定音。</li></ul>
+<h3>第 3 步：段 2 归因——判断 + 文化归因 + 意义</h3>
+<ul><li>判断句 <code>Most spending is used to maintain or facilitate interpersonal relationship</code>：承接段 1 直接下判断——most spending 指的就是那 80%。</li><li>文化归因 <code>This finding is not strange, since the Spring Festival is a Chinese traditional festival for family reunion</code>：since 给原因——春节本质是团圆节，人情开支与节日性质同向，数据"不奇怪"。</li><li>意义层 <code>Developing relationship is beneficial and necessary for a person's fulfillment and investing on people we love is sweet and happy</code>：把"花钱维系关系"提到个人幸福与成长的高度——归因不停在文化，再落一层价值判断，段 2 才厚实。</li></ul>
+<h3>第 4 步：段 3 评论——转折立论 + 反面情形 + 后果 + 建议</h3>
+<ul><li>转折立论 <code>However, we should not go to extremes</code>：肯定人情消费的合理性之后，comments 的重心转向"过犹不及"。</li><li>反面情形 <code>In China, there are many people fond of appearing extraordinary and hating to be known as weaker and poorer. They use handsome money to blindly pursue pride</code>：形容词短语 fond of... 与分词短语 hating to... 后置并列修饰 people，一正一反刻画"爱面子"人群；<strong>handsome</strong> 取"大量的"（熟词僻义），<strong>pride</strong> 此处指"面子"而非"自豪"。</li><li>后果 <code>Such intention causes huge waste of money and imposes heavy economic burden on people involved. The pride gotten by squandering money is transient...</code>：impose...burden on 后果句；gotten by squandering money 过去分词定语把主语压紧；transient（短暂的）钉死"挥霍换来的面子不长久"。</li><li>建议 <code>Therefore, we should think rationally before opening our purses. We should remember it is happiness that is the main concern</code>：rationally 理性；强调句 It is happiness that... 把落点从"钱"挪回"幸福"，评论收在价值上。</li></ul>
+<h3>高分句型（自组要点）</h3>
+<ul><li><code>...is mainly used for three purposes: A, B and C</code>——冒号同位列举，呈现句标准形。</li><li><code>account for ...% of total spending</code>——占比句。</li><li><code>This finding is not strange, since...</code>——数据 → 归因的衔接句。</li><li><code>there are many people fond of... and hating to...</code>——形容词短语 + 分词短语后置定语。</li><li><code>impose heavy economic burden on people involved</code>——后果句。</li><li><code>The pride gotten by squandering money is transient</code>——过去分词定语 + 表语判断句。</li><li><code>It is happiness that is the main concern</code>——强调句收尾，落点钉在价值上。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>逐块报数不分主次</strong>：四个数字平铺没有归纳——interpret 的核心是"排序 + 归类 + 合计"，80% 这个数比四块罗列更有信息量。</li><li><strong>段 2 复述数据不归因</strong>：只说"钱都花在人情上"不回答 why（团圆节的文化属性），归因段就空了。</li><li><strong>段 3 只夸不评 / 只批不建</strong>：评论三层（不过极端 → 极端情形与后果 → 理性建议）缺层即不完整。</li><li><strong>pride 词义用偏</strong>：本篇 pride = 面子/虚荣（pursue pride 追面子），按"自豪感"写会跑偏。</li><li><strong>handsome 熟词僻义</strong>：handsome money = 大量的钱，不是"英俊"。</li><li><strong>合计说成单项</strong>：80% 是三项合计，写成单项占 80% 是数据硬伤。</li><li><strong>强调句写错</strong>：It is happiness that... 的强调句须用 that，写成 which 不成立。</li></ul>
+<blockquote>记忆锚点：饼图解读 = <strong>排序 + 归类 + 合计</strong>；三段 = 解读（性质 + 呈现 + 占比）→ 归因（判断 + 文化 + 意义）→ 评论（转折立论 + 反面 + 后果 + 建议）；account for 占；handsome = 大量的、pride = 面子；It is... that... 强调句收尾。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

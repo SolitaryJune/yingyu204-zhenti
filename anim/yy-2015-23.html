@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-23 · 2015 阅读第 23 题 · “角色模糊”＝身兼两职——养家的人同时是做家务的人 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · blurring 是“角色数量”问题", "cls": "key", "tag": "审题", "log": "审题眼：blurring（模糊）＝边界不清——一个人身上叠了几个角色；且限定主语是 working women", "count": 0, "ribbon": null, "body": "<p>题干：The blurring of working women’s roles refers to the fact that ___. “模糊”的语义焦点在<b>角色边界不清</b>：需要至少两个角色叠在同一人身上。另外注意主语限定 working women（职业女性）。</p>"},
+ {"title": "定位原文 · ④句摆事实、⑤句命名", "cls": "key", "tag": "定位", "log": "定位原文：④职业女性下班后赶家务 → ⑤ With the blurring of roles 总括", "count": 0, "ribbon": null, "body": quote("And for women who work outside the home, they often are playing catch-up-with-household tasks. With the blurring of roles, and the fact that…, it’s not surprising that women are more stressed at home.") + "<p>④句先摆事实，⑤句再用 with the blurring of roles 对它<b>总括命名</b>——“角色模糊”的具体所指就在④句。</p>"},
+ {"title": "同义替换 · 双角色叠加＝养家者＋主妇", "cls": "key", "tag": "替换", "log": "同义替换：在外工作（breadwinner）＋回家赶家务（housewife）＝双重角色", "count": 0, "ribbon": null, "body": "<p>④句说职业女性“在外工作之外还要追赶家务进度”——同一个人身上压着<b>职场人＋家务承担者</b>两个角色，这正是“模糊”：分不清哪头是哪头。</p>"},
+ {"title": "逐项分析 · B they are both bread winners and housewives", "cls": "good", "tag": "选定 B", "log": "B 既要赚钱养家也要兼顾家务 ✓ 当选——完整概括④句的双重角色", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>bread winner（在外赚钱）＋housewife（在家操持家务）两个角色叠加在职业女性身上＝blurring of roles，④句的完整概括。</p>"},
+ {"title": "逐项分析 · C there is often much housework left behind", "cls": "bad", "tag": "排除 C", "log": "C 总有做不完的家务 ✗ 排除——只覆盖“家务”半边，单一角色构不成“模糊”", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>C 只说了④句的后半边（家务），丢掉了“在外工作”前半边。只有“家务”一个角色，最多是“负担重”，谈不上“角色模糊”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“模糊”当成“量多”。</p>"},
+ {"title": "逐项分析 · D it is difficult for them to leave their office", "cls": "bad", "tag": "排除 D", "log": "D 她们难有收工之时 ✗ 排除——③句说的是 stay-home women，主语张冠李戴", "count": 2, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>never get to leave the office 出自③句，主语是 <b>for women who stay home</b>（全职主妇）；题干限定的是 working women。主体一换，选项即错。</p><p style=\"color:#b91c1c\">⚠ 典型误解：三类人的句子没对准主语。</p>"},
+ {"title": "逐项分析 · A their home is also a place for kicking back", "cls": "bad", "tag": "排除 A", "log": "A 她们的家也是放松之处 ✗ 排除——kick back 是②句男性的体验，且方向相反", "count": 3, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>is a time to kick back 出自②句，写的是<b>男性</b>下班后放松；且“放松”与题干指向的“压力大”南辕北辙。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓到原词却不核对主语与方向。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（they are both bread winners and housewives）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>④句职业女性下班后赶家务 → ⑤句 blurring of roles 总括：同一个人身兼“养家者＋主妇”两职，角色边界模糊。</b></p><p>答案选 <b>B（they are both bread winners and housewives）</b>。</p><p><b>记忆锚点</b>：blurring of roles＝双重角色叠加；定位后先核对句子主语（stay-home women ≠ working women）；“模糊”需要至少两个角色。</p><p style=\"color:#b91c1c\">最易误选：<b>C（much housework left behind）</b>——只拿一个角色，拼不出“模糊”。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 23 题 · “角色模糊”＝身兼两职——养家的人同时是做家务的人",
+  subtitle: "考点：指代/语义概括题 · blurring 的双重角色含义 + 句子主语核对",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 语义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（both bread winners and housewives）", "html": "<b>B 既要赚钱养家也要兼顾家务</b>：④句双重角色＝blurring of roles 的具体所指。<br>记忆锚点：“模糊”需要至少两个角色；先核对主语（stay-home ≠ working women）。<br>最易误选：<b>C（much housework left behind）</b>——只拿“家务”半边拼不出“模糊”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 23 题 · "角色模糊"＝身兼两职——养家的人同时是做家务的人</h2>
+<p>答案：<strong>B（they are both bread winners and housewives 她们既要赚钱养家也要兼顾家务）</strong>。</p>
+<h3>第 0 步：先立机制——"模糊"说的是角色数量，不是程度</h3>
+<p>blurring（模糊）的本义是边界不清：一个人身上叠了几个角色，分不清哪头是哪头。第三段的叙述顺序是关键机制：④句先摆事实——<strong>在外工作的女性回家后还要赶着补做家务</strong>（for women who work outside the home, they often are playing catch-up-with-household tasks）；⑤句才用 with the blurring of roles 对这一事实<strong>总括命名</strong>。所以"角色模糊"的具体所指就在④句：同一个人身上同时压着"职场人"和"家务承担者"两个角色——这就是"模糊"，也即双重身份。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And for women who work outside the home, they often are playing catch-up-with-household tasks. With the blurring of roles, and the fact that the home front lags well behind the workplace in making adjustments for working women, it's not surprising that women are more stressed at home.</blockquote>
+<ul><li>④句：职业女性下班后要追赶家务进度；</li><li>⑤句：with the blurring of roles 引出结论"女性在家压力更大不足为奇"。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A their home is also a place for kicking back</td><td>她们的家也是放松之处</td><td>✗ 排除</td><td>kick back 出自②句，是<strong>男性</strong>下班后的体验；且"放松"与"压力大"方向相反</td></tr><tr><td>B they are both bread winners and housewives</td><td>既是养家者又是主妇</td><td>✓ 当选</td><td>完整概括④句：在外工作（breadwinner）＋回家赶家务（housewife），两个角色叠在同一人身上＝角色模糊</td></tr><tr><td>C there is often much housework left behind</td><td>总有做不完的家务</td><td>✗ 排除</td><td>只覆盖④句的"家务"半边，丢掉"在外工作"半边——单一角色构不成"模糊"</td></tr><tr><td>D it is difficult for them to leave their office</td><td>她们难有收工之时</td><td>✗ 排除</td><td>never get to leave the office 出自③句，说的是<strong>全职在家的女性</strong>（for women who stay home），主语张冠李戴</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>"模糊"为什么不等于"家务多"（C）？</strong>：blurring 的语义焦点在"角色边界不清"，需要至少两个角色混在一起才谈得上"模糊"。C 只描述了"家务"这一个角色，最多算"负担重"，不能叫"角色模糊"——词义本身就把 C 排除了。</li><li><strong>D 的句子看着也挺像，为什么不行？</strong>：第三段给三类人各写了一句：男性（②kick back）、家庭主妇（③never get to leave the office）、职业女性（④catch-up-with-household tasks）。题干限定的是 <strong>working women's roles</strong>，③句的主语是 stay-home women，主体一换，选项即错。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（much housework left behind）</strong>：只看到家务半边，没意识到"模糊"要求两个角色并存。</li><li><strong>误选 D（leave their office）</strong>：③④句主语（家庭主妇/职业女性）没对准，拿全职主妇的处境冒充职业女性的处境。</li><li><strong>误选 A（kicking back）</strong>：②句的男性体验 + "放松"语义与题干指向完全相反。</li></ul>
+<blockquote>记忆锚点：blurring of roles＝双重角色叠加（breadwinner＋housewife）；定位后先核对句子的<strong>主语</strong>（stay-home women ≠ working women）；"模糊"需要至少两个角色。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

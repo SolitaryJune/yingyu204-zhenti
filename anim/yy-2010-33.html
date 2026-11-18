@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-33 动画：NOT 型细节题——谁不是"制造习惯"的产品</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：NOT 题先换问法", "body": "<p>题干：<b>Which of the following does NOT belong to products that help create people's habits?</b>（哪一项<b>不属于</b>帮助塑造人们习惯的产品？）</p><p>NOT 题不找\"最像的\"，而是<b>逐个回原文验身份</b>。四个名字只可能有两种身份：<b>产品</b>（被使用的商品）与<b>公司</b>（生产商品的企业）。</p>", "log": "NOT 题换问法：四个名字逐个验身份，揪出不是产品的那个"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：品牌名散落三处", "body": "<div class=\"qq\"><b>第三段：</b>The companies that Dr. Curtis turned to – Procter &amp; Gamble, Colgate-Palmolive and Unilever – had invested hundreds of millions of dollars… <span class=\"cn\">（译：Curtis 博士求助的三家公司……）</span></div><div class=\"qq\"><b>第四段：</b>…often with Colgate, Crest or one of the other brands. <span class=\"cn\">（译：……通常用高露洁、佳洁士或其他品牌（刷牙）。）</span></div><div class=\"qq\"><b>第六段：</b>…the company that sold $76 billion of Tide, Crest and other products last year. <span class=\"cn\">（译：……去年售出 760 亿美元的汰渍、佳洁士及其他产品的公司。）</span></div>", "log": "品牌名散落第三、四、六段，逐一登记身份"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "title": "排除 A：Tide（汰渍）", "body": "<p><b>A · Tide（汰渍）</b><span class=\"bad-dot\">✗</span></p><p>第六段明写 sold $76 billion of <b>Tide</b>, Crest and other products——出现在商品清单里，产品身份成立。</p><p>误选它 = 没回原文验证、凭印象作答。</p>", "log": "排除 A：Tide（汰渍）", "count": 1, "ribbon": {"k": 1, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "title": "排除 B：Crest（佳洁士）", "body": "<p><b>B · Crest（佳洁士）</b><span class=\"bad-dot\">✗</span></p><p>第四段 scrub twice a day, often with Colgate, <b>Crest</b>——刷牙用的牙膏品牌；第六段再次出现在 products 清单。产品身份成立。</p>", "log": "排除 B：Crest（佳洁士）", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "title": "排除 C：Colgate（高露洁）", "body": "<p><b>C · Colgate（高露洁）</b><span class=\"bad-dot\">✗</span></p><p>第三段虽作为公司名 Colgate-Palmolive 出现，但第四段 often with <b>Colgate</b>, Crest 里它是牙膏品牌——<b>一身二任，当过\"产品\"就不选</b>。</p><p>这是本题唯一\"公司名与产品名同形\"的干扰。</p>", "log": "排除 C：Colgate（高露洁）", "count": 3, "ribbon": {"k": 3, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 D", "title": "锁定 D：Unilever（联合利华）", "body": "<p><b>D · Unilever（联合利华）</b><span class=\"ok-dot\">✓</span></p><p>只在第三段作为\"三家公司\"之一出现：<b>公司身份</b>；全文从未作为商品名出现——查无\"产品\"身份。</p><p>题干问的是<b>产品</b>，公司不算 → 选 D。</p>", "log": "锁定 D：Unilever（联合利华）", "count": 4, "ribbon": {"k": 4, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 D", "body": "<p><b>答案 D（Unilever）</b>——它是\"公司\"不是\"产品\"。</p><p>记忆锚点：NOT 题 = 逐个验身份；品牌词可能一身二任（Colgate-Palmolive 公司 / Colgate 牙膏），当过产品就不选。</p>", "log": "结论：Unilever 是公司不是产品，答案选 D"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-33 · NOT 型细节题：谁不是\"制造习惯\"的产品",
+  subtitle: "考点：Text1 细节辨析 · 方法：定位 → 验身份 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>Unilever（联合利华）全文只以\"公司\"身份出现，不是产品</b>。记忆锚点：NOT 题 = 逐个验身份；品牌词可能一身二任——Colgate-Palmolive 是公司、Colgate 是牙膏，当过\"产品\"就不选。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：NOT 型细节题——四个名字谁不是"产品"</h2>
+<p>答案：<strong>D</strong>（Unilever）。</p>
+<h3>第 0 步：先立机制——NOT 题不找"最像的"，只验"身份"</h3>
+<p>NOT / EXCEPT 型细节题的正确打开方式：四个选项里通常三个能在原文找到"身份证明"，只有一个查无此身份。所以它不是选出"感觉对的"，而是<strong>逐个回原文验身份</strong>。本题四个名字要验的身份只有两种：<strong>产品</strong>（被消费者使用的商品）与<strong>公司</strong>（生产商品的企业）。题干问的是 help create people's habits 的<strong>产品</strong>，公司只是商品背后的企业，不算数。</p>
+<h3>第 1 步：定位原文，逐个登记身份</h3>
+<table><thead><tr><th>选项</th><th>原文出处</th><th>原句关键词</th><th>身份</th></tr></thead><tbody><tr><td>A Tide</td><td>第六段</td><td>sold $76 billion of Tide, Crest and other products</td><td>产品</td></tr><tr><td>B Crest</td><td>第四、六段</td><td>scrub twice a day, often with Colgate, Crest</td><td>产品</td></tr><tr><td>C Colgate</td><td>第三、四段</td><td>公司名 Colgate-Palmolive / 牙膏品牌 Colgate</td><td>产品</td></tr><tr><td>D Unilever</td><td>第三段</td><td>The companies that Dr. Curtis turned to – … and Unilever</td><td>公司</td></tr></tbody></table>
+<blockquote>The companies that Dr. Curtis turned to – Procter &amp; Gamble, Colgate-Palmolive and Unilever – had invested hundreds of millions of dollars finding the subtle cues in consumers' lives…（Curtis 博士转向求助的三家<strong>公司</strong>——宝洁、高露洁棕榄和联合利华——投入数亿美元寻找消费者生活中的微妙暗示……）</blockquote>
+<p>Unilever 全文只以"公司"身份出现这一次，从未作为商品名出现；而题干要的是"产品"。</p>
+<h3>第 2 步：干扰项归因——每个错误选项对应哪种误解</h3>
+<ul><li><strong>误选 C（Colgate）——只看一处、不看另一处</strong>：第三段 Colgate-Palmolive 确实是公司名，但验身份的规则是"该词是否以产品身份出现过"：第四段 often with Colgate, Crest 里 Colgate 明确是人们每天刷牙用的牙膏品牌。一个名字两种用法，只要当过"产品"就不选它。</li><li><strong>误选 A / B——凭印象不回原文</strong>：Tide（汰渍）、Crest（佳洁士）在文中都是明晃晃的商品名，属于没定位就作答的失误。</li></ul>
+<blockquote>记忆锚点：NOT 题 = 逐个验身份；品牌词可能"一身二任"（Colgate-Palmolive 是公司、Colgate 是牙膏），当过产品就不选；Unilever 全文只当公司 → 选 D。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

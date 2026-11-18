@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 新题型 · 45 · Marx & Engels：大众的历史 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 序号带 1–7 对应选项 A–G。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, ribbon:null, title:"审题眼：转折段首句 = 新人物登台铃",
+  body:"<p>题干：<b>Marx and Engels</b> ____。右栏 7 个观点（A–G）。</p><p>机制：第六段首句 <b>Not everyone was convinced by such bombast</b>（并非人人吃这套大话）宣告本段人物与 Carlyle 的英雄史观<b>对立</b>。配对题里“立场对立”是最快的预判：答案必是否定伟人叙事的那一项。</p>",
+  log:"审题：Marx & Engels —— 与英雄史观对立"},
+ {cls:"key", ecs:"shift", tag:"定位", count:0, ribbon:null, title:"定位：第六段③句大众史观",
+  body:"<div class=\"qq\"><b>第六段③：</b>And <b>history should be the story of the masses and their record of struggle</b>. <span style=\"color:#64748b;font-size:12.5px\">（历史应当是大众的故事，是他们斗争的记录。）</span></div><p>前文①②句先立“历史不是抽象物”：<b>It is man, real, living man who does all that</b>（强调句）——把历史动力搬回真实活着的人，为③句做铺垫。</p>",
+  log:"定位第六段③：history should be the story of the masses"},
+ {cls:"good", ecs:"ok", tag:"锁定 E", count:0, ribbon:{k:"5", ok:true}, title:"锁定 E：held that history should be the story of the masses...",
+  body:"<p><b>E（主张历史应当是大众的故事与斗争记录）</b><span class=\"ok-dot\">✓</span>：逐字对齐——</p><p><b>history should be the story of the masses and their record of struggle</b> 从 should be 到 the masses、record of struggle <b>全部原词保真</b>，仅补一个 held that（主张）。E 是原句镜像。</p>",
+  log:"锁定 E：原词全保真，镜像级对应"},
+ {cls:"bad", ecs:"miss", tag:"排除 F", count:1, ribbon:{k:"6", ok:false}, title:"排除 F：dismissed virtue as unnecessary for successful leaders",
+  body:"<p><b>F（认为成功领袖无须美德）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Machiavelli</b>（42 题答案）——《君主论》讲的是<b>领袖</b>技能论，与“历史属于<b>大众</b>”恰好在坐标系两端。</p><p style=\"color:#b91c1c\">⚠ 讲领袖的人不会主张大众史观——立场对冲直接出局。</p>",
+  log:"排除 F：领袖技能论属 Machiavelli"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:2, ribbon:{k:"1", ok:false}, title:"排除 A：emphasized the virtue of classical heroes",
+  body:"<p><b>A（强调古典英雄的美德）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Petrarch</b>（41 题答案）——伟人叙事的正牌代表，正是 Not everyone ... <b>反对</b>的对象。</p><p style=\"color:#b91c1c\">⚠ 转折段的人物不会认领转折前的画像。</p>",
+  log:"排除 A：古典英雄美德属 Petrarch"},
+ {cls:"bad", ecs:"miss", tag:"排除 G", count:3, ribbon:{k:"7", ok:false}, title:"排除 G：depicted the worthy lives of engineers...",
+  body:"<p><b>G（描绘工程师、实业家、探险家的有价值人生）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Samuel Smiles</b>（43 题答案）——歌颂个人奋斗的样板，立场同样站在“伟人/个人”一侧，与大众叙事相对。</p><p style=\"color:#b91c1c\">⚠ G 是“个人如何成功”，E 是“大众共同斗争”——方向不同。</p>",
+  log:"排除 G：个人奋斗样板属 Smiles"},
+ {cls:"", ecs:"step", tag:"归主", count:3, ribbon:null, title:"其余选项归主：一张表看全篇",
+  body:"<table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr>" +
+    "<tr><td class=\"mine\">A 古典英雄美德</td><td class=\"mine\">Petrarch（41 题）</td></tr>" +
+    "<tr><td class=\"mine\">B 艺术家公共荣耀</td><td class=\"mine\">The Romantics（多余项）</td></tr>" +
+    "<tr><td class=\"mine\">C 难以模仿的划时代人物</td><td class=\"mine\">Thomas Carlyle（44 题）</td></tr>" +
+    "<tr><td class=\"mine\">D 理解历史的新领域</td><td class=\"mine\">“自下而上”史学（Hill 等，多余项）</td></tr>" +
+    "<tr><td class=\"ans\">E 大众的历史与斗争记录</td><td class=\"ans\">Marx & Engels ✓ 本题</td></tr>" +
+    "<tr><td class=\"mine\">F 领袖无须美德</td><td class=\"mine\">Machiavelli（42 题）</td></tr>" +
+    "<tr><td class=\"mine\">G 工程师们有价值的人生</td><td class=\"mine\">Samuel Smiles（43 题）</td></tr></table>",
+  log:"归主：7 项各归其位，E 属 Marx & Engels"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, ribbon:null, title:"结论：答案 E",
+  body:"<p><b>答案 E</b>——马恩主张历史应当是大众的故事、是他们斗争的记录。</p><p><b>记忆锚点</b>：Not everyone was convinced = 反派登场预告；the masses + record of struggle 原词全保真 → E；马恩之前全是伟人画像（A/F/G/C），只有 E 站在大众一边；B、D 是全卷两个多余项。</p>",
+  log:"结论：历史是大众的故事与斗争记录，答案 E"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "2012 新题型 · 45 · Marx and Engels 的画像",
+  subtitle: "考点：人物观点配对 · 方法：转折段定位 → 原词镜像比对 → 立场对冲排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 1–7 对应 A–G（✓ 认领 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位 → 镜像比对 → 归主。",
+  snaps: snaps,
+  result: {
+    big: "答案 E",
+    html: "<b>history should be the story of the masses and their record of struggle</b>——原词全保真的镜像选项。记忆锚点：Not everyone was convinced 预告与英雄史观对立；A/F/G/C 全是伟人画像，只有 E 站大众一边；B、D 是多余项。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——Marx &amp; Engels：历史是大众的斗争史</h2>
+<p>答案：<strong>E（held that history should be the story of the masses and their record of struggle）</strong>。</p>
+<h3>第 0 步：先立机制——转折段首句 = 新人物登台铃</h3>
+<p>第六段首句 Not everyone was convinced by such bombast（并非人人都吃这套大话）是全卷最明确的信号：本段人物与 Carlyle 的英雄史观<strong>对立</strong>。配对题里“立场对立”是最快的预判工具——题干问 Marx and Engels，先预判答案必是否定伟人叙事的那一项。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And history should be the story of the masses and their record of struggle.</blockquote>
+<p>历史应当是大众（the masses）的故事，是他们的斗争记录。</p>
+<h3>第 2 步：逐字比对</h3>
+<p><strong>history should be the story of the masses and their record of struggle</strong> ↔ <strong>held that history should be the story of the masses and their record of struggle</strong>：从 should be 到 the masses、record of struggle 全部原词保真，仅补一个 held that（主张）——E 是原句镜像。</p>
+<h3>第 3 步：干扰项归主</h3>
+<table><thead><tr><th>选项</th><th>主人</th><th>排除理由</th></tr></thead><tbody><tr><td>F dismissed virtue as unnecessary for successful leaders</td><td>Machiavelli（42 题答案）</td><td>《君主论》的领袖技能论，与大众史观相反</td></tr><tr><td>A emphasized the virtue of classical heroes</td><td>Petrarch（41 题答案）</td><td>伟人叙事的正牌代表，正是马恩要反对的对象</td></tr><tr><td>G depicted the worthy lives of engineers...</td><td>Samuel Smiles（43 题答案）</td><td>歌颂个人奋斗的样板，立场同样站在“伟人”一侧</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>⑥段②句 It is man, real, living man who does all that 是什么作用？</strong>：强调句把历史动力从抽象的“历史”搬回“真实活着的人”，与 E 的 the masses 呼应，可作二次确认。</li><li><strong>末段引文 Men make their own history, but ... 为什么不是另一项？</strong>：它说明人受既定环境的制约（circumstances ... transmitted from the past），是 E 的论证补强，右栏没有对应它的独立选项。</li></ul>
+<blockquote>记忆锚点：Not everyone was convinced = 反派登场预告；the masses + record of struggle 原词全保真 → E；马恩之前全是伟人画像（A/F/G/C），只有 E 站在大众一边。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

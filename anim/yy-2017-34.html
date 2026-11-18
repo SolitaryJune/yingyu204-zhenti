@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-34 · 2017 Text C · 34 题 · 间隔年怎么帮你省钱</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 先分清“重心”与“考点”", "cls": "key", "tag": "审题", "count": 0, "ribbon": null, "log": "审题：重心信息 save money 定位第四段；by helping them ____ 问的是“省钱的方式”", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A gap year may <b>save money</b> for students <b>by helping them ____</b>.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">题干</p><p>细节题第一步不是回文找答案，而是拆题干：<b>save money</b> 是重心（已知信息），决定目标段落；<b>by helping them</b> 才是要填的方式。save money 原词出现在第四段⑦句，financial impact（经济影响）在①句——目标段落锁定<b>第四段</b>，别去第三段撒网。</p>"}, {"title": "找证据 · 第四段的省钱逻辑链", "cls": "key", "tag": "证据", "count": 0, "ribbon": null, "log": "证据链：先想清楚兴趣/专业 → 少走“转专业转晚了补学分”的弯路 → 省钱", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you're not convinced of the inherent value in taking a year off to <b>explore interests</b>, then consider its <b>financial impact</b> on future <b>academic choices</b>.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第四段①句</p><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...it can be <b>costly</b> to make up credits after switching too late in the game.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第四段⑤句</p><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>Taking a gap year to figure things out initially</b> can help prevent stress and <b>save money</b> later on.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第四段⑦句</p><p>三句串成因果链：间隔年让你<b>先想清楚兴趣与专业</b>（explore interests / figure things out）→ 避免上完课才发现选错、<b>转专业转太晚补学分</b>（costly to make up credits）→ 这才是省钱的机制。</p>"}, {"title": "逐项分析 · D decide on the right major", "cls": "good", "tag": "选定 D", "count": 0, "ribbon": {"k": "D", "ok": true}, "log": "D decide on the right major（选定正确专业）✓ 当选——“想清楚再选”的同义概括", "body": "<p><b>当选。</b>the right major 概括 ①句 future academic choices / explore interests 与⑦句 figure things out；间隔年帮学生<b>把专业一次选对</b>，省掉转专业补学分的花销——这正是 by helping them 后面该填的方式。</p>"}, {"title": "逐项分析 · A avoid academic failures", "cls": "bad", "tag": "排除 A", "count": 1, "ribbon": {"k": "A", "ok": false}, "log": "A avoid academic failures（避免学业失败）✗ 排除——错配第三段，与“省钱”无关", "body": "<p><b>排除。</b>A 的出处是<b>第三段</b> perform better in college / focus on academics。第三段讲“适应新环境、学业表现”，全程没碰“钱”；把“学得好”偷换成“省下钱”属于答非所“段”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：孤立地想“间隔年对学生有什么用”，忘了题干重心 save money 已经把段落锁死。</p>"}, {"title": "逐项分析 · B establish long-term goals", "cls": "bad", "tag": "排除 B", "count": 2, "ribbon": {"k": "B", "ok": false}, "log": "B establish long-term goals（建立长期目标）✗ 排除——把“转专业”误推成“没恒心”", "body": "<p><b>排除。</b>B 是从②句“80% 的学生至少转一次专业”倒推出来的“大学生缺乏恒心”。但③句给了真正原因：高中课程让学生<b>对大学专业知之甚少</b>，选错是信息问题，不是坚持问题。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把普遍现象脑补成性格缺陷，无中生有。</p>"}, {"title": "逐项分析 · C switch to another college", "cls": "bad", "tag": "排除 C", "count": 3, "ribbon": {"k": "C", "ok": false}, "log": "C switch to another college（转到其他大学）✗ 排除——转专业被偷换成转学", "body": "<p><b>排除。</b>原文反复出现的是 switching <b>majors</b>（转专业），不是 switching <b>colleges</b>（转学）；C 把换专业的 campus 内操作夸成了换学校。</p><p style=\"color:#b91c1c\">⚠ 典型误解：偷换概念：major（专业）与 college（学校）两个词看似相近，实指完全不同。</p>"}, {"title": "结论 · 解题链与记忆锚点", "cls": "good", "tag": "答案 D", "count": 3, "ribbon": null, "log": "答案 D（decide on the right major）——省钱的机制=少补转专业的学分费", "body": "<p>解题链：<b>save money 定第四段 → explore interests / figure things out + costly to make up credits 串因果链 → 先选对专业=省钱 → D。</b></p><p><b>答案选 D（decide on the right major 选定正确专业）。</b></p>"}];
+
+AW.init({
+  title: "2017 Text C · 34 题 · 间隔年怎么帮你省钱",
+  subtitle: "考点：因果细节题——重心信息定段，by doing 方式才是考点",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“审题 → 定段 → 排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（decide on the right major）", "html": "间隔年帮学生<b>先想清楚兴趣、把专业选对</b>，从而避免“转专业太晚、花钱补学分”——这才是省钱的机制。<br>记忆锚点：<b>题干重心定段，by doing 才是考点</b>；switch majors ≠ switch colleges。<br>最易误选：<b>A</b>——拿着第三段“学业表现”来答第四段“经济影响”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text C 第 34 题 · 间隔年怎么帮学生省钱</h2>
+<p>答案：<strong>D（decide on the right major 选定正确专业）</strong>。</p>
+<h3>第 0 步：先立机制——题干重心定段落，by doing 才是考点</h3>
+<p>细节题先拆题干：A gap year may <strong>save money</strong> for students <strong>by helping them</strong> ____.。重心信息 <strong>save money</strong> 是已知条件，负责锁定目标段落；<strong>by helping them</strong> 才是要填的空（方式）。save money 原词在第四段⑦句、financial impact 在①句——目标段落锁死第四段。命题人常把重心放在题干当“路标”，考的却是辅助信息：答案不能脱离路标指向的段落。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>If you're not convinced of the inherent value in taking a year off to <strong>explore interests</strong>, then consider its <strong>financial impact</strong> on future <strong>academic choices</strong>.（第四段①句）</blockquote>
+<p>&gt;</p>
+<blockquote>...it can be <strong>costly</strong> to make up credits after <strong>switching too late</strong> in the game.（第四段⑤句）</blockquote>
+<p>&gt;</p>
+<blockquote><strong>Taking a gap year to figure things out initially</strong> can help prevent stress and <strong>save money</strong> later on.（第四段⑦句）</blockquote>
+<h3>第 2 步：找证据——串起省钱的因果链</h3>
+<p>三句串起来：间隔年让学生<strong>先想清楚兴趣与专业</strong>（explore interests / figure things out）→ 也就避免了“上完课才发现选错、转专业转太晚、花钱补学分”（costly to make up credits）→ 这才是“省钱”的完整机制。省的不是学费，是<strong>选错专业的试错成本</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A avoid academic failures</td><td>避免学业失败</td><td>✗ 排除</td><td>出自第三段 perform better in college / focus on academics；第三段讲“适应与学业”，全程没碰“钱”。（典型误解：孤立地想“间隔年有什么用”，忘了重心 save money 已锁定第四段。）</td></tr><tr><td>B establish long-term goals</td><td>建立长期目标</td><td>✗ 排除</td><td>由②句“80% 至少转一次专业”倒推出“缺乏恒心”；但③句给出真正原因——高中课程让学生对专业知之甚少，是信息问题不是恒心问题。（典型误解：把普遍现象脑补成性格缺陷。）</td></tr><tr><td>C switch to another college</td><td>转到其他大学</td><td>✗ 排除</td><td>原文是 switching <strong>majors</strong>（转专业），不是转学 college。（典型误解：major 与 college 词形相近、实指不同。）</td></tr><tr><td>D decide on the right major</td><td>选定正确专业</td><td>✓ 当选</td><td>the right major 概括 future academic choices / explore interests / figure things out——一次选对，免掉补学分的花销。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么没有“直接省钱”的动作？</strong>：间隔年省钱不是少交学费，而是减少“选错专业→晚转→补学分”的试错成本；正确项必须落在“把专业选对”这个动作上。</li><li><strong>为什么不能用第三段作答？</strong>：题干重心 save money 是路标；第三段讲学业表现、第四段讲经济影响，两段分工不同——细节题答案必须在路标指向的段落里。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（avoid academic failures）</strong>：拿第三段的“学业表现”答第四段的“经济影响”。</li><li><strong>误选 C（switch to another college）</strong>：转专业被偷换成转学。</li></ul>
+<blockquote>记忆锚点：<strong>题干重心定段，by doing 才是考点</strong>；间隔年省钱 = 先选对专业、少补学分；switch majors ≠ switch colleges。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

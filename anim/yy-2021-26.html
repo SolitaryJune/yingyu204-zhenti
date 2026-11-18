@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-26 · 2021 阅读第 26 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：Some people argue——先认领「谁在说」",
+  "body": "<p>题干：<b>Some people argue that food self-sufficiency in the UK would ____</b>（有人主张英国的粮食自给会 ____）。</p><p>观点题不评价对错，只<b>忠实转述主张内容</b>：some people 在文中对应 the argument goes / seen by some（第二段）——主张的内容就在 would 后面。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：the argument goes 主张句",
+  "body": "<div class='qq'><b>原文：</b>A move back to self-sufficiency, the argument goes, would boost the farming industry, political sovereignty and even the nation’s health.</div><p>主张的内容：回归自给会<b>提振农业</b>、<b>政治主权</b>、甚至<b>国民健康</b>——连举三项收益。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：seen by some 点出「有些人」",
+  "body": "<div class='qq'><b>原文：</b>Brexit is seen by some as an opportunity to reverse a recent trend towards the UK importing food.</div><p>「有些人」即 seen by some / the argument goes：退欧被一些人视为<b>扭转食品进口趋势</b>的机会——粮食自给正是他们的主张。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：受人口增长阻碍——张冠李戴",
+  "body": "<p><b>A · be hindered by its population growth（受到人口增长的阻碍）</b> <span class='bad-dot'>✗</span></p><p>人口增长是第一段的全球背景，不属于「支持者列举的收益」。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：增进国家福祉——三项收益的归纳",
+  "body": "<p><b>B · contribute to the nation’s well-being（增进国家福祉）</b> <span class='ok-dot'>✓</span></p><p>boost the farming industry（产业）、political sovereignty（主权）、even the nation’s health（国民健康）——三样合起来正是「<b>国家福祉</b>」；would boost → would contribute to。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：政府优先事项——偷换说话人",
+  "body": "<p><b>C · become a priority of the government（成为政府的优先事项）</b> <span class='bad-dot'>✗</span></p><p>some people 的主张不等于政府议程；文中没说政府把它列为优先。</p><p style='color:#b91c1c'>⚠ 典型误解：把「有人主张」读成「政府定调」，说话人被偷换。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：给农业带来挑战——方向反了",
+  "body": "<p><b>D · pose a challenge to its farming industry（给其农业带来挑战）</b> <span class='bad-dot'>✗</span></p><p>主张里农业是被 boost 的一方，不是被挑战的一方。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（contribute to the nation’s well-being）</b>。</p><p>记忆锚点：the argument goes =「有人如是主张」；boost farming / sovereignty / health 三项归纳 = nation’s well-being。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（become a priority of the government）——把「有人主张」偷换成「政府定调」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-26 · 阅读第 26 题：「有人主张」的自给红利",
+  subtitle: "考点：Text2 第 1-2 段 · 观点题（认领说话人 + 忠实转述）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B",
+ "html": "<b>B contribute to the nation's well-being</b>：the argument goes——boost farming industry / sovereignty / nation's health → 增进国家福祉。<br>记忆锚点：观点题先认领说话人（Some people = the argument goes），忠实转述不评价。<br>最易误选：C——「有人主张」被偷换成「政府优先」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 26 题——「有人主张」的自给红利</h2>
+<p>答案：<strong>B</strong>（contribute to the nation's well-being）。</p>
+<h3>第 0 步：先立机制——观点题先认领「谁在说」</h3>
+<p>题干 Some people argue——原文的对应表达是 the argument goes / seen by some（第二段）。观点题不评价对错，只<strong>忠实转述「主张的内容」</strong>：would 后面连举的三个收益就是答案素材。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>Brexit is seen by some as an opportunity to reverse a recent trend towards the UK importing food. ... A move back to self-sufficiency, the argument goes, would boost the farming industry, political sovereignty and even the nation's health.</blockquote>
+<p>boost the farming industry（农业）、political sovereignty（主权）、even the nation's health（国民健康）——产业、主权、健康三样合起来正是「<strong>国家福祉</strong>」：would boost → would contribute to，the nation's health → the nation's well-being。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（be hindered by its population growth）</strong>：张冠李戴——人口增长是第一段的全球背景，不在「支持者列举的收益」里。</li><li><strong>C（become a priority of the government）</strong>：偷换说话人——「有人主张」不等于「政府列为优先」；文中没提政府议程。</li><li><strong>D（pose a challenge to its farming industry）</strong>：方向反——主张里农业是被 boost 的一方。</li></ul>
+<blockquote>记忆锚点：the argument goes =「有人如是主张」；boost farming / sovereignty / health 三项归纳 = nation's well-being。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-29 · 2011 阅读第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 末段推断：镜像操作",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：What can be inferred from the last paragraph about the current newspaper business?",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>推断题的合法路径：把原文信息<b>镜像翻转或同向重述</b>——方向一致、程度不越界。定位指令：末段（第五段）。</p>"
+ },
+ {
+  "title": "定位原文 · 损失分布：最无特色处最受伤",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：much of the damage has been concentrated in areas… least distinctive",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("The whirlwind that swept through newsrooms harmed everybody, but much of the damage has been concentrated in areas where newspapers are least distinctive.") + quote("Car and film reviewers have gone. So have science and general business reporters. Foreign bureaus have been savagely cut off.") + "<p>被砍的都是最无特色的部门：汽车影评、科技与大众商业报道、驻外机构——行业用脚投票，淘汰“网络也能提供”的同质化内容。</p>"
+ },
+ {
+  "title": "定位原文 · 价值反转：完整性不再是优点",
+  "cls": "key",
+  "tag": "反转",
+  "log": "定位原文：But completeness is no longer a virtue in the newspaper business",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Newspapers are less complete as a result. But completeness is no longer a virtue in the newspaper business.") + "<p>完整性随之下降，但作者用 But 反转：完整性已不再是报纸业的优点。两句合看：报纸业的价值坐标已从“求全”移到“<b>求特</b>”。</p>"
+ },
+ {
+  "title": "镜像推理 · 损失分布的逆否命题",
+  "cls": "key",
+  "tag": "推理",
+  "log": "镜像：损失砸向“最无特色”板块 ⇒ 特色板块是生存依据 ⇒ 特色至关重要",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>原句“损失集中在最无特色处”的镜像就是：有特色的板块经受住了考验——<b>特色是报纸的竞争力所在</b>。方向一致＋程度匹配（essential ↔ no longer a virtue 的坐标反转），这是合法的“推得出”。</p>"
+ },
+ {
+  "title": "逐项分析 · A Distinctiveness is an essential feature of newspapers",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A Distinctiveness is an essential feature（特色是至关重要的优点） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "body": "<p><b>当选。</b>least distinctive 处受损最重 ＋ completeness no longer a virtue——两条证据的镜像结论：特色取代完整性，成为当今报纸的生存依据。</p>"
+ },
+ {
+  "title": "逐项分析 · B Completeness is to blame for the failure",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Completeness is to blame ✗ 排除——“不再是优点”≠“是罪魁祸首”",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>no longer a virtue 只说“不再是优点”，没说“是缺点”，更没说“导致灭亡”——方向从优点轴跳到因果轴，程度完全失控，推过了河。</p><p style=\"color:#b91c1c\">⚠ 典型误解：反向放大——把“不再重要”升级成“罪魁祸首”。</p>"
+ },
+ {
+  "title": "逐项分析 · C Foreign bureaus play a crucial role",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Foreign bureaus play a crucial role ✗ 排除——被砍恰恰说明不再关键",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>原文是 Foreign bureaus have been <b>savagely cut off</b>（驻外机构被无情砍掉）——与“发挥重要作用”方向相反；被砍暗示它已不符合形势需要。</p><p style=\"color:#b91c1c\">⚠ 典型误解：对“被砍”做反义脑补。</p>"
+ },
+ {
+  "title": "逐项分析 · D Readers have lost their interest in car and film reviews",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Readers have lost their interest ✗ 排除——归因被偷换成“读者兴趣”",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>板块消失的原文归因是“这些板块不具特色、网络可替代”，全文没有任何“读者兴趣变化”的信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：为板块消失编一个“读者原因”。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（Distinctiveness is an essential feature）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>危机中损失集中于最无特色的板块，连完整性都不再是优点——当今报纸业靠特色生存，特色是至关重要的优点。</b></p><p>答案选 <b>A（Distinctiveness is an essential feature of newspapers）</b>。</p><p><b>记忆锚点</b>：损失集中在 least distinctive 处 ⇒ 特色是生存依据；no longer a virtue ＝ 价值坐标反转（求全→求特）；“不再是优点”推不出“是罪魁”。</p><p style=\"color:#b91c1c\">最易误选：<b>B（Completeness is to blame）</b>——镜像可以，越河不行。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 29 题 · 末段透露当今报纸业靠什么生存",
+  subtitle: "考点：末段推断 · 损失分布的镜像推理",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 镜像推理 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（Distinctiveness is an essential feature）",
+    html: "<b>A Distinctiveness is an essential feature of newspapers（特色是至关重要的优点）</b>。<br>记忆锚点：least distinctive 处受损最重 ⇒ 特色是生存依据；completeness no longer a virtue ＝ 求全→求特。<br>最易误选：<b>B（Completeness is to blame）</b>——“不再是优点”推不出“是罪魁祸首”。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 29 题 · 末段推断——"损失集中在最无特色处"的镜像推理</h2>
+<p>答案：<strong>A（Distinctiveness is an essential feature of newspapers 特色是报纸至关重要的优点）</strong>。</p>
+<h3>第 0 步：先立机制——推断题的"镜像"操作</h3>
+<p>末段的推理材料是一句结构巧妙的损失分布：much of the damage has been concentrated in areas where newspapers are <strong>least distinctive</strong>（损失集中在最无特色的板块）。推断的合法路径是镜像翻转：损失砸向"最无特色"的板块 ⇒ 特色板块经受了考验 ⇒ <strong>特色是报纸的竞争力所在</strong>。整段最后一句 But completeness is no longer a virtue 再补一刀：连"完整性"都不再是优点——两句话共同指向"如今报纸靠特色生存"。</p>
+<h3>第 1 步：定位原文——损失分布＋价值反转</h3>
+<blockquote>...but much of the damage has been concentrated in areas where newspapers are least distinctive.</blockquote>
+<blockquote>Newspapers are less complete as a result. But completeness is no longer a virtue in the newspaper business.</blockquote>
+<p>两组证据：其一，被砍的都是最无特色的部门（汽车影评、科技与大众商业报道、驻外机构）——行业用脚投票，淘汰"网络也能提供"的同质化内容；其二，完整性随之下降，但作者用 But 反转：完整性已不再是报纸业的优点。两句合起来：报纸业的价值坐标已从"求全"移到"求特"。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A Distinctiveness is an essential feature</td><td>特色是报纸一项至关重要的优点</td><td>✓ least distinctive 处受损最重 + completeness no longer a virtue 的镜像结论：特色取代完整性成为生存依据</td></tr><tr><td>B Completeness is to blame for the failure</td><td>完整性是报纸灭亡的罪魁祸首</td><td>过度反转："不再是优点"≠"是缺点"，更≠"是灭亡的原因"——no longer a virtue 被推过了头</td></tr><tr><td>C Foreign bureaus play a crucial role</td><td>驻外办事处发挥着重要作用</td><td>与原文相反：Foreign bureaus have been savagely cut off——被无情砍掉，暗示它已不符合形势需要</td></tr><tr><td>D Readers have lost their interest in car and film reviews</td><td>读者对汽车影评失去兴趣</td><td>偷换归因：板块消失是因为"无特色、网络可替代"，原文没有任何"读者兴趣"的信息</td></tr></tbody></table>
+<h3>预判追问：A 没有原词 distinctive 对应的肯定句，凭什么算"推得出"？</h3>
+<p>推断题的"推得出"不要求原句直说，只要求<strong>方向一致＋程度不越界</strong>。原句说"损失集中在最无特色处"，其逆否命题就是"有特色的板块受损小/是生存依据"——这是同一信息的镜像，程度词 essential 与 no longer a virtue（价值坐标反转）匹配。而 B 是同一个材料上的越界样本：把"不再是优点"升级成"是灭亡的罪魁"，方向（从优点轴跳到因果轴）和程度（负责灭亡）都失控。A、B 的分界线正在于此。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（Completeness is to blame）</strong>：把 no longer a virtue 反向放大成"罪魁祸首"；"不是优点"与"是死因"之间隔着整整一层因果，推断题不过河。</li><li><strong>误选 C（Foreign bureaus crucial）</strong>：savagely cut off 的反义脑补；被砍恰恰说明它不重要了。</li><li><strong>误选 D（Readers lost interest）</strong>：为板块消失编了一个"读者原因"；原文的归因是"板块无特色"，不是读者口味变化。</li></ul>
+<blockquote>记忆锚点：损失集中在 least distinctive 处 ⇒ 特色是生存依据；no longer a virtue ＝ 价值坐标反转（求全→求特）；"不再是优点"推不出"是罪魁"——镜像可以，越河不行。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

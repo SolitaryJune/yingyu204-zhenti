@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-07 · 2016 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句与上一段设问",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段首句，考点：逻辑衔接 + enough 搭配",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The researchers wanted to know if the optimism... would __5__ the way companies invested. So they compared U.S. cities’ average happiness... <b>__7__</b> enough, firms’ investment and R&amp;D intensity were correlated with the happiness of the area in which they were __8__.</div><p>空 7 与 enough 搭配，插在“研究结果”之前，评价这个结果的情绪色彩。判定机制：结果是<b>印证了</b>上段的研究目的，还是<b>出乎意料</b>？</p>"
+ },
+ {
+  "title": "找证据 · 上一段是“想知道是否”，本段给出肯定验证",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：第三段提出目的“想知道是否影响”→ 第四段发现“确实相关”→ 顺承印证",
+  "body": "<p>第三段：研究者<b>想知道</b>乐观与冒险倾向<b>是否</b>会改变投资方式（提出疑问）。第四段：投资与研发力度<b>确实与幸福指数相关</b>（correlated）。</p><p>结果正是研究者想验证的方向——疑问被<b>肯定</b>，语篇是“设问 → 证实”的<b>顺承</b>，没有任何转折信号。</p>"
+ },
+ {
+  "title": "逐项分析 · A Sure（果然）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A Sure（果然）✓ 当选——sure enough 果然，意料之中的验证",
+  "body": "<p><b>当选。</b><b>sure enough</b> 是固定搭配，“果真、果然（不出所料）”：研究的发现正如上一段的假设所料，语气完美对接“设问 → 证实”。</p>"
+ },
+ {
+  "title": "逐项分析 · B Odd（奇怪）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B Odd（奇怪）✗ 排除——暗含转折，与顺承关系不符",
+  "body": "<p><b>排除。</b>Odd enough“说来奇怪”用在与预期<b>相反</b>的发现上。但这里的发现恰是研究目的想证实的方向，谈不上意外。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“投资与幸福感相关”误当成反常识的意外发现，忽略第三段的铺垫。</p>"
+ },
+ {
+  "title": "逐项分析 · C Unfortunate（不幸）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C Unfortunate（不幸）✗ 排除——负面评价无处安放",
+  "body": "<p><b>排除。</b>Unfortunate enough 带遗憾、负面的情绪色彩。原文对“幸福指数与投资相关”是中性的陈述与论证，没有任何不幸可言。</p>"
+ },
+ {
+  "title": "逐项分析 · D Often（经常）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D Often（经常）✗ 排除——often enough 暗示“常有例外”，与普遍相关矛盾",
+  "body": "<p><b>排除。</b>often enough“经常如此”表示频率，暗示这种相关<b>并非总是成立</b>、存在例外。但本文结论是该相关性普遍成立（后文 even after accounting for these things 仍在强化）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把频率副词当衔接语用，忽略了 often enough 的“例外”暗示。</p>"
+ },
+ {
+  "title": "结论 · 顺承链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（Sure 果然）——顺承链见结论卡",
+  "body": "<p>顺承链：<b>第三段设问（想知道是否）→ 第四段证实（确实相关）→ Sure enough 果然。</b></p><p>答案选 <b>A（Sure 确定的、肯定的）</b>。</p><p><b>记忆锚点</b>：__ enough 类衔接语自带情绪色：Sure enough 果然（顺承）、Odd enough 说来奇怪（转折）、Unfortunate enough 遗憾、often enough 常有例外；研究目的被证实 → Sure enough。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 7 空 · ____ enough：果然还是奇怪？",
+  subtitle: "考点：上下文逻辑衔接 + 情态副词搭配 · 研究目的→结果的顺承关系",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 判顺承/转折 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（Sure）", "html": "<b>A Sure（果然）</b>——sure enough 果然、不出所料。<br>记忆锚点：设问 → 证实的顺承链；Odd/Unfortunate 自带转折情绪，often enough 暗示例外。<br>最易误选：<b>B（Odd）</b>——把已被研究目的铺垫过的发现误当成意外。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 7 空 · ____ enough：果然还是奇怪？</h2>
+<p>答案：<strong>A（Sure 确定的、肯定的）</strong>。</p>
+<h3>第 0 步：先立机制——“__ enough”自带情绪色</h3>
+<p>空 7 与 enough 搭配，插在研究结果之前，作用是给这个结果标注情绪色彩：不出所料？意外？遗憾？还是“常有例外”？判定机制：<strong>看结果与上一段研究目的的关系</strong>——是印证（顺承）还是相反（转折）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The researchers wanted to know if the optimism... would change the way companies invested. So they compared... __7__ enough, firms’ investment and R&amp;D intensity were correlated with the happiness of the area...</blockquote>
+<h3>第 2 步：判关系——设问被肯定，顺承</h3>
+<p>第三段提出研究目的：“<strong>想知道</strong>乐观与冒险倾向<strong>是否</strong>会改变投资方式”。第四段给出发现：“投资与研发力度<strong>确实</strong>与幸福指数相关（correlated）”。疑问被肯定验证，语篇是“设问 → 证实”的顺承，无转折信号。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Sure</td><td>肯定的</td><td>✓ 当选</td><td>sure enough 果然：发现如所料，与顺承关系吻合。</td></tr><tr><td>B Odd</td><td>奇怪的</td><td>✗ 排除</td><td>用于与预期相反的发现；此处结果正是想证实的方向。（典型误解：把相关发现误当意外。）</td></tr><tr><td>C Unfortunate</td><td>不幸的</td><td>✗ 排除</td><td>遗憾/负面色彩无处安放，原文是中性论证。</td></tr><tr><td>D Often</td><td>经常</td><td>✗ 排除</td><td>often enough 暗示“并非总是成立、存在例外”，与普遍相关的结论矛盾。</td></tr></tbody></table>
+<p>代入后的完整句义：果然，公司的投资与研发力度与其所在地区的幸福指数相关。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>“意外感”的判断标准是什么？</strong>：不是看结果是否符合读者直觉，而是看它是否符合作者自己设下的预期——第三段的研究目的就是预期，本段发现与之同向，无“意外”可言。</li><li><strong>often 为什么不行？它也与肯定相关啊？</strong>：often enough 落点在“频率”，暗示这种相关只是经常出现、另有例外；这会把一个普遍结论弱化成概率性描述，与后文 even after accounting for...（即便控制变量后依然成立）的强结论冲突。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（Odd）</strong>：忽略第三段的预期铺垫，凭生活直觉觉得“幸福影响投资”很新奇。</li><li><strong>误选 D（Often）</strong>：把频率副词当衔接语，没意识到 often enough 的“例外”暗示。</li></ul>
+<blockquote>记忆锚点：__ enough 自带情绪色——Sure enough 果然（顺承印证）；Odd/Unfortunate 转折遗憾；often enough 常有例外。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

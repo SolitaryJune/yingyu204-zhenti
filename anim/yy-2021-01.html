@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 1 空 · It is much harder, __1__, to understand their negative consequences：A therefore / B however / C again / D moreover</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 1 在「It is much harder, __1__, to understand their negative consequences」；考点：上下文语义逻辑 · 句间衔接",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It’s not difficult to set targets for staff. It is much harder, <b>__1__</b>, to understand their negative consequences.</div><p>空 1 位于第二句主语之后，作插入语；对照面是第一句的 not difficult。</p>"
+ },
+ {
+  "title": "立机制 · 空 1 是句间插入语，先判两句的语义方向",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：空 1 是句间插入语，先判两句的语义方向",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It’s not difficult to set targets for staff. It is much harder, <b>__1__</b>, to understand their negative consequences.</div><p>空 1 不是句子成分，而是插在 It is much harder 后面的<b>衔接性插入语</b>，唯一职责是把前后两句的关系挑明。前句说“给员工设定目标<b>不难</b>”，空格句说“认识到这些目标的负面影响<b>难得多</b>”——两句谈的是同一件事（目标设定），但难易方向完全相反：容易 ↔ 难。</p><p>方向相反，衔接词就必须是<b>转折/对比</b>类，however（然而）作为插入语正好完成这一反向对照。判方向、再选词，是句间衔接题的固定次序。</p>"
+ },
+ {
+  "title": "找证据 · not difficult ↔ much harder 的反向对照",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：not difficult ↔ much harder 的反向对照",
+  "body": "<p>两句的话题都是“目标设定”，评价却是反的：设定容易（not difficult）vs 理解负面影响难（much harder）。however 插入后，整句读作“然而，认识到这些目标的负面影响要难得多”，转折顺理成章。</p>"
+ },
+ {
+  "title": "逐项分析 · A therefore（因此）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A therefore（因此）✗ 排除",
+  "body": "<p><b>排除。</b>therefore 表因果（因此）。但“理解负面影响难”并不是“设定目标不难”导致的<b>结果</b>——两句是对照，不存在“因 → 果”链。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到“设定目标”就以为后句是其“后果”，把对照关系错读成因果。</p>"
+ },
+ {
+  "title": "逐项分析 · B however（然而）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B however（然而）✓ 当选",
+  "body": "<p><b>当选。</b>however（然而）挑明 not difficult ↔ much harder 的语义反差；插入语位置正是 however 的典型用法，方向判定通过。</p>"
+ },
+ {
+  "title": "逐项分析 · C again（再一次）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C again（再一次）✗ 排除",
+  "body": "<p><b>排除。</b>again 表“事件再次发生”或“状态回到原处”（You’ll soon feel well again）。①②句间既没有再次发生的事件，也没有两个相同的状态或地点，“再一次”无从谈起。</p>"
+ },
+ {
+  "title": "逐项分析 · D moreover（此外）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D moreover（此外）✗ 排除",
+  "body": "<p><b>排除。</b>moreover 表递进（此外），引出<b>同方向</b>的补充论证。递进要求后句顺着前句说（容易 → 更容易），而本句方向相反（容易 → 难），递进不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到空格句仍在谈“目标”就当成补充说明；递进的内核是方向一致，此处 easy→hard 是反向，只能转折。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（however 然而）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>It is much harder, however, to understand their negative consequences.（然而，认识到这些目标的负面影响要难得多。）</b></p><p>答案选 <b>B（however 然而）</b>。</p><p><b>记忆锚点</b>：插入语衔接词先做方向判定——not difficult ↔ much harder 反向 ⇒ however；递进（moreover）要求同向，因果（therefore）必须有“因→果”链。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（moreover）：看到空格句仍在谈“目标”就当成补充说明；递进的内核是方向一致，此处 easy→hard 是反向，只能转折。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 1 空 · It is much harder, __1__, to understand their negative consequences：A therefore / B however / C again / D moreover",
+  subtitle: "考点：上下文语义逻辑 · 句间衔接 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 B（however 然而）",
+ "html": "<b>B however（然而）</b>。<br>完整句：It is much harder, however, to understand their negative consequences.（然而，认识到这些目标的负面影响要难得多。）<br>记忆锚点：插入语衔接词先做方向判定——not difficult ↔ much harder 反向 ⇒ however；递进（moreover）要求同向，因果（therefore）必须有“因→果”链。<br>最易误选：<b>D moreover（此外）</b>——看到空格句仍在谈“目标”就当成补充说明；递进的内核是方向一致，此处 easy→hard 是反向，只能转折。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 1 空 · 两句之间的衔接词——not difficult 与 much harder 的方向判定</h2>
+<p>答案：<strong>B（however 然而）</strong>。</p>
+<h3>第 0 步：先立机制——空 1 是句间插入语，先判两句的语义方向</h3>
+<blockquote>It’s not difficult to set targets for staff. It is much harder, <strong>__1__</strong>, to understand their negative consequences.</blockquote>
+<p>空 1 不是句子成分，而是插在 It is much harder 后面的<strong>衔接性插入语</strong>，唯一职责是把前后两句的关系挑明。前句说“给员工设定目标<strong>不难</strong>”，空格句说“认识到这些目标的负面影响<strong>难得多</strong>”——两句谈的是同一件事（目标设定），但难易方向完全相反：容易 ↔ 难。</p>
+<p>方向相反，衔接词就必须是<strong>转折/对比</strong>类，however（然而）作为插入语正好完成这一反向对照。判方向、再选词，是句间衔接题的固定次序。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It’s not difficult to set targets for staff. It is much harder, <strong>__1__</strong>, to understand their negative consequences.</blockquote>
+<p>空 1 位于第二句主语之后，作插入语；对照面是第一句的 not difficult。</p>
+<h3>第 2 步：找证据——not difficult ↔ much harder 的反向对照</h3>
+<p>两句的话题都是“目标设定”，评价却是反的：设定容易（not difficult）vs 理解负面影响难（much harder）。however 插入后，整句读作“然而，认识到这些目标的负面影响要难得多”，转折顺理成章。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A therefore</td><td>因此</td><td>✗ 排除</td><td>therefore 表因果（因此）。但“理解负面影响难”并不是“设定目标不难”导致的<strong>结果</strong>——两句是对照，不存在“因 → 果”链。（典型误解：看到“设定目标”就以为后句是其“后果”，把对照关系错读成因果。）</td></tr><tr><td>B however</td><td>然而</td><td>✓ 当选</td><td>however（然而）挑明 not difficult ↔ much harder 的语义反差；插入语位置正是 however 的典型用法，方向判定通过。</td></tr><tr><td>C again</td><td>再一次</td><td>✗ 排除</td><td>again 表“事件再次发生”或“状态回到原处”（You’ll soon feel well again）。①②句间既没有再次发生的事件，也没有两个相同的状态或地点，“再一次”无从谈起。</td></tr><tr><td>D moreover</td><td>此外</td><td>✗ 排除</td><td>moreover 表递进（此外），引出<strong>同方向</strong>的补充论证。递进要求后句顺着前句说（容易 → 更容易），而本句方向相反（容易 → 难），递进不成立。（典型误解：看到空格句仍在谈“目标”就当成补充说明；递进的内核是方向一致，此处 easy→hard 是反向，只能转折。）</td></tr></tbody></table>
+<p>代入后的完整句义：It is much harder, however, to understand their negative consequences.（然而，认识到这些目标的负面影响要难得多。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么 D（moreover）语法上也通？</strong>：moreover 修饰整个句子没有语法障碍，但它的语义预设是“顺着上一条再补一条同向信息”；本句恰恰是反向对照，递进词会让逻辑自相矛盾。方向判定永远先于搭配手感。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（moreover）</strong>：把“继续谈目标”等同于“递进补充”。递进要求前后同向（好→更好、难→更难），此处是 easy→hard 的反向，只能选转折。</li></ul>
+<blockquote>记忆锚点：插入语衔接词先做方向判定——not difficult ↔ much harder 反向 ⇒ however；递进（moreover）要求同向，因果（therefore）必须有“因→果”链。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-14 · 好奇心驱使人做____的事情：A self-reliant / B self-destructive / C self-evident / D self-deceptive</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 14 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 14 在 do __ things 的形容词位；考点：上下文语义 + 形容词辨析（褒贬色彩）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The insight that curiosity can drive you to do <b>__14__</b> things is a profound one.</div><p>空 14 是 <b>do __ things</b> 的定语形容词：好奇心驱使人去做____的事。这种事是什么性质，上句已经铺垫。</p>"
+ },
+ {
+  "title": "立机制 · backfire 定方向：空格词必须是负面",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：such inquiry can backfire → 好奇心的负面后果 → self-destructive 呼应 painful",
+  "body": "<p>上一句刚说完 but sometimes such inquiry can <b>backfire</b>（好奇心有时会适得其反）。本句的 insight（深刻见解）正是对这句话的展开：好奇心会驱使人去做____的事。空格词必须承接 backfire 的<b>负面</b>方向，同时呼应全文第一条线索——首段的 painful、unpleasant（自找不快）。self-destructive（自毁的）一词同时满足两条：负面，而且害的是自己。</p>"
+ },
+ {
+  "title": "找证据 · 首段伏笔：明知 painful 还要做",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：negative comments / painful / unpleasant stimuli → 自找不快 = self-destructive",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Why do people read negative Internet comments and do other things that will obviously be painful?</div><p>全文开篇的设问（为什么读负面评论、做明显痛苦的事）与第二段的实验（expose themselves to unpleasant stimuli）一直在铺<b>自找不快</b>这个点。self-destructive 的自己害自己正是这条线索的浓缩：好奇心驱使下的行为，代价由自己承担。</p>"
+ },
+ {
+  "title": "逐项分析 · A self-reliant（自力更生的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A self-reliant（自力更生的）✗ 排除",
+  "body": "<p><b>排除。</b>褒义词，与 backfire 的负面方向相反；且 self-reliant 常修饰人或文化，一般不修饰 things。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到四个选项都带 self- 前缀、词形工整，没先辨褒贬。</p>"
+ },
+ {
+  "title": "逐项分析 · B self-destructive（自毁的；自残的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B self-destructive（自毁的；自残的）✓ 当选",
+  "body": "<p><b>当选。</b>负面且害的是自己，同时接住 backfire 与首段 painful / unpleasant 两条线：好奇心驱使人做自毁之事。</p>"
+ },
+ {
+  "title": "逐项分析 · C self-evident（不证自明的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C self-evident（不证自明的）✗ 排除",
+  "body": "<p><b>排除。</b>中性词（形容道理显而易见），既不负面也与适得其反无关，撑不起 insight（深刻见解）的说法。</p>"
+ },
+ {
+  "title": "逐项分析 · D self-deceptive（自欺的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D self-deceptive（自欺的）✗ 排除",
+  "body": "<p><b>排除。</b>虽是贬义，但自欺的实质是让自己心里舒服（回避真相），与全文立意满足好奇心的代价是情绪上的痛苦相悖。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见贬义就选，没细想自欺与自找痛苦是两种不同的负面。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 14 填 self-destructive（自毁的；自残的）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The insight that curiosity can drive you to do <b>self-destructive</b> things is a profound one.</div><p>好奇心会驱使人去做自毁之事——这一洞见十分深刻。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（self-destructive 自毁的；自残的）——见结论卡",
+  "body": "<p>答案选 <b>B（self-destructive 自毁的；自残的）</b>。</p><p><b>记忆锚点</b>：self- 合成词先辨褒贬、再辨语义：backfire / painful / unpleasant 组成负面语义场；自欺图舒服，自毁招痛苦，本文要后者。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（self-deceptive）</b>：只做贬义筛选不做语义校验——自欺让人心安，自毁招来痛苦，本文主线是后者。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 14 空 · 好奇心驱使人做____的事情：A self-reliant / B self-destructive / C self-evident / D self-deceptive",
+  subtitle: "考点：上下文语义 + 形容词辨析（褒贬色彩） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（self-destructive 自毁的；自残的）", "html": "<b>B（self-destructive 自毁的；自残的）</b>。<br>记忆锚点：self- 合成词先辨褒贬、再辨语义：backfire / painful / unpleasant 组成负面语义场；自欺图舒服，自毁招痛苦，本文要后者。<br>最易误选：<b>D（self-deceptive）</b>——只做贬义筛选不做语义校验——自欺让人心安，自毁招来痛苦，本文主线是后者。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 14 空 · 好奇心驱使人做____的事情</h2>
+<p>答案：<strong>B（self-destructive 自毁的；自残的）</strong>。</p>
+<h3>第 0 步：先立机制——backfire 定方向：空格词必须是负面</h3>
+<p>上一句刚说完 but sometimes such inquiry can <strong>backfire</strong>（好奇心有时会适得其反）。本句的 insight（深刻见解）正是对这句话的展开：好奇心会驱使人去做____的事。空格词必须承接 backfire 的<strong>负面</strong>方向，同时呼应全文第一条线索——首段的 painful、unpleasant（自找不快）。self-destructive（自毁的）一词同时满足两条：负面，而且害的是自己。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The insight that curiosity can drive you to do <strong>__14__</strong> things is a profound one.</blockquote>
+<p>空 14 是 <strong>do __ things</strong> 的定语形容词：好奇心驱使人去做____的事。这种事是什么性质，上句已经铺垫。</p>
+<h3>第 2 步：找证据——首段伏笔：明知 painful 还要做</h3>
+<blockquote>Why do people read negative Internet comments and do other things that will obviously be painful?</blockquote>
+<p>全文开篇的设问（为什么读负面评论、做明显痛苦的事）与第二段的实验（expose themselves to unpleasant stimuli）一直在铺<strong>自找不快</strong>这个点。self-destructive 的自己害自己正是这条线索的浓缩：好奇心驱使下的行为，代价由自己承担。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A self-reliant</td><td>自力更生的</td><td>✗ 排除</td><td>褒义词，与 backfire 的负面方向相反；且 self-reliant 常修饰人或文化，一般不修饰 things。（典型误解：只看到四个选项都带 self- 前缀、词形工整，没先辨褒贬。）</td></tr><tr><td>B self-destructive</td><td>自毁的；自残的</td><td>✓ 当选</td><td>负面且害的是自己，同时接住 backfire 与首段 painful / unpleasant 两条线：好奇心驱使人做自毁之事。</td></tr><tr><td>C self-evident</td><td>不证自明的</td><td>✗ 排除</td><td>中性词（形容道理显而易见），既不负面也与适得其反无关，撑不起 insight（深刻见解）的说法。</td></tr><tr><td>D self-deceptive</td><td>自欺的</td><td>✗ 排除</td><td>虽是贬义，但自欺的实质是让自己心里舒服（回避真相），与全文立意满足好奇心的代价是情绪上的痛苦相悖。（典型误解：见贬义就选，没细想自欺与自找痛苦是两种不同的负面。）</td></tr></tbody></table>
+<p>代入后的完整句义：好奇心会驱使人去做自毁之事——这一洞见十分深刻。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（self-deceptive）</strong>：只做贬义筛选不做语义校验——自欺让人心安，自毁招来痛苦，本文主线是后者。</li></ul>
+<blockquote>记忆锚点：self- 合成词先辨褒贬、再辨语义：backfire / painful / unpleasant 组成负面语义场；自欺图舒服，自毁招痛苦，本文要后者。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

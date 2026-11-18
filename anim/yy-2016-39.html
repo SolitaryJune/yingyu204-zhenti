@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-39 · 2016 阅读第 39 题 · converge 共识题 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · converge 把「差异篇」切到「共识篇」", "cls": "key", "tag": "审题", "log": "审题眼：Both young and old agree that ___——共识题，前文全是差异，第五段是切换点", "count": 0, "ribbon": null, "body": "<p>前四段一直在讲新老一辈的<b>不同</b>（strikingly different paths），第五段用 <b>Young and old converge on one key point:</b> 完成话题切换——converge（趋同）是路标词。题干 Both young and old agree that ___ 问的就是冒号之后的内容。</p>"},
+ {"title": "定位原文 · 冒号后的两层共识", "cls": "key", "tag": "定位", "log": "定位第五段：①总判断 harder to get started；②具体化 tougher climb（四件路标成就）", "count": 0, "ribbon": null, "body": quote("Overwhelming majorities of both groups said they believe it is harder for young people today to get started in life than it was for earlier generations. … big majorities in both groups believe those &ldquo;just getting started in life&rdquo; face a tougher climb than earlier generations in reaching such signpost achievements as securing a good-paying job, starting a family, managing debt, and finding affordable housing.") + "<p>两层信息：总层 <b>harder… to get started</b>（起步更难）；具体层 <b>a tougher climb in reaching… signpost achievements</b>（拿高薪工作、成家、管债、买得起房这些路标成就上攀行更难）。②句 While 让步从句（年轻人稍乐观）只是铺垫，主句才是共识。</p>"},
+ {"title": "同义替换 · established 收编两层", "cls": "key", "tag": "替换", "log": "同义替换：get established（立足）＝ get started ＋ 爬完路标成就；harder/tougher 对应", "count": 0, "ribbon": null, "body": "<p>[D] getting <b>established</b> is <b>harder</b> for the young——get established（立足、站稳脚跟）同时收编两层：get started（起步）＋ tougher climb reaching signpost achievements（爬完那些成就才算立足）；harder 直接来自 harder / tougher。共识的两层被一个词组合并，锁定 [D]。</p>"},
+ {"title": "逐项分析 · A good-paying jobs are less available", "cls": "bad", "tag": "排除 A", "log": "A 高薪工作变少 ✗ ——难度轴被偷换成供给量轴", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>原文说高薪工作「<b>更难获得</b>」（harder to secure a good-paying job），比较的是<b>难度</b>，不是「数量变少」——less available 把难度偷换成供给量。原词在，比较轴被换。</p><p style=\"color:#b91c1c\">⚠ 典型误解：harder 锁的是难度轴，不是数量轴。</p>"},
+ {"title": "逐项分析 · B the old made more life achievements", "cls": "bad", "tag": "排除 B", "log": "B 老一辈人生成就更多 ✗ ——全文比难易，从不盘点成就多少", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>全文比较的是「同一件事新老两代<b>难易不同</b>」，从未盘点两代人<b>成就多少</b>的排名——把「年轻人更难」顺势脑补成「老一辈成就更多」，难度比较不等于成就盘点。</p><p style=\"color:#b91c1c\">⚠ 典型误解：反向脑补出原文没有的比较维度。</p>"},
+ {"title": "逐项分析 · C housing loans today are easy to obtain", "cls": "bad", "tag": "排除 C", "log": "C 住房贷款容易获得 ✗ ——方向反转（难→易）＋对象偷换（房→贷款）", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>原文 affordable housing 难「<b>找到</b>」（harder… finding affordable housing），且通篇没有「住房贷款」——C 说成「贷款易得」，一次反转方向、一次偷换对象，两步全错。</p><p style=\"color:#b91c1c\">⚠ 典型误解：难事变易事，房变贷款。</p>"},
+ {"title": "逐项分析 · D getting established is harder for the young", "cls": "good", "tag": "选定 D", "log": "D 年轻人立足更困难 ✓ ——get started ＋ tougher climb 的合并改写", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>established ＝ 起步（get started）后爬完路标成就（tougher climb）的终点状态；harder 直接对应 harder / tougher。D 不吃原词、只吃原意——把两层共识合起来读的上位概括。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（getting established is harder for the young）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>converge 切换共识篇 → 冒号后两层共识（起步难＋爬坡难）→ established 合并改写 → 选 D。</b></p><p>答案选 <b>D（getting established is harder for the young）</b>。</p><p><b>记忆锚点</b>：converge on one key point＝切换共识篇，冒号后是共识本体；共识＝harder to get started ＋ tougher climb（四件路标成就）；established ＝ 起步＋爬完坡的终点状态。</p><p style=\"color:#b91c1c\">最易误选：<b>A（good-paying jobs are less available）</b>——难度轴被偷换成供给量轴。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 39 题 · 共识题——冒号之后才是共识的内容",
+  subtitle: "考点：观点共识题 · converge 路标词 + 冒号后两层共识的合并改写",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“切换共识篇 → 拆两层共识 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（getting established is harder for the young）", "html": "<b>D 年轻人立足更困难</b>：get started ＋ tougher climb 的合并改写。<br>记忆锚点：converge ＝ 切换共识篇，冒号后是共识本体；established ＝ 起步＋爬完坡的终点状态。<br>最易误选：<b>A（less available）</b>——难度轴被偷换成供给量轴。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 39 题 · 共识题——冒号之后才是共识的内容</h2>
+<p>答案：<strong>D（getting established is harder for the young 年轻人立足更困难）</strong>。</p>
+<h3>第 0 步：先立机制——converge 把"差异篇"切到"共识篇"</h3>
+<p>前四段一直在讲新老一辈的<strong>不同</strong>（strikingly different paths），第五段用 <strong>Young and old converge on one key point:</strong> 完成话题切换——converge（趋同）是路标词，冒号之后才是双方共识的本体：<strong>it is harder for young people today to get started in life</strong>。题干 Both young and old agree that ____ 问的就是这个冒号后的内容。共识句有两层：①句给总判断（起步更难），②句给具体化（四件标志性成就都更难爬）——正确答案必然是两层的合并改写。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Overwhelming majorities of both groups said they believe it is harder for young people today to get started in life than it was for earlier generations. While younger people are somewhat more optimistic than their elders..., big majorities in both groups believe those "just getting started in life" face a tougher climb than earlier generations in reaching such signpost achievements as securing a good-paying job, starting a family, managing debt, and finding affordable housing.</blockquote>
+<p>两层信息：总层 harder... to get started（起步更难）；具体层 a tougher climb in reaching... signpost achievements（在拿高薪工作、成家、管债、买得起房这些"路标成就"上攀行更艰难）。注意②句 While 引导的让步从句（年轻人稍乐观）只是铺垫，主句才是共识。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[D] getting <strong>established</strong> is <strong>harder</strong> for the young——get established（立足、站稳脚跟）同时收编两层：get started（起步）＋ tougher climb reaching signpost achievements（爬完那些标志性成就才算立足）；harder 直接来自 harder / tougher。consensus 的两层被一个词组合并，改写完成。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A good-paying jobs are less available</td><td>✗</td><td>偷换比较维度：原文说高薪工作"<strong>更难获得</strong>"（harder to secure），比较的是难度，不是"数量变少"——less available 把难度偷换成供给量</td></tr><tr><td>B the old made more life achievements</td><td>✗</td><td>无中生有：全文比较的是"同一件事新老两代<strong>难易不同</strong>"，从未盘点两代人<strong>成就多少</strong>的排名</td></tr><tr><td>C housing loans today are easy to obtain</td><td>✗</td><td>方向反转＋偷换对象：原文 affordable housing 难"找到"（harder... finding affordable housing），且通篇没有"住房贷款"——C 说成"贷款易得"，难事变易事</td></tr><tr><td>D getting established is harder for the young</td><td>✓</td><td>get started ＋ tougher climb 的合并改写：立足（established）＝起步后爬完路标成就，harder/tougher 直接对应</td></tr></tbody></table>
+<h3>预判追问：D 的 getting established 原文并没有，算不算无中生有？</h3>
+<p>不算——它是对两层共识的<strong>上位概括</strong>。get started 只覆盖"迈出第一步"，而 tougher climb in reaching... achievements 说的是起步后还要爬坡；"立足"（established）恰好是"起步＋爬完坡"的终点状态。同义替换分两种：词与词的对译（如 harder），与概括式的改写（established）——后者要求考生把两层信息合起来读，这正是本题的正确项比干扰项高明的地方：它不吃原词，只吃原意。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：good-paying job 原词在②句，但"难获得"≠"变少"——比较级 harder 锁的是难度轴，不是数量轴。</li><li><strong>误选 C</strong>：affordable housing 难找被反写成"贷款容易"——既反转方向，又把"房"偷换成"贷款"。</li><li><strong>误选 B</strong>：把"年轻人更难"顺势脑补成"老一辈成就更多"——难度比较不等于成就盘点。</li></ul>
+<blockquote>记忆锚点：converge on one key point＝切换共识篇，<strong>冒号后是共识本体</strong>；共识＝harder to get started ＋ tougher climb（四件路标成就）；established ＝ 起步＋爬完坡的终点状态。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

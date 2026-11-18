@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-08 · 2023 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 8 所在句，考点：段间逻辑 + 副词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Things changed, __8__ , when an innovative project-marketing manager came aboard, __9__ a growth team and sparked the kind of __10__ perspective they needed.</div><p>段首连接词 = 焊点：上段尾巴“停滞/问题”，本段开头“Things changed”。先焊段间，再看句内——主句 Things changed 是果，when 从句是因（前果后因）。</p>"
+ },
+ {
+  "title": "找证据 · 上段“停滞” ↔ 本段“改变”，正面对撞",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：plateaued（停滞）→ Things changed（改变）= 段间转折",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This brought them good results until 2012, when their growth plateaued.</div><p>growth plateaued（上段末）vs Things changed（本段主句）：停滞 → 改变，唯一焊法是转折 however；therefore 的诱惑来自 when 从句，但那是句内因果，不归段间焊点管。</p>"
+ },
+ {
+  "title": "逐项分析 · A moreover（此外；而且）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A moreover（此外；而且） ✗ 排除——递进补充——“停滞”与“改变”不是同类信息叠加",
+  "body": "<p><b>排除。</b>moreover 用来追加同类信息。上段是“公司面临的问题”，本段是“局面发生扭转”，二者是转折而非并列追加。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见段首空就顺手递进，没先看两段各说了什么</p>"
+ },
+ {
+  "title": "逐项分析 · B however（然而；不过）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B however（然而；不过） ✓ 当选",
+  "body": "<p><b>当选。</b>however 引出与上段相反的走向：从“增长停滞”翻页到“情况改变”，语义、位置（句中插入语）都成立。</p>"
+ },
+ {
+  "title": "逐项分析 · C therefore（因此；所以）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C therefore（因此；所以） ✗ 排除——句内是“前果后因”，“改变”不是被“因此”引出的果",
+  "body": "<p><b>排除。</b>诱惑点在句内：经理上任 → 情况改变，看似因果。但空格词要缝的是上段“问题”与本段“变化”，且本句结构为 Things changed（果）在前、when 从句（因）在后——“改变”不是 therefore 引出的新结果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把句内 when 从句的因果错接到段间，方向装反</p>"
+ },
+ {
+  "title": "逐项分析 · D again（再一次）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D again（再一次） ✗ 排除——上文没有“曾经改变”，谈不上“再次”",
+  "body": "<p><b>排除。</b>again 要求前文出现过同类变化。上段的落点始终是“停滞/问题”，没有任何一次“改变”可供重复。</p><p style=\"color:#b91c1c\">⚠ 典型误解：未回读上段，默认“情况之前也变过”</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（however 然而；不过）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>然而，当一位富有革新精神的项目营销经理上任、创建增长团队并激发出所需的新视角后，情况就此改变</b>（与上段“停滞”形成转折；主句为果、when 从句为因）。</p><p>答案选 <b>B（however 然而；不过）</b>。</p><p><b>记忆锚点</b>：段首连接词先看两段尾巴与开头：停滞 → 改变 = however；本句“前果后因”（Things changed 在前，when 从句在后），警惕 therefore 的句内诱惑。</p><p style=\"color:#b91c1c\">最易误选：<b>C（therefore）</b>——把句内 when 从句的因果错接到段间，方向装反</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 8 空 · “Things changed, ____, when…”该填哪个连接副词",
+  subtitle: "考点：段间逻辑 + 副词辨析 · 前果后因结构 · 警惕 therefore",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（however）", "html": "<b>B however（然而；不过）</b>。<br>完整句义：然而，当一位富有革新精神的项目营销经理上任、创建增长团队并激发出所需的新视角后，情况就此改变。<br>记忆锚点：段首连接词先看两段尾巴与开头：停滞 → 改变 = however；本句“前果后因”（Things changed 在前，when 从句在后），警惕 therefore 的句内诱惑。<br>最易误选：<b>C</b>——把 when 从句的因果当成段间逻辑，误选 therefore"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：段间逻辑 + 副词辨析——“问题”翻页之后是“转机”</h2>
+<p>答案：<strong>B（however 然而；不过）</strong>。</p>
+<h3>第 0 步：先立框架——段首连接词是“上一段尾巴与本段开头”的焊点</h3>
+<p>上段末句停在问题上：太多人用免费版、改进了也没人升级。本段首句：Things changed, __8__, when an innovative project-marketing manager came aboard... 模型：<strong>段首连接词的职责是缝合上一段的尾巴</strong>。上段收在“停滞/问题”，本段说“情况变了”——变 = 转折，焊点应为 however。</p>
+<p>再补一刀句法：Things changed 是主句（果），when 从句交代契机（因），这是“<strong>前果后因</strong>”结构。千万别把 when 从句的因果错接到段间，去选 therefore。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>Things changed, __8__ , when an innovative project-marketing manager came aboard, __9__ a growth team and sparked the kind of __10__ perspective they needed.</blockquote>
+<p>Things changed 与上段末 growth plateaued 直接对撞：一边“停滞”，一边“改变”——段间只有转折一种焊法，however 落位。</p>
+<blockquote>…until 2012, when their growth plateaued.（上段末句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A moreover</td><td>此外；而且</td><td>❌ 排除</td><td>递进补充——“停滞”与“改变”不是同类信息叠加</td></tr><tr><td>B however</td><td>然而；不过</td><td>✅ 当选</td><td>停滞 vs 改变，段间转折的标准焊点</td></tr><tr><td>C therefore</td><td>因此；所以</td><td>❌ 排除</td><td>句内是“前果后因”，“改变”不是被“因此”引出的果</td></tr><tr><td>D again</td><td>再一次</td><td>❌ 排除</td><td>上文没有“曾经改变”，谈不上“再次”</td></tr></tbody></table>
+<p>代入全句：<strong>然而，当一位富有革新精神的项目营销经理上任、创建增长团队并激发出所需的新视角后，情况就此改变</strong>（与上段“停滞”形成转折；主句为果、when 从句为因）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（moreover 此外；而且）</strong>：见段首空就顺手递进，没先看两段各说了什么。moreover 用来追加同类信息。上段是“公司面临的问题”，本段是“局面发生扭转”，二者是转折而非并列追加。</li><li><strong>误选 C（therefore 因此；所以）</strong>：把句内 when 从句的因果错接到段间，方向装反。诱惑点在句内：经理上任 → 情况改变，看似因果。但空格词要缝的是上段“问题”与本段“变化”，且本句结构为 Things changed（果）在前、when 从句（因）在后——“改变”不是 therefore 引出的新结果。</li><li><strong>误选 D（again 再一次）</strong>：未回读上段，默认“情况之前也变过”。again 要求前文出现过同类变化。上段的落点始终是“停滞/问题”，没有任何一次“改变”可供重复。</li></ul>
+<blockquote>记忆锚点：段首连接词先看两段尾巴与开头：停滞 → 改变 = however；本句“前果后因”（Things changed 在前，when 从句在后），警惕 therefore 的句内诱惑。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

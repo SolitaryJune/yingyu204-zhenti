@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-17 · 2024 完形第 17 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 空格在句中扮演什么角色',
+    cls: 'key',
+    tag: '审题',
+    log: '主系表结构：四种不适（主语）= poor social health 的____（表语）',
+    count: 0,
+    body: '<p>主语 <code>Low mood, low energy, irritability and trouble sleeping</code> 是一串身体发出的信号；表语 <code>____ of poor social health</code> 要说明这串不适与“糟糕的社交健康状况”的关系。注意谓语 <b>could</b> all be——推测语气，不是断言。</p>'
+  },
+  { title: '定位原文 · 空 17 所在句',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：空 17 所在句，考点：上下文语义 + 名词词义辨析',
+    count: 0,
+    body: quote('Low mood, low energy, irritability and trouble sleeping could all be __17__ of poor social health.') +
+      '<p>空格名词由 of poor social health 后置修饰，且主语是一串“症状”，四个选项里只有“表现／迹象”类名词能接住这个句型。</p>'
+  },
+  { title: '找证据 · 上一句定下基调',
+    cls: 'key',
+    tag: '证据',
+    log: '找证据：上一句说“要意识到社交过度”，本句顺势列出四种不适',
+    count: 0,
+    body: quote('We all have our own social limit and it’s important to recognise when you’re feeling like it’s all too much.') +
+      '<p>两句顺承：这些不适正是“社交过度、健康不佳”的外显；could 提示这是<b>推断出的迹象</b>，不是确凿事实，更不是因果源头。</p>'
+  },
+  { title: '逐项分析 · A sources（来源；根源）',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A sources ✗ 排除——因果方向反了：不适是“表现”，不是“成因”',
+    count: 1,
+    ribbon: { k: 'A', ok: false },
+    body: '<p><b>排除。</b>source 的核心是因果：A 是 B 的 source = A 导致 B。情绪低落、失眠是 poor social health 的<b>结果性表现</b>，不是它的根源。</p><p style="color:#b91c1c">⚠ 典型误解：只背词义“来源”，不核对句子内部的因果方向。</p>'
+  },
+  { title: '逐项分析 · B standards（标准）',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B standards ✗ 排除——搭配与语气双双不合',
+    count: 2,
+    ribbon: { k: 'B', ok: false },
+    body: '<p><b>排除。</b>“糟糕社交健康的标准”语义不通；且 standards 带权威、确定的色彩，与 <code>could</code> 的委婉推断语气相斥。</p><p style="color:#b91c1c">⚠ 典型误解：忽略情态动词的语气提示，只做名词配对。</p>'
+  },
+  { title: '逐项分析 · C signs（迹象；征兆）',
+    cls: 'good',
+    tag: '选定 C',
+    log: 'C signs ✓ 当选——“可能发生之事的外显信号”，与 could 呼应',
+    count: 2,
+    ribbon: { k: 'C', ok: true },
+    body: '<p><b>当选。</b>signs of sth 表“某事正在或可能发生的外显信号”，多接负面情形：Headaches may be a sign of stress。四种不适概括为“社交健康不佳的迹象”，句法、语义、语气三合。</p>'
+  },
+  { title: '逐项分析 · D scores（分数；刻痕）',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D scores ✗ 排除——命题人拿 low 设障，分数与“低落”无关',
+    count: 3,
+    ribbon: { k: 'D', ok: false },
+    body: '<p><b>排除。</b>句中反复出现 low（low mood、low energy），诱导联想“低分”；但 low 在此修饰 mood/energy，取“低落”义。score 另有“刻痕”义，也只指物理划痕，与抽象信息无关。</p><p style="color:#b91c1c">⚠ 典型误解：看见 low 就想到“分数高低”，不回到词的语境义。</p>'
+  },
+  { title: '结论 · 完整句义与记忆锚点',
+    cls: 'good',
+    tag: '答案 C',
+    log: '答案 C（signs 迹象）——完整句义见结论卡',
+    count: 3,
+    body: '<p>完整句义：<b>情绪低落、精力不振、易怒和睡眠问题都可能表明社交健康状况不佳。</b></p><p>答案选 <b>C（signs 迹象）</b>。</p><p><b>记忆锚点</b>：症状串 + could be + ____ of poor 状态 → signs；source 表因果、sign 表外显，方向相反；standards 配不上 could 的推断语气，scores 只是 low 的字面陷阱。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 完形第 17 空 · “社交健康不佳的____”该填哪个名词',
+  subtitle: '考点：上下文语义 + 名词词义辨析 · 定位 → 找证据 → 逐项排除',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（signs）',
+    html: '<b>C signs（迹象；征兆）</b>——四种不适是 poor social health 的外显信号，与 could 的推断语气呼应。<br>记忆锚点：source 表因果、sign 表外显，方向相反；最易误选 <b>D（scores）</b>——被 low mood/low energy 里的 low 引去想“分数”。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 17 空 · “社交健康不佳的____”填哪个名词</h2>
+<p>答案：<strong>C（signs 迹象）</strong>。</p>
+<h3>第 0 步：先立机制——本空在句中扮演什么角色</h3>
+<p>空格句是主系表结构：主语 Low mood, low energy, irritability and trouble sleeping（情绪低落、精力不振、易怒、睡眠出问题）是一串“身体发出的信号”；表语是 ____ of poor social health。句子要陈述的逻辑是：这一串不适与“糟糕的社交健康状况”之间是什么关系。再注意谓语 could all be——could 是推测语气，说的是“可能表明”，不是断言因果。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Low mood, low energy, irritability and trouble sleeping could all be __17__ of poor social health.</blockquote>
+<h3>第 2 步：找证据——上一句已经定下基调</h3>
+<blockquote>We all have our own social limit and it’s important to recognise when you’re feeling like it’s all too much.</blockquote>
+<p>上一句说“人人都有社交极限，重要的是意识到自己什么时候已经社交过度”；本句紧接着列出四种不适。两句顺承：这些不适正是“社交过度、健康不佳”的外显，而 could 提示这是推测出的“迹象”，不是确凿事实。空格应填“表现／迹象”类名词。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A sources</td><td>来源；根源</td><td>✗</td><td>source 暗含因果：情绪低落应是 poor social health 的“表现”，不是“成因”，因果方向反了</td></tr><tr><td>B standards</td><td>标准</td><td>✗</td><td>“健康不佳的标准”搭配不通；standards 带权威、确定的色彩，与 could 的推断语气相斥</td></tr><tr><td>C signs</td><td>迹象；征兆</td><td>✓</td><td>signs of sth 表“某事正在或可能发生的外显信号”，恰好概括四种不适，并与 could 呼应</td></tr><tr><td>D scores</td><td>分数；刻痕</td><td>✗</td><td>命题人拿句中反复出现的 low 设障：low mood/low energy 指“情绪低落／精力不振”，与分数无关</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不能选 A？sources 不也是“……之源”吗？</strong>：source 的核心是因果——A 是 B 的 source，意为“A 导致 B”。本句主语与 poor social health 是“表现与状态”的关系，症状不能“导致”健康不佳。</li><li><strong>signs 的典型用法？</strong>：sign of + 名词 = “……的迹象”，多接负面情形，如 Headaches may be a sign of stress。本空结构与该例完全同构。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（scores）</strong>：看见 low 就联想“低分”。low 在文中修饰 mood/energy，取“低落”之义，与分数无关。</li><li><strong>误选 A（sources）</strong>：只背词义“来源”，不核对因果方向——低落情绪是健康不佳的“结果性表现”，不是“根源”。</li></ul>
+<blockquote>记忆锚点：症状串 + could be + ____ of poor 状态 → signs（迹象）；source 表因果、sign 表外显，方向相反。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

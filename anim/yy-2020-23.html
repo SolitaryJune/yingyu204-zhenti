@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-23 · 因果细节题：老鼠为什么救社交机器鼠</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：because 问的是「原因」",
+  "body": "<p>题干：<b>According to Quinn, the rats released the social robot because they ____</b>。</p><p>问的是施救的<b>原因</b>。第四段的逻辑链：①②句摆现象（老鼠更愿意救社交鼠）→ ③句 <b>This suggests</b> 总评（把它当成真正的社交伙伴）→ ④⑤句 <b>may / could</b> 推理原因。落点在⑤句 wanting the robot to <b>return the favour</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "因果链：现象 → 推理 → 原因",
+  "body": "<table class='aw-mini'><tr><th>环节</th><th>句子与内容</th></tr><tr><td>现象</td><td>①②句：18 次试验中老鼠救社交鼠的几率平均高 52%</td></tr><tr><td>总评</td><td>③句 This suggests：老鼠把社交鼠视作真正的社交生物</td></tr><tr><td>推理</td><td>④句 may have bonded：曾共同玩耍 → 建立情感纽带</td></tr><tr><td><b>原因</b></td><td>⑤句 could lead to：记得救过它 + 盼它日后<b>回报（return the favour）</b></td></tr></table>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第四段⑤句",
+  "body": "<div class='qq'><b>原文：</b>This could lead to the rats better remembering having freed it earlier, and <b>wanting the robot to return the favour</b> when they get trapped, she says.</div><p class='cn'>译：这可能使老鼠更清楚地记得自己曾解救过它，并盼望自己受困时机器鼠能回报。</p><p>B 的 <b>expected it to do the same in return</b>（希望它日后报以同样行为）↔ return the favour（回报）——同义改写，选 B。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：断章取义",
+  "body": "<p><b>A · tried to practice a means of escape</b> <span class='bad-dot'>✗</span></p><p>拿①句 <b>pressing a lever</b>（按控制杆）做文章。「按下控制杆」是老鼠帮机器鼠脱困的<b>方式</b>，不是施救的<b>原因</b>；「练习逃跑方法」更是无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：主体与行为都换了",
+  "body": "<p><b>C · wanted to display their intelligence</b> <span class='bad-dot'>✗</span></p><p>④句 it displayed behaviours like communal exploring and playing 说的是<b>社交机器鼠</b>曾表现集体探险与玩耍行为——不是「老鼠想展示智力」，主体与行为双错位。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：曲解 exploring and playing",
+  "body": "<p><b>D · considered that an interesting game</b> <span class='bad-dot'>✗</span></p><p>④句 exploring and playing 是老鼠先前与机器鼠<b>共同玩耍</b>的画面（建立纽带的原因），被曲解成「如今营救是因为觉得好玩」——文中谈的是<b>互惠预期</b>，不是游戏心态。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 4,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：return the favour 的改写",
+  "body": "<p><b>B · expected it to do the same in return</b> <span class='ok-dot'>✓</span></p><p>wanting the robot to <b>return the favour</b> ↔ expected it to <b>do the same in return</b>：帮过它、等它报答——这就是施救的原因。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（expected it to do the same in return）</b>。</p><p>记忆锚点：解救社交鼠 = 情感纽带 + direct reciprocity（直接互惠：你帮过我，我等你再帮我）；cause 类题顺着 This suggests / may / could / lead to 的链条找落点。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-23 · 因果细节题：老鼠为什么救社交机器鼠",
+  subtitle: "考点：Text1 第四段 · This suggests 之后的因果推理链",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 B", "html": "<b>因果链落点在⑤句</b>：wanting the robot to return the favour ↔ do the same in return。A 断章取义（pressing a lever 是方式不是原因）、C/D 曲解④句 exploring and playing（那是社交鼠的表现与共同玩耍的画面）。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 23 题——因果链：老鼠为什么救社交机器鼠</h2>
+<p>答案：<strong>B</strong>（expected it to do the same in return）。</p>
+<h3>第 0 步：先立机制——题问"原因"，先找因果词</h3>
+<p>第四段逻辑链：①②句摆现象（18 次试验中老鼠解救社交鼠的几率平均高出 52%）→ ③句 This suggests 总评（把社交鼠当成了真正的社交生物）→ ④⑤句用 may / could 推理原因（因社交鼠曾一起玩耍而建立情感纽带，老鼠记得自己救过它，并指望它日后回报）。题干 because they ____ 问的就是这段推理的落点——⑤句 wanting the robot to return the favour。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>This could lead to the rats better remembering having freed it earlier, and wanting the robot to <strong>return the favour</strong> when they get trapped, she says.</blockquote>
+<p>B 的 expected it to do the same in return（希望它日后报以同样行为）＝ wanting the robot to return the favour（期待机器鼠回报）——return the favour ↔ do the same in return，同义改写，选 B。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（tried to practice a means of escape）</strong>：断章取义①句 pressing a lever。"按下控制杆"是老鼠帮机器鼠脱困的<strong>方式</strong>，不是施救的<strong>原因</strong>；"练习逃跑方法"更是无中生有。</li><li><strong>C（wanted to display their intelligence）</strong>：把④句 it displayed behaviours like communal exploring and playing（社交<strong>机器鼠</strong>曾表现集体探险与玩耍行为）曲解成"老鼠想展示智力"——主体与行为都错位。</li><li><strong>D（considered that an interesting game）</strong>：把④句 exploring and playing（先前与机器鼠共同玩耍的画面）曲解为"如今营救是因为觉得它是个有趣的游戏"——文中谈的是互惠预期，不是游戏心态。</li></ul>
+<blockquote>记忆锚点：解救社交鼠 = 情感纽带 + direct reciprocity（直接互惠："你帮过我，我等你再帮我"）；cause 类题顺着 This suggests / may / could / lead to 的链条找落点。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

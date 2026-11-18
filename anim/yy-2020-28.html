@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-28 · 让步转折题：despite 后填 Yet 前的让步信息</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：despite 问「尽管什么」",
+  "body": "<p>题干：<b>CEO pay has been rising since the 1970s despite ____</b>。despite 引出让步——「尽管 X，薪酬照涨」。</p><p>第四段②③句正是让步转折对：②句说治理<b>更严</b>（让步信息），<b>Yet</b> ③句说恰恰在这段强治理时期薪酬<b>高企上涨</b>（转折信息）。despite 后要填的就是②句。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "让步 / 转折两半怎么分",
+  "body": "<table class='aw-mini'><tr><th>句</th><th>内容</th><th>角色</th></tr><tr><td>②</td><td>corporate governance has become a lot <b>tighter and more rigorous</b> since the 1970s</td><td>让步（despite 的内容）</td></tr><tr><td>③</td><td><b>Yet</b> it is principally during this period of <b>stronger governance</b> that CEO pay has been high and rising</td><td>转折（验证：stronger governance 复现②句）</td></tr></table><p>③句的强调句式把「薪酬上涨」钉在「强治理时期」上——两句合读 = 尽管治理严格，薪酬照涨。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第二、三句",
+  "body": "<div class='qq'><b>原文：</b>By most measures, <b>corporate governance has become a lot tighter and more rigorous</b> since the 1970s. <b>Yet</b> it is principally during this period of <b>stronger governance</b> that CEO pay has been high and rising.</div><p class='cn'>译：从多数标准看，公司治理自 70 年代以来明显收紧趋严。然而 CEO 薪酬高位上涨恰恰主要出现在这段强治理时期。</p><p>B 的 <b>strict corporate governance</b> ↔ tighter and more rigorous governance / stronger governance：strict ↔ tighter & rigorous，词形不同、语义同一。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：过度推断",
+  "body": "<p><b>A · continual internal opposition</b> <span class='bad-dot'>✗</span></p><p>①句说的是「<b>外界普遍看法</b>认为高薪是剥削」——普遍看法 ≠ 「公司内部反对声音不断」，原文没说有内部反对。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：商业常识臆造",
+  "body": "<p><b>C · conservative business strategies</b> <span class='bad-dot'>✗</span></p><p>「战略保守 → 薪酬保守」是商业常识的联想，但原文没讨论「商业战略」——无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：治理主体被偷换",
+  "body": "<p><b>D · repeated government warnings</b> <span class='bad-dot'>✗</span></p><p>corporate governance 指<b>公司内部</b>所有者对经营者的监督制衡；D 把「公司自我治理趋严」曲解成「<b>政府</b>一再告诫公司」——主体偷换，governance 的动作方不是政府。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 4,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：让步信息的概括",
+  "body": "<p><b>B · strict corporate governance</b> <span class='ok-dot'>✓</span></p><p>②句 tighter and more rigorous corporate governance 的概括 = strict corporate governance——正好接在 despite 后面：尽管治理严格，薪酬照涨。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（strict corporate governance）</b>。</p><p>记忆锚点：despite 题先分清让步句（②）与转折句（③ Yet）；corporate governance 是「公司治理」（内部监督制衡），别被「政府警告」偷换主体。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-28 · 让步转折题：despite 后填 Yet 前的让步信息",
+  subtitle: "考点：Text2 第四段 · ②句让步 → Yet ③句转折",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 B", "html": "<b>despite = 让步半句</b>：②句 corporate governance ... tighter and more rigorous（↔ strict）是让步信息，③句 Yet 的强调句验证答案来源。A 过度推断「内部反对」、C 臆造「商业战略」、D 把「公司治理」偷换成「政府监管」。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 28 题——despite 问让步：让步信息在 Yet 前半句</h2>
+<p>答案：<strong>B</strong>（strict corporate governance）。</p>
+<h3>第 0 步：先立机制——让步转折结构，despite 对应"让步半句"</h3>
+<p>题干 CEO pay has been rising since the 1970s <strong>despite</strong> ____：despite 引出让步——"尽管 X，薪酬照涨"。定位第四段②③句：②句 By most measures, corporate governance has become a lot tighter and more rigorous since the 1970s（让步：治理更严）；③句 Yet it is principally during this period of stronger governance that CEO pay has been high and rising（转折：恰恰在这段强治理时期薪酬高企）。两句正是"尽管治理严格、薪酬依旧上涨"——despite 后填的就是②句的让步信息。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>By most measures, <strong>corporate governance has become a lot tighter and more rigorous</strong> since the 1970s. <strong>Yet</strong> it is principally during this period of <strong>stronger governance</strong> that CEO pay has been high and rising.</blockquote>
+<p>strict corporate governance ↔ tighter and more rigorous corporate governance / stronger governance：strict ↔ tighter &amp; rigorous，词形不同、语义同一；③句的 stronger governance 复现②句，反向验证答案来源。选 B。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（continual internal opposition）</strong>：由①句"普遍认为高薪是剥削"过度推断出"公司内部一直反对"——普遍看法不等于内部反对，原文没说。</li><li><strong>C（conservative business strategies）</strong>：来自商业常识的联想（战略保守→薪酬保守），但原文没讨论"商业战略"，无中生有。</li><li><strong>D（repeated government warnings）</strong>：corporate governance 指股东等所有者对经营者（CEO）的监督制衡，是公司<strong>自我</strong>治理；D 把"公司治理趋严"曲解为"<strong>政府</strong>一再警告"——主体偷换。</li></ul>
+<blockquote>记忆锚点：despite 题先分清让步句（②）与转折句（③ Yet）；corporate governance 是"公司治理"，别被"政府"偷换主体。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

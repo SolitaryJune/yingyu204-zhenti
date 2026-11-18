@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-25 · 2017 Text 1 第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 情感词记账 → 定调 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 态度题两步走：记账 + 核对对象",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：attitude to what UK governments have done → 评价词逐个记账，对象是“已有行为”",
+  "body": "<p>题干：The author&rsquo;s attitude to <b>what UK governments have done</b> for sports is ____.</p><p>态度题机制：①把评价词逐个**记账**（谁、被评价成什么）；②核对题干对象——问的是政府**已有行为**，未来建议句只作旁证。</p>"
+ },
+ {
+  "title": "定位原文 · 第四段评价词清单",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：①absurd ②should really be ③But+三连贬义 ④Instead of wordy, worthy ⑤Or at least",
+  "body": quote("① ...there is something a little <b>absurd</b>... ② If there is a role for government, it <b>should really be</b> getting involved in providing common goods... ③ <b>But</b> successive governments have presided over <b>selling</b> green spaces, <b>squeezing</b> money... and <b>declining</b> attention... ④ <b>Instead of</b> wordy, worthy strategies... ⑤ Or <b>at least not make them worse</b>.") + "<p>五个记位点集齐，逐一入账。</p>"
+ },
+ {
+  "title": "找证据 · 语义重心在 But 之后",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：absurd（荒唐）+ But 后卖绿地/压资金/拒重视 三连贬义 + worthy 褒词贬用",
+  "body": "<p>① <b>absurd</b>：政府插手草根运动规划 = “有点荒唐”——直接贬；</p><p>② should <b>really</b> be：强调“才真正该做”——暗示现在做得不对；</p><p>③ <b>But</b> 之后：selling / squeezing / declining 三连贬义动作——历届政府全在反向操作；</p><p>④ <b>worthy</b>：与 wordy 连用构成头韵，<b>褒词贬用</b>——讽刺策略“冗长而大而无用”；</p><p>⑤ Or <b>at least</b> not make them worse：对未来政府亮底线，退让话里藏着对既往的重不满。</p><p>贬义账 5 笔，表面褒义 1 笔且是反讽——<b>基调 = 批评</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · B critical",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "log": "B critical ✓ 当选——全部账目指向同一个方向：批评",
+  "body": "<p><b>当选。</b>critical（批评的）一次性概括全部证据：absurd、should really be 的暗讽、But 后三连贬义、wordy worthy strategies 的反讽。全段没有一句为政府辩护。</p>"
+ },
+ {
+  "title": "逐项分析 · A tolerant",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A tolerant ✗ 排除——“至少别更糟”是亮底线，不是容忍",
+  "body": "<p><b>排除。</b>⑤句 Or at least not make them worse 是作者给<b>未来政府</b>的底线要求——话越退让，对既往越不满；把它读成“容忍现状”恰好读反。</p><p style='color:#b91c1c'>⚠ 典型误解：见 at least 就联想到让步容忍。</p>"
+ },
+ {
+  "title": "逐项分析 · C uncertain",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C uncertain ✗ 排除——worthy 是褒词贬用，褒贬不对冲",
+  "body": "<p><b>排除。</b>“态度不明”需要褒贬<b>等强且都对同一对象</b>。worthy 的表面褒义被 wordy 锁定成反讽（对象是“策略”），有效评价只有一个方向。</p><p style='color:#b91c1c'>⚠ 典型误解：数褒贬词数量定态度。</p>"
+ },
+ {
+  "title": "逐项分析 · D sympathetic",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D sympathetic ✗ 排除——断章取义：Instead of 明说未来要另起炉灶",
+  "body": "<p><b>排除。</b>摘出 worthy strategies 与 need to do more 拼成“肯定政府、呼吁加码”——但 Instead of 开头明说未来要<b>放弃</b>当前做法。</p><p style='color:#b91c1c'>⚠ 典型误解：只看局部褒义词，不核句子逻辑方向。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B——让步转折结构，转折后是基调：批评",
+  "body": "<p>答案选 <b>B（critical）</b>。</p><p><b>记忆锚点</b>：态度题先记账再定调——absurd / But / selling-squeezing-declining / wordy-worthy 全是贬义账；<b>worthy 是褒词贬用</b>；转折后是基调。</p><p style='color:#b91c1c'>⚠ 最易误选 A（tolerant）：把对未来政府的底线要求读成对既往的宽容。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 1 第 25 题 · 作者对英国政府体育行为的態度：tolerant / critical / uncertain / sympathetic",
+  subtitle: "考点：态度题（评价词记账 + 对象核对） · 审题 → 记账 → 定调 → 排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 记账 → 定调 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（critical）", "html": "<b>B</b>：absurd + But 后三连贬义 + wordy worthy 反讽——全段无一句辩护，基调是批评。<br>记忆锚点：态度题先记账再定调；worthy 褒词贬用；转折后是基调。<br>最易误选：<b>A（tolerant）</b>——“至少别更糟”是亮底线。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 1 第 25 题 · 作者对政府"已做之事"的态度</h2>
+<p>答案：<strong>B（critical）</strong>。</p>
+<h3>第 0 步：先立机制——态度题 = 情感色彩词清单 + 对象核对</h3>
+<p>态度题的机制分两步：先把评价词逐个<strong>记账</strong>（谁、被评价成什么），再核对题干<strong>对象</strong>——本题问的是对 <strong>what UK governments have done</strong>（政府已有行为）的态度。第四段对"已有行为"的记账：①句 a little <strong>absurd</strong>（有点荒唐）；②句 it <strong>should really be</strong>（言下之意：现在做得不对）；③句 <strong>But</strong> 之后三连贬义动作 selling green spaces / <strong>squeezing</strong> money / <strong>declining</strong> attention；④⑤句则是<strong>对未来政府</strong>的建议（Instead of...、Or at least...），反向暗示对既往的不满。所有账目指向同一个方向：<strong>批评</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>① ...there is something a little <strong>absurd</strong> in the state getting involved in the planning of such a fundamentally "grassroots" concept... ② If there is a role for government, it <strong>should really be</strong> getting involved in providing common goods... ③ <strong>But</strong> successive governments have presided over <strong>selling</strong> green spaces, <strong>squeezing</strong> money from local authorities and <strong>declining</strong> attention on sport in education. ④ <strong>Instead of</strong> wordy, worthy strategies, future governments need to do more... ⑤ Or <strong>at least not make them worse</strong>.</blockquote>
+<h3>第 2 步：找证据——语义重心落在 But 之后</h3>
+<p>①②句先立"正确做法"的参照（应该提供公共物品），③句一个 <strong>But</strong> 翻转：历届政府干的全是反向操作——卖绿地、压资金、拒重视。④句 Instead of wordy, worthy strategies（弃"冗长的、看似体面的"策略）中 <strong>worthy 是褒词贬用</strong>：与 wordy 连用构成头韵，讽刺策略"大而无用"。⑤句"至少别让情况更糟"是给未来政府的底线——话越退让，对既往的不满越重。贬义证据 5 处，褒义表面词 1 处（worthy，且为反讽）：<strong>基调 = critical</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B critical</td><td>批评的</td><td>✓ 当选</td><td>概括 absurd、should really be（暗含"现在不对"）、But 后三连贬义动作、wordy worthy strategies 的全部账目。</td></tr><tr><td>A tolerant</td><td>宽容的</td><td>✗ 排除</td><td>把⑤句 Or at least not make them worse 读成"作者容忍现状"——实为对未来政府<strong>亮底线</strong>，恰是强烈不满的反证。（典型误解：见"at least"联想到让步容忍。）</td></tr><tr><td>C uncertain</td><td>不确定的</td><td>✗ 排除</td><td>被 worthy 的表面褒义迷惑：既有贬词又有褒词就判"态度不明"。但 worthy 此处<strong>褒词贬用</strong>，与 wordy 连用是讽刺，褒贬并不对冲。（典型误解：数褒贬词数量定态度。）</td></tr><tr><td>D sympathetic</td><td>赞同的</td><td>✗ 排除</td><td>断章取义：摘出 worthy strategies 与 need to do more，读成"肯定政府、呼吁加码"。原句 Instead of 明说未来要<strong>另起炉灶</strong>。（典型误解：只看局部褒义词，不核句子逻辑方向。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么态度要看 But 之后而不是平摊各句？</strong>：让步-转折结构里，转折后的分句才是语义重心；①②句的"应该"本身就是对"现状"的委婉批评，③句集中火力，④⑤句的"另起炉灶 + 别更糟"补刀。全段没有一句为政府辩护。</li><li><strong>怎么防 C（uncertain）？</strong>：态度不确定需要褒贬<strong>等强且都对同一对象</strong>。worthy 的褒义是反讽（对象是"策略"且被 wordy 限定了性质），有效评价只有一个方向。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（tolerant）</strong>：把对未来政府的底线要求误读成对既往的宽容。</li><li><strong>误选 C（uncertain）</strong>：数褒贬词定态度，被反讽词骗过。</li></ul>
+<blockquote>记忆锚点：态度题先记账再定调——absurd / But / selling-squeezing-declining / wordy-worthy 全是贬义账；worthy 是褒词贬用。让步-转折结构，<strong>转折后是基调</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

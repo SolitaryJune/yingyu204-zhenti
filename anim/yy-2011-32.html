@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-32 · 2011 阅读第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 单点推断先搭“指代桥”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：Which of the following can be inferred from Paragraph 3 about the Bauhaus?",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>原文里 Bauhaus 只出现一次、只带一个身份标签（a school of design）。单点推不出结论，必须搭桥：<b>与 Bauhaus 相关的人 → 他们做了什么 → 推回学校</b>。定位指令：Paragraph 3。</p>"
+ },
+ {
+  "title": "定位原文 · 桥的第一段：谁与包豪斯相关",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：密斯“像其他 associated with the Bauhaus 的人一样”移民美国任教",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("The phrase “less is more” was actually first popularized by a German, the architect Ludwig Mies van der Rohe, who like other people associated with the Bauhaus, a school of design, emigrated to the United States before World War II and took up posts at American architecture schools.") + "<p>②句给出人群：密斯“像其他与包豪斯相关的人一样”二战前移民美国，在美国建筑学院任教。</p>"
+ },
+ {
+  "title": "定位原文 · 桥的第二段：These designers 做了什么",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：These designers… exert enormous influence on the course of American architecture",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("These designers came to exert enormous influence on the course of American architecture, but none more so than Mies.") + "<p>③句的 <b>These designers</b> 回指②句那群与包豪斯相关的人，并给出结论：他们对美国建筑的发展施加了巨大影响——enormous influence ↔ a great influence。</p>"
+ },
+ {
+  "title": "同义替换 · 人的影响归属其学校",
+  "cls": "key",
+  "tag": "替换",
+  "log": "同义替换：associated with the Bauhaus 的人 exert enormous influence ⇒ 包豪斯影响很大",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>归属继承的合法一步：施加影响的是包豪斯的人，影响自然归属他们所属的学校——<b>exert enormous influence → had a great influence</b>。链条闭合。</p>"
+ },
+ {
+  "title": "逐项分析 · D It had a great influence upon American architecture",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D It had a great influence upon American architecture（影响很大） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "body": "<p><b>当选。</b>exert enormous influence on the course of American architecture 的同义改写——人群、对象、程度三处全部对应。</p>"
+ },
+ {
+  "title": "逐项分析 · A It was founded by Ludwig Mies van der Rohe",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A founded by Mies ✗ 排除——“相关”推不出“创建”",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>原文给的桥只有 associated with（相关）——单这一步只能走到“相关”，走不到“创建”。把史实（密斯确为包豪斯末任校长）填进文本缺口，正是推断题最体面的陷阱。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用课外常识替选项圆谎。</p>"
+ },
+ {
+  "title": "逐项分析 · B Its designing concept was affected by World War II",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 理念受二战影响 ✗ 排除——时间节点 ≠ 理念成因",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>二战在原文只是设计师<b>移民美国的时间节点</b>（before World War II emigrated）；对包豪斯的设计理念，原文只说 less is more 由密斯推广，未提二战。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把时间状语读成因果来源。</p>"
+ },
+ {
+  "title": "逐项分析 · C Most American architects used to be associated with it",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Most American architects… ✗ 排除——主语对调：相关的是德国设计师",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>associated with the Bauhaus 修饰的是<b>从德国流亡来美的设计师</b>群体（密斯等）；美国本土建筑师是“被影响”的一方，不是“与包豪斯相关”的一方。</p><p style=\"color:#b91c1c\">⚠ 典型误解：回指方向读反，主客对调。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（had a great influence upon American architecture）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>与包豪斯相关的设计师（密斯等）移民美国任教，对美国建筑的发展施加了巨大影响——由此可推知包豪斯对美国建筑影响很大。</b></p><p>答案选 <b>D（It had a great influence upon American architecture）</b>。</p><p><b>记忆锚点</b>：单点推断先搭指代桥——associated with the Bauhaus 的人 → These designers → exert enormous influence；人的影响归属其学校。</p><p style=\"color:#b91c1c\">最易误选：<b>A（founded by Mies）</b>——“相关”推不出“创建”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 32 题 · 从“人”推回“学校”：包豪斯的影响",
+  subtitle: "考点：第三段推断 · These designers 的回指链",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“搭指代桥 → 同义替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（had a great influence）",
+    html: "<b>D It had a great influence upon American architecture（对美国建筑影响很大）</b>。<br>记忆锚点：associated with the Bauhaus 的人 → These designers → exert enormous influence；人的影响归属其学校。<br>最易误选：<b>A（founded by Mies）</b>——“相关”推不出“创建”。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 32 题 · These designers 的回指链——从"人"推回"学校"</h2>
+<p>答案：<strong>D（It had a great influence upon American architecture 它对美国建筑影响很大）</strong>。</p>
+<h3>第 0 步：先立机制——推断题先搭"指代桥"</h3>
+<p>问 Bauhaus（包豪斯）能推出什么，而原文里 Bauhaus 只出现一次、且只带一个身份标签（a school of design）。单点信息推不出结论，必须搭桥：与 Bauhaus 相关的人是谁？他们做了什么？第三段恰好给了这条链——<strong>associated with the Bauhaus 的人（密斯等）→ These designers（回指）→ exert enormous influence on the course of American architecture</strong>。人施加的影响，就是他们所属学校的影响：这是"归属继承"的合法一步。</p>
+<h3>第 1 步：定位原文——两句话构成完整推理链</h3>
+<blockquote>The phrase "less is more" was actually first popularized by a German, the architect Ludwig Mies van der Rohe, who like other people <strong>associated with the Bauhaus</strong>, a school of design, emigrated to the United States before World War II...</blockquote>
+<blockquote><strong>These designers</strong> came to exert enormous influence on the course of American architecture, but none more so than Mies.</blockquote>
+<p>②句给出人群：密斯"像其他与包豪斯相关的人一样"移民美国任教；③句的 These designers 回指这群人，并给出结论：他们对美国建筑的发展施加了巨大影响（enormous influence ↔ a great influence 的同义改写）。链条闭合：包豪斯的人 → 在美国任教并施加巨大影响 ⇒ 包豪斯对美国建筑影响很大。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A It was founded by Mies</td><td>它由密斯创建</td><td>关系偷换：原文只说 associated with（相关）；"相关"推不出"创建"</td></tr><tr><td>B Its designing concept was affected by WWII</td><td>设计理念受二战影响</td><td>时间≠影响：二战在原文只是设计师移民美国的时间节点，理念与二战无任何因果表述</td></tr><tr><td>C Most American architects used to be associated with it</td><td>大多数美国建筑师曾与之有关</td><td>主语对调：与包豪斯相关的是从德国流亡来的设计师（如密斯），不是美国本土建筑师</td></tr><tr><td>D It had a great influence upon American architecture</td><td>它对美国建筑影响很大</td><td>✓ exert enormous influence on the course of American architecture 的同义改写：人的影响归属其学校</td></tr></tbody></table>
+<h3>预判追问：A 为什么错得这么隐蔽？</h3>
+<p>因为"密斯与包豪斯关系密切"是史实（他确实是包豪斯末任校长），常识会替选项"圆谎"。但推断题只认<strong>文本内</strong>的桥：原文给的桥是 associated with——单这一步只能走到"相关"，走不到"创建"。把 extratextual 的事实填进 textual 的缺口，正是推断题里最体面的陷阱：句子越像真事，越要回到原文验桥。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（founded by Mies）</strong>：常识补缺；原文只支持"相关"，不支持"创建"。</li><li><strong>误选 B（理念受二战影响）</strong>：把"二战前移民"的时间状语读成理念成因；原文对 Bauhaus 理念（less is more）另有出处——密斯推广，未提二战。</li><li><strong>误选 C（Most American architects）</strong>：回指方向读反——associated with the Bauhaus 修饰的是来美的德国设计师群体，美国建筑师是"被影响"的一方。</li></ul>
+<blockquote>记忆锚点：单点推断先搭指代桥——associated with the Bauhaus 的人 → These designers → exert enormous influence；人的影响归属其学校 ⇒ great influence；"相关"推不出"创建"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-37</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>What does the author imply about existing health privacy law?</code>。imply = 原文不直说，要去<b>对比处/缺口处</b>推。定位词 existing health privacy law 在第二段。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文·对比句（第二段②③句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · Existing health privacy law… is <b>primarily focused on</b> the way <b>hospitals, doctors' offices, clinics and insurance companies</b> store health records online. The health information <b>these apps</b> and health data tracking wearables are collecting <b>typically does not receive the same legal protections</b>.</p><p>对比读法：法律只覆盖\"传统医疗机构\"；app / 可穿戴设备这类新对象在覆盖范围<b>之外</b>。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "接第三段首句推结论",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>Without additional protections</b> in place, companies may share (and potentially monetize) personal health information…</p><p>\"管旧的、不管新的\" + 不补上保护就会滥用 ⇒ 作者暗示：<b>覆盖范围需要扩大</b>（coverage needs to be extended）。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 B：没覆盖 ≠ 执行不力",
+    "body": "<p>B 项 enforcement needs strengthening 把 does not receive the same legal protections 读成\"执法不力\"。病根是<b>法没覆盖到</b>（管不着），不是<b>执法不严</b>（管而不严）——coverage ≠ enforcement，本题最大陷阱。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：medical misconduct 无对应",
+    "body": "<p>C 项 discouraged medical misconduct 凭 hospitals…store health records online 臆断。这部法律保障的是\"数据如何被管理\"，与\"医疗行为是否不当\"无关——文中无 medical misconduct 对应信息。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 D：惯性思维捏造",
+    "body": "<p>D 项 disappointed insurance companies 靠\"法律监管保险公司 ⇒ 保险公司失望\"的惯性推理。disappointed 无任何支撑；保险公司只是覆盖对象举例，属无关细节。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>A（Its coverage needs to be extended 覆盖范围需要扩大）</b>。口诀：看到 primarily focused on / does not receive the same protections，就往\"缺口要补\"的方向推。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 2 · 第 37 题：现行健康隐私法的暗示",
+  "subtitle": "考点：推理引申题 · 在\"覆盖缺口\"处推",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 A",
+    "html": "记忆锚点：HIPAA 只管医院等机构（primarily focused on），app / 穿戴设备\"不受同等保护\"（does not receive the same legal protections）⇒ <b>coverage 要 extend</b>。B 把\"没覆盖\"偷成\"没执行\"是最大陷阱。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 2 第 37 题 · 现行健康隐私法的暗示</h2>
+<p>答案：<strong>A（Its coverage needs to be extended 覆盖范围需要扩大）</strong>。</p>
+<h3>第 0 步：先立机制——推理题在"覆盖缺口"处推</h3>
+<p>imply 意味着原文不会直说答案。但作者会留下"结构性的缝隙"让你推：本文第二段是一道<strong>对比</strong>——法律管谁、不管谁。当"管的"是旧对象、"不管的"是新对象、且新对象恰恰是文章主角时，作者的态度只有一个方向：<strong>把覆盖范围补上</strong>。这正是 A 项。</p>
+<h3>第 1 步：定位原文（对比句）</h3>
+<blockquote>Existing health privacy law, such as HIPAA, is <strong>primarily focused on</strong> the way <strong>hospitals, doctors' offices, clinics and insurance companies</strong> store health records online. The health information <strong>these apps</strong> and health data tracking wearables are collecting <strong>typically does not receive the same legal protections</strong>.</blockquote>
+<p>前一句：法律只覆盖传统医疗机构；后一句：应用与可穿戴设备收集的健康信息<strong>不受同等法律保护</strong>。</p>
+<h3>第 2 步：接第三段首句推结论</h3>
+<blockquote><strong>Without additional protections</strong> in place, companies may share (and potentially monetize) personal health information in a way consumers may not have authorized or anticipated.</blockquote>
+<p>不补上保护，公司就可能滥用。三条信息串起来：法有缺口 + 缺口处会出事 ⇒ 作者暗示<strong>缺口要补</strong>——coverage needs to be extended。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B enforcement needs strengthening</td><td>✗</td><td>把"不受同等保护"读成"执法不力"。原文病根是<strong>法没覆盖到</strong>（管不着），不是<strong>执法不严</strong>（管而不严）——coverage ≠ enforcement。（典型误解：本题最大陷阱，见"保护不到位"就想当然配"加强执行"。）</td></tr><tr><td>C discouraged medical misconduct</td><td>✗</td><td>医疗不当行为（诊疗层面的过错）无对应信息；这部法律管的是"数据如何被存储"，不是"医疗行为是否妥当"。（典型误解：见 hospitals 就联想医疗纠纷。）</td></tr><tr><td>D disappointed insurance companies</td><td>✗</td><td>"令保险公司失望"是惯性思维捏造——监管对象 ≠ 失望者；且保险公司只是覆盖对象举例，属无关细节。（典型误解：把法律与被管者的关系想成对立情绪。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>B 和 A 差在哪一个词？</strong>：coverage 回答"法管到谁"，enforcement 回答"法执行得狠不狠"。原文的对比结构只提供了前者。</li><li><strong>为什么必须"结合下文"才能锁定 A？</strong>：单看第二段只知道"有缺口"，第三段首句"没有额外保护就会滥用"补上了"缺口有害"的判断，推理链才闭合。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把"覆盖不足"与"执行不力"混为一谈——两件事的主体与病因都不同。</li><li><strong>误选 C/D</strong>：都属于"拿细节词面拼选项"，文中无对应命题。</li></ul>
+<blockquote>记忆锚点：HIPAA 只管医院等机构（primarily focused on），app/穿戴设备"不受同等保护"（does not receive the same legal protections）⇒ coverage 要 extend；"没覆盖" ≠ "没执行"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

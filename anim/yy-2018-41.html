@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-41 · 2018 新题型第 41 题 · 「说不出口」段的落点在建议句 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 小标题＝对象＋建议句", "cls": "key", "tag": "方法", "log": "找讨论对象 + 建议句（最后落点）；本文套路：痛点情境 → So/just 建议句", "count": 0, "ribbon": null, "body": "<p>七选五小标题题两步走：找<b>讨论对象</b>（段群反复围绕的名词/情境）、找<b>作者建议</b>（最后落点句）。本文是“五招聊天法”清单文，套路整齐：每段群先铺<b>痛点</b>，再用 So / Trust me / just… 收出<b>建议句</b>——建议句就是标题的母本。暗规则：七个选项两个多余，专门盯字面词汇做诱饵。</p>"},
+ {"title": "定位段群 ·【41】想说却说不出口", "cls": "key", "tag": "定位", "log": "定位④至⑥段：卡壳的痛点 → just get it out → 用 Hi 开口", "count": 0, "ribbon": null, "body": quote("You wanted to say something – the first word – but it <b>just won't come out</b>, it feels like it is stuck somewhere. …here is my advice: <b>just get it out.</b> …So keep it simple: &ldquo;Hi&rdquo;, &ldquo;Hey&rdquo; or &ldquo;Hello&rdquo; – …put on a big smile and <b>say &ldquo;Hi&rdquo;</b>.") + "<p>推进链三层：①痛点——想说第一个词却“卡在喉咙里”（won't come out / stuck）；②建议——<b>just get it out</b>（把它说出去）；③落实——keep it simple，用 Hi/Hey/Hello 带上热情和微笑<b>开口</b>。对象＝卡住的第一句话，建议＝把它说出来。</p>"},
+ {"title": "提炼段旨 · 对象＝第一句话，建议＝说出去", "cls": "key", "tag": "提炼", "log": "提炼段旨：get it out / say “Hi”——动作核心是“开口说”", "count": 0, "ribbon": null, "body": "<p>讨论对象 = <b>卡住的第一句话</b>（the first word / it）；作者建议 = <b>just get it out ＋ say “Hi”</b>（说出去）。前半段的紧张、卡壳只是痛点铺垫——标题不概括“紧张”本身，概括的是作者的解法。</p>"},
+ {"title": "逐项分析 · A Just say it", "cls": "good", "tag": "选定 A", "log": "A 请说出来 ✓ ——just get it out / say “Hi” 的祈使句压缩", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>[A] <b>Just say it</b> ↔ <b>just get it out</b> / say &ldquo;Hi&rdquo;：say ↔ get it out（动作核心都是“说”）；just ↔ just / keep it simple（“别多想，先说出口”的语气复现）。标题以祈使句压缩整段建议。</p>"},
+ {"title": "逐项分析 · F Skip the small talk", "cls": "bad", "tag": "排除 F", "log": "F 略过寒暄 ✗ ——字面钩子＋方向反转：Hi/Hey/Hello 是“鼓励用”不是“略过”", "count": 1, "ribbon": {"k": "F", "ok": false}, "body": "<p><b>排除。</b>the small talk 确实覆盖⑥句 &ldquo;Hi&rdquo;/&ldquo;Hey&rdquo;/&ldquo;Hello&rdquo; 等寒暄词，但本段是<b>鼓励你用</b>这些简短的话开口（do the best you can… say &ldquo;Hi&rdquo;），“<b>略过</b>闲谈”与段意正好相反——词都在场，方向掉头。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只数词不算方向——方向反了，词复现越多越迷惑。</p>"},
+ {"title": "逐项分析 · B / D 的错位归宿", "cls": "bad", "tag": "排除 B·D", "log": "B 在场／D 名字地点事物 ✗ ——分别是【44】【45】段的标题，本段接不住", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>[B] <b>Be present</b>（全心在场）是【44】段“投入对话、眼神交流”的标题；[D] <b>Name, places, things</b> 是【45】段“记住对方细节”的标题——本段既没谈“投入在场”，也没谈“记细节”。（C/E/G 在全篇各有所属或多余，本段只谈“开口”这一个动作。）</p><p style=\"color:#b91c1c\">⚠ 典型误解：标题题先纵向归位——每个真标题在本篇里只有一个家。</p>"},
+ {"title": "结论 · 方向优先于词汇", "cls": "good", "tag": "答案 A", "log": "答案 A（Just say it）—— 见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>痛点卡壳 → just get it out → say “Hi” 开口 → [A] Just say it。</b></p><p>答案选 <b>A（Just say it）</b>。</p><p><b>记忆锚点</b>：小标题＝对象＋建议句；本段对象＝卡住的第一句话，建议＝just get it out；Hi/Hey/Hello 是“鼓励用”不是“略过”——<b>方向优先于词汇</b>。</p><p style=\"color:#b91c1c\">最易误选：<b>F（Skip the small talk）</b>——抓对了字面，拧反了方向。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 新题型第 41 题 ·「说不出口」段的落点在建议句",
+  subtitle: "考点：小标题题 · 对象＋建议句压缩 + 字面钩子的方向反转",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段群 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（Just say it）", "html": "<b>A 请说出来</b>：just get it out / say &ldquo;Hi&rdquo; 的祈使句压缩——对象＝卡住的第一句话，建议＝说出去。<br>记忆锚点：小标题＝对象＋建议句；Hi/Hey/Hello 是“鼓励用”不是“略过”，方向优先于词汇。<br>最易误选：<b>F（Skip the small talk）</b>——抓对了字面，拧反了方向。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 新题型第 41 题 · 小标题题——"说不出口"段的落点在建议句</h2>
+<p>答案：<strong>A（Just say it 请说出来）</strong>。</p>
+<h3>第 0 步：先立机制——小标题＝讨论对象＋作者建议</h3>
+<p>七选五小标题题的解法固定两步：找<strong>讨论对象</strong>（段群反复围绕的名词/情境）和找<strong>作者的建议</strong>（最后落点句）。本文是"五招聊天法"清单文，行文套路整齐：每段群先铺一个<strong>情境/痛点</strong>，再用 So / Trust me / just... 收出<strong>建议句</strong>——建议句就是标题的母本，前面的铺垫都是它的反面或注脚。全篇暗规则：七个选项两个多余，多余项专门盯字面词汇做诱饵。</p>
+<h3>第 1 步：定位段群（④至⑥段）——"想说却说不出口"</h3>
+<blockquote>You wanted to say something – the first word – but it just won't come out, it feels like it is stuck somewhere. I know the feeling and here is my advice: <strong>just get it out.</strong> ... So keep it simple: "Hi", "Hey" or "Hello" – do the best you can to gather all of the enthusiasm and energy you can, put on a big smile and <strong>say "Hi"</strong>.</blockquote>
+<p>推进链三层：①痛点——想说第一个词却"卡在喉咙里"（won't come out / stuck）；②建议——<strong>just get it out</strong>（把它说出去）；③落实——keep it simple，用 "Hi" / "Hey" / "Hello" 带上热情和微笑开口。对象是"卡住的第一句话"，建议是"把它说出来"。</p>
+<h3>第 2 步：同义替换——"get it out"就是"just say it"</h3>
+<p>[A] <strong>Just say it</strong> 是②③层的压缩：<strong>say</strong> ↔ get it out / say "Hi"（动作核心都是"说"）；<strong>just</strong> ↔ just get it out / keep it simple（"别多想，先说出口"的语气词复现）。标题以祈使句压缩整段建议——说出口，就赢了。</p>
+<h3>第 3 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>F Skip the small talk</td><td>✗</td><td>字面反接：the small talk 确实覆盖⑥句 "Hi"/"Hey"/"Hello" 等寒暄词，但本段是<strong>鼓励你用</strong>这些简短的话开口（do the best you can... say "Hi"），"略过闲谈"与段意正好相反——词都在场，方向掉头</td></tr><tr><td>B Be present</td><td>✗</td><td>错位归宿：这是【44】段"全心投入对话、眼神交流"的标题，本段没谈投入与在场</td></tr><tr><td>D Name, places, things</td><td>✗</td><td>错位归宿：这是【45】段"记住对方细节"的标题，本段无"记细节"内容</td></tr></tbody></table>
+<p>（[C] Pay a unique compliment、[E] Find the "me too"s、[G] Ask for an opinion 在全篇各有所属或多余，本段群同样接不住：本段只谈"开口"这一个动作。）</p>
+<h3>预判追问：明明段里出现了 Hi/Hey/Hello，为什么 F（跳过寒暄）反而错得更彻底？</h3>
+<p>F 是本篇最典型的"字面钩子＋方向反转"陷阱：它抓住了⑥句的全部字面（寒暄用语），却把建议的方向拧了 180 度——作者让读者<strong>主动用</strong>简短寒暄打开局面，F 却让你<strong>跳过</strong>它们。小标题题的核对纪律是<strong>方向优先于词汇</strong>：先问"标题与段落的动作指向是否一致"，再数词。方向反了，词复现得越多越迷惑。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 F</strong>：只数词不算方向——"鼓励说"被读成"略过说"。</li><li><strong>漏选 A 而犹豫 G</strong>：本段没有任何"问对方意见"的动作，Just say it 的祈使语气与 just get it out 完全同构。</li><li><strong>被①层带偏</strong>：前半段的"紧张、卡壳"只是痛点铺垫，标题不概括"紧张"本身，概括的是作者的解法。</li></ul>
+<blockquote>记忆锚点：小标题＝<strong>对象＋建议句</strong>；本段对象＝卡住的第一句话，建议＝just get it out → Just say it；Hi/Hey/Hello 是"鼓励用"不是"略过"——方向优先于词汇。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

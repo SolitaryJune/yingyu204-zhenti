@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-37 · 2015 阅读第 37 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 因果题去找 because 句",
+  "cls": "key",
+  "tag": "方法",
+  "log": "问 because → 定位含 because 的句子，原因就在其后",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 Many people work part-time <b>because</b> ... 是典型的因果细节题。解法固定：定位到含 because 的句子，原因就写在 because 之后的分句里。第三段②③句恰好构成「矛盾 + 原因」一组：②句摆现实与愿望的反差（做着兼职、想要全职），③句给原因（because this is all they can get）。</p>"
+ },
+ {
+  "title": "定位原文 · 第三段②③句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第三段：actually want full-time jobs ... because this is all they can get",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Many people who work part-time jobs actually want full-time jobs. They take part-time work because this is all they can get.</div><p><b>this is all they can get</b>（这已是能弄到手的全部）= 得不到全职工作。<b>actually</b> 是「现实与愿望相反」的信号词：work part-time（现实）对 want full-time jobs（愿望）。</p>"
+ },
+ {
+  "title": "逐项分析 · A prefer part-time jobs to full-time jobs（更喜欢兼职）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 更喜欢兼职 ✗ ——与 actually want full-time jobs 正相反对",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>②句 <b>actually want full-time jobs</b> 明说他们想要全职，A 说成「更喜欢兼职胜过全职」——方向完全相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没抓住 actually 的反差义，把「兼职者」读成了「自愿兼职」。</p>",
+  "body": {
+   "k": "A",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B feel that is enough to make ends meet（觉得足以维持生计）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 足以维持生计 ✗ ——原文是 hard time making ends meet",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>④句 having <b>a very hard time</b> making ends meet 是「极其艰难地勉强维持生计」，B 说成「兼职收入足够维持生计」——方向拧反。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D haven't seen the weakness of the market（尚未见识市场疲软）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 尚未见识市场疲软 ✗ ——疲软是他们正在经历的处境",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>市场疲软（weakness in the labor market）是他们<b>正在经历</b>的处境、被迫兼职的背景，不是「尚未见识」——既改了现实，又违背了兼职的被迫性。</p>",
+  "body": {
+   "k": "D",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C cannot get their hands on full-time jobs（无法得到全职工作）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C 无法得到全职工作 ✓ ——this is all they can get 的明确化",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>this is all they can get = 得不到全职工作。[C] 的 cannot <b>get their hands on</b> full-time jobs 正是它的明确化——get their hands on 就是从 can get 来的。</p>",
+  "body": {
+   "k": "C",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 因果链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（cannot get their hands on full-time jobs）——原因藏在 because 之后",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>因果链：市场疲软 → 找不到全职 → 只能接受兼职（非自愿）。</p><p>答案选 <b>C（cannot get their hands on full-time jobs）</b>。</p><p><b>记忆锚点</b>：because this is all they can get = 得不到全职；actually = 愿望与现实相反；a hard time making ends meet ≠ enough to make ends meet。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——漏读 actually，把「被迫兼职者」读成了「偏好兼职者」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T4 第 37 题 · 很多人做兼职的真实原因",
+  subtitle: "考点：因果关系 · because 句定位 · actually 的反差信号",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（cannot get their hands on full-time jobs）",
+ "html": "<b>C cannot get their hands on full-time jobs（无法得到全职工作）</b>。<br>because this is all they can get = 得不到全职；actually = 愿望与现实相反。<br>最易误选：<b>A</b>——漏读 actually，方向读反。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：因果题——because 的答案就在"别无选择"里</h2>
+<p>答案：<strong>C（cannot get their hands on full-time jobs）</strong>。</p>
+<h3>第 0 步：先立方法——问原因就去找 because 句</h3>
+<p>题干 Many people work part-time <strong>because</strong> ... 是典型的因果细节题。解法固定：定位到含 because 的句子，原因就写在 because 之后的分句里。第三段②③句恰好构成"矛盾 + 原因"一组：②句摆出现实与愿望的反差（做着兼职、想要全职），③句给出原因（because this is all they can get）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Many people who work part-time jobs actually want full-time jobs. They take part-time work because this is all they can get.（译：许多做着兼职工作的人其实想要的是全职工作。他们接受兼职，是因为这已是他们所能得到的全部。）</blockquote>
+<p>this is all they can get（这已是能弄到手的全部）= 得不到全职工作。[C] 的 cannot get their hands on full-time jobs 是这句话的明确化——get their hands on 就是从 can get 来的。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A prefer part-time jobs to full-time jobs</td><td>✗</td><td>正相反对：②句 actually want full-time jobs 明说他们想要全职，A 说成"更喜欢兼职胜过全职"</td></tr><tr><td>B feel that is enough to make ends meet</td><td>✗</td><td>方向拧反：④句 having a very hard time making ends meet 是"极其艰难地勉强维持生计"，B 说成"兼职收入足够维持生计"</td></tr><tr><td>D haven't seen the weakness of the market</td><td>✗</td><td>强加因果：市场疲软是他们<strong>正在经历</strong>的处境（被迫兼职的背景），不是"尚未见识过"；既改了现实，又违背了兼职的被迫性</td></tr></tbody></table>
+<h3>预判追问：actually 这个小词为什么重要？</h3>
+<p>actually 是"现实与预期相反"的信号词：work part-time（现实）对 want full-time jobs（愿望）。它一出现，凡是把兼职者写成"心甘情愿、更喜欢兼职"的选项立即出局——A 恰好撞在枪口上。读句子时抓住这类反差副词，比背选项快得多。</p>
+<blockquote>记忆锚点：because this is all they can get = 得不到全职；actually = 愿望与现实相反；a hard time making ends meet ≠ enough to make ends meet。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 11 空 · If the criterion changed to safety, you would get more __11__ drivers who obeyed traffic laws：A friendly / B quiet / C cautious / D diligent</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 11 在「If the criterion changed to safety, you would get more __11__ drivers who obeyed traffic laws」；考点：条件关系 + 句内语义",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If the criterion changed to safety, you would get more <b>__11__</b> drivers who obeyed traffic laws.</div><p>空 11 是 drivers 的前置定语；drivers 又被 who obeyed traffic laws 限定。</p>"
+ },
+ {
+  "title": "立机制 · 形容词必须同时满足两条线索",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：形容词必须同时满足两条线索",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If the criterion changed to safety, you would get more <b>__11__</b> drivers who obeyed traffic laws.</div><p>两条线索同时锁定答案：其一，条件句给出标准 = <b>safety（安全）</b>；其二，定语从句给出行为 = <b>who obeyed traffic laws（遵守交规）</b>。同时满足“安全导向 + 守规”的司机特质只有一个：cautious（谨慎的）。</p><p>cautious = being careful to avoid danger（小心谨慎以避免危险）：正因为谨慎，才会遵守交规、避免事故——语义从条件句到定语从句一路贯通。</p>"
+ },
+ {
+  "title": "找证据 · 与上句对称：目标决定人的行为特征",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：与上句对称：目标决定人的行为特征",
+  "body": "<p>上一句以收益为目标 → 加检票员；本句以安全为目标 → 司机的特征必须体现“安全”。cautious 与 safety 是直接的同义呼应。</p>"
+ },
+ {
+  "title": "逐项分析 · A friendly（友好的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A friendly（友好的）✗ 排除",
+  "body": "<p><b>排除。</b>friendly（友好的）是“公交司机职业形象”的联想，但友好与“安全 / 守规”没有必然关联。</p>"
+ },
+ {
+  "title": "逐项分析 · B quiet（文静的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B quiet（文静的）✗ 排除",
+  "body": "<p><b>排除。</b>quiet（文静的）是性格描述，与交通安全语境脱节。</p>"
+ },
+ {
+  "title": "逐项分析 · C cautious（谨慎的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C cautious（谨慎的）✓ 当选",
+  "body": "<p><b>当选。</b>cautious（谨慎的）同时满足条件句（安全）与定语从句（守规）。</p>"
+ },
+ {
+  "title": "逐项分析 · D diligent（勤勉的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D diligent（勤勉的）✗ 排除",
+  "body": "<p><b>排除。</b>diligent（勤勉的）是工作态度，不等于遵守交规；勤勉的司机也可能开快车。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿正面品格词挨个试；形容词题要抓两条锁定线，diligent 过不了“能推出守规”这一关。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（cautious 谨慎的）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>If the criterion changed to safety, you would get more cautious drivers who obeyed traffic laws.（如果标准变成了安全，就会有更多谨慎的司机，他们会遵守交通法规。）</b></p><p>答案选 <b>C（cautious 谨慎的）</b>。</p><p><b>记忆锚点</b>：safety ⇄ cautious；who obeyed traffic laws 是第二重锁定；品格词要过“能否推出守规”这一关。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（diligent）：拿正面品格词挨个试；形容词题要抓两条锁定线，diligent 过不了“能推出守规”这一关。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 11 空 · If the criterion changed to safety, you would get more __11__ drivers who obeyed traffic laws：A friendly / B quiet / C cautious / D diligent",
+  subtitle: "考点：条件关系 + 句内语义 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 C（cautious 谨慎的）",
+ "html": "<b>C cautious（谨慎的）</b>。<br>完整句：If the criterion changed to safety, you would get more cautious drivers who obeyed traffic laws.（如果标准变成了安全，就会有更多谨慎的司机，他们会遵守交通法规。）<br>记忆锚点：safety ⇄ cautious；who obeyed traffic laws 是第二重锁定；品格词要过“能否推出守规”这一关。<br>最易误选：<b>D diligent（勤勉的）</b>——拿正面品格词挨个试；形容词题要抓两条锁定线，diligent 过不了“能推出守规”这一关。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 11 空 · 双重锁定：条件句的 safety + 定语从句的 obeyed traffic laws</h2>
+<p>答案：<strong>C（cautious 谨慎的）</strong>。</p>
+<h3>第 0 步：先立机制——形容词必须同时满足两条线索</h3>
+<blockquote>If the criterion changed to safety, you would get more <strong>__11__</strong> drivers who obeyed traffic laws.</blockquote>
+<p>两条线索同时锁定答案：其一，条件句给出标准 = <strong>safety（安全）</strong>；其二，定语从句给出行为 = <strong>who obeyed traffic laws（遵守交规）</strong>。同时满足“安全导向 + 守规”的司机特质只有一个：cautious（谨慎的）。</p>
+<p>cautious = being careful to avoid danger（小心谨慎以避免危险）：正因为谨慎，才会遵守交规、避免事故——语义从条件句到定语从句一路贯通。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>If the criterion changed to safety, you would get more <strong>__11__</strong> drivers who obeyed traffic laws.</blockquote>
+<p>空 11 是 drivers 的前置定语；drivers 又被 who obeyed traffic laws 限定。</p>
+<h3>第 2 步：找证据——与上句对称：目标决定人的行为特征</h3>
+<p>上一句以收益为目标 → 加检票员；本句以安全为目标 → 司机的特征必须体现“安全”。cautious 与 safety 是直接的同义呼应。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A friendly</td><td>友好的</td><td>✗ 排除</td><td>friendly（友好的）是“公交司机职业形象”的联想，但友好与“安全 / 守规”没有必然关联。</td></tr><tr><td>B quiet</td><td>文静的</td><td>✗ 排除</td><td>quiet（文静的）是性格描述，与交通安全语境脱节。</td></tr><tr><td>C cautious</td><td>谨慎的</td><td>✓ 当选</td><td>cautious（谨慎的）同时满足条件句（安全）与定语从句（守规）。</td></tr><tr><td>D diligent</td><td>勤勉的</td><td>✗ 排除</td><td>diligent（勤勉的）是工作态度，不等于遵守交规；勤勉的司机也可能开快车。（典型误解：拿正面品格词挨个试；形容词题要抓两条锁定线，diligent 过不了“能推出守规”这一关。）</td></tr></tbody></table>
+<p>代入后的完整句义：If the criterion changed to safety, you would get more cautious drivers who obeyed traffic laws.（如果标准变成了安全，就会有更多谨慎的司机，他们会遵守交通法规。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么“谨慎”能推出“守规”？</strong>：谨慎的定义是“为避免危险而小心”——闯红灯、超速都是危险源；避免危险的直接行为就是遵守交规。friendly、quiet、diligent 都推不出这个行为链条。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（diligent）</strong>：正面词挨个套。形容词题抓“条件句语义 + 从句行为”双线校验，一条不过就淘汰。</li></ul>
+<blockquote>记忆锚点：safety ⇄ cautious；who obeyed traffic laws 是第二重锁定；品格词要过“能否推出守规”这一关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

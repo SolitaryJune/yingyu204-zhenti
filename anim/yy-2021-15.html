@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 15 空 · The __15__ of the story is simple：A moral / B background / C style / D form</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 15 在「The __15__ of the story is simple」；考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The <b>__15__</b> of the story is simple. Most jobs are multidimensional, with multiple criteria.</div><p>空 15 是 the story 的 of 短语中心名词；is simple 之后紧跟寓意的内容。</p>"
+ },
+ {
+  "title": "立机制 · 故事收束处：名词要能接住下文的规律总结",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：故事收束处：名词要能接住下文的规律总结",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The <b>__15__</b> of the story is simple. Most jobs are multidimensional, with multiple criteria.</div><p>the story 回指前文公交、航空的“故事”；空格句是全文的<b>收束</b>，下文立刻给出一段规律性总结——工作都是多维的，挑一个标准就要牺牲其他。</p><p>能在“故事之后”承接这种道理的名词是 moral（寓意、教益）= a practical lesson that a story, an event or an experience teaches you。The moral of the story is simple 是地道固定表达：寓意很简单——下面就说这条道理。</p>"
+ },
+ {
+  "title": "找证据 · 下文就是“寓意”的内容本身",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：下文就是“寓意”的内容本身",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Most jobs are multidimensional, with multiple criteria. Choose one criterion and you may well sacrifice others.</div><p>②③句给出的正是从两个故事提炼的教训：工作多维、选一失其余。“背景 / 风格 / 形式简单”都预示后文该谈背景、风格或形式，而下文谈的全是道理——只有 moral 接得住。</p>"
+ },
+ {
+  "title": "逐项分析 · A moral（寓意）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A moral（寓意）✓ 当选",
+  "body": "<p><b>当选。</b>moral（寓意）= 故事教给人的道理，与下文规律总结严丝合缝，且 the moral of the story 是固定表达。</p>"
+ },
+ {
+  "title": "逐项分析 · B background（背景）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B background（背景）✗ 排除",
+  "body": "<p><b>排除。</b>background（背景）“简单”预示下文介绍背景；下文却是道理总结，落空。</p>"
+ },
+ {
+  "title": "逐项分析 · C style（风格）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C style（风格）✗ 排除",
+  "body": "<p><b>排除。</b>style（风格）“简单”接不上“工作多维”的结论。</p>"
+ },
+ {
+  "title": "逐项分析 · D form（形式）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D form（形式）✗ 排除",
+  "body": "<p><b>排除。</b>form（形式）“简单”同样与下文的多维规律无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：the form of the story 搭配感强；名词题看下文讲了什么——下文是“道理”，不是“背景 / 风格 / 形式”。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（moral 寓意）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>The moral of the story is simple.（这个故事的寓意很简单。）</b></p><p>答案选 <b>A（moral 寓意）</b>。</p><p><b>记忆锚点</b>：the moral of the story = 故事的寓意（固定表达）；寓意之后必跟“道理句”——下文内容反过来决定空格名词。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（form）：the form of the story 搭配感强；名词题看下文讲了什么——下文是“道理”，不是“背景 / 风格 / 形式”。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 15 空 · The __15__ of the story is simple：A moral / B background / C style / D form",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 A（moral 寓意）",
+ "html": "<b>A moral（寓意）</b>。<br>完整句：The moral of the story is simple.（这个故事的寓意很简单。）<br>记忆锚点：the moral of the story = 故事的寓意（固定表达）；寓意之后必跟“道理句”——下文内容反过来决定空格名词。<br>最易误选：<b>D form（形式）</b>——the form of the story 搭配感强；名词题看下文讲了什么——下文是“道理”，不是“背景 / 风格 / 形式”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 15 空 · the story 回指前文，“寓意”之后必跟道理句</h2>
+<p>答案：<strong>A（moral 寓意）</strong>。</p>
+<h3>第 0 步：先立机制——故事收束处：名词要能接住下文的规律总结</h3>
+<blockquote>The <strong>__15__</strong> of the story is simple. Most jobs are multidimensional, with multiple criteria.</blockquote>
+<p>the story 回指前文公交、航空的“故事”；空格句是全文的<strong>收束</strong>，下文立刻给出一段规律性总结——工作都是多维的，挑一个标准就要牺牲其他。</p>
+<p>能在“故事之后”承接这种道理的名词是 moral（寓意、教益）= a practical lesson that a story, an event or an experience teaches you。The moral of the story is simple 是地道固定表达：寓意很简单——下面就说这条道理。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The <strong>__15__</strong> of the story is simple. Most jobs are multidimensional, with multiple criteria.</blockquote>
+<p>空 15 是 the story 的 of 短语中心名词；is simple 之后紧跟寓意的内容。</p>
+<h3>第 2 步：找证据——下文就是“寓意”的内容本身</h3>
+<blockquote>Most jobs are multidimensional, with multiple criteria. Choose one criterion and you may well sacrifice others.</blockquote>
+<p>②③句给出的正是从两个故事提炼的教训：工作多维、选一失其余。“背景 / 风格 / 形式简单”都预示后文该谈背景、风格或形式，而下文谈的全是道理——只有 moral 接得住。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A moral</td><td>寓意</td><td>✓ 当选</td><td>moral（寓意）= 故事教给人的道理，与下文规律总结严丝合缝，且 the moral of the story 是固定表达。</td></tr><tr><td>B background</td><td>背景</td><td>✗ 排除</td><td>background（背景）“简单”预示下文介绍背景；下文却是道理总结，落空。</td></tr><tr><td>C style</td><td>风格</td><td>✗ 排除</td><td>style（风格）“简单”接不上“工作多维”的结论。</td></tr><tr><td>D form</td><td>形式</td><td>✗ 排除</td><td>form（形式）“简单”同样与下文的多维规律无关。（典型误解：the form of the story 搭配感强；名词题看下文讲了什么——下文是“道理”，不是“背景 / 风格 / 形式”。）</td></tr></tbody></table>
+<p>代入后的完整句义：The moral of the story is simple.（这个故事的寓意很简单。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>moral 不是“道德的”这个形容词吗？</strong>：moral 兼有形容词（道德的）与名词（寓意）两个词性；the moral of the story 里的 moral 是名词——故事结尾那句话承载的教训，伊索寓言末尾的“寓意：……”用的正是这个名词。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（form）</strong>：只看搭配不看下文。收束句名词的任务是给下文的“道理”命名，背景 / 风格 / 形式都命不了这个名。</li></ul>
+<blockquote>记忆锚点：the moral of the story = 故事的寓意（固定表达）；寓意之后必跟“道理句”——下文内容反过来决定空格名词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

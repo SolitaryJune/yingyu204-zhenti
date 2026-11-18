@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-16 · 2022 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 16 所在句，考点：上下文语义 + 介词短语",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("There's just one thing you should try to keep at least some time for, __16__ your writing—and that's reading.") +
+    "<p>空格是介词短语，管住 your writing，与 just one thing / that's reading 呼应。</p>"
+ },
+ {
+  "title": "机制 · “唯一例外”的修辞结构",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：写作之外唯一保留的活动——阅读",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>前文刚宣布「为了写作要牺牲一大串活动」，本句却保留了一件事：阅读。</p>" +
+    "<p>just one thing... __16__ your writing—and that's reading 的修辞逻辑：写作<b>之外</b>，唯一还要保时间的是阅读——阅读的重要性<b>仅次于写作</b>。空格短语要表达「除写作之外」。</p>"
+ },
+ {
+  "title": "证据 · 下句给出阅读的地位",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：阅读是“不可或缺的支撑”——以写作为中心",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Any writer needs to read as much and as widely as they can; it's the one __17__ supporter—something you can't do without.") +
+    "<p>下句说阅读是「不可或缺的支撑（you can't do without）」——支撑，即服务于写作、以写作为中心。既然中心是写作，阅读就是「写作之外」额外保留的一项：in addition to your writing 与 just one thing 配合，精确表达「重要性仅次于写作」的层级。</p>"
+ },
+ {
+  "title": "逐项分析 · A in place of（代替；顶替）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A in place of（代替；顶替） ✗ 排除——主题不是放弃写作",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>「阅读可代替写作」与全文主题（挤时间写作）不符；下句「阅读是写作的支撑」也否定替代关系。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：把「阅读滋养写作」的常识误当成「阅读取代写作」。</p>"
+ },
+ {
+  "title": "逐项分析 · D in addition to（除……之外）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D in addition to（除……之外） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "D", "ok": true},
+  "body": "<p><b>当选。</b>与 just one thing、that's reading 及「支撑」定位完全一致。代入读作「<b>除写作之外</b>，只有一件事你应该尽力留出一些时间去做——那就是阅读」。</p>"
+ },
+ {
+  "title": "逐项分析 · B in charge of（负责；主管）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B in charge of（负责；主管） ✗ 排除——英文逻辑不通",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>貌似贴合「阅读决定写作水平」，但 in charge of 用于人/机构的管理关系；让「阅读」负责「写作」是把比喻当实指。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：貌似合理却违反搭配逻辑。</p>"
+ },
+ {
+  "title": "逐项分析 · C in response to（作为对……的反应）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C in response to（作为对……的反应） ✗ 排除——表达不出需求支撑",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>利用「阅读是为应对写作需求」的常识设障，但 response 指对已发生之事的回应，表达不出「支撑需求」关系。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：觉得「为了写作需求而阅读」顺理成章，忽略短语本身的语义。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（in addition to 除……之外）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>除写作之外，只有一件事你应该尽力留出一些时间去做——那就是阅读。</b></p>" +
+    "<p>答案选 <b>D（in addition to 除……之外）</b>。</p>" +
+    "<p><b>记忆锚点</b>：just one thing... __ your writing—and that's reading → 「除写作之外」= in addition to；支撑（supporter）不是代替（in place of），也不是回应（in response to）。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>A（in place of）</b>——把「阅读滋养写作」的常识误当成「阅读取代写作」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 16 空 · 唯一保留时间的活动“____写作”——阅读",
+  subtitle: "考点：上下文语义 + 介词短语 · “唯一例外”修辞 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（in addition to）",
+    html: "<b>D in addition to（除……之外）</b>。<br>记忆锚点：just one thing... __ your writing—and that's reading → 「除写作之外」= in addition to；支撑（supporter）不是代替（in place of），也不是回应（in response to）。<br>最易误选：<b>A（in place of）</b>——把「阅读滋养写作」的常识误当成「阅读取代写作」。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 16 空 · 唯一保留时间的活动"____写作"——阅读排在写作之后</h2>
+<p>答案：<strong>D（in addition to 除……之外）</strong>。</p>
+<h3>第 0 步：先立机制——"唯一例外"的修辞结构</h3>
+<p>空格句：There's just one thing you should try to keep at least some time for, __16__ your writing—and that's reading.（只有一件事你应该尽力留出一些时间去做，____写作——那就是阅读。）前文刚刚宣布"为了写作要牺牲一大串活动"，本句却保留了一件事：阅读。just one thing... __16__ your writing—and that's reading 的修辞逻辑是：写作之外，唯一还要保时间的是阅读——阅读的重要性仅次于写作。破折号后 that's reading 揭示谜底，也确认阅读不在"被牺牲"名单里。空格短语要表达"除写作之外"，in addition to。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>There's just one thing you should try to keep at least some time for, __16__ your writing—and that's reading.</blockquote>
+<p>空格是介词短语，管住 your writing，与 just one thing / that's reading 呼应。</p>
+<h3>第 2 步：找证据——下句给出阅读的地位</h3>
+<blockquote>Any writer needs to read as much and as widely as they can; it's the one __17__ supporter—something you can't do without.</blockquote>
+<p>下一句说阅读是"不可或缺的支撑（you can't do without）"——支撑，即服务于写作、以写作为中心。既然中心是写作，阅读就是"写作之外"额外保留的一项：in addition to your writing（除写作之外）与 just one thing（仅此一件）配合，精确表达"重要性仅次于写作"的层级。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>短语义</th><th>填入含义</th><th>判定</th></tr></thead><tbody><tr><td>A in place of</td><td>代替；顶替</td><td>阅读可"代替"写作</td><td>✗ 全文主题是挤时间写作，不是放弃写作；下句"阅读是写作的支撑"也否定替代关系</td></tr><tr><td>B in charge of</td><td>负责；主管</td><td>阅读"负责"写作</td><td>✗ 貌似贴合"阅读决定写作水平"，但短语用于人/机构的管理关系，英文逻辑不通</td></tr><tr><td>C in response to</td><td>作为对……的反应</td><td>为"应对"写作而留时间</td><td>✗ response 指对已发生之事的回应，表达不出"支撑需求"关系</td></tr><tr><td>D in addition to</td><td>除……之外</td><td>写作之外唯一保留的活动</td><td>✓ 与 just one thing、that's reading 及"支撑"定位完全一致</td></tr></tbody></table>
+<p>代入后的完整句义：除写作之外，只有一件事你应该尽力留出一些时间去做——那就是阅读。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A（in place of）的干扰点在哪？</strong>：常识里"多读才能会写"，容易被引向"用阅读代替（盲目）写作"。但原文通篇在讲"保住写作时间"，just one thing 保留的是"额外的一件"，不是"替换掉的一件"。</li><li><strong>B 为什么"貌似合理"却错？</strong>：in charge of 要求主语是管理者（人/部门）；让"阅读"负责"写作"是把比喻当实指，英文搭配不成立。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（in place of）</strong>：把"阅读滋养写作"的常识误当成"阅读取代写作"的文意。</li><li><strong>误选 C（in response to）</strong>：觉得"为了写作需求而阅读"顺理成章，但短语本身表达的是"对事件的回应"，装不下"需求支撑"关系。</li></ul>
+<blockquote>记忆锚点：just one thing... __ your writing—and that's reading → "除写作之外" = in addition to；支撑（supporter）不是代替（in place of），也不是回应（in response to）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

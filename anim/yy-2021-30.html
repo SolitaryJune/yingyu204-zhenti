@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-30 · 2021 阅读第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：态度题抓作者自己开口的地方",
+  "body": "<p>题干：<b>The author’s attitude to food self-sufficiency in the UK is ____</b>（作者对英国粮食自给的态度是 ____）。</p><p>态度题的证据必须是<b>作者开口评述</b>的地方，而不是文中的数据或他人的话。本文作者唯一一次直接开口就是第二段末尾的反问句。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：先扬后抑的反问句",
+  "body": "<div class='qq'><b>原文：</b>Sounds great — but how feasible is this vision?</div><p>Sounds great 让一步，<b>how feasible is this vision?</b>（这个愿景可行吗？）紧跟其后——先扬后抑，怀疑立场已露头。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：整条数据链都在给「不可行」加码",
+  "body": "<div class='qq'><b>原文：</b>There are many caveats to those figures, but they are still grave.</div><p>数据链：85% 土地在养畜 → 25% 能种庄稼 → 果蔬仅 23% 自产 → 极限也只能满足 30%。作者一边摆数据一边提醒 <b>figures are still grave</b>——质疑愿景的可行性。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：defensive——作者没在捍卫任何立场",
+  "body": "<p><b>A · defensive（防卫式的）</b> <span class='bad-dot'>✗</span></p><p>作者不是在捍卫自给或进口的哪一方，而是用数据和反问质疑一个愿景——defensive 无处落脚。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：doubtful——先扬后抑 + 数据链",
+  "body": "<p><b>B · doubtful（怀疑的）</b> <span class='ok-dot'>✓</span></p><p>how feasible is this vision?（可行吗？）+ 一整条「不可行」的数据链 + figures are still grave → 作者对自给愿景<b>持怀疑态度</b>。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：tolerant——态度对象错位",
+  "body": "<p><b>C · tolerant（容忍的）</b> <span class='bad-dot'>✗</span></p><p>全文是对可行性的评估，不是对某现象的容忍。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：optimistic——与反问和数据链相悖",
+  "body": "<p><b>D · optimistic（乐观的）</b> <span class='bad-dot'>✗</span></p><p>若乐观，就不会追问「可行吗」并摆出层层受阻的数据。</p><p style='color:#b91c1c'>⚠ 典型误解：只看到 Sounds great 的半句，忽略了 but 之后的反问。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（doubtful）</b>。</p><p>记忆锚点：Sounds great, <b>but</b> how feasible?——but 之后才是态度；数据链全部指向「难」→ doubtful。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 D（optimistic）——只看 Sounds great 半句，忽略 but 反问。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-30 · 阅读第 30 题：作者对「粮食自给」的态度",
+  subtitle: "考点：Text2 全文 · 态度题（抓作者评述句，不看数据陈述）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B",
+ "html": "<b>B doubtful</b>：Sounds great — but how feasible is this vision? 先扬后抑；85%→25%→23%→30% 数据链全部指向「难」。<br>记忆锚点：态度题抓作者评述句，but 之后才是态度。<br>最易误选：D——只看 Sounds great 半句。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 30 题——作者对「粮食自给」的态度</h2>
+<p>答案：<strong>B</strong>（doubtful）。</p>
+<h3>第 0 步：先立机制——态度题抓作者自己的评述句，不看事实陈述</h3>
+<p>态度题的证据必须是<strong>作者开口评述</strong>的地方，而不是文中的数据或他人的话。本题作者唯一一次直接开口就是第二段末尾：Sounds great — but how feasible is this vision?——先扬后抑，反问一出，立场已定；随后的数据链都是给这个反问提供弹药。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>Sounds great — but how feasible is this vision?</blockquote>
+<blockquote>There are many caveats to those figures, but they are still grave.</blockquote>
+<p>Sounds great 让一步，how feasible 的反问紧跟其后；85% 土地在养畜 → 25% 能种庄稼 → 果蔬仅 23% 自产 → 极限也只满足 30%，一整条「不可行」的证据链 + 「figures are still grave」的提醒 → 作者对自给愿景<strong>持怀疑态度</strong>（doubtful）。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（defensive）</strong>：无处落脚——作者没有在捍卫任何立场，而是在质疑一个愿景。</li><li><strong>C（tolerant）</strong>：态度对象错位——全文是可行性评估，不是对某现象的容忍。</li><li><strong>D（optimistic）</strong>：与证据相悖——若乐观，就不会追问「可行吗」并摆出层层受阻的数据。</li></ul>
+<blockquote>记忆锚点：Sounds great, <strong>but</strong> how feasible?——but 之后才是态度；数据链全部指向「难」→ doubtful。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

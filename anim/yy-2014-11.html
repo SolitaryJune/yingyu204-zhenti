@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-11 · 2014 完形第 11 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 11 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 11 空所在句，考点：上下文语义 + 固定搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Some people with a high BMI are in fact extremely fit, while others with a low BMI may be in poor <b>__11__</b>.</div><p>空格在 <b>in poor __</b> 里，主语是 others with a low BMI。句内最大的线索是**对仗**：前半句刚说 some...are <b>extremely fit</b>（体格极好），空格词必须能与 fit 反向呼应——fit 属于“身材/体格”语义场。全文话题也正是体重与体脂，空格不能跳出这个话题场。</p>"
+ },
+ {
+  "title": "找证据 · fit ↔ in poor shape 的反义对照 + 全文话题锁定",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：extremely fit 与空格同句对举；全文谈肥胖与体格——“身材”是唯一落点",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Obesity is probably less a matter of weight than body fat.</div><p>extremely fit（非常健壮）的反面不是“情绪差”“平衡差”“品味差”，而是<b>身材不佳</b>——in poor shape 是固定表达（反义 in shape / in good shape）。四个选项里只有 shape 属于“身材、体格”语义场，且与 fit 构成作者要的“错位感”：BMI 低不等于身材好。</p>"
+ },
+ {
+  "title": "逐项分析 · B spirit（情绪，精神）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B spirit（情绪，精神） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“情绪不佳”与 BMI 高低无关，也接不上 fit 的体格对照——心理话题闯进了体格句。</p><p style=\"color:#b91c1c\">⚠ 典型误解：spirit 有抽象“状态”义（team spirit），误把“状态”套进身体话题。</p>"
+ },
+ {
+  "title": "逐项分析 · C balance（平衡）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C balance（平衡） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“平衡感差”属运动能力话题，与 fit 不构成对照，全文也从未讨论协调性。</p><p style=\"color:#b91c1c\">⚠ 典型误解：想到“身体协调性”自行扩义，脱离对照轴。</p>"
+ },
+ {
+  "title": "逐项分析 · D taste（品位，审美）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D taste（品位，审美） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>in poor taste 是固定短语，但义为“品味差、不雅”，评价的对象是言行而不是人的身材——话题彻底跑偏。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 in poor taste 是“搭配”，没看它评价的对象是言行不是人。</p>"
+ },
+ {
+  "title": "逐项分析 · A shape（身材，外形）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A shape（身材，外形） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>in poor shape 身材不佳——与 extremely fit 精确对仗，与全文“体重 vs 体脂”话题严丝合缝：BMI 低，身材未必好。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（shape 身材）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>而另一些 BMI 低的人却可能身材不佳。</b></p><p>答案选 <b>A（shape 身材，外形）</b>。</p><p><b>记忆锚点</b>：extremely fit ↔ in poor shape 对仗；in poor taste 评言行不评人；选词先锁定句内的对照轴。</p><p style=\"color:#b91c1c\">最易误选：<b>D（taste）</b>——只背短语不看对象，in poor taste 评价言行而非身材。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 11 空 · in poor ______ 对仗 extremely fit",
+  subtitle: "考点：上下文语义 + 固定搭配 · 找句内对照轴 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“找句内对照轴 → 搭配辨析 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（shape）",
+ "html": "<b>A shape（身材，外形）</b>。<br>记忆锚点：extremely fit ↔ in poor shape 对仗；in poor taste 评言行不评人；选词先锁定句内的对照轴。<br>最易误选：<b>D（taste）</b>——只背短语不看对象，in poor taste 评价的是言行。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 11 空 · in poor ______——与 extremely fit 对仗的那个词</h2>
+<p>答案：<strong>A（shape 身材，外形）</strong>。</p>
+<h3>第 0 步：先立机制——搭配题先找对照轴：空格词要与 fit 反向呼应</h3>
+<p>本空由两层约束共同锁定：其一，<strong>句内对仗</strong>——some...extremely fit 与 others...in poor <code>__</code> 同句对举，空格词必须落进“身材/体格”语义场才能与 fit 反向呼应；其二，<strong>固定搭配</strong>——in poor shape（= out of shape）是惯用表达，反义是 in shape / in good shape。两层约束交叉，答案唯一。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Some people with a high BMI are in fact extremely fit, while others with a low BMI may be in poor __11__.</blockquote>
+<p>句意骨架：“有些 BMI 高的人其实非常健壮，而另一些 BMI 低的人可能 <code>__</code> 不佳”——空格与 fit 一荣一损，共用“体格”这根轴。</p>
+<h3>第 2 步：找证据——对仗轴 + 全文话题双重锁定</h3>
+<blockquote>Obesity is probably less a matter of weight than body fat.</blockquote>
+<p>全段乃至全文的话题是体重、体脂与体格：肥胖是否肥胖看体脂，人是否健壮看 fit。空格词要描述的是“BMI 低的人实际体格可能很差”——只有 shape 同时满足话题与搭配两个条件。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A shape</td><td>身材，外形</td><td>✓ 当选</td><td>in poor shape 身材不佳——与 extremely fit 精确对仗，与全文“体重 vs 体脂”话题严丝合缝。</td></tr><tr><td>B spirit</td><td>情绪，精神</td><td>✗ 排除</td><td>“情绪不佳”与 BMI 高低无关，也接不上 fit 的体格对照——心理话题闯进了体格句。（典型误解：spirit 有抽象“状态”义（team spirit），误把“状态”套进身体话题。）</td></tr><tr><td>C balance</td><td>平衡</td><td>✗ 排除</td><td>“平衡感差”属运动能力话题，与 fit 不构成对照，全文也从未讨论协调性。（典型误解：想到“身体协调性”自行扩义，脱离对照轴。）</td></tr><tr><td>D taste</td><td>品位，审美</td><td>✗ 排除</td><td>in poor taste 是固定短语，但义为“品味差、不雅”，评价的对象是言行而不是人的身材——话题彻底跑偏。（典型误解：只认 in poor taste 是“搭配”，没看它评价的对象是言行不是人。）</td></tr></tbody></table>
+<p>代入后的完整句义：而另一些 BMI 低的人却可能身材不佳。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>in poor shape 与 out of shape 一样吗？</strong>：同族：out of shape / in poor shape 都指“身材走样、体质不佳”，反义是 in shape / in good shape。填 shape 后，句内构成 fit ↔ poor shape 的反义对照，正是作者要的“错位感”。</li><li><strong>spirit 译成“状态”不行吗？</strong>：in poor spirits（注意复数）才表“情绪低落”，且属心理状态；原文对比的是体格（fit）不是心理。完形选词要看它服务的对照轴，不能只译个大意。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（taste）</strong>：只背短语不看对象，in poor taste 评价言行而非身材。</li><li><strong>误选 B（spirit）</strong>：把抽象“状态”义错套到身体话题。</li><li><strong>误选 C（balance）</strong>：自行扩义到“协调性”，脱离 fit 的对仗轴。</li></ul>
+<blockquote>记忆锚点：extremely fit ↔ in poor shape 对仗；in poor taste 评言行不评人；选词先锁定句内的对照轴。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

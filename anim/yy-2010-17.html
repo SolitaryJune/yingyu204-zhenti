@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·17 完形 · those initial doses 的回指锁定</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼', cls: 'key',
+    body: '<p>空格填修饰 <b>doses（剂）</b>的形容词，且被 <b>those</b> 限定。those 是强回指信号：这个形容词是对上文某一批药剂的"复现"，不是自由发挥。</p>',
+    log: 'those + 名词 = 回指上文，先找指代对象' },
+  { title: '定位原文', cls: 'key',
+    body: src('“More than three million doses were to be made available in <b>early October 2009</b>, though most of <b>those</b> __17__ doses were of the FluMist nasal spray type.”') +
+      '<p>those doses = 上文那 300 多万剂；这批药的投放时间：<b>2009 年 10 月初</b>。</p>',
+    log: '回指对象：10 月初投放的 300 多万剂' },
+  { title: '空格任务：复现"初期"', cls: 'step',
+    body: '<p>句意：300 多万剂将在 10 月初投放——尽管其中大部分"__ 剂"是 FluMist 鼻喷剂型。空格词要复现的属性是时间上的<b>"首批、初期"</b>。</p>',
+    log: '空格 = 给"那批药"贴时间标签' },
+  { title: 'A prevalent：范畴错位', cls: 'bad',
+    body: '<p>prevalent 流行的、普遍的——修饰疾病、现象。doses 是<b>药剂</b>不是病症，"流行的药剂"不成立。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 药剂谈不上"流行"' },
+  { title: 'B principal：无中生有', cls: 'bad',
+    body: '<p>principal 最重要的、主要的——文中没有任何"主次比较"，谁比谁重要？无文本支撑。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 主次信息文中没有' },
+  { title: 'C innovative：强调点跑偏', cls: 'bad',
+    body: '<p>innovative 革新的——上文只说它 <b>different from the annual flu vaccine</b>（与年度流感疫苗不同），这是背景说明；空格强调的是"那批药"的<b>时间属性</b>，不是创新性。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C"新"是背景，空格要的是"首批"' },
+  { title: 'D initial：时间复现成功', cls: 'good',
+    body: '<p>initial 最初的、初期的——<b>early October 2009</b> 的同义复现：those <b>initial</b> doses = 10 月初投放的首批药剂。回指闭环完成。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D = early October 2009 的呼应' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D（initial）</b>：大部分初期投放的药剂为鼻喷剂型。记忆锚点：<b>those + 名词 = 回指，空格词复现指代对象的属性</b>。</p>',
+    log: '锁定 D（initial）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 17 · those initial doses 的回指锁定',
+  subtitle: '考点：指代复现（those 回指）＋ 时间呼应 · 选项：prevalent / principal / innovative / initial',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（initial）',
+    html: '记忆锚点：<b>those + 名词 = 回指上文</b>；找到指代对象（early October 2009 投放的 300 多万剂），空格词只需复现其时间属性 → <b>initial</b>。C 的"新"是背景信息，A 的"流行"范畴错位，B 无主次比较。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：those initial doses——回指 + 时间呼应锁定"首批"</h2>
+<p>答案：<strong>D（initial）</strong>。</p>
+<h3>第一步：先立机制——完形名词题的两大抓手</h3>
+<p>名词四选一，不靠"哪个词高级"，靠两条：<strong>指代复现</strong>（空格词与上文某处同义呼应）与<strong>搭配范畴</strong>（修饰关系是否成立）。本题空格修饰名词 doses（剂、支药剂），前面站着 those——those 是强指代信号，说明空格词是对前文那批药剂的复现。</p>
+<h3>第二步：定位原文——those doses 指什么</h3>
+<blockquote>More than three million doses were to be made available in early October 2009, though most of those __17__ doses were of the FluMist nasal spray type.</blockquote>
+<p>those doses 直接回指上文的 more than three million doses，而那一批药剂的投放时间是 <strong>early October 2009（2009 年 10 月初）</strong>。空格要填的词必须把这个"初期"的时间属性复现出来。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A prevalent</td><td>流行的、普遍的</td><td>doses 是药剂不是疾病，谈不上"流行"，范畴错位</td></tr><tr><td>B principal</td><td>最重要的、主要的</td><td>文中没有任何"主次比较"，凭空添加</td></tr><tr><td>C innovative</td><td>革新的、创新的</td><td>上文只说它 different from the annual flu vaccine，强调点在"首批上市"，不在"创新"</td></tr><tr><td>D initial</td><td>最初的、初期的</td><td>early October 2009 的同义复现：those <strong>initial</strong> doses = 10 月初投放的首批药剂</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C（innovative）</strong>：被下文 different from the annual flu vaccine 带偏。"新疫苗"是全句背景信息，空格强调的是 those 指向那批药的<strong>时间属性</strong>；若强调创新，文中应有与旧疫苗的正面对比论述，这里没有。</li><li><strong>选 A（prevalent）</strong>：把全文"流感"语境错误迁移到 doses 上；prevalent 修饰 disease、phenomenon，不修饰"剂量"。</li><li><strong>选 B（principal）</strong>：忽视了文中无主次信息——完形干扰项常是"褒义合理但无文本支撑"的词。</li></ul>
+<blockquote>记忆锚点：those + 名词 = 回指上文；先找到指代对象，再让空格词复现对象的属性——2009 年 10 月初投放 → initial。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

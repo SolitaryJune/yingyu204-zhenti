@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-39 · 2017 Text D · 39 题 · “看法过简”因何而起</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 第八段的因果链", "cls": "key", "tag": "定位", "count": 0, "ribbon": null, "log": "定位：The overly simplified view 直指第八段②句 Failing to recognize that leads to...", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">“The <b>human systems</b> and the <b>landscapes</b> we live on are <b>linked</b>, and the <b>interactions go both ways</b>,” he says. <b>Failing to recognize that</b>, he notes, leads to “an <b>overly simplified view</b> of what the solutions might be...”</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第八段①②句</p><p>因果细节题：题干给“果”（overly simplified view），原文的“因”就在 leads to 之前——Failing to recognize <b>that</b>。解此题的全部关键：<b>that 指什么？</b></p>"}, {"title": "解回指 · that = 双向关联", "cls": "key", "tag": "回指", "count": 0, "ribbon": null, "log": "that 回指①句：人类系统与地景相互关联（linked）、相互影响（go both ways）", "body": "<p>that 就近回指①句，而①句的关键词是<b>双向</b>：linked（相互关联）+ the interactions <b>go both ways</b>（影响是双向的——人影响自然，自然也影响人）。所以“未能认识到的东西”=<b>人与自然之间的相互关系</b>。正确项必须把“双方+双向”都保住。</p>"}, {"title": "逐项分析 · D understand the interrelations of man and nature", "cls": "good", "tag": "选定 D", "count": 0, "ribbon": {"k": "D", "ok": true}, "log": "D 掌握人类和自然的相互关系 ✓ 当选——双向语义完整保留", "body": "<p><b>当选。</b>man and nature ↔ human systems and landscapes；interrelations ↔ linked + interactions go both ways。只有 D 同时保住了“两个主体”和“双向关系”两件事。</p>"}, {"title": "逐项分析 · A discover the fundamental makeup of nature", "cls": "bad", "tag": "排除 A", "count": 1, "ribbon": {"k": "A", "ok": false}, "log": "A 挖掘自然的基本构成 ✗ 排除——只取“自然”一端，双向割成单向", "body": "<p><b>排除。</b>A 只保留了自然（nature）一端，把“人与自然相互关联”砍成“研究自然的构成”——双向变单向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：回指没解完就答题，丢掉关联的另一方。</p>"}, {"title": "逐项分析 · B explore the mechanism of the human systems", "cls": "bad", "tag": "排除 B", "count": 2, "ribbon": {"k": "B", "ok": false}, "log": "B 探索人类系统的机制 ✗ 排除——只取“人类系统”一端", "body": "<p><b>排除。</b>B 与 A 同病：只留 human systems 一端，同样是单向割裂。A、B 各拿走关联的一头，都不完整。</p>"}, {"title": "逐项分析 · C maximize the role of landscape in human life", "cls": "bad", "tag": "排除 C", "count": 3, "ribbon": {"k": "C", "ok": false}, "log": "C 充分发挥地景对人的作用 ✗ 排除——双向影响被读成单向作用，maximize 无中生有", "body": "<p><b>排除。</b>C 涉及双方，但 the role of A in B 是<b>单向</b>（地景→人）；原文 go both ways 的双向性丢了。maximize（最大化）更是原文没有的动作。</p><p style=\"color:#b91c1c\">⚠ 典型误解：保留双方却丢掉方向：interactions（互）≠ role（单向作用）。</p>"}, {"title": "结论 · 解题链与记忆锚点", "cls": "good", "tag": "答案 D", "count": 3, "ribbon": null, "log": "答案 D（understand the interrelations of man and nature）", "body": "<p>解题链：<b>题干之果定第八段 → leads to 前的 Failing to recognize that → that 回指“linked + go both ways” → 唯一保住“双方+双向”的是 D。</b></p><p><b>答案选 D（understand the interrelations of man and nature 掌握人类和自然的相互关系）。</b></p>"}];
+
+AW.init({
+  title: "2017 Text D · 39 题 · “看法过简”因何而起",
+  subtitle: "考点：因果细节题——that 回指 + 单向/双向语义辨析",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 解回指 → 排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（understand the interrelations of man and nature）", "html": "that 回指①句：<b>人类系统与地景相互关联、相互影响（go both ways）</b>；认不出这层双向关系，看法才会过简。<br>记忆锚点：<b>因果题先解 that 回指</b>；四个选项按“单向/双向”分类——A/B 各留一端，C 留双方但单向，只有 D 保住双向。<br>最易误选：<b>C</b>——role 是单向作用，丢了 go both ways。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text D 第 39 题 · “看法过简”因何而起</h2>
+<p>答案：<strong>D（understand the interrelations of man and nature 掌握人类和自然的相互关系）</strong>。</p>
+<h3>第 0 步：先立机制——因果题 + that 回指 + 单向/双向辨析</h3>
+<p>题干给“果”（The overly simplified view），回文找“因”。因在 leads to 之前：Failing to recognize <strong>that</strong>——本题的全部关键在于<strong>解出 that 的回指</strong>；再对四个选项做“单向/双向”分类，能保住原文双向语义的才是答案。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>“The <strong>human systems</strong> and the <strong>landscapes</strong> we live on are <strong>linked</strong>, and the <strong>interactions go both ways</strong>,” he says.（第八段①句）</blockquote>
+<p>&gt;</p>
+<blockquote><strong>Failing to recognize that</strong>, he notes, leads to “an <strong>overly simplified view</strong> of what the solutions might be...”（第八段②句）</blockquote>
+<h3>第 2 步：找证据——that = 人与自然的双向关联</h3>
+<p>that 就近回指①句，其关键词是<strong>双向</strong>：linked（相互关联）+ the interactions <strong>go both ways</strong>（人影响自然，自然也影响人）。“未能认识到的东西” = 人与自然的<strong>相互关系</strong>。据此给选项分类：只碰一端的不完整；碰了双方但只写单向作用的，丢掉了 go both ways。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A discover the fundamental makeup of nature</td><td>挖掘自然的基本构成</td><td>✗ 排除</td><td>只留“自然”一端，双向割成单向。（典型误解：that 回指没解完就答题。）</td></tr><tr><td>B explore the mechanism of the human systems</td><td>探索人类系统的机制</td><td>✗ 排除</td><td>与 A 同病：只留“人类系统”一端，单向割裂。</td></tr><tr><td>C maximize the role of landscape in human life</td><td>充分发挥地景对人的作用</td><td>✗ 排除</td><td>涉及双方，但 the role of A in B 是单向（地景→人）；maximize（最大化）原文没有。（典型误解：留住双方却丢掉方向——interactions 是“互”，role 是单向。）</td></tr><tr><td>D understand the interrelations of man and nature</td><td>掌握人类和自然的相互关系</td><td>✓ 当选</td><td>man and nature ↔ human systems and landscapes；interrelations ↔ linked + interactions go both ways——双方 + 双向都保住。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不背“人地关系”的概念？</strong>：不需要。把①句拆成“两个主体 + 双向关系”两件事，用它们当筛子过选项——A/B 缺一方，C 缺方向，D 全保。</li><li><strong>that 回指找多远？</strong>：就近原则——that 紧跟①句，优先回指上一句整句语义（相互关联、相互影响），而不是更早的段落。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（maximize the role of landscape in human life）</strong>：被“涉及双方”迷惑，丢掉 go both ways 的双向性。</li><li><strong>误选 A/B</strong>：只取关联的一端。</li></ul>
+<blockquote>记忆锚点：因果题先解 <strong>that 回指</strong>；选项按“单向/双向”分类——interrelations（相互）≠ role（单向作用）；go both ways 是本题题眼。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-39 动画：法案通过之后发生了什么</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：题干只问 1968 法案", "body": "<p>题干：<b>After the Jury Selection and Service Act was passed, ____</b>（《陪审团遴选与服务法案》通过之后____）</p><p>事件归属法：末段塞了三个事件（1968 法案 / 1975 Taylor 判决 / 判决内容）。题干问<b>法案</b>，就只准用法案内容作答。</p>", "log": "题干锁 1968 法案——先给每个选项贴年份标签"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：法案做了两件事", "body": "<div class=\"qq\"><b>第四段②句：</b>This law abolished special educational requirements for federal jurors and required them to be selected at random from a cross section of the entire community. <span class=\"cn\">（译：该法案废除联邦陪审员的特殊教育要求，并要求从全社会随机遴选。）</span></div><p>事件归属表：1968 法案 → 废除教育要求 + 随机遴选；1975 Taylor 判决 → 代表性延伸到州 + 性别歧视违宪。</p>", "log": "法案内容 = 废除教育要求 + 随机遴选"}, {"cls": "", "ecs": "step", "tag": "替换", "count": 0, "title": "同义替换：abolished → less rigid", "body": "<table class=\"aw-mini\"><tr><th>选项 B</th><th>原文②句</th></tr><tr><td>educational requirements 教育要求</td><td>special educational requirements 特殊教育要求</td></tr><tr><td>became less rigid 不再那么严格</td><td>abolished 废除了</td></tr></table><p>\"废除\" → \"放宽\"，同向改写成立。</p>", "log": "abolished（废除）= less rigid（放宽）"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "title": "排除 A：性别歧视违宪必须废除", "body": "<p><b>A · 性别歧视违宪必须废除</b><span class=\"bad-dot\">✗</span></p><p>张冠李戴：declared sex discrimination…unconstitutional 是 <b>1975 年 Taylor 判决</b>（④句）的内容，不是 1968 法案。</p>", "log": "排除 A：性别歧视违宪必须废除", "count": 1, "ribbon": {"k": 1, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 B", "title": "锁定 B：联邦陪审员教育要求放宽", "body": "<p><b>B · 联邦陪审员教育要求放宽</b><span class=\"ok-dot\">✓</span></p><p>②句 abolished special educational requirements 的同向改写——<b>法案内容对上</b>。</p>", "log": "锁定 B：联邦陪审员教育要求放宽", "count": 2, "ribbon": {"k": 2, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "title": "排除 C：州级陪审员应代表全社会", "body": "<p><b>C · 州级陪审员应代表全社会</b><span class=\"bad-dot\">✗</span></p><p>两处错：延伸到州层面也是 Taylor 判决；且②句是\"从全社会<b>随机选出</b>\"，不是\"代表整个社会\"。</p>", "log": "排除 C：州级陪审员应代表全社会", "count": 3, "ribbon": {"k": 3, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "title": "排除 D：各州应遵从联邦法院", "body": "<p><b>D · 各州应遵从联邦法院</b><span class=\"bad-dot\">✗</span></p><p>无中生有：全文没有\"州必须遵从联邦法院改革\"的表述。</p>", "log": "排除 D：各州应遵从联邦法院", "count": 4, "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 B", "body": "<p><b>答案 B</b>——法案废除了教育要求 = 要求放宽。</p><p>记忆锚点：1968 法案管教育要求与随机遴选；1975 Taylor 案管代表性延伸与性别歧视违宪。</p>", "log": "结论：法案废除教育要求，答案选 B"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-39 · 细节题：法案通过之后发生了什么",
+  subtitle: "考点：Text2 细节定位 · 方法：事件归属法（1968 法案 vs 1975 判决）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>\"This law abolished special educational requirements for federal jurors\"（废除教育要求）= requirements became less rigid</b>。易错：A/C 都是 1975 年 Taylor 判决的内容——张冠李戴；D 无中生有。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——"事件归属法"防止张冠李戴</h2>
+<p>答案：<strong>B</strong>（educational requirements became less rigid in the selection of federal jurors）。</p>
+<h3>第 0 步：先立机制——一句话一个事件，先对准时间锚</h3>
+<p>末段在短短几句里塞了三个事件：1968 年《陪审团遴选与服务法案》（Jury Selection and Service Act）、1975 年 Taylor v. Louisiana 判决、判决的两项内容。题干只问 <strong>After the Act was passed</strong>——机制是<strong>事件归属法</strong>：每个选项先贴"年份标签"，题干问法案，就只准用法案的内容作答；拿 1975 年判决内容来答的，直接出局。</p>
+<h3>第 1 步：定位与同义替换</h3>
+<blockquote>This law <strong>abolished special educational requirements for federal jurors</strong> and required them to be selected at random from a cross section of the entire community.（该法案<strong>废除了对联邦陪审员的特殊教育要求</strong>，并要求从全社会各阶层随机遴选。）</blockquote>
+<p>选项 B：educational requirements became <strong>less rigid</strong>（教育要求不再那么严格）≈ abolished special educational requirements（废除特殊教育要求）。"废除" → "放宽"，同向改写成立。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（性别歧视违宪且必须废除）</strong>：张冠李戴——declared sex discrimination…unconstitutional 出自④句，是 <strong>1975 年 Taylor 判决</strong>的内容，不是 1968 年法案；题干问的是 Act。</li><li><strong>C（州级陪审员应代表整个社会）</strong>：两处错——"代表性要求延伸到州层面"（extended the requirement…to the state level）同样是 Taylor 判决；且②句说的是"<strong>从</strong>全社会<strong>随机选出</strong>"（selected at random from a cross section），不是陪审员"代表"整个社会。</li><li><strong>D（各州应遵从联邦法院改革）</strong>：无中生有——全文没有"州必须遵从联邦"的表述。</li></ul>
+<blockquote>记忆锚点：1968 法案管"废除教育要求 + 随机遴选"；1975 Taylor 案管"代表性延伸到州 + 性别歧视违宪"；题干问谁，就只用谁的内容作答。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

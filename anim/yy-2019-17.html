@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-17 · 2019 完形第 17 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 17 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 17 所在句，考点：句内语义逻辑 + 名词辨析", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The __17__ to stop weighing myself every day has done wonders for my overall health, fitness and well-being.</div><p>空格词被不定式 <b>to stop weighing myself every day</b>（停止每日称重）作<b>后置修饰</b>——题目问的是：“停止每日称重”这件事，是个什么东西？</p>"}, {"title": "抠信号 · 完成时 + 第四段“既成事实”", "cls": "key", "tag": "证据", "log": "两个信号：has done wonders 是完成时；第四段已写明“已停止每日称重”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For these reasons, I <b>stopped</b> weighing myself every day and switched to a bimonthly weighing schedule.</div><p>信号一：谓语 <b>has done wonders</b>（产生了奇妙效果）是<b>现在完成时</b>——能产生效果的，必须是<b>已经发生、已落地</b>的事，不是停留在想法里的东西。</p><p>信号二：第四段首句早已交代“我”<b>已经</b>停止每日称重、改为隔周称重。所以空格要填“一个经过权衡后作出的决定”。</p>"}, {"title": "逐项分析 · A request（要求，请求）", "cls": "bad", "tag": "排除 A", "log": "A request（要求，请求） ✗ 排除——request to do sth 暗含“提出请求、等待答应、尚未发生”，而“停止每日称重”已是既成事实，与完成时谓语 has done wonders 矛盾", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>request to do sth 暗含“提出请求、等待答应、尚未发生”，而“停止每日称重”已是既成事实，与完成时谓语 has done wonders 矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看名词后接不定式都通顺，忘了用“时态/既成事实”这个闸门去过滤。</p>"}, {"title": "逐项分析 · B necessity（必要性；必需品）", "cls": "bad", "tag": "排除 B", "log": "B necessity（必要性；必需品） ✗ 排除——necessity 常用 the necessity of (doing) sth 结构，且“必要性产生了奇妙效果”主宾搭配不通——文中强调的是“我”权衡后主动作出的选择，不是客观必要性", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>necessity 常用 the necessity of (doing) sth 结构，且“必要性产生了奇妙效果”主宾搭配不通——文中强调的是“我”权衡后主动作出的选择，不是客观必要性。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“停止称重有好处”偷换成“停止称重有必要”；搭配与叙事重心双重不符。</p>"}, {"title": "逐项分析 · C decision（决定，抉择）", "cls": "good", "tag": "选定 C", "log": "C decision（决定，抉择） ✓ 当选——the decision to do sth 是固定搭配；decision 表示“经过一段时间观察或思考后作出的抉择”，与第四段 stopped ... and switched 的既成事实完全对齐", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>the decision to do sth 是固定搭配；decision 表示“经过一段时间观察或思考后作出的抉择”，与第四段 stopped ... and switched 的既成事实完全对齐。</p><p>代入读作：“停止每日称重”这一<b>决定</b>对我的整体健康产生了奇妙效果——语义、搭配双双成立。</p>"}, {"title": "逐项分析 · D wish（希望；愿望）", "cls": "bad", "tag": "排除 D", "log": "D wish（希望；愿望） ✗ 排除——wish to do 表“希望做、还没做”，同样暗含“尚未发生”；与“停止称重已执行完毕、效果已经显现”的事实相悖", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>wish to do 表“希望做、还没做”，同样暗含“尚未发生”；与“停止称重已执行完毕、效果已经显现”的事实相悖。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“决定做的事”与“心里想的事”混为一谈，忽略 wish 的未实现色彩。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（decision 决定）——判断锚点：完成时谓语 = 既成事实", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>停止每日称重的决定，对我的整体健康、体能与身心状态产生了奇妙的效果。</b></p><p>答案选 <b>C（decision 决定，抉择）</b>。</p><p><b>记忆锚点</b>：decision to do sth = 已拍板的事；request / wish to do sth = 还没影的事；the necessity of doing 表必要性。完成时谓语（has done wonders）是“既成事实”的信号灯。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>B（necessity）</b>：看到“停止称重确实有益”就联想到“必要性”——但文章叙事重心是“我主动作出的选择”，且 necessity to do 搭配本身不地道。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 完形第 17 空 · “停止每日称重”的那个____是什么",
+  subtitle: "考点：句内语义逻辑（名词辨析）· 定位 → 既成事实 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（decision 决定）", "html": "<b>C decision（决定，抉择）</b>：the decision to do sth 为固定搭配；第四段已交代“已停止每日称重”，完成时谓语 has done wonders 锁定“既成事实”。<br>最易误选：<b>B（necessity）</b>——把“有益”读成“有必要”，忽略叙事重心在“我的主动选择”。<br>记忆锚点：decision to do = 已拍板；request / wish to do = 尚未发生。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：空 17 的名词——“停止每日称重”这件事是什么</h2>
+<p>答案：<strong>C（decision 决定）</strong>。</p>
+<h3>第 0 步：先立机制——判断锚点在“时态与既成事实”</h3>
+<p>空格所在句：The __17__ to stop weighing myself every day has done wonders for my overall health, fitness and well-being. 两个信息值得先抠出来：</p>
+<ul><li>空格词被不定式 to stop weighing myself every day <strong>后置修饰</strong>——问的是“停止每日称重”这件事的性质；</li><li>谓语 has done wonders 是<strong>现在完成时</strong>——能产生“奇妙效果”的，必须是<strong>已经发生、已经落地</strong>的事，而不是停留在想法层面的东西。</li></ul>
+<blockquote>For these reasons, I stopped weighing myself every day and switched to a bimonthly weighing schedule.</blockquote>
+<p>第四段早已交代：“我”<strong>已经</strong>停止每日称重、改为隔周称重。所以空格要填的，是“一个经过权衡后做出的决定”。</p>
+<h3>第 1 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A request</td><td>要求，请求</td><td>✗ request to do sth 暗含“提出请求、尚未发生”，与既成事实矛盾</td></tr><tr><td>B necessity</td><td>必要性</td><td>✗ 常用 the necessity of doing sth；“必要性产生奇妙效果”主宾搭配不通</td></tr><tr><td>C decision</td><td>决定</td><td>✓ the decision to do sth 固定搭配；decision = 经权衡后作出的抉择，与 stopped...and switched 完全对齐</td></tr><tr><td>D wish</td><td>愿望</td><td>✗ wish to do 表“希望做、还没做”，效果无从谈起</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A/D</strong>：request、wish 共享同一个陷阱——都暗含“尚未发生”。判断时抓住 has done wonders 的完成时：效果已经产生，说明“停止称重”不是愿望、不是请求，而是已执行的决定。</li><li><strong>误选 B</strong>：necessity 表“必要性”，但文章叙事是“我权衡利弊后主动改变做法”，落点在“我的选择”而非“客观必要性”；且 the necessity <strong>to</strong> do 这一搭配本身就不地道（常见搭配是 of doing）。</li></ul>
+<blockquote>记忆锚点：decision to do sth = 已拍板的事；request / wish to do sth = 还没影的事；完成时谓语（has done wonders）是“既成事实”的信号灯。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-31 · 2011 阅读第 31 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 先拆“反映关系”的方向",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：The postwar American housing style largely reflected the Americans’ ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干问：战后住宅风格<b>反映了</b>美国人的什么（风格 → 心态）。答案必须填进“美国人的心理特质”这个空位，而不是“房子本身的属性”——方向判一次，就能划掉一半选项。</p>"
+ },
+ {
+  "title": "定位原文 · made 把因果排好了",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第二段 ② 句——that restraint…, in combination with the postwar confidence…, made…",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("During the Depression and the war, Americans had learned to live with less, and that restraint, in combination with the postwar confidence in the future, made small, efficient housing positively stylish.") + "<p><b>made</b> 是全题枢纽：原因端（人的心态）＝ restraint ＋ postwar confidence；结果端（房子）＝ small, efficient housing 大受欢迎。</p>"
+ },
+ {
+  "title": "同义替换 · 原因端逐词复现",
+  "cls": "key",
+  "tag": "替换",
+  "log": "同义替换：that restraint ＋ the postwar confidence → restraint and confidence",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干要“风格反映心态”：拿结果端（住宅风格）去反映原因端（美国人特质），得到的正是 made 的原因端——<b>restraint and confidence</b>，逐词对应。</p>"
+ },
+ {
+  "title": "逐项分析 · C restraint and confidence（克制和自信）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C restraint and confidence（克制和自信） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "body": "<p><b>当选。</b>that restraint ＋ the postwar confidence 的逐词复现，且正处 made 的原因端——“风格反映心态”的语义槽完全匹配。</p>"
+ },
+ {
+  "title": "逐项分析 · B efficiency and practicality（高效和实用）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B efficiency and practicality ✗ 排除——房子属性 ≠ 人的心态",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>efficient 住在 made 的<b>结果端</b>（小而高效的住宅），描述的是房子；题干问的是房子“反映”出的<b>人</b>——同词不同位，把宾语位置的词塞进了主语的语义槽。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见同句原词就选，不核对因果两端。</p>"
+ },
+ {
+  "title": "逐项分析 · A prosperity and growth（繁荣和增长）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A prosperity and growth ✗ 排除——第一段背景铺垫，But 后已退役",
+  "count": 2,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>prosperity and growth 出自第一段（But 之前），是作者先立后破的社会背景；它与住宅风格之间没有因果关联。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿热词作答，忽略 But 的转折。</p>"
+ },
+ {
+  "title": "逐项分析 · D pride and faithfulness（自豪与忠诚）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D pride and faithfulness ✗ 排除——自信被夸大，“忠诚”凭空造出",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>confidence 被放大成 pride；faithfulness（忠诚）从战争国家角度凭空捏造——原文两个词都没有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：程度夸大＋情节脑补。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（restraint and confidence）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>大萧条和战争教会了美国人“少而生活”，这份克制加上战后对未来的信心，让小而高效的住宅大受欢迎——住宅风格反映的正是克制与自信。</b></p><p>答案选 <b>C（restraint and confidence 克制和自信）</b>。</p><p><b>记忆锚点</b>：made ＝ 因果枢纽，原因端是人（restraint ＋ confidence），结果端是房（small, efficient housing）；“风格反映心态” ⇒ 取原因端。</p><p style=\"color:#b91c1c\">最易误选：<b>B（efficiency and practicality）</b>——房子高效 ≠ 人心实用。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 31 题 · 战后住宅风格反映了美国人的什么",
+  subtitle: "考点：第二段因果细节 · made 两端，人心在原因端",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 拆因果 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（restraint and confidence）",
+    html: "<b>C restraint and confidence（克制和自信）</b>。<br>记忆锚点：made ＝ 因果枢纽——原因端是人（restraint ＋ confidence），结果端是房（small, efficient housing）。<br>最易误选：<b>B（efficiency and practicality）</b>——房子高效 ≠ 人心实用。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 31 题 · "made"字前面的才是心态，后面的才是房子</h2>
+<p>答案：<strong>C（restraint and confidence 克制和自信）</strong>。</p>
+<h3>第 0 步：先立机制——细节题先拆"反映关系"的方向</h3>
+<p>题干问：战后住宅风格<strong>反映了</strong>美国人的什么（风格 → 心态）。所以答案必须填进"美国人的心理特质"这个空位，而不是"房子本身的属性"。这个方向判一次，就能划掉把住宅特点当心态的选项。定位句的因果词 <strong>made</strong> 是全题的枢纽：made 前面是原因（人的心态），后面是结果（房子的流行）。</p>
+<h3>第 1 步：定位原文——made 把因果排好了</h3>
+<blockquote>During the Depression and the war, Americans had learned to live with less, and <strong>that restraint, in combination with the postwar confidence</strong> in the future, <strong>made</strong> small, efficient housing positively stylish.</blockquote>
+<blockquote>But when it came to their houses, it was a time of common sense and a belief that <strong>less could truly be more</strong>.</blockquote>
+<p>拆解 made 两端：原因端＝that restraint（大萧条与战争中学会的克制）＋ the postwar confidence in the future（战后对未来的信心）；结果端＝small, efficient housing positively stylish（小而高效的住宅大受欢迎）。把结果端（住宅风格）拿去"反映"原因端（美国人特质），得到的正是 restraint and confidence——C 逐词对应。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A prosperity and growth</td><td>繁荣和增长</td><td>第一段的社会背景（But 之前），是作者先立后破的铺垫；与住宅风格无因果关联</td></tr><tr><td>B efficiency and practicality</td><td>高效和实用</td><td>efficient 是住宅自身的属性（small, efficient housing），不是美国人的心理特质——反映方向被偷换</td></tr><tr><td>C restraint and confidence</td><td>克制和自信</td><td>✓ that restraint ＋ the postwar confidence 的逐词复现，且正处 made 的原因端</td></tr><tr><td>D pride and faithfulness</td><td>自豪与忠诚</td><td>夸大＋捏造：confidence 被放大成 pride；faithfulness（忠诚）从战争国家角度凭空造出</td></tr></tbody></table>
+<h3>预判追问：B 不是也出现在同一句里吗？</h3>
+<p>出现了，但身份不同。efficient 住在 made 的<strong>结果端</strong>（小而高效的住宅），描述的是房子；题干问的是房子"反映"出的<strong>人</strong>。把房子属性填进人的心理空位，等于把"节俭风格流行"说成"美国人本身高效实用"——句子结构上，B 是把宾语位置的词塞进了主语要求的语义槽。同词不同位，是这一题埋得最深的坑。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（efficiency and practicality）</strong>：同句原词诱惑；没区分 made 的因果两端——房子高效 ≠ 人心实用。</li><li><strong>误选 A（prosperity and growth）</strong>：拿第一段热词作答；But 一转折，背景信息就退役了。</li><li><strong>误选 D（pride and faithfulness）</strong>：把"自信"夸成"自豪"、再把"战争结束"脑补成"忠诚"；原文两个词都没有。</li></ul>
+<blockquote>记忆锚点：made ＝ 因果枢纽，原因端是人（restraint ＋ confidence），结果端是房（small, efficient housing）；题干问"风格反映心态" ⇒ 答案取原因端；But 后的信息才算数。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-14 · 2020 完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 14 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 14 空所在句，考点：句内语义（not only...but also 递进）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This may not only do damage to your relationship with your child but also __14__ your child's self-esteem.</div><p>not only...but also 前后两项递进并列：后项\"____孩子的自尊\"必须与前项 do damage（破坏）同向，且分量更重。</p>"
+ },
+ {
+  "title": "找证据 · 前项定方向，递进定分量",
+  "cls": "key",
+  "tag": "证据",
+  "log": "not only...but also 递进：前项 damage（负面）→ 后项同向且更重——伤自尊 affect",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This may not only do damage to your relationship with your child but also __14__ your child's self-esteem.</div><p>not only do damage（破坏关系）… but also ____（自尊）：递进两项必须同向（负面）、后项更重（伤自尊 ≥ 伤感情）→ affect（负面影响）。</p>"
+ },
+ {
+  "title": "逐项分析 · A raise（提高；筹集；养育）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A raise（提高；筹集；养育） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>raise self-esteem（提升自尊）本身是合法搭配，但方向反了：前项是\"破坏\"，递进后项不能突然转正面。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认\"raise 与 self-esteem 常搭配\"，不核句子方向。</p>"
+ },
+ {
+  "title": "逐项分析 · B affect（影响；困扰）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B affect（影响；困扰） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>表\"影响\"时多指负面影响：伤自尊比伤感情更重一层，同向递进成立。</p>"
+ },
+ {
+  "title": "逐项分析 · C justify（证明…正当；为…辩护）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C justify（证明…正当；为…辩护） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"证明孩子的自尊是正当的\"——自尊的存在无需辩护，且不含\"伤害\"义。</p>"
+ },
+ {
+  "title": "逐项分析 · D reflect（反映；反射；表达）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D reflect（反映；反射；表达） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"发怒的行为反映孩子的自尊\"不合常理，更没有\"危害\"义，两条铁律都不达标。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（affect 影响；困扰）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>这不仅会损害你与孩子的关系，还会打击孩子的自尊心。</b></p><p>答案选 <b>B（affect 影响；困扰）</b>。</p><p><b>记忆锚点</b>：not only...but also → 同向递进（后项更重）；damage 定负面基调 → affect；raise 方向反、justify/reflect 无伤害义。</p><p style=\"color:#b91c1c\">最易误选：<b>A（raise）</b>——只认搭配常见，忽略递进结构\"同向\"的铁律。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 14 空 · not only...but also 同向递进——damage 定 affect",
+  subtitle: "考点：句内语义（not only...but also 递进） · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（affect）",
+ "html": "<b>B affect（影响；困扰）</b>。<br>完整句义：这不仅会损害你与孩子的关系，还会打击孩子的自尊心。<br>记忆锚点：not only...but also → 同向递进（后项更重）；damage 定负面基调 → affect；raise 方向反、justify/reflect 无伤害义。<br>最易误选：<b>A（raise）</b>——只认搭配常见，忽略递进结构\"同向\"的铁律。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 14 空 · not only...but also 同向递进——damage 定 affect</h2>
+<p>答案：<strong>B（affect 影响；困扰）</strong>。</p>
+<h3>第 0 步：先立机制——递进结构两条铁律：同向、更重</h3>
+<p>not only...but also 连接的两项是递进关系，选后项前先看前项给了什么：do damage to your relationship（损害亲子关系）——负面动作已经定型。于是后项有两条铁律：一要同向——"____孩子的自尊"也必须是负面动作；二要更重——递进后项分量不轻于前项，"伤自尊"正是比"伤感情"更深一层。affect 作"影响"讲时天然偏向负面影响，正合此处。其他三项各有各的方向问题：raise 是正面动作（提高自尊），方向反了；justify、reflect 都不含"伤害"义，分量与方向双双不达标。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>This may not only do damage to your relationship with your child but also __14__ your child's self-esteem.</blockquote>
+<p>not only...but also 前后两项递进并列：后项"____孩子的自尊"必须与前项 do damage（破坏）同向，且分量更重。</p>
+<h3>第 2 步：找证据——前项定方向，递进定分量</h3>
+<ul><li><strong>前项</strong>：do damage to your relationship（负面：破坏关系）；</li><li><strong>铁律一</strong>：后项同向——"____自尊"须为负面动作；</li><li><strong>铁律二</strong>：递进更重——伤自尊 ≥ 伤感情；</li><li><strong>词义</strong>：affect 表"影响"时多指负面（困扰、伤害）。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A raise</td><td>提高；筹集；养育</td><td>✗ 排除</td><td>raise self-esteem（提升自尊）本身是合法搭配，但方向反了：前项是"破坏"，递进后项不能突然转正面。（典型误解：只认"raise 与 self-esteem 常搭配"，不核句子方向。）</td></tr><tr><td>B affect</td><td>影响；困扰</td><td>✓ 当选</td><td>表"影响"时多指负面影响：伤自尊比伤感情更重一层，同向递进成立。</td></tr><tr><td>C justify</td><td>证明…正当；为…辩护</td><td>✗ 排除</td><td>"证明孩子的自尊是正当的"——自尊的存在无需辩护，且不含"伤害"义。</td></tr><tr><td>D reflect</td><td>反映；反射；表达</td><td>✗ 排除</td><td>"发怒的行为反映孩子的自尊"不合常理，更没有"危害"义，两条铁律都不达标。</td></tr></tbody></table>
+<p>代入后的完整句义：这不仅会损害你与孩子的关系，还会打击孩子的自尊心。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>raise 不正是 self-esteem 的常见搭配吗？为什么反而错？</strong>：搭配合法性 ≠ 语境正确性：raise self-esteem 是常用短语，但 not only...but also 的递进结构要求后项与前项同向——前项是 do damage（破坏），后项不可能突转为"提高"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（raise）</strong>：只认搭配常见，忽略递进结构"同向"的铁律。</li></ul>
+<blockquote>记忆锚点：not only...but also → 同向递进（后项更重）；damage 定负面基调 → affect；raise 方向反、justify/reflect 无伤害义。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

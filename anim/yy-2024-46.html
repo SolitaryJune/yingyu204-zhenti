@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2024-46 翻译长难句拆解：先抓主干 → 再挂修饰 → 最后收僻义（农贸市场）</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开拆句卡片，每步一张 .aw-stepcard。
+     长难句用「主干/修饰/从句/熟词僻义」四色分框呈现；英语内容无需 KaTeX。
+     外壳仅引用 ../assets/ 下两件资源，无外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 长难句分色框：kind = trunk 主干(绿) / mod 修饰(琥珀) / cl 从句(蓝) / odd 熟词僻义(红) */
+function seg(text, kind){
+  var C = {
+    trunk: ['#ecfdf5', '#16a34a', '#14532d'],
+    mod:   ['#fffbeb', '#d97706', '#92400e'],
+    cl:    ['#eff6ff', '#2563eb', '#1e40af'],
+    odd:   ['#fef2f2', '#dc2626', '#991b1b']
+  };
+  var c = C[kind] || ['#f1f5f9', '#64748b', '#0f172a'];
+  return '<span style="background:' + c[0] + ';border-bottom:2px solid ' + c[1] +
+         ';color:' + c[2] + ';padding:1px 4px;border-radius:3px;font-weight:600">' + text + '</span>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '机制先行：拆句流水线——主干 → 修饰 → 僻义',
+    cls: 'key',
+    tag: '流程',
+    log: '翻译失分多死于语序而非词义：先抓主干，再挂修饰，最后收僻义',
+    count: 0,
+    body: '<p>固定作业流程：<b>先抓主干（谁 + 干了什么）→ 再挂修饰（状语/定语/从句按中文习惯归位）→ 最后收僻义（词义由语境裁定）</b>。本篇 6 句埋了 5 处熟词僻义，全段脉络是「画面 → 机会 → 机制 → 收益」。</p>' +
+      '<p>分色图例：' + seg('主干', 'trunk') + ' ' + seg('修饰成分', 'mod') + ' ' + seg('从句', 'cl') + ' ' + seg('熟词僻义', 'odd') + '。下面逐句拆解。</p>' },
+  { title: '句① 三连伴随状语铺画面，主干只有一件事',
+    cls: 'step',
+    tag: '句①',
+    log: '三幅画面成分在前铺陈，主干＝农贸市场是一场感官盛宴',
+    count: 1,
+    ribbon: { k: 1, ok: true },
+    body: '<p>' + seg('With the smell of coffee and fresh bread floating in the air', 'mod') + ', ' + seg('stalls bursting with colourful vegetables and tempting cheeses', 'mod') + ', and ' + seg('the buzz of friendly chats', 'mod') + ', ' + seg('farmers’ markets are a feast for the senses', 'trunk') + '.</p>' +
+      '<p>三个并列成分全是铺画面的伴随状语：香味（With + 名词 + floating）、摊位（stalls + bursting 分词）、交谈声。中文按「由远及近」排开：香味 → 摊位 → 交谈声 → 主干。</p>' +
+      '<p>' + seg('feast', 'odd') + ' 不只指「宴席」，喻指「供人充分享受的东西」——嗅、视、听都被喂饱，译<b>感官盛宴</b>，不是「对感觉来说的盛宴」。</p>' +
+      '<p><b>译文：</b>空气中弥漫着咖啡和新鲜面包的香味，摊位上摆满了五颜六色的蔬菜和令人垂涎的奶酪，友好的交谈声嘈杂而又喧闹着，农贸市场就是一场感官盛宴。</p>' },
+  { title: '句② 一个 opportunity 挂三个不定式，长定语拆小分句',
+    cls: 'step',
+    tag: '句②',
+    log: 'talk to / support / pick up 三并列共用一个 to，拆成「让人们既…又…同时还…」',
+    count: 2,
+    ribbon: { k: 2, ok: true },
+    body: '<p>' + seg('They also provide an opportunity', 'trunk') + ' ' + seg('to talk to the people', 'mod') + ' ' + seg('responsible for growing or raising your food', 'cl') + ', ' + seg('support your local economy', 'mod') + ' and ' + seg('pick up', 'odd') + ' ' + seg('fresh seasonal produce', 'mod') + ' — ' + seg('all at the same time', 'mod') + '.</p>' +
+      '<p>三个并列不定式<b>共用一个 to</b>（后两个省略 to 是并列省略，不是错误）；responsible for 是形容词短语再嵌套修饰 the people。中文定语装不下 → 拆小分句：「提供了一个机会，让人们既……又……同时还……」。</p>' +
+      '<p>' + seg('growing / raising', 'odd') + ' ＝ 种植 / 养殖（不是「增长、提高」）；' + seg('pick up', 'odd') + ' ＝（顺路便宜地）<b>买到</b>（不是「捡起」）。</p>' +
+      '<p><b>译文：</b>它们还提供了一个机会，让人们既能与提供食物的种植者和养殖者交谈，又能（在经济上）支持地方经济，同时还能买到新鲜便宜的时令农产品。</p>' },
+  { title: '句③ which 从句先行词是 markets：拆「这使得…」',
+    cls: 'step',
+    tag: '句③',
+    log: '非限从句单独成句；events＝活动、allow＝使能够',
+    count: 3,
+    ribbon: { k: 3, ok: true },
+    body: '<p>' + seg('Farmers’ markets are usually weekly or monthly events', 'trunk') + ', ' + seg('most often with outdoor stalls', 'mod') + ', ' + seg('which', 'cl') + ' ' + seg('allow', 'odd') + ' ' + seg('farmers or producers to sell their food directly to customers', 'cl') + '.</p>' +
+      '<p>主干：农贸市场通常是每周或每月举行一次的<b>活动</b>；most often with outdoor stalls 插入补充「其中最常见的是户外摊位」。</p>' +
+      '<p>which 非限制性定语从句，<b>先行词是复数的 markets</b>（不是 stalls），中文前置定语装不下 → 单独成句「这使得农民或生产者能够……」。' + seg('events', 'odd') + ' ＝ 活动（不是「事件」）；' + seg('allow', 'odd') + ' ＝ <b>使能够</b>（不是「允许、准许」，此处无许可意味）。</p>' +
+      '<p><b>译文：</b>农贸市场通常是每周或每月举行一次的活动，其中最常见的是户外摊位，这使得农民或生产者能够将他们的食物直接售卖给顾客。</p>' },
+  { title: '句④ vary from season to season 固定式 + on sale 取「在出售」',
+    cls: 'step',
+    tag: '句④',
+    log: 'and 并列两分句；on sale＝在出售，不是「特价」',
+    count: 4,
+    ribbon: { k: 4, ok: true },
+    body: '<p>' + seg('The size or regularity of markets can vary from season to season', 'trunk') + ', ' + seg('depending on the area’s agricultural calendar', 'mod') + ', and ' + seg('you’re likely to find different produce', 'trunk') + ' ' + seg('on sale', 'odd') + ' ' + seg('at different times of the year', 'mod') + '.</p>' +
+      '<p>and 连接两个并列分句，各自主干清楚：规模或规律会变 / 你会发现不同的农产品在售。vary from season to season 是固定式，处理为「因季节而异」；depending on 译「这取决于」。</p>' +
+      '<p>' + seg('on sale', 'odd') + ' ＝ <b>在出售、上市</b>（不是「特价销售」）。</p>' +
+      '<p><b>译文：</b>农贸市场的规模或规律因季节而异，这取决于当地的农历，你很可能会发现在一年中的不同时间点里会有不同的农产品在出售。</p>' },
+  { title: '句⑤ By cutting out 省去中间商，secure 取「获取」',
+    cls: 'step',
+    tag: '句⑤',
+    log: 'By 方式状语「通过…」；secure＝获取，不是「保护」',
+    count: 5,
+    ribbon: { k: 5, ok: true },
+    body: '<p>' + seg('By cutting out the middleman', 'mod') + ', ' + seg('the farmers', 'trunk') + ' ' + seg('secure', 'odd') + ' ' + seg('more profit for their produce', 'trunk') + '.</p>' +
+      '<p>By 引导方式状语：「通过……」；' + seg('cutting out', 'odd') + ' 本义「切去」，语境中是<b>省去（中间商环节）</b>。</p>' +
+      '<p>主干直译「农民为他们的农产品获取了更多的利润」逻辑别扭，按中文表达习惯调成「农民可以从自己的农产品中获取更多的利润」。' + seg('secure', 'odd') + ' 的核心义是「牢牢握住」，握住利润即<b>获取</b>（不是「保护」）。</p>' +
+      '<p><b>译文：</b>通过省去中间商环节，农民可以从自己的农产品中获取更多的利润。</p>' },
+  { title: '句⑥ 破折号插劈宾语从句：钱花在哪、付给谁',
+    cls: 'step',
+    tag: '句⑥',
+    log: '长动名词宾语拆成「从中受益，因为…」；从句还原语序',
+    count: 6,
+    ribbon: { k: 6, ok: true },
+    body: '<p>' + seg('Shoppers also benefit from seeing exactly', 'trunk') + ' ' + seg('where—and to who—their money is going', 'cl') + '.</p>' +
+      '<p>benefit from 的宾语是较长的动名词短语 seeing...，为避免头重脚轻，拆成「顾客也能从中受益，<b>因为</b>他们能够清楚地看见……」。</p>' +
+      '<p>seeing 的宾语从句被双破折号插劈开，还原语序 ＝ their money is going where and to who → 「钱花在了哪里、付给了谁」；exactly 修饰「看见」→「清楚地」。</p>' +
+      '<p><b>译文：</b>顾客也能从中受益，因为他们能够清楚地看见自己的钱花在了哪里、付给了谁。</p>' },
+  { title: '结论：六句拆完，五处僻义全部落袋',
+    cls: 'good',
+    tag: '结论',
+    log: '主干 → 修饰 → 僻义 三步走完全篇',
+    count: 6,
+    body: '<p>本篇全部难点都落在同一套流程上：<b>主干 → 修饰 → 僻义</b>。三连伴随状语按画面顺序排开、长后置定语拆小分句、非限从句拆「这……」、破折号插入先还原语序。完整两段译文见右侧结论卡。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: s.count,
+    ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2024-46 翻译长难句拆解：先抓主干 → 再挂修饰 → 最后收僻义',
+  subtitle: '考点：英译汉（农贸市场的感官盛宴） · 方法：主干 / 修饰 / 从句 / 僻义 四色分框',
+  counterLabel: '已拆句',
+  ribbonTitle: '句子进度（①–⑥ 全拆通）',
+  intro: '点击「▶ 播放」逐句拆解六句难点，分色框即结构。',
+  snaps: snaps,
+  result: {
+    big: '整句译文（答案口径）',
+    html: '<p>空气中弥漫着咖啡和新鲜面包的香味，摊位上摆满了五颜六色的蔬菜和令人垂涎的奶酪，友好的交谈声嘈杂而又喧闹着，农贸市场就是一场感官盛宴。它们还提供了一个机会，让人们既能与提供食物的种植者和养殖者交谈，又能（在经济上）支持地方经济，同时还能买到新鲜便宜的时令农产品。</p>' +
+      '<p>农贸市场通常是每周或每月举行一次的活动，其中最常见的是户外摊位，这使得农民或生产者能够将他们的食物直接售卖给顾客。农贸市场的规模或规律因季节而异，这取决于当地的农历，你很可能会发现在一年中的不同时间点里会有不同的农产品在出售。通过省去中间商环节，农民可以从自己的农产品中获取更多的利润。顾客也能从中受益，因为他们能够清楚地看见自己的钱花在了哪里、付给了谁。</p>' +
+      '<p style="margin-top:8px">记忆锚点：拆句三步 = <b>主干 → 修饰 → 僻义</b>；三连伴随状语按画面顺序排开；三并列不定式共用一个 to；非限从句拆「这……」小分句；本篇僻义五连——feast 宴席→盛宴、pick up 捡→买、events 事件→活动、allow 允许→使能够、secure 保护→获取。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 翻译 · 农贸市场为何是一场"感官盛宴"</h2>
+<p>答案：<strong>整段英译汉（15 分）</strong>，评分口径 = 题库参考译文（见文末"整句译文"），逐句按"结构拆解 → 词义定夺"推进。</p>
+<h3>第 0 步：先立机制——拆句流水线：主干 → 修饰 → 僻义</h3>
+<p>翻译失分多死于语序而非词义。固定作业流程：</p>
+<ol><li><strong>先抓主干</strong>：每句先问"谁 + 干了什么"，主干往往只有一件事；</li><li><strong>再挂修饰</strong>：伴随状语、后置定语、定语从句、破折号插入，按中文习惯归位——中文定语前移、长定语拆小分句、状语按画面顺序排开；</li><li><strong>最后收僻义</strong>：本篇 6 句埋了 5 处熟词僻义（feast / pick up / events 与 allow / on sale / secure），词义必须由语境裁定，不能按第一义项硬译。</li></ol>
+<p>全段脉络：第一段总起——农贸市场的感官体验与三重机会；第二段展开——经营特点与买卖双方双赢。思路顺着"画面 → 机会 → 机制 → 收益"走。</p>
+<h3>第 1 步：第一段两句——画面铺陈与长定语</h3>
+<p><strong>句①</strong> With the smell... floating..., stalls bursting..., and the buzz..., farmers' markets are a feast for the senses.</p>
+<ul><li>主干只有一件事：农贸市场是一场感官盛宴；前面三个并列成分全是铺画面的伴随状语：咖啡与面包的香味（With + 名词 + floating）、摆满蔬菜奶酪的摊位（stalls + bursting 分词）、友好交谈的嗡嗡声；</li><li>中文按"由远及近"的画面顺序排开：香味 → 摊位 → 交谈声 → 主干；</li><li>僻义：feast 不只指"宴席"，喻指"供人充分享受的东西"——嗅、视、听三种感官都被喂饱，译"感官盛宴"，不能译"对感觉来说的盛宴"。</li></ul>
+<p><strong>句②</strong> They also provide an opportunity to talk to..., support... and pick up... — all at the same time.</p>
+<ul><li>主干：它们还提供了一个机会；to 的后置定语很长：talk to / support / pick up <strong>三个并列不定式共用一个 to</strong>（后两个省略 to 是并列省略，不是错误），第一个短语里还嵌套形容词短语 responsible for 修饰 the people；</li><li>中文定语装不下 → 拆成小分句："提供了一个机会，让人们既……又……同时还……"；all at the same time 别照直堆在句末（"都在同时"很突兀），融入句式作"同时还能"；</li><li>僻义：growing / raising = 种植 / 养殖（不是"增长、提高"）；pick up = （顺路便宜地）买到（不是"捡起"）。</li></ul>
+<h3>第 2 步：第二段四句——机制与收益</h3>
+<p><strong>句③</strong> ...are usually weekly or monthly events, most often with outdoor stalls, which allow... to sell... directly to customers.</p>
+<ul><li>主干：农贸市场通常是每周或每月举行一次的活动；most often with outdoor stalls 是插入补充"其中最常见的是户外摊位"；</li><li>which 非限制性定语从句，<strong>先行词是复数的 markets</strong>（不是 stalls），中文前置定语装不下，单独成句"这使得农民或生产者能够……"；</li><li>僻义：events = 活动（不是"事件"）；allow = 使能够（不是"允许、准许"——这里没有许可意味，是"使得某事成为可能"）。</li></ul>
+<p><strong>句④</strong> The size or regularity... can vary from season to season, depending on..., and you're likely to find different produce on sale...</p>
+<ul><li>and 连接两个并列分句，各自主干清楚：规模或规律会变 / 你会发现不同的农产品在售；</li><li>vary from season to season 是固定式，处理为"因季节而异"；depending on 挂在前句之后，译"这取决于"；</li><li>僻义：on sale = 在出售、上市（不是"特价销售"）。</li></ul>
+<p><strong>句⑤</strong> By cutting out the middleman, the farmers secure more profit for their produce.</p>
+<ul><li>By 引导方式状语："通过省去中间商环节"；cut out 本义"切去"，语境中是"省去（环节）"；</li><li>主干直译"农民为他们的农产品获取了更多的利润"逻辑别扭，按中文表达习惯调成"农民可以从自己的农产品中获取更多的利润"；</li><li>僻义：secure = 获得、取得（不是"保护"）。</li></ul>
+<p><strong>句⑥</strong> Shoppers also benefit from seeing exactly where—and to who—their money is going.</p>
+<ul><li>主干：顾客也能从中受益；benefit from 的宾语是较长的动名词短语 seeing...，为避免头重脚轻，拆成"顾客也能从中受益，因为他们能够清楚地看见……"；</li><li>seeing 的宾语从句被双破折号插劈开，还原语序 = their money is going where and to who → "钱花在了哪里、付给了谁"；</li><li>exactly 修饰"看见"→"清楚地"。</li></ul>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么句②三个动作共用一个 to？</strong>：三个动词原形并列，共同挂在 an opportunity 后作定语，后两个省略 to 属并列省略；翻译时先数出三个动作，译句才不断线。</li><li><strong>which 从句为什么不并入定语？</strong>：非限制性定语从句（带逗号）与主干信息量同级，中文前置定语容纳不下，一律拆"这……"小分句。</li><li><strong>secure 这个词明明认识，为什么还会译错？</strong>：考研翻译常考"认识词的陌生义"。secure 的核心义是"牢牢握住"，握住利润即获取利润；同理 pick up 在购物语境是"买到"。</li></ul>
+<h3>易错点（正译 vs 误译）</h3>
+<table><thead><tr><th>表达</th><th>正译</th><th>误译</th></tr></thead><tbody><tr><td>bursting with</td><td>摆满</td><td>爆炸</td></tr><tr><td>a feast for the senses</td><td>一场感官盛宴</td><td>对感觉来说的盛宴</td></tr><tr><td>growing / raising</td><td>种植 / 养殖</td><td>增长 / 提高</td></tr><tr><td>pick up</td><td>（便宜地）买到</td><td>捡起</td></tr><tr><td>events</td><td>活动</td><td>事件</td></tr><tr><td>allow</td><td>使能够</td><td>允许、准许</td></tr><tr><td>on sale</td><td>在出售</td><td>特价销售</td></tr><tr><td>secure</td><td>获取</td><td>保护</td></tr></tbody></table>
+<h3>整句译文（答案口径）</h3>
+<blockquote>空气中弥漫着咖啡和新鲜面包的香味，摊位上摆满了五颜六色的蔬菜和令人垂涎的奶酪，友好的交谈声嘈杂而又喧闹着，农贸市场就是一场感官盛宴。它们还提供了一个机会，让人们既能与提供食物的种植者和养殖者交谈，又能（在经济上）支持地方经济，同时还能买到新鲜便宜的时令农产品。</blockquote>
+<blockquote>农贸市场通常是每周或每月举行一次的活动，其中最常见的是户外摊位，这使得农民或生产者能够将他们的食物直接售卖给顾客。农贸市场的规模或规律因季节而异，这取决于当地的农历，你很可能会发现在一年中的不同时间点里会有不同的农产品在出售。通过省去中间商环节，农民可以从自己的农产品中获取更多的利润。顾客也能从中受益，因为他们能够清楚地看见自己的钱花在了哪里、付给了谁。</blockquote>
+<blockquote>记忆锚点：拆句三步 = <strong>主干 → 修饰 → 僻义</strong>；非限从句拆"这……"小分句；长后置定语拆"让人们既……又……同时还……"；本篇僻义五连——feast 宴席→盛宴、pick up 捡→买、events 事件→活动、allow 允许→使能够、secure 保护→获取。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 15 空 · 营养语境场（形容词）：A bored / B anxious / C hungry / D sick</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 15 在「营养语境场（形容词）」位；考点：句内语义逻辑（语境场锁定）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If my training intensity remains the same, but I'm constantly <b>__15__</b> and dropping weight, this is a sign that I need to increase my daily caloric intake.</div><p>空 15 与 dropping weight 由 and 并列：训练强度不变，却总是 __ 并且掉体重。这个状态是“需要增加每日热量摄入”的信号。</p>"
+ },
+ {
+  "title": "立机制 · 语境场锁定：营养与热量",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：语境场锁定：营养与热量",
+  "body": "<p>本句的语境场由三个词圈定：nutrition（营养，上句）、caloric intake（热量摄入，句末）、dropping weight（掉体重）。and 要求空格词与 dropping weight 同向，共同构成“摄入不足”的体征：热量不够 → 总觉得饿 + 体重往下掉。与“营养/热量”同场的只有 hungry。</p>"
+ },
+ {
+  "title": "找证据 · 语境场：nutrition / caloric intake",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：语境场：nutrition / caloric intake",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I use my bimonthly weigh-in results to get information about my nutrition as well.</div><p>上句圈定语境场：称重结果用于监测 nutrition（营养）。句末又给出 caloric intake（热量摄入）。空格与 dropping weight 并列，共同构成“摄入不足”的体征。</p>"
+ },
+ {
+  "title": "逐项分析 · A bored（厌烦的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A bored（厌烦的）✗ 排除",
+  "body": "<p><b>排除。</b>烦闷确实可能伴随体重下降（情绪性少食），但“烦闷”不在“营养/热量”语义场里，无法被“称重监测营养”这条线索选中。</p>"
+ },
+ {
+  "title": "逐项分析 · B anxious（焦虑的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B anxious（焦虑的）✗ 排除",
+  "body": "<p><b>排除。</b>焦虑 → 掉体重是常见情形，但同样脱离本句“营养/热量摄入”的语境场。</p>"
+ },
+ {
+  "title": "逐项分析 · C hungry（饥饿的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C hungry（饥饿的）✓ 当选",
+  "body": "<p><b>当选。</b>constantly hungry and dropping weight = 总是饿且掉体重：正是“热量摄入不足”的典型信号。</p>"
+ },
+ {
+  "title": "逐项分析 · D sick（生病的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D sick（生病的）✗ 排除",
+  "body": "<p><b>排除。</b>生病 → 消瘦也成立，但同样脱离语境场；三个干扰项共享同一误区。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 15 填 hungry（饥饿的）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">but I'm constantly <b>hungry</b> and dropping weight</div><p>却总是感到饥饿并且体重下降</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "log": "答案 C（hungry 饥饿的）——见结论卡",
+  "body": "<p>答案选 <b>C（hungry 饥饿的）</b>。</p><p><b>记忆锚点</b>：空格词必须落在语境场内：nutrition / caloric intake → hungry；“能解释掉体重”≠“语境要的词”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（sick）</b>：“病了会瘦、饿了也会瘦”都能自圆其说；破案依据是语义场（nutrition / caloric intake），不是谁更常见。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 15 空 · 营养语境场（形容词）：A bored / B anxious / C hungry / D sick",
+  subtitle: "考点：句内语义逻辑（语境场锁定） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（hungry 饥饿的）", "html": "<b>C（hungry 饥饿的）</b>。<br>记忆锚点：空格词必须落在语境场内：nutrition / caloric intake → hungry；“能解释掉体重”≠“语境要的词”。<br>最易误选：<b>D（sick）</b>——“病了会瘦、饿了也会瘦”都能自圆其说；破案依据是语义场（nutrition / caloric intake），不是谁更常见。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 15 空 · 营养语境场（形容词）</h2>
+<p>答案：<strong>C（hungry 饥饿的）</strong>。</p>
+<h3>第 0 步：先立机制——语境场锁定：营养与热量</h3>
+<p>本句的语境场由三个词圈定：nutrition（营养，上句）、caloric intake（热量摄入，句末）、dropping weight（掉体重）。and 要求空格词与 dropping weight 同向，共同构成“摄入不足”的体征：热量不够 → 总觉得饿 + 体重往下掉。与“营养/热量”同场的只有 hungry。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>If my training intensity remains the same, but I'm constantly <strong>__15__</strong> and dropping weight, this is a sign that I need to increase my daily caloric intake.</blockquote>
+<p>空 15 与 dropping weight 由 and 并列：训练强度不变，却总是 __ 并且掉体重。这个状态是“需要增加每日热量摄入”的信号。</p>
+<h3>第 2 步：找证据——语境场：nutrition / caloric intake</h3>
+<blockquote>I use my bimonthly weigh-in results to get information about my nutrition as well.</blockquote>
+<p>上句圈定语境场：称重结果用于监测 nutrition（营养）。句末又给出 caloric intake（热量摄入）。空格与 dropping weight 并列，共同构成“摄入不足”的体征。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A bored</td><td>厌烦的</td><td>✗ 排除</td><td>烦闷确实可能伴随体重下降（情绪性少食），但“烦闷”不在“营养/热量”语义场里，无法被“称重监测营养”这条线索选中。</td></tr><tr><td>B anxious</td><td>焦虑的</td><td>✗ 排除</td><td>焦虑 → 掉体重是常见情形，但同样脱离本句“营养/热量摄入”的语境场。</td></tr><tr><td>C hungry</td><td>饥饿的</td><td>✓ 当选</td><td>constantly hungry and dropping weight = 总是饿且掉体重：正是“热量摄入不足”的典型信号。</td></tr><tr><td>D sick</td><td>生病的</td><td>✗ 排除</td><td>生病 → 消瘦也成立，但同样脱离语境场；三个干扰项共享同一误区。</td></tr></tbody></table>
+<p>代入后的完整句义：but I'm constantly hungry and dropping weight（却总是感到饥饿并且体重下降）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（sick）</strong>：“病了会瘦、饿了也会瘦”都能自圆其说；破案依据是语义场（nutrition / caloric intake），不是谁更常见。</li></ul>
+<blockquote>记忆锚点：空格词必须落在语境场内：nutrition / caloric intake → hungry；“能解释掉体重”≠“语境要的词”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

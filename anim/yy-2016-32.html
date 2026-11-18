@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·32 阅读 · empty bottles 隐喻的翻译</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：修辞题的动作是“翻译”', cls: 'key',
+    body: '<p>题干 The “empty bottles” metaphor illustrates that people feel a pressure to ____。修辞题三步：<b>定位比喻原句 → 喻体翻本体 → 概括作者借比喻说什么</b>。空瓶子不会凭空有压力，有压力的是人——要翻译的是“瓶子/装瓶/空着”各自对应人的什么处境。</p>',
+    log: '喻体 → 本体，逐项翻译' },
+  { title: '定位原文（第三段⑤句）', cls: 'key',
+    body: src('“The future comes at us like <b>empty bottles</b> along an unstoppable and nearly infinite conveyor belt... we feel a pressure to <b>fill these different-sized bottles (days, hours, minutes) as they pass</b>, for if they get by without being filled, we will have <b>wasted them</b>.”') +
+      '<p>括号里的自注（days, hours, minutes）是命题人留的翻译钥匙：瓶子 = 时间单位。</p>',
+    log: '括号自注：瓶子 = 时间单位' },
+  { title: '喻体 → 本体对照表', cls: 'good',
+    body: '<p>传送带上源源不断的空瓶子 = <b>不断到来的时间</b>；different-sized bottles = <b>天、小时、分钟</b>；把瓶子装满（fill）= <b>让这段时间充实</b>；没装满 = wasted them = <b>虚度</b>。人们有压力“在时间流逝时把它装满”。</p>',
+    log: 'fill the bottles = 让时间充实' },
+  { title: '同义替换闭环', cls: 'good',
+    body: '<p>题干 <b>make passing time fulfilling</b>（让流逝的时间充盈）← 原文 <b>fill these bottles as they pass</b>——passing time 对 as they pass，fulfilling 对 fill；wasted them 从反面印证“充盈”义。</p>',
+    log: 'make passing time fulfilling ← fill...as they pass' },
+  { title: 'A update their to-do lists', cls: 'bad',
+    body: '<p>to-do list 出自④句“把阅读塞进清单”——离⑤句最近，容易顺手嫁接；但④句焦点在<b>读书的效果</b>（只能目标式阅读），⑤句比喻的焦点在<b>时间心态</b>。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 邻句词汇拼接' },
+  { title: 'B make passing time fulfilling', cls: 'good',
+    body: '<p>fill the bottles as they pass 的本体翻译，wasted them 反面印证。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B 翻译闭环，命中' },
+  { title: 'C carry their plans through', cls: 'bad',
+    body: '<p>③④句 inefficiency、to-do list 的拼凑——比喻谈的是<b>对时间的心态</b>，不是“贯彻计划的执行力”。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 焦点错位：计划 ≠ 时间心态' },
+  { title: 'D pursue carefree reading', cls: 'bad',
+    body: '<p>③句沉浸式阅读的属性描述，与“空瓶子”这个心态比喻无关；且比喻说“怕浪费”的<b>压力</b>（负面焦虑），“无忧无虑”是正面闲适——色彩恰好相反。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 无关 + 色彩相反' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（make passing time fulfilling）</b>。记忆锚点：修辞题先翻译——<b>空瓶子 = 流逝的时间（days, hours, minutes），装满 = 充实，空着 = wasted → B</b>；括号自注是命题人留的钥匙。</p>',
+    log: '锁定 B' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 32 · “空瓶子”隐喻：怕时间白白流走',
+  subtitle: '考点：修辞（比喻）题 · 喻体→本体翻译 · 括号自注是钥匙',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开翻译与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（make passing time fulfilling）',
+    html: '记忆锚点：<b>empty bottles = days/hours/minutes（时间单位），fill = 充实，空着 = wasted</b> → 人们感到压力要让流逝的时间充盈 → B。A/C 是④句 to-do list 的邻句拼接，D 的“无忧无虑”与“怕浪费”的压力色彩相反。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：empty bottles 隐喻——修辞题先做"喻体→本体"翻译</h2>
+<p>答案：<strong>B（make passing time fulfilling）</strong>。</p>
+<h3>第一步：先立机制——修辞题的动作是"翻译"，不是"找原词"</h3>
+<p>题干：The "empty bottles" metaphor illustrates that people feel a pressure to ____。修辞题的三步：定位比喻原句 → <strong>喻体翻本体</strong> → 概括作者借比喻说什么。空瓶子不会凭空有压力，有压力的是人；所以要翻译的是"瓶子/装瓶/瓶子空着"各自对应人的什么处境。</p>
+<h3>第二步：定位原文并完成翻译</h3>
+<blockquote>"The future comes at us like <strong>empty bottles</strong> along an unstoppable and nearly infinite conveyor belt," writes Gary Eberle... and "we feel a pressure to <strong>fill these different-sized bottles (days, hours, minutes)</strong> as they pass, for if they get by without being filled, we will have <strong>wasted them</strong>."</blockquote>
+<table><thead><tr><th>喻体</th><th>本体</th></tr></thead><tbody><tr><td>传送带上源源不断的空瓶子</td><td>不断到来的时间单位</td></tr><tr><td>different-sized bottles</td><td>天、小时、分钟（原文括号自注）</td></tr><tr><td>把瓶子装满（fill）</td><td>让这段时间充实、有内容</td></tr><tr><td>没装满 = wasted them</td><td>没充实 = 虚度</td></tr></tbody></table>
+<p>⑤句后半直接点题：人们感到压力要<strong>在时间流逝时把它装满</strong>，否则就是浪费。make passing time fulfilling ← fill these bottles as they pass，翻译闭合。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A update their to-do lists</td><td>更新任务清单</td><td>to-do list 出自④句"插空读书"，与瓶子比喻无涉，词汇邻近拼接</td></tr><tr><td>B make passing time fulfilling</td><td>让流逝的时间充盈</td><td>fill the bottles as they pass 的本体翻译，且 wasted them 印证"充盈"义</td></tr><tr><td>C carry their plans through</td><td>把计划贯彻到底</td><td>③④句 inefficiency、to-do list 拼凑；比喻谈的是时间，不是计划执行力</td></tr><tr><td>D pursue carefree reading</td><td>追求无忧无虑的阅读</td><td>③句沉浸式阅读的属性描述，与"空瓶子"这一心态比喻无关</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A 或 C</strong>：④句 to-do list 离⑤句最近，容易顺手嫁接——但④句说的是"把阅读塞进清单只能得到目标式阅读"，焦点在<strong>读书的效果</strong>；⑤句比喻的焦点在<strong>时间心态</strong>，两件事不能互推。</li><li><strong>选 D</strong>：把"装满瓶子"美化成"自由自在地阅读"——比喻说的是"怕浪费"的压力（负面焦虑），不是"无忧无虑"（正面闲适），感情色彩恰好相反。</li></ul>
+<blockquote>记忆锚点：修辞题先翻译——<strong>空瓶子 = 流逝的时间（days, hours, minutes），装满 = 充实，空着 = wasted → B</strong>；括号里的自注（days, hours, minutes）是命题人留的翻译钥匙。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

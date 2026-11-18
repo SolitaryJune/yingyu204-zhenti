@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T1 · 33 · “connecting the dots”指代还原 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {title:"审题眼 · 人名定位 + 比喻待还原", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：According to <b>Hans Sauer</b>, companies are eager to win patents for ____。四个选项：<b>A</b> discovering gene interactions（发现基因相互作用）/ <b>B</b> establishing disease correlations（建立疾病关联）/ <b>C</b> drawing pictures of genes（画基因图）/ <b>D</b> identifying human DNA（识别人类 DNA）。</p><p>人名是定位器；但考点藏在后面——原文只给了一个引号短语，比喻先于答案。机制：<b>承上指代必须回到上一句找具体所指</b>。</p>",
+  log:"审题：人名 Hans Sauer 定位，答案位是一个比喻"},
+ {title:"定位原文 · 末句只给比喻", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("Companies are eager to win patents for \u201cconnecting the dots,\u201d explains Hans Sauer, a lawyer for the BIO.")+"<p>定位句本身没说 dots（点）是什么、连线连出什么——这一句只能确认“公司在急着给某个东西申请专利”，答案必须再向前一句还原。</p>",
+  log:"定位第五段末句：eager to win patents for \u201cconnecting the dots\u201d"},
+ {title:"向前还原指代 · 点=基因，连线=相互作用", cls:"key", tag:"还原", count:0, ribbon:null,
+  body:quote("Firms are now studying how genes interact, looking for correlations that might be used to determine the causes of disease or predict a drug\u2019s efficacy.")+"<p>上一句两个动作：研究<b>“基因如何相互作用”</b>（how genes interact），寻找“可用来<b>确定疾病成因、预测药效</b>的关联”（correlations）。指代还原：点 = 基因；<b>connecting the dots = 发现基因间的相互作用</b>；疾病、药效只是“找关联”的目的，不是专利对象。</p>",
+  log:"向上一句还原：studying how genes interact → 连点=发现基因相互作用"},
+ {title:"逐项分析 · A discovering gene interactions", cls:"good", tag:"选定 A", count:0, ribbon:{k:"A", ok:true},
+  body:"<p><b>当选。</b>studying <b>how genes interact</b> → <b>discovering gene interactions</b>：interact ↔ interactions，动词短语换名词化名词，与“连点=基因相互作用”的还原完全对齐。</p>",
+  log:"A discovering gene interactions ✓ 与 how genes interact 同义对齐，当选"},
+ {title:"逐项分析 · B establishing disease correlations", cls:"bad", tag:"排除 B", count:1, ribbon:{k:"B", ok:false},
+  body:"<p><b>排除。</b>disease、correlations 都是原文原词，但原文说的是“基因相互作用方式”与“疾病成因”之间的关联（correlations that might be used to determine the causes of disease），不是“疾病之间”的关联；且 look for correlations 是研究的目的，不是申请专利的对象。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见原词就认领——原词杂糅是细节题第一干扰形态，名词间的修饰关系才是判官。</p>",
+  log:"B establishing disease correlations ✗ 排除——原词杂糅，对象错位"},
+ {title:"逐项分析 · C drawing pictures of genes", cls:"bad", tag:"排除 C", count:2, ribbon:{k:"C", ok:false},
+  body:"<p><b>排除。</b>connecting the dots 是习语（把点连起来、看出规律），不是字面的“画图”；把它拆成 drawing pictures 属于断章取义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：比喻按字面直译——引号短语一出，先想“它指代什么”，再看字面。</p>",
+  log:"C drawing pictures of genes ✗ 排除——把习语当字面义"},
+ {title:"逐项分析 · D identifying human DNA", cls:"bad", tag:"排除 D", count:3, ribbon:{k:"D", ok:false},
+  body:quote("Companies are unlikely to file many more patents for human DNA molecules – most are already patented or in the public domain.")+"<p><b>排除。</b>原文明确说：公司<b>不大可能</b>再就人类 DNA 分子申请专利——识别人类 DNA 的专利时代已经过去，与“现在 eager”的方向正好相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿第一、二段的旧闻（2005 年 20% 基因被专利）回答“现在急着做什么”。</p>",
+  log:"D identifying human DNA ✗ 排除——反向干扰，原文 unlikely 封死"},
+ {title:"结论 · 指代还原链与记忆锚点", cls:"good", tag:"答案 A", count:3, ribbon:null,
+  body:"<p>还原链：connecting the dots → 上句 <b>how genes interact</b> → <b>discovering gene interactions</b>。</p><p>答案选 <b>A（发现基因间的相互作用）</b>。</p><p><b>记忆锚点</b>：引号短语出现在答案位 → 向上一句找具体所指；点=基因，连线=相互作用；B 是原词杂糅，C 是习语字面化，D 是方向反转。</p>",
+  log:"结论：connecting the dots = 发现基因相互作用，答案 A"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text1 · 33 · 公司急着为“connecting the dots”申请什么专利",
+  subtitle: "考点：人名定位 + 承上指代还原 · 定位 → 还原 → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 还原指代 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（discovering gene interactions）",
+    html: "<b>connecting the dots = 发现基因间的相互作用</b>。<br>还原链：引号短语 → 向上一句 Firms are now studying how genes interact → discovering gene interactions。<br>记忆锚点：比喻/引号短语出现在答案位，答案永远在“上文一句”；点=基因，连线=相互作用；B 原词杂糅、C 习语字面化、D 方向反转。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Hans Sauer 说公司急着申请什么专利——“connecting the dots”指代还原</h2>
+<p>答案：<strong>A（discovering gene interactions 发现基因间的相互作用）</strong>。</p>
+<h3>第 0 步：先立机制——比喻先行，答案永远在“上文一句”</h3>
+<p>细节题遇到人名，第一动作是人名定位。但本题定位句只给了一个比喻——“connecting the dots”（把点连起来）。比喻本身不是答案，它只是一个待还原的指代；命题人的真实考点是：<strong>承上指代必须回到上一句找具体所指</strong>。所以本题的解题结构是两步：先定位“谁的什么”，再向前一句还原“点”与“连线”各是什么。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Companies are eager to win patents for "connecting the dots," explains Hans Sauer, a lawyer for the BIO.</blockquote>
+<p>Hans Sauer 是 BIO（生物技术行业组织）的律师，这句话是他的解释：公司们急着就“connecting the dots”申请专利。但这一句本身没说 dots 是什么——不能拿字面义“画图连线”当答案。</p>
+<h3>第 2 步：向前还原指代</h3>
+<blockquote>Firms are now studying how genes interact, looking for correlations that might be used to determine the causes of disease or predict a drug’s efficacy.</blockquote>
+<p>上一句给出两个动作：研究“基因如何相互作用”（how genes interact），寻找“可用于确定疾病成因、预测药效的关联”（correlations）。于是指代还原：<strong>点 = 基因，连点 = 发现基因间的相互作用</strong>；“连线找规律”的目的（疾病、药效）只是背景，不是申请专利的对象。</p>
+<h3>第 3 步：同义替换</h3>
+<p>studying how genes interact → <strong>discovering gene interactions</strong>：interact ↔ interactions，动词短语换名词化名词，是最标准的同义替换形态。</p>
+<h3>第 4 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A discovering gene interactions</td><td>✓ 当选</td><td>与 how genes interact 同义对齐，且是“申请专利”的直接对象</td></tr><tr><td>B establishing disease correlations</td><td>✗ 排除</td><td>字词杂糅：disease、correlations 都是原文原词，但原文是“基因相互作用与疾病成因”的关联，不是“疾病之间”的关联；且找 correlations 是研究的目的，不是专利对象。（典型误解：见原词就认领，不核对名词间的修饰关系。）</td></tr><tr><td>C drawing pictures of genes</td><td>✗ 排除</td><td>把习语 connecting the dots（连点成线、找出规律）当字面义“画图”，断章取义。（典型误解：比喻题按字面直译。）</td></tr><tr><td>D identifying human DNA</td><td>✗ 排除</td><td>反向干扰：第五段②句 Companies are unlikely to file many more patents for human DNA molecules——识别人类 DNA 的专利时代已经过去。（典型误解：拿第一、二段“过去 20% 基因被专利”的旧事答“现在 eager”的新方向。）</td></tr></tbody></table>
+<h3>第 5 步：预判追问</h3>
+<ul><li><strong>为什么 B 的干扰性最强？</strong>：correlations 和 disease 都在原文。破它只需问一句：correlations 的对象是谁？原文 looking for correlations 承接的是 how genes interact——关联的是“基因相互作用方式”与“疾病成因”，不是疾病彼此相关。</li><li><strong>D 不是第一、二段说的 DNA 专利吗？</strong>：那是过去（by 2005 some 20% of human genes were patented）；题干问的是“公司现在急着”的方向，原文用 unlikely 明确封死了这条路。</li></ul>
+<blockquote>记忆锚点：引号短语/比喻出现在答案位 → 向上一句找具体所指；connecting the dots = 连点找规律 = 基因相互作用；专利的对象是“发现相互作用”，不是“关联疾病”，更不是“画图”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

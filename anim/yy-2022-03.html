@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-03 · 2022 完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 3 所在句，考点：句内逻辑 + 连接词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("__3__, like most writers these days, you're holding down a job to pay the bills, it's not __4__ to find the time to write.") +
+    "<p>句首空格 + 从句（你干着一份糊口的工作）+ 主句（找到写作时间并不____）。空格连接词负责把从句和主句「接线」。</p>"
+ },
+ {
+  "title": "机制 · 从句与主句是什么关系",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先设情形再判断——条件关系",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>从句在请读者<b>代入一种情形</b>——设想「你也有一份白天的工作」；主句再对这种情形下能否挤出写作时间作出判断。</p>" +
+    "<p>「先设定一种情形，再给出该情形下的结果」= 条件关系：<b>如果……，那么……</b>。</p>"
+ },
+ {
+  "title": "证据 · 与上段的顺接关系",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：上段科本观点本身就是 if 结构",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Harlan Coben believes that if you're a writer, you'll find the time...") +
+    "<p>上段观点就是 if 结构（如果你是作家，你就找得到时间）。本句把「你是作家」具体化成「你也像大多数作家一样在干别的工作养家」——顺着上段的假设往下走，用 If 引出假想情形。</p>"
+ },
+ {
+  "title": "逐项分析 · A If（如果）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A If（如果） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "body": "<p><b>当选。</b>If 引出可真可假的假想情形：从句设定、主句判断，与上段的 if 观点顺接。代入读作「<b>如果</b>像大多数作家一样你干着糊口的工作，那找到写作时间并不容易」。</p>"
+ },
+ {
+  "title": "逐项分析 · B Though（虽然；尽管）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Though（虽然；尽管） ✗ 排除——句内无转折",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>转折无从谈起：句内从句与主句不是转折关系；though 也不与下句的 But 连用（Though...but... 是病句）。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：看到邻近的 But 就联想转折——那是下一组句子之间的转折，与本空无关。</p>"
+ },
+ {
+  "title": "逐项分析 · C Once（一旦）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Once（一旦） ✗ 排除——条件默认会实现",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>once 引出的条件默认会实现（真实条件，如 The water is fine once you're in）；「你在干别的工作」只是请读者代入的假定情形，并非注定发生。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只记得 once 也有假设意味，没核对「情形是否默认会发生」。</p>"
+ },
+ {
+  "title": "逐项分析 · D Unless（除非）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Unless（除非） ✗ 排除——语义方向反",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>unless = if...not，语义方向反；且其成立与否依赖空 4 的词义——借下句 But it's not impossible 判空 4 为「容易」后，「除非你干着糊口的工作，否则找时间不容易」逻辑不通。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：没意识到 unless 与空 4 的联动，单看本空猜词。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（If 如果）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如果像现在的大多数作家一样，你干着一份养家糊口的工作，那找到写作的时间确实并不容易。</b></p>" +
+    "<p>答案选 <b>A（If 如果）</b>。</p>" +
+    "<p><b>记忆锚点</b>：句首连接词 = 从句主句关系的接线员；设定假想情形给判断 → If；once 预设条件会真，unless = if...not，though 与 but 不成对。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>B（Though）</b>——被邻近的 But 带偏，没先分析句内逻辑。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 3 空 · 句首连接词：引出假想情形的是谁",
+  subtitle: "考点：句内语义逻辑 + 连接词辨析 · 关系判断 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（If）",
+    html: "<b>A If（如果）</b>。<br>记忆锚点：句首连接词 = 从句主句关系的接线员；设定假想情形给判断 → If；once 预设条件会真，unless = if...not，though 与 but 不成对。<br>最易误选：<b>B（Though）</b>——被邻近的 But 带偏，没先分析句内逻辑。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 3 空 · 句首连接词：引出"假想情形"的是 If</h2>
+<p>答案：<strong>A（If 如果）</strong>。</p>
+<h3>第 0 步：先立机制——句首连接词由"从句与主句的关系"决定</h3>
+<p>句首空格考连接词，判断依据不是词义偏好，而是从句和主句之间的逻辑关系。本题从句说"像现在的大多数作家一样，你干着一份养家糊口的工作"，主句说"要找到写作时间并不____"。从句是在请读者代入一种情形——设想"你也有一份白天的工作"，主句再对这种情形下能否挤出写作时间作出判断。"先设定一种情形，再给出该情形下的结果"，这是条件关系：如果……，那么……。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>__3__, like most writers these days, you're holding down a job to pay the bills, it's not __4__ to find the time to write.</blockquote>
+<p>从句 + 主句同现，空格连接词负责把两者"接线"：从句设定情形，主句给出判断。</p>
+<h3>第 2 步：找证据——与上段的顺接关系</h3>
+<blockquote>Harlan Coben believes that if you're a writer, you'll find the time...</blockquote>
+<p>上段科本观点本身就是 if 结构（如果你是作家，你就找得到时间）。本句把"你是作家"具体化成"你也像大多数作家一样在干别的工作养家"——顺着上段的假设往下走，用 If 引出假想情形，与全文"设想读者是作家"的论证姿态一致。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>逻辑</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A If</td><td>如果</td><td>✓</td><td>引出可真可假的假想情形：从句设定、主句判断，与上段 if 观点顺接。</td></tr><tr><td>B Though</td><td>虽然；尽管</td><td>✗</td><td>转折无从谈起：句内从句与主句不是转折；though 也不与下句的 But 连用（Though...but... 是病句）。（典型误解：看到邻近的 But 就联想转折。）</td></tr><tr><td>C Once</td><td>一旦</td><td>✗</td><td>once 引出的条件默认会实现（真实条件）；"你在干别的工作"只是请读者代入的假定情形。（典型误解：once 也有假设意味。）</td></tr><tr><td>D Unless</td><td>除非</td><td>✗</td><td>unless = if...not，语义方向反；且其成立与否依赖空 4 的词义——借下句 But it's not impossible 判空 4 为"容易"后，unless 的逻辑不通。</td></tr></tbody></table>
+<p>代入后的完整句义：如果像现在的大多数作家一样，你干着一份养家糊口的工作，那找到写作的时间确实并不容易。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>Once 和 If 都表条件，区别在哪？</strong>：if 引出的情况可真可假（真实条件或纯粹假想都行）；once（一旦）预设条件会实现——如 The water is fine once you're in（你一旦下了水就会觉得水不错）。文中"你干着别的工作"是替读者设定的假想，不是已实现的事实，故用 If。</li><li><strong>Though 是不是被下句 But 带出来的？</strong>：这正是出题人埋的障眼法。下句确实以 But 开头，但那是"空 4 句"与 not impossible 句之间的转折，与本空无关；且英语中 though 与 but 不能成对出现在同一组句子里。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（Though）</strong>：看到邻近的 But 就联想转折，没有先分析本句从句—主句内部关系。</li><li><strong>误选 C（Once）</strong>：只记得"once 有假设意味"，没核对"情形是否默认会发生"。</li></ul>
+<blockquote>记忆锚点：句首连接词 = 从句主句关系的接线员；设定假想情形给判断 → If；once 预设条件会真，unless = if...not，though 与 but 不成对。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

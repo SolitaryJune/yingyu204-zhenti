@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-25 · 推理题：把「惊讶」翻译成「高于预期」</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：末题考结论，先抓核心发现",
+  "body": "<p>题干：<b>It can be learned from the text that rats ____</b>——位置在最后一题，考的通常是<b>研究结论</b>。</p><p>全文核心：老鼠不但能接收机器鼠的社交信号（首段设问），还愿意与外形极简的机器鼠交朋友（第六段 <b>surprising</b>）。研究者为什么惊讶？因为原以为要仿真才行，实际不需要——「实际表现<b>超出预期</b>」正是 D 的 than expected。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "「惊讶」的三处伏笔",
+  "body": "<table class='aw-mini'><tr><th>位置</th><th>表达</th><th>信号</th></tr><tr><td>第六段①句</td><td>The readiness ... was <b>surprising</b> given its minimal design</td><td>发现出人意料</td></tr><tr><td>第六段③句</td><td>We'd assumed... but <b>that wasn't necessary</b></td><td>预期落空</td></tr><tr><td>第七段①句</td><td>how sensitive... <b>even when</b> they come from basic robots</td><td>让步强调敏感性</td></tr></table><p>三处合起来 = 敏感度<b>高于预期</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第七段①句（结论句）",
+  "body": "<div class='qq'><b>原文：</b>The finding shows <b>how sensitive</b> rats are to social cues, <b>even when</b> they come from basic robots, says Wiles.</div><p class='cn'>译：这一发现表明老鼠对社交信号非常敏感，即便这些信号来自简陋的机器鼠。</p><p>how sensitive rats are to social cues ↔ D 的 are sensitive to social cues；even when ... basic robots 承接第六段 surprising / minimal design，给出「超出预期」的来源。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：夸大其词",
+  "body": "<p><b>A · appear to be adaptable to new surroundings</b> <span class='bad-dot'>✗</span></p><p>文中只说老鼠愿意与机器鼠交朋友，由此推不出「擅长适应<b>新环境</b>」——把交友行为放大成环境适应力，过度引申。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：捏造比较",
+  "body": "<p><b>B · are more socially active than other animals</b> <span class='bad-dot'>✗</span></p><p>原文只谈老鼠对社交信号高度敏感，从头到尾没与「其他动物」比过社交活跃度——more ... than 的比较级纯属捏造。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：与 Similarly 句相悖",
+  "body": "<p><b>C · behave differently from children in socializing</b> <span class='bad-dot'>✗</span></p><p>第七段②句 <b>Similarly</b>, children tend to treat robots as if they are fellow beings——老鼠与儿童<b>同样</b>把机器人当同类；C 却说「表现不同」，方向反了。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：文意的压缩",
+  "body": "<p><b>D · are more sensitive to social cues than expected</b> <span class='ok-dot'>✓</span></p><p>敏感（how sensitive... to social cues）+ 超出预期（surprising / that wasn't necessary / even when basic robots）——D 是全文结论的压缩改写，没有添加文外信息。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（are more sensitive to social cues than expected）</b>。</p><p>记忆锚点：surprising / that wasn't necessary / even when 三处合起来 =「超出预期」；推理题正确项必须是文意的压缩，A/B/C 分别是过度引申、捏造比较、与原文相悖。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-25 · 推理题：把「惊讶」翻译成「高于预期」",
+  subtitle: "考点：Text1 全文结论 · 研究发现超出研究者预期",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>惊讶 = 高于预期</b>：surprising（①句）+ that wasn't necessary（③句）+ even when basic robots（⑦段①句）共同支撑 than expected。A 夸大成环境适应力、B 捏造与其他动物的比较、C 与 Similarly 句方向相反。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 25 题——推理题：把"惊讶"翻译成"高于预期"</h2>
+<p>答案：<strong>D</strong>（are more sensitive to social cues than expected）。</p>
+<h3>第 0 步：先立机制——末题考结论，先抓全文核心发现</h3>
+<p>处于末题位置的 "It can be learned from the text" 题多考研究结论。全文核心：老鼠不但能接收机器鼠的社交信号（回应首段设问），还愿意与外形极简的机器鼠交朋友。研究者为什么"惊讶"？因为原以为要仿真才行（第六段③句），实际不需要（第七段①句 even when they come from basic robots）。"实际表现超出原来的预期"正是 D 的 than expected——正确项是对全文结论的压缩，而非文外延伸。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>The finding shows <strong>how sensitive</strong> rats are to social cues, <strong>even when</strong> they come from basic robots.</blockquote>
+<p>第七段①句 how sensitive rats are to social cues ↔ D 的 are sensitive to social cues；even when they come from basic robots（哪怕来自简陋机器鼠）承接第六段 surprising / minimal design，给出"超出预期"的来源。选 D。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（appear to be adaptable to new surroundings）</strong>：文中只说老鼠愿意与机器鼠交朋友，由此推不出"擅长适应新环境"——夸大其词。</li><li><strong>B（are more socially active than other animals）</strong>：原文只谈老鼠对社交信号高度敏感，从未与"其他动物"比较社交活跃度——捏造比较。</li><li><strong>C（behave differently from children in socializing）</strong>：与第七段②句相悖——Similarly, children tend to treat robots as if they are fellow beings 说的是老鼠与儿童<strong>同样</strong>把机器人当同类；C 却说"表现不同"，方向反了。</li></ul>
+<blockquote>记忆锚点：surprising / that wasn't necessary / even when 三处合起来 = "超出预期"；推理题的正确项必须是文意的压缩，不能是文外的延伸。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

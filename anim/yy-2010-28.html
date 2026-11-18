@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·28 阅读 · EXCEPT 的三真一假</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：EXCEPT', cls: 'key',
+    body: '<p>题干 <b>All of the following are true EXCEPT</b>——机制：A/C/D 逐个"证真"，对不上的那个是答案；数字选项必查<b>百分比的分母</b>。</p>',
+    log: 'EXCEPT = 三真一假' },
+  { title: 'A 证真', cls: 'step',
+    body: src('“...although American men tend to <b>talk more than women in public situations</b>...”') +
+      '<p>第二段 ① 句前半：男士公开场合比女性健谈。A 与原文一致 → 真。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = ① 句前半 → 真' },
+  { title: 'D 证真', cls: 'step',
+    body: src('“...they often <b>talk less at home</b>.”') +
+      '<p>同一句后半：男士在家话比妻子少。D 与原文一致 → 真（A、D 是一句话的两半）。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D = ① 句后半 → 真' },
+  { title: 'C 证真', cls: 'step',
+    body: src('“...most of the women she interviewed – but only a few of the men – gave <b>lack of communication</b> as the reason for their divorces.”') +
+      '<p>第三段 ② 句：女性把婚姻失败归因于缺乏交流 → 她们重视夫妻沟通。C 为合理引申 → 真。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C = ② 句引申 → 真' },
+  { title: 'B 回原文：50% 是谁的', cls: 'key',
+    body: src('“<b>Given the current divorce rate of nearly 50 percent</b>, that amounts to millions of cases in the United States every year.”') +
+      '<p>原文：美国<b>婚姻</b>中近 50% 以离婚告终；"沟通失败导致数百万例"——但从未给出比例！</p>',
+    log: '50% = 离婚率，不是归因比例' },
+  { title: 'B：分母被偷换', cls: 'bad',
+    body: '<p>B 说"近 50% 的<b>离婚</b>由沟通失败导致"——把"婚姻的 50% 离婚"偷换成"离婚的 50% 源于沟通"。分母换了，原文无此数据。<b>B 与原文不符，正是答案</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 分母偷换 → 答案' },
+  { title: '易错点：形似不等于相同', cls: 'step',
+    body: '<p>B 与原文共享 nearly 50 percent、"沟通失败"两组词——形似骗过眼睛。数字题必问：<b>百分比的分母是谁</b>？婚姻的 50% ≠ 离婚原因的 50%。</p>',
+    log: '共享词汇 ≠ 同一命题' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B</b>。记忆锚点：<b>EXCEPT = 三真一假</b>；数字陷阱先问"百分比的分母"——离婚率近 50% 是"婚姻的 50%"，不是"离婚原因的 50%"。</p>',
+    log: '锁定 B' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 28 · EXCEPT 的三真一假',
+  subtitle: 'Text 2（夫妻交流模式）· 考点：否定设问 + 数字分母偷换',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B',
+    html: '记忆锚点：<b>EXCEPT = 三真一假</b>——A/D 是第二段 ① 句的两半，C 是第三段 ② 句的引申；B 把"婚姻中近 50% 离婚"偷换成"近 50% 的离婚源于沟通失败"，分母变了、数据原文没有。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：EXCEPT 题——三个证真，一个对不上</h2>
+<p>答案：<strong>B</strong>。</p>
+<h3>第一步：先立机制——EXCEPT 的三真一假</h3>
+<p>与 NOT true 同机制：A、C、D 要在原文找到"证真"锚点，剩下那个与原文对不上的就是答案。数字类选项的证真必查一点：<strong>百分比的分母是谁</strong>。</p>
+<h3>第二步：逐项证真</h3>
+<ul><li><strong>A 为真</strong>：American men tend to talk more than women in public situations——男士在公开场合比女性健谈，第二段 ① 句前半。</li><li><strong>D 为真</strong>：they often talk less at home——男士在家话比妻子少，同一句的后半。A、D 是一句话的两半。</li><li><strong>C 为真</strong>：most of the women she interviewed... gave lack of communication as the reason for their divorces——女性把婚姻失败归因于缺乏交流，足见其重视夫妻沟通，第三段 ② 句的合理引申。</li></ul>
+<h3>第三步：B 错在哪——50% 的归属被偷换</h3>
+<blockquote>Given the current divorce rate of nearly 50 percent, that amounts to millions of cases in the United States every year – a virtual epidemic of failed conversation.</blockquote>
+<p>原文说的是：美国<strong>婚姻</strong>中近 50% 以离婚告终，其中沟通失败导致的有"数百万例"。B 却说"近 50% 的<strong>离婚</strong>由沟通失败导致"——把"离婚率 50%"偷换成"沟通失败占离婚的 50%"。原文从未给过后者的比例。</p>
+<h3>易错点</h3>
+<ul><li><strong>被形似骗过</strong>：B 与原文共享 nearly 50 percent 和沟通失败两组词，但"50% 的什么"变了。数字题必问：<strong>分母是谁</strong>——婚姻的 50% ≠ 离婚原因的 50%。</li><li><strong>A/D 误判</strong>：以为"男性在家话少"是贬低而怀疑其真——EXCEPT 题只看与原文是否一致，不做价值判断。</li></ul>
+<blockquote>记忆锚点：EXCEPT = 三真一假；数字陷阱先问"百分比的分母"——离婚率近 50% 是"婚姻的 50%"，不是"离婚原因的 50%"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

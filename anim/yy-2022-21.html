@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 21 题 · by design + special techniques 同义替换出“专门设计的农场”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 21 题 · by design + special techniques 同义替换出“专门设计的农场”","subtitle":"考点：事实细节题 · 方法：定位关键表达 → 同义改写比对（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位原文 → 同义替换 → 逐项排除”的推理链。","stemEn":"The climate-friendly eggs are produced <b>____</b>.","stemZh":"气候友好型鸡蛋是____生产的。（四个选项分别指向成本 / 生产动机 / 品类关系 / 农场特点）","quotes":[{"tag":"定位 · 首段④句","en":"This all seems random, but it’s <b>by design</b>, part of what the $6.1 billion U.S. egg industry bets will be its next big thing: <b>climate-friendly eggs</b>.","zh":"鸡群混养看似随意（random），实则刻意设计（by design）；冒号后点明这就是气候友好型鸡蛋。"},{"tag":"旁证 · 第二段①句","en":"…but they’re also from birds that live on farms <b>using regenerative agriculture—special techniques</b> to cultivate rich soils that can trap greenhouse gases.","zh":"这些鸡生活在使用再生农业——专门技术——的农场，说明生产方式的“专门性”。"}],"opts":[{"k":"A","en":"at a considerably low cost.","zh":"以相当低的成本","why":"由“户外散养不用建鸡舍”的生活常识臆断成本低；文中散养需运用再生农业专项技术，暗示成本未必低——原文无据。"},{"k":"B","en":"at the demand of regular shoppers.","zh":"应老顾客的需求","why":"方向拧反——气候友好蛋刚上架（making their debut），尚未积累“老顾客”；这是行业押注开辟新市场，不是应老顾客需求生产。"},{"k":"C","en":"as a replacement for organic eggs.","zh":"作为有机鸡蛋的替代品","why":"曲解品类关系——第二段明说它“仍是 labeled organic”，是在有机蛋基础上增加新卖点；第四段拿有机蛋举例只为说明市场轨迹，推不出“替代”。"},{"k":"D","en":"on specially designed farms.","zh":"在专门设计的农场里","why":"","good":"by design（刻意设计）+ special techniques（专门技术）↔ specially designed farms（专门设计的农场）。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"题干问“生产方式/来源”；climate-friendly eggs 由首段冒号引出，是全文话题词——正确项应是定位句关键表达的同义改写","count":0},{"cls":"shift","tag":"定位首段","log":"This all seems random, but it’s by design：鸡群混养“看似随意、实则刻意设计”——by design 是本题题眼","count":0},{"cls":"shift","tag":"补充证据","log":"第二段：farms using regenerative agriculture—special techniques——农场运用再生农业“专门技术”生产","count":0},{"cls":"shift","tag":"同义替换","log":"by design（刻意设计）+ special techniques（专门技术）↔ specially designed farms → D","count":0},{"cls":"miss","tag":"排除 A","log":"A low cost ✗：由“散养=省钱”的常识臆断；专项再生技术暗示成本未必低——定位信息不支持","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B regular shoppers ✗：新品刚上架（debut）没有老顾客；行业是“押注开新市场”，不是应老顾客需求——与文意相反","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C replacement ✗：still labeled organic——与有机蛋是升级共存关系，不是替代关系","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D specially designed farms ✓：by design + special techniques 的标准同义改写","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：seems random, but it’s by design = 表面随意、实则设计；细节题先找同义替换对","count":3,"done":true}],"result":{"big":"答案 D（on specially designed farms）","html":"<b>D</b>：首段 <b>it’s by design</b>（刻意设计）+ 第二段 <b>special techniques</b>（专门技术）→ 在专门设计的农场生产。<br>A “成本低”是常识臆断；B “老顾客需求”与“开辟新市场”方向相反；C “替代有机蛋”曲解升级共存关系。<br>最易误选：<b>C</b>（organic eggs 反复出现，容易脑补“新品替代旧品”）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 21 题——by design 与 "special techniques" 同义替换出"专门设计的农场"</h2>
+<p>答案：<strong>D（on specially designed farms）</strong>。</p>
+<h3>第一步：先立机制——细节题的答案 = 定位句关键表达的同义改写</h3>
+<p>题干问 climate-friendly eggs 是<strong>怎样生产的</strong>，四个选项分别指向成本（A）、生产动机（B）、品类关系（C）、农场特点（D）。正确项不会照抄原文，而是把定位句的关键表达换个说法——先定位，再做同义比对。</p>
+<h3>第二步：定位原文——两处证据都指向"刻意设计"</h3>
+<blockquote>This all seems random, but it's by design, part of what the $6.1 billion U.S. egg industry bets will be its next big thing: climate-friendly eggs.</blockquote>
+<blockquote>...but they're also from birds that live on farms using regenerative agriculture—special techniques to cultivate rich soils that can trap greenhouse gases.</blockquote>
+<ul><li>首段④句：鸡群混养<strong>看似随意（random），实则刻意设计（by design）</strong>——冒号后点明这就是气候友好型鸡蛋；</li><li>第二段：这些鸡生活在<strong>使用再生农业（regenerative agriculture）——专门技术（special techniques）——的农场</strong>上。</li></ul>
+<p>同义替换：by design + special techniques → <strong>on specially designed farms</strong>，选 D。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A at a considerably low cost ✗</strong>：由"户外散养不用建鸡舍"的生活常识臆断成本低；文中散养需运用再生农业专项技术，暗示成本未必低——原文无据。</li><li><strong>B at the demand of regular shoppers ✗</strong>：方向拧反——气候友好蛋刚上架（making their debut），尚未积累"老顾客"；这是行业<strong>押注开辟新市场</strong>，不是应老顾客需求生产。</li><li><strong>C as a replacement for organic eggs ✗</strong>：曲解品类关系——第二段明说它"<strong>仍是 labeled organic</strong>"，是在有机蛋基础上增加新卖点；第四段拿有机蛋举例只为说明市场发展轨迹，推不出"替代"。</li><li><strong>D on specially designed farms ✓</strong>：by design（刻意设计）与 special techniques（专门技术）共同对应"专门设计的农场"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：文中反复出现 organic eggs，容易脑补"新品替代旧品"；实际上新旧是<strong>升级共存</strong>关系。</li><li><strong>误选 A</strong>：把"散养"等同于"省钱"，用常识代替定位。</li></ul>
+<blockquote>记忆锚点：seems random, but it's by design = 表面随意、实则设计；细节题先找同义替换对（by design ↔ specially designed）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

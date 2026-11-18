@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-25 · 2011 阅读第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 态度题找两类证据",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：The author’s attitude toward the role of outside directors is ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>态度题抓两类证据：①<b>评价词</b>（形容词、情态动词）；②<b>行动建议</b>（建议如何对待它）。建议“留住、善待”＝肯定方向；局部让步句里的瑕疵不改全局基调——这正是 C/D 类选项的埋伏点。</p>"
+ },
+ {
+  "title": "证据一 · 第二段的两个正向评价词",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据一：helpful, yet less biased, advisers——定位职能的两个正向词",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Outside directors are supposed to serve as helpful, yet less biased, advisers on a firm’s board.") + "<p>作者对外部董事职能的定位：有益（helpful）、少偏见（less biased）的顾问——两个正向评价词，奠定肯定基调。</p>"
+ },
+ {
+  "title": "证据二 · 第四段的行动建议：留住他们",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据二：Firms… may have to create incentives——建议公司留住外部董事",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Firms who want to keep their outside directors through tough times may have to create incentives.") + "<p>作者的立场落点：建议公司想办法<b>留住</b>他们。评价词与建议同向，都指向“认可其价值”。</p>"
+ },
+ {
+  "title": "让步句辨析 · “跳船”情节为什么不算批评",
+  "cls": "key",
+  "tag": "辨析",
+  "log": "辨析：it does not mean that such directors are always jumping off a sinking ship",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Although a correlation… is suggestive, it does not mean that such directors are always jumping off a sinking ship. Often they “trade up”…") + "<p>作者用“并非总是跳船”把自保行为框定为个别现象（通常是另谋高就），随后立刻转向“公司应留人”。承认局限＋建议留人＝有保留的肯定。态度题的裁决权在<b>结尾立场句</b>，不在中间让步句。</p>"
+ },
+ {
+  "title": "逐项分析 · B positive（肯定的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B positive（肯定的） ✓ 当选——评价词＋建议双正向",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>helpful / less biased（正向评价）＋ create incentives（建议留住）——两类证据同指一个方向：认可外部董事角色的价值。</p>"
+ },
+ {
+  "title": "逐项分析 · C scornful（蔑视的）／D critical（批评的）",
+  "cls": "bad",
+  "tag": "排除 C/D",
+  "log": "C scornful ✗ D critical ✗ 排除——局部瑕疵不是全局裁决",
+  "count": 1,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除 C、D。</b>两项都来源于第三、四段“部分董事危机前离职”的不道义色彩——但那是陈述研究发现时的让步信息，作者明确说“并非总是”，还建议公司留人。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被“跳船”情节带走，把“承认部分人自保”读成“否定整个角色”。</p>"
+ },
+ {
+  "title": "逐项分析 · A permissive（放任的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A permissive（放任的） ✗ 排除——“该管不管”话题全文未涉及",
+  "count": 2,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>positive 是认可价值，permissive 是该管不管；全文主线是“他们有价值、公司要留人”，从未讨论“要不要纵容其缺点”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“肯定”与“放任”混为一谈。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（positive 肯定的）——见结论卡",
+  "count": 2,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>作者肯定外部董事的职能（有益而少偏见的顾问，能在危机时凭经验建言），并建议公司在困难时期用激励措施留住他们——整体态度是肯定的。</b></p><p>答案选 <b>B（positive 肯定的）</b>。</p><p><b>记忆锚点</b>：态度题两类证据——评价词（helpful / less biased）＋行动建议（create incentives 留人）；让步句里的瑕疵不改全局基调，结尾立场句才是终审。</p><p style=\"color:#b91c1c\">最易误选：<b>D（critical）</b>——被第三、四段的“跳船”情节带走。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 25 题 · 作者对外部董事角色的态度",
+  subtitle: "考点：全文态度题 · 评价词＋行动建议，全局基调裁决",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“找证据 → 辨析让步句 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（positive）",
+    html: "<b>B positive（肯定的）</b>。<br>记忆锚点：评价词（helpful / less biased）＋行动建议（create incentives）双正向；让步句瑕疵不改全局基调。<br>最易误选：<b>D（critical）</b>——把“承认部分董事跳船”读成“否定整个角色”。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 25 题 · 态度题的裁决权在"全局基调"，不在"局部瑕疵"</h2>
+<p>答案：<strong>B（positive 肯定的）</strong>。</p>
+<h3>第 0 步：先立机制——态度题找两类证据：评价词＋行动建议</h3>
+<p>作者对某事物的态度不写在一起，散落在全文。要抓两类证据：一是<strong>评价词</strong>（形容词、情态动词），二是<strong>行动建议</strong>（建议如何对待它）。建议"留住、善待"＝肯定方向；建议"提防、废除"＝否定方向。局部的一丝批评（让步色彩）不改全局基调，这正是态度题 C/D 类选项的埋伏点。</p>
+<h3>第 1 步：定位原文——两条正向评价词＋一条正向建议</h3>
+<blockquote>Outside directors are supposed to serve as <strong>helpful</strong>, yet <strong>less biased</strong>, advisers on a firm's board.</blockquote>
+<p>第二段给作者对外部董事职能的定位：有益、少偏见的顾问——两个正向评价词。</p>
+<blockquote>Firms who want to keep their outside directors through tough times may have to <strong>create incentives</strong>.</blockquote>
+<p>第四段给作者的立场：建议公司想办法<strong>留住</strong>他们。评价词与建议同向，都指向"认可其价值"。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A permissive</td><td>放任的</td><td>文章并非讨论"该不该纵容外部董事的缺点"；全文主线是他们有价值、公司要留人，"放任"无从谈起</td></tr><tr><td>B positive</td><td>肯定的</td><td>✓ helpful / less biased ＋ create incentives（建议留住）——评价与建议双正向</td></tr><tr><td>C scornful</td><td>蔑视的</td><td>来源于"部分董事危机前离职"的不道义色彩，但那是第三、四段陈述研究发现时的让步信息，非作者对"外部董事角色"的裁决</td></tr><tr><td>D critical</td><td>批评的</td><td>同上：局部瑕疵（有些董事跳船）不等于作者否定该角色；作者明确建议公司留住他们</td></tr></tbody></table>
+<h3>预判追问：作者也写了"他们可能跳船"，为什么不算批评？</h3>
+<p>第三、四段确实承认外部董事"在坏消息爆发前离开"的自保行为，但注意作者的措辞：它 does not mean that such directors are <strong>always</strong> jumping off a sinking ship——用"并非总是"把跳船框定为个别现象，并补充"通常是 trade up 另谋高就"；随后立刻转向"公司应 create incentives 留人"。承认局限＋建议留人＝有保留的肯定，落点在 positive。态度题的裁决权在<strong>结尾的立场句</strong>，不在中间的让步句。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C / D（scornful / critical）</strong>：被第三、四段的"跳船"情节带走，把"承认部分人有自保行为"读成"否定整个角色"。</li><li><strong>误选 A（permissive）</strong>：混淆"放任"与"肯定"——positive 是认可价值，permissive 是该管不管，文章完全没涉及"管不管"的话题。</li></ul>
+<blockquote>记忆锚点：态度题两类证据——评价词（helpful / less biased）＋行动建议（create incentives 留人）；让步句（it does not mean…）里的瑕疵不改全局基调，结尾立场句才是终审。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

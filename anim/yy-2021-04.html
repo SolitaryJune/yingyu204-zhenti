@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 4 空 · Are there inspectors to __4__ that people have paid?：A claim / B prove / C check / D recall</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 4 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 4 在「Are there inspectors to __4__ that people have paid?」；考点：句内语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Are there inspectors to <b>__4__</b> that people have paid?</div><p>空 4 是 inspectors 的目的状语中的动词；that 从句内容是“人们已经付了钱”这一待核实的情况。</p>"
+ },
+ {
+  "title": "立机制 · 动词题先核两件事：主语谁、宾语什么性质",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：动词题先核两件事：主语谁、宾语什么性质",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Are there inspectors to <b>__4__</b> that people have paid?</div><p>句内机制一目了然：主语 <b>inspectors</b>（检票员），不定式表目的，宾语从句 <b>that people have paid</b>（乘客已经购票这一情况）。检票员的职责用常识即可锁定——<b>核查乘客是否买票</b>。</p><p>check = to find out if sth is true（查明、核实），恰好对应“核实人们是否已付款”。选动词前先核主语（检票员，不是乘客）与宾语（待核实的情况，不是票据本身），再对照职责。</p>"
+ },
+ {
+  "title": "找证据 · 前文问答链锁定职责：查票的人太少，才有人逃票",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：前文问答链锁定职责：查票的人太少，才有人逃票",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Are they carefully inspected? Never. Do people get on without paying? Of course!</div><p>上文刚说完“无人仔细查票、逃票成风”，本句顺势追问“有没有检票员来 __ 大家是否买过票”——语义上必须填回“查、核”这个动作，check 与上下文严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · A claim（宣称；索要）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A claim（宣称；索要）✗ 排除",
+  "body": "<p><b>排除。</b>claim 表“索要”时宾语应是费用、利益（如 claim unemployment benefit 申领失业救济）；接“人们已付款”这一情况，语义无法搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · B prove（证明）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B prove（证明）✗ 排除",
+  "body": "<p><b>排除。</b>prove 是“用证据证明属实”——能证明自己付了钱的是<b>乘客</b>本人，不是检票员；主体错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 that 从句与 prove 搭配自然，就顺着语感选；忽略了 prove 的主体应是拿证据的乘客。</p>"
+ },
+ {
+  "title": "逐项分析 · C check（核查；核实）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C check（核查；核实）✓ 当选",
+  "body": "<p><b>当选。</b>check（核查）与检票员的职责对应：核实乘客是否购票。</p>"
+ },
+ {
+  "title": "逐项分析 · D recall（回想起）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D recall（回想起）✗ 排除",
+  "body": "<p><b>排除。</b>recall 接宾语从句 = “回想起某事”；能回想起自己付过钱的只有乘客本人，检票员无法“想起”他人的行为。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略主语是 inspectors；“回想”这个心理动作只能发生在当事人身上。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（check 核查；核实）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>Are there inspectors to check that people have paid?（有没有检票员来核查人们是否买过票？）</b></p><p>答案选 <b>C（check 核查；核实）</b>。</p><p><b>记忆锚点</b>：inspectors 的职责 = check that...（核实是否…）；prove / recall 的主体应是乘客本人。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B（prove）：看到 that 从句与 prove 搭配自然，就顺着语感选；忽略了 prove 的主体应是拿证据的乘客。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 4 空 · Are there inspectors to __4__ that people have paid?：A claim / B prove / C check / D recall",
+  subtitle: "考点：句内语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 C（check 核查；核实）",
+ "html": "<b>C check（核查；核实）</b>。<br>完整句：Are there inspectors to check that people have paid?（有没有检票员来核查人们是否买过票？）<br>记忆锚点：inspectors 的职责 = check that...（核实是否…）；prove / recall 的主体应是乘客本人。<br>最易误选：<b>B prove（证明）</b>——看到 that 从句与 prove 搭配自然，就顺着语感选；忽略了 prove 的主体应是拿证据的乘客。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 4 空 · 主语是检票员，宾语是“乘客已购票”——职责决定动词</h2>
+<p>答案：<strong>C（check 核查；核实）</strong>。</p>
+<h3>第 0 步：先立机制——动词题先核两件事：主语谁、宾语什么性质</h3>
+<blockquote>Are there inspectors to <strong>__4__</strong> that people have paid?</blockquote>
+<p>句内机制一目了然：主语 <strong>inspectors</strong>（检票员），不定式表目的，宾语从句 <strong>that people have paid</strong>（乘客已经购票这一情况）。检票员的职责用常识即可锁定——<strong>核查乘客是否买票</strong>。</p>
+<p>check = to find out if sth is true（查明、核实），恰好对应“核实人们是否已付款”。选动词前先核主语（检票员，不是乘客）与宾语（待核实的情况，不是票据本身），再对照职责。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Are there inspectors to <strong>__4__</strong> that people have paid?</blockquote>
+<p>空 4 是 inspectors 的目的状语中的动词；that 从句内容是“人们已经付了钱”这一待核实的情况。</p>
+<h3>第 2 步：找证据——前文问答链锁定职责：查票的人太少，才有人逃票</h3>
+<blockquote>Are they carefully inspected? Never. Do people get on without paying? Of course!</blockquote>
+<p>上文刚说完“无人仔细查票、逃票成风”，本句顺势追问“有没有检票员来 __ 大家是否买过票”——语义上必须填回“查、核”这个动作，check 与上下文严丝合缝。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A claim</td><td>宣称；索要</td><td>✗ 排除</td><td>claim 表“索要”时宾语应是费用、利益（如 claim unemployment benefit 申领失业救济）；接“人们已付款”这一情况，语义无法搭配。</td></tr><tr><td>B prove</td><td>证明</td><td>✗ 排除</td><td>prove 是“用证据证明属实”——能证明自己付了钱的是<strong>乘客</strong>本人，不是检票员；主体错位。（典型误解：看到 that 从句与 prove 搭配自然，就顺着语感选；忽略了 prove 的主体应是拿证据的乘客。）</td></tr><tr><td>C check</td><td>核查；核实</td><td>✓ 当选</td><td>check（核查）与检票员的职责对应：核实乘客是否购票。</td></tr><tr><td>D recall</td><td>回想起</td><td>✗ 排除</td><td>recall 接宾语从句 = “回想起某事”；能回想起自己付过钱的只有乘客本人，检票员无法“想起”他人的行为。（典型误解：忽略主语是 inspectors；“回想”这个心理动作只能发生在当事人身上。）</td></tr></tbody></table>
+<p>代入后的完整句义：Are there inspectors to check that people have paid?（有没有检票员来核查人们是否买过票？）</p>
+<h3>预判追问</h3>
+<ul><li><strong>prove 和 check 都是“验证”，差别在哪？</strong>：check 是去查明情况（可发生在任何核实者身上），prove 是拿证据使某事成立（由当事方完成）。检票员只能“查明你买没买票”，无法替你“证明你买过票”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（prove）</strong>：that 从句语法通顺就选。动词题必须核对主语与宾语从句的性质——prove 的证据在乘客手里，不在检票员手里。</li></ul>
+<blockquote>记忆锚点：inspectors 的职责 = check that...（核实是否…）；prove / recall 的主体应是乘客本人。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

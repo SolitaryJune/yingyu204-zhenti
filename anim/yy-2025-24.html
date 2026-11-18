@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-24 · 2025 阅读第 24 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 目的题抓 To ensure...",
+    "cls": "key",
+    "tag": "审题",
+    "log": "was intended to ⇒ 找目的状语",
+    "count": 0,
+    "body": "<p>题干 <code>The movement toward no-tipping services was intended to ____</code> 问<b>目的</b>。段[6]②句首的 <code>To ensure that all employees were paid fair wages</code> 正是目的状语；其后的 banned tipping and increased prices 是<b>手段</b>，but 后的 fizzled out 是<b>结局</b>——三者各归其位，别互串。</p>"
+  },
+  {
+    "title": "定位原文 · 背景句 + 目的状语句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "目的状语：To ensure fair wages for all employees",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Notably, tipping primarily benefits some of these workers, such as waiters, but not others, such as cooks and dishwashers.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">To ensure that all employees were paid fair wages, some restaurants banned tipping and increased prices, but this movement towards no-tipping services has largely fizzled out.</div><p>段[6]①交代背景：小费只惠及侍者、惠不及厨师洗碗工——分配不均；②给出初衷：让<b>所有员工</b>拿到<b>公平工资</b>。</p>"
+  },
+  {
+    "title": "同义替换锁定 D",
+    "cls": "good",
+    "tag": "替换",
+    "log": "all employees paid fair wages ⇒ income fairness",
+    "count": 0,
+    "body": "<p>all（人人有份）＋ fair wages（公平工资）→ <b>guarantee income fairness</b>：针对段[6]①“有人拿小费、有人拿不到”的不均，目的正是确保收入公平。</p>"
+  },
+  {
+    "title": "逐项分析 · A 促进消费",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 促进消费 ✗——无中生有",
+    "count": 1,
+    "body": "<p><b>排除。</b>全文无“促进消费”信息；段[1]② purchases 只是“付款”，构不成消费促进的动议。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 丰富收入来源",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B 丰富收入来源 ✗——禁小费是砍掉一项来源",
+    "count": 2,
+    "body": "<p><b>排除。</b>段[5]①小费本是侍者 vital 的收入来源；禁小费改发工资是<b>减少</b>该项来源——方向说反。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C 维持合理价格",
+    "cls": "bad",
+    "tag": "排除 C",
+    "log": "C 维持合理价格 ✗——手段是提价，且它是手段不是目的",
+    "count": 3,
+    "body": "<p><b>排除。</b>定位句写的是 increased prices（<b>提</b>价），选项说“维持合理价格”——连手段都说反了；况且价格只是手段，题目问目的。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · D 确保收入公平",
+    "cls": "good",
+    "tag": "复认 D",
+    "log": "D 确保收入公平 ✓——To ensure 状语的同义转述",
+    "count": 3,
+    "body": "<p><b>复认。</b>To ensure all employees were paid fair wages → guarantee income fairness；fizzled out 只是结局，不影响初衷。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": true
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 D",
+    "log": "答案 D——目的、手段、结局三清",
+    "count": 3,
+    "body": "<p>答案选 <b>D（guarantee income fairness）</b>。</p><p><b>记忆锚点</b>：目的题锁定 To ensure...；banned tipping + raised prices 是手段、fizzled out 是结局，都不能冒充目的；B 是反向干扰、C 把手段读反。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 24 题 · “无小费服务”运动的目的",
+  "subtitle": "Text 1 · 考点：细节理解（目的）· 目的／手段／结局三清",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“抓目的状语 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 D（guarantee income fairness）",
+    "html": "<b>D 确保收入公平</b>——To ensure that all employees were paid fair wages 的同义转述；提价是手段、fizzled out 是结局。<br>记忆锚点：目的／手段／结局三清；B 反向干扰、C 曲解手段。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 24 题 · “无小费服务”运动的目的</h2>
+<p>答案：<strong>D（guarantee income fairness 确保收入公平）</strong>。</p>
+<h3>第 0 步：先立机制——目的题抓“目的引导词”</h3>
+<p>题干 The movement toward no-tipping services was intended to ____ 问<strong>目的</strong>。段[6]②句首的 To ensure that all employees were paid fair wages 正是目的状语；其后的 banned tipping and increased prices 是<strong>手段</strong>，but 之后的 fizzled out（失败）是<strong>结局</strong>——目的、手段、结局三段信息各归其位，别互串。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Notably, tipping primarily benefits some of these workers, such as waiters, but not others, such as cooks and dishwashers.<br/>To ensure that all employees were paid fair wages, some restaurants banned tipping and increased prices, but this movement towards no-tipping services has largely fizzled out.</blockquote>
+<p>段[6]①交代背景：小费只惠及侍者、惠不及厨师与洗碗工——分配不均；段[6]②给出初衷：让<strong>所有员工</strong>都拿到<strong>公平的工资</strong>。</p>
+<h3>第 2 步：同义替换核对 D</h3>
+<p>all employees were paid fair wages（所有员工都获公平工资）→ <strong>guarantee income fairness（确保收入公平）</strong>。all（人人有份）对应 fairness；对照段[6]①“有人拿小费、有人拿不到”的不均格局，D 是目的状语的同义转述。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A promote consumption</td><td>促进消费</td><td>✗</td><td>全文无“促进消费”信息；段[1]② purchases 只是“付款”，无中生有</td></tr><tr><td>B enrich income sources</td><td>丰富收入来源</td><td>✗</td><td>段[5]①小费本是侍者重要收入来源——禁小费是<strong>减少</strong>该项来源，反向干扰</td></tr><tr><td>C maintain reasonable prices</td><td>维持合理价格</td><td>✗</td><td>定位句的手段是 increased prices（提价）——连手段都说反，且价格只是手段不是目的</td></tr><tr><td>D guarantee income fairness</td><td>确保收入公平</td><td>✓</td><td>To ensure all employees were paid fair wages 的同义转述</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C 为什么错？“提价”不也是价格动作吗</strong>：题干问“目的”，目的状语是 ensure fair wages；提价只是实现目的的<strong>手段</strong>。且“提高”与“维持合理”方向不同——选项连手段都读反了。</li><li><strong>fizzled out（失败）影响答题吗</strong>：不影响——失败说的是运动的<strong>结局</strong>，题目问的是<strong>初衷</strong>；to ensure 引导的目的不因后来失败而改变。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：看到 prices 就选，没分清“手段（提价）”与“目的（公平工资）”。</li><li><strong>误选 B</strong>：把“取消小费、改发工资”误读成“收入来源更多元”；原文是用固定工资<strong>替代</strong>小费。</li></ul>
+<blockquote>记忆锚点：目的题锁定 To ensure...；banned tipping + raised prices 是手段，fair wages for all employees 是目的；fizzled out 是结局，别拿结局冒充目的。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

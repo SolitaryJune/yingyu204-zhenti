@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·24 阅读 · 末段：为数字化世界做准备</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：末段题先抓段落主线', cls: 'key',
+    body: '<p>题干 According to the last paragraph, Flatiron students are <b>expected</b> to ____。末段题不逐词找替换，先抓<b>主线</b>：①句让学生与 IT 行业脱钩 → ②句培养码农不是唯一目的 → ③④句给真正目的（学会与计算机相处）。答案必须落在③④句这条正向主线上。</p>',
+    log: 'expected = 学校的培养意图' },
+  { title: '定位原文（末段③④句）', cls: 'key',
+    body: src('“<b>These kids are going to be surrounded by computers</b> – in their pockets, in their offices, in their homes – for the rest of their lives. <b>The younger they learn how computers think</b>, how to coax the machine into producing what they want... <b>the better</b>.”') +
+      '<p>③句：余生被计算机包围（口袋、办公室、家）——“数字化世界”的具象化；④句：越早学会让计算机为我所用 <b>the better</b>——越早越好 = 准备越充分。</p>',
+    log: '包围 + the better = 主线落点' },
+  { title: '合并概括', cls: 'good',
+    body: '<p>surrounded by computers（一辈子与计算机共处）→ <b>the digitalized world</b>；the younger... the better（越早越好）→ <b>become better prepared</b>。两并即正确项 C。</p>',
+    log: '数字化世界 + 准备更充分' },
+  { title: 'A bring forth innovative computer technologies', cls: 'bad',
+    body: '<p>④句是“学会让机器产出<b>我想要的</b>”——使用者视角的生活需求，属于“<b>会用</b>”，推不出“创造新技术”（会造）。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 把“会用”拔高成“会造”' },
+  { title: 'B stay longer in the information technology industry', cls: 'bad',
+    body: '<p>与①句 <b>might not go into IT at all</b>（可能根本不进 IT 行业）正面相撞——反向干扰项常来自把否定句抄一半或抄反。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 与①句方向相反' },
+  { title: 'C become better prepared for the digitalized world', cls: 'good',
+    body: '<p>the digitalized world 对应 surrounded by computers；better prepared 对应 the younger they learn..., the better。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 两句合并概括，命中' },
+  { title: 'D compete with a future army of programmers', cls: 'bad',
+    body: '<p>②句原词 a future army of coders 的主干是 <b>is not the sole purpose</b>（不是唯一目的）——引用它只能反着用；“竞争”更是凭空加戏。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 引用否定句的正半边' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（become better prepared for the digitalized world）</b>。记忆锚点：末段主线 = <b>not about IT jobs, but about life with computers</b>；surrounded by computers + the earlier... the better → C。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 24 · 末段：让学生更好地迎接数字化世界',
+  subtitle: '考点：段落主线概括 · 否定句反向干扰 · 选项 innovative tech / stay longer / digitalized world / compete',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开主线与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（become better prepared for the digitalized world）',
+    html: '记忆锚点：<b>surrounded by computers（数字化世界）+ the younger..., the better（准备更充分）→ C</b>。A 把“会用”拔高成“会造”；B 与 might not go into IT at all 正面相撞；D 把 is not the sole purpose 抄成正半边。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：末段总结题——"被计算机包围"的人生 = 为数字化世界做准备</h2>
+<p>答案：<strong>C（become better prepared for the digitalized world）</strong>。</p>
+<h3>第一步：先立机制——"According to the last paragraph"题按段落主线走</h3>
+<p>题干：According to the last paragraph, Flatiron students are expected to ____。末段题不逐词找替换，先抓<strong>段落主线</strong>：①句让学生与 IT 行业脱钩 → ②句说培养码农不是唯一目的 → ③④句给出真正目的（让孩子们学会与计算机相处）。答案必须落在③④句这条正向主线上，且"expected"对应的是学校的培养意图，不是个别人的出路。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>Indeed, the Flatiron students might not go into IT at all. But creating a future army of coders is not the sole purpose of the classes. <strong>These kids are going to be surrounded by computers – in their pockets, in their offices, in their homes – for the rest of their lives. The younger they learn how computers think, how to coax the machine into producing what they want... the better.</strong></blockquote>
+<p>③句：余生都被计算机包围（口袋里、办公室、家里）——这就是"数字化世界"的具象化；④句：越早学会让计算机为我所用 <strong>the better</strong>——越早越好 = 准备得越充分。两并：become better prepared for the digitalized world。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A bring forth innovative computer technologies</td><td>带来创新的计算机技术</td><td>④句是"学会让机器产出我想要的"，使用者视角，推不出"创造新技术"</td></tr><tr><td>B stay longer in the information technology industry</td><td>在 IT 行业从业更久</td><td>与①句 might not go into IT at all 正面相撞，反向干扰</td></tr><tr><td>C become better prepared for the digitalized world</td><td>为数字化世界准备更充分</td><td>surrounded by computers + the younger... the better 的合并概括</td></tr><tr><td>D compete with a future army of programmers</td><td>与未来程序员大军竞争</td><td>②句说培养码农大军<strong>不是</strong>目的，"竞争"更是凭空加戏</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：把"学会操作计算机"拔高成"发明新技术"——④句的产出（what they want）是生活需求层面的，属于"会用"，不是"会造"。</li><li><strong>选 B</strong>：只看①句半截——但①句说的是"可能根本不进 IT 行业"，方向与"从业更久"完全相反；反向干扰项常来自把否定句抄一半。</li><li><strong>选 D</strong>：被②句 a future army of coders 的原词勾引——注意②句主干是 <strong>is not the sole purpose</strong>，引用它只能反着用。</li></ul>
+<blockquote>记忆锚点：末段主线 = <strong>it's not about IT jobs, it's about life with computers</strong>；surrounded by computers（数字化世界）+ the earlier... the better（准备更充分）→ C。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

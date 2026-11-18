@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 13 空 · whether I need to __（动词：近义复现）：A share / B adjust / C confirm / D prepare</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 13 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 13 在「whether I need to __（动词：近义复现）」位；考点：上下文语义 + 动词辨析（adjust ↔ altered 近义复现）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That tells me whether I need to <b>__13__</b> my training program.</div><p>空 13 是 whether I need to __ my training program 的动词：那个发现（That）告诉我是否需要 __ 训练计划。</p>"
+ },
+ {
+  "title": "立机制 · 称重服务训练决策：调整而非确认",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：称重服务训练决策：调整而非确认",
+  "body": "<p>That 回指上句“发现并解释明显的体重变化”。称重是手段，服务的是训练决策——第二段已有先例：作者曾因盯数字而 altered my training program（乱改）。理性版本应该是：体重变化说明问题后，决定“是否需要调整训练计划”。空格与第二段的 altered 近义复现 → adjust。</p>"
+ },
+ {
+  "title": "找证据 · altered（乱改）→ adjust（理性调）近义复现",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：altered（乱改）→ adjust（理性调）近义复现",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">thinking only of lowering the number on the scale, I altered my training program.</div><p>第二段的负面案例：盯数字 → altered（乱改）训练计划。本段同位置换上理性动作：根据体重变化决定“是否调整”。altered ↔ adjust 近义复现直接给出答案。</p>"
+ },
+ {
+  "title": "逐项分析 · A share（分享）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A share（分享）✗ 排除",
+  "body": "<p><b>排除。</b>语境是“我”与自己的训练计划，没有交流分享的对象。</p>"
+ },
+ {
+  "title": "逐项分析 · B adjust（调整）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B adjust（调整）✓ 当选",
+  "body": "<p><b>当选。</b>adjust my training program = 调整训练计划：与第二段 altered 近义复现，且符合“依据体重变化做决策”的文意。</p>"
+ },
+ {
+  "title": "逐项分析 · C confirm（证实；确认）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C confirm（证实；确认）✗ 排除",
+  "body": "<p><b>排除。</b>confirm 用于“证实某事为真/确认安排”（如 confirm the date）；文中的问题不是“计划要不要确认”，而是“计划要不要调整”。</p>"
+ },
+ {
+  "title": "逐项分析 · D prepare（准备）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D prepare（准备）✗ 排除",
+  "body": "<p><b>排除。</b>“是否需要准备训练计划”暗示考虑的是“练不练”，而文中纠结的是“怎么调”，有悖文意。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 13 填 adjust（调整；适应）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That tells me whether I need to <b>adjust</b> my training program.</div><p>这告诉我是否需要调整训练计划。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "log": "答案 B（adjust 调整；适应）——见结论卡",
+  "body": "<p>答案选 <b>B（adjust 调整；适应）</b>。</p><p><b>记忆锚点</b>：altered（第二段，盲改）→ adjust（第四段，理性调）：同义复现直接送分；称重是“体检”，动作是“调计划”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>C（confirm）</b>：“确认计划”貌似通顺；confirm 管“真不真/定没定”，管不了“要不要调”。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 13 空 · whether I need to __（动词：近义复现）：A share / B adjust / C confirm / D prepare",
+  subtitle: "考点：上下文语义 + 动词辨析（adjust ↔ altered 近义复现） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（adjust 调整；适应）", "html": "<b>B（adjust 调整；适应）</b>。<br>记忆锚点：altered（第二段，盲改）→ adjust（第四段，理性调）：同义复现直接送分；称重是“体检”，动作是“调计划”。<br>最易误选：<b>C（confirm）</b>——“确认计划”貌似通顺；confirm 管“真不真/定没定”，管不了“要不要调”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 13 空 · whether I need to __（动词：近义复现）</h2>
+<p>答案：<strong>B（adjust 调整；适应）</strong>。</p>
+<h3>第 0 步：先立机制——称重服务训练决策：调整而非确认</h3>
+<p>That 回指上句“发现并解释明显的体重变化”。称重是手段，服务的是训练决策——第二段已有先例：作者曾因盯数字而 altered my training program（乱改）。理性版本应该是：体重变化说明问题后，决定“是否需要调整训练计划”。空格与第二段的 altered 近义复现 → adjust。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>That tells me whether I need to <strong>__13__</strong> my training program.</blockquote>
+<p>空 13 是 whether I need to __ my training program 的动词：那个发现（That）告诉我是否需要 __ 训练计划。</p>
+<h3>第 2 步：找证据——altered（乱改）→ adjust（理性调）近义复现</h3>
+<blockquote>thinking only of lowering the number on the scale, I altered my training program.</blockquote>
+<p>第二段的负面案例：盯数字 → altered（乱改）训练计划。本段同位置换上理性动作：根据体重变化决定“是否调整”。altered ↔ adjust 近义复现直接给出答案。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A share</td><td>分享</td><td>✗ 排除</td><td>语境是“我”与自己的训练计划，没有交流分享的对象。</td></tr><tr><td>B adjust</td><td>调整</td><td>✓ 当选</td><td>adjust my training program = 调整训练计划：与第二段 altered 近义复现，且符合“依据体重变化做决策”的文意。</td></tr><tr><td>C confirm</td><td>证实；确认</td><td>✗ 排除</td><td>confirm 用于“证实某事为真/确认安排”（如 confirm the date）；文中的问题不是“计划要不要确认”，而是“计划要不要调整”。</td></tr><tr><td>D prepare</td><td>准备</td><td>✗ 排除</td><td>“是否需要准备训练计划”暗示考虑的是“练不练”，而文中纠结的是“怎么调”，有悖文意。</td></tr></tbody></table>
+<p>代入后的完整句义：That tells me whether I need to adjust my training program.（这告诉我是否需要调整训练计划。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（confirm）</strong>：“确认计划”貌似通顺；confirm 管“真不真/定没定”，管不了“要不要调”。</li></ul>
+<blockquote>记忆锚点：altered（第二段，盲改）→ adjust（第四段，理性调）：同义复现直接送分；称重是“体检”，动作是“调计划”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

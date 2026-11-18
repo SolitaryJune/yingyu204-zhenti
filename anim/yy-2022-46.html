@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022-46 翻译长难句拆解：先抑后扬定调 → 省略方式状语 → 排比主语 + 介词 which 定从</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 基于算法/过程类模板：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 六个句子面板：成分块与重组译文 */
+var SENT = [
+  { label: '句Ⅰ① Although we try our best, sometimes our paintings rarely turn out as originally planned.',
+    chunks: [
+      { t: 'Although we try our best', k: 'cong', n: 'Although 让步：不译「当」→「虽然……但……」；try one’s best 固定搭配「竭尽所能」' },
+      { t: 'sometimes our paintings rarely turn out', k: 'zhu', n: '主干：paintings 复数指「画作」；turn out「结果变成」；rarely 频次几乎为零（达预期之难），sometimes 几率小但存在（难以规避）' },
+      { t: 'as originally planned', k: 'cong', n: 'as 方式状语从句，省略主语和 be（= as they were originally planned）→ 补全后整合译「符合最初的计划」' }
+    ],
+    trans: '句Ⅰ①译文：虽然我们竭尽所能，但有时我们的画作很少符合最初的计划。' },
+  { label: '句Ⅰ② Changes in the light, the limitations of your painting materials, and the lack of experience and technique mean that what you start out trying to achieve may not come to life the way that you expected.',
+    chunks: [
+      { t: 'Changes in the light, the limitations of your painting materials, and the lack of experience and technique', k: 'zhu', n: '主语：三个并列名词短语（A, B and C 排比）→ 译成相同结构保留排比；并列项多 = 影响因素多、绘画难' },
+      { t: 'mean that', k: 'zhu', n: 'mean 僻义：非「意思是」，取引申义「意味着/导致」，串起原因与结果' },
+      { t: 'what you start out trying to achieve', k: 'cong', n: 'what 主语从句：start out「最初想要」强调预期；achieve「（通过努力）实现」→「起初想要达到的效果」' },
+      { t: 'may not come to life the way that you expected', k: 'zhu', n: 'come to life「变成现实」；the way that you expected 方式状语（= as you expected）→「如你所愿地呈现」；may not「未必」留余地' }
+    ],
+    trans: '句Ⅰ②译文：光线的改变、绘画材料的限制以及经验和技巧的不足，都意味着起初想要达到的效果未必能够如你所愿地呈现出来。' },
+  { label: '句Ⅱ① Although this can be frustrating and disappointing, it turns out that this can actually be good for you.',
+    chunks: [
+      { t: 'Although this can be frustrating and disappointing', k: 'cong', n: 'this 回指「画作不达预期」；can 表事物特点「难免」，不是「可能」；frustrating + disappointing 近义并列「沮丧失望」' },
+      { t: 'it turns out that', k: 'zhu', n: 'it turns out that「结果证明/原来」——传递发展与预期不一致之意，呼应 planned / expected' },
+      { t: 'this can actually be good for you', k: 'zhu', n: 'actually「实际上」与 Although 对峙：让步退一步、转折进一步，语义重心落在益处' }
+    ],
+    trans: '句Ⅱ①译文：尽管这难免让人沮丧失望，但结果其实可能对你有益。' },
+  { label: '句Ⅱ② Unexpected results have two benefits: you pretty quickly learn to deal with disappointment, and realise that when one door closes, another opens.',
+    chunks: [
+      { t: 'Unexpected results have two benefits:', k: 'zhu', n: '冒号总分：Unexpected results 指代上段各种意外；two benefits 呼应上句 be good for you，冒号后分述' },
+      { t: 'you pretty quickly learn to deal with disappointment', k: 'zhu', n: '益处一：pretty quickly「很快」点明可快速获取；deal with「处理」' },
+      { t: 'and realise that when one door closes, another opens', k: 'cong', n: 'and 连接并列谓语（与 learn 并列，共享主语 you）；谚语式比喻直存形象「一扇门关上，另一扇门打开」' }
+    ],
+    trans: '句Ⅱ②译文：意料之外的结果有两个好处：你会很快学会处理失望情绪，并意识到当一扇门关上时，另一扇门就会打开。' },
+  { label: '句Ⅱ③ You also quickly learn to adapt and come up with creative solutions to the problems the painting presents, and thinking outside the box will become your second nature.',
+    chunks: [
+      { t: 'You also quickly learn to adapt and come up with creative solutions', k: 'zhu', n: '益处二：also 承接益处一；adapt「适应」与 come up with「想出」并列不定式' },
+      { t: 'to the problems the painting presents', k: 'cong', n: 'the problems (that) the painting presents：省略关系词的定语从句，短，前置「画作中出现的问题」——漏看 that 会把 presents 误当第二个谓语' },
+      { t: 'and thinking outside the box will become your second nature', k: 'zhu', n: '动名词短语作主语；think outside the box 习语「跳出常规思考」；second nature 固定搭配「第二天性」' }
+    ],
+    trans: '句Ⅱ③译文：你也会很快学会适应，想出创造性的解决方案，解决画作中出现的问题，跳出常规进行思考会成为你的第二天性。' },
+  { label: '句Ⅲ In fact, creative problem-solving skills are incredibly useful in daily life, with which you’re more likely to be able to find a solution when a problem arises.',
+    chunks: [
+      { t: 'In fact, creative problem-solving skills are incredibly useful in daily life', k: 'zhu', n: 'In fact「事实上」承上深入：能力从绘画延伸到日常生活；incredibly「极其」' },
+      { t: 'with which', k: 'cong', n: '介词 + which 非限制性定语从句：with + skills「凭借这种技能」→ 拆译独立句「有了这种技能」' },
+      { t: 'you’re more likely to be able to find a solution when a problem arises', k: 'zhu', n: 'more likely to be able to 双重弱化取「更有可能」；when a problem arises「发生问题时」——场景扩展到一般问题，全段升华落点' }
+    ],
+    trans: '句Ⅲ译文：事实上，创造性解决问题的技能在日常生活中极为有用，有了这种技能，发生问题时你就更有可能找到解决办法。' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1], [0, 2]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 1]], trans: [] },
+  { focus: [1], hot: [[1, 2], [1, 3]], trans: [1] },
+  { focus: [2], hot: [[2, 0], [2, 1], [2, 2]], trans: [2] },
+  { focus: [3], hot: [[3, 0], [3, 1]], trans: [] },
+  { focus: [3], hot: [[3, 2]], trans: [3] },
+  { focus: [4], hot: [[4, 0], [4, 1]], trans: [] },
+  { focus: [4], hot: [[4, 2]], trans: [4] },
+  { focus: [5], hot: [[5, 0], [5, 1], [5, 2]], trans: [5] },
+  { hot: [[0, 2], [1, 3], [2, 1], [3, 2], [4, 1], [5, 1]], trans: [0, 1, 2, 3, 4, 5] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2022-46 翻译长难句拆解：先抑后扬定调 → 省略方式状语 → 排比主语 + 介词 which 定从',
+  subtitle: '考点：英译汉 · 方法：拆结构 → 定词义 → 组语序（绿=主干 · 琥珀=修饰/插入语 · 蓝=从句）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示六个句子的拆解与重组：先立「不达预期 → 意外有益 → 延伸到生活」语义链，再逐句拆。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读定调：三段六句一条链——Ⅰ①②铺陈问题（rarely turn out as originally planned），Ⅱ①转折立论（it turns out / actually），Ⅱ②③分述两大益处，Ⅲ延伸升华到日常生活。翻译三步：拆 → 定 → 组', count: 0 },
+    { cls: 'key', tag: '句Ⅰ①让步+省略', log: 'Although 译「虽然……但……」；try our best「竭尽所能」；as originally planned 是省略主语和 be 的方式状语从句，补全后整合「符合最初的计划」；rarely 重频次几乎为零、sometimes 重几率小但存在', count: 1 },
+    { cls: 'key', tag: '句Ⅰ②排比主语', log: '三个并列名词短语作主语 → 译成相同结构「……的改变、……的限制、……的不足」保留排比；mean 取僻义「意味着/导致」而非「意思是」', count: 1 },
+    { cls: 'ok', tag: '句Ⅰ②定音', log: 'what 主语从句：start out「最初想要」+ achieve「实现」→「起初想要达到的效果」；come to life「变成现实」；the way that you expected 方式状语 →「如你所愿地呈现」', count: 2 },
+    { cls: 'key', tag: '句Ⅱ①can 的语气', log: '两个 can 表事物特点「难免/能够」而非「可能」；frustrating and disappointing 合译「沮丧失望」；it turns out that「结果证明」呼应 planned / expected，actually 把重心推向积极面', count: 3 },
+    { cls: 'key', tag: '句Ⅱ②冒号总分', log: 'Unexpected results 指代上段意外，two benefits 总述冒号后分述；pretty quickly「很快」；learn to deal with... 与 realise... 并列谓语共享主语 you', count: 3 },
+    { cls: 'ok', tag: '句Ⅱ②谚语直存', log: 'when one door closes, another opens 谚语式比喻形象贴切，直存形象「一扇门关上，另一扇门就会打开」，不必意译', count: 4 },
+    { cls: 'key', tag: '句Ⅱ③省略 that 定从', log: 'the problems (that) the painting presents 省略关系词、从句短 → 前置「画作中出现的问题」；漏看 that 会把 presents 误当第二个谓语；learn to adapt and come up with 并列不定式', count: 4 },
+    { cls: 'ok', tag: '句Ⅱ③习语定音', log: 'think outside the box 习语「跳出常规思考」；second nature 固定搭配「第二天性」——创造性思维固化为本能；动名词短语作主语', count: 5 },
+    { cls: 'ok', tag: '句Ⅲ介词定从拆译', log: 'with which = with skills「凭借这种技能」→ 非限制性定从拆译独立句「有了这种技能」；In fact 承上深入；more likely to be able to 取「更有可能」；场景从画作扩展到一般问题', count: 6 },
+    { cls: 'done', tag: '全篇落定', log: '六句重组完成：不达预期（三重原因）→ 意外有益（处理失望 + 创造性解题）→ 延伸到日常生活', count: 6, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组 三步落定全篇',
+    html: '<p><b>参考译文（答案口径）</b>：虽然我们竭尽所能，但有时我们的画作很少符合最初的计划。光线的改变、绘画材料的限制以及经验和技巧的不足，都意味着起初想要达到的效果未必能够如你所愿地呈现出来。尽管这难免让人沮丧失望，但结果其实可能对你有益。意料之外的结果有两个好处：你会很快学会处理失望情绪，并意识到当一扇门关上时，另一扇门就会打开。你也会很快学会适应，想出创造性的解决方案，解决画作中出现的问题，跳出常规进行思考会成为你的第二天性。事实上，创造性解决问题的技能在日常生活中极为有用，有了这种技能，发生问题时你就更有可能找到解决办法。</p>' +
+      '<p>记忆锚点：<b>问题（rarely turn out as originally planned）→ 翻案（it turns out / actually）先抑后扬</b>；as 方式状语省略要补全再整合；三并列主语译成排比；can 表「难免」非「可能」；省略 that 定从短则前置；with which 定从拆译「有了这种技能」；think outside the box = 跳出常规、second nature = 第二天性——词义全靠语境定音。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 翻译——「画作不达预期反而有益」链上的省略方式状语、排比主语与介词 + which 定从</h2>
+<p>答案（参考译文口径）：<strong>虽然我们竭尽所能，但有时我们的画作很少符合最初的计划。光线的改变、绘画材料的限制以及经验和技巧的不足，都意味着起初想要达到的效果未必能够如你所愿地呈现出来。尽管这难免让人沮丧失望，但结果其实可能对你有益。意料之外的结果有两个好处：你会很快学会处理失望情绪，并意识到当一扇门关上时，另一扇门就会打开。你也会很快学会适应，想出创造性的解决方案，解决画作中出现的问题，跳出常规进行思考会成为你的第二天性。事实上，创造性解决问题的技能在日常生活中极为有用，有了这种技能，发生问题时你就更有可能找到解决办法。</strong></p>
+<h3>第 0 步：先立机制——三段六句是一条「不达预期 → 反有两大益处 → 延伸到生活」的语义链</h3>
+<p>翻译不是逐词替换，每句都走同一套流程：<strong>拆结构 → 定词义 → 组语序</strong>；而「定词义」离不开语篇——一个词译成什么，由它在这条链上的位置决定。</p>
+<table><thead><tr><th>层次</th><th>句子</th><th>干什么</th><th>翻译落点</th></tr></thead><tbody><tr><td>问题</td><td>Ⅰ①②</td><td>画作常不达预期，三重原因</td><td>Although 让步；省略方式状语；三并列主语排比；mean 僻义</td></tr><tr><td>转折立论</td><td>Ⅱ①</td><td>沮丧之外，其实有益</td><td>can 表「难免」非「可能」；it turns out that</td></tr><tr><td>益处分述</td><td>Ⅱ②③</td><td>好处一学会处理失望；好处二学会创造性解题</td><td>冒号总分；并列谓语；省略 that 定从前置</td></tr><tr><td>延伸升华</td><td>Ⅲ</td><td>创造性解题能力日常生活中极有用</td><td>with which 介词 + which 定从拆译</td></tr></tbody></table>
+<p>全文题眼是 Ⅰ①② 的 <code>rarely turn out as originally planned</code> 与 Ⅱ① 的 <code>it turns out that this can actually be good for you</code> 的对峙：先承认「事与愿违」，再翻出「意外有益」。理解了这条「先抑后扬」的链，can 为什么译「难免」、think outside the box 为什么译「跳出常规」都不是猜的，而是从语境推出来的。</p>
+<h3>第 1 步：句Ⅰ①——Although 让步里藏着一个省略的方式状语从句</h3>
+<ul><li>句Ⅰ① <code>Although we try our best, sometimes our paintings rarely turn out as originally planned.</code>：<strong>Although 让步</strong>不译「当……时」，译「虽然……但……」；try one's best 固定搭配，译「竭尽所能」。</li><li><strong>as originally planned 的省略</strong>：as 引导方式状语从句，省略了与主句相同的主语和 be 动词（= as they were originally planned）。结合主语 paintings（复数指「画作」而非「绘画动作」），turn out「结果变成」，指向「画作完成后的最终样子」，as originally planned 指向「动笔前构思的样子」——两者同级比较，整合译「符合最初的计划」，硬译「如同最初被计划地」反而不通。</li><li><strong>rarely 与 sometimes 的频度分工</strong>：rarely 着重频次低到几乎为零，说明画作达预期之难；sometimes 着重几率虽小但存在，说明这种情况难以规避——两个副词各管一层，不能互相替换。</li></ul>
+<h3>第 2 步：句Ⅰ②——三并列主语排比 + mean 僻义 + what 从句 + the way 方式状语</h3>
+<ul><li>句Ⅰ② <code>Changes in the light, the limitations of your painting materials, and the lack of experience and technique mean that what you start out trying to achieve may not come to life the way that you expected.</code>：四个机关一次排清，逐一拆——</li><li><strong>机关一 三并列主语</strong>：Changes... / the limitations... / the lack... 三个名词短语并列作主语，翻译时译成相同结构「……的改变、……的限制、……的不足」，保留原文排比；并列项多本身就在说明影响因素之多、绘画之难。</li><li><strong>机关二 mean 僻义</strong>：此处非本义「表示……的意思」，取引申义「产生……结果；意味着」，串联「三重原因」与「事与愿违」的因果。</li><li><strong>机关三 what 主语从句</strong>：what you start out trying to achieve 作 mean 后宾语从句的主语；start out「最初想要；起先打算」强调预期，achieve「（通过努力）实现」→「起初想要达到的效果」。</li><li><strong>机关四 the way that you expected</strong>：方式状语（= as you expected），与 come to life（变成现实）连用 →「如你所愿地呈现」；may not 给措辞留余地「未必能够」。</li></ul>
+<h3>第 3 步：句Ⅱ①——can 不表可能性，it turns out 表「与预期相反的事实」</h3>
+<ul><li>句Ⅱ① <code>Although this can be frustrating and disappointing, it turns out that this can actually be good for you.</code>：两个 can 都表事物的特点「能够；难免」，不是表示可能性的「可能」——「这难免让人沮丧失望」。frustrating 与 disappointing 近义并列，合译「沮丧失望」。</li><li><strong>it turns out that</strong>「结果证明；原来是」，传递「发展结果与最初预期不一致」之意，与上文的 planned / expected 遥相呼应；actually「实际上」进一步强化：让步承认负面情绪（退），转折落在益处（进），语义重心在积极一面。</li></ul>
+<h3>第 4 步：句Ⅱ②——冒号总分 + and 隐藏的并列谓语 + 谚语直存形象</h3>
+<ul><li>句Ⅱ② <code>Unexpected results have two benefits: you pretty quickly learn to deal with disappointment, and realise that when one door closes, another opens.</code>：<strong>冒号总起</strong>——Unexpected results 指代上段绘画中的各种意外，two benefits 总述，冒号后分述；two benefits 又呼应上句 be good for you。</li><li><strong>并列谓语</strong>：learn to deal with... 与 realise... 由 and 连接，共享主语 you——「学会处理失望情绪，并意识到……」；and 暗藏先后：先收获情绪处理能力，再获得观念转变。</li><li><strong>谚语式比喻</strong>：when one door closes, another opens 形象贴切，直存形象译「当一扇门关上时，另一扇门就会打开」，不必意译成「此处不留人自有留人处」；pretty quickly「很快」点明这一益处可快速获取。</li></ul>
+<h3>第 5 步：句Ⅱ③——省略 that 的定语从句前置 + 习语定音</h3>
+<ul><li>句Ⅱ③ <code>You also quickly learn to adapt and come up with creative solutions to the problems the painting presents, and thinking outside the box will become your second nature.</code>：<strong>the problems (that) the painting presents</strong> 是省略关系词的定语从句，从句短、信息密，前置成偏正结构「画作中出现的问题」——漏看省略的 that，就会把 presents 误当成第二个谓语。learn to adapt and come up with... 并列不定式：适应 + 想出方案。</li><li><strong>两处定音</strong>：think outside the box 是习语，本义「跳出盒子思考」，取「跳出常规进行思考」；second nature 固定搭配「第二天性」，指自然而然、无需刻意就会做的事——创造性思维固化为本能。动名词短语 thinking outside the box 作 will become 的主语。</li></ul>
+<h3>第 6 步：句Ⅲ——with which 介词 + which 定语从句拆译成独立句</h3>
+<ul><li>句Ⅲ <code>In fact, creative problem-solving skills are incredibly useful in daily life, with which you're more likely to be able to find a solution when a problem arises.</code>：<strong>with which = with creative problem-solving skills</strong>——非限制性定语从句中 which 指代主句的 skills，介词 with 表「凭借」。塞进定语前译会头重脚轻，<strong>拆译成独立句</strong>「有了这种技能，……」，顺势接回主语 you。</li><li><strong>语气与场景</strong>：In fact「事实上」承上深入，把能力从绘画延伸到生活；incredibly useful「极为有用」；more likely to be able to 双重弱化不译全「更有可能能够」，取「更有可能」；when a problem arises「发生问题时」——场景从画作扩展到一般问题，正是全段升华的落点。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>as originally planned 硬译「如同最初计划地」</strong>：没补全省略成分；机制：as 方式状语从句省略主语和 be，补全后整合「符合最初的计划」。</li><li><strong>mean 译「意思是」</strong>：取了本义；主语是三重客观因素，mean 在此是「意味着/导致」的引申义。</li><li><strong>can 译「可能」</strong>：两个 can 表事物特点「难免/能够」；译「这可能令人沮丧」就丢了「这种情形必然会带来负面情绪」的必然性。</li><li><strong>the problems the painting presents 漏看省略 that</strong>：把 presents 当成并列谓语，整句断成两截；机制：名词后紧跟「名词 + 动词」且缺关系词时是定语从句，前置「画作中出现的问题」。</li><li><strong>think outside the box 直译「在盒子外面思考」</strong>：习语没走语境定音，取「跳出常规（思维定式）思考」。</li><li><strong>second nature 译「第二个自然」</strong>：固定搭配「第二天性；自然而然的习惯」。</li><li><strong>with which 硬塞进定语</strong>：「凭着它在日常生活中极为有用的创造性解题技能」层层叠叠；拆译独立句「有了这种技能」才顺畅。</li><li><strong>rarely 与 sometimes 混为一谈</strong>：前者重「频次几乎为零」，后者重「几率虽小但存在」，分工不同不可互换。</li></ul>
+<blockquote>记忆锚点：拆-定-组三步走；<strong>问题（rarely turn out as originally planned）→ 翻案（it turns out / actually）</strong>先抑后扬；as 方式状语省略要补全再整合；三并列主语译成排比；can 表「难免」非「可能」；省略 that 定从短则前置；with which 定从拆译「有了这种技能」；think outside the box = 跳出常规、second nature = 第二天性——词义全靠语境定音。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

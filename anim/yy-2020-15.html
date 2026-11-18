@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-15 · 2020 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 15 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 15 空所在句，考点：上下文语义 + 习语（lose/keep your cool）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you consistently lose your __15__ with your kids, then you are modeling a lack of emotional control for your kids.</div><p>If...then 条件句：then 后是\"结果\"，if 从句必须是它的\"原因\"；空格名词受 lose your ____ 结构约束。</p>"
+ },
+ {
+  "title": "找证据 · then 端的结果反推 if 端的原因",
+  "cls": "key",
+  "tag": "证据",
+  "log": "then 端\"缺乏情绪控制的范例\"反推 if 端：失去冷静——习语 lose your cool",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you consistently lose your __15__ with your kids, then you are modeling a lack of emotional control for your kids.</div><p>If...then：结果 = \"树立缺乏情绪控制的范例\" → 原因必是\"失去情绪控制\"本身 = lose your cool（沉不住气）。</p>"
+ },
+ {
+  "title": "逐项分析 · A time（时间；时代；次数）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A time（时间；时代；次数） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"相处时间不足\"偏离主题：文章讲的是\"耐心难保持\"，不是陪伴时间够不够。</p>"
+ },
+ {
+  "title": "逐项分析 · B bond（（情感）纽带；结合）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B bond（（情感）纽带；结合） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>颠倒因果：bond（纽带）呼应上段的 relationship，但\"亲子关系受损\"是发怒的结果，不能反过来当\"树立坏范例\"的原因。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被上段末的 relationship 带跑，忽略 If...then 的因果方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C race（比赛，竞争；种族）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C race（比赛，竞争；种族） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>凭空臆想\"父母与孩子的竞赛\"：输赢与情绪自控力无关，文中毫无竞赛语境。</p>"
+ },
+ {
+  "title": "逐项分析 · D cool（冷静，镇定）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D cool（冷静，镇定） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>lose your cool = 沉不住气：正是\"缺乏情绪控制\"的原因端，与全文\"失去耐心\"话题同向。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（cool 冷静，镇定）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如果你总是对孩子沉不住气（失去冷静），那么你就是在为孩子树立一个缺乏情绪控制力的范例。</b></p><p>答案选 <b>D（cool 冷静，镇定）</b>。</p><p><b>记忆锚点</b>：If A then B → A 是 B 的原因；lose/keep your cool 沉不住气/保持冷静；emotional control ↔ cool ↔ patient。</p><p style=\"color:#b91c1c\">最易误选：<b>B（bond）</b>——被上段末 relationship 的呼应吸引，把\"结果\"误放进\"原因\"的位置。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 15 空 · If...then 因果链对齐——习语 lose your cool",
+  subtitle: "考点：上下文语义 + 习语（lose/keep your cool） · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（cool）",
+ "html": "<b>D cool（冷静，镇定）</b>。<br>完整句义：如果你总是对孩子沉不住气（失去冷静），那么你就是在为孩子树立一个缺乏情绪控制力的范例。<br>记忆锚点：If A then B → A 是 B 的原因；lose/keep your cool 沉不住气/保持冷静；emotional control ↔ cool ↔ patient。<br>最易误选：<b>B（bond）</b>——被上段末 relationship 的呼应吸引，把\"结果\"误放进\"原因\"的位置。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 15 空 · If...then 因果链对齐——习语 lose your cool</h2>
+<p>答案：<strong>D（cool 冷静，镇定）</strong>。</p>
+<h3>第 0 步：先立机制——因果链两端必须对齐：原因接结果</h3>
+<p>条件句的读法：先把 then 后面的"结果"看清——you are modeling a lack of emotional control（你在给孩子树立"缺乏情绪控制"的范例）。既然结果是"缺乏情绪控制"，if 从句就必须正是"失去情绪控制"这件事本身：条件与结果才能首尾咬合。英语里"失去冷静"的习语是 lose your cool（沉不住气、火冒三丈），反面 keep your cool（保持冷静）——空格正是 cool。再把全文话题收进来：文章通篇讲"对孩子失去耐心"，cool（冷静）与 patient（耐心）语义高度交集，方向一致。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>If you consistently lose your __15__ with your kids, then you are modeling a lack of emotional control for your kids.</blockquote>
+<p>If...then 条件句：then 后是"结果"，if 从句必须是它的"原因"；空格名词受 lose your ____ 结构约束。</p>
+<h3>第 2 步：找证据——then 端的结果反推 if 端的原因</h3>
+<ul><li><strong>结果端（then）</strong>：modeling a lack of emotional control（缺乏情绪控制的范例）；</li><li><strong>原因端（if）</strong>：lose your ____（失去____）——必须是"失去情绪控制"本身；</li><li><strong>习语</strong>：lose your cool = 沉不住气；keep your cool = 保持冷静；</li><li><strong>话题</strong>：全文"失去耐心"——cool 与 patient 语义交集。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A time</td><td>时间；时代；次数</td><td>✗ 排除</td><td>"相处时间不足"偏离主题：文章讲的是"耐心难保持"，不是陪伴时间够不够。</td></tr><tr><td>B bond</td><td>（情感）纽带；结合</td><td>✗ 排除</td><td>颠倒因果：bond（纽带）呼应上段的 relationship，但"亲子关系受损"是发怒的结果，不能反过来当"树立坏范例"的原因。（典型误解：被上段末的 relationship 带跑，忽略 If...then 的因果方向。）</td></tr><tr><td>C race</td><td>比赛，竞争；种族</td><td>✗ 排除</td><td>凭空臆想"父母与孩子的竞赛"：输赢与情绪自控力无关，文中毫无竞赛语境。</td></tr><tr><td>D cool</td><td>冷静，镇定</td><td>✓ 当选</td><td>lose your cool = 沉不住气：正是"缺乏情绪控制"的原因端，与全文"失去耐心"话题同向。</td></tr></tbody></table>
+<p>代入后的完整句义：如果你总是对孩子沉不住气（失去冷静），那么你就是在为孩子树立一个缺乏情绪控制力的范例。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>bond 不正好呼应上段的 relationship 吗？为什么反而错？</strong>：正因为它像复现才更迷惑：上段说的是发怒"损害 relationship"——relationship 受损是"结果"；而条件句 if 端需要的是"原因"（失去冷静）。把结果放进原因位，因果链就断了。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（bond）</strong>：被上段末 relationship 的呼应吸引，把"结果"误放进"原因"的位置。</li></ul>
+<blockquote>记忆锚点：If A then B → A 是 B 的原因；lose/keep your cool 沉不住气/保持冷静；emotional control ↔ cool ↔ patient。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

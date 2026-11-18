@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-17 · 2021 完形第 17 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：空 17 坐在 but 转折句的正中央",
+  "body": "<div class='qq'><b>原文：</b>Choose one criterion and you may well __16__ others. Everything can be done faster and made cheaper, but there is a __17__.</div><p>空格紧跟转折词 <b>but</b>：前半句刚说完「一切都能做得更快、更便宜」——这是<b>收益面</b>；but 一转，空格必须给出<b>收益的反面</b>，且要能被 “there is a __” 以可数名词承接。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "找证据：下句已把「它」摊开说明",
+  "body": "<div class='qq'><b>原文：</b>Setting targets can and does have unforeseen negative consequences.</div><p>紧随其后一句直接点破：设定目标「确实会带来无法预见的<b>负面后果</b>」。空格词与这句是<b>概括 → 展开</b>的上下义复现关系——要找的就是「负面后果」的上位概括词。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：task（任务）——与转折脱节",
+  "body": "<p><b>A · task（任务）</b> <span class='bad-dot'>✗</span></p><p>“there is a task” 字面能读，但与转折逻辑完全脱节——“更快更便宜，但有一个任务”不成话；task 也无法被下句 negative consequences 具体化。</p><p style='color:#b91c1c'>⚠ 典型误解：只盯空格前的名词搭配，没读 but 划出的语义对立。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：secret（秘密）——文中无「隐情」",
+  "body": "<p><b>B · secret（秘密）</b> <span class='bad-dot'>✗</span></p><p>secret 暗示「藏而不露的隐情」，可下句把负面后果明明白白摆在台面上，毫无「保密」可言。</p><p style='color:#b91c1c'>⚠ 典型误解：被「发现问题背后另有隐情」式的直觉带偏。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：product（产品）——语境迁移错位",
+  "body": "<p><b>C · product（产品）</b> <span class='bad-dot'>✗</span></p><p>made cheaper 容易让人联想「产品制造」，但「但有一个产品」与转折无涉，也接不上「负面后果」句——把前半句的语境错误迁移到空格处。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：cost（代价）——收益的反面",
+  "body": "<p><b>D · cost（代价）</b> <span class='ok-dot'>✓</span></p><p>「一切都能做得更快、更便宜，<b>但这是有代价的</b>」——cost 与 but 前的「收益」构成标准对立，又被下句 negative consequences 具体化：只按单一标准考核，牺牲的就是其余维度。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D（cost）",
+  "body": "<p><b>答案 D（cost 代价）</b>。</p><p>完整句义：一切都可以做得更快、更便宜，但这是有代价的。</p><p>记忆锚点：but 之后填「反差」——收益（faster / cheaper）对代价（cost）；cost = negative consequences 的概括词。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 B（secret）——「另有隐情」的直觉很顺口，但文中早已把后果挑明。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-17 · 完形第 17 空：「更快、更便宜」的代价",
+  subtitle: "考点：句内转折（but）逻辑 + 上下义复现",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 找证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（cost）",
+ "html": "<b>D cost（代价）</b>：一切都能更快更便宜，但<b>有代价</b>。<br>记忆锚点：but 之后填「反差」——收益对代价；cost = negative consequences 的概括词。<br>最易误选：B（secret）——「隐情」直觉被下句否定：后果早已挑明。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 17 空——「更快、更便宜」的代价</h2>
+<p>答案：<strong>D</strong>（cost）。</p>
+<h3>第 0 步：先立机制——but 划出的「收益 vs 代价」对立</h3>
+<p>空格坐在一个转折句的正中央：Everything can be done faster and made cheaper, <strong>but</strong> there is a __17__。转折词 but 前后必须语义对立：前半句说的是「收益」（更快、更便宜），but 之后自然要落到「收益的反面」上，且要能被 “there is a __” 以可数名词承接。再看紧随其后的下一句：Setting targets can and does have unforeseen negative consequences（设定目标确实会带来无法预见的负面后果）。这「负面后果」正是空格词的具体化——空格与下句是「概括 → 展开」的上下义复现关系。</p>
+<h3>第 1 步：D 对号入座——there is a cost</h3>
+<blockquote>Choose one criterion and you may well __16__ others. Everything can be done faster and made cheaper, but there is a <strong>cost</strong>.</blockquote>
+<p>「一切都能做得更快、更便宜，<strong>但这是有代价的</strong>」——cost 与 but 前的「收益」构成标准对立，又被下句 negative consequences 具体化；同时呼应全文主旨：只按单一标准考核，牺牲的就是其余维度。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（task 任务）</strong>：与转折脱节——“there is a task” 字面能读，但「更快更便宜，但有一个任务」不成话，也接不上「负面后果」句；误选者只看空格前的名词搭配，没读 but。</li><li><strong>B（secret 秘密）</strong>：文中无「隐情」——secret 暗示「藏而不露」，可下句把负面后果摆上了台面；这是被「另有隐情」式直觉带偏。</li><li><strong>C（product 产品）</strong>：语境迁移错位——made cheaper 让人联想「产品制造」，但「但有一个产品」与转折无涉。</li></ul>
+<blockquote>记忆锚点：but 之后填「反差」——收益（faster / cheaper）对代价（cost）；cost = negative consequences 的概括词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

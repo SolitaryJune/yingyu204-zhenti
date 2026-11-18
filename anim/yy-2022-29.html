@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 29 题 · by 方式状语锁定“减少开支”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 29 题 · by 方式状语锁定“减少开支”","subtitle":"考点：事实细节题 · 方法：题干 by 提示问方式 → 答案在 ways...by... 句里（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位事实句 → 找 by 方法清单 → 逐项排除”的推理链。","stemEn":"Many “unretirees” are increasing their savings by <b>____</b>.","stemZh":"许多“不退休者”通过____来增加储蓄。（by 提示问“方式”，答案必在 by 短语里）","quotes":[{"tag":"定位 · 第六段②句（事实）","en":"<b>Six in 10 “unretirees” are increasing their savings</b> in anticipation of a longer life…","zh":"六成“不退休者”在增加储蓄——定位句本身只给事实，不给方法。"},{"tag":"方法 · 第六段③句","en":"Among the most popular <b>ways they are doing this</b>…is <b>by reducing their overall expenses</b>, securing life insurance or maximizing their contributions to retirement accounts.","zh":"doing this 回指 increasing their savings；by 引出三种增储方法，第一种就是“减少总体开支”。"}],"opts":[{"k":"A","en":"investing more in stocks.","zh":"增加股票投资","why":"常识干扰——“投资能生钱所以能多存”逻辑通，但文中未提及股票。"},{"k":"B","en":"taking up odd jobs.","zh":"打零工","why":"同上——文中未提及打零工；“多干活多存钱”是常识，不是原文。"},{"k":"C","en":"getting well-paid work.","zh":"获得高薪工作","why":"最强干扰——文章整体在讲“退休后继续工作”，但原文列举的增储方式（省钱/保险/多缴存）里没有“高薪工作”；题干 by 要求原文明确列举的方式。"},{"k":"D","en":"spending less.","zh":"减少开支","why":"","good":"reducing their overall expenses ↔ spending less——by 方法清单第一项的同义改写。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"题干 increasing their savings by ____ 的 by 提示问“方式”；定位第六段","count":0},{"cls":"shift","tag":"定位②句","log":"Six in 10 “unretirees” are increasing their savings——定位句只给事实，不给方法，向下句找","count":0},{"cls":"shift","tag":"定位③句","log":"Among the most popular ways they are doing this... is by...：ways + by 标记方法清单","count":0},{"cls":"shift","tag":"同义替换","log":"by reducing their overall expenses（减少总体开支）↔ spending less → D","count":0},{"cls":"miss","tag":"排除 A","log":"A stocks ✗：常识干扰——原文零依据","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B odd jobs ✗：常识干扰——原文零依据","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C well-paid work ✗：文章在讲“继续工作”，但增储方式清单里没有高薪工作——常识≠原文","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D spending less ✓：reducing their overall expenses 的同义改写——by 清单第一项","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：题干 by / way(s) → 答案必在 by 短语或 ways 句里；细节题只认原文，不认常识","count":3,"done":true}],"result":{"big":"答案 D（spending less）","html":"<b>D</b>：第六段③句 ways... <b>by reducing their overall expenses</b>（减少总体开支）↔ spending less。<br>A 股票、B 零工：常识干扰原文零依据；C 高薪工作：文章讲“继续工作”但增储方式清单里没有它。<br>最易误选：<b>C</b>（把文章话题“退休后工作”顺延成“靠高薪多存钱”——by 要求原文明确列举的方式）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 29 题——by 方式状语锁定"减少开支"</h2>
+<p>答案：<strong>D（spending less）</strong>。</p>
+<h3>第一步：先立机制——题干问"方式"，答案在 by 之后</h3>
+<p>题干 "increasing their savings <strong>by</strong> ____" 的 by 提示问<strong>手段</strong>。定位第六段：②句只说"在增加储蓄"这一事实，<strong>③句的 ways ... by ... 才是方法清单</strong>——定位句本身不给答案时，向下一句要 by 后的内容。</p>
+<h3>第二步：定位原文——方法在下一句</h3>
+<blockquote>Six in 10 "unretirees" are increasing their savings in anticipation of a longer life.</blockquote>
+<blockquote>Among the most popular ways they are doing this, the company said, is by reducing their overall expenses, securing life insurance or maximizing their contributions to retirement accounts.</blockquote>
+<ul><li>②句：六成"不退休者"在增加储蓄（doing this 回指 increasing their savings）；</li><li>③句：最常用的方法是 <strong>reducing their overall expenses</strong>（减少总体开支）、买人寿保险、尽量多缴退休金。</li></ul>
+<p>同义替换：<strong>reducing their overall expenses ↔ spending less</strong>，选 D。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A investing more in stocks ✗</strong>：常识干扰——"投资能生钱所以能多存"逻辑通，但<strong>文中未提及</strong>股票。</li><li><strong>B taking up odd jobs ✗</strong>：同上——文中未提及打零工。</li><li><strong>C getting well-paid work ✗</strong>：同上——"不退休者"确实在工作，但原文列举的<strong>增储方式</strong>是省钱、保险、多缴存，与高薪无关。</li><li><strong>D spending less ✓</strong>：reducing their overall expenses 的同义改写。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：文章整体在讲"退休后继续工作"，容易把"工作赚钱"顺延成"获得高薪工作来增加储蓄"；但题干的 by 要求<strong>原文明确列举的方式</strong>，三者清单里没有它。</li><li><strong>常识三连 A/B/C</strong>：都能"合理增加储蓄"，共同点是<strong>原文零依据</strong>——细节题只认原文。</li></ul>
+<blockquote>记忆锚点：题干 by / way(s) → 答案必在 by 短语或 ways 句里；reducing expenses ↔ spending less。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

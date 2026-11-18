@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-21 · 2021 阅读第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：Research by the WEF suggests ____",
+  "body": "<p>题干：<b>Research by the World Economic Forum suggests ____</b>（世界经济论坛的研究表明 ____）。</p><p>细节题不扫全文：题干是现成锚点，全文唯一提到 WEF 的地方在第一段。「研究 suggests 什么」不能只看研究句本身，要把它<b>前后两半句一起读</b>——研究句给事实，上下句给解释。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第 1 段的 WEF 研究句",
+  "body": "<div class='qq'><b>原文：</b>Research by the World Economic Forum finds that on average 42 per cent of the “core skills” within job roles will change by 2022.</div><p>研究句给出核心事实：<b>42% 的「核心技能」将在 2022 年前改变</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：上下句一起读出「紧迫」",
+  "body": "<div class='qq'><b>原文：</b>We know we are moving into a period where the jobs in demand will change rapidly, as will the requirements of the jobs that remain.</div><div class='qq'><b>原文：</b>That is a very short timeline.</div><p>三句连读：岗位需求将快速变化 → 42% 的核心技能将在 2022 年前改变 → <b>时间线很短</b>。「技能即将大变 + 时间紧迫」合译成选项，就是「对新工作技能的<b>紧迫需求</b>」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：全职就业增加——无中生有",
+  "body": "<p><b>A · an increase in full-time employment（全职就业的增加）</b> <span class='bad-dot'>✗</span></p><p>全文谈的是技能需求变化与失业者的再培训，没有任何「全职就业增长」的数据或论断。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：对新技能的紧迫需求——同义替换逐点对上",
+  "body": "<p><b>B · an urgent demand for new job skills（对新工作技能的紧迫需求）</b> <span class='ok-dot'>✓</span></p><p>suggests ↔ finds；核心技能「将改变（change by 2022）」→ 需要<b>新技能</b>（new job skills）；<b>That is a very short timeline</b> → <b>urgent</b>（紧迫）。逐点改写，选 B。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：机会稳定增长——「变化」偷换成「增长」",
+  "body": "<p><b>C · a steady growth of job opportunities（就业机会的稳定增长）</b> <span class='bad-dot'>✗</span></p><p>原文说 jobs in demand will change rapidly——变的是「哪些技能吃香」，不是岗位数量在涨。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：「核心技能」的争议——研究对象 ≠ 争议话题",
+  "body": "<p><b>D · a controversy about the “core skills”（围绕「核心技能」的争议）</b> <span class='bad-dot'>✗</span></p><p>core skills 只是 WEF 研究<b>的对象</b>（42% 将改变），文中无人对这一概念本身提出异议。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（an urgent demand for new job skills）</b>。</p><p>记忆锚点：细节题三步——题干锚点锁句 → 句内证据合并 → 同义替换对选项；change + short timeline = urgent demand。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（a steady growth...）——把「变化（change rapidly）」偷换成「增长（growth）」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-21 · 阅读第 21 题：WEF 研究说明了什么",
+  subtitle: "考点：Text1 第 1 段 · 细节题（题干锚点定位 + 同义替换）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B",
+ "html": "<b>B an urgent demand for new job skills</b>：42% 核心技能将于 2022 年前改变 + 时间线很短 → 对新技能的<b>紧迫需求</b>。<br>记忆锚点：细节题三步——锚点锁句 → 证据合并 → 同义替换；change + short timeline = urgent demand。<br>最易误选：C——「变化」被偷换成「增长」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 21 题——WEF 研究说明了什么</h2>
+<p>答案：<strong>B</strong>（an urgent demand for new job skills）。</p>
+<h3>第 0 步：先立机制——细节题先钉锚点，再合并句内证据</h3>
+<p>细节题不扫全文：题干 Research by the World Economic Forum suggests 是现成锚点，全文唯一提到 WEF 的地方在第一段。「研究 suggests 什么」不能只看研究句本身，要把它的<strong>上下句一起读</strong>：研究句给出事实，前后句给出解释，选项是三句合译后的等价说法。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>We know we are moving into a period where the jobs in demand will change rapidly, as will the requirements of the jobs that remain. Research by the World Economic Forum finds that on average 42 per cent of the "core skills" within job roles will change by 2022. That is a very short timeline.</blockquote>
+<p>三句连读：岗位需求将快速变化 → 42% 的「核心技能」将在 2022 年前改变 → <strong>时间线很短</strong>。「技能即将大变 + 时间紧迫」合译即「对新工作技能的紧迫需求」：suggests = finds；核心技能「改变」→ 需要<strong>新技能</strong>；very short timeline → <strong>urgent</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（an increase in full-time employment）</strong>：无中生有——全文谈技能需求变化与失业者再培训，没有任何「全职就业增长」的数据或论断。</li><li><strong>C（a steady growth of job opportunities）</strong>：把「变化」偷换成「增长」——原文说 jobs in demand will change rapidly，变的是「哪些技能吃香」，不是岗位数量在涨。</li><li><strong>D（a controversy about the "core skills"）</strong>：把「研究对象」错认成「争议话题」——core skills 只是 WEF 研究的对象（42% 将改变），无人对概念本身提出异议。</li></ul>
+<blockquote>记忆锚点：细节题三步——题干锚点锁句 → 句内证据合并 → 同义替换对选项；change + short timeline = urgent demand。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

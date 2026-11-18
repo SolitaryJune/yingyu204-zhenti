@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022-47 小作文谋篇：活动介绍型邀请信的「介绍 + 邀请」双必答</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：介绍 + 邀请双必答',
+    cls: 'key',
+    body: '<p>指令两个动词定内容：<b>1) introduce the food festival</b>（必答点 1：介绍活动）+ <b>2) invite them to participate</b>（必答点 2：邀请参加）。信型 = 标准<b>活动介绍型邀请信</b>。</p><p>你在活动策划者的位置上（<b>planning</b> a campus food festival），收信对象是 <b>international students</b>（留学生群体）——与邀请具体个人不同，称呼、语域、说服角度都要贴着「群体 + 异乡人」设计。</p>' },
+  { title: '格式与语域（先立规矩）',
+    cls: 'bad',
+    body: '<p>指令硬约束：<b>Do not use your own name, use "Li Ming" instead</b> → 落款必须署 <b>Li Ming</b>。书信三件套齐全：称呼 + 正文 + 落款（Yours sincerely, Li Ming）。</p><p>称呼写什么？收信人是群体 → <b>Dear international students</b>（集体称呼），不写 Dear Jack 式具名个体。语域：给留学生的信<b>不必过于正式，亲切自然即可</b>——与 2021 年具名个体邀请信的语域差正在这里。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> 活动登场（名称 + 地点 + 时间）+ 一句正式邀请；<b>段 2</b> 介绍的主体：主打内容 → 实践环节 → 品尝环节；<b>段 3</b> 活动意义 + 表达期待。</p><p>两个必答点的落位：introduce = 段 1 骨架 + 段 2 全段；invite = 段 1 末邀请句 + 段 3 期待句。缺一即结构性掉档。</p>' },
+  { title: '段 1：一句装下活动四件事',
+    cls: 'good',
+    body: '<p><b>There will be a multicultural food festival at the Main Dining Hall from 10 a.m. to 3 p.m. on May 27th. You are cordially invited to this occasion.</b></p><p>There will be 句型一次装下「活动 + 地点 + 起止时刻 + 日期」，introduce 的骨架就此落定；<b>You are cordially invited to this occasion</b> 被动句完成正式邀请，cordially（诚挚地）是邀请信标配。</p>' },
+  { title: '段 2① 主打内容：三句并一句',
+    cls: 'good',
+    body: '<p><b>The event features a variety of local specialties, ranging from traditional homely delicacies to popular street snacks, all elaborately prepared by our catering staff.</b></p><p>三个简单句（活动提供食物 / 包括家常菜与街头小吃 / 由餐饮人员准备）→ feature（以……为特色）替代 provide；<b>ranging from... to...</b> 替代 including；独立主格 <b>all elaborately prepared</b> 收尾压掉一整句被动——「压句」是升格主线。</p>' },
+  { title: '段 2② 实践环节：给收信人角色',
+    cls: 'good',
+    body: '<p><b>If interested, you are also encouraged to cook your hometown dishes in groups with the ingredients provided on site.</b></p><p><b>If interested</b> = If you are interested（状语从句省略主谓）；with the ingredients <b>provided</b> on site 过去分词后置定语「用现场提供的食材」。</p><p>留学生自带家乡饮食文化——邀请不止「来吃」，还给「参与」的具体角色（分组做家乡菜），「多元文化」主题由此闭环，邀请才有人接。</p>' },
+  { title: '段 2③④ 亮点 + 品尝：时间线收尾',
+    cls: 'good',
+    body: '<p><b>This will definitely be a highlight of the event. After preparation, all participants can move along the booths, sampling these delicious foods with cheerful music.</b></p><p>a highlight（一大亮点）给实践环节一个判断句，邀请理由更充分；<b>sampling</b> these delicious foods 现在分词作伴随状语替代 and taste。</p><p>四句按「看菜 → 做菜 → 评价 → 尝菜」的活动时间线推进，介绍才能「看见活动」。</p>' },
+  { title: '段 3 意义 + 期待收束',
+    cls: 'good',
+    body: '<p><b>Don\'t miss this golden opportunity to get a taste of different cultures and experience more joy in life! We keenly look forward to your participation.</b></p><p><b>get a taste of</b> 一语双关（品尝/体验）——把「吃」升华为「尝不同文化」，与段 2 家乡菜环节首尾呼应；golden opportunity 绝佳机会 + keenly look forward to 热切期盼，期待收束不落空。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>There will be... 将举办 · cordially 热情诚挚地 · feature [v.] 以……为特色 · a variety of 各种各样的 · range from... to... 从……到……不等 · specialty / delicacy 特色菜、佳肴 · catering staff 餐饮人员 · be encouraged to do 被鼓励做 · on site 现场 · highlight 亮点 · booth 摊位 · sample [v.] 品尝 · golden opportunity 绝佳机会 · get a taste of 体验/品尝 · keenly 热切地 · look forward to 期待</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>介绍 + 邀请双必答；集体称呼 Dear international students；段 1 一句装下活动四件事 + cordially 邀请；段 2 主打 → 实践 → 品尝时间线（ranging from...to... / If interested / sampling）；段 3 意义 + 期待；落款 Li Ming</b>。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2022-47 小作文谋篇演示：活动介绍型邀请信的「介绍 + 邀请」双必答',
+  subtitle: '考点：应用文写作（邀请信 · 集体收信人） · 方法：拆指令 → 定框架 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>Dear international students,</p>' +
+      '<p>There will be a multicultural food festival at the Main Dining Hall from 10 a.m. to 3 p.m. on May 27th. You are cordially invited to this occasion.</p>' +
+      '<p>The event features a variety of local specialties, ranging from traditional homely delicacies to popular street snacks, all elaborately prepared by our catering staff. If interested, you are also encouraged to cook your hometown dishes in groups with the ingredients provided on site. This will definitely be a highlight of the event. After preparation, all participants can move along the booths, sampling these delicious foods with cheerful music.</p>' +
+      '<p>Don\'t miss this golden opportunity to get a taste of different cultures and experience more joy in life! We keenly look forward to your participation.</p>' +
+      '<p>Yours sincerely,<br>Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>介绍 + 邀请双必答</b>；集体称呼 Dear international students；段 2 按「主打 → 实践 → 品尝」时间线走，给收信人分配角色（you are encouraged to cook your hometown dishes）；意义升华 get a taste of（品尝/体验双关）；落款红线 <b>Li Ming</b>。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：邀请信的「介绍 + 邀请」双必答——集体称呼怎么写（2022 小作文）</h2>
+<p>答案（参考范文口径）：<strong>Dear international students, There will be a multicultural food festival at the Main Dining Hall from 10 a.m. to 3 p.m. on May 27th. You are cordially invited to this occasion. The event features a variety of local specialties, ranging from traditional homely delicacies to popular street snacks, all elaborately prepared by our catering staff. If interested, you are also encouraged to cook your hometown dishes in groups with the ingredients provided on site. This will definitely be a highlight of the event. After preparation, all participants can move along the booths, sampling these delicious foods with cheerful music. Don't miss this golden opportunity to get a taste of different cultures and experience more joy in life! We keenly look forward to your participation. Yours sincerely, Li Ming</strong></p>
+<h3>第 0 步：先立机制——小作文按「格式 + 要点 + 语言」三线评分</h3>
+<p>小作文的分数不由文笔单独决定，而是三条线并行：<strong>格式</strong>（称呼/正文/落款是否符合书信规范与指令红线）、<strong>要点</strong>（指令列出的信息点逐条落实）、<strong>语言</strong>（同档内靠句式与用词升格拉开差距）。本题信型由指令两个动词定死：<strong>1) introduce the food festival</strong>（必答点 1：介绍活动）+ <strong>2) invite them to participate</strong>（必答点 2：邀请参加）——一封标准的<strong>活动介绍型邀请信</strong>。与 2021 年「邀请具体个人」不同，本题收信人是留学生<strong>群体</strong>，称呼、语域、说服角度都要跟着变。</p>
+<h3>第 1 步：拆指令——每条指令对应信里的一个位置</h3>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>planning a campus food festival</td><td>你是策划者，活动 = 校园美食节</td><td>段 1 活动名称 + 时间地点</td></tr><tr><td>international students（群体）</td><td>收信对象：留学生群体，非具名个体</td><td>称呼 Dear international students；内容贴「异乡人」设计</td></tr><tr><td>1) introduce the food festival</td><td>必答点 1：介绍</td><td>段 1 时间地点 + 段 2 全段（内容/实践/品尝）</td></tr><tr><td>2) invite them to participate</td><td>必答点 2：邀请</td><td>段 1 末邀请句 + 段 3 期待句</td></tr><tr><td>Do not use your own name / Li Ming</td><td>格式红线</td><td>落款 Yours sincerely, Li Ming</td></tr></tbody></table>
+<p>语域判断：写给留学生群体的信<strong>不必过于正式，亲切自然即可</strong>——这是本题与具名个体邀请信的最大语域差。两个必答点缺一即结构性扣分。</p>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1 活动登场 + 正式邀请</strong>：There will be a multicultural food festival at the Main Dining Hall from 10 a.m. to 3 p.m. on May 27th.——There will be 句型一次装下「活动 + 地点 + 起止时刻 + 日期」四件事，introde 的骨架就此落定；紧接着 You are cordially invited to this occasion. 一句完成邀请，cordially（诚挚地）是邀请信标配。</li><li><strong>段 2 内容三连（介绍的主体）</strong>：主打内容（features a variety of local specialties, ranging from traditional homely delicacies to popular street snacks, all elaborately prepared by our catering staff）→ 实践环节（If interested, you are also encouraged to cook your hometown dishes in groups with the ingredients provided on site）→ 亮点判断（This will definitely be a highlight of the event）→ 品尝环节（move along the booths, sampling these delicious foods with cheerful music）。四句按「看菜 → 做菜 → 评价 → 尝菜」的活动时间线推进，介绍才能「看见活动」。</li><li><strong>段 3 意义 + 期待</strong>：Don't miss this golden opportunity to get a taste of different cultures and experience more joy in life! 点破活动意义（不止吃，更是尝不同文化）；We keenly look forward to your participation. 热切期待收束。</li></ul>
+<h3>第 3 步：语言升格——预判「同档内怎么拿高分」</h3>
+<p>升格的机制是<strong>把简单信息压进高级句法框架</strong>，而不是堆大词：</p>
+<ul><li>三个简单句整合成一句：The event provides a lot of local foods / These foods include home cooking and street snacks / All of them are prepared by our catering staff → <strong>The event features a variety of local specialties, ranging from traditional homely delicacies to popular street snacks, all elaborately prepared by our catering staff.</strong>——feature（以……为特色）替代 provide；ranging from... to... 替代 including；独立主格 all elaborately prepared 收尾压掉一整句被动。</li><li><strong>If interested</strong> = If you are interested（状语从句省略主谓）——客气又省词；with the ingredients provided on site「用现场提供的食材」，provided 过去分词后置定语。</li><li><strong>sampling these delicious foods</strong> 现在分词作伴随状语，替代 and taste——一路走来「压句」是升格主线。</li><li>意义句升格：get a taste of 一语双关（品尝/体验），golden opportunity「绝佳机会」，keenly look forward to「热切期盼」——「吃」升华为「文化交流」，邀请的理由立住。</li></ul>
+<h3>第 4 步：成文自检——三个「为什么」</h3>
+<ul><li><strong>为什么称呼 Dear international students 而不是 Dear Jack</strong>：收信人是留学生群体，集体称呼对集体收信人；套用 Dear Friend 之类的泛称反而丢掉指令给定的对象。</li><li><strong>为什么介绍要落到「动手做家乡菜」</strong>：留学生自带家乡饮食文化——invite them to participate 不止「来吃」，还给了「参与」的具体角色（cook your hometown dishes in groups），「多元文化美食节」的主题由此闭环，邀请才有人接。</li><li><strong>为什么结尾点「文化的味道」</strong>：美食节的意义在文化交流，get a taste of different cultures 把「品尝」升华为「体验文化」，与段 2 的家乡菜环节首尾呼应——三段就不是三块孤立的文字。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只介绍漏邀请 / 只邀请漏介绍</strong>：双必答缺一即结构性掉档；introduce 靠段 1 + 段 2，invite 靠段 1 末 + 段 3。</li><li><strong>介绍无细节</strong>：只写 there will be a food festival 不成介绍；时间、地点、内容、环节四件齐才算落实（details 思路与 2021 年一致：给钉子不给空话）。</li><li><strong>语域两极</strong>：要么公文腔到底，要么 Hey guys 式随意；给留学生的集体信亲切自然即可，cordially / keenly look forward to 是邀请信的安全语域。</li><li><strong>署真名或落款缺失</strong>：指令明令 use "Li Ming" instead；格式红线踩线即扣。</li><li><strong>对象错位</strong>：把留学生当普通同学写，漏掉「家乡菜」这一最贴合收信人的设计——介绍与邀请都失去说服角度。</li><li><strong>分词升格不会用</strong>：ranging from...to... / all elaborately prepared / sampling 三处压缩句子的关键点，全写成并列简单句则同档内升不上去。</li></ul>
+<blockquote>记忆锚点：活动介绍型邀请信 = <strong>介绍 + 邀请双必答</strong>；集体称呼 Dear international students；段 1 There will be... 一句装下「活动 + 地点 + 时间」+ You are cordially invited；段 2 按「主打 → 实践 → 品尝」时间线走（features... ranging from...to... / If interested... encouraged to / a highlight / sampling...）；段 3 意义 + 期待（golden opportunity to get a taste of / keenly look forward to）；落款红线 <strong>Li Ming</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

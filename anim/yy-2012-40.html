@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T2 · 40 · 艰难时期对社会的影响 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {title:"审题眼 · 先分清“影响的哪一层”", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：The author thinks that the influence of hard times on society is ____。<b>A</b> trivial 无关紧要 / <b>B</b> positive 积极 / <b>C</b> certain 确定 / <b>D</b> destructive 毁灭性。</p><p>四个形容词分两类：A/D 评<b>大小与好坏</b>，C 评<b>确定性</b>。机制：影响题分两层——“影响的内容/方式”与“影响的存在”，答案常落在后者的语气词上。</p>",
+  log:"审题：影响判断题——how 与 whether 分层"},
+ {title:"定位原文 · ④句：具体方式只能观望", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("We will have to wait and see exactly how these hard times will reshape our social fabric.")+"<p>④句：重塑的<b>具体方式</b>（exactly how）只能走着瞧。注意“未定”的只是 how——方式、形态，不是“有没有影响”。</p>",
+  log:"④句：wait and see exactly how——方式未定"},
+ {title:"定位原文 · ⑤句：But certainly 钉死结论", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("But they certainly will reshape it, and all the more so the longer they extend.")+"<p>⑤句 But 转折：它们<b>必定</b>（certainly）会重塑社会结构，且持续越久重塑越深。转折词之后才是作者真正落笔强调的判断。</p>",
+  log:"⑤句：But they certainly will reshape it——存在已定"},
+ {title:"对号入座 · how 未知，whether 已定", cls:"key", tag:"替换", count:0, ribbon:null,
+  body:"<p>两层合看：“怎么变”不确定、“变不变”确定。题干问 influence ... is ____，与 certainly 对齐的只有 <b>certain</b>；all the more so the longer they extend（越久越甚）进一步排除“影响很小”的方向。</p>",
+  log:"对号入座：certainly will reshape → influence is certain"},
+ {title:"逐项分析 · A trivial", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:"<p><b>排除。</b>与全文主旨相反：首段即说萧条将 <b>reshape</b> our politics, our culture, and the character of our society <b>for years</b>——影响深远且持久。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“影响方式未定”误读成“影响不大”。</p>",
+  log:"A trivial ✗ 排除——首段已定调影响深远"},
+ {title:"逐项分析 · B positive", cls:"bad", tag:"排除 B", count:2, ribbon:{k:"B", ok:false},
+  body:"<p><b>排除。</b>只概括第二段“有限的积极面”（benefits seem thin, uncertain, and far off）；第三、四段的负面清单（mean-spirited、阶级隔阂加深）不覆盖——以偏概全。</p><p style=\"color:#b91c1c\">⚠ 典型误解：利弊并陈的文里选单向褒义词。</p>",
+  log:"B positive ✗ 排除——只盖住利的那半篇"},
+ {title:"逐项分析 · D destructive", cls:"bad", tag:"排除 D", count:3, ribbon:{k:"D", ok:false},
+  body:"<p><b>排除。</b>只概括第三、四段的负面影响；第二段的 benefits 又是正面的——同样以偏概全。作者的态度是“利弊并陈”，任何单向形容词都只占半篇。</p><p style=\"color:#b91c1c\">⚠ 典型误解：与 B 对称的错误——选单向贬义词。</p>",
+  log:"D destructive ✗ 排除——只盖住弊的那半篇"},
+ {title:"结论 · 两层区分与记忆锚点", cls:"good", tag:"答案 C", count:3, ribbon:null,
+  body:"<p>两层区分：how（具体方式）= 未知，交给 wait and see；whether（会不会重塑）= 已定，交给 certainly。</p><p>答案选 <b>C（certain 确定的）</b>。</p><p><b>记忆锚点</b>：影响题分两层——how 未知，whether 已定；But 后的 certainly 是态度题的金矿；单边词（positive/destructive）遇“利弊并陈”的文必错。</p>",
+  log:"结论：影响确定无疑，方向待观察，答案 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text2 · 40 · 艰难时期对社会的影响",
+  subtitle: "考点：作者判断题 · how/whether 分层 → 转折句定调 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 分层 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（certain 确定的）",
+    html: "<b>“怎么变”未定，“会变”已定</b>：④句 wait and see exactly how，⑤句 But they certainly will reshape it。<br>记忆锚点：转折词后的 certainly 是态度题金矿；A 与主旨相反，B/D 是利弊并陈文里的单向词。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：作者判断题——影响“怎么变”未知，但“会变”确定</h2>
+<p>答案：<strong>C（certain 确定的）</strong>。</p>
+<h3>第 0 步：先立机制——区分“影响的内容”与“影响的存在”</h3>
+<p>题干问作者认为 hard times 对社会的影响 is ____，四个形容词分两类：A/D 评价影响的大小与好坏，C 评价影响的确定性。定位段末两句恰好把这两层分开说：④句承认“怎么重塑要等着看”，⑤句用 But + certainly 把“一定会重塑”钉死。答案落在⑤句的语气词上。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>We will have to wait and see exactly how these hard times will reshape our social fabric. But they certainly will reshape it, and all the more so the longer they extend.</blockquote>
+<p>④句：重塑的<strong>具体方式</strong>（exactly how）只能观望；⑤句 But 转折：它们<strong>必定</strong>（certainly）会重塑社会结构，且持续越久重塑越深（all the more so the longer they extend）。</p>
+<h3>第 2 步：对号入座</h3>
+<p>“怎么变”不确定、“变不变”确定。题干问 influence ... is ____，与 certainly 对齐的只有 <strong>certain</strong>。转折词 But 之后才是作者真正要强调的判断——④句的 wait and see 不能单独拿来答题。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A trivial</td><td>✗ 排除</td><td>与全文主旨相反：首段即说萧条将 reshape our politics, our culture, and the character of our society for years。（典型误解：把“影响方式未定”误读成“影响不大”。）</td></tr><tr><td>B positive</td><td>✗ 排除</td><td>只概括第二段（有限的积极面）；第三、四段的负面清单不覆盖——以偏概全。（典型误解：利弊并陈的文里选单向褒义。）</td></tr><tr><td>D destructive</td><td>✗ 排除</td><td>只概括负面段落；第二段 benefits 又是正面的——同样以偏概全。（典型误解：利弊并陈的文里选单向贬义。）</td></tr><tr><td>C certain</td><td>✓ 当选</td><td>呼应⑤句 certainly will reshape it：影响的方向待观察，影响本身确定</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>④句 wait and see 会不会指向“不确定”？</strong>：不会。④句“不确定”的是 exactly how（具体形态），⑤句立刻用 But 纠偏；转折词后的内容才是作者落笔的重点。</li><li><strong>B、D 各有半篇文章支撑，为何不选？</strong>：作者全文的态度是“利弊并陈 + 影响深远”，任何一个单向形容词都只覆盖半篇，而题干要的是概括作者最终判断的那个词。</li></ul>
+<blockquote>记忆锚点：影响题分两层——how 未知，whether 已定；But 后的 certainly 是态度题的金矿；单边词（positive/destructive）遇“利弊并陈”的文必错。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

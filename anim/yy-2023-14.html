@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-14 · 2023 完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 14 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 14 所在句，考点：句间逻辑 + 介词短语辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">__14__ , upgrades skyrocketed, and revenue increased by 92 percent.</div><p>贴标签：上一句 = 行为（联手宣传、提升认知）；本句 = 结果（upgrades skyrocketed + revenue +92%）。连接短语必须能引出“前者导致的结果”。</p>"
+ },
+ {
+  "title": "找证据 · 上句是“行为”，本句是“数字收账”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：宣传（因）→ 升级暴涨、收益 +92%（果）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…the marketing and engineering teams joined forces to raise awareness by prominently __13__ the premium version to users of the free version.</div><p>skyrocket / increase 都是“账面结果”词——商业案例文标准收束：做法 → As a result → 数字印证，第四段就此形成“问题→方案→效果”闭环。</p>"
+ },
+ {
+  "title": "逐项分析 · A As a result（结果；因此）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A As a result（结果；因此） ✓ 当选",
+  "body": "<p><b>当选。</b>As a result 引出“宣传行为”的直接后果：升级暴涨、收益 +92%，因果方向、语篇位置（句首）都成立。</p>"
+ },
+ {
+  "title": "逐项分析 · B At any rate（不管怎样；至少）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B At any rate（不管怎样；至少） ✗ 排除——用于引出更确切的说法/让步收束，两句间没有这层关系",
+  "body": "<p><b>排除。</b>at any rate 的场景是“退一步说/无论如何”。本句不是对上句的修正或让步，而是上句的直接后果——场景错配。</p><p style=\"color:#b91c1c\">⚠ 典型误解：短语只背中文释义，没背使用场景</p>"
+ },
+ {
+  "title": "逐项分析 · C By the way（顺带提一下）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C By the way（顺带提一下） ✗ 排除——插入闲聊用的口语短语，与语篇毫无接口",
+  "body": "<p><b>排除。</b>考生易把它误当成 By that way（借助那种方式）。by the way 是话题转换的口头语，商业叙事里不会用“顺带一提”引出核心收益数字。</p><p style=\"color:#b91c1c\">⚠ 典型误解：形近短语混淆：by the way ≠ by that way</p>"
+ },
+ {
+  "title": "逐项分析 · D In a sense（在某种意义上）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D In a sense（在某种意义上） ✗ 排除——用于给出解读视角，第二句不是“另一种看法”而是后果",
+  "body": "<p><b>排除。</b>in a sense 引出对前文的某种解读/限定。但“收益 +92%”不是对宣传行为的换个说法，而是它造成的事实结果，解读关系不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：觉得“从某种意义上说”放哪都通，没检验句间关系</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（As a result 结果；因此）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>结果，升级（销量）急速增长，公司收益增长了 92%</b>（宣传行为 → 商业结果）。</p><p>答案选 <b>A（As a result 结果；因此）</b>。</p><p><b>记忆锚点</b>：连接短语题先贴标签：行为句 → 数字句 = As a result；涨的词（skyrocket、increase）身边常站 As a result；at any rate / by the way / in a sense 各有专属场景，都不是因果。</p><p style=\"color:#b91c1c\">最易误选：<b>B（At any rate）</b>——短语只背中文释义，没背使用场景</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 14 空 · “____, upgrades skyrocketed…”该填哪个短语",
+  subtitle: "考点：句间逻辑 + 介词短语辨析 · 行为→结果",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（As a result）", "html": "<b>A As a result（结果；因此）</b>。<br>完整句义：结果，升级（销量）急速增长，公司收益增长了 92%。<br>记忆锚点：连接短语题先贴标签：行为句 → 数字句 = As a result；涨的词（skyrocket、increase）身边常站 As a result；at any rate / by the way / in a sense 各有专属场景，都不是因果。<br>最易误选：<b>B</b>——四个短语只背释义不背场景，加上 by the way / by that way 形近混淆"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句间逻辑 + 介词短语辨析——行为在前，结果收账</h2>
+<p>答案：<strong>A（As a result 结果；因此）</strong>。</p>
+<h3>第 0 步：先立框架——逻辑连接短语题：先给两句贴标签</h3>
+<p>把两句摆在一起看：第一句，团队联手宣传高级版、提升认知（<strong>行为</strong>）；第二句，upgrades skyrocketed, and revenue increased by 92 percent（<strong>账面结果</strong>）。模型：连接短语题先给前后句贴标签——一因一果，空格短语必须能“引出由前者导致的结果”。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>__14__ , upgrades skyrocketed, and revenue increased by 92 percent.</blockquote>
+<p>skyrocket（暴涨）与 increased by 92 percent 都是典型的“账面结果”词汇；商业案例文的收束套路正是：做法 → As a result → 数字印证。As a result 落位后，第四段正好完成“发现问题（认知不足）→ 解决问题（宣传）→ 效果（+92%）”的完整闭环。</p>
+<blockquote>…the marketing and engineering teams joined forces to raise awareness by prominently __13__ the premium version to users of the free version.（上一句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A As a result</td><td>结果；因此</td><td>✅ 当选</td><td>行为句 → 结果句的标准引出语</td></tr><tr><td>B At any rate</td><td>不管怎样；至少</td><td>❌ 排除</td><td>用于引出更确切的说法/让步收束，两句间没有这层关系</td></tr><tr><td>C By the way</td><td>顺带提一下</td><td>❌ 排除</td><td>插入闲聊用的口语短语，与语篇毫无接口</td></tr><tr><td>D In a sense</td><td>在某种意义上</td><td>❌ 排除</td><td>用于给出解读视角，第二句不是“另一种看法”而是后果</td></tr></tbody></table>
+<p>代入全句：<strong>结果，升级（销量）急速增长，公司收益增长了 92%</strong>（宣传行为 → 商业结果）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 B（At any rate 不管怎样；至少）</strong>：短语只背中文释义，没背使用场景。at any rate 的场景是“退一步说/无论如何”。本句不是对上句的修正或让步，而是上句的直接后果——场景错配。</li><li><strong>误选 C（By the way 顺带提一下）</strong>：形近短语混淆：by the way ≠ by that way。考生易把它误当成 By that way（借助那种方式）。by the way 是话题转换的口头语，商业叙事里不会用“顺带一提”引出核心收益数字。</li><li><strong>误选 D（In a sense 在某种意义上）</strong>：觉得“从某种意义上说”放哪都通，没检验句间关系。in a sense 引出对前文的某种解读/限定。但“收益 +92%”不是对宣传行为的换个说法，而是它造成的事实结果，解读关系不成立。</li></ul>
+<blockquote>记忆锚点：连接短语题先贴标签：行为句 → 数字句 = As a result；涨的词（skyrocket、increase）身边常站 As a result；at any rate / by the way / in a sense 各有专属场景，都不是因果。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

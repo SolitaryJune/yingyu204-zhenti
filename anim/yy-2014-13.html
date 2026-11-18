@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-13 · 2014 完形第 13 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 13 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 13 空所在句，考点：上下文语义（镜像反例）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Conversely, someone with a small frame may have high body fat but a <b>__13__</b> BMI.</div><p>空格在 <b>but</b> 之后：some small frame 的人 may have <b>high body fat</b> but a __ BMI。句首的 <b>Conversely</b> 是最强信号——它要求本句成为前句的<b>镜像反例</b>。前句（第 12 空句）：球员按 BMI 算作肥胖、体脂却低——“BMI 高、体脂低”。把两个量对调，本句就是：“体脂高、BMI ______”。</p>"
+ },
+ {
+  "title": "找证据 · 镜像对调：体脂 low→high，BMI 就要落回不高",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：前句 BMI 高/体脂低，本句 Conversely 要求对调——体脂高则 BMI 不高（正常）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, many collegiate and professional football players qualify as obese, though their percentage body fat is low.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Conversely, someone with a small frame may have high body fat but a <b>__13__</b> BMI.</div><p>前句：many football players <b>qualify as obese</b>（BMI 高到算作肥胖）, though their percentage body fat is <b>low</b>。Conversely 引出对调版：体脂 <b>high</b>，BMI 便不该再高——落在 18-25 的正常区间。两句合起来正是本段论点的两翼：<b>BMI 与体脂不对应</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A strange（奇怪的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A strange（奇怪的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“BMI 很奇怪”不构成前句的镜像，反而把规律性反例降格成猎奇个案；strange 是主观评价词，与全文客观论证语气不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没抓住 Conversely 的镜像要求，随手挑个贬义词。</p>"
+ },
+ {
+  "title": "逐项分析 · B changeable（易变的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B changeable（易变的） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>句意变成“BMI 变来变去”——原文没有任何“变化”线索：反例讲的是 BMI 数值与体脂<b>错位</b>，不是数值随时间<b>波动</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：联想到体重天天变，把“个体差异”偷换成“时间变化”。</p>"
+ },
+ {
+  "title": "逐项分析 · D constant（恒定的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D constant（恒定的） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“BMI 恒定”同样不构成镜像反例，也无上下文支撑——它与 changeable 是同一条歧路上的两个方向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：在 changeable/constant 之间犹豫，忘了先问“哪种情况才是前句的反像”。</p>"
+ },
+ {
+  "title": "逐项分析 · C normal（正常的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C normal（正常的） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>“体脂高但 BMI 正常”——与前句“BMI 高但体脂低”构成精确镜像；normal BMI（18-25）还呼应上段的界值设定，错位感最强，最能拆 BMI 的台。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（normal 正常的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>相反，一些小骨架的人可能体脂很高，BMI 却正常。</b></p><p>答案选 <b>C（normal 正常的）</b>。</p><p><b>记忆锚点</b>：Conversely = 把前句两个量对调再看；high body fat 的反像 = BMI normal；mirror 结构定词义。</p><p style=\"color:#b91c1c\">最易误选：<b>A（strange）</b>——用主观评价词代替结构要求的镜像词。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 13 空 · Conversely 之后，“high body fat but a ______ BMI”",
+  subtitle: "考点：上下文语义 + 镜像反例结构 · 找前句 → 对调反像 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“找前句 → 对调出反像 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（normal）",
+ "html": "<b>C normal（正常的）</b>。<br>记忆锚点：Conversely = 把前句两个量对调再看；“high body fat 的反像” = BMI normal；mirror 结构定词义。<br>最易误选：<b>A（strange）</b>——用主观评价词代替结构要求的镜像词。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 13 空 · high body fat but a ______ BMI——Conversely 的镜像要求</h2>
+<p>答案：<strong>C（normal 正常的）</strong>。</p>
+<h3>第 0 步：先立机制——Conversely 是指令：把前句的两个量对调，再填反像</h3>
+<p>前句与本题由 Conversely 绑成一对：前句“BMI 高（算作肥胖）、体脂低”，本句要求反像——把两个量对调，即“体脂高、BMI 不高”。但选项里没有 low；而且“正常”比“低”更有力：这类人体脂超标、按体脂算该算肥胖，BMI 却落在 18-25 的<strong>正常</strong>区间——“看着正常”与“实则肥胖”的反差最大化，正是作者拆 BMI 的用意。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Conversely, someone with a small frame may have high body fat but a __13__ BMI.</blockquote>
+<p>本句骨架：small frame（小骨架）的人 may have high body fat（体脂高）but a <code>__</code> BMI。but 连接的前后必须形成反差：体脂高 vs BMI <code>__</code>。</p>
+<h3>第 2 步：找证据——两句合成一对反例，共同证明“BMI 与体脂不对应”</h3>
+<blockquote>For example, many collegiate and professional football players qualify as obese, though their percentage body fat is low.</blockquote>
+<blockquote>Conversely, someone with a small frame may have high body fat but a __13__ BMI.</blockquote>
+<p>第一例：BMI 超标、体脂正常（被冤枉的瘦子）；第二例：体脂超标、BMI 正常（被漏掉的胖子）。For example 与 Conversely 一正一反，把“BMI 不可靠”论证成镜子的两面。空格词必须完成这面镜子——只有 normal 能让两个例子严格对称。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A strange</td><td>奇怪的</td><td>✗ 排除</td><td>“BMI 很奇怪”不构成前句的镜像，反而把规律性反例降格成猎奇个案；strange 是主观评价词，与全文客观论证语气不符。（典型误解：没抓住 Conversely 的镜像要求，随手挑个贬义词。）</td></tr><tr><td>B changeable</td><td>易变的</td><td>✗ 排除</td><td>句意变成“BMI 变来变去”——原文没有任何变化线索：反例讲的是 BMI 数值与体脂错位，不是数值随时间波动。（典型误解：联想到体重天天变，把“个体差异”偷换成“时间变化”。）</td></tr><tr><td>C normal</td><td>正常的</td><td>✓ 当选</td><td>“体脂高但 BMI 正常”——与前句“BMI 高但体脂低”构成精确镜像；normal BMI（18-25）还呼应上段的界值设定。</td></tr><tr><td>D constant</td><td>恒定的</td><td>✗ 排除</td><td>“BMI 恒定”同样不构成镜像反例，也无上下文支撑——它与 changeable 是同一条歧路上的两个方向。（典型误解：在 changeable/constant 之间犹豫，忘了先问“哪种情况才是前句的反像”。）</td></tr></tbody></table>
+<p>代入后的完整句义：相反，一些小骨架的人可能体脂很高，BMI 却正常。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么镜像必须是“正常”而不是“低”？</strong>：选项里没有 low；且“正常”更有力：体脂超标者按体脂算该算肥胖，BMI 却落在 18-25 的“正常”区间——“看似正常、实则肥胖”的错位感最强，最能支撑“BMI 与体脂不对应”的论点。</li><li><strong>Conversely 和 In contrast 差别大吗？</strong>：都可引对比，但 Conversely 更强：指“把前句的两个量对调后依然成立”（BMI 高→体脂低；体脂高→BMI 正常不高）。识别出“对调”结构，空格词就被唯一确定。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（strange）</strong>：用主观评价词代替结构要求的镜像词。</li><li><strong>误选 B（changeable）</strong>：把“数值与体脂的错位”误解成“数值随时间波动”。</li><li><strong>误选 D（constant）</strong>：反向的另一头，同样不构成镜像。</li></ul>
+<blockquote>记忆锚点：Conversely = 把前句两个量对调再看；high body fat 的反像 = BMI normal；mirror 结构定词义。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

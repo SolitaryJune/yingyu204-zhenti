@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-34 · 2016 阅读第 34 题 · providing 条件句与主从关系 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 条件题先找「如果」", "cls": "key", "tag": "审题", "log": "审题眼：\"Carry a book with you at all times\" can work if ___——条件题", "count": 0, "ribbon": null, "body": "<p>题干：\"Carry a book with you at all times\" can work <b>if</b> ___. 条件题的动作只有一步：在原文里把引出条件的连接词挖出来。第四段⑤句的破折号后面藏着它——<b>providing</b>（作连词，＝ if）。providing 之前是结论，之后整句都是条件本体。</p>"},
+ {"title": "定位原文 · providing 引出条件", "cls": "key", "tag": "定位", "log": "定位第四段⑤句：破折号后 providing（＝if）引出条件——阅读成为默认状态", "count": 0, "ribbon": null, "body": quote("&ldquo;Carry a book with you at all times&rdquo; can actually work, too &ndash; providing you dip in often enough, so that reading becomes the default state from which you temporarily surface to take care of business, before dropping back down.") + "<p><b>providing</b>（＝ if）之前是「随身带书也管用」，之后是条件全貌：经常「浸」进去，让阅读成为<b>默认状态</b>（the default state）。</p>"},
+ {"title": "同义替换 · 默认状态＝主业，临时浮出＝副业", "cls": "key", "tag": "替换", "log": "同义替换：default state（默认状态）＝ primary business（首要事务）", "count": 0, "ribbon": null, "body": "<p>条件的骨架是一组<b>主从关系</b>：阅读是 the default state——其他事务反而成了你从书中「<b>temporarily surface</b>（临时浮出水面）」去处理的附带事项。谁默认在场、谁是临时插队，一句话定主次：<b>阅读是主业，其他是副业</b>。这正是 [A] primary business 的画面。</p>"},
+ {"title": "逐项分析 · A reading becomes your primary business of the day", "cls": "good", "tag": "选定 A", "log": "A 阅读成为一天中的首要事务 ✓ ——default state 的换装改写", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>「首要事务」正是 <b>default state</b> 的换装：默认状态＝不用特意安排就占据你的时间，即主业；temporarily surface to take care of business 的「临时浮出」恰恰反证其他事务是副业。can work if 对应原文 can actually work, too &ndash; providing，方向、主次全部对齐。</p>"},
+ {"title": "逐项分析 · B all the daily business has been promptly dealt with", "cls": "bad", "tag": "排除 B", "log": "B 所有日常事务都被立即处理 ✗ ——「短暂浮出」被夸大成「全部清空」", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>原文只说「<b>短暂浮出</b>水面处理事务」（temporarily surface），从没说「所有日常事务都被<b>立即</b>处理完」——all 与 promptly 两个程度词都是凭空加码。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把临时处理夸大成全部清空。</p>"},
+ {"title": "逐项分析 · C you are able to drop back to business after reading", "cls": "bad", "tag": "排除 C", "log": "C 阅读之后返回工作 ✗ ——方向颠倒：dropping back down 是潜回阅读", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>原文 before <b>dropping back down</b> 是「处理完事务<b>返回阅读</b>」——C 把归途反了过来。链条是：reading = default state（潜水）→ temporarily surface（浮上办事）→ dropping back down（潜回阅读）。「下」＝阅读、「上」＝事务，方向链条一目了然。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 drop back 原词，不认方向与参照物。</p>"},
+ {"title": "逐项分析 · D time can be evenly split for reading and business", "cls": "bad", "tag": "排除 D", "log": "D 时间平均分配 ✗ ——evenly split 与「阅读为主、其他为辅」正面冲突", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>evenly split（平均分配）与「阅读为默认状态、事务为临时浮出」的主从结构正面冲突——原文强调的恰是<b>不均</b>：default（默认在场）对 temporarily（临时插队），天平本来就斜的。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看见「带书＋抽空办事」就脑补五五开，丢了主次标记。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（reading becomes your primary business of the day）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>随身带书常浸其中 → 阅读成为默认状态（主业）、其他事务成临时浮出（副业）→ 提炼为 primary business → 选 A。</b></p><p>答案选 <b>A（reading becomes your primary business of the day）</b>。</p><p><b>记忆锚点</b>：条件题先挖 providing（＝if）；default state ＝ 主业，temporarily surface ＝ 副业；drop back down 是「潜回阅读」——原词复现必查方向与主语。</p><p style=\"color:#b91c1c\">最易误选：<b>C（drop back to business）</b>——参照系搞反，把「潜回阅读」读成「返回工作」。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 34 题 · 条件题——providing 引出的主从关系",
+  subtitle: "考点：细节条件题 · providing（＝if）定位 + default state / surface 主从改写",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 主从关系 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（reading becomes your primary business of the day）", "html": "<b>A 阅读成为一天中的首要事务</b>：default state ＝ 主业，temporarily surface ＝ 副业。<br>记忆锚点：条件题先挖 providing（＝if）；drop back down 是「潜回阅读」，原词复现必查方向与主语。<br>最易误选：<b>C（drop back to business）</b>——方向颠倒，潜回阅读被读成返回工作。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 34 题 · 条件题——"providing"引出的主从关系</h2>
+<p>答案：<strong>A（reading becomes your primary business of the day 阅读成为一天中的首要事务）</strong>。</p>
+<h3>第 0 步：先立机制——找到"如果"才能找到条件</h3>
+<p>题干问 "Carry a book with you at all times" can work <strong>if</strong> ____（什么条件下"永远随身带书"才管用）。条件题的动作只有一步：在原文里把引出条件的连接词挖出来。第四段⑤句的破折号后面藏着它——<strong>providing</strong>（作连词，＝ if）。providing 之前是"随身带书也管用"，之后整句都是条件本体。条件找到了，答案就是条件的改写。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"Carry a book with you at all times" can actually work, too – providing you dip in often enough, so that reading becomes the default state from which you temporarily surface to take care of business, before dropping back down.</blockquote>
+<p>条件的骨架是一组<strong>主从关系</strong>：阅读经常"浸"进去，成为 <strong>the default state</strong>（默认状态）——其他事务反而成了你从书中"<strong>temporarily surface</strong>（临时浮出水面）"去处理的附带事项。谁默认在场、谁是临时插队，一句话定主次：<strong>阅读是主业，其他是副业</strong>。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[A] reading becomes your <strong>primary business</strong> of the day——"首要事务"正是 default state 的换装：默认状态＝不用特意安排就占据你的时间，即"主业"；temporarily surface to take care of business 的"临时浮出"恰恰反证其他事务是副业。can work if 对应原文 can actually work, too – providing，方向、主次全部对齐。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B all the daily business has been promptly dealt with</td><td>✗</td><td>程度偷换：原文只说"<strong>短暂浮出</strong>水面处理事务"（temporarily surface），从没说"所有日常事务都被<strong>立即</strong>处理完"——把临时处理夸大成全部清空</td></tr><tr><td>C you are able to drop back to business after reading</td><td>✗</td><td>方向颠倒：原文 before <strong>dropping back down</strong> 是"处理完事务<strong>返回阅读</strong>"——C 把归途反了过来，说成"阅读之后返回工作"；drop back 原词复现是诱饵，主语与方向都变了</td></tr><tr><td>D time can be evenly split for reading and business</td><td>✗</td><td>主次抹平：evenly split（平均分配）与"阅读为默认状态、事务为临时浮出"的主从结构正面冲突——原文强调的恰是<strong>不均</strong></td></tr><tr><td>A reading becomes your primary business of the day</td><td>✓</td><td>default state（默认状态）＝ primary business（首要事务），providing 条件句的准确概括</td></tr></tbody></table>
+<h3>预判追问：为什么 drop back 不是"返回工作"？</h3>
+<p>回原文看方向链条：reading becomes the default state（你是潜水状态）→ temporarily <strong>surface</strong> to take care of business（临时浮上去办事）→ before dropping <strong>back down</strong>（再<strong>潜回</strong>阅读里）。整个比喻的坐标系里，"下"＝阅读、"上"＝事务。drop back down 接续的是 surface，回的是书里。C 丢掉 down、换掉参照物，就成了"返回工作"——只认原词不认方向，正是命题人埋的钩子。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：drop back 字面在原文出现，但参照系搞反——surface（上＝事务）之后 down（下＝阅读）。</li><li><strong>误选 B</strong>：把"短暂浮出办事"脑补成"事务全办完了"——原文没有任何"全部/立即"的表述。</li><li><strong>误选 D</strong>：看见"随身带书＋抽空办事"就脑补成五五开，丢了 default/temporarily 这对主次标记。</li></ul>
+<blockquote>记忆锚点：条件题先挖 <strong>providing（＝if）</strong>；default state ＝ 主业，temporarily surface ＝ 副业；drop back down 是"潜回阅读"——原词复现必查方向与主语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

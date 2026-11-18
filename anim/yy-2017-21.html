@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-21 · 2017 Text 1 第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 定位 → 提炼公共因子 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 这不是细节题，是概括题",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：According to Paragraph 1 + 四个抽象概括选项 → 细节求公共因子",
+  "body": "<p>题干：<b>According to Paragraph 1, Parkrun has ____.</b></p><p>四个选项全是<b>抽象概括</b>（gained great popularity / created many jobs / strengthened community ties / become an official festival），原文给的是一串<b>具体细节</b>——机制：提炼每句细节的公共因子，看哪个概括盖得住全部细节。</p>"
+ },
+ {
+  "title": "定位原文 · 首段四句细节",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：第一段①-④句——规模、发展、志愿者、参与者年龄",
+  "body": quote("① Every Saturday morning, at 9 am, more than <b>50,000 runners</b> set off... ② The Parkrun phenomenon began with <b>a dozen friends</b> and has inspired <b>400 events</b> in the UK and more abroad. ③ Events are free, staffed by <b>thousands of volunteers</b>. ④ Runners range from <b>four years old to grandparents</b>...") + "<p>四句各给一个侧面，没有一句直接说“受欢迎”——答案只能靠<b>概括</b>。</p>"
+ },
+ {
+  "title": "找证据 · 提炼四句的公共因子",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "公共因子：参与者多、覆盖老少、发展快、志愿者众 = 大受欢迎",
+  "body": "<p>① 5 万人每周定时开跑 → <b>规模巨大、已成惯例</b>；</p><p>② 十几个朋友 → 英国内外 400+ 场 → <b>发展迅猛</b>；</p><p>③ 免费举办、数千志愿者撑起 → <b>有人气</b>；</p><p>④ 4 岁到爷爷奶奶 → <b>全人群覆盖</b>。</p><p>公共因子只有一条：<b>参与者多、覆盖广、发展快 = 大受欢迎</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A gained great popularity",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A gained great popularity ✓ 当选——对四句细节的高度概括",
+  "body": "<p><b>当选。</b>gained great popularity（赢得巨大欢迎）正是“5 万人 + 400 场 + 数千志愿者 + 老少皆跑”的上位概括。<b>反向验证</b>：下段首句 Parkrun <b>is succeeding</b> where London's Olympic “legacy” is failing——作者明说公园跑在成功。</p>"
+ },
+ {
+  "title": "逐项分析 · B created many jobs",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B created many jobs ✗ 排除——把“志愿者撑起”歪成“创造岗位”",
+  "body": "<p><b>排除。</b>③句 staffed by thousands of <b>volunteers</b>：志愿者是<b>义务</b>劳动，job（岗位）含雇佣报酬义——“人数多”不等于“岗位多”。</p><p style='color:#b91c1c'>⚠ 典型误解：见“很多人参与活动”就联想到“就业机会”。</p>"
+ },
+ {
+  "title": "逐项分析 · C strengthened community ties",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C strengthened community ties ✗ 排除——只有“多人参加”，没有“人际互动”",
+  "body": "<p><b>排除。</b>文中只说活动在 local park 举行、朋友起家、老少参加——全是“参与”，没有一处写<b>人与人之间的交往互动</b>，“加强社区联系”无从推出。</p><p style='color:#b91c1c'>⚠ 典型误解：把“社区里的活动”脑补成“社区关系紧密”。</p>"
+ },
+ {
+  "title": "逐项分析 · D become an official festival",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D become an official festival ✗ 排除——方向反了：免费 + 志愿者 = 民间自发",
+  "body": "<p><b>排除。</b>③句 events are <b>free</b>、数千志愿者撑起，恰说明这是<b>民间自发</b>活动；④句 world record 只说明有人跑得快，推不出“官方/正式赛事”。</p><p style='color:#b91c1c'>⚠ 典型误解：由“世界纪录”反向推出“官方性”。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A——细节是表、概括是底，公共因子 = 大受欢迎",
+  "body": "<p>答案选 <b>A（gained great popularity）</b>。</p><p><b>记忆锚点</b>：Paragraph 1 + 概括型选项 = 细节求公共因子；志愿者 ≠ 岗位；下段首句 is succeeding 是现成的验证器。</p><p style='color:#b91c1c'>⚠ 最易误选 B（created many jobs）：volunteer 与 job 含义相反。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 1 第 21 题 · 第一段的 Parkrun 已经怎样了：gained popularity / created jobs / strengthened ties / official festival",
+  subtitle: "考点：段落细节概括（公共因子） · 审题 → 定位 → 提炼 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 定位 → 提炼公共因子 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（gained great popularity）", "html": "<b>A</b>：5 万人规模 + 400 场 + 数千志愿者 + 老少皆跑 = 大受欢迎；下段首句 Parkrun is succeeding 反向验证。<br>记忆锚点：细节求公共因子；志愿者 ≠ 岗位。<br>最易误选：<b>B（created many jobs）</b>。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 1 第 21 题 · 第一段四句细节的共同因子</h2>
+<p>答案：<strong>A（gained great popularity）</strong>。</p>
+<h3>第 0 步：先立机制——"According to Paragraph 1" 是概括题的信号</h3>
+<p>题干问 According to Paragraph 1, Parkrun has ____，四个选项全是<strong>抽象概括</strong>（赢得了欢迎 / 创造了岗位 / 加强了社区联系 / 成了官方节日），而原文给的是一串<strong>具体细节</strong>。这类题的机制：细节是表、概括是底——把每句细节的"公共因子"提炼出来，再看哪个选项能把全部细节盖住。盖不住的选项，就是被篡改、臆断出来的干扰项。</p>
+<h3>第 1 步：定位原文（首段四句）</h3>
+<blockquote>① Every Saturday morning, at 9 am, more than <strong>50,000 runners</strong> set off to run 5km around their local park. ② The Parkrun phenomenon began with <strong>a dozen friends</strong> and has inspired <strong>400 events</strong> in the UK and more abroad. ③ Events are free, staffed by <strong>thousands of volunteers</strong>. ④ Runners range from <strong>four years old to grandparents</strong>...</blockquote>
+<h3>第 2 步：提炼公共因子</h3>
+<table><thead><tr><th>句</th><th>细节</th><th>提炼</th></tr></thead><tbody><tr><td>①</td><td>每周六 9 点开跑、超过 5 万人</td><td>规模巨大、已成惯例</td></tr><tr><td>②</td><td>十几个朋友起步 → 英国内外 400+ 场</td><td>发展迅猛</td></tr><tr><td>③</td><td>免费举办、数千志愿者撑起</td><td>吸引力强、有人气</td></tr><tr><td>④</td><td>4 岁小孩到爷爷奶奶都在跑</td><td>覆盖老少全人群</td></tr></tbody></table>
+<p>四句的公共因子只有一条：<strong>参与者多、覆盖广、发展快 = 大受欢迎</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A gained great popularity</td><td>✓ 当选</td><td>对四句细节的高度概括；下段首句 Parkrun is succeeding 反向验证成立。</td></tr><tr><td>B created many jobs</td><td>✗ 排除</td><td>把③句 staffed by thousands of volunteers（由志愿者<strong>义务</strong>撑起）歪成"创造岗位"：志愿者无薪，恰说明不是岗位。（典型误解：见"很多人参与活动"就联想到"就业"。）</td></tr><tr><td>C strengthened community ties</td><td>✗ 排除</td><td>文中只说"多人参加"，没有任何<strong>人际互动</strong>的描写；local park、a dozen friends 只是背景。（典型误解：把"社区里的活动"脑补成"社区关系紧密"。）</td></tr><tr><td>D become an official festival</td><td>✗ 排除</td><td>方向反了：events are free + 志愿者撑起，恰是<strong>民间自发</strong>活动；world record 说明有人跑得快，不说明官方性。（典型误解：由"世界纪录"推出"官方赛事"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>怎么验证概括是否成立？</strong>：用下段首句反推——Parkrun <strong>is succeeding</strong> where London's Olympic "legacy" is failing。作者明说公园跑在"成功"，与"大受欢迎"互为印证。</li><li><strong>为什么不是细节题？</strong>：四个选项在字面上都不等于原文任何一句——若逐词找"同义替换"会扑空；凡选项全是上位概括、原文全是下位细节，就是主旨型细节题。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（created many jobs）</strong>：volunteer（志愿者）与 job（有酬岗位）含义相反，被"人数多"带偏。</li><li><strong>误选 C（strengthened community ties）</strong>：把"地点在社区"偷换成"关系在社区"。</li></ul>
+<blockquote>记忆锚点：Paragraph 1 + 概括型选项 = 细节求公共因子；志愿者 ≠ 岗位；下段首句 is succeeding 是现成的验证器。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

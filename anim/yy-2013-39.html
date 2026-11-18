@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-39 动画：态度题——作者对瑞丁的呼吁怎么看</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：双层态度题，先分清\"谁的\"态度",
+  body:"<p>题干：<b>The author's attitude toward Reding's appeal is one of ____.</b>（对于瑞丁的呼吁，作者持____态度。）</p><p>文中站着两个人：<b>瑞丁</b>（呼吁配额的人）与<b>作者</b>（评价瑞丁的人）。先弄清瑞丁的主张，再找<b>作者对这套主张的评语</b>——作者态度的信号在 <b>But 之后</b>。</p>",
+  log:"双层态度题：问的是\"作者\"对\"瑞丁\"的态度"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第五段三步结构",
+  body:"<table class=\"aw-mini\"><tr><th>第五段句子</th><th>角色</th></tr><tr><td>① I understand Reding's reluctance – and her frustration</td><td>先共情：理解她</td></tr><tr><td>② I don't like quotas either; they run counter to my belief in <b>meritocracy</b></td><td>让步：我也不喜欢配额</td></tr><tr><td>③ <b>But</b>, …it does look as if <b>a fairer world must be temporarily ordered</b></td><td>转折：公平世界暂需\"被安排\"</td></tr></table>",
+  log:"第五段：共情 → 让步 → But 转折见真意"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：skepticism（怀疑）",
+  body:"<p><b>A（怀疑）</b><span class=\"bad-dot\">✗</span>：出处是②句 I don't like quotas…run counter to my belief in meritocracy（与英才管理理念相悖）——像是持否定态度。但这是 <b>But 之前的让步</b>：作者先把分歧摆上桌。在让步处停下，就会把\"有保留的赞成\"误读成\"怀疑\"。</p>",
+  log:"排除 A：\"不喜欢\"是让步，不是最终态度"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:2, ribbon:{k:2, ok:false}, title:"排除 B：objectiveness（客观）",
+  body:"<p><b>B（客观）</b><span class=\"bad-dot\">✗</span>：②③句一正一反（先说不喜欢，再说必须强制），有人概括成\"客观评价\"。但态度题要看<b>倾向</b>：让步是姿态，But 后\"必须暂时强制\"才是落点——倾向明确，谈不上中立客观。</p>",
+  log:"排除 B：两面表述 ≠ 客观中立，落点有倾向"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：indifference（冷漠）",
+  body:"<p><b>C（冷漠）</b><span class=\"bad-dot\">✗</span>：无中生有。作者用整段笔墨回应瑞丁——理解她的不情愿与挫折（①句）、说明自己与她同中有异（②③句），着墨这么多不可能\"漠不关心\"。</p>",
+  log:"排除 C：大段回应，谈不上冷漠"},
+ {cls:"good", ecs:"ok", tag:"锁定 D", count:4, ribbon:{k:4, ok:true}, title:"锁定 D：approval（赞同）",
+  body:"<p><b>D（赞同）</b><span class=\"ok-dot\">✓</span>：But 之后见真章——</p><div class=\"qq\"><b>第五段③：</b>But, when one considers the obstacles to achieving the meritocratic ideal, it does look as if <b>a fairer world must be temporarily ordered</b>. <span class=\"cn\">（译：但考虑到实现英才理想的种种障碍，一个更公平的世界看来必须暂时靠强制来安排。）</span></div><p>认可\"强制配额\"这条路 → 对瑞丁的呼吁持赞同态度。</p>",
+  log:"锁定 D：a fairer world must be temporarily ordered = 赞同"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 D",
+  body:"<p><b>答案 D</b>——approval（赞同）。</p><p>记忆锚点：双层态度题先分清\"谁的\"态度；I don't like quotas either 是让步，But 之后 temporarily ordered 才是落点 → D。</p>",
+  log:"结论：作者最终赞同瑞丁推动配额的主张，答案选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-39 · 作者态度题：对瑞丁呼吁的看法",
+  subtitle: "考点：Text2 第五段 But 转折 · 方法：分清双层态度 → But 之后定倾向",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>approval</b>（赞同）＝ 第五段 But 之后 <b>a fairer world must be temporarily ordered</b>。记忆锚点：<b>I don't like quotas either 是让步，不是结论</b>（A 从让步处找态度）；两面表述 ≠ 客观（B）；大段回应 ≠ 冷漠（C）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：态度题——作者对瑞丁的呼吁怎么看</h2>
+<p>答案：<strong>D</strong>（approval，赞同）。</p>
+<h3>第 0 步：先立机制——双层态度题要分清"谁的"态度</h3>
+<p>本题比一般态度题多一层：文中站着两个人——<strong>瑞丁</strong>（呼吁配额的人）和<strong>作者</strong>（评价瑞丁的人）。题干问 The author's attitude toward Reding's appeal：必须先弄清瑞丁说了什么，再去找<strong>作者对这套主张的评语</strong>。而作者态度的信号有固定位置——<strong>But 之后</strong>（让步在前，真意在后）。</p>
+<p>第五段结构：</p>
+<table><thead><tr><th>句子</th><th>角色</th></tr></thead><tbody><tr><td>① I understand Reding's reluctance – and her frustration</td><td>先共情：理解她的不情愿与挫折</td></tr><tr><td>② I don't like quotas either; they run counter to my belief in meritocracy</td><td>让步：我也不喜欢配额（与英才管理理念相悖）</td></tr><tr><td>③ <strong>But</strong>, when one considers the obstacles…, it does look as if <strong>a fairer world must be temporarily ordered</strong></td><td>转折：但现实障碍重重，公平世界暂需"被安排"</td></tr></tbody></table>
+<h3>第 1 步：But 之后见真章</h3>
+<p>②句"我也不喜欢配额"是<strong>让步</strong>：作者先把分歧摆上桌，显得公允。真正的表态在③句 But 之后——"考虑到实现英才理想的现实障碍，一个更公平的世界<strong>必须暂时靠强制来安排</strong>"。temporarily ordered（暂时被安排）＝ 认可配额这种强制手段的必要性。既然认可"强制配额"这条路，对瑞丁的呼吁自然持<strong>赞同</strong>态度 → 选 <strong>D</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A skepticism</td><td>✗</td><td>让步句误读</td></tr><tr><td>B objectiveness</td><td>✗</td><td>两面表述误读</td></tr><tr><td>C indifference</td><td>✗</td><td>无中生有</td></tr></tbody></table>
+<ul><li><strong>误选 A——把"不喜欢"当"怀疑"</strong>：②句 I don't like quotas…run counter to my belief in meritocracy（与英才管理理念相悖）容易让人以为作者对瑞丁的做法持怀疑/否定态度。但这只是 But 之前的让步；若在让步处停下，就会把"有保留的赞成"误读成"怀疑"。</li><li><strong>误选 B——把"两面话"当"客观"</strong>：②③两句确实一正一反（先说不喜欢，再说必须强制），有人概括成"作者客观评价"。但态度题要看<strong>倾向</strong>：让步是姿态，转折后"必须暂时强制"才是落点——倾向明确，谈不上"客观中立"。</li><li><strong>误选 C——无中生有</strong>：indifference（冷漠）没有原文落点；作者用整段、大量笔墨回应瑞丁（理解她的不情愿与挫折、说明自己与她同中有异），着墨这么多的人不可能"漠不关心"。</li></ul>
+<blockquote>记忆锚点：双层态度题 = 先分清"谁的"态度，再看 But 之后；I don't like quotas either 是让步，a fairer world must be temporarily ordered 才是落点 → approval（D）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

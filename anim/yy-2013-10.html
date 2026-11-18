@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 10 空 · 消费者不愿对收据做什么——give up · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 链式空：上一空定下一空", "cls": "key", "tag": "审题", "log": "先立机制：链式空：上一空定下一空", "count": 0, "ribbon": null, "body": "<p>空格在 something that many consumers are unwilling to ___ 的定语从句谓语位，something 回指 receipts。方向由上一环锁死：第 9 空确立“纸质支票提供收据”是 advantage——好处才有人不肯撒手。所以空格要表达“放弃、舍弃”，与 unwilling 组合成“不愿放弃收据”，反向支撑纸票的优势论。</p>"}, {"title": "定位原文 · 空 10 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 10 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Second, paper checks have the advantage that they provide receipts, something that many consumers are unwilling to <b>__10__</b>.</div><p>unwilling to ___ receipts：动词短语位。give up / take over / bring back / pass down 四个短语义域各异，先由 advantage 定方向“舍弃”，再核对各短语的使用场景。</p>"}, {"title": "找证据 · advantage → 收据是想要的东西 → 不愿舍弃", "cls": "key", "tag": "证据", "log": "找证据：advantage → 收据是想要的东西 → 不愿舍弃", "count": 0, "ribbon": null, "body": "<p>provide receipts（提供收据）与 unwilling to give up（不愿放弃）一给一留，逻辑闭环。这正是出题人用两空联动设置的“链式题”：任何一空脱离另一空单独选，四个选项里至少有两个能“读通”，必须靠链条互相锁定。</p>"}, {"title": "逐项分析 · A give up（放弃；舍弃）", "cls": "good", "tag": "选定 A", "log": "A give up（放弃；舍弃）✓ 当选——收据有用故不愿舍", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>unwilling to give up receipts = 不愿舍弃收据——收据有用才显出纸票优势，与第 9 空 provide 闭环。</p>"}, {"title": "逐项分析 · B take over（接管；接手）", "cls": "bad", "tag": "排除 B", "log": "B take over（接管；接手）✗ 排除——宾语义域不合", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>take over 的宾语一般是业务、职位、公司，“接管收据”讲不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“取得（收据）”的直觉错配成 take over。</p>"}, {"title": "逐项分析 · C bring back（带回；使恢复）", "cls": "bad", "tag": "排除 C", "log": "C bring back（带回；使恢复）✗ 排除——收据本就在手", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>收据本来就在消费者手里，谈不上“带回来”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 bring 就配 back。</p>"}, {"title": "逐项分析 · D pass down（遗传；传下）", "cls": "bad", "tag": "排除 D", "log": "D pass down（遗传；传下）✗ 排除——只用于代际传承", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>pass down 指（代际）传承，宾语多为传统、手艺，收据没有“传下去”的语境。</p><p style=\"color:#b91c1c\">⚠ 典型误解：短语义域不清，凭字面猜。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（give up 放弃；舍弃）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。</b></p><p>答案选 <b>A（give up 放弃；舍弃）</b>。</p><p><b>记忆锚点</b>：unwilling to give up = 不愿放弃；链式空：上一空的词义方向是下一空的锚；pass down 只用于“传承”。</p><p style=\"color:#b91c1c\">最易误选：<b>C（bring back）</b>——bring back 字面顺手，但收据本就在手，无“回”可言。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 10 空 · 消费者不愿对收据做什么——give up",
+  subtitle: "考点：动词短语辨析（链式依赖前空） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 A（give up 放弃；舍弃）", "html": "<b>A give up（放弃；舍弃）</b>。<br>完整句义：其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。<br>记忆锚点：unwilling to give up = 不愿放弃；链式空：上一空的词义方向是下一空的锚；pass down 只用于“传承”。<br>最易误选：<b>C（bring back）</b>——bring back 字面顺手，但收据本就在手，无“回”可言。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 10 空 · 消费者不愿对收据做什么——give up</h2>
+<p>答案：<strong>A（give up 放弃；舍弃）</strong>。</p>
+<h3>第 0 步：先立机制——链式空：上一空定下一空</h3>
+<p>空格在 something that many consumers are unwilling to ___ 的定语从句谓语位，something 回指 receipts。方向由上一环锁死：第 9 空确立“纸质支票提供收据”是 advantage——好处才有人不肯撒手。所以空格要表达“放弃、舍弃”，与 unwilling 组合成“不愿放弃收据”，反向支撑纸票的优势论。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Second, paper checks have the advantage that they provide receipts, something that many consumers are unwilling to <code>__10__</code>.</blockquote>
+<p>unwilling to ___ receipts：动词短语位。give up / take over / bring back / pass down 四个短语义域各异，先由 advantage 定方向“舍弃”，再核对各短语的使用场景。</p>
+<h3>第 2 步：找证据——advantage → 收据是想要的东西 → 不愿舍弃</h3>
+<p>provide receipts（提供收据）与 unwilling to give up（不愿放弃）一给一留，逻辑闭环。这正是出题人用两空联动设置的“链式题”：任何一空脱离另一空单独选，四个选项里至少有两个能“读通”，必须靠链条互相锁定。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A give up</td><td>放弃；舍弃</td><td>✓ 当选</td><td>unwilling to give up receipts = 不愿舍弃收据——收据有用才显出纸票优势，与第 9 空 provide 闭环。（易错警示：bring back 字面顺手；收据本就在手，无“回”可言。）</td></tr><tr><td>B take over</td><td>接管；接手</td><td>✗ 排除</td><td>take over 的宾语一般是业务、职位、公司，“接管收据”讲不通。（典型误解：把“取得（收据）”的直觉错配成 take over。）</td></tr><tr><td>C bring back</td><td>带回；使恢复</td><td>✗ 排除</td><td>收据本来就在消费者手里，谈不上“带回来”。（典型误解：见 bring 就配 back。）</td></tr><tr><td>D pass down</td><td>遗传；传下</td><td>✗ 排除</td><td>pass down 指（代际）传承，宾语多为传统、手艺，收据没有“传下去”的语境。（典型误解：短语义域不清，凭字面猜。）</td></tr></tbody></table>
+<p>代入后的完整句义：其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>give up 还有哪些高频义？</strong>：放弃（尝试）、戒除（习惯）、交出让出（give up one’s seat）；本题为“舍弃”义：unwilling to give up receipts = 不愿舍弃收据。</li><li><strong>为什么必须先固定第 9 空？</strong>：advantage → 收据是消费者想要的东西 → 不愿“舍弃”。若把上一环读成劣势，四个短语的排序全部重洗——链式空必须先固上一环再动下一环。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（take over）</strong>：把“取得（收据）”的直觉错配成 take over。</li><li><strong>误选 C（bring back）</strong>：见 bring 就配 back。</li><li><strong>误选 D（pass down）</strong>：短语义域不清，凭字面猜。</li></ul>
+<blockquote>记忆锚点：unwilling to give up = 不愿放弃；链式空：上一空的词义方向是下一空的锚；pass down 只用于“传承”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

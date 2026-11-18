@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 8 空 · 慢 VS 快的对比（形容词）：A orderly / B rigid / C precise / D immediate</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 8 在「慢 VS 快的对比（形容词）」位；考点：句内语义（对比结构 + 形容词辨析）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It takes about three weeks to a month to notice significant changes in your weight due to altering your training program. The most <b>__8__</b> changes will be observed in skill level, strength and inches lost.</div><p>空 8 修饰 changes：最 __ 的变化将出现在技能水平、力量和身体围度上。它紧跟着上一句“体重变化要三周到一个月才看得到”。</p>"
+ },
+ {
+  "title": "立机制 · 两句对仗的对比槽：慢 VS 快",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：两句对仗的对比槽：慢 VS 快",
+  "body": "<p>②③两句完全对仗：notice changes in your weight ↔ changes be observed in skill level, strength...，却各配一个时间刻度——体重：三周到一个月（慢）；技能/力量/围度：最 __（快）。两句在对比“慢显现的变化 VS 最快显现的变化”。与 three weeks to a month（远期）相对的刻度就是“立即、最快”：immediate。</p>"
+ },
+ {
+  "title": "找证据 · 对比槽的两端：三周到一个月 ↔ 最 __",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：对比槽的两端：三周到一个月 ↔ 最 __",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It takes about three weeks to a month to notice significant changes in your weight.</div><p>②句给出“慢”的锚点（三周到一个月），③句 the most __ 必须落在“快”的一端，两句的对比才成立。</p>"
+ },
+ {
+  "title": "逐项分析 · A orderly（有序的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A orderly（有序的）✗ 排除",
+  "body": "<p><b>排除。</b>orderly 可与 change 搭配（有序的变化），但上文没有“无序/有序”话题，对比不成立。</p>"
+ },
+ {
+  "title": "逐项分析 · B rigid（严格死板的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B rigid（严格死板的）✗ 排除",
+  "body": "<p><b>排除。</b>rigid 通常修饰规定、办法或人的态度，修饰 change 不构成有效语义。</p>"
+ },
+ {
+  "title": "逐项分析 · C precise（精确的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C precise（精确的）✗ 排除",
+  "body": "<p><b>排除。</b>利用“技能、力量、围度比体重数字更能准确反映成果”的常识干扰；但文意是“显现快慢”的时间对比，不是“精不精确”；precise/rigid 与 change 搭配时语义不成立。</p>"
+ },
+ {
+  "title": "逐项分析 · D immediate（立即的，直接的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D immediate（立即的，直接的）✓ 当选",
+  "body": "<p><b>当选。</b>The most immediate changes = 最快（最直接）显现的变化，与“三周到一个月”构成远/近对照。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 8 填 immediate（立即的，直接的）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The most <b>immediate</b> changes will be observed in skill level, strength and inches lost.</div><p>最快显现的变化将体现在技能水平、力量和身体围度上。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "log": "答案 D（immediate 立即的，直接的）——见结论卡",
+  "body": "<p>答案选 <b>D（immediate 立即的，直接的）</b>。</p><p><b>记忆锚点</b>：两句对仗找对比槽：three weeks to a month（慢）↔ the most immediate（快）；健身真相：体重最迟显效，技能/力量/围度最先见效。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>C（precise）</b>：被“其他指标比体重数字更准”的常识带走；两句比的是显现快慢，不是准不准。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 8 空 · 慢 VS 快的对比（形容词）：A orderly / B rigid / C precise / D immediate",
+  subtitle: "考点：句内语义（对比结构 + 形容词辨析） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（immediate 立即的，直接的）", "html": "<b>D（immediate 立即的，直接的）</b>。<br>记忆锚点：两句对仗找对比槽：three weeks to a month（慢）↔ the most immediate（快）；健身真相：体重最迟显效，技能/力量/围度最先见效。<br>最易误选：<b>C（precise）</b>——被“其他指标比体重数字更准”的常识带走；两句比的是显现快慢，不是准不准。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 8 空 · 慢 VS 快的对比（形容词）</h2>
+<p>答案：<strong>D（immediate 立即的，直接的）</strong>。</p>
+<h3>第 0 步：先立机制——两句对仗的对比槽：慢 VS 快</h3>
+<p>②③两句完全对仗：notice changes in your weight ↔ changes be observed in skill level, strength...，却各配一个时间刻度——体重：三周到一个月（慢）；技能/力量/围度：最 __（快）。两句在对比“慢显现的变化 VS 最快显现的变化”。与 three weeks to a month（远期）相对的刻度就是“立即、最快”：immediate。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It takes about three weeks to a month to notice significant changes in your weight due to altering your training program. The most <strong>__8__</strong> changes will be observed in skill level, strength and inches lost.</blockquote>
+<p>空 8 修饰 changes：最 __ 的变化将出现在技能水平、力量和身体围度上。它紧跟着上一句“体重变化要三周到一个月才看得到”。</p>
+<h3>第 2 步：找证据——对比槽的两端：三周到一个月 ↔ 最 __</h3>
+<blockquote>It takes about three weeks to a month to notice significant changes in your weight.</blockquote>
+<p>②句给出“慢”的锚点（三周到一个月），③句 the most __ 必须落在“快”的一端，两句的对比才成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A orderly</td><td>有序的</td><td>✗ 排除</td><td>orderly 可与 change 搭配（有序的变化），但上文没有“无序/有序”话题，对比不成立。</td></tr><tr><td>B rigid</td><td>严格死板的</td><td>✗ 排除</td><td>rigid 通常修饰规定、办法或人的态度，修饰 change 不构成有效语义。</td></tr><tr><td>C precise</td><td>精确的</td><td>✗ 排除</td><td>利用“技能、力量、围度比体重数字更能准确反映成果”的常识干扰；但文意是“显现快慢”的时间对比，不是“精不精确”；precise/rigid 与 change 搭配时语义不成立。</td></tr><tr><td>D immediate</td><td>立即的，直接的</td><td>✓ 当选</td><td>The most immediate changes = 最快（最直接）显现的变化，与“三周到一个月”构成远/近对照。</td></tr></tbody></table>
+<p>代入后的完整句义：The most immediate changes will be observed in skill level, strength and inches lost.（最快显现的变化将体现在技能水平、力量和身体围度上。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（precise）</strong>：被“其他指标比体重数字更准”的常识带走；两句比的是显现快慢，不是准不准。</li></ul>
+<blockquote>记忆锚点：两句对仗找对比槽：three weeks to a month（慢）↔ the most immediate（快）；健身真相：体重最迟显效，技能/力量/围度最先见效。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

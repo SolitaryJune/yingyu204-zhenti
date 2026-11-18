@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-10 · 2025 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 10 所在句，考点：短语动词辨析 · ____ for help（求助动作）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you struggle with low self-esteem, you might find it especially difficult to __10__ for help because you have the added worry of the other person __11__ your request.</div><p>空格待填正确答案；本题考点：<b>短语动词辨析 · ____ for help（求助动作）</b>。方法主线：句型复现 → 拼「求助」搭配 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · 空 + for help 要拼出「求助」这个老话题",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：空 + for help 要拼出「求助」这个老话题",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本句 it 形式宾语、especially difficult 作宾补，句型与①句 find it difficult to ask for help 同款——<b>又一次说「求助难」</b>。空格与 for help 要搭出「求助」动作，且承接全篇 ask for help 的话题。reach out（to sb）for help =（向人）伸手求助，正中靶心。</p>"
+ },
+ {
+  "title": "证据 · ①句同款句型 + 全篇话题复现",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：①句同款句型 + 全篇话题复现",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>①句 find it difficult to ask for help、第二段①句 Asking for help takes courage——「求助」是全篇高频话题。本句加码：低自尊者觉得求助<b>尤其</b>难（especially difficult），空格动作必须仍是「求助」本身，especially difficult 才成立。</p>"
+ },
+ {
+  "title": "逐项分析 · A reach out（与某人联系以获得帮助）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A reach out（与某人联系以获得帮助） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>reach out (to sb) for help =（向人）伸手求助；与 for help 搭配、与全篇话题、与 especially difficult 全部咬合。</p>"
+ },
+ {
+  "title": "逐项分析 · B settle down（（在某地）定居下来）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B settle down（（在某地）定居下来） ✗ 排除——定居与 for help 无搭配，话题跳到「安家」",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>定居与 for help 无搭配可言，话题也跳到「安家」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认短语本身常见，不看与 for help 的搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · C turn over（翻转；翻身）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C turn over（翻转；翻身） ✗ 排除——turn over for help 不成立，别与 turn to 混淆",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>turn over for help 不成立；「移交」义也与「求助难」无关——真正常考的求助短语是 turn to sb for help，别与 turn over 混淆。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 turn to（求助于）与 turn over 混为一谈。</p>"
+ },
+ {
+  "title": "逐项分析 · D look back（回忆；回顾）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D look back（回忆；回顾） ✗ 排除——回顾的是过去，语境说的是现在难于开口",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>look back on/to 回顾的是过去；语境说的是**现在难于开口**，不是回忆往事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到过去时间信息就误以为在回顾往事。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（reach out 与某人联系以获得帮助）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如果你受低自尊困扰，你可能会觉得向人求助格外困难，因为你还多了一层担心：对方拒绝你的请求。</b></p><p>答案选 <b>A（reach out 与某人联系以获得帮助）</b>。</p><p><b>记忆锚点</b>：____ for help 先拼「求助」动作：reach out for help（伸手求助）；find it difficult to... 与①句同款句型互为复现。turn over ≠ turn to。</p><p style=\"color:#b91c1c\">最易误选：<b>C（turn over）</b>——把 turn to（求助于）与 turn over 混为一谈。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 10 空 · find it especially difficult to ____ for help",
+  subtitle: "考点：短语动词辨析（求助搭配）· ____ for help → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 A（reach out）",
+ "html": "<b>A reach out（与某人联系以获得帮助）</b>。<br>完整句义：如果你受低自尊困扰，你可能会觉得向人求助格外困难，因为你还多了一层担心：对方拒绝你的请求。<br>记忆锚点：____ for help 先拼「求助」动作：reach out for help（伸手求助）；find it difficult to... 与①句同款句型互为复现。turn over ≠ turn to。<br>最易误选：<b>C（turn over）</b>——把 turn to（求助于）与 turn over 混为一谈。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 10 空 · 短语动词辨析 · ____ for help（求助动作）</h2>
+<p>答案：<strong>A（reach out 与某人联系以获得帮助）</strong>。</p>
+<h3>第 0 步：先立机制——空 + for help 要拼出「求助」这个老话题</h3>
+<p>本句 it 形式宾语、especially difficult 作宾补，句型与①句 find it difficult to ask for help 同款——<strong>又一次说「求助难」</strong>。空格与 for help 要搭出「求助」动作，且承接全篇 ask for help 的话题。reach out（to sb）for help =（向人）伸手求助，正中靶心。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>If you struggle with low self-esteem, you might find it especially difficult to __10__ for help because you have the added worry of the other person __11__ your request.</blockquote>
+<p>①句 find it difficult to ask for help、第二段①句 Asking for help takes courage——「求助」是全篇高频话题。本句加码：低自尊者觉得求助<strong>尤其</strong>难（especially difficult），空格动作必须仍是「求助」本身，especially difficult 才成立。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A reach out</td><td>与某人联系以获得帮助</td><td>✓ 当选</td><td>reach out (to sb) for help =（向人）伸手求助；与 for help 搭配、与全篇话题、与 especially difficult 全部咬合。</td></tr><tr><td>B settle down</td><td>（在某地）定居下来</td><td>✗ 排除</td><td>定居与 for help 无搭配可言，话题也跳到「安家」。</td></tr><tr><td>C turn over</td><td>翻转；翻身</td><td>✗ 排除</td><td>turn over for help 不成立；「移交」义也与「求助难」无关——真正常考的求助短语是 turn to sb for help，别与 turn over 混淆。</td></tr><tr><td>D look back</td><td>回忆；回顾</td><td>✗ 排除</td><td>look back on/to 回顾的是过去；语境说的是<strong>现在难于开口</strong>，不是回忆往事。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>只认短语本身常见，不看与 for help 的搭配 → 误选 B（settle down）</strong>：定居与 for help 无搭配可言，话题也跳到「安家」。</li><li><strong>把 turn to（求助于）与 turn over 混为一谈 → 误选 C（turn over）</strong>：turn over for help 不成立；「移交」义也与「求助难」无关——真正常考的求助短语是 turn to sb for help，别与 turn over 混淆。</li><li><strong>看到过去时间信息就误以为在回顾往事 → 误选 D（look back）</strong>：look back on/to 回顾的是过去；语境说的是<strong>现在难于开口</strong>，不是回忆往事。</li></ul>
+<blockquote>记忆锚点：____ for help 先拼「求助」动作：reach out for help（伸手求助）；find it difficult to... 与①句同款句型互为复现。turn over ≠ turn to。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

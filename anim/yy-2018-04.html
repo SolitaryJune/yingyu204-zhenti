@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-04 · 测试学生____自己于不快刺激的意愿：A alert / B tie / C treat / D expose</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 4 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 4 在 willingness to __ themselves to unpleasant stimuli 的动词位；考点：句内语义 + 动词短语搭配",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In a series of four experiments, behavioral scientists at the University of Chicago and the Wisconsin School of Business tested students’ willingness to <b>__4__</b> themselves to unpleasant stimuli in an effort to satisfy curiosity.</div><p>空 4 是 <b>__ themselves to unpleasant stimuli</b> 的动词，构成反身代词 + to + 刺激物的结构：学生愿意把自己怎样于那些不快刺激。</p>"
+ },
+ {
+  "title": "立机制 · 实验内容必须与首段结论同口径",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：tested 的内容 = 首段明知痛苦还要做 → 空格 = 让自己经受不快",
+  "body": "<p>第二段开头点明：四项实验测试的是 students’ willingness to __ themselves to unpleasant stimuli in an effort to satisfy curiosity（为了满足好奇心而____不快刺激的意愿）。实验是首段结论的落地版——首段说人们明知 painful 还要做，实验测的就是学生愿不愿意<b>让自己亲身经受</b>这些不快刺激。expose oneself to sth 正是使自己暴露于、遭受（危险、不快）的固定表达。</p>"
+ },
+ {
+  "title": "找证据 · unpleasant stimuli 与首段 painful 同语义场",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：unpleasant stimuli 呼应 obviously painful → 空格带遭受义",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Why do people read negative Internet comments and do other things that will obviously be painful?</div><p>宾语是 <b>unpleasant stimuli</b>（令人不快的刺激物），方向是承受负面体验。这个短语与首段 obviously painful 同在一个语义场，所以空 4 不是中性的接触、了解，而是带让自己吃这个苦色彩的动词。</p>"
+ },
+ {
+  "title": "逐项分析 · A alert（使警觉；使意识到）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A alert（使警觉；使意识到）✗ 排除",
+  "body": "<p><b>排除。</b>alert oneself to sth 是使自己意识到某事——意识到不等于亲身经受，力度差一档，撑不起明知 painful 还做的实验设定。</p><p style=\"color:#b91c1c\">⚠ 典型误解：记得 alert sb to sth 的搭配很通顺，却没掂量语义深度：认识到刺激吃不到苦。</p>"
+ },
+ {
+  "title": "逐项分析 · B tie（系；束缚）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B tie（系；束缚）✗ 排除",
+  "body": "<p><b>排除。</b>tie oneself to sth 是把自己束缚于某物或使与某事紧密关联——实验里学生不是被捆住，语义错位。</p>"
+ },
+ {
+  "title": "逐项分析 · C treat（对待；款待）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C treat（对待；款待）✗ 排除",
+  "body": "<p><b>排除。</b>treat oneself to sth 是犒劳自己、款待自己（如 treat yourself to a nice dinner），方向恰好反了：是享受不是受罪。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 treat...to... 就套款待义，没看宾语是 unpleasant stimuli——不快的刺激没法享用。</p>"
+ },
+ {
+  "title": "逐项分析 · D expose（使遭受；使接触）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D expose（使遭受；使接触）✓ 当选",
+  "body": "<p><b>当选。</b>expose oneself to sth = 使自己暴露于、遭受某事（危险、不快），与 unpleasant stimuli 搭配严丝合缝，也与首段明知痛苦还要做同口径。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 4 填 expose（使遭受；使接触）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In a series of four experiments, behavioral scientists at the University of Chicago and the Wisconsin School of Business tested students’ willingness to <b>expose</b> themselves to unpleasant stimuli in an effort to satisfy curiosity.</div><p>行为科学家们测试了学生为了满足好奇心而让自己经受不快刺激的意愿。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（expose 使遭受；使接触）——见结论卡",
+  "body": "<p>答案选 <b>D（expose 使遭受；使接触）</b>。</p><p><b>记忆锚点</b>：expose oneself / sb to sth = 使自己（某人）遭受危险或不快；treat oneself to sth = 犒劳自己（方向相反）；alert to 只到意识到为止。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>C（treat）</b>：treat oneself to 的搭配看似工整，但义为犒劳自己，与 unpleasant stimuli 的负面方向刚好相反。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 4 空 · 测试学生____自己于不快刺激的意愿：A alert / B tie / C treat / D expose",
+  subtitle: "考点：句内语义 + 动词短语搭配 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（expose 使遭受；使接触）", "html": "<b>D（expose 使遭受；使接触）</b>。<br>记忆锚点：expose oneself / sb to sth = 使自己（某人）遭受危险或不快；treat oneself to sth = 犒劳自己（方向相反）；alert to 只到意识到为止。<br>最易误选：<b>C（treat）</b>——treat oneself to 的搭配看似工整，但义为犒劳自己，与 unpleasant stimuli 的负面方向刚好相反。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 4 空 · 测试学生____自己于不快刺激的意愿</h2>
+<p>答案：<strong>D（expose 使遭受；使接触）</strong>。</p>
+<h3>第 0 步：先立机制——实验内容必须与首段结论同口径</h3>
+<p>第二段开头点明：四项实验测试的是 students’ willingness to __ themselves to unpleasant stimuli in an effort to satisfy curiosity（为了满足好奇心而____不快刺激的意愿）。实验是首段结论的落地版——首段说人们明知 painful 还要做，实验测的就是学生愿不愿意<strong>让自己亲身经受</strong>这些不快刺激。expose oneself to sth 正是使自己暴露于、遭受（危险、不快）的固定表达。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In a series of four experiments, behavioral scientists at the University of Chicago and the Wisconsin School of Business tested students’ willingness to <strong>__4__</strong> themselves to unpleasant stimuli in an effort to satisfy curiosity.</blockquote>
+<p>空 4 是 <strong>__ themselves to unpleasant stimuli</strong> 的动词，构成反身代词 + to + 刺激物的结构：学生愿意把自己怎样于那些不快刺激。</p>
+<h3>第 2 步：找证据——unpleasant stimuli 与首段 painful 同语义场</h3>
+<blockquote>Why do people read negative Internet comments and do other things that will obviously be painful?</blockquote>
+<p>宾语是 <strong>unpleasant stimuli</strong>（令人不快的刺激物），方向是承受负面体验。这个短语与首段 obviously painful 同在一个语义场，所以空 4 不是中性的接触、了解，而是带让自己吃这个苦色彩的动词。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A alert</td><td>使警觉；使意识到</td><td>✗ 排除</td><td>alert oneself to sth 是使自己意识到某事——意识到不等于亲身经受，力度差一档，撑不起明知 painful 还做的实验设定。（典型误解：记得 alert sb to sth 的搭配很通顺，却没掂量语义深度：认识到刺激吃不到苦。）</td></tr><tr><td>B tie</td><td>系；束缚</td><td>✗ 排除</td><td>tie oneself to sth 是把自己束缚于某物或使与某事紧密关联——实验里学生不是被捆住，语义错位。</td></tr><tr><td>C treat</td><td>对待；款待</td><td>✗ 排除</td><td>treat oneself to sth 是犒劳自己、款待自己（如 treat yourself to a nice dinner），方向恰好反了：是享受不是受罪。（典型误解：见 treat...to... 就套款待义，没看宾语是 unpleasant stimuli——不快的刺激没法享用。）</td></tr><tr><td>D expose</td><td>使遭受；使接触</td><td>✓ 当选</td><td>expose oneself to sth = 使自己暴露于、遭受某事（危险、不快），与 unpleasant stimuli 搭配严丝合缝，也与首段明知痛苦还要做同口径。</td></tr></tbody></table>
+<p>代入后的完整句义：行为科学家们测试了学生为了满足好奇心而让自己经受不快刺激的意愿。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（treat）</strong>：treat oneself to 的搭配看似工整，但义为犒劳自己，与 unpleasant stimuli 的负面方向刚好相反。</li></ul>
+<blockquote>记忆锚点：expose oneself / sb to sth = 使自己（某人）遭受危险或不快；treat oneself to sth = 犒劳自己（方向相反）；alert to 只到意识到为止。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

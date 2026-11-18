@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-12 · 好奇心能____新的科学进步：A lead to / B rest on / C learn from / D begin with</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 12 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 12 在 it can __ new scientific advances 的短语动词位；考点：句内语义 + 动词短语辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Curiosity is often considered a good instinct – it can <b>__12__</b> new scientific advances, for instance – but sometimes such __13__ can backfire.</div><p>空 12 在破折号插入语 <b>it can __ new scientific advances</b> 里：主语 it 复指 Curiosity，宾语是 new scientific advances（新的科学进步），空格是连接二者的短语动词。</p>"
+ },
+ {
+  "title": "立机制 · for instance 例证方向 = 被例证观点方向",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：good instinct 的例证 → 空格必须体现积极作用 → curiosity 带来进步",
+  "body": "<p>破折号里 <b>for instance</b> 表明这半句是 Curiosity is often considered a <b>good</b> instinct 的<b>例证</b>。例证必须顺着被例证的观点走：观点说好，例证就得展示好奇心带来的<b>积极结果</b>。主语 it（好奇心）在前、宾语 new scientific advances（科学进步）在后，能承接这层积极因果的只有 lead to（带来、导致）。进步由好奇心催生，不是反过来。</p>"
+ },
+ {
+  "title": "找证据 · but 反向佐证：后半句讲 backfire",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：前半 good → lead to（积极）；后半 backfire → 负面，方向对称",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Curiosity is often considered a good instinct – it can __12__ new scientific advances, for instance – but sometimes such __13__ can backfire.</div><p>本句是对称结构：破折号前说<b>好</b>的一面（good instinct + 例证），but 之后说<b>坏</b>的一面（such __ can backfire，适得其反）。前半句的例证要举好的实例——好奇心推动科学进步；若填依赖、基于进步或以进步为起点，例证就不再证明好奇心的好，而是把因果关系倒过来。</p>"
+ },
+ {
+  "title": "逐项分析 · A lead to（导致；带来）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A lead to（导致；带来）✓ 当选",
+  "body": "<p><b>当选。</b>lead to new scientific advances = 带来新的科学进步：好奇心为因、进步为果，正是 good instinct 的例证。</p>"
+ },
+ {
+  "title": "逐项分析 · B rest on（依靠；基于）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B rest on（依靠；基于）✗ 排除",
+  "body": "<p><b>排除。</b>好奇心基于科学进步，把因果颠倒：例证要证明好奇心产生好结果，不是它依托别的东西。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没先认清主语 it 是 Curiosity、例证方向是好，只顾短语字面通顺。</p>"
+ },
+ {
+  "title": "逐项分析 · C learn from（向……学习）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C learn from（向……学习）✗ 排除",
+  "body": "<p><b>排除。</b>好奇心向科学进步学习，逻辑错位：好奇心是内驱力，不是学习者；这句也证明不了它好。</p>"
+ },
+ {
+  "title": "逐项分析 · D begin with（以……开始）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D begin with（以……开始）✗ 排除",
+  "body": "<p><b>排除。</b>以科学进步为起点暗含先有进步、后有好奇心，与全文好奇乃天生本能相矛盾。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 12 填 lead to（导致；带来）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Curiosity is often considered a good instinct – it can <b>lead to</b> new scientific advances, for instance – but sometimes such __13__ can backfire.</div><p>好奇心常被认为是一种好的本能——例如它能带来新的科学进步——但有时这种探究也会适得其反。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（lead to 导致；带来）——见结论卡",
+  "body": "<p>答案选 <b>A（lead to 导致；带来）</b>。</p><p><b>记忆锚点</b>：for instance 的例证方向 = 被例证观点的方向（good → 积极动词）；lead to 的主语是因、宾语是果，别把因果读反。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>B（rest on）</b>：没分清主语 it 指好奇心，把进步当成了立足点——例证的因果方向一反，好本能就证不成了。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 12 空 · 好奇心能____新的科学进步：A lead to / B rest on / C learn from / D begin with",
+  subtitle: "考点：句内语义 + 动词短语辨析 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（lead to 导致；带来）", "html": "<b>A（lead to 导致；带来）</b>。<br>记忆锚点：for instance 的例证方向 = 被例证观点的方向（good → 积极动词）；lead to 的主语是因、宾语是果，别把因果读反。<br>最易误选：<b>B（rest on）</b>——没分清主语 it 指好奇心，把进步当成了立足点——例证的因果方向一反，好本能就证不成了。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 12 空 · 好奇心能____新的科学进步</h2>
+<p>答案：<strong>A（lead to 导致；带来）</strong>。</p>
+<h3>第 0 步：先立机制——for instance 例证方向 = 被例证观点方向</h3>
+<p>破折号里 <strong>for instance</strong> 表明这半句是 Curiosity is often considered a <strong>good</strong> instinct 的<strong>例证</strong>。例证必须顺着被例证的观点走：观点说好，例证就得展示好奇心带来的<strong>积极结果</strong>。主语 it（好奇心）在前、宾语 new scientific advances（科学进步）在后，能承接这层积极因果的只有 lead to（带来、导致）。进步由好奇心催生，不是反过来。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Curiosity is often considered a good instinct – it can <strong>__12__</strong> new scientific advances, for instance – but sometimes such __13__ can backfire.</blockquote>
+<p>空 12 在破折号插入语 <strong>it can __ new scientific advances</strong> 里：主语 it 复指 Curiosity，宾语是 new scientific advances（新的科学进步），空格是连接二者的短语动词。</p>
+<h3>第 2 步：找证据——but 反向佐证：后半句讲 backfire</h3>
+<blockquote>Curiosity is often considered a good instinct – it can __12__ new scientific advances, for instance – but sometimes such __13__ can backfire.</blockquote>
+<p>本句是对称结构：破折号前说<strong>好</strong>的一面（good instinct + 例证），but 之后说<strong>坏</strong>的一面（such __ can backfire，适得其反）。前半句的例证要举好的实例——好奇心推动科学进步；若填依赖、基于进步或以进步为起点，例证就不再证明好奇心的好，而是把因果关系倒过来。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A lead to</td><td>导致；带来</td><td>✓ 当选</td><td>lead to new scientific advances = 带来新的科学进步：好奇心为因、进步为果，正是 good instinct 的例证。</td></tr><tr><td>B rest on</td><td>依靠；基于</td><td>✗ 排除</td><td>好奇心基于科学进步，把因果颠倒：例证要证明好奇心产生好结果，不是它依托别的东西。（典型误解：没先认清主语 it 是 Curiosity、例证方向是好，只顾短语字面通顺。）</td></tr><tr><td>C learn from</td><td>向……学习</td><td>✗ 排除</td><td>好奇心向科学进步学习，逻辑错位：好奇心是内驱力，不是学习者；这句也证明不了它好。</td></tr><tr><td>D begin with</td><td>以……开始</td><td>✗ 排除</td><td>以科学进步为起点暗含先有进步、后有好奇心，与全文好奇乃天生本能相矛盾。</td></tr></tbody></table>
+<p>代入后的完整句义：好奇心常被认为是一种好的本能——例如它能带来新的科学进步——但有时这种探究也会适得其反。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（rest on）</strong>：没分清主语 it 指好奇心，把进步当成了立足点——例证的因果方向一反，好本能就证不成了。</li></ul>
+<blockquote>记忆锚点：for instance 的例证方向 = 被例证观点的方向（good → 积极动词）；lead to 的主语是因、宾语是果，别把因果读反。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

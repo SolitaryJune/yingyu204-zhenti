@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 14 空 · Airlines have simply changed the time a __14__ is meant to take：A break / B trip / C departure / D transfer</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 14 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 14 在「Airlines have simply changed the time a __14__ is meant to take」；考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Airlines have simply changed the time a <b>__14__</b> is meant to take. A one-hour flight is now billed as a two-hour flight.</div><p>空 14 是定语从句 a __ is meant to take 的主语，指“被改写时长的对象”。</p>"
+ },
+ {
+  "title": "立机制 · 被改写的是“整个航程”的总时长",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：被改写的是“整个航程”的总时长",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Airlines have simply changed the time a <b>__14__</b> is meant to take. A one-hour flight is now billed as a two-hour flight.</div><p>空格句说“航空公司改了 __ 所需的时间”，紧接着的后句是它的具体化：<b>one-hour flight → two-hour flight</b>——改的是<b>整个航程</b>的总时长，不是旅程中某一段的时间。</p><p>空格词必须与 flight（航程）同指一个整体 ⇒ trip（出行、旅程）。“a trip is meant to take” = 一次出行按计划需要耗费的时间。</p>"
+ },
+ {
+  "title": "找证据 · one-hour → two-hour：改的是总量，不是某一段",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：one-hour → two-hour：改的是总量，不是某一段",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A one-hour flight is now billed as a two-hour flight.</div><p>后句直接给出改写对象：一小时的航程号称两小时。总时长变长，准时目标不费吹灰之力就能达成——这正是“不择手段”的具体操作。</p>"
+ },
+ {
+  "title": "逐项分析 · A break（间歇；经停）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A break（间歇；经停）✗ 排除",
+  "body": "<p><b>排除。</b>break（间歇 / 经停）只是旅程中的一段；改的不是“经停时间”，而是全程总时长。</p>"
+ },
+ {
+  "title": "逐项分析 · B trip（出行；旅程）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B trip（出行；旅程）✓ 当选",
+  "body": "<p><b>当选。</b>trip（旅程）与 flight 同指整个航程，总时长改写得通。</p>"
+ },
+ {
+  "title": "逐项分析 · C departure（起程；班次）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C departure（起程；班次）✗ 排除",
+  "body": "<p><b>排除。</b>departure（起飞 / 班次）的 departure time 是<b>时间点</b>，与 is meant to take（需要耗费的<b>时间段</b>）无法搭配；改的也不是起飞时刻。</p><p style=\"color:#b91c1c\">⚠ 典型误解：departure time 是高频搭配造成的语感误导；抓后句 one-hour → two-hour 的证据，改写对象是总量。</p>"
+ },
+ {
+  "title": "逐项分析 · D transfer（中转）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D transfer（中转）✗ 排除",
+  "body": "<p><b>排除。</b>transfer（中转）只是旅程的一环，同样框不住“全程总时长”。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（trip 出行；旅程）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>Airlines have simply changed the time a trip is meant to take.（航空公司只是修改了一下旅程按计划所需的时间。）</b></p><p>答案选 <b>B（trip 出行；旅程）</b>。</p><p><b>记忆锚点</b>：证据句在下：one-hour flight → two-hour flight ⇒ 改的是全程时长 ⇒ trip；departure 是时间点，接不了 take（耗时）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（departure）：departure time 是高频搭配造成的语感误导；抓后句 one-hour → two-hour 的证据，改写对象是总量。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 14 空 · Airlines have simply changed the time a __14__ is meant to take：A break / B trip / C departure / D transfer",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 B（trip 出行；旅程）",
+ "html": "<b>B trip（出行；旅程）</b>。<br>完整句：Airlines have simply changed the time a trip is meant to take.（航空公司只是修改了一下旅程按计划所需的时间。）<br>记忆锚点：证据句在下：one-hour flight → two-hour flight ⇒ 改的是全程时长 ⇒ trip；departure 是时间点，接不了 take（耗时）。<br>最易误选：<b>C departure（起程；班次）</b>——departure time 是高频搭配造成的语感误导；抓后句 one-hour → two-hour 的证据，改写对象是总量。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 14 空 · 证据句在下：one-hour flight → two-hour flight</h2>
+<p>答案：<strong>B（trip 出行；旅程）</strong>。</p>
+<h3>第 0 步：先立机制——被改写的是“整个航程”的总时长</h3>
+<blockquote>Airlines have simply changed the time a <strong>__14__</strong> is meant to take. A one-hour flight is now billed as a two-hour flight.</blockquote>
+<p>空格句说“航空公司改了 __ 所需的时间”，紧接着的后句是它的具体化：<strong>one-hour flight → two-hour flight</strong>——改的是<strong>整个航程</strong>的总时长，不是旅程中某一段的时间。</p>
+<p>空格词必须与 flight（航程）同指一个整体 ⇒ trip（出行、旅程）。“a trip is meant to take” = 一次出行按计划需要耗费的时间。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Airlines have simply changed the time a <strong>__14__</strong> is meant to take. A one-hour flight is now billed as a two-hour flight.</blockquote>
+<p>空 14 是定语从句 a __ is meant to take 的主语，指“被改写时长的对象”。</p>
+<h3>第 2 步：找证据——one-hour → two-hour：改的是总量，不是某一段</h3>
+<blockquote>A one-hour flight is now billed as a two-hour flight.</blockquote>
+<p>后句直接给出改写对象：一小时的航程号称两小时。总时长变长，准时目标不费吹灰之力就能达成——这正是“不择手段”的具体操作。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A break</td><td>间歇；经停</td><td>✗ 排除</td><td>break（间歇 / 经停）只是旅程中的一段；改的不是“经停时间”，而是全程总时长。</td></tr><tr><td>B trip</td><td>出行；旅程</td><td>✓ 当选</td><td>trip（旅程）与 flight 同指整个航程，总时长改写得通。</td></tr><tr><td>C departure</td><td>起程；班次</td><td>✗ 排除</td><td>departure（起飞 / 班次）的 departure time 是<strong>时间点</strong>，与 is meant to take（需要耗费的<strong>时间段</strong>）无法搭配；改的也不是起飞时刻。（典型误解：departure time 是高频搭配造成的语感误导；抓后句 one-hour → two-hour 的证据，改写对象是总量。）</td></tr><tr><td>D transfer</td><td>中转</td><td>✗ 排除</td><td>transfer（中转）只是旅程的一环，同样框不住“全程总时长”。</td></tr></tbody></table>
+<p>代入后的完整句义：Airlines have simply changed the time a trip is meant to take.（航空公司只是修改了一下旅程按计划所需的时间。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么 departure 一定不行？</strong>：一是语义：改写的是总时长，不是起飞时刻；二是搭配：a departure is meant to take 不成立——take 耗时的主语应是“一段行程”，departure 是时间点，点没有“长短”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（departure）</strong>：被 departure time 的搭配手感带偏。名词题先看证据句改写的是什么（全程时长），再核搭配（time 点 vs 时间段）。</li></ul>
+<blockquote>记忆锚点：证据句在下：one-hour flight → two-hour flight ⇒ 改的是全程时长 ⇒ trip；departure 是时间点，接不了 take（耗时）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-16 · 被鼓励____看完不适图片后的感受：A overlook / B predict / C design / D conceal</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 16 在 encouraged to __ how they would feel 的动词位；考点：句内语义 + 动词辨析（时态与复现线索）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In a final experiment, participants who were encouraged to <b>__16__</b> how they would feel after viewing an unpleasant picture were less likely to __17__ to see such an image.</div><p>空 16 是 <b>encouraged to __ how they would feel</b> 的动词：实验人员鼓励参与者对看图后的感受（宾语从句）做某种动作。</p>"
+ },
+ {
+  "title": "立机制 · would feel = 还没发生的感受 → 只能预测、想象",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：how they would feel（过去将来）+ 下文 imagining → predict",
+  "body": "<p>宾语从句 <b>how they would feel after viewing...</b> 用了 would——看完图之后的感受在鼓励发生时<b>尚未发生</b>，只能被预测、想象，不能被忽视或掩饰（那两类动作的对象得是已存在的感受）。更直接的证据在下文：实验结论句写 <b>imagining the consequences ... ahead of time</b>（提前想象后果）——imagine / ahead of time 把预测义直接复现了一遍。</p>"
+ },
+ {
+  "title": "找证据 · 下句复现：imagining ... ahead of time",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：imagining the consequences ahead of time = 空格词的同义改写",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">These results suggest that imagining the consequences of following through on one’s curiosity ahead of time can help determine whether it is worth the endeavor.</div><p>实验结论句几乎把答案写在脸上：<b>imagining ... ahead of time</b>（提前想象）对应空 16 的动词；参与者的做法是先在脑子里过一遍看图后的感受。这种提前想正是 predict（预测）的行为实质，也解释了为什么他们更少选择看图——预期到不快，就按捺住了。</p>"
+ },
+ {
+  "title": "逐项分析 · A overlook（忽视；忽略）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A overlook（忽视；忽略）✗ 排除",
+  "body": "<p><b>排除。</b>忽视感受与下文 imagining（去想象）正相反：实验是让人直面预期，不是无视。</p><p style=\"color:#b91c1c\">⚠ 典型误解：overlook how... 的搭配通顺，但方向与 imagining 的复现证据冲突。</p>"
+ },
+ {
+  "title": "逐项分析 · B predict（预测；预料）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B predict（预测；预料）✓ 当选",
+  "body": "<p><b>当选。</b>predict how they would feel = 预测看图后的感受：would 的未然时态 + imagining / ahead of time 的复现双重锁定。</p>"
+ },
+ {
+  "title": "逐项分析 · C design（设计；筹划）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C design（设计；筹划）✗ 排除",
+  "body": "<p><b>排除。</b>design 的宾语通常是方法、体系、产品等被筹划之物，接个人感受搭配不当。</p>"
+ },
+ {
+  "title": "逐项分析 · D conceal（隐藏；掩饰）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D conceal（隐藏；掩饰）✗ 排除",
+  "body": "<p><b>排除。</b>掩饰感受针对已产生的情绪，且方向是逃避；实验要的是提前面对预期后果，与 following through on curiosity（把好奇心进行到底的后果）接不上。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 16 填 predict（预测；预料）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In a final experiment, participants who were encouraged to <b>predict</b> how they would feel after viewing an unpleasant picture were less likely to __17__ to see such an image.</div><p>在最后一项实验中，被鼓励预测看完令人不适的图片后自己会作何感受的参与者，更少主动要求观看这类图片。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（predict 预测；预料）——见结论卡",
+  "body": "<p>答案选 <b>B（predict 预测；预料）</b>。</p><p><b>记忆锚点</b>：would feel = 未然 → 只能 predict / imagine；下文 imagining ... ahead of time 是出题人留下的同义复现预告。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（conceal）</b>：把鼓励参与者做某事读成掩饰情绪的心理疏导，忽略了 imagining / ahead of time 的复现证据——实验是提前面对，不是遮掩。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 16 空 · 被鼓励____看完不适图片后的感受：A overlook / B predict / C design / D conceal",
+  subtitle: "考点：句内语义 + 动词辨析（时态与复现线索） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（predict 预测；预料）", "html": "<b>B（predict 预测；预料）</b>。<br>记忆锚点：would feel = 未然 → 只能 predict / imagine；下文 imagining ... ahead of time 是出题人留下的同义复现预告。<br>最易误选：<b>D（conceal）</b>——把鼓励参与者做某事读成掩饰情绪的心理疏导，忽略了 imagining / ahead of time 的复现证据——实验是提前面对，不是遮掩。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 16 空 · 被鼓励____看完不适图片后的感受</h2>
+<p>答案：<strong>B（predict 预测；预料）</strong>。</p>
+<h3>第 0 步：先立机制——would feel = 还没发生的感受 → 只能预测、想象</h3>
+<p>宾语从句 <strong>how they would feel after viewing...</strong> 用了 would——看完图之后的感受在鼓励发生时<strong>尚未发生</strong>，只能被预测、想象，不能被忽视或掩饰（那两类动作的对象得是已存在的感受）。更直接的证据在下文：实验结论句写 <strong>imagining the consequences ... ahead of time</strong>（提前想象后果）——imagine / ahead of time 把预测义直接复现了一遍。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In a final experiment, participants who were encouraged to <strong>__16__</strong> how they would feel after viewing an unpleasant picture were less likely to __17__ to see such an image.</blockquote>
+<p>空 16 是 <strong>encouraged to __ how they would feel</strong> 的动词：实验人员鼓励参与者对看图后的感受（宾语从句）做某种动作。</p>
+<h3>第 2 步：找证据——下句复现：imagining ... ahead of time</h3>
+<blockquote>These results suggest that imagining the consequences of following through on one’s curiosity ahead of time can help determine whether it is worth the endeavor.</blockquote>
+<p>实验结论句几乎把答案写在脸上：<strong>imagining ... ahead of time</strong>（提前想象）对应空 16 的动词；参与者的做法是先在脑子里过一遍看图后的感受。这种提前想正是 predict（预测）的行为实质，也解释了为什么他们更少选择看图——预期到不快，就按捺住了。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A overlook</td><td>忽视；忽略</td><td>✗ 排除</td><td>忽视感受与下文 imagining（去想象）正相反：实验是让人直面预期，不是无视。（典型误解：overlook how... 的搭配通顺，但方向与 imagining 的复现证据冲突。）</td></tr><tr><td>B predict</td><td>预测；预料</td><td>✓ 当选</td><td>predict how they would feel = 预测看图后的感受：would 的未然时态 + imagining / ahead of time 的复现双重锁定。</td></tr><tr><td>C design</td><td>设计；筹划</td><td>✗ 排除</td><td>design 的宾语通常是方法、体系、产品等被筹划之物，接个人感受搭配不当。</td></tr><tr><td>D conceal</td><td>隐藏；掩饰</td><td>✗ 排除</td><td>掩饰感受针对已产生的情绪，且方向是逃避；实验要的是提前面对预期后果，与 following through on curiosity（把好奇心进行到底的后果）接不上。</td></tr></tbody></table>
+<p>代入后的完整句义：在最后一项实验中，被鼓励预测看完令人不适的图片后自己会作何感受的参与者，更少主动要求观看这类图片。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（conceal）</strong>：把鼓励参与者做某事读成掩饰情绪的心理疏导，忽略了 imagining / ahead of time 的复现证据——实验是提前面对，不是遮掩。</li></ul>
+<blockquote>记忆锚点：would feel = 未然 → 只能 predict / imagine；下文 imagining ... ahead of time 是出题人留下的同义复现预告。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

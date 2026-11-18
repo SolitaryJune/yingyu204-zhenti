@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·30 阅读 · Lininger 的立场归属</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：立场推断题的机制', cls: 'key',
+    body: '<p>题干 Jay Lininger would <b>most likely support</b> ____。这类题不给现成同义替换，而是给一句表态，让你把表态<b>翻译成立场</b>，再找与该立场<b>同阵营</b>的选项。机制：批判谁 → 反对谁 → 与谁同向。</p>',
+    log: '翻译表态 → 找同阵营' },
+  { title: '定位原文（末段④句）', cls: 'key',
+    body: src('“<b>The federal government is giving responsibility for managing the bird to the same industries that are pushing it to extinction</b>,” says biologist Jay Lininger.”') +
+      '<p>他把炮口对准两处：联邦政府（把管理责任<b>外包</b>出去）与行业团体（正在把物种推向<b>灭绝</b>）。</p>',
+    log: '批判：责任外包 + 行业灭绝' },
+  { title: '立场翻译', cls: 'good',
+    body: '<p>反着读：管理责任<b>不该</b>交给行业 → 他主张政府担起更严格的责任、约束行业 → 这正是环保派“方案做得<b>不够</b>（doesn’t go far enough）”的立场。同阵营者 = 环保团体。</p>',
+    log: '批判“外包” → 与环保派同向' },
+  { title: '段落结构验证', cls: 'step',
+    body: '<p>末段骨架：① Not everyone buys（总起）→ ②列举反对者 → ③环保派批评“不够” → <b>④ Lininger 加码</b>。他的引语紧跟环保派批评出现、火力更猛——<b>引用谁的话强化哪一派</b>，是推断支持关系的常用抓手。</p>',
+    log: '引语紧跟环保派批评，即站台' },
+  { title: 'A industry groups', cls: 'bad',
+    body: '<p>他骂的恰是行业（pushing it to extinction）——“<b>谈谁 ≠ 站谁</b>”，谈行业是为了批判行业。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 批判对象，直接对立' },
+  { title: 'B the win-win rhetoric', cls: 'bad',
+    body: '<p>①句 <b>Not everyone buys</b>——他正是不买账者；rhetoric（说辞）本身带贬义，暗示可信度存疑。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 他是不买账者' },
+  { title: 'C environmental groups', cls: 'good',
+    body: '<p>与“方案不够狠、责任不该外包”的批评完全同向；他作为 biologist 发声，正是给环保派立场加注。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C 同阵营，命中' },
+  { title: 'D the plan under challenge', cls: 'bad',
+    body: '<p>③句环保派说 it doesn’t go far enough，④句他接棒<b>加码批判</b>该计划——支持者不会说“政府在把物种交给灭绝者”。且 B（说辞）与 D（计划）所指同源，双同义项通常双双排除。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 他在批判该计划' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（environmental groups）</b>。记忆锚点：立场题 = <b>批判对象取反</b>——批判“责任交给灭绝者” → 主张严格保护 → 同阵营 environmental groups；引语紧跟环保派批评出现，即为站台。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 30 · Lininger 会支持谁',
+  subtitle: '考点：立场推断题 · 批判对象取反 + 段落结构验证',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开立场翻译与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（environmental groups）',
+    html: '记忆锚点：Lininger 批判“<b>责任外包给正在灭绝物种的行业</b>” → 主张政府严格担责 → 与环保派 doesn’t go far enough 同向 → C。A 是批判对象（谈谁≠站谁）；B/D 同源（不买账的双面），双双排除。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Lininger 会支持谁——从一句批判反推立场归属</h2>
+<p>答案：<strong>C（environmental groups）</strong>。</p>
+<h3>第一步：先立机制——"would most likely support" 是立场推断题，不是细节题</h3>
+<p>题干：Jay Lininger would most likely support ____。这类题不给现成同义替换，而是给<strong>一句表态</strong>，让你把表态翻译成立场，再在选项里找与该立场<strong>同阵营</strong>的一方。机制：批判 A 方 → 支持 A 方的对手。所以第一步先明确他批判的是什么、赞扬（或主张）的是什么。</p>
+<h3>第二步：定位原文，翻译立场</h3>
+<blockquote>"The federal government is giving responsibility for managing the bird <strong>to the same industries that are pushing it to extinction</strong>," says biologist <strong>Jay Lininger</strong>.</blockquote>
+<p>他把炮口对准两处：联邦政府（把管理责任<strong>外包</strong>出去）与行业团体（正在把物种推向灭绝）。反过来读：他认为管理责任<strong>不该</strong>交给行业 → 他要求政府担起更严格的责任、约束行业 → 这正是环保派"方案做得不够（doesn't go far enough）"的立场。同阵营者 = 环保团体。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A industry groups</td><td>行业团体</td><td>他骂的恰是行业（pushing it to extinction），直接对立</td></tr><tr><td>B the win-win rhetoric</td><td>双赢说辞</td><td>①句 Not everyone buys——他正是不买账者；rhetoric 本身带贬义</td></tr><tr><td>C environmental groups</td><td>环保团体</td><td>与"方案不够狠、责任不该外包"的批评完全同向</td></tr><tr><td>D the plan under challenge</td><td>受到挑战的计划</td><td>③句环保派说 it doesn't go far enough，他接棒加码批判；B 与 D 实为一体</td></tr></tbody></table>
+<h3>第四步：段落结构验证</h3>
+<p>末段骨架：①句总起（不是人人买账）→ ②句列举反对者 → ③句两派各自的批评 → ④句 Lininger 的加码。③句里"批评方案不够"的是 <strong>environmentalists</strong>，④句 Lininger 紧随其后、火力更猛——两句同向，作者用引语做环保派立场的注脚。引用谁的话强化哪一派，是英语阅读推断支持关系的常用抓手。</p>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：只看到他谈"行业"就以为立场与行业有关——谈谁不等于站谁，他谈行业是为了<strong>批判</strong>行业。</li><li><strong>选 B 或 D</strong>：把"质疑计划"（challenge it in federal court）的主体范围弄混——挑战计划的人确实多（行业、州、环保团体都有），但 Lininger 的具体发言是批评"责任外包"，与环保派同向；且 B（win-win rhetoric）与 D（the plan）内容同源，双项同义通常双双排除。</li></ul>
+<blockquote>记忆锚点：立场题 = 批判对象取反——<strong>批判"责任交给灭绝者" → 主张严格保护 → 同阵营 environmental groups（C）</strong>；引语紧跟环保派批评出现，即为站台。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

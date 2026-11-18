@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-15 · 2016 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句与①③句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第五段①②③句，考点：上下文逻辑 + 衔接副词",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">① The correlation between happiness and investment was particularly strong for younger firms... ② The relationship was <b>__15__</b> stronger in places where happiness was spread more __16__. ③ Firms seem to invest more in places where most people are relatively happy...</div><p>空 15 是衔接副词：②句说“这一关联____在幸福感分布更____（空16）的地方更强”。判定机制：②句与①句是什么关系——同向补充？反向替代？因果推导？</p>"
+ },
+ {
+  "title": "找证据 · ①②③同向并列：第一种情况 + 第二种情况",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：The relationship 回指①句 correlation；②③补充第二种情况（地区维度）",
+  "body": "<p>词汇对应：The relationship 回指①句 The correlation；stronger 呼应①句 particularly strong。①句讲第一种情况（<b>公司维度</b>：年轻公司更明显），②句换到<b>地区维度</b>（幸福感分布均等的地方更强），③句进一步解释②。</p><p>①②③是<b>同向并列</b>：补充“这种情况在……地方<em>也</em>成立”——副词应取“也”。</p>"
+ },
+ {
+  "title": "逐项分析 · C also（也）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C also（也）✓ 当选——并列补充第二种情况",
+  "body": "<p><b>当选。</b>The relationship was <b>also</b> stronger in places where...——“这一关联在幸福感均等分布的地区<em>也</em>更强”。①②同向并列、论述对象由公司换到地区，also 把两种情况并排挂起。</p>"
+ },
+ {
+  "title": "逐项分析 · A instead（反而）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A instead（反而）✗ 排除——表反义替代，与同向并列矛盾",
+  "body": "<p><b>排除。</b>instead 表示“不是前者而是后者”的反义替代关系。①②两句不是二选一：既在年轻公司明显，也在均等地区明显——两种情况并存，不是互相顶替。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“对象换了”就当转折，忽略两句结构同构、方向相同。</p>"
+ },
+ {
+  "title": "逐项分析 · B thus（因此）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B thus（因此）✗ 排除——两论述对象之间无因果链",
+  "body": "<p><b>排除。</b>thus 表因果顺承：①→②应有“因为年轻公司更强，所以地区更强”的推导。但①的对象是 younger firms（公司属性），②的对象是 places where...（地区属性），两者只是并列的两种情况，互相推不出。</p><p style=\"color:#b91c1c\">⚠ 典型误解：thus 干扰最强——凭“顺承接得上”的语感，不核对论证对象。</p>"
+ },
+ {
+  "title": "逐项分析 · D never（从不）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D never（从不）✗ 排除——否定关联，与③句直接矛盾",
+  "body": "<p><b>排除。</b>never 表全盘否定：“这一关联在均等分布地区从不更强”。③句紧接着解释“公司在多数人幸福（均等）的地方投资更多”——②句若被否定，③句的解释就无的放矢。</p>"
+ },
+ {
+  "title": "结论 · 并列链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（also 也）——并列链见结论卡",
+  "body": "<p>并列链：<b>①公司维度（年轻公司更强）+ also + ②地区维度（均等地区更强）→ ③解释②。</b></p><p>答案选 <b>C（also 也、同样）</b>。</p><p><b>记忆锚点</b>：衔接副词题先核对两句的论述对象与方向——同构同向 = 并列补充 → also；thus 需要因果链，instead 需要反义替代，never 需要否定依据。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 15 空 · 这一关联“____”在幸福感均等的地方更强",
+  subtitle: "考点：上下文逻辑（并列补充第二种情况）+ 衔接副词辨析",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 判并列关系 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（also）", "html": "<b>C also（也）</b>——第二种情况并列补充第一种情况。<br>记忆锚点：①②同构同向（correlation/relationship、strong/stronger）→ also；thus 需因果链（公司属性推不出地区属性），instead 需反义替代，never 与③句矛盾。<br>最易误选：<b>B（thus）</b>——凭语感选顺承，不核对论述对象。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 15 空 · 这一关联“____”在幸福感均等的地方更强</h2>
+<p>答案：<strong>C（also 也、同样）</strong>。</p>
+<h3>第 0 步：先立机制——衔接副词由“两句关系”决定</h3>
+<p>空 15 连接第五段①②两句。判定机制：①句讲关联在“年轻公司”更强，②句讲关联在“幸福感均等的地区”更强——问这两句是并列补充、因果推导还是反向替代，副词就选哪个方向。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>① The correlation between happiness and investment was particularly strong for younger firms... ② The relationship was __15__ stronger in places where happiness was spread more __16__. ③ Firms seem to invest more in places where most people are relatively happy...</blockquote>
+<h3>第 2 步：找证据——同构同向，并列补充</h3>
+<p>The relationship 回指①句 The correlation；stronger 呼应①句 particularly strong。①是<strong>公司维度</strong>的第一种情况，②切换到<strong>地区维度</strong>的第二种情况，③进一步解释②。①②③同向并列：这种情况“<strong>也</strong>”在另一类对象上成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A instead</td><td>反而</td><td>✗ 排除</td><td>表反义替代；两种情况并存而非互斥。（典型误解：见“对象换了”就当转折。）</td></tr><tr><td>B thus</td><td>因此</td><td>✗ 排除</td><td>需因果链；公司属性推不出地区属性。（典型误解：凭顺承语感，不核对论述对象。）</td></tr><tr><td>C also</td><td>也</td><td>✓ 当选</td><td>并列补充第二种情况。</td></tr><tr><td>D never</td><td>从不</td><td>✗ 排除</td><td>全盘否定与③句“公司在多数人幸福的地方投资更多”直接矛盾。</td></tr></tbody></table>
+<p>代入后的完整句义：这一关联在幸福感分布更为均等的地区也同样更强。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>thus 为什么干扰性最强？</strong>：thus 在语感上“顺承接得住”，但因果衔接要求②句的内容能由①句推出——①说的是公司属性（年轻），②说的是地区属性（均等），两个维度互相独立，只有“并列补充”一种关系成立。</li><li><strong>②③句怎么佐证 also？</strong>：③句用“公司在多数人幸福的地方投资更多，而非幸福感不均等的地方”正面解释②句——如果②句被 instead/never 改写成反向内容，③句就失去了被解释的对象。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（thus）</strong>：凭语感选顺承，不核对两句论述对象是否构成因果。</li><li><strong>误选 A（instead）</strong>：把“论述对象切换”误判成转折替代。</li></ul>
+<blockquote>记忆锚点：衔接副词题先核对论述对象与方向——同构同向 = 并列补充 → also；thus 要因果链，instead 要反义替代，never 要否定依据。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

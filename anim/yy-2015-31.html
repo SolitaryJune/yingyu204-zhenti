@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-31 · 2015 阅读第 31 题 · office language＝the lingua franca——观点句里的原词复现 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 观点题：According to Nancy Koehn", "cls": "key", "tag": "审题", "log": "审题眼：According to Nancy Koehn, office language has become ___——找 Koehn 亲口说的观点句", "count": 0, "ribbon": null, "body": "<p>题干问 Koehn 认为 office language（办公室语言）变得怎样。做法：定位 Koehn 的直接引语——第一段①句就是她说的。</p>"},
+ {"title": "定位原文 · the lingua franca ＝ office language", "cls": "key", "tag": "定位", "log": "定位原文：the lingua franca of corporate America has gotten much more emotional and much more right-brained…", "count": 0, "ribbon": null, "body": quote("Even in traditional offices, “the lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago,” said Harvard Business School professor Nancy Koehn.") + "<p>lingua franca（通用语）＋ of corporate America ＝ 题干 office language 的同位改写。她说的变化：<b>much more emotional</b>、更 right-brained（更感性）。</p>"},
+ {"title": "找证据 · 例证词汇证明变化方向", "cls": "key", "tag": "证据", "log": "找证据：1990 年代有 goals/strategies/objectives，但不谈 energy、passion——变化方向是情绪化", "count": 0, "ribbon": null, "body": "<p>Koehn 举例：若回到 1990 年的财富 500 强，会看到 goals、strategies、objectives，但“<b>不谈</b> energy、<b>不谈</b> passion”。例证支持观点句：语言正变得更情绪化。</p>"},
+ {"title": "逐项分析 · D more emotional（更富情感）", "cls": "good", "tag": "选定 D", "log": "D more emotional ✓ 当选——观点句原词复现 much more emotional", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>Koehn 的观点句里就有 much <b>more emotional</b>——题干 office language has become ＝ the lingua franca…has gotten，选项与观点句直接对齐。</p>"},
+ {"title": "逐项分析 · C more objective（更客观）", "cls": "bad", "tag": "排除 C", "log": "C more objective ✗ 排除——与 emotional 恰是反义对，变化方向是“更主观”", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>objective（客观）与 emotional（情绪化）是反义词；“更情绪化、更右脑”的方向显然是<b>更主观</b>。C 专为看不出 emotional 词义的考生设障。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没解出观点句的核心形容词。</p>"},
+ {"title": "逐项分析 · B less energetic（更没活力）", "cls": "bad", "tag": "排除 B", "log": "B less energetic ✗ 排除——energy 是例证词，且方向反：现在是“开始谈”活力激情", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>energy 出自例证“过去不谈 energy”；如今 passion 成为热词——方向是<b>更谈</b>情绪与活力，B 却说“更没活力”，把方向读反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓例证词做选项，方向不管。</p>"},
+ {"title": "逐项分析 · A less strategic（更缺战略）", "cls": "bad", "tag": "排除 A", "log": "A less strategic ✗ 排除——strategies 也是例证词，原文无“战略含量下降”的比较", "count": 3, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>strategies 出自“过去有 goals、strategies、objectives”——这是 Koehn 证明变化的<b>例证</b>，不是语言变化本身；原文没有“更缺战略”的比较。</p><p style=\"color:#b91c1c\">⚠ 典型误解：例证词混作观点内容。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（more emotional）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>Koehn 说：美国企业的通用语比 20 年前 much more emotional、更右脑化——办公室语言变得更富情感。</b></p><p>答案选 <b>D（more emotional）</b>。</p><p><b>记忆锚点</b>：观点题先做同位改写（the lingua franca of corporate America＝office language），再对原词复现（more emotional）；例证词汇（goals/strategies/energy）是干扰项原料库。</p><p style=\"color:#b91c1c\">最易误选：<b>B（less energetic）</b>——例证词＋方向反。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 31 题 · office language＝the lingua franca——观点句里的原词复现",
+  subtitle: "考点：观点细节题 · 同位改写 + 原词复现 vs 例证词干扰",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（more emotional）", "html": "<b>D 更富情感</b>：Koehn 观点句原词复现 much more emotional。<br>记忆锚点：lingua franca of corporate America＝office language；例证词（strategies/energy）当不了观点。<br>最易误选：<b>B（less energetic）</b>——例证词＋方向反。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 31 题 · office language ＝ the lingua franca——观点句里的原词复现</h2>
+<p>答案：<strong>D（more emotional 更富情感）</strong>。</p>
+<h3>第 0 步：先立机制——先解"指代"，再对答案</h3>
+<p>题干问 According to Nancy Koehn, office language has become 怎么样。定位句是第一段①句：<strong>"the lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago"</strong>。这里有两个机关：其一，lingua franca（通用语）＋ of corporate America ＝ 题干的 office language——专有表述与普通表述的同位改写；其二，<strong>much more emotional</strong> 在选项里被原样复现（more emotional）。观点细节题的正确项往往就是观点句关键词的同义或直接复现，而干扰项都取自观点句之外（后文的例证词汇）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Even in traditional offices, "the lingua franca of corporate America has gotten much more emotional and much more right-brained than it was 20 years ago," said Harvard Business School professor Nancy Koehn. ... "There were goals, there were strategies, there were objectives, but we didn't talk about energy; we didn't talk about passion."</blockquote>
+<ul><li>观点句（Koehn 亲口所说）：通用语变得更 <strong>emotional</strong>、更 right-brained（感性化）；</li><li>后文举例：1990 年代有 goals/strategies/objectives，却<strong>不谈</strong> energy/passion——例证"变化方向是情绪化"。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A less strategic</td><td>更缺战略性</td><td>✗ 排除</td><td>strategies 出自③④句的<strong>例证</strong>；原文说过去有 strategy、现在也谈别的，没有"战略含量下降"的比较</td></tr><tr><td>B less energetic</td><td>更没活力</td><td>✗ 排除</td><td>energy 也出自例证；且方向反了——现在<strong>开始谈</strong>激情/活力，不是"更没活力"</td></tr><tr><td>C more objective</td><td>更加客观</td><td>✗ 排除</td><td>objective 与 emotional 恰是一对反义词；右脑化、情绪化的变化方向是"更主观"</td></tr><tr><td>D more emotional</td><td>更富情感</td><td>✓ 当选</td><td>Koehn 观点句原词复现：much more emotional</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>lingua franca 不认识怎么办？</strong>：即使不认识这个词，下文 Koehn 列举的 journey、mission、passion 等词汇示例也能反推出它是"企业里使用的语言/词汇"——生词靠例证回填，这是阅读的基本自救手段。</li><li><strong>B 的方向为什么错得最隐蔽？</strong>：原文说"过去 we didn't talk about energy"——不谈活力，如今 passion 成了热词。变化方向是"更谈情绪与活力"，而 B 说"更没活力"，正好读反；干扰项只用例证词汇 energy 做外壳，方向却反着写。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A/B（less strategic/less energetic）</strong>：例证词汇 strategies、energy 被拿来当"变化内容"；它们是 Koehn 证明变化时列举的例子，且两个选项的方向都与原文相反。</li><li><strong>误选 C（more objective）</strong>：与 emotional 构成反义对，利用"看不出 emotional 词义"的考生设障。</li></ul>
+<blockquote>记忆锚点：According to sb 观点题——先做同位改写（the lingua franca of corporate America＝office language），再找 sb 亲口说的那句；原词复现（more emotional）优先；例证词汇（goals/strategies/energy）是干扰项的原料库。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

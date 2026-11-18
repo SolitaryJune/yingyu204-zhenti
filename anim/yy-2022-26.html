@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 26 题 · 调查结果题：正确项是对两项发现与现象句的概括</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 26 题 · 调查结果题：正确项是对两项发现与现象句的概括","subtitle":"考点：调查/事实细节题 · 方法：逐项发现回文核对 + 找调查服务的“现象句”（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 发现① → 发现② → 现象句概括 → 逐项排除”的推理链。","stemEn":"The survey conducted by Harris Poll indicates <b>____</b>.","stemZh":"哈里斯民意调查公司进行的调查表明____。（正确项要么是某项具体发现，要么是对多项发现的概括）","quotes":[{"tag":"发现① · 第二段①句","en":"<b>One in three</b> Americans who are at least 40 <b>have or plan to have a job in retirement</b> to prepare for a longer life…","zh":"40 岁以上的美国人中，三分之一已经或计划在退休后继续工作。"},{"tag":"发现② · 第二段②句","en":"Even more surprising is that <b>more than half of “unretirees”</b>…said they would be employed in their later years <b>even if they had enough money</b> to settle down…","zh":"超过一半的“不退休者”表示：即便钱够安度晚年，也愿意在晚年再就业。"},{"tag":"现象句 · 首段（调查所服务的对象）","en":"<b>More Americans are opting to work well into retirement</b>, a growing trend that threatens to upend the old workforce model.","zh":"两项发现共同支撑首段现象：越来越多的美国人选择退休后继续工作。"}],"opts":[{"k":"A","en":"over half of the retirees are physically fit for work.","zh":"超过一半的退休者体力上仍可胜任工作","why":"双重窜改——把对象 “unretirees” 偷换成 retirees，又把第三段的 mentally fit 糅成 physically fit；原文未提调查对象的身体状况。"},{"k":"B","en":"the old workforce is as active as the younger one.","zh":"年老员工与年轻员工一样积极活跃","why":"无比较——文中没有任何“年老员工 vs 年轻员工积极性”的对比；“有工作意愿”不等于“工作积极”。"},{"k":"C","en":"one in three Americans enjoy earlier retirement.","zh":"三分之一的美国人乐于提前退休","why":"反向窜改发现①——“退休后继续工作”是延迟退休，不是“乐于提前退休”；数字照抄、方向拧反。"},{"k":"D","en":"more Americans are willing to work in retirement.","zh":"越来越多的美国人愿意退休后继续工作","why":"","good":"既是两项发现的核心义（三分之一已/计划工作 + 超半数即使有钱也愿工作），也是首段现象句的同义转述。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1,2],"state":{}},{"show":[0,1,2],"state":{"A":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"调查结果题：定位第二段两项发现；判断“概括型”选项是否成立，要看调查服务的现象句（首段）","count":0},{"cls":"shift","tag":"发现①","log":"One in three Americans... have or plan to have a job in retirement：三分之一已或计划退休后继续工作","count":0},{"cls":"shift","tag":"发现②","log":"more than half of “unretirees”... even if they had enough money：超半数“不退休者”即使钱够也愿工作","count":0},{"cls":"shift","tag":"现象句概括","log":"两项发现共同支撑首段 More Americans are opting to work well into retirement ↔ D","count":0},{"cls":"miss","tag":"排除 A","log":"A physically fit ✗：对象 unretirees→retirees 偷换 + mentally→physically 杂糅——身体状况文中未提","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B as active as ✗：无比较——文中没有年老/年轻员工积极性的对比；“工作意愿”≠“积极性”","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C enjoy earlier retirement ✗：数字复现但方向拧反——是“退休后继续工作”（延迟退休），不是“提前退休”","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D more Americans are willing to work in retirement ✓：两项发现的核心义 + 首段现象句的同义转述","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：调查题两问——发现本身对不对（回文核对），概括对不对（找现象句）","count":3,"done":true}],"result":{"big":"答案 D（more Americans are willing to work in retirement）","html":"<b>D</b>：发现① <b>One in three... have or plan to have a job in retirement</b> + 发现② <b>more than half... even if they had enough money</b> → 越来越多美国人愿意退休后继续工作。<br>A mentally→physically 杂糅 + 对象偷换；B 无中生有的比较；C 数字照抄、方向拧反。<br>最易误选：<b>C</b>（one in three 数字复现放松警惕——数字选项要核对事件方向）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 26 题——调查结果题：正确项常是对多项发现的概括</h2>
+<p>答案：<strong>D（more Americans are willing to work in retirement）</strong>。</p>
+<h3>第一步：先立机制——先看两项发现，再看它们服务的现象句</h3>
+<p>调查题的选项有两种来源：某一具体发现，或<strong>对多项发现的概括</strong>。判断概括是否正确，要回到调查所服务的"现象句"——本文第二段的调查就是给首段的现象作注脚的。</p>
+<h3>第二步：定位原文——两项发现 + 一个现象</h3>
+<blockquote>One in three Americans who are at least 40 have or plan to have a job in retirement to prepare for a longer life...</blockquote>
+<blockquote>Even more surprising is that more than half of "unretirees"... said they would be employed in their later years even if they had enough money to settle down...</blockquote>
+<ul><li>发现①：40 岁以上的美国人中，<strong>三分之一</strong>已或计划在退休后继续工作；</li><li>发现②：超过一半的"不退休者"<strong>即使钱够安度晚年</strong>也愿意晚年再就业；</li><li>现象句（首段）：<strong>More Americans are opting to work well into retirement</strong>——两项发现共同支撑这一趋势。</li></ul>
+<p>概括两项发现 → <strong>more Americans are willing to work in retirement</strong>，选 D。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A over half of the retirees are physically fit for work ✗</strong>：双重窜改——把对象 "unretirees" 偷换成 retirees，又把第三段的 <strong>mentally fit</strong> 糅成 <strong>physically fit</strong>；原文未提调查对象的身体状况。</li><li><strong>B the old workforce is as active as the younger one ✗</strong>：无比较——文中没有任何"年老员工 vs 年轻员工积极性"的对比；"有工作意愿"≠"更积极"。</li><li><strong>C one in three Americans enjoy earlier retirement ✗</strong>：反向窜改发现①——"退休后继续工作"是<strong>延迟退休</strong>，不是"乐于提前退休"。</li><li><strong>D more Americans are willing to work in retirement ✓</strong>：既是两项发现的核心义，也是首段现象句的同义转述。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：one in three 数字照抄原文，容易放松警惕；数字复现的选项恰恰要核对<strong>数字背后的事件方向</strong>。</li><li><strong>误选 A</strong>：mentally / physically 一词之差——杂糅型干扰项的每个零件都眼熟，拼起来却是假货。</li></ul>
+<blockquote>记忆锚点：调查题两问——发现本身对不对（回文核对），概括对不对（找现象句）；work well into retirement ↔ work in retirement。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

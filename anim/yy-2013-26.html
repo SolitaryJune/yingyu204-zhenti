@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-26 · 2013 阅读第 26 题 · “birds of passage”指什么人</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 猜词题的三看",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "猜词题三看：词的本义（候鸟=迁徙不留）、就近指代（they 指谁）、前文解释句",
+  "count": 0,
+  "body": "<p>题干：“Birds of passage” refers to those who ___。猜词题三看：① 词的本义线索（候鸟 = 迁徙、不留居）；② <b>就近指代</b>（该句的 they 指谁）；③ 前文的<b>解释句</b>。</p>"
+ },
+ {
+  "title": "定位首现处 · they 指谁",
+  "cls": "key",
+  "tag": "指代",
+  "log": "birds of passage 首现于第一段末，They 回指“约四分之一最终返回意大利永久定居的移民”",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">About a quarter of all Italian immigrants, for example, eventually returned to Italy for good. They even had an affectionate nickname, “uccelli di passaggio,” birds of passage.</div><p>birds of passage 首现于第一段末，其主语 <b>They 回指上一句</b>“约四分之一最终返回意大利永久定居（for good）的意大利移民”。这批人有专门的外号——继续往上找这类人的特征定义。</p>"
+ },
+ {
+  "title": "解释句 · 两拨移民的分类",
+  "cls": "key",
+  "tag": "解释",
+  "log": "第一段把移民分两拨：想永久定居的 settlers vs 无意久留、赚了钱就回家的旅居者",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Along with the many folks looking to make a permanent home in the United States came those who had no intention to stay, and who would make some money and then go home.</div><p>第一段把百年前的移民分成两拨：想<b>永久定居</b>的 settlers vs. <b>无意久留、赚了钱就回家</b>的人（had no intention to stay... make some money and then go home）。“候鸟”就是后一拨的形象说法——飞来、栖一阵、再飞走。</p>"
+ },
+ {
+  "title": "选项 A · 在国外短暂居留",
+  "cls": "good",
+  "tag": "当选 A",
+  "log": "A stay in a foreign country temporarily ✓ 当选——无意久留 + 赚钱就回 = 暂时居留",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>概括三处证据：had no intention to stay + make some money and then go home + eventually returned to Italy for good → <b>在国外（暂时）居留</b>。“暂住、不永久”正合“候鸟”义。</p>"
+ },
+ {
+  "title": "选项 B · 永远离开祖国",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B leave their home countries for good ✗ 排除——for good 挂错了对象：永久的是“回意大利定居”",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>for good = <b>永久地</b>。原文是“返回祖国并永久定居”（returned to Italy for good），[B] 把“永久”安到了“离开祖国”头上——方向恰好相反，也与“候鸟”含义相悖。</p><p style=\"color:#b91c1c\">⚠ 典型误解：不认识 for good（永久地），按字面“为了好处”误读。</p>"
+ },
+ {
+  "title": "选项 C · 跨越大西洋移居",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C immigrate across the Atlantic ✗ 排除——范围扩大：大西洋移民含定居者与旅居者两类",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>范围扩大：across the Atlantic 的移民包括 <b>settlers（定居者）和 sojourners（旅居者）两类</b>，birds of passage 只指后者。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓住首句 immigrants from across the Atlantic 就选，忘了“分类”。</p>"
+ },
+ {
+  "title": "选项 D · 在海外找到永久工作",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D find permanent jobs overseas ✗ 排除——permanent 与“候鸟”的迁徙性直接矛盾",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>permanent（永久的）与“候鸟”的迁徙性直接矛盾；原文强调的恰是“不打算留下”（no intention to stay）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见海外工作就选，忽视“永久 / 暂时”这个题眼。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（在国外短暂居留）——指代回溯 + 解释句合围",
+  "count": 3,
+  "body": "<p>答案选 <b>A（stay in a foreign country temporarily 在国外短暂居留）</b>。</p><p><b>记忆锚点</b>：猜词 = 指代回溯 + 解释句；sojourner / 候鸟都强调“暂住”；<b>for good = 永久地</b>（不是“为了好处”）——认清它就能秒杀 B。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 26 题 · “birds of passage”指什么人",
+  "subtitle": "考点：词义猜测题 · 就近指代 + 解释句 · for good = 永久地",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（stay in a foreign country temporarily）",
+ "html": "<b>A 在国外短暂居留</b>：they 回指“约四分之一返回意大利永久定居的移民”，其特征 = no intention to stay + make money and go home。<br>最易误选：<b>B</b>——for good（永久地）挂错对象：原文永久的是“回意大利定居”。<br>记忆锚点：for good = 永久地；猜词题先做指代回溯再找解释句。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 26 题 · “birds of passage”指什么人</h2>
+<p>答案：<strong>A（stay in a foreign country temporarily 在国外短暂居留）</strong>。</p>
+<h3>第 0 步：先立机制——猜词题 = 指代回溯 + 解释句</h3>
+<p>词义猜测题的答案永远不在生词本身（birds of passage“候鸟”的本义只给方向：迁徙、不留居），而在<strong>上下文的解释</strong>。本词首现于第一段末句，主语 They 有明确的回指对象，其前文还有一个“分类定义句”——两处证据合围即可锁定词义。</p>
+<h3>第 1 步：定位首现处——they 指谁</h3>
+<blockquote>About a quarter of all Italian immigrants, for example, eventually returned to Italy for good. They even had an affectionate nickname, "uccelli di passaggio," birds of passage.</blockquote>
+<p>birds of passage 首现于第一段末，They 回指上一句“约四分之一<strong>最终返回意大利永久定居</strong>（returned to Italy for good）的意大利移民”。这批人有专门的外号——继续向上找这类人的共同特征。</p>
+<h3>第 2 步：解释句——两拨移民的分类</h3>
+<blockquote>Along with the many folks looking to make a permanent home in the United States came those who had no intention to stay, and who would make some money and then go home.</blockquote>
+<p>第一段把百年前的移民分成两拨：想<strong>永久定居</strong>的 settlers vs. <strong>无意久留、赚了钱就回家</strong>的人（had no intention to stay... make some money and then go home）。“候鸟”就是后一拨的形象说法——飞来、栖一阵、再飞走。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A stay in a foreign country temporarily</td><td>✓ 当选</td><td>had no intention to stay + make money and go home + returned to Italy for good 的概括：暂住、不永久，正合“候鸟”义。</td></tr><tr><td>B leave their home countries for good</td><td>✗ 排除</td><td>for good = <strong>永久地</strong>。原文是“返回祖国并永久定居”，[B] 把“永久”安到了“离开祖国”头上——方向恰好相反。（典型误解：不认识 for good（永久地），按字面“为了好处”误读。）</td></tr><tr><td>C immigrate across the Atlantic</td><td>✗ 排除</td><td>范围扩大：across the Atlantic 的移民包括 settlers（定居者）和 sojourners（旅居者）两类，birds of passage 只指后者。（典型误解：抓住首句 immigrants from across the Atlantic 就选，忘了分类。）</td></tr><tr><td>D find permanent jobs overseas</td><td>✗ 排除</td><td>permanent（永久的）与“候鸟”的迁徙性直接矛盾；原文强调的恰是“不打算留下”。（典型误解：忽视“永久 / 暂时”这个题眼。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>for good 是本题的题眼吗？</strong>：是。for good = 永久地（= permanently），出现在“returned to Italy for good”里——它同时锤死两件事：① 这批人的归宿是“永久回乡”；② 他们在美国的那段经历是“暂时”。认清 for good，B、D 两个“永久系”干扰项一起出局。</li><li><strong>候鸟的本义给什么方向？</strong>：只给方向不给答案——候鸟随季节迁徙、不在一地久留，这与“暂时居留”吻合；但最终判定必须落在指代与解释句上，本义只是校验器。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：for good 词义不明，把“永久”挂错对象。</li><li><strong>误选 C</strong>：把“全体移民”与“旅居者”混为一谈，忽视第一段的分类。</li></ul>
+<blockquote>记忆锚点：猜词 = 指代回溯 + 解释句；sojourner / 候鸟都强调“暂住”；for good = 永久地（不是“为了好处”）——认清它就能秒杀 B。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

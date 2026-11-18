@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-15 · 2015 考研英语（二）完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 15 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 15 所在句，考点：时态指向 + 宾语从句动词", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">“When Dr. Epley and Ms. Schroeder asked other people in the same train station to __15__ how they would feel after talking to a stranger, the commuters thought their ride would be more pleasant if they sat on their own,” The New York Times summarizes.</div><p>空格是不定式 to 后的<b>动词原形</b>，宾语是从句 how they would feel after talking to a stranger。</p>"}, {"title": "机制 · would 把空格钉在“未来”", "cls": "key", "tag": "证据", "log": "机制：宾语从句用 would（过去将来）——感受尚未发生，动词必须“预测类”", "count": 0, "ribbon": null, "body": "<p>宾语从句 how they <b>would</b> feel 用过去将来时——那份“感受”还没发生。空格动词的宾语从句必须面向<b>未来</b>：预测、预估类。再看下文：Though the participants <b>didn't expect</b> a positive experience...——expect（预期）复现同一语义，“先预测、后揭晓”的实验叙事链闭合。</p>"}, {"title": "逐项分析 · A reveal（揭露，透露）", "cls": "bad", "tag": "排除 A", "log": "A reveal ✗ 排除——宾语须是既成事实，与 would 指向未来矛盾", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>reveal（揭露、透露）面向<b>已存在的事实</b>：reveal the truth / reveal that...；“还没发生的感受”无从揭露，与 would 的将来指向正面冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记“reveal 可接从句”，没做时间指向核对。</p>"}, {"title": "逐项分析 · B choose（选择）", "cls": "bad", "tag": "排除 B", "log": "B choose ✗ 排除——“感受如何”不是备选项，无法被 choose", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>choose 的宾语是可选项（二选一、挑一个）；how they would feel 是开放的感受描述，不是摆在面前的选项。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 choose how to feel 的口语感硬接过来。</p>"}, {"title": "逐项分析 · C predict（预测）", "cls": "good", "tag": "选定 C", "log": "C predict ✓ 当选——predict how they would feel 预测感受，与 expect 同义呼应", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>predict（预测）正对 would 的将来指向：让站内其他人<b>预测</b>与陌生人交谈后的感受；与下文 didn't expect 同义呼应，“先预测、后揭晓”闭环。</p>"}, {"title": "逐项分析 · D design（设计）", "cls": "bad", "tag": "排除 D", "log": "D design ✗ 排除——“感受不能被设计”，动宾逻辑不成立", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>design 的宾语须是可被规划之物（方案、产品、流程）；感受是自发产生的心理状态，无法被“设计”出来。</p><p style=\"color:#b91c1c\">⚠ 典型误解：动宾搭配的常理约束没过脑。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（predict 预测）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>当科学家让同一车站的其他人预测自己与陌生人交谈后的感受时，通勤者认为独自坐着旅程会更愉悦。</b></p><p>答案选 <b>C（predict）</b>。</p><p><b>记忆锚点</b>：would = 未来时态信号 → 预测类动词（predict / expect）；reveal 的宾语是“既成事实”。</p><p style=\"color:#b91c1c\">最易误选：<b>A（reveal）</b>——时间指向正好相反。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 15 空 · would 一词，把空格钉死在“预测”上",
+  subtitle: "考点：时态指向 + 动宾搭配 · 时间轴筛查 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（predict 预测）", "html": "<b>C predict</b>——predict how they would feel：would 是过去将来，感受尚未发生，只能“预测”；与下文 didn't expect 同义呼应。<br>记忆锚点：would = 未来时态信号 → predict / expect；reveal 的宾语是既成事实。<br>最易误选：<b>A（reveal）</b>——时间指向相反。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 15 空 · would 把空格钉在“未来”</h2>
+<p>答案：<strong>C（predict）</strong>。</p>
+<h3>第 0 步：先立机制——时态是词汇题的隐形判据</h3>
+<p><code>...asked other people in the same train station to __15__ how they would feel after talking to a stranger</code>：宾语从句用 <strong>would</strong>（过去将来）——感受还没发生。空格动词的宾语从句必须是“<strong>对未来情况的预估</strong>”。再看下文 <code>didn't expect a positive experience</code>：expect（预期）复现同一语义，“先预测、后揭晓”的实验叙事链闭合。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"When Dr. Epley and Ms. Schroeder asked other people in the same train station to __15__ how they would feel after talking to a stranger, the commuters thought their ride would be more pleasant if they sat on their own," The New York Times summarizes.</blockquote>
+<p>主句 the commuters thought...（通勤者认为……）正是“预测的结果”被复述——结构上再次确认空格是“预测”环节。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A reveal</td><td>揭露，透露</td><td>✗ 排除</td><td>宾语须是已存在的事实，与 would 指向未来矛盾。（典型误解：只记“可接从句”，不做时间核对。）</td></tr><tr><td>B choose</td><td>选择</td><td>✗ 排除</td><td>“感受如何”不是备选项。（典型误解：choose how to feel 的口语感硬接。）</td></tr><tr><td>C predict</td><td>预测</td><td>✓ 当选</td><td>正对 would 的将来指向，与 expect 同义呼应。</td></tr><tr><td>D design</td><td>设计</td><td>✗ 排除</td><td>感受无法被设计，动宾不搭。（典型误解：搭配常理没过脑。）</td></tr></tbody></table>
+<p>代入后的完整句义：当科学家让同一车站的其他人预测自己与陌生人交谈后的感受时，通勤者认为独自坐着旅程会更愉悦。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>reveal 不也能接 that 从句吗？</strong>：能，但 reveal 从句的内容必须是<strong>已成立的事实</strong>（调查揭露了……）；本句从句是“尚未发生的感受”，时间轴相反。</li><li><strong>expect 复现为什么重要？</strong>：didn't expect a positive experience 是出题人留的同义复核点——“预期”一词已在下一句就位，空格选 predict 等于把这条复现链接通。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（reveal）</strong>：时间指向正好相反——最常见错法。</li><li><strong>误选 D（design）</strong>：动宾常理失守。</li><li><strong>漏掉 expect 复现</strong>：少一道同义保险。</li></ul>
+<blockquote>记忆锚点：would = 未来时态信号 → 预测类动词（predict / expect）；reveal 的宾语是“既成事实”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

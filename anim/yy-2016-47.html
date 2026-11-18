@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016-47 小作文谋篇：获奖回复函的「接住来函两件事」与热情分享语域</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2015-47/48 成品范式）：逐步展开结构框架卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 结构框架：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：回复函 = 接住来函的每一件事',
+    cls: 'key',
+    body: '<p>来函（Jack 的 email）办了两件事：<b>congratulate you（祝贺）</b> + <b>ask for advice on translation（求建议）</b>。回函的交际逻辑就是一一接住：对祝贺<b>道谢</b>，对求建议<b>作答</b>——指令 1) <b>thank him</b> + 2) <b>give your advice</b> 正是这两件事。必答点缺一即掉档；且 <b>advice 是主体</b>：感谢一两句带过，建议要展开成三条。约 100 词。</p>' },
+  { title: '语域定音：朋友来信 → 热情分享，但守书信体面',
+    cls: 'step',
+    body: '<p>来函对象是<b>朋友</b>：语气热情、乐于分享，不写成致机构的公函腔；但考场书信仍守 <b>Dear... + 正文 + Yours sincerely</b> 的体面，不写成聊天体。场景设定（翻译比赛获奖）只当<b>感谢的由头</b>用，不需要编比赛细节。</p>' },
+  { title: '格式红线：称呼、落款、词数',
+    cls: 'key',
+    body: '<p>称呼 <b>Dear Jack,</b>——朋友直呼其名，不写 Dear Mr. Jack（生分）。落款 <b>Yours sincerely, + Li Ming</b>——Do not use your own name / Do not write your address 两条硬指令：署真名、写地址一碰即扣。约 100 词三段：感谢两句、建议五句上下、收尾两句。</p>' },
+  { title: '谋篇三段：感谢接来函 → 建议为主体 → 礼数闭环',
+    cls: 'key',
+    body: '<p><b>段 1</b> 接来函两件事：一句对祝贺致谢，一句对求建议接话（Since you asked for my advice...）引出正文。<b>段 2</b> 建议三条，To begin with / Besides / Moreover 三级衔接：态度 → 积累 → 坚持。<b>段 3</b> 收尾三连：希望有用 + 乐意细聊 + 期待回复。</p>' },
+  { title: '段 1 句型：致谢名词化 + 承接钩子',
+    cls: 'good',
+    body: '<p><b>I\'m writing to express my gratitude for your congratulation on my success in the translation contest. Since you asked for my advice, I\'d like to share with you some of my thoughts on how to improve translation skills.</b></p><p><b>express my gratitude for...</b> 比 thank you for... 庄重，<b>congratulation on</b> 的介词搭配要钉死；<b>Since you asked for my advice</b> 是建议段的过渡钩子——两句正好把来函的两件事各接一头。</p>' },
+  { title: '段 2 建议一（To begin with）：it is vital that... 端正态度',
+    cls: 'good',
+    body: '<p><b>To begin with, it is vital that you appreciate the beauty of language and hone your reading skills.</b></p><p><b>it 形式主语 + that 从句</b>是建议口吻的标准升格（比 You should... 高一档），两个并列动词共用一个建议；<b>hone</b> 取「打磨（技能）」义。建议一指向输入的地基：欣赏语言、打磨阅读。</p>' },
+  { title: '段 2 建议二（Besides）：一词块一句，扩大输入',
+    cls: 'good',
+    body: '<p><b>Besides, a good translator usually reads extensively and constantly exposes himself to quality reading materials. One should cultivate a broad knowledge base and keep abreast of current events and issues.</b></p><p>四个词块各管一件事：<b>read extensively</b> 博览群书、<b>expose oneself to quality reading materials</b> 接触优质读物、<b>cultivate a broad knowledge base</b> 打宽知识面、<b>keep abreast of current events</b> 跟进时事——译者的储备决定译文的边界。</p>' },
+  { title: '段 2 建议三（Moreover）：Only 前置倒装收力',
+    cls: 'key',
+    body: '<p><b>Moreover, be persistent. Language learning is not a task that can be accomplished within a short time. Only with a lot of sustained efforts can we improve our translation skills.</b></p><p><b>Only + 介词短语置于句首，主句部分倒装（can we improve）</b>——全信最亮的一笔，把「贵在坚持」钉在句式上；that can be accomplished... 定语从句压紧 task。三条建议按「态度 → 积累 → 坚持」层层递进。</p>' },
+  { title: '段 3 收尾：wish + willing + looking forward 三连',
+    cls: 'good',
+    body: '<p><b>I wish you find these suggestions useful and I\'m more than willing to discuss it with you about further details. I\'m looking forward to your reply.</b></p><p><b>more than willing</b>（非常乐意）用程度强化托起「热情分享」的语域；希望建议有用 + 乐意进一步讨论 + 期待回复——回函礼数闭环，呼应朋友的来函。</p>' },
+  { title: '易错自检：五处失分源',
+    cls: 'bad',
+    body: '<p><b>只感谢不给建议</b>：必答点 2 缺失直接掉档。<b>建议跑题</b>：写成背单词、练听力等泛英语学习——必须围绕「提高翻译水平」。<b>只给建议不接祝贺</b>：来函办了两件事，漏致谢同样缺必答点。<b>语气错位</b>：Dear Mr. Jack 式生分或 Hey buddy 式随意。<b>格式漏项</b>：漏 Yours sincerely、署真名、写地址。</p>' },
+  { title: '结论：框架锚点与模板迁移',
+    cls: 'good',
+    body: '<p>框架锚点：<b>接住来函（谢 + 建议为主体）→ 三级衔接挂三条建议 → 礼数三连收尾</b>；句型三件套 = express gratitude for...、it is vital that...、Only with... can we...（倒装）。</p><p>模板迁移：凡「回复祝贺 + 给建议」类回复函（如朋友求教演讲、求教口语），把段 2 的三条建议换成对应话题即可，框架与语域不变。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2016-47 小作文谋篇演示：获奖回复函的「接住来函两件事」',
+  subtitle: '考点：应用文（回复函）· 方法：审必答点 → 定语域 → 三段谋篇 → 逐句升格 → 成文自检',
+  counterLabel: '已推进',
+  intro: '点击「▶ 播放」逐步展开审题、谋篇与句型升格的推理链。',
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>Dear Jack,</p>' +
+      '<p>I\'m writing to express my gratitude for your congratulation on my success in the translation contest. Since you asked for my advice, I\'d like to share with you some of my thoughts on how to improve translation skills.</p>' +
+      '<p>To begin with, it is vital that you appreciate the beauty of language and hone your reading skills. Besides, a good translator usually reads extensively and constantly exposes himself to quality reading materials. One should cultivate a broad knowledge base and keep abreast of current events and issues. Moreover, be persistent. Language learning is not a task that can be accomplished within a short time. Only with a lot of sustained efforts can we improve our translation skills.</p>' +
+      '<p>I wish you find these suggestions useful and I\'m more than willing to discuss it with you about further details. I\'m looking forward to your reply.</p>' +
+      '<p>Yours sincerely,<br>Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：回复函 = <b>接住来函的每件事</b>（祝贺 → 谢、求建议 → 给，建议为主体）；三级衔接挂三条建议（态度 → 积累 → 坚持）；it is vital that... 提建议、Only with... can we... 倒装收力；落款 Yours sincerely, Li Ming。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 小作文——获奖回复函：接住来函两件事（感谢 + 建议）与「热情分享」语域</h2>
+<p>答案（范文）：<strong>Dear Jack,</strong></p>
+<p><strong>I'm writing to express my gratitude for your congratulation on my success in the translation contest. Since you asked for my advice, I'd like to share with you some of my thoughts on how to improve translation skills.</strong></p>
+<p><strong>To begin with, it is vital that you appreciate the beauty of language and hone your reading skills. Besides, a good translator usually reads extensively and constantly exposes himself to quality reading materials. One should cultivate a broad knowledge base and keep abreast of current events and issues. Moreover, be persistent. Language learning is not a task that can be accomplished within a short time. Only with a lot of sustained efforts can we improve our translation skills.</strong></p>
+<p><strong>I wish you find these suggestions useful and I'm more than willing to discuss it with you about further details. I'm looking forward to your reply. Yours sincerely, Li Ming</strong></p>
+<h3>第 0 步：先立机制——应用文评分三道关：格式 × 必答点 × 语域</h3>
+<p>应用文不管什么题型，评分都压在<strong>格式、必答点、语域</strong>三道关上。本题的文体是<strong>回复函</strong>（reply to an email）：朋友 Jack 来信办了两件事——祝贺 + 求建议；回信的交际逻辑就是<strong>接住来函的每一件事</strong>：对祝贺道谢，对求建议作答。所以它天然是"感谢信 + 建议信"的合体，且<strong>建议是主体</strong>——感谢一两句带过，建议要展开成三条。</p>
+<p>语域也由来函对象定音：来函的是<strong>朋友</strong>，回信语气要热情、乐于分享，不像写给机构那样公事公办；但考场书信仍守"Dear... + 正文 + Yours sincerely"的书信体面，不写成聊天体。</p>
+<h3>第 1 步：审题——指令逐条拆</h3>
+<table><thead><tr><th>指令</th><th>信息解读</th><th>落点</th></tr></thead><tbody><tr><td>Suppose you won a translation contest</td><td>情景设定：翻译比赛获奖——感谢的由头</td><td>段 1</td></tr><tr><td>your friend, Jack, wrote an email to congratulate you and ask for advice</td><td>来函两件事：祝贺 + 求建议；回信都要接住</td><td>段 1 承接句</td></tr><tr><td>1) thank him</td><td>必答点 1：感谢对方的祝贺</td><td>段 1</td></tr><tr><td>2) give your advice</td><td>必答点 2：给翻译学习的建议（主体）</td><td>段 2</td></tr><tr><td>Use "Li Ming" / Do not write your address</td><td>落款署 Li Ming、不写地址、约 100 词</td><td>格式</td></tr></tbody></table>
+<h3>第 2 步：格式红线</h3>
+<ul><li>称呼 <code>Dear Jack,</code>——朋友直呼其名，不写 Dear Mr. Jack（生分）。</li><li>落款 <code>Yours sincerely,</code> + <code>Li Ming</code>——署真名或写地址都是硬指令违反。</li><li>约 100 词三段：感谢一两句、建议五句上下、收尾两句，每句都要干活。</li></ul>
+<h3>第 3 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1（接来函的两件事）</strong>：一句对"祝贺"致谢（express my gratitude for your congratulation on my success in the translation contest），一句对"求建议"接话引出正文（Since you asked for my advice, I'd like to share...）。两句正好把来函的两件事各接一头，第二句是建议段的过渡钩子。</li><li><strong>段 2（建议三条，To begin with / Besides / Moreover 三级衔接）</strong>：建议一，端正态度——欣赏语言之美、打磨阅读技能（输入是翻译的地基）；建议二，扩大输入——博览群书、接触优质读物、打宽知识面、跟进时事（译者的储备决定译文的边界）；建议三，贵在坚持——语言学习非短期之功，靠持续努力。三条从"态度 → 积累 → 坚持"层层递进，自己考场作答可换成"双语对照练笔、直译意译结合"等同样切题的路数，关键是<strong>围绕提高翻译水平</strong>。</li><li><strong>段 3（收尾三连）</strong>：希望建议有用 + 乐意进一步讨论 + 期待回复——回函礼数闭环。</li></ul>
+<h3>第 4 步：句型升格——四条路径</h3>
+<ol><li><strong>致谢句名词化</strong>：<code>express my gratitude for your congratulation on my success in...</code>——gratitude for + 名词化结构，比 thank you for your congratulation 更庄重；congratulation on 的介词搭配要钉死。</li><li><strong>it is vital that... 提建议</strong>：<code>it is vital that you appreciate the beauty of language and hone your reading skills</code>——it 形式主语 + that 从句，两个并列动词共用一个建议口吻，比连说两个 You should... 高一档；<strong>hone</strong> 取"打磨（技能）"义。</li><li><strong>建议段词块群</strong>：<code>read extensively</code>（博览群书）、<code>expose oneself to quality reading materials</code>（接触优质读物）、<code>cultivate a broad knowledge base</code>（打宽知识面）、<code>keep abreast of current events</code>（跟进时事）——一句一个词块，信息密度即得分密度。</li><li><strong>Only + 状语前置倒装收力</strong>：<code>Only with a lot of sustained efforts can we improve our translation skills.</code>——only + 介词短语置于句首，主句部分倒装，把"贵在坚持"钉在句式上，是全信最亮的一笔。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>只感谢不给建议</strong>：必答点 2 缺失直接掉档——回函的交际重心在 advice，感谢只是开场。</li><li><strong>建议跑题</strong>：写成背单词、练听力等泛英语学习——必须围绕"提高翻译水平"；跑题的建议再多也不给分。</li><li><strong>只给建议不接祝贺</strong>：来函办了两件事，漏掉致谢同样缺必答点。</li><li><strong>语气错位</strong>：Dear Mr. Jack 式生分，或 Hey buddy 式随意——朋友间热情但守书信体面。</li><li><strong>格式漏项</strong>：漏 Yours sincerely / 署真名 / 写地址——硬指令一碰即扣。</li><li><strong>三级衔接裸奔</strong>：三条建议并列却不用 To begin with / Besides / Moreover，段 2 成一锅粥。</li></ul>
+<blockquote>记忆锚点：回复函 = <strong>接住来函的每件事</strong>（祝贺 → 谢、求建议 → 给，建议为主体）；建议段 = 三级衔接词挂三条（态度 → 积累 → 坚持）；句型三件套 = express gratitude for...、it is vital that...、Only with... can we...（倒装）；落款 Yours sincerely, Li Ming。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

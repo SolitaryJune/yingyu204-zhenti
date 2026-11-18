@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2011-48 大作文框架：描图 → 析因 → 评论（轿车市场品牌份额「榜首易主」）</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两问对应三段',
+    cls: 'key',
+    body: '<p>指令两问：<b>1) interpret the chart</b>（描图）+ <b>2) give your comments</b>（析因 + 评论）。机制：图表作文 = <b>描图段 → 析因段 → 评论段</b>。只描图不评论 = 只答了第一问，结构掉档；评论与析因脱节 = 空喊口号。</p>' },
+  { title: '读图：先定对比轴——榜首易主',
+    cls: 'key',
+    body: '<p>横轴 = 年份（2008 → 2009），纵轴 = 各品牌在中国轿车市场的份额。三组数据三种走势：<b>国产明显上涨（近 10 个百分点）</b>、<b>日系下滑近 10 个百分点、让出第一</b>、<b>美系微增稳居第三</b>。</p><p>真正的「矛盾」不是谁涨谁跌，而是<b>排名变了</b>——榜首从日系换成国产。这组「易主」就是全文的对比轴。</p>' },
+  { title: '描图段：总述 + 稳定项',
+    cls: 'good',
+    body: '<p>总述一句立框架：<b>China\'s auto market was still dominated by Japanese, Chinese and American brands.</b></p><p>稳定项先落地（为「变」作衬）：<b>American cars remained the third most popular in the market with a slight increase in market share.</b> 「稳」写足，「剧变」才有反差。</p>' },
+  { title: '描图段：变化项的亮点句型',
+    cls: 'good',
+    body: '<p>四个简单句（日系丢第一 / 份额降近 10% / 国产接位 / 份额升近同幅）→ 用 <b>whose 从句 + 被动谓语 + by 施动者 + which 从句</b>整合成一句：</p><p><b>Japanese brands, whose share of market slipped by almost 10%, were displaced from their leading position by Chinese brands, which expanded their share by nearly the same margin.</b></p><p>被动式 were displaced from...by... 自带「地位旁落、后起之秀取而代之」的韵味；slip / be displaced / by nearly the same margin 把一降一升焊在一句里。</p>' },
+  { title: '析因段：主题句定调',
+    cls: 'key',
+    body: '<p>先给美系一个「合理交代」，再给变化定调：</p><p><b>The performance of American brand cars is to be expected, given their worldwide fame and reliable quality.</b></p><p><b>The big change in the performance of Japanese and Chinese brands seems sudden but is not unexpected.</b></p><p>「看似突然，实则必然」——分析由此才有展开的空间。</p>' },
+  { title: '析因·国产上升：技术 + 营销两条腿',
+    cls: 'good',
+    body: '<p>主观努力两条因果链（过去完成时谈此前积累）：</p><p><b>Chinese auto producers had narrowed the technology gap between themselves and foreign competitors, and cleverly switched their promotion strategies to satisfy Chinese customers\' appetite for a bargain.</b></p><p>① 缩小技术差距（质量信任）；② 营销转向满足消费者对实惠的喜好（appetite for a bargain）。</p>' },
+  { title: '析因·日系下滑：While 时间轴对照',
+    cls: 'bad',
+    body: '<p>客观对照一条因果链——<b>While 从句</b>把两条链放在同一时间轴上：</p><p><b>When Chinese brands were growing, Japanese brands were hit by reputation crisis caused by frequent quality complaints.</b></p><p>质量投诉 → 信誉危机 → 份额下滑。机制上与国产上升是<b>同一条逻辑的两面：份额是质量的函数</b>。</p>' },
+  { title: '评论段：从原因里提炼启示',
+    cls: 'good',
+    body: '<p>评论的落点必须长在析因的原因上——日系下滑的根源是质量：</p><p><b>The plight of Japanese brands is the reminder that quality is the soul of products.</b></p><p>plight（困境）→ 提炼出<b>质量是产品的灵魂</b>；评论只有一句，但来自原因，不是另起炉灶的口号。</p>' },
+  { title: '评论段：顺启示给当事人一句期望',
+    cls: 'good',
+    body: '<p>启示回到「当事人」（国产厂商），用 <b>thereby 分词结构</b>串成结果链：</p><p><b>Hopefully, Chinese automakers will consistently guarantee high quality, thereby protecting their own reputation to maintain market popularity.</b></p><p>保质量 → 保声誉 → 保市场人气——一句闭合「析因 → 启示 → 期望」。</p>' },
+  { title: '语言纪律：时态 + 数据动词',
+    cls: 'key',
+    body: '<p><b>时态</b>：描图表已发生的事用过去时（was dominated / remained / slipped）；析因谈此前积累用过去完成时（had narrowed）；评论期望用 Hopefully...will。</p><p><b>数据动词</b>：升 = expand、降 = slip、被取代 = be displaced from...by——比 rise / fall 精确且自带「名次」信息；衔接词：A noticeable change occurred（引变化）、given（鉴于）、When...were growing（对照）、thereby（结果链）。</p>' },
+  { title: '模板迁移（排名变化类图表）',
+    cls: 'key',
+    body: '<p>「总述 → 稳衬变 → 位移句 → 双方析因 → 从原因提炼评论」适用于<b>份额/排名发生变化</b>的图表：总述 dominated by；稳定项 remained...with a slight...；位移句用 whose + were displaced from...by + which 双从句；析因一升一降各一条因果链；评论从「跌的原因」提炼启示。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>描图（稳衬变 + 名次变化）→ 析因（份额是质量的函数）→ 评论（从原因提炼）</b>。时态纪律：描图过去时、析因完成时、评论将来时。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2011-48 大作文框架演示：描图 → 析因 → 评论（榜首易主）',
+  subtitle: '考点：图表作文 · 方法：interpret the chart + give your comments（2008→2009 中国轿车市场：国产↑近10% 登顶、日系↓近10% 退位、美系微增稳第三）',
+  intro: '点击「▶ 播放」逐步展开读图、描图、析因与评论的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>China\'s auto market was still dominated by Japanese, Chinese and American brands. American cars remained the third most popular in the market with a slight increase in market share. A noticeable change occurred in Japanese and Chinese brands. Japanese brands, whose share of market slipped by almost 10%, were displaced from their leading position by Chinese brands, which expanded their share by nearly the same margin.</p>' +
+      '<p>The performance of American brand cars is to be expected, given their worldwide fame and reliable quality. The big change in the performance of Japanese and Chinese brands seems sudden but is not unexpected. Chinese auto producers had narrowed the technology gap between themselves and foreign competitors, and cleverly switched their promotion strategies to satisfy Chinese customers\' appetite for a bargain. When Chinese brands were growing, Japanese brands were hit by reputation crisis caused by frequent quality complaints.</p>' +
+      '<p>The plight of Japanese brands is the reminder that quality is the soul of products. Hopefully, Chinese automakers will consistently guarantee high quality, thereby protecting their own reputation to maintain market popularity.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>榜首易主定对比轴</b>；份额是质量的函数；expand / slip / be displaced from...by 三件数据动词；描图过去时、析因完成时、评论将来时。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 大作文——「榜首易主」图表的描图 → 析因 → 评论三段机制</h2>
+<p>答案（参考范文口径）：<strong>China's auto market was still dominated by Japanese, Chinese and American brands. American cars remained the third most popular in the market with a slight increase in market share. A noticeable change occurred in Japanese and Chinese brands. Japanese brands, whose share of market slipped by almost 10%, were displaced from their leading position by Chinese brands, which expanded their share by nearly the same margin. The performance of American brand cars is to be expected, given their worldwide fame and reliable quality. The big change in the performance of Japanese and Chinese brands seems sudden but is not unexpected. Chinese auto producers had narrowed the technology gap between themselves and foreign competitors, and cleverly switched their promotion strategies to satisfy Chinese customers' appetite for a bargain. When Chinese brands were growing, Japanese brands were hit by reputation crisis caused by frequent quality complaints. The plight of Japanese brands is the reminder that quality is the soul of products. Hopefully, Chinese automakers will consistently guarantee high quality, thereby protecting their own reputation to maintain market popularity.</strong></p>
+<h3>第 0 步：先立机制——图表作文的分数从哪来</h3>
+<p>图表作文 = 两问换三段：<code>interpret the chart</code>（描图段）+ <code>give your comments</code>（析因段 + 评论段）。评分看三点：<strong>信息完整性</strong>（三组数据的趋势与名次变化是否都点到）、<strong>分析深度</strong>（变化是否归因、评论是否从原因里提炼出来）、<strong>语言质量</strong>（对比词、数据动词、时态纪律）。只描图不评论 = 只答了第一问，结构掉档；评论若与析因脱节，则沦为空喊口号。机制立住了，下面每一步都是在往三段里填内容。</p>
+<h3>第 1 步：读图——先定对比轴：榜首易主</h3>
+<ul><li>横轴：年份（2008 → 2009）；纵轴：各品牌在中国轿车市场的份额。</li><li>三组数据三种走势：<strong>国产品牌明显上涨（近 10 个百分点）</strong>，<strong>日系品牌下滑近 10 个百分点、让出第一</strong>，<strong>美系品牌微增、稳居第三</strong>。</li><li>一升一降基本对冲，真正的"矛盾"不是谁涨谁跌，而是<strong>排名变了</strong>——榜首从日系换成国产。这组"易主"就是全文的对比轴：描图段要写出"位移"，析因段解释"为什么会位移"，评论段从位移的原因里提炼启示。先写不变的美系作参照，再写剧变的日系与国产，反差自然出来。</li></ul>
+<h3>第 2 步：描图段——总述 + 稳定项 + 变化项</h3>
+<ul><li>总述一句立框架：China's auto market was still dominated by Japanese, Chinese and American brands.（三品牌仍是主角）</li><li>稳定项先落地：American cars remained the third most popular with a slight increase in market share.——"稳"为"变"作衬。</li><li>变化项是描图段的重头，用一句双从句长句把"位移"写足：<strong>Japanese brands, whose share of market slipped by almost 10%, were displaced from their leading position by Chinese brands, which expanded their share by nearly the same margin.</strong></li></ul>
+<p>这句的句子成形过程值得记：四个简单句（日系丢第一 / 日系份额降近 10% / 国产接位 / 国产份额升近同幅）→ 用 <strong>whose 非限制性定语从句 + 被动谓语 + by 施动者 + which 定语从句</strong>整合成一句。被动式 were displaced from...by... 恰好带出"领先地位旁落、后起之秀取而代之"的韵味；slip（下滑）、be displaced（被取代）、by nearly the same margin（几乎相同幅度）三个数据表达把一降一升焊在一句里。</p>
+<h3>第 3 步：析因段——同一条逻辑的两面</h3>
+<p>主题句先定调：The big change seems sudden but is not unexpected（看似突然，实则必然）——分析才有展开的空间。之后一升一降各给一条因果链：</p>
+<table><thead><tr><th>对象</th><th>原因</th><th>落到句子上</th></tr></thead><tbody><tr><td>美系稳定</td><td>世界声誉 + 可靠质量</td><td>to be expected, given their worldwide fame and reliable quality</td></tr><tr><td>国产上升（主观努力）</td><td>技术追赶 + 营销转向</td><td>had narrowed the technology gap... and cleverly switched their promotion strategies to satisfy customers' appetite for a bargain</td></tr><tr><td>日系下滑（客观对照）</td><td>质量投诉引发信誉危机</td><td>When Chinese brands were growing, Japanese brands were hit by reputation crisis caused by frequent quality complaints</td></tr></tbody></table>
+<p>机制上这是同一条逻辑的两面：<strong>份额是质量的函数</strong>——国产靠缩小技术差距赢得信任，日系因质量问题丢掉信任。While 从句把两条链放在同一时间轴上对照，"此消彼长"的因果感就有了。</p>
+<h3>第 4 步：评论段——从析因里提炼，不另起炉灶</h3>
+<p>评论的落点必须长在析因的原因上：日系下滑的根源是质量 → 提炼出 <strong>quality is the soul of products</strong>（质量是产品的灵魂）；再顺这条启示给国产一句期望：consistently guarantee high quality, thereby protecting their own reputation to maintain market popularity（用 thereby 分词结构把"保质量 → 保声誉 → 保市场"串成链）。评论只有两句话，但一句来自原因、一句回到当事人，首尾闭合。</p>
+<h3>第 5 步：语言纪律——预判"怎么不丢冤枉分"</h3>
+<ul><li><strong>时态纪律</strong>：描图表已发生的事用过去时（was dominated / remained / slipped）；析因谈此前积累用过去完成时（had narrowed）；评论与期望用 Hopefully...will。</li><li><strong>数据动词分工</strong>：升用 expand，降用 slip，被取代用 be displaced from...by——比 rise / fall 精确且自带"名次"信息。</li><li><strong>衔接词分工</strong>：A noticeable change occurred（引出变化）、given（鉴于）、When...were growing（时间对照）、thereby（结果链）。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只描图不评论</strong>：把 interpret 理解成"复述图表"，give your comments 整段缺失——内容分结构性丢失。</li><li><strong>只写升降不写名次</strong>：漏掉"榜首易主"这层对比轴，日系被国产取代的信息没传达，图表最核心的变化丢失。</li><li><strong>漏写稳定项</strong>：三组数据只提两组，信息不完整，也失去了"稳衬变"的写作策略。</li><li><strong>数据编造</strong>：图表未给的精确百分比自行填数；范文口径只说"近 10%"与"几乎相同幅度"，不确定的数据用模糊表达。</li><li><strong>析因单边化</strong>：只解释国产为什么涨（或只解释日系为什么跌），对比轴断裂；"同一条逻辑的两面"才是高分结构。</li><li><strong>评论与析因脱节</strong>：直接喊"我们要努力"式口号，没有从"质量危机"这条原因里提炼出 quality is the soul of products。</li><li><strong>时态错乱</strong>：描图用现在时、析因用将来时，全篇时间坐标错位。</li></ul>
+<blockquote>记忆锚点：图表作文 = <strong>描图（总述 + 稳衬变 + 名次变化）→ 析因（同一条逻辑的两面）→ 评论（从原因提炼）</strong>；榜首易主定对比轴；expand / slip / be displaced from...by 三件数据动词；描图过去时、析因完成时、评论将来时。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

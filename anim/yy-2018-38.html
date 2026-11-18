@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-38 · 2018 阅读第 38 题 · 观点引语三连递进，取最强一环 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · Newport 的 idleness 观点", "cls": "key", "tag": "审题", "log": "审题眼：According to Newport, idleness is ___ —— 人物观点题，引语三连递进取最强一环", "count": 0, "ribbon": null, "body": "<p>题干：According to <b>Newport</b>, <b>idleness</b> is ___. 人物观点题：定位词＝人名＋话题词。Newport 谈 idleness 的引语是<b>三个分句的递进链</b>——观点取最后一环（最强、最新、带信号词的那句）。去第七段定位。</p>"},
+ {"title": "定位原文 · not just → as indispensable as → necessary", "cls": "key", "tag": "定位", "log": "定位第七段引语：①破常识 ②立类比 ③paradoxically 推到最强", "count": 0, "ribbon": null, "body": quote("&ldquo;<b>Idleness is not just</b> a vacation, an indulgence or a vice; it is <b>as indispensable to the brain as vitamin D is to the body</b>… [idleness] is, <b>paradoxically, necessary to getting any work done</b>,&rdquo; he argues.") + "<p>递进链三环：①<b>not just…</b>（不只是假期/放纵/恶习）——先把“闲散＝懒惰”的常识扔掉；②<b>as indispensable to the brain as…</b>（对大脑像维他命 D 之于身体）——类比立论；③<b>paradoxically, necessary to getting any work done</b>——推到最强：完成任何工作的必要条件。he argues 坐实观点归属。</p>"},
+ {"title": "同义替换 · necessary to getting any work done", "cls": "key", "tag": "替换", "log": "同义替换：D essential factor in accomplishing any work ↔ necessary to getting any work done", "count": 0, "ribbon": null, "body": "<p>[D] an <b>essential</b> factor in <b>accomplishing any work</b> ↔ <b>necessary</b> to <b>getting any work done</b>：essential ↔ necessary；accomplishing ↔ getting done；any work 原词保留。方向、程度、对象全对齐——注意 [D] 与原文同为全称强表述。</p>"},
+ {"title": "逐项分析 · D an essential factor in accomplishing any work", "cls": "good", "tag": "选定 D", "log": "D 完成任何工作的必要因素 ✓ ——递进链最后一环的同义改写", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>取引语第三环（paradoxically, necessary to getting any work done）：[D] 虽是“绝对肯定表述”，但原文 necessary to getting <b>any</b> work done 本就是全称强表述——程度完全契合，不因“听起来绝对”而怀疑。</p>"},
+ {"title": "逐项分析 · A a desirable mental state for busy people", "cls": "bad", "tag": "排除 A", "log": "A 忙碌人群的理想心理状态 ✗ ——夸大：适度放松被放大成替代忙碌的理想状态", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>原文只是“大脑在工作之外需要<b>适时</b>闲散”，[A] 夸成“忙碌人群的<b>理想心理状态</b>”（暗示闲散可取、忙碌不可取）——程度被放大一个量级。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“需要张弛”读成“要用闲散取代忙碌”。</p>"},
+ {"title": "逐项分析 · B a major contributor to physical health", "cls": "bad", "tag": "排除 B", "log": "B 身体健康的主要因素 ✗ ——强加关联：类比项（身体）不是受益者（大脑）", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>类比“闲散之于<b>大脑</b> ∷ 维他命 D 之于<b>身体</b>”里，“身体”只是喻体一端的类比项；闲散的直接受益者是大脑，[B] 把类比两端错误焊接成“闲散维持<b>身体健康</b>”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：类比句里抽一个名词与话题词强行连线。</p>"},
+ {"title": "逐项分析 · C an effective way to save time and energy", "cls": "bad", "tag": "排除 C", "log": "C 节约时间精力的有效方式 ✗ ——曲解＋望文生义：most of ≠ save", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>⑥段 make the <b>most of</b> our focus and energy（<b>充分利用</b>精力）被曲解为“<b>节约</b>精力”；downtime（休息时间）按构词 down＋time 臆断出“省时间”——充分利用 ≠ 节约。</p><p style=\"color:#b91c1c\">⚠ 典型误解：make the most of 读成 save，downtime 望文生义。</p>"},
+ {"title": "结论 · 绝对表述慎选 ≠ 一律排除", "cls": "good", "tag": "答案 D", "log": "答案 D（an essential factor in accomplishing any work）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>not just（破）→ as indispensable as（立）→ paradoxically necessary to getting any work done（最强）→ [D]。</b>“绝对表述慎选”的前提是原文无同强度支撑——本题原文 any work done 本就是全称强表述，[D] 程度完全一致；反而 A（夸大）、C（曲解）这类“听上去稳妥”的选项才是坑。</p><p>答案选 <b>D（an essential factor in accomplishing any work）</b>。</p><p><b>记忆锚点</b>：观点引语三连 破→立→最强，取最后一环；类比项不是受益者；make the most of ≠ save。</p><p style=\"color:#b91c1c\">最易误选：<b>B</b>——拿类比里的“身体”当闲散的受益者。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 38 题 · 人物观点题——引语三连递进，取最强一环",
+  subtitle: "考点：观点题递进链（破→立→最强）· 程度契合判断 + 类比项陷阱",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“拆引语递进链 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（an essential factor in accomplishing any work）", "html": "<b>D 完成任何工作的必要因素</b>：paradoxically, <b>necessary to getting any work done</b> 的同义改写——引语递进链（not just 破 → as indispensable as 立 → paradoxically necessary 最强）的最后一环。<br>记忆锚点：绝对表述慎选 ≠ 一律排除，原文 any work done 本就是全称强表述；类比项不是受益者。<br>最易误选：<b>B</b>——拿类比里的“身体”当受益者。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 38 题 · 人物观点题——三个分句递进，取最强的那个</h2>
+<p>答案：<strong>D（an essential factor in accomplishing any work 完成任何工作的必要因素）</strong>。</p>
+<h3>第 0 步：先立机制——引语里的"递进链"，观点取最后最强的一环</h3>
+<p>题干 According to <strong>Newport</strong>, <strong>idleness</strong> is ____——人物观点题，定位词是人和话题词。Newport 谈 idleness 的那句引语不是一个观点，而是<strong>三个分句的递进链</strong>：①not just a vacation, an indulgence or a vice（先破：闲散不只是假期、放纵或恶习——把"闲散=懒惰"的常识先扔掉）；②as indispensable to the brain as vitamin D is to the body（再立一半：对大脑像维他命 D 对身体一样不可或缺）；③<strong>paradoxically, necessary to getting any work done</strong>（推到最强：矛盾的是，它对完成<strong>任何</strong>工作都必不可少）。观点题取链条的<strong>最后一环</strong>——最强、最新、且带 paradoxically（看似矛盾实则……）信号词的那句。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"Idleness is not just a vacation, an indulgence or a vice; it is as indispensable to the brain as vitamin D is to the body… [idleness] is, <strong>paradoxically, necessary to getting any work done</strong>," he argues.</blockquote>
+<p>结构：①not just... 先破常识；②as indispensable to the brain as... 类比（大脑需要闲散）；③paradoxically + <strong>necessary to getting any work done</strong>——"闲散是完成任何工作的必要条件"。he argues 坐实这是 Newport 的观点。</p>
+<h3>第 2 步：同义替换——"necessary to getting any work done"就是"essential factor in accomplishing any work"</h3>
+<p>[D] an <strong>essential</strong> factor in <strong>accomplishing any work</strong> ↔ <strong>necessary</strong> to <strong>getting any work done</strong>：essential ↔ necessary；accomplishing ↔ getting done；any work ↔ any work（原词保留）。方向、程度、对象全对齐。注意 [D] 用的是"绝对肯定表述"（essential factor），很多考生第一眼会怀疑它"太绝对"——但判断标准不是选项听上去是否稳妥，而是<strong>与原文方向和程度是否契合</strong>：原文 necessary to getting any work done 本来就是全称的强表述。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A a desirable mental state for busy people</td><td>✗</td><td>夸大其词：原文只是"大脑在工作之外需要适时闲散"，被夸成"忙碌人群的<strong>理想心理状态</strong>"（暗示闲散可取、忙碌不可取，用闲散替代忙碌）——程度被放大了一个量级</td></tr><tr><td>B a major contributor to physical health</td><td>✗</td><td>强加关联：类比"闲散之于大脑 ∷ 维他命 D 之于身体"里，"身体"只是<strong>类比项</strong>，闲散对应的直接受益者是大脑；"闲散维持身体健康"把类比的两端错误焊接</td></tr><tr><td>C an effective way to save time and energy</td><td>✗</td><td>关系曲解＋望文生义：⑥段 make the <strong>most of</strong> our focus and energy（<strong>充分利用</strong>精力）被曲解为"<strong>节约</strong>精力"；downtime（休息时间）按构词 down+time 臆断成"省时间"——充分利用 ≠ 节约</td></tr><tr><td>D an essential factor in accomplishing any work</td><td>✓</td><td>necessary to getting any work done 的同义改写，递进链最后一环</td></tr></tbody></table>
+<h3>预判追问：D 太绝对了，考研阅读里"绝对表述"不都该排除吗？</h3>
+<p>"绝对表述慎选"是经验，不是铁律——它成立的前提是<strong>原文没有同强度的支撑</strong>。本题恰好相反：原文 necessary to getting <strong>any</strong> work done 本身就是全称强表述，[D] 的 essential factor in accomplishing any work 与它程度完全一致。相反，A、C 这类"听上去留有余地"的选项才是伪稳妥：A 夸大（desirable mental state）、C 曲解（save energy）。观点题的正确姿势是<strong>拿选项与原句逐项比对方向和程度</strong>，而不是给选项的语气打分。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把"大脑需要张弛"放大成"闲散是理想状态、忙碌要不得"。</li><li><strong>误选 B</strong>：类比读反——维他命 D 之于身体是<strong>喻体</strong>，闲散的受益者是大脑，不是身体。</li><li><strong>误选 C</strong>：make the most of（充分利用）→ save（节约），一字之差方向全变；downtime 望文生义。</li></ul>
+<blockquote>记忆锚点：观点引语三连 <strong>not just（破）→ as indispensable as（立）→ paradoxically necessary（最强）</strong>，取最后一环；necessary to getting any work done = essential factor；类比项不是受益者；make the most of ≠ save。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-42 · 2015 新题型第 42 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 高频复现词就是段落主词",
+  "cls": "key",
+  "tag": "方法",
+  "log": "present moment 首中尾三种形态贯穿全段",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>小标题题里，一段话把同一个概念换着说法讲三遍，它就必然是标题。本段的 <b>present moment</b>（当下）出现三种形态：focus on the present moment（首句建议）→ Value the present moment（中段重复）→ designed into the present（尾句收束）。首、中、尾三点连成一条线。</p>"
+ },
+ {
+  "title": "定位段落 ·【42】过去与未来都是反衬",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位【42】段：focus on the present moment ... designed into the present",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you are surrounded by problems and cannot stop thinking about the past, try to focus on the present moment. … you are poisoning the present with the things and circumstances you cannot change. … Happiness is not a point of future and not a moment from the past, but a mindset that can be designed into the present.</div><p>结构：①首句给建议——被过去缠住，就努力<b>关注当下</b>；②③沉溺过去的代价——用无法改变的事「毒害」现在；④尾句排比——幸福不在未来、不在过去，而是能<b>设计进当下</b>的心态。</p>"
+ },
+ {
+  "title": "提炼段旨 · 正主是 present",
+  "cls": "key",
+  "tag": "提炼",
+  "log": "过去与未来是反衬，建议方向 = think about the present moment",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>过去出现两次（thinking about the past / a moment from the past）但都当<b>反面教材</b>；未来的 happiness 也只是排比里的否定项。标题概括的是作者的<b>建议方向</b>，不是他说服你时用过的反面。</p>"
+ },
+ {
+  "title": "逐项分析 · B Experience helps you grow（经历助你成长）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 经历助成长 ✗ ——「经历」字面诱饵，重心在当下",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>weighed down by the past、see the possibilities before you 容易让人联想到「经历」，但「经历助成长」不是本段论点——段中提及过去与包袱，恰恰是为了说明<b>当下</b>的重要。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · G There are many things to be grateful for（有很多值得感恩的东西）",
+  "cls": "bad",
+  "tag": "排除 G",
+  "log": "G 值得感恩 ✗ ——fortunate you are 只是分句枝叶",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>remember how <b>fortunate</b> you are to be alive 只是其中一个分句的枝叶，<b>grateful</b>（感恩）不是全段的判断。</p>",
+  "body": {
+   "k": "G",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · E Think about the present moment（关注当下）",
+  "cls": "good",
+  "tag": "选定 E",
+  "log": "E 关注当下 ✓ ——与首句建议原词级复现",
+  "count": 2,
+  "ribbon": "<p><b>当选。</b>[E] Think about the present moment 与首句 try to <b>focus on the present moment</b> 构成原词级复现——「祈使句建议 + 原词复现」的组合，在小标题题里基本就是答案本身。</p>",
+  "body": {
+   "k": "E",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 三次复现与记忆锚点",
+  "cls": "good",
+  "tag": "答案 E",
+  "log": "答案 E（Think about the present moment）——present moment 三现定标题",
+  "count": 2,
+  "ribbon": null,
+  "body": "<p>答案选 <b>E（Think about the present moment）</b>。</p><p><b>记忆锚点</b>：present moment 三次复现 = 标题；过去与未来是反衬，反衬不进标题。</p><p style=\"color:#b91c1c\">最易误选：<b>B</b>——「过去」在段中出现，但它是用来反衬「当下」的。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 新题型【42】· 「当下」三次复现就是标题",
+  subtitle: "考点：小标题匹配 · 高频复现词 · 反衬不进标题",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 E（Think about the present moment）",
+ "html": "<b>E Think about the present moment（关注当下）</b>。<br>present moment 首中尾三现：focus on → Value the → designed into the present；过去与未来只是反衬。<br>最易误选：<b>B</b>——「经历」字面诱饵。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：小标题题【42】——"当下"三次复现就是标题</h2>
+<p>答案：<strong>E（Think about the present moment）</strong>。</p>
+<h3>第 0 步：先立方法——高频复现词就是段落主词</h3>
+<p>小标题题里，一段话把同一个概念换着说法讲三遍，它就必然是标题。本段的 present moment（当下）出现三种形态：focus on the present moment（首句建议）→ Value the present moment（中段重复）→ a mindset that can be designed into the present（尾句收束）。首、中、尾三点连成一条线，标题几乎不用猜。</p>
+<h3>第 1 步：定位段落，读出"过去与未来 → 当下"的指向</h3>
+<blockquote>If you are surrounded by problems and cannot stop thinking about the past, try to focus on the present moment. ... you are poisoning the present with the things and circumstances you cannot change. ... Happiness is not a point of future and not a moment from the past, but a mindset that can be designed into the present.</blockquote>
+<p>结构：①首句给建议——被过去缠住，就努力关注当下；②③指出沉溺过去的代价——你在用无法改变的事"毒害"现在；④尾句排比收束——幸福不在未来、不在过去，而是能<strong>设计进当下</strong>的心态。过去与未来都是反衬，正主是 present。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[E] Think about the present moment 与首句 try to focus on the present moment 构成<strong>原词级复现</strong>——"祈使句建议 + 原词复现"的组合，在小标题题里基本就是答案本身。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B Experience helps you grow</td><td>✗</td><td>字面诱饵：weighed down by the past、see the possibilities before you 容易让人联想到"经历"，但"经历助成长"不是本段论点——段中提及过去与包袱，恰恰是为了说明当下的重要</td></tr><tr><td>G There are many things to be grateful for</td><td>✗</td><td>半句诱饵：remember how fortunate you are to be alive 只是其中一个分句的枝叶，grateful（感恩）不是全段的判断</td></tr></tbody></table>
+<h3>预判追问：过去出现两次，为什么标题不落在过去上？</h3>
+<p>因为过去在本段只当<strong>反面教材</strong>："被过去压垮""为过去内疚"都是为了推出"要活在当下"。标题概括的是作者建议的方向，不是他说服你时用过的反面——让步与反衬永远不进标题。</p>
+<blockquote>记忆锚点：present moment 三次复现 = 标题 E；过去与未来是反衬；fortunate you are ≠ grateful for things。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

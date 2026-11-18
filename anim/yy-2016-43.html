@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-43 · 2016 新题型第 43 题 · notice 是问句引子，不是建议 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 动词的「语法身份」决定它是不是建议", "cls": "key", "tag": "方法", "log": "分清建议动词与引子动词：祈使 indulge in 是建议，问句 noticed 是钩子", "count": 0, "ribbon": null, "body": "<p>选标题前先分辨每个动词的<b>语法身份</b>：建议动词（祈使、could/should 结构）才是标题要收编的对象；出现在问句里的动词只是引出话题的钩子，<b>不构成建议</b>。本段四句话：问句引子 → 一句建议 → 收益清单 → 落回幸福。</p>"},
+ {"title": "定位段落 · 一个建议动作 + 一串收益", "cls": "key", "tag": "定位", "log": "定位【43】段：孩子爱笑（引子）→ indulge in silliness and giggling（建议）→ 健康收益 → 幸福水平", "count": 0, "ribbon": null, "body": quote("Have you ever noticed how much children laugh? If we adults could <b>indulge in a bit of silliness and giggling</b>, we would reduce the stress hormones in our bodies, increase good hormones like endorphins, improve blood flow to our hearts and even have a greater chance of fighting off infection. All of which would… have a positive effect on our happiness levels.") + "<p>建议动作只有一个：indulge in a bit of <b>silliness and giggling</b>（放纵一点傻气与傻笑）；其后一整串（减压激素、内啡肽、心血流量、抗感染）全是它的<b>收益清单</b>，末句落回幸福水平。收益再多，动作只有一个——标题收编的是动作。</p>"},
+ {"title": "提炼段旨 · silliness 的祈使化", "cls": "key", "tag": "提炼", "log": "提炼段旨：建议动作 silliness and giggling → 傻一点", "count": 0, "ribbon": null, "body": "<p>建议句的名词 <b>silliness</b>（傻气）是总称、giggling（傻笑）是其一种——标题收编总称最稳。收益清单与幸福结论都在论证「傻一点值得」，方向完全一致。</p>"},
+ {"title": "逐项分析 · A Be silly（傻一点）", "cls": "good", "tag": "选定 A", "log": "A 傻一点 ✓ ——silliness 同根直改，收编的是建议动作", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>[A] Be silly：与建议句的 silliness 同根直改（名词→祈使句），比 giggling 覆盖面更全；「孩子爱笑」是引子，「成人也该傻一点」是建议，收益清单是论据——三者同指一个动作。</p>"},
+ {"title": "逐项分析 · G Notice things（留意事物）", "cls": "bad", "tag": "排除 G", "log": "G 留意事物 ✗ ——本题最险的坑：notice 原词在首句问句里，是引子不是建议", "count": 1, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>首句 <b>Have you ever noticed</b> how much children laugh 里 notice 原词出现、与选项词形一模一样——最容易冒充标题。但它是引出「孩子爱笑」现象的<b>问句</b>，语法身份是钩子；段落通篇没有「留意事物」的劝告。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看见原词就选，不问它是不是建议动词。</p>"},
+ {"title": "逐项分析 · B Have fun（享受玩乐）", "cls": "bad", "tag": "排除 B", "log": "B 享受玩乐 ✗ ——错位嫁接：笑与傻笑的欢乐语感≠「玩乐」话题", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>laugh / giggling 的欢乐场景与 Have fun 貌合——但「安排时间享受所爱」是【44】段的主题，本段建议具体落在「<b>傻</b>」这个特质上，不是泛泛的「玩」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：欢乐语感泛化，漏掉「傻」的限定。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（Be silly）——见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>问句「孩子多爱笑」引出话题 → 建议 indulge in silliness and giggling → 收益清单论证 → 标题收编建议动词 → Be silly。</b></p><p>其余选项归宿：D Express your emotions（【41】）、F Be easily pleased（【42】）、B Have fun（【44】）、E Don't overthink it（【45】）；C Ask for help 与 G Notice things 为全篇多余项。</p><p><b>记忆锚点</b>：问句 noticed 是钩子，祈使 indulge in 才是建议；silliness → Be silly 同根直改；收益清单（激素/内啡肽/血流量）只是论据，当不了标题。</p><p style=\"color:#b91c1c\">本题最险的坑：notice 原词就在首句——靠「语法身份」识别，不靠词形重合。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 新题型第 43 题 · 首句的 notice 是问句引子，不是建议",
+  subtitle: "考点：小标题题 · 动词语法身份识别（问句钩子 vs 祈使建议）+ 同根直改",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段落 → 分辨动词身份 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（Be silly）", "html": "<b>A 傻一点</b>：silliness 的祈使化，收编的是建议动词 indulge in。<br>记忆锚点：问句 noticed 是钩子，祈使 indulge in 才是建议；收益清单只是论据，当不了标题。<br>最险的坑：<b>G（Notice things）</b>——notice 原词在首句问句里，词形重合≠建议。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 新题型第 43 题——首句的 notice 是问句引子，不是建议</h2>
+<p>答案：<strong>A（Be silly 傻一点）</strong>。</p>
+<h3>第 0 步：先立方法——动词的"语法位置"决定它是不是建议</h3>
+<p>本段只有四句话，结构极简：首句问"注意到孩子多爱笑吗"→次句给建议"成年人也该放纵一点傻气与傻笑"→再列健康收益→末句收束"提升幸福水平"。选标题前先分辨每个动词的<strong>语法身份</strong>：indulge in（沉浸于、放纵）是祈使性的建议动作；noticed 出现在 <strong>Have you ever noticed</strong> 这个问句里——问句是用来引出话题的钩子，它描述作者引导读者回想的现象，本身<strong>不构成建议</strong>。标题必须收编"建议动词"，不是"引子动词"。</p>
+<h3>第 1 步：定位段落</h3>
+<blockquote>Have you ever noticed how much children laugh? If we adults could <strong>indulge in a bit of silliness and giggling</strong>, we would reduce the stress hormones in our bodies, increase good hormones like endorphins, improve blood flow to our hearts and even have a greater chance of fighting off infection. All of which would, of course, have a positive effect on our happiness levels.</blockquote>
+<p>建议动作只有一个：indulge in a bit of <strong>silliness and giggling</strong>（放纵一点傻气与傻笑）；其后一整串（减压激素、内啡肽、心血流量、抗感染）全是它的<strong>收益清单</strong>，末句落回幸福水平。收益再多，动作只有一个——标题收编的是动作。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[A] <strong>Be silly</strong>——silliness 的祈使化：把自己"傻一点"。它与建议句的名词 silliness（傻气）同根直改，比同句的 giggling 覆盖面更全（傻气是总称，傻笑是其一）。收益清单和幸福结论都在论证"傻一点值得"，方向完全一致。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>G Notice things</td><td>✗</td><td>问句钩子：首句 Have you ever noticed how much children laugh 里 notice 原词出现，最容易冒充标题——但它是引出"孩子爱笑"现象的问句，不是作者的建议；段落通篇没有"留意事物"的劝告</td></tr><tr><td>B Have fun</td><td>✗</td><td>错位嫁接：笑、傻笑的欢乐语感像"玩乐"，但"安排时间享受所爱"是【44】段的主题；本段建议具体落在"傻"这个特质上，不是泛泛的"玩"</td></tr></tbody></table>
+<p>其余 C Ask for help（多余项）、D Express your emotions（【41】段情绪表达）、E Don't overthink it（【45】段别太刻意）、F Be easily pleased（【42】段容易满足）各有归宿，本段内容与之无涉。</p>
+<h3>预判追问：整段一半篇幅在讲激素与健康，为什么不选一个"健康"方向的标题？</h3>
+<p>两个原因。其一，选项库里根本没有"健康"项——本题的干扰都不在这个方向，真正要防的是字面钩子。其二，从段落逻辑看，激素、内啡肽、血流量这一串都挂在 if we adults <strong>could indulge in</strong>... 的虚拟建议句之下：收益是论证"傻一点"的论据，动作才是论点。小标题＝动作＋方向，论据永远当不了标题。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：notice 原词就在首句，词形与选项一模一样——这是本题最险的坑，靠"问句不是建议"这一语法身份识别才能排除。</li><li><strong>误选 B</strong>：laugh / giggling 的欢乐场景与 Have fun 貌合——但"玩乐"有自己的段落，本段限定在"傻气"。</li><li><strong>把收益当主旨</strong>：被激素清单带偏，忘了问一句"这一切收益是为了论证哪个动作"。</li></ul>
+<blockquote>记忆锚点：先分辨动词的语法身份——<strong>问句 noticed 是钩子，祈使 indulge in 才是建议</strong>；silliness → Be silly 同根直改；收益清单（激素/内啡肽/血流量）只是论据，当不了标题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

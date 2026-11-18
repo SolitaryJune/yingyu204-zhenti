@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-31 · 2019 阅读 Text 3 第 31 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · “应处理的问题”= 因果链的源头", "cls": "key", "tag": "定位", "log": "problem 题机制：找“除非…才…”句，抽问题的核心", "count": 0, "ribbon": null, "body": "<p>题干：What <b>problem</b> should be addressed according to the first two paragraphs?</p><p>机制：“应解决的问题”= 抱怨不停/后果严重的<b>病根</b>。首两段里有一个标志性结构：The complaints are unlikely to stop <b>without</b> an overhaul of...——“不改革 X，抱怨就不会停”⇒ 病根就是 X。</p>"}, {"title": "定位原文 · 首两段拼出因果链", "cls": "key", "tag": "证据", "log": "抱怨不断 → 病根在农工移民规则；国会阻挠便捷签证 → 症结是制度繁琐", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">American farmers have been complaining of labor shortages for several years. The complaints are unlikely to stop without an overhaul of immigration rules for farm workers.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Congress has obstructed efforts to create a more straightforward visa for agricultural workers that would let foreign workers stay longer in the U.S. and change jobs within the industry. If this doesn’t change, American businesses, communities, and consumers will be the losers.</div><p>因果链：劳动力短缺 → 抱怨不断 → 不改革<b>农工移民规则</b>就不会停（首段②句）；国会<b>阻挠</b>创设更便捷的农工签证（第二段①句）→ 症结落在“移民规则/签证制度”本身。⇒ 应处理的问题是：<b>美国农工移民政策的缺陷</b>。</p>"}, {"title": "逐项分析 · A Discrimination against foreign workers in the U.S.", "cls": "bad", "tag": "排除 A", "log": "A Discrimination against foreign workers in the U.S. ✗ 排除——无中生有：immigration rules（移民规则）被偷换成 discrimination（歧视）；全文讨论的是制度成本与流程，不是态度", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>无中生有：immigration rules（移民规则）被偷换成 discrimination（歧视）；全文讨论的是制度成本与流程，不是态度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 foreign workers 就套“歧视”框架。</p>"}, {"title": "逐项分析 · B Biased laws in favor of some American businesses", "cls": "bad", "tag": "排除 B", "log": "B Biased laws in favor of some American businesses ✗ 排除——曲解：政策是“碍事”（让农工进不来、留不住），不是“偏袒某些美国企业”", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>曲解：政策是“碍事”（让农工进不来、留不住），不是“偏袒某些美国企业”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由 rules / businesses 两词拼出“偏袒”的想象。</p>"}, {"title": "逐项分析 · C Flaws in U.S. immigration rules for farm workers", "cls": "good", "tag": "选定 C", "log": "C Flaws in U.S. immigration rules for farm workers ✓ 当选——首段②句“需要彻底改革（overhaul）”⇒ 现行规则有缺陷（flaws）；第二段“签证创设被阻挠”⇒ 缺陷的具体表现", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>首段②句“需要彻底改革（overhaul）”⇒ 现行规则有缺陷（flaws）；第二段“签证创设被阻挠”⇒ 缺陷的具体表现。</p><p>对应关系：unlikely to stop without an <b>overhaul</b> of immigration rules for farm workers ↔ <b>flaws</b> in U.S. immigration rules for farm workers。</p>"}, {"title": "逐项分析 · D Decline of job opportunities in U.S. agriculture", "cls": "bad", "tag": "排除 D", "log": "D Decline of job opportunities in U.S. agriculture ✗ 排除——反向偷换：问题是“缺人”（labor shortages），不是“岗位变少”——方向正好相反", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>反向偷换：问题是“缺人”（labor shortages），不是“岗位变少”——方向正好相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“农场主抱怨缺劳力”顺嘴读成“农业不景气”。</p>"}, {"title": "结论 · 因果链与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（Flaws in U.S. immigration rules for farm workers）——“除非…才…”句暴露病根", "count": 3, "ribbon": null, "body": "<p>答案选 <b>C（Flaws in U.S. immigration rules for farm workers 美国农工移民政策的缺陷）</b>。</p><p><b>记忆锚点</b>：problem 题 = 找“除非…才…”句（unlikely to stop without...）；labor shortages ≠ job opportunities decline——短缺的反面是“缺人手”，不是“没岗位”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>D</b>：方向反了——文中是“活多而人少”，不是“机会变少”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 3 第 31 题 · 前两段说该解决什么问题（主旨细节题）",
+  subtitle: "考点：主旨细节题 · “除非…才…”找病根 → 因果链 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 因果链/关键词比对 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（Flaws in U.S. immigration rules for farm workers）", "html": "<b>C Flaws in U.S. immigration rules for farm workers（农工移民规则的缺陷）</b>：unlikely to stop without an overhaul + 国会阻挠便捷签证 = 病根在制度。<br>最易误选：<b>D</b>——labor shortages 是“缺人”，不是“岗位减少”。<br>记忆锚点：problem 题=找“除非…才…”句；overhaul ⇒ flaws。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：主旨细节题——两段拼出“问题”的因果链</h2>
+<p>答案：<strong>C（Flaws in U.S. immigration rules for farm workers 美国农工移民政策的缺陷）</strong>。</p>
+<h3>第 0 步：先立机制——“问题”= 因果链的源头</h3>
+<p>题干 What problem should be addressed（应处理什么问题）→ 到前两段找“病根”：</p>
+<blockquote>American farmers have been complaining of labor shortages for several years. The complaints are unlikely to stop without an overhaul of immigration rules for farm workers.</blockquote>
+<blockquote>Congress has obstructed efforts to create a more straightforward visa for agricultural workers...</blockquote>
+<ul><li>抱怨（劳动力短缺）→ 不改革农工移民规则就不会停 ⇒ 病根在<strong>移民规则</strong>；</li><li>国会阻挠创设更便捷的签证 ⇒ 具体症结：<strong>签证制度繁琐、不通畅</strong>。</li></ul>
+<h3>第 1 步：同义替换确认 C</h3>
+<table><thead><tr><th>原文</th><th>选项 C</th></tr></thead><tbody><tr><td>an overhaul of immigration rules for farm workers（需要彻底改革）</td><td>flaws（有缺陷才需要改革）</td></tr><tr><td>obstructed efforts to create a more straightforward visa</td><td>flaws 的具体表现</td></tr></tbody></table>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A Discrimination against foreign workers</td><td>✗</td><td>无中生有：immigration rules 被偷换成“歧视”，全文未提歧视</td></tr><tr><td>B Biased laws in favor of some American businesses</td><td>✗</td><td>曲解：政策是“碍事”（让农工进不来），不是“偏袒某些企业”</td></tr><tr><td>C Flaws in U.S. immigration rules for farm workers</td><td>✓</td><td>首段②句 + 第二段①句合并</td></tr><tr><td>D Decline of job opportunities in U.S. agriculture</td><td>✗</td><td>反向偷换：问题是“缺人”（labor shortages），不是“岗位变少”</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：把“农场主抱怨缺劳力”顺嘴读成“农业不景气、就业机会减少”——方向正好相反：活多而人少。</li><li><strong>误选 A</strong>：看到 foreign workers 就套“歧视”框架；本文讨论的是制度成本与签证流程，不是态度问题。</li></ul>
+<blockquote>记忆锚点：problem 题=找“除非…才…”句（unlikely to stop without...）；labor shortages ≠ job opportunities decline——短缺的反面是“缺人手”，不是“没岗位”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

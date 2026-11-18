@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-39 细节题：集体改变的最佳方式——structural = 自上而下</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：the best way for a collective change',
+  'body':'<p>题干：<b>DeSombre argues that the best way for a collective change should be ____.</b>（德松布尔主张，集体改变的最佳方式应是____。）</p><p>定位暗号：the best way → 判断句 <b>A is B</b> 的表语就是答案；抽象表语（structural）要靠下一段的<b>举例</b>坐实。</p>',
+  'log':'审题：the best way 定位第五段判断句，答案在表语上'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第五段③句判断句',
+  'body':'<div class="qq"><b>第五段③：</b>...argues that the best way to collectively change the behavior of large numbers of people <b>is for the change to be structural</b>.<span class="cn">（……主张，集体改变大量人群行为的最佳方式，是让改变成为结构性的。）</span></div><p>判断句 A is B：最佳方式 = <b>structural change</b>（结构性变革）。"结构性"太抽象——往下看举例。</p>',
+  'log':'定位第五段③：最佳方式 = structural（结构性变革）'},
+ {'cls':'','ecs':'step','tag':'举例','count':0,
+  'title':'举例坐实：This 回指 structural',
+  'body':'<div class="qq"><b>第六段①：</b><b>This</b> might mean implementing policy such as a plastic tax that adds a cost to environmentally problematic action, or <b>banning single-use plastics altogether</b>.<span class="cn">（这可能意味着推行政策——比如给污染环境的行为加税——或全面禁用一次性塑料。）</span></div><p><b>This 回指 structural</b>：政策、塑料税、全面禁令、让回收像扔垃圾一样方便的激励安排——共性只有一个：<b>由政府统一制定推行、自上而下</b>。</p>',
+  'log':'第六段举例坐实：政策/税/禁令 = 政府自上而下推行'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：a top-down process',
+  'body':'<table class="aw-mini"><tr><th>选项 D</th><th>原文</th></tr><tr><td><b>a top-down process</b></td><td>structural change：implementing policy / plastic tax / banning... altogether（政府统一推行的制度性变革）</td></tr></table><p>“结构性/系统性变革”在社会领域即为<b>自上而下</b>的制度变革。</p>',
+  'log':'替换：a top-down process ← structural change 的三个例子'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：双赢安排',
+  'body':'<p><b>A · a win-win arrangement</b><span class="bad-dot"> ✗</span></p><p>由"变革涉及塑料的生产者与使用者"臆测"对双方都有利"——塑料税<b>就是给污染者加成本</b>，谈不上双赢。</p>',
+  'log':'排除 A：塑料税对污染者就是加成本，不是双赢'},
+ {'cls':'bad','ecs':'miss','tag':'排除 B','count':2,'ribbon':{'k':2,'ok':false},
+  'title':'排除 B：自我驱动机制',
+  'body':'<p><b>B · a self-driven mechanism</b><span class="bad-dot"> ✗</span></p><p>与第五段<b>正面相悖</b>——作者明说不指望人人自觉（the environment isn\'t everyone\'s priority... We shouldn\'t expect it to be），才主张结构性变革。</p>',
+  'log':'排除 B：不指望人人自觉，恰是结构性变革的前提'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':3,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：划算的方法',
+  'body':'<p><b>C · a cost-effective approach</b><span class="bad-dot"> ✗</span></p><p>adds a cost 的功能是<b>给污染行为加成本、倒逼改变</b>，不是"成本低效益高"——望文生义。</p>',
+  'log':'排除 C：adds a cost 是加税遏污，不是"划算"'},
+ {'cls':'good','ecs':'ok','tag':'锁定 D','count':4,'ribbon':{'k':4,'ok':true},
+  'title':'锁定 D：自上而下的过程',
+  'body':'<p><b>D · a top-down process</b><span class="ok-dot"> ✓</span></p><p>判断句锁 structural，举例句（政策、税、禁令）坐实"政府统一推行、自上而下"。</p>',
+  'log':'锁定 D：structural change = 自上而下的制度变革'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 D',
+  'body':'<p><b>答案 D（a top-down process）</b>——"最佳方式" = 判断句 is 后的表语 structural；下一段 This 回指举例：政策、税、禁令 = 自上而下。</p><p>记忆锚点：判断句锁表语；抽象词靠 This 回指的举例坐实。</p>',
+  'log':'结论：集体改变的最佳方式是自上而下的结构性变革，答案选 D'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-39 · 细节题：DeSombre 主张的集体改变最佳方式",
+  subtitle: "考点：Text4 抽象术语理解 · 方法：判断句锁表语 → This 回指举例坐实",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：判断句锁 structural → 举例坐实自上而下 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>判断句锁表语</b>：the best way... is for the change to be <b>structural</b>；第六段 This 回指举例——政策、塑料税、全面禁令，共性 = <b>政府自上而下推行</b> → a top-down process。A 谈不上双赢，B 与“不指望人人自觉”相悖，C 望文生义。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——判断句锁定 structural，举例句坐实"自上而下"</h2>
+<p>答案：<strong>D（a top-down process 自上而下的过程）</strong>。</p>
+<h3>第 0 步：先立机制——"最佳方式"判断句 + This 回指举例</h3>
+<p>题干 DeSombre argues that the best way for a collective change should be ____。定位暗号 the best way → 第五段③句的判断句：the best way to collectively change the behavior of large numbers of people <strong>is for the change to be structural</strong>（让改变成为<strong>结构性的</strong>）。判断句 A is B 直接把答案锁在 structural 一词上。</p>
+<p>"结构性的变革"太抽象，作者的惯例是<strong>马上举例坐实</strong>：第六段①句 This might mean implementing policy such as a plastic tax... or banning single-use plastics altogether——<strong>This 回指 structural</strong>，例子是征收塑料税、全面禁令，以及"让回收至少和扔垃圾一样方便"的激励性安排。政策、税、禁令的共性只有一个：<strong>由政府统一制定推行、自上而下</strong> → a top-down process。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...argues that the best way to collectively change the behavior of large numbers of people is for the change to be structural.<br/>This might mean implementing policy such as a plastic tax that adds a cost to environmentally problematic action, or banning single-use plastics altogether.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 D</th><th>原文</th></tr></thead><tbody><tr><td>a top-down process</td><td>structural change：policy / plastic tax / banning... altogether（政府统一推行的制度性变革）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>A（双赢安排）</strong>：由"变革涉及塑料的生产者与使用者"臆测"对双方都有利"——塑料税<strong>就是给污染者加成本</strong>，谈不上双赢。</li><li><strong>B（自我驱动机制）</strong>：与第五段<strong>正面相悖</strong>——作者明说不指望人人自觉（the environment isn't everyone's priority... We shouldn't expect it to be），才主张结构性变革。</li><li><strong>C（划算的方法）</strong>：adds a cost 的功能是<strong>给污染行为加成本、倒逼改变</strong>，不是"成本低效益高"；望文生义。</li></ul>
+<blockquote>记忆锚点："最佳方式" = 判断句 is 后面的表语；抽象词 structural 靠下一段 This 回指的举例坐实——政策、税、禁令 = 自上而下。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

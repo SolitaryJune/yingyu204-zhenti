@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-21 · 2013 阅读第 21 题 · 第一段的笑话是为了说明什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 例证目的题的路数",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "题干问第一段笑话用来说明什么——例子本身不是答案，答案是它服务的论点",
+  "count": 0,
+  "body": "<p>题干：The joke in Paragraph 1 is used to illustrate ___。例证目的题的铁律：<b>例子本身不是答案，例子服务的论点才是</b>。路线：读懂笑话 → 紧接着看作者在例子后面怎么接（第二段）。</p>"
+ },
+ {
+  "title": "定位 · 读懂笑话在说什么",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第一段：纺织厂只有“一人一狗”——自动化程度高到机器全面接管生产",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The average mill has only two employees today, “a man and a dog. The man is there to feed the dog, and the dog is there to keep the man away from the machines.”</div><p>笑话表面说“普通纺织厂只有两名员工：一人一狗；人负责喂狗，狗负责让人远离机器”。题干句前半已经点破它的功能：<b>how much a modern textile mill has been automated</b>（现代纺织厂自动化到了什么程度）——机器全面接管生产，仅有的人的职责只是“别碰机器”。</p>"
+ },
+ {
+  "title": "找论点 · 例子后面的评论句",
+  "cls": "key",
+  "tag": "论点",
+  "log": "第二段评论句：全球化与信息技术革命正以前所未有的速度用机器取代劳动力",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the advances in both globalization and the information technology revolution, which are more rapidly than ever replacing labor with machines or foreign workers.</div><p>第二段立刻给出解读：全球化和信息技术革命的进步“正以前所未有的速度<b>用机器和外国工人取代劳动力</b>”。笑话正是这个论点的形象化开场——技术进步在替代人力。这就是笑话要说明的东西。</p>"
+ },
+ {
+  "title": "选项 A · 技术进步的影响",
+  "cls": "good",
+  "tag": "当选 A",
+  "log": "A the impact of technological advances ✓ 当选——笑话说明技术进步（自动化）对就业的冲击",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>笑话讲自动化（技术进步）→ 第二段点明它对就业的冲击（机器取代劳动力）。例子为论点服务，[A] the impact of technological advances 与上下文逻辑完全一致。</p>"
+ },
+ {
+  "title": "选项 B · 工作压力的缓解",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B the alleviation of job pressure ✗ 排除——由 only two employees 联想而来，脱离上下文",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>由 only two employees（只有两名员工）联想而来——员工少 ≠ 压力小；笑话的重点是“机器替代人”，不是“个人工作压力”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：孤立地读笑话的字面细节，不看例子前后的语境。</p>"
+ },
+ {
+  "title": "选项 C · 纺织厂的萎缩",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C the shrinkage of textile mills ✗ 排除——偷换概念：缩减的是员工，且纺织厂只是载体",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>偷换概念：笑话里缩减的是“员工人数”，不是“工厂规模”；而且纺织厂只是笑话的载体（a joke from cotton country），作者借它讲的是普遍现象，不是在谈纺织业本身。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例子的表面内容当成写作目的。</p>"
+ },
+ {
+  "title": "选项 D · 中产阶级收入的下降",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D the decline of middle-class incomes ✗ 排除——借第二段词设障，笑话本身未涉及收入",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>declining middle-class incomes 出自第二段——那是文章话题的一部分，不是第一段笑话的内容；用第二段的信息回答“第一段笑话的目的”，属过度延伸。</p><p style=\"color:#b91c1c\">⚠ 典型误解：例证目的题无限联系上下文，脱离了题干限定的文本。</p>"
+ },
+ {
+  "title": "结论 · 逻辑链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（技术进步的影响）——笑话作引子，论点在例子后的评论句",
+  "count": 3,
+  "body": "<p>完整逻辑：笑话作引子 → 自动化程度惊人（技术进步替代人工）→ 第二段把它归因为全球化 + IT 革命。</p><p>答案选 <b>A（the impact of technological advances 技术进步的影响）</b>。</p><p><b>记忆锚点</b>：开篇笑话 / 故事 = 引子；答案在例子后的第一处评论句里——既不孤立读例（B、C），也不过度延伸（D）。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 21 题 · 第一段的笑话是为了说明什么",
+  "subtitle": "考点：写作目的题（例证服务论点）· 例子 → 例子后的评论句 · 不过度延伸",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（the impact of technological advances）",
+ "html": "<b>A the impact of technological advances（技术进步的影响）</b>：笑话“一人一狗”展示自动化程度 → 第二段评论句“全球化 + IT 革命正以空前速度用机器取代劳动力”。<br>最易误选：<b>D</b>——借第二段 declining middle-class incomes 设障，但笑话本身未涉及收入，属过度延伸。<br>记忆锚点：开篇例子 = 引子，答案在例子后的评论句里。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 21 题 · 第一段的笑话是为了说明什么</h2>
+<p>答案：<strong>A（the impact of technological advances 技术进步的影响）</strong>。</p>
+<h3>第 0 步：先立机制——例证目的题的路数</h3>
+<p>例证目的题的铁律：<strong>例子本身不是答案，例子服务的论点才是</strong>。文章开篇的笑话 / 故事是“引子”，它的功能由紧随其后的评论句揭示。路线：读懂笑话 → 看作者在例子后面怎么接 → 找到被例子形象化的那个论点。</p>
+<h3>第 1 步：定位原文——读懂笑话在说什么</h3>
+<blockquote>The average mill has only two employees today, "a man and a dog. The man is there to feed the dog, and the dog is there to keep the man away from the machines."</blockquote>
+<p>笑话表面说“普通纺织厂只有两名员工：一人一狗；人负责喂狗，狗负责让人远离机器”。题干句前半已经点破它的功能：how much a modern textile mill has been <strong>automated</strong>（现代纺织厂自动化到了什么程度）——机器全面接管生产，仅有的人的职责只是“别碰机器”。</p>
+<h3>第 2 步：找例子服务的论点</h3>
+<blockquote>...the advances in both globalization and the information technology revolution, which are more rapidly than ever replacing labor with machines or foreign workers.</blockquote>
+<p>第二段立刻给出解读：全球化和信息技术革命的进步“正以前所未有的速度<strong>用机器和外国工人取代劳动力</strong>”。笑话正是这个论点的形象化开场——技术进步在替代人力。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A the impact of technological advances</td><td>✓ 当选</td><td>笑话讲自动化（技术进步）→ 第二段点明它对就业的冲击（机器取代劳动力），例子与论点严丝合缝。</td></tr><tr><td>B the alleviation of job pressure</td><td>✗ 排除</td><td>由 only two employees 联想而来——员工少 ≠ 压力小；笑话的重点是“机器替代人”，不是“个人工作压力”。（典型误解：孤立地读笑话的字面细节。）</td></tr><tr><td>C the shrinkage of textile mills</td><td>✗ 排除</td><td>偷换概念：笑话里缩减的是“员工人数”，不是“工厂规模”；且纺织厂只是笑话的载体，作者借它讲普遍现象。（典型误解：把例子的表面内容当成写作目的。）</td></tr><tr><td>D the decline of middle-class incomes</td><td>✗ 排除</td><td>declining middle-class incomes 出自第二段——那是文章话题，不是第一段笑话的内容；用后文信息回答“笑话的目的”属过度延伸。（典型误解：例证目的题无限联系上下文，脱离题干限定的文本。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选 D？中产阶级收入下降不正是全文话题吗？</strong>：题干问的是“第一段笑话”用来说明什么，范围被锁定在引子与其直接服务的论点上。全文话题是“技术与全球化冲击就业”，但笑话这个<strong>局部例子</strong>只负责引出“自动化替代人工”这一点——答案是例子直接服务的论点，不是全文的任何一个侧面。</li><li><strong>“既不孤立读例、也不过度延伸”如何平衡？</strong>：标准做法是读例子后<strong>第一处</strong>评论句——第二段对笑话的解读就是它，不用再往后找。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：把“全文话题之一”当成了“笑话的目的”，过度延伸。</li><li><strong>误选 C</strong>：被笑话的表层内容（纺织厂员工少）带偏，忘了例子为论点服务。</li></ul>
+<blockquote>记忆锚点：开篇笑话 / 故事 = 引子；答案在例子后的第一处评论句里——既不孤立读例（B、C），也不过度延伸（D）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

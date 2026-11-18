@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-22 · 2015 阅读第 22 题 · 在家最快乐的人＝性别线 × 子女线的交集 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · “谁最快乐”先拆维度", "cls": "key", "tag": "审题", "log": "审题眼：According to Damaske, who are likely to be the happiest at home——找“在家幸福感”的最高点", "count": 0, "ribbon": null, "body": "<p>题干问在 Damaske 看来，谁<b>在家最快乐</b>。“最”字提示要找最大值；预判定位段里可能不止一个维度——每个维度各出一个最大值，答案在交集里。</p>"},
+ {"title": "定位原文 · 两条线各管一维", "cls": "key", "tag": "定位", "log": "定位原文：③句性别线 It is men, not women…；④句子女线 …but more so for nonparents", "count": 0, "ribbon": null, "body": quote("“It is men, not women, who report being happier at home than at work.” Another surprise is that the findings hold true for both those with children and without, but more so for nonparents.") + "<p>③句比<b>性别</b>：男性在家更快乐；④句比<b>子女</b>：无子女者“在家更快乐”更明显（more so for nonparents）。</p>"},
+ {"title": "同义替换 · 双最大值＝无子女的男性", "cls": "key", "tag": "替换", "log": "同义替换：男性（③）× 无子女（④）→ childless husbands", "count": 0, "ribbon": null, "body": "<p>两个维度相乘：性别线最大值＝男性；子女线最大值＝无子女者。交集＝<b>无子女的男性</b>＝ childless husbands。单看任何一句都只能得一半。</p>"},
+ {"title": "逐项分析 · B Childless husbands（无子女的丈夫）", "cls": "good", "tag": "选定 B", "log": "B Childless husbands ✓ 当选——性别线（男）与子女线（无子女）双最大值的交集", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>③句锁定男性在家更快乐，④句补充“无子女者更甚”——两条线交叉，无子女的丈夫同时占据两个最高点。</p>"},
+ {"title": "逐项分析 · C Working fathers（有工作的父亲）", "cls": "bad", "tag": "排除 C", "log": "C Working fathers ✗ 排除——性别线达标，但子女线只拿“有子女”档", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>男性没错，但④句明确“对有无子女者都适用，<b>but more so for nonparents</b>”——子女维度上无子女者更快乐，只读③句就会掉进这个坑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：漏掉④句的子女维度，不做交集。</p>"},
+ {"title": "逐项分析 · D Childless wives（无子女的妻子）", "cls": "bad", "tag": "排除 D", "log": "D Childless wives ✗ 排除——子女线达标，但性别线反了：It is men, not women", "count": 2, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>无子女没错，但③句强调句式 <b>It is men, not women</b> 把女性明确排除——在家更有幸福感的是男性。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只读④句漏读③句的强调结构。</p>"},
+ {"title": "逐项分析 · A Working mothers（有工作的母亲）", "cls": "bad", "tag": "排除 A", "log": "A Working mothers ✗ 排除——性别线出局；working 是原文没有的比较维度", "count": 3, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>女性在③句已出局；且该段比较的是“在家 vs 上班”的感受差，并没有比较“职业人士 vs 专职在家人士”——working 是选项造出来的维度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 working 带偏，忽略原文没做这层比较。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（Childless husbands 无子女的丈夫）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>男性在家比上班更快乐（③句）＋ 无子女者这一特点更突出（④句）→ 在家最快乐的是无子女的男性。</b></p><p>答案选 <b>B（Childless husbands 无子女的丈夫）</b>。</p><p><b>记忆锚点</b>：“谁最 X”题先拆维度、找双最大值交集；It is men, not women 锁性别，more so for nonparents 锁子女线；working 是原文没有的比较维度。</p><p style=\"color:#b91c1c\">最易误选：<b>C（Working fathers）</b>——只拿性别线，漏掉子女线。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 22 题 · 在家最快乐的人＝性别线 × 子女线的交集",
+  subtitle: "考点：跨句信息综合推断（两维度各取最大值）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 双维度交叉 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（Childless husbands）", "html": "<b>B 无子女的丈夫</b>：③句性别线（男性在家更快乐）× ④句子女线（无子女者更甚）。<br>记忆锚点：“谁最 X”＝拆维度找交集；It is men, not women 锁性别；more so for nonparents 锁子女线。<br>最易误选：<b>C（Working fathers）</b>——只读③句漏掉④句。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 22 题 · 在家最快乐的人＝性别线 × 子女线 交叉出的交集</h2>
+<p>答案：<strong>B（Childless husbands 无子女的丈夫）</strong>。</p>
+<h3>第 0 步：先立机制——happiest 是两个维度的"双最大值"</h3>
+<p>题干问 According to Damaske，谁<strong>在家最快乐</strong>。定位段回答"在家幸福感"用了两个维度：一是<strong>性别维度</strong>——"声称在家比上班更快乐的是男性而非女性"（It is men, not women, who report being happier at home than at work）；二是<strong>子女维度</strong>——"该发现对有无子女者都适用，但对无子女者<strong>更甚</strong>"（hold true for both those with children and without, but more so for nonparents）。"在家最快乐"必须同时占据两个维度的最高点：男性 × 无子女。单看任何一句都只能得一半，答案藏在两句的<strong>交集</strong>里。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"It is men, not women, who report being happier at home than at work." Another surprise is that the findings hold true for both those with children and without, but more so for nonparents.</blockquote>
+<ul><li>③句（性别线）：男性（不是女性）在家更快乐；</li><li>④句（子女线）：无子女者（more so for nonparents）这种"在家更快乐"更明显。</li></ul>
+<p>两条线相乘：无子女的男性 ＝ childless husbands。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A Working mothers</td><td>有工作的母亲</td><td>✗ 排除</td><td>女性：性别线已出局；working 维度原文也未比较——双重不符</td></tr><tr><td>B Childless husbands</td><td>无子女的丈夫</td><td>✓ 当选</td><td>男性（③句）× 无子女（④句 more so for nonparents）＝ 在家幸福感双最大值</td></tr><tr><td>C Working fathers</td><td>有工作的父亲</td><td>✗ 排除</td><td>性别线达标（男性），但子女线只拿到"有子女"档，而④句明确"无子女者更甚"</td></tr><tr><td>D Childless wives</td><td>无子女的妻子</td><td>✗ 排除</td><td>子女线达标，但性别线反了——③句强调 It is men, not women</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么不选含 working 的 A/C？第二段明明谈到了上班？</strong>：该段比较的是人们<strong>在家与上班时的感受差</strong>，并没有把"职业人士 vs 专职在家人士"作为一组对比去比"谁在家更快乐"。working 是选项造出来的干扰维度，原文没有这个比较。</li><li><strong>more so for nonparents 修饰的是什么？</strong>：修饰"在家比上班快乐"这一发现的适用程度——对有无子女者都成立，但无子女者更突出。所以子女维度上，无子女者赢。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（Working fathers）</strong>：只读了③句的性别线，漏掉④句的子女线，没做交集。</li><li><strong>误选 D（Childless wives）</strong>：只读了④句的子女线，被 not women 的强调句式漏读。</li><li><strong>误选 A（Working mothers）</strong>：性别、子女两条线全反；还叠加 working 干扰维度。</li></ul>
+<blockquote>记忆锚点："谁最 X"题先拆维度（性别 × 子女），找两个最大值的交集；It is men, not women 强调句式锁定性别；more so for nonparents 锁定子女线；working 是原文没有的比较维度。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

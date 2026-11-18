@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-11 · 2020 完形第 11 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 11 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 11 空所在句，考点：上下文语义 + 固定搭配（动词短语）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You wish that you could __11__ the clock and start over.</div><p>空格动词短语接 the clock，与 start over（从头再来）由 and 并列：语义必须同向。</p>"
+ },
+ {
+  "title": "找证据 · 懊悔语境与 start over 的方向",
+  "cls": "key",
+  "tag": "证据",
+  "log": "懊悔 + and start over（从头再来）定方向\"回到过去\"——习语 turn back the clock",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...say something that was a bit too __10__ and does nobody any good. → You wish that you could __11__ the clock and start over.</div><p>上文\"说狠话、对谁都没好处\"→ 悔意；and 并列：与 start over（从头再来）同向 = 回到过去；the clock 具象指抽象——turn back the clock（时光倒流）。</p>"
+ },
+ {
+  "title": "逐项分析 · A turn back（往回走；翻回到）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A turn back（往回走；翻回到） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>turn back the clock = 使时光倒流：与 start over 同向（回到过去），习语成立。</p>"
+ },
+ {
+  "title": "逐项分析 · B take apart（拆开；剖析）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B take apart（拆开；剖析） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"把钟拆开\"只停留在物理操作，传达不出\"回到过去\"的抽象义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：就词面理解 the clock，不识具象指抽象。</p>"
+ },
+ {
+  "title": "逐项分析 · C set aside（留出；驳回；不顾）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C set aside（留出；驳回；不顾） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"把钟搁在一边\"指向\"不顾时间（流逝）\"，与\"悔过重来\"无关。</p>"
+ },
+ {
+  "title": "逐项分析 · D cover up（掩盖，盖住）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D cover up（掩盖，盖住） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"把钟盖住\"指向\"掩盖时间（流逝）\"，同样接不上\"从头再来\"。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（turn back 往回走；翻回到）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>你多希望自己能让时光倒流、从头再来。</b></p><p>答案选 <b>A（turn back 往回走；翻回到）</b>。</p><p><b>记忆锚点</b>：turn back the clock 使时光倒流；and 并列 → 与 start over 同向；具象 clock 指代抽象 time。</p><p style=\"color:#b91c1c\">最易误选：<b>B（take apart）</b>——就词面选词，把\"时光倒流\"的习语误读成物理操作。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 11 空 · 悔意 + start over 同向——习语 turn back the clock",
+  subtitle: "考点：上下文语义 + 固定搭配（动词短语） · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（turn back）",
+ "html": "<b>A turn back（往回走；翻回到）</b>。<br>完整句义：你多希望自己能让时光倒流、从头再来。<br>记忆锚点：turn back the clock 使时光倒流；and 并列 → 与 start over 同向；具象 clock 指代抽象 time。<br>最易误选：<b>B（take apart）</b>——就词面选词，把\"时光倒流\"的习语误读成物理操作。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 11 空 · 悔意 + start over 同向——习语 turn back the clock</h2>
+<p>答案：<strong>A（turn back 往回走；翻回到）</strong>。</p>
+<h3>第 0 步：先立机制——and 并列定方向，具象 clock 指抽象 time</h3>
+<p>选词分两步。第一步定方向：上文刚说完"发怒、说狠话、对谁都没好处"——懊悔；本句 You wish（你多希望）+ and start over（从头再来）——"重来"的语义方向就是"回到过去"，and 并列约束空格短语与 start over 同向。第二步核搭配：the clock 在这里是"时间"的具象化身，动词必须能借"钟"表达"时光倒流"的抽象义——习语 turn back the clock（使时光倒流）正中靶心。其余三个短语的宾语若真是"一台钟"倒还成立，但"拆钟/搁钟/盖钟"都传不出"回到过去"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>You wish that you could __11__ the clock and start over.</blockquote>
+<p>空格动词短语接 the clock，与 start over（从头再来）由 and 并列：语义必须同向。</p>
+<h3>第 2 步：找证据——懊悔语境与 start over 的方向</h3>
+<ul><li><strong>语境</strong>：发怒说狠话、对谁都没好处 → 懊悔（You wish）；</li><li><strong>并列</strong>：____ the clock and start over——同向：回到过去；</li><li><strong>指代</strong>：the clock 借具象"钟表"指抽象"时间"；</li><li><strong>习语</strong>：turn back the clock = 使时光倒流。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A turn back</td><td>往回走；翻回到</td><td>✓ 当选</td><td>turn back the clock = 使时光倒流：与 start over 同向（回到过去），习语成立。</td></tr><tr><td>B take apart</td><td>拆开；剖析</td><td>✗ 排除</td><td>"把钟拆开"只停留在物理操作，传达不出"回到过去"的抽象义。（典型误解：就词面理解 the clock，不识具象指抽象。）</td></tr><tr><td>C set aside</td><td>留出；驳回；不顾</td><td>✗ 排除</td><td>"把钟搁在一边"指向"不顾时间（流逝）"，与"悔过重来"无关。</td></tr><tr><td>D cover up</td><td>掩盖，盖住</td><td>✗ 排除</td><td>"把钟盖住"指向"掩盖时间（流逝）"，同样接不上"从头再来"。</td></tr></tbody></table>
+<p>代入后的完整句义：你多希望自己能让时光倒流、从头再来。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>take apart the clock 当作字面义"拆钟"不就通了吗？</strong>：字面上通，文意上不通：文中的 clock 是"时间"的化身，句子要表达的是"回到过去"；"拆钟"与懊悔、重来毫无关联——选词必须落在抽象义上。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（take apart）</strong>：就词面选词，把"时光倒流"的习语误读成物理操作。</li></ul>
+<blockquote>记忆锚点：turn back the clock 使时光倒流；and 并列 → 与 start over 同向；具象 clock 指代抽象 time。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

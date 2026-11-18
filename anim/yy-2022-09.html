@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-09 · 2022 完形第 9 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 9 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 9 所在句，考点：词义分析 + 上下文语义",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("To make writing a priority, you'll have to __9__ some of your day-to-day activities and some things you really enjoy.") +
+    "<p>空格动词的逻辑主语是 you，宾语是「日常活动」和「喜欢做的事」——都是被让位的对象。</p>"
+ },
+ {
+  "title": "机制 · priority 是排序，排序必有牺牲",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：被立为优先项的活动之外，其余自动退居次要",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>priority 的词义是「比其他事更重要、应先处理的事」。写作被确立为 priority，其余活动就自动退到次要位置——排序的题眼是<b>取舍</b>。</p>" +
+    "<p>日常活动和喜欢做的事在写作之后，只能让位 → 空格词应表达「舍弃/牺牲」。</p>"
+ },
+ {
+  "title": "证据 · 下文整段都是“牺牲”的列举",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：spending less / cut down / less…… 全是减量",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("that might mean spending less time watching television or listening to music... You might have to __12__ the amount of exercise or sport you do... There'll probably have to be less socialising with your friends and less time with your family.") +
+    "<p>下文连举四例：少看电视听音乐、减少运动、社交媒体降频、少社交少陪家人——全部是「减量」动作。空格动词必须能统领这组列举：只有 sacrifice（舍弃）能同时覆盖「日常活动」和「喜欢做的事」的让位。</p>"
+ },
+ {
+  "title": "逐项分析 · A highlight（突出；强调）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A highlight（突出；强调） ✗ 排除——方向相反",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>把次要活动「突出」出来，与排序逻辑相悖——priority 要求其他活动退后，highlight 要求它们向前。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只认 highlight 与 activities 的搭配，不做方向检验。</p>"
+ },
+ {
+  "title": "逐项分析 · B sacrifice（牺牲；舍弃）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B sacrifice（牺牲；舍弃） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>次要活动为优先项让位，下文 less 系列举全部同向。代入读作「要想让写作成为优先项，你必须<b>舍弃</b>一些日常活动和一些自己着实喜欢做的事」。</p>"
+ },
+ {
+  "title": "逐项分析 · C continue（继续做）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C continue（继续做） ✗ 排除——没有取舍",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>「继续做」意味着不取舍，与「让写作成为优先项」的前提矛盾。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：能搭配 activities 就觉得可行。</p>"
+ },
+ {
+  "title": "逐项分析 · D explore（探究；探索）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D explore（探究；探索） ✗ 排除——与取舍无关",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>「探索日常活动」与取舍无关，无语义接口。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：同上——搭配可行不等于语义正确。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（sacrifice 牺牲；舍弃）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>要想让写作成为优先项，你必须舍弃一些日常活动和一些自己着实喜欢做的事。</b></p>" +
+    "<p>答案选 <b>B（sacrifice 牺牲；舍弃）</b>。</p>" +
+    "<p><b>记忆锚点</b>：make A a priority = 其他活动为 A 让路；sacrifice 统领下文 less 系列举；动词题先验方向、再验搭配。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>A（highlight）</b>——搭配可行就选，没做方向检验。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 9 空 · priority 自带取舍逻辑：让次要活动被牺牲",
+  subtitle: "考点：词义分析 + 上下文语义 · 方向检验 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（sacrifice）",
+    html: "<b>B sacrifice（牺牲；舍弃）</b>。<br>记忆锚点：make A a priority = 其他活动为 A 让路；sacrifice 统领下文 less 系列举；动词题先验方向、再验搭配。<br>最易误选：<b>A（highlight）</b>——搭配可行就选，没做方向检验。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 9 空 · priority 一词自带"取舍逻辑"——让次要活动被牺牲</h2>
+<p>答案：<strong>B（sacrifice 牺牲；舍弃）</strong>。</p>
+<h3>第 0 步：先立机制——priority 是"排序"，排序必然有牺牲</h3>
+<p>priority 的词义是"比其他事更重要、应先处理的事"。一个活动被确立为 priority，其余活动就自动退到次要位置——排序的题眼是"取舍"。空格句：To make writing a priority, you'll have to ____ some of your day-to-day activities and some things you really enjoy.（要让写作成为优先项，你必须____一些日常活动和喜欢做的事。）日常活动和喜欢做的事在写作之后，只能让位；空格词应表达"舍弃/牺牲"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>To make writing a priority, you'll have to __9__ some of your day-to-day activities and some things you really enjoy.</blockquote>
+<p>空格动词的逻辑主语是 you，宾语是"日常活动"和"喜欢做的事"——都是被让位的对象。</p>
+<h3>第 2 步：找证据——下文整段都是"牺牲"的展开列举</h3>
+<blockquote>that might mean spending less time watching television or listening to music... You might have to __12__ the amount of exercise or sport you do... There'll probably have to be less socialising with your friends and less time with your family.</blockquote>
+<p>下文连举四例：少看电视听音乐、减少运动、让社交媒体降频、少社交少陪家人——全部是 spending less / cut down / less 的"减量"动作。空格动词必须能统领这组列举：只有 sacrifice（舍弃）能同时覆盖"日常活动"和"喜欢做的事"的让位。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A highlight</td><td>突出；强调</td><td>✗</td><td>方向完全相反：把次要活动"突出"出来，与排序逻辑相悖。（典型误解：只认 highlight 与 activities 的搭配。）</td></tr><tr><td>B sacrifice</td><td>牺牲；舍弃</td><td>✓</td><td>次要活动为优先项让位，下文 less 系列举全部同向。</td></tr><tr><td>C continue</td><td>继续做</td><td>✗</td><td>"继续做"意味着不取舍，与"让写作成为优先项"的前提矛盾。</td></tr><tr><td>D explore</td><td>探究；探索</td><td>✗</td><td>"探索日常活动"与取舍无关，无语义接口。（C/D 典型误解：能搭配 activities 就觉得可行。）</td></tr></tbody></table>
+<p>代入后的完整句义：要想让写作成为优先项，你必须舍弃一些日常活动和一些自己着实喜欢做的事。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 highlight 搭配成立还是错？</strong>：完形动词题的检验顺序是"语义方向 → 搭配"。highlight 与 activities 搭配没问题，但方向反了——priority 的逻辑要求其他活动退后，highlight 要求它们向前。方向不对，搭配再好也排除。</li><li><strong>sacrifice 会不会太重？</strong>：sacrifice 在这里取"舍弃、让渡"的宽义（牺牲掉一部分时间），不是"献祭"的狭义；下文 less 系列举正是"部分舍弃"的具体形式。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（highlight）</strong>：看到与宾语搭配可行就选，没有做方向检验。</li><li><strong>误选 C（continue）</strong>：把"保留日常活动"当成人性化的安排，忽略"优先项"前提下的必然取舍。</li></ul>
+<blockquote>记忆锚点：make A a priority = 其他活动为 A 让路；sacrifice 统领下文 less 系列举；动词题先验方向、再验搭配。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

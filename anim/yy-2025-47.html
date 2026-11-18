@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025-47 小作文框架：审题 → 谋篇 → 高分句型（邀请 John 参演三国短剧）</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：结构框架卡片（审题 → 谋篇 → 高分句型）。
+     原文指令用引用块；英语内容无需 KaTeX。外壳仅引用 ../assets/ 两件资源，无外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 原文关键指令引用块 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid #d97706;' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+/* 英文示例句分色框：kind = frame 骨架(绿) / lang 语言点(蓝) / warn 易错(红) */
+function hl(text, kind){
+  var C = {
+    frame: ['#ecfdf5', '#16a34a', '#14532d'],
+    lang:  ['#eff6ff', '#2563eb', '#1e40af'],
+    warn:  ['#fef2f2', '#dc2626', '#991b1b']
+  };
+  var c = C[kind] || ['#f1f5f9', '#64748b', '#0f172a'];
+  return '<span style="background:' + c[0] + ';border-bottom:2px solid ' + c[1] +
+         ';color:' + c[2] + ';padding:1px 4px;border-radius:3px;font-weight:600">' + text + '</span>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '机制先行：邀请信靠「看点」立得住',
+    cls: 'key',
+    tag: '评分',
+    log: '内容要点（介绍+邀请）→ 格式语域 → 语言质量，缺一点直接掉档',
+    count: 0,
+    body: '<p>应用文阅卷顺序固定：<b>① 内容要点</b>——题干指令 1) introduce the play、2) invite him to take part in it 两点各占分；<b>② 格式语域</b>——称呼 Dear John、落款 Yours sincerely + Li Ming（题干规定不许写真名），朋友之间亲切自然即可；<b>③ 语言质量</b>——100 词 3 段，句式多样 + 衔接自然。</p>' +
+      '<p>邀请信的死穴是「一句空信」：收信人凭什么被吸引 = <b>短剧本身值得看（介绍做足）+ 对方本人值得上（邀请给理由）</b>，两股理由拧成一股，邀请才立得住。</p>' },
+  { title: '审题：指令里挖出全部信息',
+    cls: 'key',
+    tag: '审题',
+    log: '两个必答点 + 朋友语域 + 署名 Li Ming + 约 100 词',
+    count: 0,
+    body: quote('Suppose you are planning a short play based on a classic Chinese novel. Write your friend John an email to 1) introduce the play, and 2) invite him to take part in it. Write your answer in about 100 words. Do not use your own name; use "Li Ming" instead.') +
+      '<p>从指令挖出：话题 = <b>基于中国经典小说的短剧</b>（选哪部自己定）；对象 = 朋友 John，语气亲切半正式；必答点一 = <b>介绍短剧</b>（来历 + 时间 + 看点，缺一都算介绍不充分）；必答点二 = <b>邀请参演</b>（落到请你出演，并给理由）。时态：一般现在时介绍内容 + 一般将来时谈安排。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    tag: '格式',
+    log: '署真名踩红线；称呼、正文、客套语 + 署名四件套齐全',
+    count: 0,
+    body: '<p>书信四件套：<b>称呼</b> Dear John（顶格）→ <b>正文</b>三段 → <b>客套语</b> Yours sincerely → <b>署名</b> Li Ming。</p>' +
+      '<p>' + hl('红线：题干硬性规定 Do not use your own name——落款写自己名字属格式违规，必须署 Li Ming。', 'warn') + '约 100 词即三段式最稳，别写成 200 词的小作文加长版。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    tag: '谋篇',
+    log: '段1 亮目的 → 段2 介绍做足 + 邀请给理由 → 段3 收期待',
+    count: 0,
+    body: '<p><b>段 1</b>（2 句）：交代正在策划短剧 + 目的句，必答点 2 先挂上；<b>段 2</b>（4 句）：短剧来历 → 演出时间 → 内容主题 → 亮点与意义，最后补一句<b>为什么找 John</b>——介绍与邀请在此合流；<b>段 3</b>（2 句）：盼加入 + 盼回复。</p>' +
+      '<p>范文选《三国演义》：strategy / loyalty / heroism 三个主题词天然成串，一句话就能把内容说满。</p>' },
+  { title: '段 1：目的句开宗明义',
+    cls: 'good',
+    tag: '第一段',
+    log: '背景一句 + 邀请一句，两个必答点的「邀」先亮出来',
+    count: 1,
+    ribbon: { k: 1, ok: true },
+    body: '<p>骨架：' + hl('I\'m currently planning a short play based on a classic Chinese novel, and I\'m writing to invite you to act in it.', 'frame') + '</p>' +
+      '<p>前半句交代背景（正在策划短剧），后半句 ' + hl('I\'m writing to invite you to act in it', 'lang') + ' 用 write to do 表目的，开宗明义把「邀请参演」亮出来——邀请信不必绕弯，第一段就点题。</p>' },
+  { title: '段 2 介绍一：来历 + 时间（adapted from 带书名）',
+    cls: 'good',
+    tag: '第二段',
+    log: 'be adapted from 一笔带出改编关系；书名必须点明',
+    count: 2,
+    ribbon: { k: 2, ok: true },
+    body: '<p>骨架：' + hl('Adapted from The Romance of the Three Kingdoms, one of the Four Great Classical Novels, the play will go on stage on December 30th.', 'frame') + '</p>' +
+      '<p>结构：' + hl('Adapted from...', 'lang') + ' 过去分词短语作状语，一笔带出「改编自《三国演义》」；同位语 one of the Four Great Classical Novels 给书名补一个身份说明；主句交代演出时间。</p>' +
+      '<p>' + hl('只写 a classic Chinese novel 而不点出书名，「介绍」就缺了最关键一项。', 'warn') + '</p>' },
+  { title: '段 2 介绍二：主题三连 + not only 并列亮点',
+    cls: 'good',
+    tag: '第二段',
+    log: 'strategy / loyalty / heroism 三词成串；not only... but also... 并列亮点与意义',
+    count: 2,
+    body: '<p>骨架：' + hl('It brings to life the great stories of strategy, loyalty and heroism from this classic.', 'frame') + ' ' + hl('Not only does it boast attractive plots and vivid characters, but it also carries the profound wisdom of Chinese culture, offering a wonderful chance to explore it.', 'frame') + '</p>' +
+      '<p>内容主题用三个名词并列压短篇幅；' + hl('Not only does it boast...', 'lang') + ' 倒装并列（not only 提句首要倒装），亮点（情节人物）+ 深度（智慧）一句收齐；句尾 ' + hl('offering...', 'lang') + ' 现在分词挂出「体验中国文化的机会」这层意义。</p>' },
+  { title: '段 2 邀请理由：为什么偏偏是 John',
+    cls: 'good',
+    tag: '第二段',
+    log: 'Considering your love for...——必答点 2 的深层支撑',
+    count: 2,
+    body: '<p>骨架：' + hl('As you have always been passionate about Chinese culture, I believe your excellent acting skills will surely bring the characters to life.', 'frame') + '</p>' +
+      '<p>邀请要立得住，必须补「为什么找他」：热爱中国文化（兴趣对口）+ 演技出色（能力对口）。' + hl('Considering your love for Chinese culture...', 'lang') + ' 介词短语给理由是现成句型，as 从句亦可；这句既是邀请的理由，又显真诚，还凑足第二段内容。</p>' +
+      '<p>' + hl('只介绍不发邀请 = 邀请信名不副实；只邀请不介绍 = 内容要点缺一半。', 'warn') + '</p>' },
+  { title: '段 3：礼貌收期待 + 盼回复',
+    cls: 'good',
+    tag: '第三段',
+    log: 'would appreciate it if 虚拟口吻收束，朋友间不失礼',
+    count: 3,
+    ribbon: { k: 3, ok: true },
+    body: '<p>骨架：' + hl('I would appreciate it if you could join us. Looking forward to your early reply.', 'frame') + '</p>' +
+      '<p>' + hl('I would appreciate it if you could...', 'lang') + ' 虚拟语气礼貌收束——对象是朋友，委婉客气即可，不必 I shall be grateful 一类公文腔；' + hl('Looking forward to your early reply', 'lang') + ' 现在分词独立句盼回复。落款 Yours sincerely, Li Ming。</p>' },
+  { title: '高分表达盘点：按功能备一块词板',
+    cls: 'key',
+    tag: '词板',
+    log: '目的 / 来历 / 主题 / 亮点 / 理由 / 收束，六类各备一块',
+    count: 3,
+    body: '<table style="width:100%;border-collapse:collapse;font-size:13px">' +
+      '<tr style="background:#f1f5f9"><th style="padding:4px 6px;text-align:left">功能</th><th style="padding:4px 6px;text-align:left">表达</th></tr>' +
+      '<tr><td style="padding:4px 6px">目的句</td><td style="padding:4px 6px">I\'m writing to invite you to act in it</td></tr>' +
+      '<tr><td style="padding:4px 6px">剧本来历</td><td style="padding:4px 6px">Adapted from The Romance of the Three Kingdoms</td></tr>' +
+      '<tr><td style="padding:4px 6px">内容主题</td><td style="padding:4px 6px">stories of strategy, loyalty and heroism</td></tr>' +
+      '<tr><td style="padding:4px 6px">亮点并列</td><td style="padding:4px 6px">Not only does it boast..., but it also carries...</td></tr>' +
+      '<tr><td style="padding:4px 6px">邀请理由</td><td style="padding:4px 6px">Considering your love for Chinese culture / As you have always been passionate about...</td></tr>' +
+      '<tr><td style="padding:4px 6px">礼貌收束</td><td style="padding:4px 6px">I would appreciate it if you could join us</td></tr>' +
+      '</table>' },
+  { title: '结论：介绍做足 + 邀请立住，邀请信就稳了',
+    cls: 'good',
+    tag: '结论',
+    log: '两个必答点各就各位，四件套格式齐，朋友语域收尾',
+    count: 3,
+    body: '<p>框架回顾：<b>段 1</b> 背景 + 目的句（邀请先亮）；<b>段 2</b> 来历 → 时间 → 主题 → 亮点 → 邀请理由（介绍与邀请合流）；<b>段 3</b> 盼加入 + 盼回复。署名 Li Ming。</p>' +
+      '<p style="color:#b91c1c">⚠ 三大硬伤：介绍空泛（不点书名、不说内容）；只介绍不邀请或反之；署真名 / 语域错位。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: s.count,
+    ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2025-47 小作文框架：审题 → 谋篇 → 高分句型',
+  subtitle: '考点：邀请信（邀 John 参演三国短剧） · 骨架=绿 / 语言点=蓝 / 易错=红',
+  counterLabel: '已过段',
+  ribbonTitle: '段落进度（一·二·三段谋篇）',
+  intro: '点击「▶ 播放」逐步展开审题、三段谋篇与高分句型。',
+  snaps: snaps,
+  result: {
+    big: '框架速记：介绍（来历 + 时间 + 看点）+ 邀请（请你出演 + 为什么是他）',
+    html: '<p><b>段 1</b>：I\'m currently planning a short play... and I\'m writing to invite you to act in it（目的句开宗明义）。</p>' +
+      '<p><b>段 2</b>：Adapted from The Romance of the Three Kingdoms...（来历 + 时间）→ stories of strategy, loyalty and heroism（主题三连）→ Not only does it boast..., but it also carries...（亮点 + 意义）→ Considering your love for Chinese culture...（邀请理由）。</p>' +
+      '<p><b>段 3</b>：I would appreciate it if you could join us. Looking forward to your early reply. 落款 Yours sincerely, Li Ming。</p>' +
+      '<p style="margin-top:8px">记忆锚点：邀请信 = 介绍做足 + 邀请给理由；来历用 be adapted from 且必须点书名；理由用 Considering... 呼应收信人；朋友语域 = 委婉客气不公文；署名固定 Li Ming。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 小作文 · 邀请 John 参演中国经典小说短剧</h2>
+<p>答案：<strong>应用文（邀请信，10 分）</strong>，评分口径 = 内容要点 + 格式 + 语言。两个必答点：<strong>1) introduce the play 介绍短剧；2) invite him to take part in it 邀请参演</strong>——缺任何一点直接掉档。</p>
+<h3>第 0 步：先立机制——邀请信的"看点"结构</h3>
+<p>邀请信最怕写成" I want to invite you"一句空信。阅卷机制：<strong>收信人凭什么被吸引 = 短剧本身值得看 + 对方本人值得上</strong>，两股理由拧成一股，邀请才立得住。所以正文骨架是：</p>
+<ol><li><strong>第一段</strong>亮目的：我在排一部短剧，写信请你出演——两个动作一句挂清；</li><li><strong>第二段</strong>做足"看点"：短剧的来历（改编自哪部经典）、演出安排（时间）、内容主题、亮点与意义，再补一句<strong>为什么是他</strong>（爱好中国文化 + 演技好）——邀请理由是必答点 2 的深层支撑；</li><li><strong>第三段</strong>收期待：盼加入 + 盼回复。</li></ol>
+<h3>第 1 步：审题——从指令里挖出全部信息</h3>
+<table><thead><tr><th>指令关键词</th><th>挖出的信息</th></tr></thead><tbody><tr><td>planning a short play based on a classic Chinese novel</td><td>话题：基于中国经典小说的短剧（选哪部自己定，范文选《三国演义》）</td></tr><tr><td>write your friend John an email</td><td>收信人 John，朋友语域——语气亲切，不必公文腔</td></tr><tr><td>1) introduce the play</td><td>必答点一：介绍短剧（来源 + 时间 + 内容 + 亮点，缺一都算介绍不充分）</td></tr><tr><td>2) invite him to take part in it</td><td>必答点二：邀请参演（要落到"请你出演/加入"，并给理由）</td></tr><tr><td>use "Li Ming" instead</td><td>署名固定 Li Ming，写真名属格式违规</td></tr><tr><td>about 100 words</td><td>100 词左右，三段式最稳</td></tr></tbody></table>
+<p>可用时态：一般现在时（介绍短剧内容）+ 一般将来时（演出安排与期待）。</p>
+<h3>第 2 步：谋篇——三段各干一件事</h3>
+<ul><li><strong>第一段（2 句）</strong>：交代"我正在策划一部短剧"+ 目的句 I'm writing to invite you to act in it——一句话把必答点 2 先挂上，邀请信开宗明义；</li><li><strong>第二段（4 句）</strong>：介绍主体——剧本来历（adapted from《三国演义》这类四大名著）→ 演出/拍摄时间 → 内容主题（谋略、忠诚与英雄主义的故事）→ 亮点与意义（情节人物俱佳、蕴含智慧、体验中国文化的机会）；最后加一句<strong>针对 John 的理由</strong>：他热爱中国文化、演技出色，定能让角色生动——介绍与邀请在此合流；</li><li><strong>第三段（2 句）</strong>：I would appreciate it if you could join us 礼貌收期待 + Look forward to your early reply 盼回复。落款 Yours sincerely, Li Ming。</li></ul>
+<h3>第 3 步：高分表达（按功能备一块词板）</h3>
+<table><thead><tr><th>功能</th><th>表达</th><th>说明</th></tr></thead><tbody><tr><td>目的句</td><td>I'm writing to invite you to act in the play</td><td>write to do 表目的，开门见山</td></tr><tr><td>剧本来历</td><td>be adapted from The Romance of the Three Kingdoms</td><td>adapted from 一笔带出改编关系</td></tr><tr><td>内容主题</td><td>stories of strategy, loyalty and heroism</td><td>三个名词并列压短篇幅，主题立住</td></tr><tr><td>亮点并列</td><td>not only... but also...</td><td>情节人物 + 深刻智慧，一并列两句变一句</td></tr><tr><td>意义升华</td><td>provide a great opportunity to explore Chinese culture</td><td>opportunity to do 文化落点</td></tr><tr><td>邀请理由</td><td>Considering your love for Chinese culture...</td><td>considering 介词短语给理由，呼应收信人</td></tr><tr><td>礼貌收束</td><td>I would appreciate it if you could join us</td><td>would appreciate it if 虚拟口吻，朋友间不失礼</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>"介绍短剧"要写几项？</strong>：至少三项——来历（哪部小说）、安排（何时）、看点（讲什么/好在哪）；只写"我排了一部短剧，很好看"等于没介绍。</li><li><strong>经典小说选哪部最稳？</strong>：四大名著任选其一都安全，选《三国演义》的好处是"谋略、忠诚与英雄主义"三个主题词天然成串，一句话就能把内容说满。</li><li><strong>必答点 2 只写 invite 够吗？</strong>：不够。邀请要立得住，需补"为什么找他"——对方爱中国文化 + 有演技，理由既凑内容又显真诚，这正是第二段最后一句的功能。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>漏答必答点一</strong>：通篇喊"快来参加吧"，短剧是啥、演什么一概没说 → 内容要点缺一半；</li><li><strong>漏答必答点二</strong>：只介绍短剧不发邀请 → 邀请信名不副实，最重失分；</li><li><strong>落笔真名</strong>：题干规定署名 Li Ming；</li><li><strong>小说名不点明</strong>：只写 a classic Chinese novel 而不给出具体书名，"介绍"缺了最关键一项；</li><li><strong>语域错位</strong>：写给朋友却堆 I shall be grateful 一类公文腔，或反过来过于随意（Hi John! Come on!），半正式亲切口吻才对。</li></ul>
+<blockquote>记忆锚点：邀请信 = <strong>介绍（来历 + 时间 + 看点）+ 邀请（请你出演 + 为什么是他）</strong>；开头 I'm writing to invite you to...；来历用 be adapted from；理由用 Considering your love for...；结尾 would appreciate it if + 盼回复；署名 Li Ming。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

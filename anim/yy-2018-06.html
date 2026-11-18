@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-06 · 一半的笔被按动时会____电击：A remove / B weaken / C interrupt / D deliver</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 6 在 pens would __ an electric shock 的动词位；考点：上下文语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The twist? Half of the pens would <b>__6__</b> an electric shock when clicked.</div><p>空 6 是 <b>pens would __ an electric shock</b> 的动词：按动（when clicked）时，笔对电击做发出还是别的动作——方向决定语义。</p>"
+ },
+ {
+  "title": "立机制 · 按笔在先、电击在后：空格 = 发出类动词",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：electrified + incurred more shocks → 笔发出电击，与 incur 复现",
+  "body": "<p>下段写明：有些笔是 <b>electrified</b>（带电的）；不知道哪些笔带电的学生 <b>clicked more pens and incurred more shocks</b>（按了更多笔、遭受更多电击）。由此反推：电击是<b>按下笔之后才产生</b>的——笔会发出电击。deliver 正有发出、产出义（deliver a shock / a speech / a blow），与 incur（遭受）构成一发一受的呼应。</p>"
+ },
+ {
+  "title": "找证据 · 下段两个证据：electrified 与 incurred more shocks",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：clicked → shock 的先后逻辑锁定 deliver（发出）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would __8__ .</div><p>两条事实：其一，这些笔是 electrified（带电的）；其二，按笔越多、遭电击越多。合起来就是按笔 → 电击的因果链：电击由按动这个动作<b>触发、发出</b>，而不是先存在于笔里等被移除、削弱或打断。</p>"
+ },
+ {
+  "title": "逐项分析 · A remove（移除）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A remove（移除）✗ 排除",
+  "body": "<p><b>排除。</b>移除电击预设电击先已存在、按笔时把它拿走——与按笔才来电击的先后逻辑矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 would + 宾语读成处置一件已有之物，没从下文反推电击的产生时机。</p>"
+ },
+ {
+  "title": "逐项分析 · B weaken（削弱）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B weaken（削弱）✗ 排除",
+  "body": "<p><b>排除。</b>同 remove：削弱的前提是电击已在，而按笔恰恰是电击的来源，不是削弱它的动作。</p>"
+ },
+ {
+  "title": "逐项分析 · C interrupt（打断）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C interrupt（打断）✗ 排除",
+  "body": "<p><b>排除。</b>打断电击同样预设电击已在进行；且电击只在按下的瞬间发生，谈不上中途打断。</p>"
+ },
+ {
+  "title": "逐项分析 · D deliver（发出；递送）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D deliver（发出；递送）✓ 当选",
+  "body": "<p><b>当选。</b>deliver an electric shock = 发出电击，与下文 incurred more shocks（遭受更多电击）形成发出—遭受的复现链。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 6 填 deliver（发出；递送）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The twist? Half of the pens would <b>deliver</b> an electric shock when clicked.</div><p>意外转折在于：一半的笔在被按动时会发出电击。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（deliver 发出；递送）——见结论卡",
+  "body": "<p>答案选 <b>D（deliver 发出；递送）</b>。</p><p><b>记忆锚点</b>：deliver a shock / a speech / a blow = 发出；remove / weaken / interrupt 都预设对象先已存在，与按笔来电击的先后逻辑冲突。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（remove）</b>：盯着宾语 an electric shock 找处置动词，忽略了下文按笔在先、电击在后的时间顺序。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 6 空 · 一半的笔被按动时会____电击：A remove / B weaken / C interrupt / D deliver",
+  subtitle: "考点：上下文语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（deliver 发出；递送）", "html": "<b>D（deliver 发出；递送）</b>。<br>记忆锚点：deliver a shock / a speech / a blow = 发出；remove / weaken / interrupt 都预设对象先已存在，与按笔来电击的先后逻辑冲突。<br>最易误选：<b>A（remove）</b>——盯着宾语 an electric shock 找处置动词，忽略了下文按笔在先、电击在后的时间顺序。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 6 空 · 一半的笔被按动时会____电击</h2>
+<p>答案：<strong>D（deliver 发出；递送）</strong>。</p>
+<h3>第 0 步：先立机制——按笔在先、电击在后：空格 = 发出类动词</h3>
+<p>下段写明：有些笔是 <strong>electrified</strong>（带电的）；不知道哪些笔带电的学生 <strong>clicked more pens and incurred more shocks</strong>（按了更多笔、遭受更多电击）。由此反推：电击是<strong>按下笔之后才产生</strong>的——笔会发出电击。deliver 正有发出、产出义（deliver a shock / a speech / a blow），与 incur（遭受）构成一发一受的呼应。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The twist? Half of the pens would <strong>__6__</strong> an electric shock when clicked.</blockquote>
+<p>空 6 是 <strong>pens would __ an electric shock</strong> 的动词：按动（when clicked）时，笔对电击做发出还是别的动作——方向决定语义。</p>
+<h3>第 2 步：找证据——下段两个证据：electrified 与 incurred more shocks</h3>
+<blockquote>...the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would __8__ .</blockquote>
+<p>两条事实：其一，这些笔是 electrified（带电的）；其二，按笔越多、遭电击越多。合起来就是按笔 → 电击的因果链：电击由按动这个动作<strong>触发、发出</strong>，而不是先存在于笔里等被移除、削弱或打断。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A remove</td><td>移除</td><td>✗ 排除</td><td>移除电击预设电击先已存在、按笔时把它拿走——与按笔才来电击的先后逻辑矛盾。（典型误解：把 would + 宾语读成处置一件已有之物，没从下文反推电击的产生时机。）</td></tr><tr><td>B weaken</td><td>削弱</td><td>✗ 排除</td><td>同 remove：削弱的前提是电击已在，而按笔恰恰是电击的来源，不是削弱它的动作。</td></tr><tr><td>C interrupt</td><td>打断</td><td>✗ 排除</td><td>打断电击同样预设电击已在进行；且电击只在按下的瞬间发生，谈不上中途打断。</td></tr><tr><td>D deliver</td><td>发出；递送</td><td>✓ 当选</td><td>deliver an electric shock = 发出电击，与下文 incurred more shocks（遭受更多电击）形成发出—遭受的复现链。</td></tr></tbody></table>
+<p>代入后的完整句义：意外转折在于：一半的笔在被按动时会发出电击。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（remove）</strong>：盯着宾语 an electric shock 找处置动词，忽略了下文按笔在先、电击在后的时间顺序。</li></ul>
+<blockquote>记忆锚点：deliver a shock / a speech / a blow = 发出；remove / weaken / interrupt 都预设对象先已存在，与按笔来电击的先后逻辑冲突。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-36 细节题：明星拍短片的目的是什么——破折号后揭晓</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：Some celebrities star in a new video to ____',
+  'body':'<p>题干：<b>Some celebrities star in a new video to ____.</b>（一些明星出演一部新短片是为了____。）</p><p>问的是<b>拍短片的直接目的</b>。定位暗号 celebrities star in a new video——第一段②句几乎原样复现；"目的"常藏在<b>破折号或不定式之后</b>。</p>',
+  'log':'审题：问明星拍短片的直接目的，定位第一段②句'},
+ {'cls':'','ecs':'step','tag':'机制','count':0,
+  'title':'机制：破折号揭晓目的 + 主体转换陷阱',
+  'body':'<p>破折号在此起<b>补充揭晓</b>作用：它后面的内容就是"目的"。</p><p>第二个机制是<b>论述主体的转换</b>：第二段的"呼吁政府立法"属于"为环境日汇总的关键信息"（面向政府）；短片本身传递的 overarching message <b>面向个人</b>（But the overarching message is directed at individuals）。把"环境日关键信息"当"明星拍片目的"，就掉进主体转换的坑。</p>',
+  'log':'机制：破折号后是目的；警惕"短片"与"环境日关键信息"的主体转换'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第一段②句与第二段②句',
+  'body':'<div class="qq"><b>第一段②：</b>They\'re part of a bunch of celebrities starring in a new video for World Environment Day – <b>encouraging you, the consumer, to swap out your single-use plastic staples</b> like straws and cutlery to combat the plastics crisis.<span class="cn">（……鼓励你——消费者——换掉一次性塑料用品，以抗击塑料危机。）</span></div><div class="qq"><b>第二段②：</b>But the overarching message is <b>directed at individuals</b>.<span class="cn">（但最核心的信息是面向个人的。）</span></div>',
+  'log':'定位：破折号后 = 鼓励消费者换掉一次性塑料用品'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：urge consumers to cut plastics',
+  'body':'<table class="aw-mini"><tr><th>选项 B</th><th>原文</th></tr><tr><td><b>urge consumers</b></td><td>encouraging you, the consumer</td></tr><tr><td><b>cut the use of plastics</b></td><td>swap out your single-use plastic staples（换掉一次性塑料用品）</td></tr></table>',
+  'log':'替换：urge ↔ encouraging；cut the use ↔ swap out... plastics'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：呼吁就塑料使用制定新法律',
+  'body':'<p><b>A · demand new laws on the use of plastics</b><span class="bad-dot"> ✗</span></p><p>出处是第二段 <b>a call for governments to enact legislation</b>（呼吁政府立法）——属于面向政府的关键信息，不是明星短片的直接目的。<b>张冠李戴</b>，本题最能骗人的干扰项。</p>',
+  'log':'排除 A：呼吁立法是"环境日关键信息"，不是短片目的'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：就塑料危机征求公众意见',
+  'body':'<p><b>C · invite public opinion on the plastics crisis</b><span class="bad-dot"> ✗</span></p><p>文中是呼吁<b>行动</b>（swap out... to combat），从未征集"看法"——<b>无中生有</b>。</p>',
+  'log':'排除 C：呼吁行动 ≠ 征求意见，无中生有'},
+ {'cls':'bad','ecs':'miss','tag':'排除 D','count':3,'ribbon':{'k':4,'ok':false},
+  'title':'排除 D：披露塑料危机的起因',
+  'body':'<p><b>D · disclose the causes of the plastics crisis</b><span class="bad-dot"> ✗</span></p><p>把句子重心"抗击危机的<b>手段</b>（换掉一次性用品）"曲解成"危机的<b>起因</b>"——忽略动词 <b>swap out</b> 的必然结果。</p>',
+  'log':'排除 D：swap out 是手段，不是"披露起因"'},
+ {'cls':'good','ecs':'ok','tag':'锁定 B','count':4,'ribbon':{'k':2,'ok':true},
+  'title':'锁定 B：敦促消费者减少塑料使用',
+  'body':'<p><b>B · urge consumers to cut the use of plastics</b><span class="ok-dot"> ✓</span></p><p>破折号后 encouraging you, the consumer, to swap out... 与选项逐词对应；overarching message directed at individuals 再证短片面向的是<b>消费者</b>。</p>',
+  'log':'锁定 B：短片的目的是敦促消费者减少塑料使用'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 B',
+  'body':'<p><b>答案 B（urge consumers to cut the use of plastics）</b>——破折号后揭晓目的：鼓励消费者换掉一次性塑料用品。</p><p>记忆锚点：目的题抓破折号/不定式后的内容；见"立法、政府"先核对论述主体是否已转换。</p>',
+  'log':'结论：明星拍短片是为了敦促消费者少用塑料，答案选 B'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-36 · 细节题：明星出演新短片的目的",
+  subtitle: "考点：Text4 细节定位 · 方法：破折号揭底 → 主体转换辨析 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位第一段 → 破折号揭晓目的 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>破折号后揭晓目的</b>：encouraging you, the consumer, to swap out... single-use plastics → <b>urge consumers to cut the use of plastics</b>。A 把“面向政府的关键信息”当短片目的，C 无中生有，D 把手段曲解为起因。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——破折号后揭晓目的，主体转换是头号陷阱</h2>
+<p>答案：<strong>B（urge consumers to cut the use of plastics 敦促消费者减少塑料使用）</strong>。</p>
+<h3>第 0 步：先立机制——"目的"问法 + 破折号的揭晓功能</h3>
+<p>题干 Some celebrities star in a new video to ____ 问的是<strong>明星拍这部短片的直接目的</strong>。定位暗号 celebrities star in a new video，第一段②句几乎原样复现，而<strong>破折号后</strong>就是目的：encouraging you, the consumer, to swap out your single-use plastic staples... to combat the plastics crisis——鼓励"你"（消费者）换掉一次性塑料用品。破折号在此起<strong>补充揭晓</strong>作用，答案埋在它后面。</p>
+<p>第二个机制是<strong>论述主体的转换</strong>：第二段确有 a call for governments to enact legislation（呼吁政府立法），但那是"为环境日汇总的关键信息"里<strong>面向政府</strong>的那部分；短片本身传递的 overarching message <strong>面向个人</strong>（But the overarching message is directed at individuals）。把"环境日关键信息"误当"明星拍片目的"，就掉进了主体转换的坑。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>They're part of a bunch of celebrities starring in a new video for World Environment Day – encouraging you, the consumer, to swap out your single-use plastic staples like straws and cutlery to combat the plastics crisis.<br/>But the overarching message is directed at individuals.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 B</th><th>原文</th></tr></thead><tbody><tr><td>urge consumers</td><td>encouraging you, the consumer</td></tr><tr><td>cut the use of plastics</td><td>swap out your single-use plastic staples（换掉一次性塑料用品）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>A（呼吁就塑料使用制定新法律）</strong>：出处是第二段"呼吁政府立法"，属于面向政府的关键信息，不是明星短片的直接目的——<strong>张冠李戴</strong>，本题最能骗人的干扰项。</li><li><strong>C（就塑料危机征求公众意见）</strong>：文中是呼吁<strong>行动</strong>（swap out... to combat），从未征集"看法"；无中生有。</li><li><strong>D（披露塑料危机的起因）</strong>：把句子重心"抗击危机的<strong>手段</strong>（换掉一次性用品）"曲解成"危机的<strong>起因</strong>"——忽略动词 swap out 的必然结果。</li></ul>
+<blockquote>记忆锚点：目的题抓破折号/不定式后的内容；见"立法、政府"先核对论述主体是否已从"短片"扩大到"环境日关键信息"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

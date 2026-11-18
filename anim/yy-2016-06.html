@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-06 · 2016 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第三段第二句，考点：分词被动结构 + 常识",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">So they compared U.S. cities’ average happiness <b>__6__</b> by Gallup polling with the investment activity of publicly traded firms in those areas.</div><p>空 6 是过去分词短语 __ by Gallup polling，后置修饰 average happiness（城市平均幸福指数）：幸福指数与盖洛普之间是<b>受事—施事</b>关系。要填的是“民调机构能对‘指数’做的动作”。</p>"
+ },
+ {
+  "title": "找证据 · 盖洛普是什么机构",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：Gallup polling 是著名民调机构，polling 本义即“民意测验”",
+  "body": "<p><b>Gallup polling</b>：盖洛普民意测验——polling 一词本身就是“民调、投票调查”。民调机构的工作方式是<b>调查、测量</b>，其产出是真实测得的数据；而且本句要用这份指数去与投资活动 compared（比较），数据必须真实可得。</p>"
+ },
+ {
+  "title": "逐项分析 · B measured（调查、测量）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B measured（调查、测量）✓ 当选——民调测出的幸福指数",
+  "body": "<p><b>当选。</b>average happiness measured by Gallup polling：“由盖洛普民调测得的平均幸福指数”。调查机构 → 测量数据，施动关系、常识、后文比较用途三线全合。</p>"
+ },
+ {
+  "title": "逐项分析 · A imagined（想象、猜测）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A imagined（想象）✗ 排除——想象出的指数不是数据",
+  "body": "<p><b>排除。</b>imagine 是纯心理动作：想象出来的“幸福指数”不是可比较的真实数据。民调机构不做“想象”这门生意。</p><p style=\"color:#b91c1c\">⚠ 典型误解：语法上四个词都能接 by 表被动，跳过语义只看形式就会失手。</p>"
+ },
+ {
+  "title": "逐项分析 · C assumed（假定、假设）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C assumed（假定）✗ 排除——假定值不用于实证比较",
+  "body": "<p><b>排除。</b>assume 是“未经证实地假定”。研究要拿这份指数与投资活动做比较，假定值没有实证价值；且盖洛普做的是调查，不是假设。</p>"
+ },
+ {
+  "title": "逐项分析 · D invented（虚构、创造）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D invented（虚构）✗ 排除——虚构数据与研究的严谨性相悖",
+  "body": "<p><b>排除。</b>invent 在此语境是“虚构、编造”。虚构的指数会让整项研究失去意义，也与全文科学研究的基调相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记 invent 有“发明、创造”的中性义，忽略其“凭空编造”义在此语境的矛盾。</p>"
+ },
+ {
+  "title": "结论 · 常识线与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（measured 调查、测量）——常识线见结论卡",
+  "body": "<p>常识线：<b>Gallup polling（民调机构）→ 只能“测出”幸福指数 → measured。</b></p><p>答案选 <b>B（measured 调查、测量）</b>。</p><p><b>记忆锚点</b>：分词 + by 施动者 → 先问“施动者对受事能做什么”；imagined/assumed/invented 都是“无中生有”类动词，民调数据的产出方式只能是测量。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 6 空 · 由盖洛普民调____的城市幸福指数",
+  subtitle: "考点：句内语义 + 分词被动结构 + 常识（Gallup polling）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 定施动关系 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（measured）", "html": "<b>B measured（调查、测量）</b>。<br>记忆锚点：Gallup polling 是民调机构 → 数据只能是“测出来的”；imagined/assumed/invented 均为“无中生有”类动词，与真实数据矛盾。<br>最易失分点：四个选项语法上都能接 by——必须靠“施动者对受事能做什么”裁决。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 6 空 · 由盖洛普民调____的幸福指数</h2>
+<p>答案：<strong>B（measured 调查、测量）</strong>。</p>
+<h3>第 0 步：先立机制——分词 + by 施动者，先问“施动者能做什么”</h3>
+<p>空 6 是过去分词短语 __ by Gallup polling，后置修饰 average happiness。分词与 by 连用表被动：幸福指数是<strong>受事</strong>，盖洛普是<strong>施事</strong>。四个选项的过去分词都能接 by——语法全部合法，真正的裁决机制是：<strong>民调机构能对“幸福指数”做什么动作</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>So they compared U.S. cities’ average happiness __6__ by Gallup polling with the investment activity of publicly traded firms in those areas.</blockquote>
+<h3>第 2 步：找证据——盖洛普是民调机构</h3>
+<p>Gallup polling：盖洛普民意测验，polling 本义即“民调”。民调机构的工作是<strong>调查、测量</strong>，产出真实数据；本句还要拿这份指数去与投资活动 compared（比较），数据必须真实。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A imagined</td><td>想象</td><td>✗ 排除</td><td>想象出的指数不是可比较的真实数据。（典型误解：只看“都能接 by”的形式，跳过施动关系。）</td></tr><tr><td>B measured</td><td>调查、测量</td><td>✓ 当选</td><td>民调机构测出的幸福指数，三线全合。</td></tr><tr><td>C assumed</td><td>假定</td><td>✗ 排除</td><td>假定值无实证价值，盖洛普做调查不做假设。</td></tr><tr><td>D invented</td><td>虚构</td><td>✗ 排除</td><td>虚构数据与研究的严谨性相悖。（典型误解：只记“发明”的中性义。）</td></tr></tbody></table>
+<p>代入后的完整句义：于是他们把盖洛普民调测得的美国城市平均幸福指数，与这些地区上市公司的投资活动进行比较。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>四个选项都能接 by，为什么语法帮不上忙？</strong>：by 施动结构只约束“施动关系存在”，不约束动作内容；此时必须调用施动者的身份常识——机构（polling）对指标（happiness）的现实动作只有测量。</li><li><strong>为什么不可能是“被假设出来”的指数？</strong>：后文研究要把它与投资活动做统计比较（controlled for、correlated），假设值无法承担实证角色。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A/C/D</strong>：四个词都能接 by 表被动，跳过“施动者能做什么”的语义筛查。</li><li><strong>不识 Gallup</strong>：polling 一词本身就是“民调”的线索，不认识机构也应从 polling 入手。</li></ul>
+<blockquote>记忆锚点：分词 + by → 先问施动者能做什么；Gallup polling = 民调 → measured；imagined/assumed/invented = 无中生有类动词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

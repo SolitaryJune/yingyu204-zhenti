@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-22 · 对象辨析题：别把社交鼠的行为安到非社交鼠头上</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：问谁就答谁",
+  "body": "<p>题干：<b>What did the asocial robot do during the experiment?</b>（试验过程中<b>非社交</b>机器鼠做了什么？）</p><p>两只机器鼠是一组<b>对照</b>：the social robot（社交鼠）vs the asocial robot（非社交鼠）。第三段用一个 <b>Meanwhile</b> 把两句行为钉死成对比——问 asocial 只能答②句，①句的三个动作全是社交鼠的。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "对照表：social vs asocial",
+  "body": "<table class='aw-mini'><tr><th>对象</th><th>行为（第三段）</th></tr><tr><td>the social robot ①句</td><td>followed the living rats around / played with the same toys / opened cage doors to let trapped rats escape</td></tr><tr><td><b>the asocial robot ②句</b></td><td>simply moved forwards and backwards and side to side（只是前后、左右来回移动）</td></tr></table><p>三个干扰项将全部来自①句——社交鼠的行为。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第三段②句",
+  "body": "<div class='qq'><b>原文：</b>Meanwhile, the asocial robot <b>simply moved forwards and backwards and side to side</b>.</div><p class='cn'>译：与此形成对照，非社交机器鼠只是前后、左右地来回移动。</p><p><b>simply</b>（仅仅是）藏着与①句的对比：不参与社交、只是独自来回移动——D 的 <b>moved around alone</b>（独自四处移动）正是这句的概括。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：双重偷换",
+  "body": "<p><b>A · It followed the social robot.</b> <span class='bad-dot'>✗</span></p><p>①句是社交鼠<b>跟随生物鼠（the living rats）</b>走动；A 篡改成「非社交鼠跟随社交鼠」——跟随对象被换、跟随主体也被换，原文根本没有这一信息。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：张冠李戴",
+  "body": "<p><b>B · It played with some toys.</b> <span class='bad-dot'>✗</span></p><p>played with the same toys 是①句<b>社交鼠</b>的动作——行为本身原文有，但安错了对象。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：又是张冠李戴",
+  "body": "<p><b>C · It set the trapped rats free.</b> <span class='bad-dot'>✗</span></p><p>opened cage doors to let trapped rats escape 也是①句社交鼠干的——再次把社交鼠的行为栽给非社交鼠。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：②句的概括改写",
+  "body": "<p><b>D · It moved around alone.</b> <span class='ok-dot'>✓</span></p><p>simply moved forwards and backwards and side to side ↔ moved around alone：<b>alone</b> 点明 simply 暗含的对比之意——与社交鼠相反，它独来独往。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（It moved around alone.）</b>。</p><p>记忆锚点：social = 跟随、同玩、开门救鼠；asocial = simply 前后左右独来独往。对照试验题先抓「对象标签」，再对行为——问 asocial 就别看 social 的句子。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-22 · 对象辨析题：别把社交鼠的行为安到非社交鼠头上",
+  subtitle: "考点：Text1 第三段 · 对照试验里的张冠李戴陷阱",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>对照试验抓对象标签</b>：①句社交鼠三连动作（跟随 / 玩玩具 / 放出被困鼠）是 A、B、C 的原料——全是张冠李戴；②句 simply moved... ↔ moved around alone（D）。simply 的弦外之音就是 alone。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 22 题——对象辨析：别把社交鼠的行为安到"非社交鼠"头上</h2>
+<p>答案：<strong>D</strong>（It moved around alone）。</p>
+<h3>第 0 步：先立机制——对照试验，问谁就要答谁</h3>
+<p>两只机器鼠是一组对照：the social robot（社交鼠）vs the asocial robot（非社交鼠）。第三段用一个 Meanwhile 把两句行为描写钉死成对比：①句写社交鼠"跟着老鼠四处走、玩同样的玩具、开笼门放被困老鼠"，②句写非社交鼠"只是前后、左右来回移动"。题干问 the asocial robot did what during the experiment，只能答②句；①句的三个动作全是社交鼠的，是本类题最典型的"张冠李戴"陷阱。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>Meanwhile, the asocial robot simply moved forwards and backwards and side to side.</blockquote>
+<p>simply（"仅仅是"）藏着与①句的对比：不参与社交、只是独自来回移动。D 的 moved around alone（独自四处移动）＝ simply moved forwards and backwards and side to side 的概括改写，选 D。</p>
+<h3>第 2 步：干扰项归因——全部来自①句（社交鼠的行为）</h3>
+<ul><li><strong>A（It followed the social robot.）</strong>：双重偷换——①句是社交鼠<strong>跟随生物鼠（the living rats）</strong>走动，A 篡改成"非社交鼠跟随社交鼠"，原文根本没有这一信息。</li><li><strong>B（It played with some toys.）</strong>：played with the same toys 是社交鼠的动作，行为原文有、对象安错了。</li><li><strong>C（It set the trapped rats free.）</strong>：opened cage doors to let trapped rats escape 也是社交鼠干的，再次张冠李戴。</li></ul>
+<blockquote>记忆锚点：social = 跟随、同玩、开门救鼠；asocial = simply 前后左右独来独往。对照试验题先抓"对象标签"，再对行为。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-35 · 2015 阅读第 35 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · irony = 并存的两面",
+  "cls": "key",
+  "tag": "方法",
+  "log": "讽刺句先找矛盾的两面；regular people 是 Everyone 的一部分",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>末段①句的 <b>irony</b>（讽刺）是全段题眼：讽刺 = <b>同一群人对同一件事持两种相反态度</b>。冒号后的并列一次摆开几种态度：Everyone makes fun of it / managers love it / companies depend on it / regular people willingly absorb it。关键在集合关系：<b>regular people 属于 Everyone 的一部分</b>——所以普通人同时具备「取笑」与「接受」两种态度。</p>"
+ },
+ {
+  "title": "定位原文 · 末段①句的四种态度",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位末段①句：Everyone makes fun of it, but ... regular people willingly absorb it",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But this seems to be the irony of office speak: Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it.</div><p>regular people 身上落着两个动作：<b>makes fun of it</b>（取笑，承自 Everyone）与 <b>willingly absorb it</b>（欣然接受）——一体两面，这就是选项 B 的 mock it but accept it。</p>"
+ },
+ {
+  "title": "逐项分析 · A Linguists believe it to be nonsense（语言学家认为是无稽之谈）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 语言学家认为是无稽之谈 ✗ ——nonsense 是引语里的他人视角",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>②句是<b>引用</b>语言学家的话评论「人们」的矛盾态度（「你可以让别人觉得它是无稽之谈，同时你自己却买账」）——nonsense 不是语言学家自己对办公室语言的判断。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把引语里出现的态度安到引用者头上。</p>",
+  "body": {
+   "k": "A",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C Companies find it to be fundamental（企业认为必不可少）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 企业认为必不可少 ✗ ——depend on 被加码成 fundamental",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>companies <b>depend on</b> it（依赖它）是事实陈述，被升格为 <b>fundamental</b>（必不可少）的程度判断——原文没下这个结论，语义加码即错。</p>",
+  "body": {
+   "k": "C",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D Managers admire it but avoid it（经理们称赞它但避免使用）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 经理们称赞它但避免使用 ✗ ——avoid it 无中生有",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>admire it 对应 love it 没问题，但 <b>avoid it 无中生有</b>——原文经理们是「喜欢并使用它」，恰恰不回避。</p><p style=\"color:#b91c1c\">⚠ 典型误解：admire ... but ... 结构里，but 之后的词最容易被掺假。</p>",
+  "body": {
+   "k": "D",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B Regular people mock it but accept it（普通人嘲笑但接受）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B 普通人嘲笑但接受 ✗→✓ 当选 —— 一体两面",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>mock it 来自 Everyone makes fun of it——regular people 属于 Everyone，这是集合与子集的包含关系，不是外加假设；accept it 来自 willingly absorb it（absorb = 欣然接受）。两项替换都在同一句内完成，是四个选项里唯一「句内闭环」的答案。</p>",
+  "body": {
+   "k": "B",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 集合关系与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（Regular people mock it but accept it）——本题难点是集合关系",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>本题难点不在词汇，而在看出「普通人是『所有人』的一部分」：取笑与接受在同一群人身上并存，这才是 irony。</p><p>答案选 <b>B（Regular people mock it but accept it）</b>。</p><p><b>记忆锚点</b>：irony = 一体两面；regular people 属于 Everyone；depend on ≠ fundamental（程度加码即错）。</p><p style=\"color:#b91c1c\">最易误选：<b>D</b>——admire it 半真，avoid it 掺假；半真半假的选项靠「后半句」识破。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T3 第 35 题 · irony 的另一半才是答案",
+  subtitle: "考点：事实细节 · 集合包含关系 · 讽刺句的两面",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（Regular people mock it but accept it）",
+ "html": "<b>B Regular people mock it but accept it（普通人嘲笑它但接受它）</b>。<br>regular people 属于 Everyone：makes fun of it + willingly absorb it 并存 = irony。<br>最易误选：<b>D</b>——admire it 半真，avoid it 无中生有。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——irony（讽刺）的另一半才是答案</h2>
+<p>答案：<strong>B（Regular people mock it but accept it）</strong>。</p>
+<h3>第 0 步：先立方法——解"讽刺"句先找"并存的两面"</h3>
+<p>末段①句的 irony 是全段题眼：讽刺 = <strong>同一群人对同一件事持两种相反态度</strong>。冒号后的并列把几种人的态度一次摆开——Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it。关键在集合关系：regular people 是 Everyone 的一部分，所以普通人身上同时具备"取笑"（makes fun of）与"接受"（willingly absorb）两种态度——这正是选项 B 的 mock it but accept it。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But this seems to be the irony of office speak: Everyone makes fun of it, but managers love it, companies depend on it, and regular people willingly absorb it.（译：但这似乎正是办公室语言的讽刺之处：人人都拿它取笑，可经理们喜欢它，公司依赖它，普通人欣然接受它。）</blockquote>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A Linguists believe it to be nonsense</td><td>✗</td><td>偷换立场：②句引用语言学家的话评论的是<strong>人们</strong>的矛盾态度（"你可以让别人觉得它是无稽之谈，同时你自己却买账"），nonsense 不是语言学家自己对办公室语言的判断</td></tr><tr><td>C Companies find it to be fundamental</td><td>✗</td><td>语义加码：depend on（依赖）被升格为 fundamental（必不可少）；"依赖"是事实陈述，"必不可少"是程度判断，原文没下这个结论</td></tr><tr><td>D Managers admire it but avoid it</td><td>✗</td><td>半真半假：admire it 对应 love it 没问题，但 avoid it 无中生有——原文经理们是"喜欢并使用它"，恰恰不回避</td></tr></tbody></table>
+<h3>预判追问：B 为什么不是"过度推理"？</h3>
+<p>mock it 来自 Everyone makes fun of it——regular people 属于 Everyone，这一步是集合与子集的包含关系，不是外加假设；accept it 来自 willingly absorb it（absorb = 欣然接受）。两项替换都在同一句内完成，是四个选项里唯一"句内闭环"的答案。本题的难点不在词汇，而在看出"普通人是'所有人'的一部分"。</p>
+<blockquote>记忆锚点：irony = 一体两面（取笑 + 接受）；regular people 属于 Everyone；depend on ≠ fundamental（程度加码即错）；admire ... but ... 结构里，but 之后的词最容易被掺假。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

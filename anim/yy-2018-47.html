@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-47 · 2018 小作文道歉信框架动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：应用文谋篇——审题 → 三段框架 → 句型升格 → 结论。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ { title: "审题眼 · 两指令 = 一条修复流水线",
+  cls: "key",
+  tag: "审题",
+  log: "审题：道歉信交际链 = 致歉（认账）→ 解释（体面原因）→ 弥补（提议补救）",
+  count: 0,
+  body: "<p>写信人：大学生；收信人：史密斯教授；情景：<b>取消行程，无法如约拜访</b>。两指令对应修复流水线的两段：</p>" +
+        "<p>指令 1）apologize <b>and explain</b> the situation —— 认账 + 给原因；指令 2）suggest a future meeting —— 弥补出口。</p>" +
+        "<p style=\"color:#b91c1c\">⚠ 光道歉不解释，对方不知道发生了什么；解释完不提议下次见面，事情没有出口——必答点 2 缺失直接掉档。</p>"
+ },
+ { title: "谋篇地图 · 三段各司其职",
+  cls: "key",
+  tag: "谋篇",
+  log: "谋篇：段1 致歉开场 / 段2 解释+弥补（主体）/ 段3 礼数闭环",
+  count: 0,
+  body: "<p><b>段 1</b>：写信目的 + 事由（一句）+ 歉意升格（一句）；</p>" +
+        "<p><b>段 2（主体）</b>：让步铺垫 → 体面原因 → 弥补提议（三句）；</p>" +
+        "<p><b>段 3</b>：感谢谅解 + 期待回复（两句）。</p>" +
+        "<p>格式红线：称呼 <code>Dear Professor Smith,</code>；落款 <code>Sincerely yours,</code> + <code>Li Ming</code>；不写地址；约 100 词，主体在段 2。</p>" +
+        "<p>语域定音：写给教授——礼貌尊敬但“私人拜访”不必公文腔，terribly sorry 的恳切 + If it is possible 的商量口吻，就是这个分寸。</p>"
+ },
+ { title: "段 1 · 必答点 1 前半：认账 + 事由",
+  cls: "step",
+  tag: "段 1",
+  log: "段 1 认账句：apologize for + 动名词短语，since 从句交代事由",
+  count: 0,
+  body: quote("I am writing to apologize for not being able to visit you as planned, since I have to cancel my travel plan for some reason.") +
+        "<p><b>apologize for not being able to visit</b>——动名词短语把“做不到的事”挂进介词宾语，比 I can't visit 委婉；since 从句一句带出事由（取消行程），for some reason 留到段 2 展开。</p>"
+ },
+ { title: "段 1 · 必答点 1 后半：歉意升格",
+  cls: "good",
+  tag: "段 1 落定",
+  log: "段 1 落定：terribly 加码，两笔账都认到——不便 + 打乱安排",
+  count: 1,
+  body: quote("I am terribly sorry for any inconvenience this causes you and any changes that it necessitates in your current plans.") +
+        "<p><b>terribly</b>（非常）给歉意加码；两笔账都认到：inconvenience（带来的不便）+ changes（打乱对方安排）；<b>necessitate</b>（使……不可避免）是全篇最高分词——any changes that it necessitates 把“连带变动”一笔写出。→ 段 1 完成。</p>"
+ },
+ { title: "段 2 · 让步铺垫：先说“我本来很期待”",
+  cls: "step",
+  tag: "段 2",
+  log: "段 2 铺垫句：完成时 have been looking forward to 表明失约不是怠慢",
+  count: 1,
+  body: quote("I have been looking forward to seeing you since we made the appointment.") +
+        "<p><b>让步铺垫是道歉信的蓄力动作</b>：约定后一直很期待（现在完成时把“期待”延续到现在）——表明这次失约不是怠慢，后面的道歉才有分量；since we made the appointment 点出约定在先。</p>"
+ },
+ { title: "段 2 · 原因句：三步成形法",
+  cls: "step",
+  tag: "段 2 原因",
+  log: "原因句三步成形：三个简单句 → who 从句合并 → 替换升格",
+  count: 1,
+  body: "<p>① 写简单句：<code>I was asked to attend a meeting.</code> <code>I will replace a classmate.</code> <code>The classmate was ill.</code></p>" +
+        "<p>② 用代词合并：I was asked to replace a classmate <b>who</b> was ill to attend a meeting.</p>" +
+        "<p>③ 替换升格：</p>" +
+        quote("Unexpectedly, I was asked to substitute for a classmate who suddenly fell ill to attend an important meeting.") +
+        "<p>replace 换 <b>substitute for</b>（顶替、代班）；加 suddenly / unexpectedly / important 提升表达精确度；被动 <b>was asked</b> 写出“身不由己”，姿态自然。</p>" +
+        "<p style=\"color:#b91c1c\">⚠ 原因要体面可信——替突然生病的同学参会；“睡过头”“忘了约定”这类自损形象的原因反而加重失礼。</p>"
+ },
+ { title: "段 2 · 必答点 2：弥补出口",
+  cls: "good",
+  tag: "段 2 落定",
+  log: "段 2 落定：reschedule 重新约定，把时间选择权交给对方",
+  count: 2,
+  body: quote("If it is possible, I would like to reschedule our appointment to a time convenient for you.") +
+        "<p>这是<b>必答点 2 的落点句</b>：reschedule（重新安排）提出补救；If it is possible 的商量口吻 + a time <b>convenient for you</b>（形容词短语后置定语，避免 which is convenient 的赘余）把时间选择权交给对方。→ 段 2 完成。</p>"
+ },
+ { title: "段 3 · 礼数闭环",
+  cls: "good",
+  tag: "段 3 落定",
+  log: "段 3 落定：感谢谅解 + 期待回复，两句收齐",
+  count: 3,
+  body: quote("Thank you for understanding in this matter. Looking forward to your reply.") +
+        "<p>感谢谅解（Thank you for understanding in this matter）+ 期待回复（Looking forward to your reply）——回函礼数两句收齐。三段地图全部走完。</p>"
+ },
+ { title: "句型升格总览 · 四处可迁移的高分表达",
+  cls: "key",
+  tag: "升格",
+  log: "升格总览：apologize for not being able to / necessitate / substitute for / reschedule to a time convenient for you",
+  count: 3,
+  body: "<p>① <code>apologize for not being able to do</code>——动名词短语挂“做不到的事”，委婉开场；</p>" +
+        "<p>② <code>necessitate</code>（使……不可避免）——把“连带影响”写成高分一笔；</p>" +
+        "<p>③ <code>substitute for a classmate who suddenly fell ill</code>——被动 + 定语从句合并三个简单句；</p>" +
+        "<p>④ <code>reschedule our appointment to a time convenient for you</code>——形容词短语后置定语收口。</p>" +
+        "<p style=\"color:#b91c1c\">最易失分：只道歉不解释（and explain 没完成）、解释完不提议下次见面（必答点 2 缺失）。</p>"
+ },
+ { title: "结论 · 模板提炼与红线",
+  cls: "good",
+  tag: "结论",
+  log: "结论：道歉信六步框架 + 格式红线",
+  count: 3,
+  body: "<p><b>道歉信六步框架</b>（换话题不改框架）：</p>" +
+        "<p>1）认账：I am writing to apologize for...，since...；2）升格歉意：I am terribly sorry for...；3）让步铺垫：I have been looking forward to...；4）体面原因：Unexpectedly, ...；5）弥补出口：If it is possible, I would like to reschedule...；6）礼数闭环：Thank you for... + Looking forward to your reply.</p>" +
+        "<p style=\"color:#b91c1c\">格式红线：Sincerely yours + Li Ming；不写地址；约 100 词，主体在段 2。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'key' ? 'shift' : 'step')),
+    tag: s.tag, log: s.log, count: s.count,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 小作文 · 取消行程致歉信：两必答点怎么落",
+  subtitle: "考点：道歉信三段式 · 必答点（致歉+解释 / 提议下次见面）· 语域与句型升格",
+  counterLabel: '已完成段落',
+  intro: '点击「▶ 播放」逐步展开“审题 → 谋篇 → 逐段落笔 → 升格”的写作框架链。',
+  snaps: snaps,
+  result: {
+    big: "道歉信三段式 · 两必答点全落定",
+    html: "<b>记忆锚点</b>：道歉信 = 认账（apologize for + since 事由）→ 升格歉意（terribly sorry + necessitate）→ 让步铺垫（have been looking forward to）→ 体面原因（was asked to substitute for... who suddenly fell ill）→ 弥补出口（reschedule to a time convenient for you）→ 礼数闭环（thank for understanding + look forward to your reply）。<br>红线：必答点 2（提议下次见面）缺失直接掉档；署 Li Ming、不写地址；约 100 词，主体在段 2。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 小作文——取消行程致歉信：「致歉+解释」与「提议下次见面」两必答点</h2>
+<p>答案（范文）：<strong>Dear Professor Smith,</strong></p>
+<p><strong>I am writing to apologize for not being able to visit you as planned, since I have to cancel my travel plan for some reason. I am terribly sorry for any inconvenience this causes you and any changes that it necessitates in your current plans.</strong></p>
+<p><strong>I have been looking forward to seeing you since we made the appointment. Unexpectedly, I was asked to substitute for a classmate who suddenly fell ill to attend an important meeting. If it is possible, I would like to reschedule our appointment to a time convenient for you.</strong></p>
+<p><strong>Thank you for understanding in this matter. Looking forward to your reply.</strong></p>
+<p><strong>Sincerely yours,</strong></p>
+<p><strong>Li Ming</strong></p>
+<h3>第 0 步：先立机制——道歉信的交际逻辑：致歉不是目的，修复关系才是</h3>
+<p>应用文评分压在<strong>格式 × 必答点 × 语域</strong>三道关。道歉信的交际链是一条"修复流水线"：<strong>致歉（认账）→ 解释（给原因，且原因要体面）→ 弥补（提议补救）</strong>。题给两指令恰好是这条链的两段：1) apologize <strong>and explain</strong> the situation——认账+给原因；2) suggest a future meeting——弥补。两件事缺一不可：光道歉不解释，对方不知道发生了什么；解释完不提议下次见面，事情没有出口——"提出未来会面"是道歉信区别于单纯认错的落点，必答点 2 缺失直接掉档。</p>
+<p>语域由来信对象定音：写给<strong>教授</strong>，但"私人拜访"不是公务——礼貌尊敬却不必公文腔。terribly sorry 的恳切 + If it is possible 的商量口吻，就是这个分寸：正式而有温度。</p>
+<h3>第 1 步：审题——指令逐条拆</h3>
+<table><thead><tr><th>指令</th><th>信息解读</th><th>落点</th></tr></thead><tbody><tr><td>cancel your travel plan</td><td>情景：行程取消，拜访落空</td><td>段 1 事由</td></tr><tr><td>will not be able to visit Professor Smith</td><td>对象：史密斯教授；事件：不能如约拜访</td><td>称呼与语域</td></tr><tr><td>1) apologize and explain the situation</td><td>必答点 1：致歉并解释原因</td><td>段 1 + 段 2 前半</td></tr><tr><td>2) suggest a future meeting</td><td>必答点 2：提议下次见面</td><td>段 2 末句</td></tr><tr><td>about 100 words / "Li Ming" / no address</td><td>篇幅、署名、格式红线</td><td>全篇</td></tr></tbody></table>
+<p>关键的一步是"落点"：必答点 1 拆成两半——道歉落在段 1，解释落在段 2；必答点 2 是段 2 的收口句。三段各司其职的地图先画好，再动笔。</p>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1（致歉开场）</strong>：I am writing to apologize for not being able to visit you as planned, since I have to cancel my travel plan for some reason.——写信目的（apologize for + 动名词短语挂"做不到的事"）与事由（since 从句）一句交代完；紧接着 I am terribly sorry for any inconvenience this causes you and any changes that it necessitates in your current plans 把歉意升格——terribly（非常）加码，两笔账都认到：带来的不便（inconvenience）+ 打乱对方的安排（changes）。</li><li><strong>段 2（解释 + 弥补，主体）</strong>：先让步铺垫 I have been looking forward to seeing you since we made the appointment——约定后一直很期待，表明这次失约不是怠慢，道歉才有分量；再 Unexpectedly, I was asked to substitute for a classmate who suddenly fell ill to attend an important meeting 给出原因——unexpectedly 转，被动语态 was asked 写出"身不由己"；末句 If it is possible, I would like to reschedule our appointment to a time convenient for you 完成必答点 2：重新约定，且把时间选择权交给对方（convenient for you）。</li><li><strong>段 3（礼数闭环）</strong>：Thank you for understanding in this matter 感谢谅解，Looking forward to your reply 期待回复——两句收齐。</li></ul>
+<h3>第 3 步：句型升格——原因句的"三步成形"</h3>
+<p>原因句是全篇最见功力的一句，成形路径可复制：</p>
+<ol><li><strong>写简单句</strong>：I was asked to attend a meeting. / I will replace a classmate. / The classmate was ill.</li><li><strong>用代词合并</strong>：I was asked to replace a classmate who was ill to attend a meeting.——who 把"同学生病"压进定语从句，三个简单句并成一句；</li><li><strong>升格润色</strong>：Unexpectedly, I was asked to substitute for a classmate who suddenly fell ill to attend an important meeting.——replace 换 substitute for（顶替、代班），加 suddenly / unexpectedly / important 提升表达的精确度与饱满度。</li></ol>
+<p>其余三处升格：</p>
+<ul><li>apologize for <strong>not being able to</strong> visit——动名词短语把"做不到的事"挂进介词宾语，比 I can't visit 委婉；</li><li><strong>necessitate</strong>（使……不可避免）是全篇最高分词——any changes that it necessitates in your current plans 把"给对方计划带来的变动"一笔写出；</li><li>reschedule our appointment <strong>to a time convenient for you</strong>——形容词短语后置定语把"你方便的时间"压进名词短语，避免了 which is convenient 的赘余。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>只道歉不解释</strong>：指令 1 是 apologize <strong>and explain</strong>——光说对不起不给原因，必答点 1 只完成一半。</li><li><strong>解释完不提议下次见面</strong>：指令 2 缺失——道歉信没有"出口"，交际目的只走完前半段，直接掉档。</li><li><strong>原因编得离谱或自损</strong>：原因要体面可信（替突然生病的同学参会）；"睡过头""忘了约定"这类自损形象的原因反而加重失礼。</li><li><strong>语域错位</strong>：给教授写信满篇 Hi / I wanna——正式语域崩塌；反之通篇公文腔也没有温度，terribly sorry 的恳切要有。</li><li><strong>格式漏项</strong>：漏 Sincerely yours、署真名、写地址——硬指令一碰即扣。</li><li><strong>词数失衡</strong>：段 1 寒暄占半，段 2 的"解释 + 提议"挤成一句——约 100 词，主体在段 2。</li></ul>
+<blockquote>记忆锚点：道歉信 = <strong>认账（apologize for + since 事由）→ 升格歉意（terribly sorry + necessitate）→ 让步铺垫（have been looking forward to）→ 体面原因（was asked to substitute for... who suddenly fell ill）→ 弥补出口（reschedule to a time convenient for you）→ 礼数闭环（thank for understanding + look forward to your reply）</strong>；署 Li Ming、不写地址。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

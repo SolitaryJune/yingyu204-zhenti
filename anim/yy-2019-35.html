@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-35 主旨题：办法清单的总账——Import Food or Labor?</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：best title——标题要罩得住全文',
+  'body':'<p>题干：<b>Which of the following could be the best title for this text?</b>（下面哪项是本文最佳标题？）</p><p>主旨题机制：本文是"问题—逐个检验办法"结构，标题必须罩得住<b>办法清单的全貌</b>，而不是清单里的某一项。先画骨架，再对照选项。</p>',
+  'log':'审题：主旨题，标题必须罩住全文"办法清单"的全貌'},
+ {'cls':'','ecs':'step','tag':'骨架','count':0,
+  'title':'机制：把全文骨架画成"办法清单"',
+  'body':'<p>1. 首段摆问题：农业劳动力短缺，不彻底改革农工移民规则无解；</p><p>2. 中段逐项检验：<b>本土工人回归</b>（✗ 不会回来）→ <b>机械化/机器人</b>（✗ 至少现在不行）→ <b>H-2A 签证</b>（现行主渠道，但繁琐、昂贵、不可靠；部分农场干脆迁往墨西哥）；</p><p>3. 末段收口：要么进口食品，要么进口劳工。</p>',
+  'log':'骨架：问题 + 三个被检验的办法 + 末段二选一收口'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：首段末句与末段点题句',
+  'body':'<div class="qq"><b>首段末句：</b>The complaints are unlikely to stop without an overhaul of immigration rules for farm workers.<span class="cn">（不彻底改革农工移民规则，抱怨不会停。）</span></div><div class="qq"><b>末段点题句：</b>In effect, the U.S. can <b>import food</b> or it can <b>import the workers</b> who pick it.<span class="cn">（实际上，美国要么进口食品，要么进口摘食品的工人。）</span></div><p>首末段都在给"办法"下结论；末句 either...or... 正是全部办法的总账。</p>',
+  'log':'定位：末段点题句 import food or import the workers 就是标题'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：U.S. Agriculture in Decline?',
+  'body':'<p><b>A · U.S. Agriculture in Decline?（美国农业在衰落？）</b><span class="bad-dot"> ✗</span></p><p>话题沾边，但"走向衰落"不是文章核心——核心是<b>劳动力短缺及其对策</b>；进口占比上升（14.5%→25.8%）说的是对策走向，不是农业衰亡。话题相近、<b>主旨错位</b>。</p>',
+  'log':'排除 A：核心是劳动力短缺与对策，不是"农业衰落"'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：America Saved by Mexico?',
+  'body':'<p><b>C · America Saved by Mexico?（墨西哥拯救了美国？）</b><span class="bad-dot"> ✗</span></p><p>墨西哥只是劳动力来源与西迁承接地，"拯救"言过其实；且问题根源在美国<b>自己的移民政策</b>，与墨西哥无关——<b>配角升主角</b>。</p>',
+  'log':'排除 C：墨西哥是配角，问题根源在美国移民政策'},
+ {'cls':'bad','ecs':'miss','tag':'排除 D','count':3,'ribbon':{'k':4,'ok':false},
+  'title':'排除 D：Manpower vs. Automation?',
+  'body':'<p><b>D · Manpower vs. Automation?（人力对抗自动化？）</b><span class="bad-dot"> ✗</span></p><p>机械化只在<b>第四段</b>作为"暂不可行的办法"出场，一个配角撑不起全文封面——<b>以段代篇</b>。</p>',
+  'log':'排除 D：机械化只是办法清单里的一项，以段代篇'},
+ {'cls':'good','ecs':'ok','tag':'锁定 B','count':4,'ribbon':{'k':2,'ok':true},
+  'title':'锁定 B：Import Food or Labor?',
+  'body':'<p><b>B · Import Food or Labor?（进口食品还是劳工？）</b><span class="ok-dot"> ✓</span></p><p>Import Food 基于第七段的对策（进口占比上升），(Import) Labor 基于第五、六段（H-2A 签证引入外籍劳工）；末句 either...or... 两端全收——<b>罩得住办法清单全貌</b>。</p>',
+  'log':'锁定 B：进口食品 or 进口劳工，罩住全文办法清单'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 B',
+  'body':'<p><b>答案 B（Import Food or Labor?）</b>——主旨题先列"办法清单"再找罩得住全清单的标题；末段点题句 either...or... 直接就是标题。</p><p>记忆锚点：主旨 = 清单全貌；A 错位、C 配角升主角、D 以段代篇。</p>',
+  'log':'结论：最佳标题 Import Food or Labor?，答案选 B'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-35 · 主旨题：为 Text3 选最佳标题",
+  subtitle: "考点：Text3 主旨概括 · 方法：画办法清单 → 末段点题句 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：画全文骨架 → 末段点题句 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>主旨 = 办法清单的总账</b>：末段点题句 <b>In effect, the U.S. can import food or it can import the workers who pick it.</b> → 标题 <b>Import Food or Labor?</b>。A 主旨错位，C 配角升主角，D 以段代篇。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：主旨题——列出全文"办法清单"，末句 either...or 就是标题</h2>
+<p>答案：<strong>B（Import Food or Labor? 进口食品还是进口劳工？）</strong>。</p>
+<h3>第 0 步：先立机制——主旨题先把全文骨架画成"办法清单"</h3>
+<p>主旨题的机制：本文是典型的"问题—逐个检验办法"结构，标题必须罩得住<strong>清单全貌</strong>，而不是清单里的某一项。画一遍骨架：</p>
+<ol><li>首段摆问题：美国农业劳动力短缺，不彻底改革农工移民规则，抱怨不会停；</li><li>中段逐项检验办法：让本土工人回归（✗ 不会回来）、机械化/机器人（✗ 至少现在不行）、H-2A 签证（现行主渠道，但流程繁琐、昂贵、不可靠，部分西部农场干脆迁往墨西哥）；</li><li>末段收口：<strong>In effect, the U.S. can import food or it can import the workers who pick it.</strong>（美国要么进口食品，要么进口摘食品的工人。）</li></ol>
+<p>要么进口食品、要么进口劳工——这就是全部"办法清单"的总账。Import Food or Labor? 两端都罩住，标题成立。</p>
+<h3>第 1 步：定位原文（点题句）</h3>
+<blockquote>In effect, the U.S. can import food or it can import the workers who pick it.</blockquote>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（U.S. Agriculture in Decline? 美国农业在衰落？）</strong>：话题沾边，但"走向衰落"不是文章核心——核心是<strong>劳动力短缺及其对策</strong>；进口占比上升（14.5%→25.8%）说的是对策走向，不是农业衰亡。话题相近、主旨错位。</li><li><strong>C（America Saved by Mexico? 墨西哥拯救了美国？）</strong>：墨西哥只是劳动力来源与西迁承接地，"拯救"言过其实；且问题根源在美国自己的移民政策，与墨西哥无关。<strong>配角升主角</strong>。</li><li><strong>D（Manpower vs. Automation? 人力对抗自动化？）</strong>：机械化只在第四段作为"暂不可行的办法"出场，一个配角撑不起全文封面。<strong>以段代篇</strong>。</li></ul>
+<blockquote>记忆锚点：主旨题先列"办法清单"再找罩得住全清单的标题；末段点题句 either...or... 往往直接就是标题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

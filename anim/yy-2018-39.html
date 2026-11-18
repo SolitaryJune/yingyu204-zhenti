@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-39 · 2018 阅读第 39 题 · 零距离改写与身份词陷阱 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 零距离改写题", "cls": "key", "tag": "审题", "log": "审题眼：Pillay believes that our brains' shift between being focused and unfocused ___ —— 双锚定位一步锁句", "count": 0, "ribbon": null, "body": "<p>题干：Pillay believes that our brains' <b>shift between being focused and unfocused</b> ___. 观点题有两种命题距离：远改写与<b>零距离改写</b>——本题属后者：题干把原文 switch 换成 shift。策略：人名 Pillay ＋ 关键词对 focused/unfocused 双锚定句，一步锁定，其余步骤全用来拆干扰项的字面钩子。</p>"},
+ {"title": "定位原文 · ②句是观点本体", "cls": "key", "tag": "定位", "log": "定位第八段：①身份铺垫（psychiatry）＋②观点本体——切换时更高效", "count": 0, "ribbon": null, "body": quote("Srini Pillay, an assistant professor of <b>psychiatry</b>…, believes this counterintuitive link between downtime and productivity may be due to the way our brains operate. <b>When our brains switch between being focused and unfocused on a task, they tend to be more efficient.</b>") + "<p>①句交代身份（哈佛医学院<b>精神病学</b>助理教授）并引出总体看法；②句是观点本体：大脑在<b>同一任务</b>的专注/不专注状态间切换时，往往<b>更高效</b>。注意 on a task——是状态往返，不是任务间腾挪。</p>"},
+ {"title": "同义替换 · switch→shift，more efficient→greater efficiency", "cls": "key", "tag": "替换", "log": "同义替换：题干＋B 合起来就是②句的逐词改写，无新增信息", "count": 0, "ribbon": null, "body": "<p>[B] <b>can bring about greater efficiency</b> ↔ they tend to be <b>more efficient</b>：greater efficiency ↔ more efficient（同根效率词）；题干 shift ↔ switch。题干＋[B] ＝ ②句换皮，零新增。锁定 [B]。</p>"},
+ {"title": "逐项分析 · B can bring about greater efficiency", "cls": "good", "tag": "选定 B", "log": "B 能带来更高效率 ✓ ——②句结论半句的同义改写", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>When our brains switch…, they tend to be <b>more efficient</b> → can bring about <b>greater efficiency</b>——方向、对象、程度全对齐，正是观点本体句。</p>"},
+ {"title": "逐项分析 · A can result in psychological well-being", "cls": "bad", "tag": "排除 A", "log": "A 促进心理健康 ✗ ——身份词捏造：psychiatry 是“谁在说”，不是“说了什么”", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>psychological（心理的）由①句 Pillay 的身份介绍 <b>psychiatry</b>（精神病学）捏造出来——身份说明“谁在说话”，不是“说了什么”；well-being（心理健康）全篇未论及。</p><p style=\"color:#b91c1c\">⚠ 典型误解：身份词出现的位置，通常不是观点的位置。</p>"},
+ {"title": "逐项分析 · C is aimed at better balance in work", "cls": "bad", "tag": "排除 C", "log": "C 旨在更好平衡工作 ✗ ——对象偷换：是同任务的状态切换，无目的无平衡", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>②句 switch between… <b>on a task</b> 是“同一任务上专注/不专注两种<b>状态</b>之间往返”，且它是大脑的<b>运作方式</b>（the way our brains operate）——没有“目的”，更没有“平衡工作”。[C] 把状态切换曲解成工作平衡。</p><p style=\"color:#b91c1c\">⚠ 典型误解：switch ≈ balance 的近义脑补，被平衡的对象全错。</p>"},
+ {"title": "逐项分析 · D is driven by task urgency", "cls": "bad", "tag": "排除 D", "log": "D 由任务紧迫性驱动 ✗ ——无中生有：urgency 全篇无出处，task 是字面钩子", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b><b>urgency</b>（紧迫性）原文根本没有；task 只是字面钩子——把“任务”这个词拽出来，配上一个原文不存在的“驱动机制”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原文个别词汇＋原文没有的关系＝捏造项。</p>"},
+ {"title": "结论 · 身份词不是观点", "cls": "good", "tag": "答案 B", "log": "答案 B（can bring about greater efficiency）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>人名＋focused/unfocused 双锚 → ②句 tend to be more efficient → [B]。</b>三个干扰项各占一坑：A 身份捏造、C 对象偷换、D 无中生有。</p><p>答案选 <b>B（can bring about greater efficiency）</b>。</p><p><b>记忆锚点</b>：零距离改写题双锚定位一步锁定；switch = shift，more efficient = greater efficiency；身份词不是观点；on a task 是状态切换不是任务平衡；urgency 无中生有。</p><p style=\"color:#b91c1c\">最易误选：<b>A（psychological well-being）</b>——psychiatry 词根联想的陷阱。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 39 题 · 人物观点题——零距离改写与身份词陷阱",
+  subtitle: "考点：观点题双锚定位（人名＋关键词对）· 身份词 ≠ 观点 + 无中生有识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“双锚定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（can bring about greater efficiency）", "html": "<b>B 能带来更高效率</b>：When our brains switch between being focused and unfocused on a task, they tend to be <b>more efficient</b> 的同义改写（shift ↔ switch）。<br>记忆锚点：零距离改写题双锚定位一步锁定；身份词（psychiatry）不是观点；on a task 是状态切换不是任务平衡。<br>最易误选：<b>A</b>——psychiatry → psychological well-being 的词根联想。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 39 题 · 人物观点题——一句话的"零距离改写"与身份词陷阱</h2>
+<p>答案：<strong>B（can bring about greater efficiency 能带来更高效率）</strong>。</p>
+<h3>第 0 步：先立机制——观点题的两种命题距离</h3>
+<p>人物观点题有两种命题距离：<strong>远改写</strong>（把原文观点概括、压缩、换角度，如第 37 题的"研究结论"）与<strong>零距离改写</strong>（题干＋正确项几乎逐词对应原句，考的是你能不能一步锁对句子）。本题属于后者：题干 our brains' <strong>shift</strong> between being focused and unfocused 把原句的 <strong>switch</strong> between being focused and unfocused 换了一个词，正确项 [B] 则把结论 half 句 tend to be <strong>more efficient</strong> 换成 can bring about <strong>greater efficiency</strong>——整题就是第八段②句的"换皮"。零距离题的策略：定位词（人名 Pillay）＋关键词对（focused/unfocused）双锚定句，一步到位；剩下三步全部用来拆干扰项的"字面钩子"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Srini Pillay, an assistant professor of <strong>psychiatry</strong> at Harvard Medical School, believes this counterintuitive link between downtime and productivity may be due to the way our brains operate. <strong>When our brains switch between being focused and unfocused on a task, they tend to be more efficient.</strong></blockquote>
+<p>结构：①句交代 Pillay 身份（哈佛医学院<strong>精神病学</strong>助理教授）及其总体看法；②句才是本题的母本：大脑在任务的专注/不专注状态之间切换时，往往<strong>更高效</strong>。注意②句里 on a task——切换发生在<strong>同一项任务</strong>的状态之间，不是在不同任务之间腾挪。</p>
+<h3>第 2 步：同义替换——switch/shift、more efficient/greater efficiency</h3>
+<p>[B] can bring about <strong>greater efficiency</strong> ↔ they tend to be <strong>more efficient</strong>：greater efficiency ↔ more efficient（同根词效率）；题干 shift ↔ switch。题干＋[B] 合起来就是②句的逐词改写，无任何新增信息。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A can result in psychological well-being</td><td>✗</td><td>身份词捏造：psychological（心理的）由①句 Pillay 的身份介绍 psychiatry（精神病学）<strong>捏造</strong>出来——身份说明的是"谁在说话"，不是"他说了什么"；well-being（心理健康）全篇未论及</td></tr><tr><td>C is aimed at better balance in work</td><td>✗</td><td>对象偷换：②句 switch... <strong>on a task</strong> 是"同一任务上的专注/不专注两种<strong>状态</strong>之间切换"，[C] 曲解为"为了<strong>更好地平衡工作</strong>"——切换是大脑的<strong>运作方式</strong>（the way our brains operate），没有"目的"更没有"平衡工作"这层意思</td></tr><tr><td>D is driven by task urgency</td><td>✗</td><td>无中生有：urgency（紧迫性）原文根本没有；task 只是字面钩子——把"任务"这个词拽出来，配上一个原文不存在的驱动机制</td></tr><tr><td>B can bring about greater efficiency</td><td>✓</td><td>②句 they tend to be more efficient 的同义改写，零距离对应</td></tr></tbody></table>
+<h3>预判追问：为什么 Pillay 的身份（psychiatry）反而成了陷阱？</h3>
+<p>命题人常把<strong>人物介绍性信息</strong>改造成观点选项：Pillay 是精神病学助理教授，于是"心理健康/心理状态"（psychological well-being）听起来特别"像他会说的话"。但观点题查的是<strong>内容归属</strong>：①句整句是背景铺垫（beliefs 的引出），他的观点本体在②句——只有"更高效"。判断口诀：<strong>身份词（psychiatry、professor、Harvard）出现的位置，通常不是观点的位置</strong>；引语、believes/says/argues 之后的分句才是。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：psychiatry → psychological well-being 的词根联想——身份 ≠ 观点。</li><li><strong>误选 C</strong>：把状态切换读成"平衡工作"——switch between... on a task 是状态往返，无"目的"无"平衡"。</li><li><strong>误选 D</strong>：被 task 一词带偏——urgency 全篇无出处，典型捏造。</li></ul>
+<blockquote>记忆锚点：零距离改写题＝<strong>双锚定位（人名＋关键词对）一步锁定</strong>，其余全在拆钩子；switch = shift，more efficient = greater efficiency；身份词不是观点；on a task 是状态切换不是任务平衡；urgency 无中生有。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

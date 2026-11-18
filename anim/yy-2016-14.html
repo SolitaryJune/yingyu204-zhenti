@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-14 · 2016 完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 14 所在短语",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第五段①句引语内，考点：句内语义 + less 方向",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the possible presence of “younger and less <b>__14__</b> managers who are more likely to be influenced by sentiment.”</div><p>空 14 与 younger 并列修饰 managers，且被 who 从句补充：这批管理者“年轻、less ____、更易受情绪（sentiment）影响”。三重修饰共同拼出一张画像——画像里缺的那个特质，就是答案。</p>"
+ },
+ {
+  "title": "找证据 · 缺了“经验”，决策才会跟着情绪走",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：易受 sentiment 影响 ↔ 缺少经验；younger and less experienced 常规搭配",
+  "body": "<p>决策<b>更容易被情绪左右</b>，对应的短板是<b>经验不足</b>：经验丰富的管理者靠规则与数据决策，情绪权重小；年轻公司新管理者多、阅历浅，情绪影响大。</p><p>younger and less experienced managers 也是自然的英语搭配——两者同向递进。</p>"
+ },
+ {
+  "title": "逐项分析 · D experienced（有经验的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D experienced（有经验的）✓ 当选——younger and less experienced managers",
+  "body": "<p><b>当选。</b>less experienced = 缺经验，与 younger 同向、与 more likely to be influenced by sentiment 因果相承：年轻、经验少 → 情绪对投资决策影响大。且“经验”与全文主题（公司投资决策）直接相关。</p>"
+ },
+ {
+  "title": "逐项分析 · A serious（严肃的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A serious（严肃的）✗ 排除——与投资决策的情绪化无显性关联",
+  "body": "<p><b>排除。</b>“不太严肃”可能是年轻人的特点，但严肃与否与“决策是否受情绪左右”没有直接推理链，也与投资主题无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只验证“像年轻人的特点”，不验证“与决策主题相关”。</p>"
+ },
+ {
+  "title": "逐项分析 · B civilized（有教养的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B civilized（有教养）✗ 排除——教养高低与投资情绪化无关联",
+  "body": "<p><b>排除。</b>“缺乏教养”并非年轻管理者的必然画像，教养与投资决策的情绪化同样没有显性关联。</p>"
+ },
+ {
+  "title": "逐项分析 · C ambitious（有野心的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C ambitious（有野心）✗ 排除——方向反：年轻人一般野心更大",
+  "body": "<p><b>排除。</b>less ambitious“野心更小”——这是<b>反向干扰</b>：常识恰恰是年轻人胸怀野心，说年轻公司管理者“更没野心”违背画像方向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看“形容词能修饰人”，没检查 less 的方向。</p>"
+ },
+ {
+  "title": "结论 · 画像与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（experienced 有经验的）——画像见结论卡",
+  "body": "<p>画像：<b>younger + less experienced + 易受 sentiment 影响 ⇒ 缺经验的管理者。</b></p><p>答案选 <b>D（experienced 有经验的、老练的）</b>。</p><p><b>记忆锚点</b>：less ____ 的方向 + who 从句的因果是双证；ambitious 是反向干扰——年轻人野心更大，less ambitious 不合常理。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 14 空 · 年轻且 less ____ 的管理者更易受情绪影响",
+  subtitle: "考点：句内语义 + less 方向 + 修饰语与投资决策的关联",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 三重修饰定画像 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（experienced）", "html": "<b>D experienced（有经验的）</b>——younger and less experienced managers。<br>记忆锚点：三重修饰拼画像（年轻/缺____/易受情绪影响）；缺经验 ↔ 决策随情绪走；less ambitious 方向反。<br>最易误选：<b>C（ambitious）</b>——没检查 less 的方向，忽略年轻人通常野心更大。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 14 空 · 年轻且 less ____ 的管理者更易受情绪影响</h2>
+<p>答案：<strong>D（experienced 有经验的、老练的）</strong>。</p>
+<h3>第 0 步：先立机制——三重修饰拼一张画像</h3>
+<p>空 14 的形容词与 younger 并列修饰 managers，又被 who are more likely to be influenced by sentiment 补充。三重修饰共同拼出年轻公司管理者的画像：“年轻、less ____、易受情绪影响”。画像里缺的那个特质，必须同时满足：① 与 younger 同向；② 它的缺失能解释“决策易受情绪左右”；③ 与全文投资主题相关。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...the possible presence of “younger and less __14__ managers who are more likely to be influenced by sentiment.”</blockquote>
+<h3>第 2 步：找证据——缺的是“经验”</h3>
+<p>决策容易被情绪（sentiment）左右，对应的短板是<strong>经验不足</strong>：老练的管理者靠规则与数据决策，情绪权重小；年轻公司新管理者多、阅历浅，情绪影响大。younger and less experienced 也是自然的英语搭配，两者同向递进。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A serious</td><td>严肃的</td><td>✗ 排除</td><td>严肃与否与决策情绪化无显性推理链。（典型误解：只验“像年轻人特点”，不验“与主题相关”。）</td></tr><tr><td>B civilized</td><td>有教养的</td><td>✗ 排除</td><td>教养与投资情绪化无关联。</td></tr><tr><td>C ambitious</td><td>有野心的</td><td>✗ 排除</td><td>方向反：年轻人通常野心更大，less ambitious 违背画像。（典型误解：不检查 less 的方向。）</td></tr><tr><td>D experienced</td><td>有经验的</td><td>✓ 当选</td><td>less experienced 与 younger 同向，且直接解释 sentiment 影响。</td></tr></tbody></table>
+<p>代入后的完整句义：可能存在更年轻、经验较少的管理者，他们更容易受情绪影响。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么“经验”是唯一的强关联项？</strong>：全文主题是公司投资决策；四个特质里只有“经验”直接进入决策质量的因果链——经验不足 → 决策依赖直觉与情绪 → 更易被 sentiment 影响。A/B 与投资主题无关，C 方向相反。</li><li><strong>less 的方向怎么快速验证？</strong>：把 less 后的词按常识方向代入——年轻人普遍“野心大、阅历浅”；“更没野心”（C）与常理相悖，“更没经验”（D）与 younger 顺承。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（ambitious）</strong>：反向干扰，忽略 less 的方向与常识。</li><li><strong>误选 A/B</strong>：只验证“能修饰人”，不验证与投资决策主题的关联强度。</li></ul>
+<blockquote>记忆锚点：三重修饰拼画像；younger + less experienced + sentiment 影响 = 缺经验；less ambitious 方向反。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

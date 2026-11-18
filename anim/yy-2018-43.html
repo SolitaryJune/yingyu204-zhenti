@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-43 · 2018 新题型第 43 题 · 「共同点」段的 me too 改写 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 单段短题＝一句主旨改写", "cls": "key", "tag": "方法", "log": "【43】只对应一个自然段——主旨集中在一句，标题题变成主旨句改写题", "count": 0, "ribbon": null, "body": "<p>【43】只对应一个自然段（⑩段），没有多段群可归并：整段只有<b>一句话承载主旨</b>，其余是效果说明。判法：找出这句主旨句的<b>动作＋对象＋目的</b>，把主旨句压成祈使短语，就是答案。</p>"},
+ {"title": "定位段落 · 找共同点，从共同点聊起", "cls": "key", "tag": "定位", "log": "定位⑩段：主旨句 find…have in common ＋ 目的 build the conversation from that point", "count": 0, "ribbon": null, "body": quote("When you meet a person for the first time, <b>make an effort to find the things which you and that person have in common</b> so that you can <b>build the conversation from that point</b>. When you start conversation from there and then move outwards, …the conversation becomes a lot easier.") + "<p>主旨句三件套：动作＝<b>find</b>（努力去找）；对象＝<b>the things you have in common</b>（两人的共同点）；目的＝<b>从那里搭建对话</b>（起点）。效果句补充：从共同点向外扩展，对话突然变得容易。</p>"},
+ {"title": "同义替换 · have in common ＝ me too 时刻", "cls": "key", "tag": "替换", "log": "同义替换：E 把抽象的 have in common 翻译成口语化的 the “me too”s", "count": 0, "ribbon": null, "body": "<p>[E] <b>Find the &ldquo;me too&rdquo;s</b> ↔ make an effort to <b>find</b> the things which you and that person <b>have in common</b>：find ↔ find（原词保留）；the “me too”s ↔ 共同点——共同点的本质就是谈话里一次次“我也是！”的瞬间。口语词＋引号＋复数＝<b>意译</b>，不是字面查找。锁定 [E]。</p>"},
+ {"title": "逐项分析 · E Find the “me too”s", "cls": "good", "tag": "选定 E", "log": "E 找到“我也是” ✓ ——主旨句的口语化改写，动作与对象同构", "count": 0, "ribbon": {"k": "E", "ok": true}, "body": "<p><b>当选。</b>动作（find ↔ find）、对象（have in common ↔ “me too” 时刻）双双对齐；与 Just say it、Skip the small talk 同族的“祈使句＋口语化”标题风格，正是清单文的手笔。</p>"},
+ {"title": "逐项分析 · G Ask for an opinion", "cls": "bad", "tag": "排除 G", "log": "G 征求意见 ✗ ——动作错配：find 是观察发现，不是发问", "count": 1, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>本段没有任何“问对方意见”的动作——<b>find</b>（找出共同点）是<b>观察与发现</b>，不是发问；段中也无 question / opinion 字眼。[G] 是【42】段 ask 一词的余波。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“找共同点”脑补成“问对方兴趣”——发现 ≠ 发问。</p>"},
+ {"title": "逐项分析 · A / F 的错位归宿", "cls": "bad", "tag": "排除 A·F", "log": "A 就说出来／F 略过寒暄 ✗ ——分别是【41】【42】段的标题", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>[A] <b>Just say it</b> 是【41】段“开口说第一个词”的标题——本段假设对话已展开，谈的是“往哪个方向聊”；[F] <b>Skip the small talk</b> 是【42】段“跳过寒暄”的标题——本段通篇是建设性的“找到、搭建”，没有“略过什么”的否定动作。</p><p style=\"color:#b91c1c\">⚠ 典型误解：每个真标题在本篇里只有一个家，先归位再选题。</p>"},
+ {"title": "结论 · 意译标题看含义同构", "cls": "good", "tag": "答案 E", "log": "答案 E（Find the “me too”s）—— 见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>find the things you have in common → 从共同点搭建对话 → [E] Find the “me too”s。</b>标题的“me too”虽然原文没出现，但含义同构——共同点＝一次次“我也是”的瞬间；引号＋复数是把这类瞬间名词化。</p><p>答案选 <b>E（Find the “me too”s）</b>。</p><p><b>记忆锚点</b>：单段短题＝一句主旨改写；find 是观察发现不是 ask 发问；口语词＋引号＋复数＝意译不是字面——判断标准是<b>含义同构</b>。</p><p style=\"color:#b91c1c\">最易误选：<b>G（Ask for an opinion）</b>——把“发现”脑补成“发问”。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 新题型第 43 题 ·「共同点」段的 me too 改写",
+  subtitle: "考点：小标题题 · 单段一句主旨改写 + 意译标题的含义同构判断",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位主旨句 → 同义替换 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 E（Find the “me too”s）", "html": "<b>E 找到“我也是”</b>：find the things which you and that person <b>have in common</b> 的口语化改写——共同点＝谈话里一次次“我也是”的瞬间。<br>记忆锚点：单段短题＝一句主旨改写；find 是观察发现不是发问；引号＋复数的口语词是意译，判断标准是含义同构。<br>最易误选：<b>G</b>——把“发现”脑补成“发问”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 新题型第 43 题 · 小标题题——"共同点"段的 me too 改写</h2>
+<p>答案：<strong>E（Find the "me too"s 找到"我也是"）</strong>。</p>
+<h3>第 0 步：先立机制——单段短题的"一句主旨"判法</h3>
+<p>【43】只对应一个自然段（⑩段），没有多段群可归并，所以本题比 41/42 更简单也更"狠"：<strong>整段只有一句话承载主旨</strong>，其余全是它的效果说明。这一句同时给出动作（make an effort to <strong>find</strong>）、对象（the things which you and that person <strong>have in common</strong>）和目的（build the conversation from that point）。标题题到这一步变成了"主旨句改写题"——把这一句压成祈使短语，就是答案。同时注意"从那里出发向外扩展"（start from there and move outwards）这个比喻：共同点是谈话的<strong>起点</strong>，标题必须保留"找"这个动作。</p>
+<h3>第 1 步：定位段落</h3>
+<blockquote>When you meet a person for the first time, <strong>make an effort to find the things which you and that person have in common</strong> so that you can <strong>build the conversation from that point</strong>. When you start conversation from there and then move outwards, you'll find all of a sudden that the conversation becomes a lot easier.</blockquote>
+<p>结构：①主旨句——初次见面努力找出<strong>共同点</strong>，从那里搭建对话；②效果句——从共同点出发向外扩展，对话会突然变得容易。全段主旨＝"找共同点，从共同点聊起"。</p>
+<h3>第 2 步：同义替换——"共同点"就是"me too"的时刻</h3>
+<p>[E] <strong>Find the "me too"s</strong> 是主旨句的口语化改写：<strong>find</strong> ↔ make an effort to find（动作原词保留）；<strong>the "me too"s</strong> ↔ the things which you and that person <strong>have in common</strong>——共同点的本质，就是谈话中一次次"我也是！"的瞬间（对方说他喜欢爬山，你说"me too"）。命题人把抽象的 have in common 翻译成生活化的 me too，考的是"同义换说法"的敏感度。</p>
+<h3>第 3 步：干扰项归因（本段如何排除其余选项）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>G Ask for an opinion</td><td>✗</td><td>动作错配：本段没有任何"问对方意见"的动作，find（找出）是<strong>观察与发现</strong>，不是发问；G 是【42】段 ask 一词的余波</td></tr><tr><td>A Just say it</td><td>✗</td><td>错位归宿：【41】段"开口说第一个词"的标题；本段假设对话已经展开，谈的是"往哪个方向聊"</td></tr><tr><td>F Skip the small talk</td><td>✗</td><td>错位归宿：【42】段"跳过寒暄"的标题；本段没有"略过什么"的否定动作，通篇是建设性的"找到、搭建"</td></tr></tbody></table>
+<p>（[B] Be present、[C] Pay a unique compliment、[D] Name, places, things 分别属于【44】段、无处安放、【45】段；本段群同样接不住。）</p>
+<h3>预判追问：me too 复数加引号这种"怪写法"在提示什么？</h3>
+<p>标题里的 the "me too"s（带引号、带复数）是把<strong>一类对话瞬间</strong>名词化：每次你与对方产生共同点，谈话里就多了一个"me too"时刻——所以用复数。这种"口语词＋引号＋复数"的标题风格是清单文的常见手笔（与 Just say it、Skip the small talk 同族：祈使句＋口语化）。反过来看，这也解释了为什么 [E] 与原文 have in common 对得上：<strong>引号里的口语词是"意译"，不是"字面查找"</strong>——找共同点的动作与 me too 的含义同构，即可入选。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：把"找共同点"脑补成"问对方兴趣"——find 是发现不是发问，且本段无 question/opinion 字眼。</li><li><strong>纠结 E 的字面</strong>：me too 在原文没出现过就慌——小标题本来就允许意译改写，判断标准是<strong>含义同构</strong>，不是词面复现。</li><li><strong>忽略目的从句</strong>：so that you can build the conversation from that point 说明共同点是谈话起点——"找到之后要用起来"，只认"找"不看"用"也能选对，但理解不完整。</li></ul>
+<blockquote>记忆锚点：单段短题＝<strong>一句主旨改写</strong>——find ↔ Find，have in common ↔ the "me too"s；口语词＋引号＋复数是意译不是字面；find 是观察发现，不是 ask 发问。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

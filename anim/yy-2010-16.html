@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-16 · 2010 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （协议特性、概念辨析、计算题的推理链、协议字段、特性对比……）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 16 所在句，考点：上下文语义 + 原词复现",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The new vaccine, which is different from the annual flu vaccine, is __16__ ahead of expectations.</div><p>空格是表语形容词，与 ahead of expectations（比预期提前）连用，说明新疫苗提前处于什么状态。</p>"
+ },
+ {
+  "title": "找证据 · 下一句原词复现 made available",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下一句原词复现 made available",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">More than three million doses were to be made available in early October 2009</div><p>下句“300 多万剂将于 10 月初可供使用”中 made available 原词复现——新疫苗提前“可获取、面世”。填空词与下文同词，直接锁定。</p>"
+ },
+ {
+  "title": "逐项分析 · A feasible（可行的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A feasible（可行的） ✗ 排除——feasible 修饰方案、计划（a feasibl",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>feasible 修饰方案、计划（a feasible plan），“疫苗可行”搭配错位；与下文 made available 也无呼应。</p><p style=\"color:#b91c1c\">⚠ 典型误解：找到褒义词就停手，不复核搭配对象。</p>"
+ },
+ {
+  "title": "逐项分析 · B available（可获得的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B available（可获得的） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>is available ahead of expectations = 比预期提前上市、可供使用，与下句 made available 原词复现，语义语法双合。</p>"
+ },
+ {
+  "title": "逐项分析 · C reliable（可靠的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C reliable（可靠的） ✗ 排除——reliable 说质量可靠；“提前可靠”逻辑不通（",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>reliable 说质量可靠；“提前可靠”逻辑不通（可靠与否与时间先后无关）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“提前面世的好消息”误读成“质量好”。</p>"
+ },
+ {
+  "title": "逐项分析 · D applicable（适用的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D applicable（适用的） ✗ 排除——applicable 指（规则、方法）适用、可应用",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>applicable 指（规则、方法）适用、可应用，对象常是规章条文；疫苗“适用”搭配别扭，也无复现支撑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：applicable 与 available 词首形近导致混认。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（available 可获得的；可用的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>新疫苗与每年的普通流感疫苗不同，比预期更早面世；2009 年 10 月初将有 300 多万剂可供使用。</b></p><p>答案选 <b>B（available 可获得的；可用的）</b>。</p><p><b>记忆锚点</b>：下句 made available 原词复现 → 空 16 = available（可获得的、已面世）；复现证据 > 语感。</p><p style=\"color:#b91c1c\">最易误选：<b>C（reliable）</b>——把“提前面世”的好消息误读成“质量可靠”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2010 完形第 16 空 · is ______ ahead of expectations：下一句的原词复现",
+  subtitle: "考点：上下文语义 + 原词复现 · 定位 → 复现 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（available）",
+ "html": "<b>B available（可获得的；可用的）</b>。<br>记忆锚点：下句 made available 原词复现 → 空 16 = available（可获得的、已面世）；复现证据 > 语感。<br>最易误选：<b>C（reliable）</b>——把“提前面世”的好消息误读成“质量可靠”。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2010 完形第 16 空 · is ______ ahead of expectations：下一句的原词复现</h2>
+<p>答案：<strong>B（available 可获得的；可用的）</strong>。</p>
+<h3>第 0 步：先立机制——本空的线索结构</h3>
+<p>ahead of expectations 限定了语义方向：疫苗提前做到了某事。而下文紧跟着 More than three million doses were to be made available in early October 2009——available 一词原样出现在下一句。这是完形里最硬的证据：复现。作者写 available 时，就是在替你填这个空。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The new vaccine, which is different from the annual flu vaccine, is __16__ ahead of expectations.</blockquote>
+<p>空格是表语形容词，与 ahead of expectations（比预期提前）连用，说明新疫苗提前处于什么状态。</p>
+<h3>第 2 步：找证据——下一句原词复现 made available</h3>
+<blockquote>More than three million doses were to be made available in early October 2009</blockquote>
+<p>下句“300 多万剂将于 10 月初可供使用”中 made available 原词复现——新疫苗提前“可获取、面世”。填空词与下文同词，直接锁定。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A feasible</td><td>可行的</td><td>✗ 排除</td><td>feasible 修饰方案计划，“疫苗可行”搭配错位。（典型误解：找到褒义词就停手，不复核搭配对象。）</td></tr><tr><td>B available</td><td>可获得的</td><td>✓ 当选</td><td>与下句 made available 原词复现，直接锁定。</td></tr><tr><td>C reliable</td><td>可靠的</td><td>✗ 排除</td><td>reliable 管质量，“提前”与“可靠”无逻辑关联。（典型误解：把“提前面世的好消息”误读成“质量好”。）</td></tr><tr><td>D applicable</td><td>适用的</td><td>✗ 排除</td><td>applicable 管规则条文适用，词首形近是干扰点。（典型误解：applicable 与 available 词首形近导致混认。）</td></tr></tbody></table>
+<p>代入后的完整句义：新疫苗与每年的普通流感疫苗不同，比预期更早面世；2009 年 10 月初将有 300 多万剂可供使用。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>复现证据为什么比语感更可靠？</strong>：复现（原词或同根词重现）是作者自己留下的词义注脚：作者写 available 时就在解释空格。原词复现几乎是完形的必杀级证据，优先级高于一切词义联想。</li><li><strong>ahead of expectations 的主语还能是什么状态？</strong>：常见于进度、产量、上市时间：ahead of schedule（提前于计划）、ahead of expectations（超出预期）。本句说的是疫苗面世时间提前。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（reliable）</strong>：把“提前面世”的好消息误读成“质量可靠”。</li><li><strong>误选 D（applicable）</strong>：词首形近混认，且没查下文复现。</li></ul>
+<blockquote>记忆锚点：下句 made available 原词复现 → 空 16 = available（可获得的、已面世）；复现证据 &gt; 语感。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

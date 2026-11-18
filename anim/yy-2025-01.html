@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-01 · 2025 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 1 所在句，考点：指代衔接 · this + 名词回指上句",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">There are many understandable reasons why you might find it difficult to ask for help when you need it. Psychologists have been interested in this __1__ for decades, not least because people's widespread __2__ to ask for help has led to some high-profile failures.</div><p>空格待填正确答案；本题考点：<b>指代衔接 · this + 名词回指上句</b>。方法主线：回指上句 → 名词归类 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · this + 名词是一道「回指路标」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：this + 名词是一道「回指路标」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>指代衔接题不能盯着空格所在的半句猜。<b>this + 名词</b>是英语里的回指路标：它指向上一句刚说完的内容，并用空格处的名词给那个内容「归类命名」。所以解题顺序固定两步：先回上一句弄清 this 指什么，再问「这件事是一个 ____？」——词义辨析只是最后的筛选器。</p>"
+ },
+ {
+  "title": "证据 · ①句已把「这个问题」摆上桌",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：①句已把「这个问题」摆上桌",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格句说：心理学家几十年来一直对这个 ____ 感兴趣。对「什么」感兴趣？本句自己答不了，必须看上一句：①句提出一个完整的问题——<b>为什么你需要帮助时，却难以开口求助</b>（why 引出的疑问内容）。this + 单数可数名词，正好把这件事归类为「一个问题」。</p>"
+ },
+ {
+  "title": "逐项分析 · A illusion（幻想；错觉）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A illusion（幻想；错觉） ✗ 排除——上文无「幻觉」信息，①句说的困难是真实存在的",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>①句说求助难有「合情合理的原因」（understandable reasons），是真实存在的心理现象；上文没有任何「幻觉」信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「开口求助难」当成一种错觉。</p>"
+ },
+ {
+  "title": "逐项分析 · B discussion（讨论；商讨）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B discussion（讨论；商讨） ✗ 排除——interested in ≠ discussion，上文没有「讨论」发生",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>interested in this discussion =「对这场讨论感兴趣」，但上文没有任何「讨论」发生；心理学家感兴趣的是①句提出的问题本身。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「对……感兴趣」脑补成「讨论过这个话题」。</p>"
+ },
+ {
+  "title": "逐项分析 · C tradition（传统；风俗）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C tradition（传统；风俗） ✗ 排除——全文谈求助心理障碍，与「传统」无信息复现",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>全文谈求助的心理障碍，与「传统」毫无信息复现；this 的回指对象是①句的疑问内容。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看搭配顺口，不核对 this 的回指内容。</p>"
+ },
+ {
+  "title": "逐项分析 · D question（问题；困惑）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D question（问题；困惑） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>this question 回指①句提出的「为什么求助难」这一问题；be interested in this question 语义与搭配都咬合。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（question 问题；困惑）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>心理学家几十年来一直对这个问题感兴趣，尤其是因为人们普遍不愿寻求帮助，这已经导致了一些广受关注的失败。</b></p><p>答案选 <b>D（question 问题；困惑）</b>。</p><p><b>记忆锚点</b>：this + 名词 = 给上句内容「贴标签」：先回上一句找到「这」指什么，再选名词归类——question 正是「为什么求助难」的归类。</p><p style=\"color:#b91c1c\">最易误选：<b>B（discussion）</b>——把「对……感兴趣」脑补成「讨论过这个话题」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 1 空 · Psychologists have been interested in this ____ for decades",
+  subtitle: "考点：指代衔接（this + 名词）· 回指上句 → 名词归类 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 D（question）",
+ "html": "<b>D question（问题；困惑）</b>。<br>完整句义：心理学家几十年来一直对这个问题感兴趣，尤其是因为人们普遍不愿寻求帮助，这已经导致了一些广受关注的失败。<br>记忆锚点：this + 名词 = 给上句内容「贴标签」：先回上一句找到「这」指什么，再选名词归类——question 正是「为什么求助难」的归类。<br>最易误选：<b>B（discussion）</b>——把「对……感兴趣」脑补成「讨论过这个话题」。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 1 空 · 指代衔接 · this + 名词回指上句</h2>
+<p>答案：<strong>D（question 问题；困惑）</strong>。</p>
+<h3>第 0 步：先立机制——this + 名词是一道「回指路标」</h3>
+<p>指代衔接题不能盯着空格所在的半句猜。<strong>this + 名词</strong>是英语里的回指路标：它指向上一句刚说完的内容，并用空格处的名词给那个内容「归类命名」。所以解题顺序固定两步：先回上一句弄清 this 指什么，再问「这件事是一个 ____？」——词义辨析只是最后的筛选器。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>There are many understandable reasons why you might find it difficult to ask for help when you need it. Psychologists have been interested in this __1__ for decades, not least because people's widespread __2__ to ask for help has led to some high-profile failures.</blockquote>
+<p>空格句说：心理学家几十年来一直对这个 ____ 感兴趣。对「什么」感兴趣？本句自己答不了，必须看上一句：①句提出一个完整的问题——<strong>为什么你需要帮助时，却难以开口求助</strong>（why 引出的疑问内容）。this + 单数可数名词，正好把这件事归类为「一个问题」。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A illusion</td><td>幻想；错觉</td><td>✗ 排除</td><td>①句说求助难有「合情合理的原因」（understandable reasons），是真实存在的心理现象；上文没有任何「幻觉」信息。</td></tr><tr><td>B discussion</td><td>讨论；商讨</td><td>✗ 排除</td><td>interested in this discussion =「对这场讨论感兴趣」，但上文没有任何「讨论」发生；心理学家感兴趣的是①句提出的问题本身。</td></tr><tr><td>C tradition</td><td>传统；风俗</td><td>✗ 排除</td><td>全文谈求助的心理障碍，与「传统」毫无信息复现；this 的回指对象是①句的疑问内容。</td></tr><tr><td>D question</td><td>问题；困惑</td><td>✓ 当选</td><td>this question 回指①句提出的「为什么求助难」这一问题；be interested in this question 语义与搭配都咬合。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「开口求助难」当成一种错觉 → 误选 A（illusion）</strong>：①句说求助难有「合情合理的原因」（understandable reasons），是真实存在的心理现象；上文没有任何「幻觉」信息。</li><li><strong>把「对……感兴趣」脑补成「讨论过这个话题」 → 误选 B（discussion）</strong>：interested in this discussion =「对这场讨论感兴趣」，但上文没有任何「讨论」发生；心理学家感兴趣的是①句提出的问题本身。</li><li><strong>只看搭配顺口，不核对 this 的回指内容 → 误选 C（tradition）</strong>：全文谈求助的心理障碍，与「传统」毫无信息复现；this 的回指对象是①句的疑问内容。</li></ul>
+<blockquote>记忆锚点：this + 名词 = 给上句内容「贴标签」：先回上一句找到「这」指什么，再选名词归类——question 正是「为什么求助难」的归类。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

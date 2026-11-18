@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-35 · 2022 阅读 Text 3 第 35 题 · 应对黑暗模式的关键是什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · 题干自带定位（末段）",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：题干限定 last paragraph——本段话题是“该由谁负责”",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">As more states consider promulgating additional regulations, there is a need for greater accountability from within the business community. Dark patterns also can be addressed on a self-regulatory basis, but only if organizations hold themselves accountable…</div><p>①句呼吁：商界内部要增强责任感；②句给出路径：黑暗模式可以在<b>自我监管</b>的基础上解决——前提是各机构自己对自己负责。</p>"
+  },
+  {
+   "title": "机制 · 段旨题 = 责任主体对号入座",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：四个选项各代表一种责任主体——法律/企业/监管/消费者",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>题干已限定末段，这类题实际考<b>段落主旨</b>；本段话题是“黑暗模式该由谁负责”。</p><p>所以解题动作是主体对号入座：A=法律、B=企业、C=监管机构、D=消费者。先看末段的责任主体是谁——<b>business community / organizations / themselves，全是企业</b>。</p>"
+  },
+  {
+   "title": "证据 · 三个“自我”表达",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：self-regulatory + hold themselves accountable + accountability from within",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>定位句的三个表达同指一事：<b>self-regulatory（自我监管）</b>、<b>hold themselves accountable（自己对自己负责）</b>、<b>accountability from within（内部问责）</b>——而且还要“不仅对法律要求负责，更要对行业最佳实践与标准负责”。</p>"
+  },
+  {
+   "title": "逐项分析 · A new legal requirements",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A new legal requirements ✗ 排除——原词只是对比项",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>legal requirements 是原词，但句法上它是被“捎带”的对比项：<b>not just to legal requirements but also to industry best practices</b>——重点在“不止于法律”的自律。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见原词就选——原词复现恰恰是细节题最需警惕的位置。</p>"
+  },
+  {
+   "title": "逐项分析 · B businesses’ self-discipline",
+   "cls": "good",
+   "tag": "选定 B",
+   "log": "B businesses’ self-discipline ✓ 当选——三重同义替换",
+   "count": 1,
+   "ribbon": {
+    "k": "B",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>business ↔ business community / organizations；self-discipline ↔ self-regulatory / hold themselves accountable。代入题干：「应对黑暗模式的一个关键在于企业的自我约束」——正是末段核心。</p>"
+  },
+  {
+   "title": "逐项分析 · C strict regulatory standards",
+   "cls": "bad",
+   "tag": "排除 C",
+   "log": "C strict regulatory standards ✗ 排除——第五段的路线",
+   "count": 2,
+   "ribbon": {
+    "k": "C",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>“监管者立标准”是<b>第五段</b>立法监管路线（CCPA 补充规定）的措施；题干限定末段=自律路线。</p><p style=\"color:#b91c1c\">⚠ 典型误解：两段都是“应对方案”，主体与手段完全不同，别串门。</p>"
+  },
+  {
+   "title": "逐项分析 · D consumers’ safety awareness",
+   "cls": "bad",
+   "tag": "排除 D",
+   "log": "D consumers’ safety awareness ✗ 排除——消费者没出场",
+   "count": 3,
+   "ribbon": {
+    "k": "D",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>末段责任主体从头到尾是 business community / organizations，消费者没有出场。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 self-regulatory 误读成“消费者自行防范”——self- 修饰的是企业的监管行为。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 B",
+   "log": "答案 B（businesses’ self-discipline）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>题干限定末段 → 主体全是企业（business community/organizations）→ self-regulatory + hold themselves accountable → businesses’ self-discipline</b>。</p><p>答案选 <b>B（businesses’ self-discipline）</b>。</p><p><b>记忆锚点</b>：他律（第五段 CCPA）vs 自律（末段）两条路线；not just to… 拎出的原词是对比项不是重点。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——被 legal requirements 原词勾走。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 阅读 Text 3 第 35 题 · 应对黑暗模式的关键是什么",
+  subtitle: "考点：末段段旨题 · 责任主体对号入座 + 他律 vs 自律",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 B（businesses’ self-discipline）",
+  "html": "<b>B businesses’ self-discipline（企业的自我约束）</b>。<br>business community / organizations ↔ businesses；self-regulatory / hold themselves accountable ↔ self-discipline。<br>记忆锚点：第五段“他律”（立法监管）vs 末段“自律”（企业问责）两条路线别串门；原词复现处常是对比项。<br>最易误选：<b>A</b>——legal requirements 只是 not just to… 的对比项。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 阅读 Text 3 第 35 题 · 应对黑暗模式的关键是什么</h2>
+<p>答案：<strong>B（businesses' self-discipline 企业的自我约束）</strong>。</p>
+<h3>第 0 步：先立机制——题干给段落，考的就是"段旨 + 责任主体"</h3>
+<p>题干已限定 According to the last paragraph（末段），这类题实际考段落主旨，而本段的话题是"黑暗模式该由<strong>谁</strong>负责"。所以解题动作是两步：概括末段核心（谁担责），再把四个选项各自代表的责任主体（法律 / 企业 / 监管 / 消费者）对号入座——主体的方向对不对，比细节词更能快速筛选项。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>As more states consider promulgating additional regulations, there is a need for greater accountability from within the business community. Dark patterns also can be addressed on a self-regulatory basis, but only if organizations hold themselves accountable, not just to legal requirements but also to industry best practices and standards.</blockquote>
+<p>①句呼吁：商界内部要增强责任感；②句给出路径：黑暗模式可以在<strong>自我监管</strong>（self-regulatory）的基础上解决——前提是各机构自己对自己负责，既要对法律要求负责，也要对行业最佳实践和标准负责。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>business community / organizations ↔ businesses；accountability from within / self-regulatory / hold themselves accountable ↔ self-discipline。三个"自我"表达共同指向"企业的自我约束"。当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A new legal requirements</td><td>✗</td><td>legal requirements 原文有，但它是企业自我约束<strong>之外</strong>还要兼顾的基准，不是本段提出的"关键"。（典型误解：见到原词就选，忘了题干限定末段主旨。）</td></tr><tr><td>B businesses' self-discipline</td><td>✓</td><td>business ↔ business community；self-discipline ↔ self-regulatory / hold themselves accountable。</td></tr><tr><td>C strict regulatory standards</td><td>✗</td><td>"监管者立标准"是<strong>第五段</strong>立法监管路线的措施，张冠李戴到末段。（典型误解：两段"应对方案"混淆——第五段靠立法，末段靠自律。）</td></tr><tr><td>D consumers' safety awareness</td><td>✗</td><td>末段责任主体从头到尾是 business community / organizations，消费者没有出场。（典型误解：把 self-regulatory 误读成"消费者自行防范"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A 里 legal requirements 是原词，为什么不选？</strong>：注意②句的句法——not just to legal requirements but also to industry best practices：法律要求只是被"捎带"的对比项，作者强调的是"不止于此"的行业自律。原词复现恰恰是细节题里最需要警惕的位置。</li><li><strong>第五段与末段怎么分工？</strong>：第五段是"他律"路线（lawmakers and regulators 颁布 CCPA 补充规定），末段是"自律"路线（business community 内部问责）。题干限定末段，答案只能出自自律路线。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A/C</strong>：把上一段立法监管的措施迁到末段——两段都是"应对黑暗模式"，但主体与手段完全不同。</li><li><strong>误选 D</strong>：见 self-regulatory 就想到"自我保护"，忽略了 self- 修饰的是 organizations 的监管行为。</li></ul>
+<blockquote>记忆锚点：段落主旨题先抓责任主体：the business community / organizations → businesses；self-regulatory / hold themselves accountable → self-discipline；"他律（第五段）vs 自律（末段）"两条路线别串门。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

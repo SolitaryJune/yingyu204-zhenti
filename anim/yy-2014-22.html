@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-22 · 2014 阅读第 22 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 态度题找“评价词”，不找事实",
+  "cls": "key",
+  "tag": "审题",
+  "log": "态度题：答案藏在作者选词的情感色彩里",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>The author's attitude toward Americans' watching TV is ____.</b></p><p>“美国人每年看两个月电视”是中性事实，态度藏在<b>修饰语</b>上（whopping？hardly？）。把定位句里的评价性零件逐个拆出来读温度。</p>"
+ },
+ {
+  "title": "定位原文 · 第三段②句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第三段②句：建议少看电视，括号里补斥责性证据",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It seems most people would be better off if they could shorten their commutes to work, spend more time with friends and family and <b>less of it watching television</b> (something the average American spends a <b>whopping</b> two months a year doing, and is <b>hardly jollier</b> for it).</div><p>作者的建议结构：少通勤、多陪家人、<b>少看电视</b>——“少看”本身已是负面立场；括号里补证据。</p>"
+ },
+ {
+  "title": "评价零件拆读 · 三处全负",
+  "cls": "key",
+  "tag": "拆读",
+  "log": "less of it（负）+ whopping two months（负）+ hardly jollier（负）→ 批评",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① <b>less of it watching television</b>（负）：建议少看——立场先行；② <b>whopping two months a year</b>（负）：“整整两个月”是斥责数量，不是陈述数字；③ <b>hardly jollier for it</b>（负）：花了海量时间却毫无快乐回报。</p><p>三处评价全负且方向一致 → <b>批评</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A critical（批评的）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A critical（批评的） ✓ 当选——三处负面评价的概括",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>“少看 + 斥责耗时 + 否定回报”三处负面评价的概括提炼，正是 critical。</p>"
+ },
+ {
+  "title": "逐项分析 · B supportive（支持的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B supportive（支持的） ✗ 排除——方向相反",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>方向相反：better off 是“<b>少</b>看电视才过得更好”，不是“看电视好”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：断章取义 better off，忽略它的条件从句是“少看”。</p>"
+ },
+ {
+  "title": "逐项分析 · C sympathetic（同情的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C sympathetic（同情的） ✗ 排除——是责备行为，不是怜悯遭遇",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>hardly jollier 说的是“<b>不值得</b>”，不是“可怜他们”；作者把锅扣在“看电视”这个行为上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见美国人辛苦两月就联想同情——同情的落点是“遭遇”，批评的落点是“行为”。</p>"
+ },
+ {
+  "title": "逐项分析 · D ambiguous（模糊的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D ambiguous（模糊的） ✗ 排除——三处评价方向一致，态度毫不含糊",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>三处评价方向一致、火力集中，恰是最不含糊的一类态度题。</p><p style=\"color:#b91c1c\">⚠ 典型误解：找不到明确态度词就选“模糊”，用“看电视有利有弊”的常识猜作者。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（critical）——评价零件三连负",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>A（critical 批评的）</b>。</p><p><b>记忆锚点</b>：态度题拆定位句的评价零件（形容词 / 副词 / 比较级）；less of it + whopping + hardly jollier = 三连负 → critical。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 C——把“没得到快乐”读成“作者心疼美国人”，错把批评当怜悯。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 22 题 · 作者对“美国人看电视”的态度——拆括号里的评价词",
+  subtitle: "考点：态度题 · 拆评价零件（less of it / whopping / hardly jollier）三连负 → critical",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（critical）",
+ "html": "<b>A critical（批评的）</b>：less of it watching television（建议少看）+ whopping two months a year（斥责耗时）+ hardly jollier for it（否定回报）——三连负。<br>B 方向反；C 是怜悯不是责备；D 三处火力一致并不模糊。<br>记忆锚点：态度题拆评价零件，方向一致即定音。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 22 题 · 作者对"美国人看电视"的态度——拆括号里的评价词</h2>
+<p>答案：<strong>A（critical 批评的）</strong>。</p>
+<h3>第 0 步：先立机制——态度题找"评价词"，不找事实</h3>
+<p>态度题的答案藏在作者选词的<strong>情感色彩</strong>里："美国人每年看两个月电视"是中性事实，态度藏在修饰语上（whopping？hardly？）。把定位句里的评价性零件逐个拆出来读温度，态度就现形了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It seems most people would be better off if they could shorten their commutes to work, spend more time with friends and family and less of it watching television (something the average American spends a whopping two months a year doing, and is hardly jollier for it).</blockquote>
+<p>作者的建议结构：少通勤、多陪家人、<strong>少看电视</strong>（less of it watching television）——"少看"本身已是负面立场。括号里补证据：a whopping two months a year（一年多达两个月，whopping = 大得惊人的，斥责语气）+ and is hardly jollier for it（却并未因此更快乐，hardly 全盘否定回报）。</p>
+<h3>第 2 步：评价零件拆读</h3>
+<table><thead><tr><th>零件</th><th>温度</th><th>说明</th></tr></thead><tbody><tr><td>less of it watching television</td><td>负</td><td>建议少看——作者立场先行</td></tr><tr><td>whopping two months a year</td><td>负</td><td>"整整两个月"是斥责数量，不是陈述数字</td></tr><tr><td>hardly jollier for it</td><td>负</td><td>花了海量时间却毫无快乐回报</td></tr></tbody></table>
+<p>三处评价全负且方向一致 → 态度 = 批评。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A critical</td><td>批评的</td><td>✓ 当选</td><td>"少看 + 斥责耗时 + 否定回报"三处负面评价的概括。</td></tr><tr><td>B supportive</td><td>支持的</td><td>✗ 排除</td><td>方向相反：better off 是"少看电视才过得更好"，不是"看电视好"。（典型误解：断章取义 better off。）</td></tr><tr><td>C sympathetic</td><td>同情的</td><td>✗ 排除</td><td>hardly jollier 说的是"不值得"，不是"可怜他们"。（典型误解：见美国人辛苦两月就联想同情。）</td></tr><tr><td>D ambiguous</td><td>模糊的</td><td>✗ 排除</td><td>三处评价方向一致，态度毫不含糊。（典型误解：用"看电视有利有弊"的常识去猜作者。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>态度题需要通读全文吗？</strong>：不需要。题干锁定 watching TV，全文只有第三段②句谈它；态度题的功夫在"拆评价词"，不在"扫全文"。</li><li><strong>为什么 C 不对？hardly jollier 不是很惨吗？</strong>：惨不惨不重要，重要的是作者的归因——作者把锅扣在"看电视"这个行为上（浪费两个月还没换来快乐），语气是责备而非怜悯：同情的落点是"遭遇"，批评的落点是"行为"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：把"没得到快乐"读成"作者心疼美国人"，错把批评当怜悯。</li><li><strong>误选 D</strong>：找不到明确态度词就选"模糊"——本题评价词密集且方向一致，恰是最不含糊的一类。</li></ul>
+<blockquote>记忆锚点：态度题拆定位句的评价零件（形容词 / 副词 / 比较级）；less of it + whopping + hardly jollier = 三连负 → critical。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

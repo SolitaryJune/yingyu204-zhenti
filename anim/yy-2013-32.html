@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-32 · 2013 阅读第 32 题 · 快餐标志实验说明快速决策什么特点</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · fast-food logo 锁第三段",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "fast-food logo 锁定第三段；例证题先看例子服务的论点，再从机制句找答案",
+  "count": 0,
+  "body": "<p>题干：Our reaction to a fast-food logo shows that snap decisions ___。<b>fast-food logo</b> 锁定第三段。例证题两问：例子要证明的<b>论点</b>是什么？例子里的<b>机制句</b>与哪个选项同源？</p>"
+ },
+ {
+  "title": "论点句 · 快速决策会“串场”",
+  "cls": "key",
+  "tag": "论点",
+  "log": "第三段首句：由瞬间刺激触发的快速决策不只存在于人际领域——快餐标志实验为证",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But snap decisions in reaction to rapid stimuli aren’t exclusive to the interpersonal realm.</div><p>第三段首句：由瞬间刺激触发的快速决策<b>不只存在于人际领域</b>——快速反应会“串场”。快餐标志实验就是来证明这一点的。</p>"
+ },
+ {
+  "title": "实验与机制 · 联想传导",
+  "cls": "key",
+  "tag": "机制",
+  "log": "看几毫秒快餐标志，阅读就快 20%——机制：无意识地把快餐与“快”联想并带进其他事",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">viewing a fast-food logo for just a few milliseconds primes us to read 20 percent faster, even though reading has little to do with eating. We unconsciously associate fast food with speed and impatience and carry those impulses into whatever else we’re doing.</div><p>实验：看几毫秒快餐标志，阅读速度就快 20%——<b>阅读和吃饭毫无关系</b>！机制句：我们无意识地把“快餐”与“快、急躁”<b>联想（associate... with...）</b>起来，并把这些冲动<b>带进</b>其他事情。看标志 → 联想“快” → 传导到阅读：这正是“关联传导”。</p>"
+ },
+ {
+  "title": "选项 A · 快速决策可能具有关联性",
+  "cls": "good",
+  "tag": "当选 A",
+  "log": "A can be associative ✓ 当选——associate... with... and carry... into... 的同源改写",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>同源改写：<b>associate</b> fast food with speed and <b>carry</b> those impulses into whatever else we’re doing → snap decisions <b>can be associative</b>（具有联想 / 关联性）。机制词 associate 与选项 associative 同根直连。</p>"
+ },
+ {
+  "title": "选项 B · 不是潜意识的",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B are not unconscious ✗ 排除——反向干扰：原文白纸黑字 unconsciously",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>反向干扰：原文白纸黑字 We <b>unconsciously</b> associate——“无意识地”，[B] 说“不是潜意识的”，方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：un- 否定前缀漏看，词义方向记反。</p>"
+ },
+ {
+  "title": "选项 C · 可能有危险",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C can be dangerous ✗ 排除——跨段设障：dangerous 出自第二段“判断危险人物”",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>跨段设障：dangerous 出自<b>第二段</b>“判断某人是否危险”——那是危险人物判断的话题，与快餐标志实验无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见原词就选，不核对段落。</p>"
+ },
+ {
+  "title": "选项 D · 并非是冲动的",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D are not impulsive ✗ 排除——反向干扰：原文 carry those impulses，冲动性恰是特点",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>反向干扰：原文 <b>carry those impulses</b>（把冲动带进所做的事情）——快速决策恰恰是冲动性的，[D] 说“不冲动”方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：impulses（冲动）的词义方向没读出来。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（can be associative）——论点句 + 机制句同源改写合围",
+  "count": 3,
+  "body": "<p>答案选 <b>A（can be associative 可能具有关联性）</b>。</p><p><b>记忆锚点</b>：例证题两问——例子证明什么论点（快速决策跨领域传导）+ 机制句同源改写（associate... with... → associative）；两个反向干扰（unconsciously / impulses）都是“否定前缀与词义方向”题。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 32 题 · 快餐标志实验说明快速决策什么特点",
+  "subtitle": "考点：例证推理题 · 例子为论点服务 · associate → associative 同源改写",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（can be associative）",
+ "html": "<b>A 快速决策可能具有关联性</b>：快餐标志 → 无意识 associate fast food with speed → impulses 带进无关的阅读——关联传导。<br>最易误选：<b>C</b>——dangerous 是第二段“危险人物判断”的词，跨段设障。<br>记忆锚点：associate... with... → associative 同源直连；unconsciously / impulses 两个反向干扰盯住否定与词义方向。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 32 题 · 快餐标志实验说明快速决策什么特点</h2>
+<p>答案：<strong>A（can be associative 可能具有关联性）</strong>。</p>
+<h3>第 0 步：先立机制——例证题的两问</h3>
+<p>题干 Our reaction to a fast-food logo <strong>shows that</strong>（我们的反应表明）——这是例证题。解例证题要连问两问：① 例子要证明的<strong>论点</strong>是什么（例子前的首句）；② 例子内部的<strong>机制句</strong>与哪个选项同源。fast-food logo 直接锁定第三段。</p>
+<h3>第 1 步：论点句</h3>
+<blockquote>But snap decisions in reaction to rapid stimuli aren't exclusive to the interpersonal realm.</blockquote>
+<p>第三段首句：由瞬间刺激触发的快速决策<strong>不只存在于人际领域</strong>——快速反应会“串场”。快餐标志实验就是来证明这一点的。</p>
+<h3>第 2 步：实验与机制句</h3>
+<blockquote>viewing a fast-food logo for just a few milliseconds primes us to read 20 percent faster, even though reading has little to do with eating. We unconsciously associate fast food with speed and impatience and carry those impulses into whatever else we're doing.</blockquote>
+<p>实验：看几毫秒快餐标志，阅读速度就快 20%——而<strong>阅读和吃饭毫无关系</strong>！机制句：我们无意识地把“快餐”与“快、急躁”<strong>联想（associate... with...）</strong>起来，并把这些冲动<strong>带进（carry... into...）</strong>其他事情。看标志 → 联想“快” → 传导到阅读：这正是“关联传导”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A can be associative</td><td>✓ 当选</td><td>机制句的同源改写：<strong>associate</strong> fast food with speed and carry those impulses into whatever else → 快速决策具有联想 / 关联性。</td></tr><tr><td>B are not unconscious</td><td>✗ 排除</td><td>反向干扰：原文白纸黑字 We <strong>unconsciously</strong> associate——“无意识地”，[B] 说“不是潜意识的”，方向相反。（典型误解：un- 否定前缀漏看，词义方向记反。）</td></tr><tr><td>C can be dangerous</td><td>✗ 排除</td><td>跨段设障：dangerous 出自<strong>第二段</strong>“判断某人是否危险”——那是危险人物判断的话题，与快餐标志实验无关。（典型误解：见原词就选，不核对段落。）</td></tr><tr><td>D are not impulsive</td><td>✗ 排除</td><td>反向干扰：原文 <strong>carry those impulses</strong>（把冲动带进所做的事情）——快速决策恰恰是冲动性的，[D] 说“不冲动”方向相反。（典型误解：impulses 的词义方向没读出来。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>associative 这个词原文没有，凭什么选它？</strong>：它是原文动词 associate 的形容词形式——同源改写。mechanism（机制）→ 性质（特点）是例证题的常规推导：实验证明的“特点”就是机制句里那个动作的属性（associate → associative“联想性的”）。</li><li><strong>B、D 都是“否定原文”型干扰，如何快速识破？</strong>：把选项里的 not 删掉再对照原文——are unconscious（√ 原文说 unconsciously）、are impulsive（√ 原文说 carry impulses）都成立，加上 not 就反了。凡选项对原文关键词“加 not”，先怀疑方向反转。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：dangerous 是第二段的原词，跨段移植——核对段落即可排除。</li><li><strong>误选 B 或 D</strong>：否定前缀 / 词义方向出错，正着读反了。</li></ul>
+<blockquote>记忆锚点：例证题两问——例子证明什么论点（快速决策跨领域传导）+ 机制句同源改写（associate... with... → associative）；unconsciously / impulses 两个反向干扰都是“否定与词义方向”题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

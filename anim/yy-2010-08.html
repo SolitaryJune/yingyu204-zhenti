@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-08 · 2010 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （协议特性、概念辨析、计算题的推理链、协议字段、特性对比……）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 8 所在句，考点：介词用法群体语义",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The outbreak came to global notice in late April 2009, when Mexican authorities noted an unusually large number of hospitalizations and deaths __8__ healthy adults.</div><p>空格是介词，连接 hospitalizations and deaths（住院与死亡）和 healthy adults（健康成年人）两个名词块。</p>"
+ },
+ {
+  "title": "找证据 · unusually 的惊讶感从哪来",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：unusually 的惊讶感从哪来",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">noted an unusually large number of hospitalizations and deaths __8__ healthy adults</div><p>unusually（异常地）是语义提示：住院死亡发生在本该健康的成年人群体中，才显得异常。第 4 空刚说过绝大多数患者症状轻微、能自愈——healthy adults 正是伏笔，介词必须表达“群体内发生”，among 正是此义。</p>"
+ },
+ {
+  "title": "逐项分析 · A over（越过；优于）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A over（越过；优于） ✗ 排除——over 表“越过、胜过”",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>over 表“越过、胜过”，“死亡优于健康成年人”完全不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：对 over 的多义不做筛选。</p>"
+ },
+ {
+  "title": "逐项分析 · B for（对于）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B for（对于） ✗ 排除——for 表“对于”",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>for 表“对于”，读起来像在谈论针对他们的数据，但丢失了“发生在这群人之中”的核心语义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 for 当万能介词。</p>"
+ },
+ {
+  "title": "逐项分析 · C among（在……群体中）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C among（在……群体中） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>among healthy adults = 在健康成年人（这一群体）中，准确表达病例在人群内部的分布。</p>"
+ },
+ {
+  "title": "逐项分析 · D to（对于；到）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D to（对于；到） ✗ 排除——to 表方向或对象",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>to 表方向或对象，“死亡到健康成年人”不成话。</p><p style=\"color:#b91c1c\">⚠ 典型误解：未代入句义核对方向。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（among 在……群体中）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>墨西哥当局注意到健康成年人中出现了异常多的住院与死亡病例。</b></p><p>答案选 <b>C（among 在……群体中）</b>。</p><p><b>记忆锚点</b>：人群内部发生 → among healthy adults；unusually 的惊讶感正来自“健康群体中出现死亡”。</p><p style=\"color:#b91c1c\">最易误选：<b>B（for）</b>——用“对于”粗略带过，丢了“群体之内发生”这一核心语义。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2010 完形第 8 空 · 住院与死亡 ______ healthy adults：群体里的介词",
+  subtitle: "考点：介词用法（群体语义） · 定位 → 复现 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（among）",
+ "html": "<b>C among（在……群体中）</b>。<br>记忆锚点：人群内部发生 → among healthy adults；unusually 的惊讶感正来自“健康群体中出现死亡”。<br>最易误选：<b>B（for）</b>——用“对于”粗略带过，丢了“群体之内发生”这一核心语义。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2010 完形第 8 空 · 住院与死亡 ______ healthy adults：群体里的介词</h2>
+<p>答案：<strong>C（among 在……群体中）</strong>。</p>
+<h3>第 0 步：先立机制——本空的线索结构</h3>
+<p>要表达的逻辑是：这些病例发生在“健康成年人”这一人群之中——之所以令人惊讶，恰恰因为他们原本是健康的人。表达“在某个群体内部”的介词是 among。四个选项都是纯介词比拼，判断标准只有一条：谁能把“群体内发生”说出来。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The outbreak came to global notice in late April 2009, when Mexican authorities noted an unusually large number of hospitalizations and deaths __8__ healthy adults.</blockquote>
+<p>空格是介词，连接 hospitalizations and deaths（住院与死亡）和 healthy adults（健康成年人）两个名词块。</p>
+<h3>第 2 步：找证据——unusually 的惊讶感从哪来</h3>
+<blockquote>noted an unusually large number of hospitalizations and deaths __8__ healthy adults</blockquote>
+<p>unusually（异常地）是语义提示：住院死亡发生在本该健康的成年人群体中，才显得异常。第 4 空刚说过绝大多数患者症状轻微、能自愈——healthy adults 正是伏笔，介词必须表达“群体内发生”，among 正是此义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A over</td><td>越过；优于</td><td>✗ 排除</td><td>over 表“越过、胜过”，与句义无关。（典型误解：对 over 的多义不做筛选。）</td></tr><tr><td>B for</td><td>对于</td><td>✗ 排除</td><td>for 的“对于”丢掉了“群体内发生”的核心义。（典型误解：把 for 当万能介词。）</td></tr><tr><td>C among</td><td>在……群体中</td><td>✓ 当选</td><td>among 表“在群体中”，准确表达病例在人群内的分布。</td></tr><tr><td>D to</td><td>对于；到</td><td>✗ 排除</td><td>to 表方向/对象，代入后不成话。（典型误解：未代入句义核对方向。）</td></tr></tbody></table>
+<p>代入后的完整句义：墨西哥当局注意到健康成年人中出现了异常多的住院与死亡病例。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不是 in healthy adults？</strong>：in 也能表“在……之内”，但多用于具体空间或范围；对“人群”这一集合体，英语惯用 among the adults、among patients。而且本题四个选项里根本没有 in，among 是唯一表达群体分布的。</li><li><strong>healthy adults 前文有伏笔吗？</strong>：有。第 4 空刚说过绝大多数患者症状轻微、能自愈——那么健康成年人中出现的死亡自然“异常（unusually）”。unusually large 与 among healthy adults 共同制造了惊讶感。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（for）</strong>：用“对于”粗略带过，丢了“群体之内发生”这一核心语义。</li><li><strong>误选 A（over）</strong>：只记得 over 也能跟名词，没核对“越过、胜过”义与句义的距离。</li></ul>
+<blockquote>记忆锚点：人群内部发生 → among healthy adults；unusually 的惊讶感正来自“健康群体中出现死亡”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

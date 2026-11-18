@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-19 · 2014 完形第 19 空</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 空格名词是“总称”，下文全是“分例”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "名词题：空格处在总起位，下文三个例子——口袋的形状由要装的东西决定",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>anti-obesity <b>__19__</b> 处在“总起位”，后面紧跟一连串具体例子。空格名词必须能<b>同时装下所有例子</b>——像选口袋：口袋的形状由要装的东西决定。</p>"
+ },
+ {
+  "title": "定位原文 · 空 19 及其后的三个例子",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：医院禁糖 / 雇主推健身 / 第一夫人发起运动——三个例子依次排开",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Negative attitudes toward obesity, grounded in health concerns, have stimulated a number of anti-obesity <b>__19__</b>. My own hospital system has banned sugary drinks from its facilities. Many employers have instituted weight loss and fitness initiatives. Michelle Obama has launched a high-visibility campaign __20__ childhood obesity...</div><p>三个例子的主语分别是：<b>医院系统、雇主、第一夫人</b>。</p>"
+ },
+ {
+  "title": "找证据 · 三个例子各投一票",
+  "cls": "key",
+  "tag": "证据",
+  "log": "禁令 + 计划 + 运动 = 机构“制定并推行”的行动方案 → policy 的画像",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>①医院<b>禁止</b>含糖饮料 → 一条规定；②雇主<b>推行</b>减肥健身计划 → 一项举措；③第一夫人<b>发起</b>高调运动 → 一项行动。</p><p>共性：机构或权威方<b>制定并推行</b>的行动方案——这正是 <b>policy（政策）</b> 的画像；且只有“政策”这个中性机构名词能通吃三类主语。</p>"
+ },
+ {
+  "title": "逐项分析 · A discussions（讨论）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A discussions（讨论） ✗ 排除——例子全是已落地的行动",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>禁售、推行、发起都是已落地的行动，不是“纸上谈论”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“担忧引发反响”粗化成“引发讨论”，“讨论”这个中间环节是脑补。</p>"
+ },
+ {
+  "title": "逐项分析 · B businesses（业务，生意）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B businesses（生意） ✗ 排除——医院与第一夫人的行为不是商业行为",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>医院禁糖、第一夫人发起运动不是商业行为，主体错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 employers（雇主）就联想“生意”——这里的雇主是以机构身份推行健康倡议。</p>"
+ },
+ {
+  "title": "逐项分析 · C policies（政策）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C policies（政策） ✓ 当选——禁令、计划、运动皆可归入“政策”",
+  "count": 0,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>三个例子（禁令 / 计划 / 运动）皆为“机构推行的行动方案”，policies 一词全包，主语身份（医院/雇主/第一夫人）也通吃。</p>"
+ },
+ {
+  "title": "逐项分析 · D studies（研究）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D studies（研究） ✗ 排除——本段没有任何研究证据",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>本段没有一个研究证据（无数据、无实验）可供对应，例子集体“缺席”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被首段“studies have __1__ that...”的画面串场——那里是研究，这里全是行动。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（policies）——总称名词由下文分例决定",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>出于健康担忧的对肥胖的负面态度，已经催生了一系列抗肥胖政策。</b></p><p>答案选 <b>C（policies 政策）</b>。</p><p><b>记忆锚点</b>：名词题看下文“分例投票”——禁令 + 计划 + 运动 = policies；discussions 停在嘴上、businesses 错在主体、studies 无例可援。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 D——被第一段“许多研究表明”的印象带跑。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 完形第 19 空 · anti-obesity ______——名词题让下文的例子投票",
+  subtitle: "考点：上下文语义（总称-分例） · 禁令 + 计划 + 运动 = policies",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（policies）",
+ "html": "<b>C policies（政策）</b>：医院禁糖 + 雇主推健身 + 第一夫人发起运动 = 三例“机构推行的行动方案”。<br>A 讨论停在嘴上；B 生意错在主体；D 研究无例可援。<br>记忆锚点：总称名词由下文“分例投票”决定。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 19 空 · anti-obesity ______——名词题让下文的例子投票</h2>
+<p>答案：<strong>C（policies 政策）</strong>。</p>
+<h3>第 0 步：先立机制——空格名词是"总称"，下文全是"分例"</h3>
+<p>完形名词题里，若空格处在"总起位"、后面紧跟一连串具体例子，空格名词就必须能同时装下所有例子——像选口袋：口袋的形状由要装的东西决定。本空 anti-obesity __19__ 的下文就是三个例子，一个不少地读。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Negative attitudes toward obesity, grounded in health concerns, have stimulated a number of anti-obesity __19__. My own hospital system has banned sugary drinks from its facilities. Many employers have instituted weight loss and fitness initiatives. Michelle Obama has launched a high-visibility campaign __20__ childhood obesity...</blockquote>
+<h3>第 2 步：找证据——三个例子各投一票</h3>
+<ul><li>医院系统<strong>禁止</strong>含糖饮料 → 一条规定；</li><li>雇主推行减肥与健身计划 → 一项举措；</li><li>第一夫人发起高调运动 → 一项行动。</li></ul>
+<p>三者的共性：机构或权威方<strong>制定并推行</strong>的行动方案——这正是 policy 的画像。再看主语：医院、雇主、第一夫人——只有"政策"这个中性机构名词能通吃三类主体。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C policies</td><td>政策</td><td>✓ 当选</td><td>禁令、计划、运动皆为"机构推行的行动方案"，policy 一词全包。</td></tr><tr><td>A discussions</td><td>讨论</td><td>✗ 排除</td><td>禁售、推行、发起都是已落地的行动，不是"纸上谈论"。（典型误解：把"担忧引发反响"粗化成"引发讨论"。）</td></tr><tr><td>B businesses</td><td>业务，生意</td><td>✗ 排除</td><td>医院禁糖、第一夫人发起运动不是商业行为，主体错位。（典型误解：见 employers 就联想"生意"。）</td></tr><tr><td>D studies</td><td>研究</td><td>✗ 排除</td><td>全段没有一个研究证据（无数据、无实验）可供对应。（典型误解：被首段"studies have __1__ that"的画面串场。）</td></tr></tbody></table>
+<p>代入后的完整句义：出于健康担忧的对肥胖的负面态度，已经催生了一系列抗肥胖政策。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>studies 不正是全文开头的词吗，算不算前后呼应？</strong>：开头说"许多研究表明体重超标者患病风险……"，那是罗列<strong>现象背后的研究</strong>；本空下文给的是<strong>政策行动</strong>，类别不同，呼应不上。</li><li><strong>为什么不是 discussions？"担忧引发讨论、讨论再引发政策"，不对吗？</strong>：题目问的是 have stimulated 的直接产物。三个例子清一色是行动，没有一处"人们正在争论"的画面——"讨论"这个中间环节是多余的脑补。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（studies）</strong>：被第一段"许多研究表明"的印象带跑，忽略本空后面是政策例子而非研究证据。</li><li><strong>误选 B（businesses）</strong>：employers（雇主）一词的近因干扰；这里的雇主是以机构身份推行健康倡议，不是在做生意。</li></ul>
+<blockquote>记忆锚点：名词题看下文"分例投票"——禁令 + 计划 + 运动 = policies；discussions 停在嘴上、businesses 错在主体、studies 无例可援。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

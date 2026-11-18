@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-40</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>It can be learned from the last paragraph that health data protection ____</code>。末段推理题：先分主次——句①（联邦立法短期无望）是背景，句②是观点，句③④是<b>例子</b>；答案从\"观点+例子\"里概括。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（末段②③④句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>States</b> have begun implementing their own solutions to <b>shore up protections</b> for consumer-generated health data. California has been <b>at the forefront</b>… Virginia, Colorado and Utah have also recently <b>passed state consumer data privacy legislation</b>.</p><p>观点句（各州开始自救）+ 例子（加州领先，弗吉尼亚、科罗拉多、犹他等州相继立法）。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ D",
+    "body": "<p>D 项 <code>has gained legislative support in some states</code>：legislative support = passed…legislation（立法 = 法律支持）；some states = California / Virginia / Colorado / Utah。\"一些州已立法保护\"= 观点句 + 例子的整合。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 A：偷换主语",
+    "body": "<p>A 项 embraced by health app developers：动手保护的是<b>各州（States）</b>，不是\"健康 app 开发者欣然接受\"——主语被偷换。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 B：与句①相悖",
+    "body": "<p>B 项 a focus of federal policy-making 与句①相反——comprehensive federal privacy legislation <b>seems unlikely in the short term</b>，联邦恰恰还没把这事管起来。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：与句③相悖",
+    "body": "<p>C 项 encountered opposition in California 与句③相反——加州是 <b>at the forefront</b>（走在最前列），是带头支持，不是遭到反对。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>D（has gained legislative support in some states 已在一些州获得立法支持）</b>。口诀：例子为观点服务——四个州名是证据，\"States + passed legislation\"才是结论。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 2 · 第 40 题：健康数据保护的现状",
+  "subtitle": "考点：末段主旨推理 · 例子服务观点",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 D",
+    "html": "记忆锚点：末段结构 = <b>联邦靠不上（句①）→ 各州动手（句②）→ 多州立法（句③④例子）</b>。A 偷主语、B/C 反着说；States + passed legislation ⇒ legislative support in some states。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 2 第 40 题 · 健康数据保护的现状</h2>
+<p>答案：<strong>D（has gained legislative support in some states 已在一些州获得立法支持）</strong>。</p>
+<h3>第 0 步：先立机制——分清"背景 / 观点 / 例子"</h3>
+<p>末段五句话有明确分工：句①联邦立法短期无望——<strong>背景</strong>；句②各州开始自救——<strong>观点</strong>；句③④加州领先、弗吉尼亚等州立法——<strong>例子</strong>。段落主旨从"观点 + 例子"里概括，例子永远是证据而不是结论本身。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote><strong>States</strong> have begun implementing their own solutions to <strong>shore up protections</strong> for consumer-generated health data. California has been <strong>at the forefront</strong> of state privacy efforts with the California Consumer Privacy Act of 2018. Virginia, Colorado and Utah have also recently <strong>passed state consumer data privacy legislation</strong>.</blockquote>
+<p>观点句（州层面动手加强保护）+ 例子（加州、弗吉尼亚、科罗拉多、犹他相继<strong>立法</strong>）。</p>
+<h3>第 2 步：同义替换</h3>
+<p>passed state consumer data privacy legislation = 立法行动 = <strong>legislative support</strong>；California / Virginia / Colorado / Utah = <strong>some states</strong>。"一些州已立法保护健康数据"是对观点句 + 例子的整合，D 当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A embraced by health app developers</td><td>✗</td><td>偷换主语：动手保护的是<strong>各州（States）</strong>，不是应用开发者"欣然接受"。（典型误解：谁被保护、谁被管没分清。）</td></tr><tr><td>B a focus of federal policy-making</td><td>✗</td><td>与句①相悖：comprehensive federal privacy legislation <strong>seems unlikely in the short term</strong>——联邦恰恰没管起来。（典型误解：见 federal 就默认"联邦重视"。）</td></tr><tr><td>C encountered opposition in California</td><td>✗</td><td>与句③相反：加州是 <strong>at the forefront</strong>（走在最前列），带头支持而非反对。（典型误解：只认 California 词面，不读 forefront 的方向。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么选 D 而不选"概括句②"的某个直译？</strong>：D 的 legislative support 正是句②"shore up protections"与句③④"passed legislation"的合并表述——保护在州的落地形式就是立法。</li><li><strong>例子里的州名能直接进选项吗？</strong>：不能照抄，但可以概括成 some states——四个州名 ≥ "一些州"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把"联邦立法无望"反着读成"联邦政策重心"。</li><li><strong>误选 C</strong>： California 词面陷阱——forefront 是"前列"不是"反对"。</li></ul>
+<blockquote>记忆锚点：末段结构 = 联邦靠不上（句①）→ 各州动手（句②）→ 多州立法（句③④例子）；States + passed legislation ⇒ legislative support in some states；A 偷主语、B/C 反着说。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

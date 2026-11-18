@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-07 · ____被单独留在房间里，学生按了更多的笔：A When / B If / C Though / D Unless</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 7 在 句首状语从句连接词位（__ left alone...）；考点：句内语义逻辑（连接词辨析）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>__7__</b> left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would __8__ .</div><p>空 7 是句首的连接词，引出 <b>__ left alone in the room</b>（被单独留在房间）这个过去分词短语作状语——等于 When (they were) left alone...。它交代主句按笔、遭电击发生的背景。</p>"
+ },
+ {
+  "title": "立机制 · 四类从句逻辑先分流：时间 / 条件 / 让步 / 因果",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：单独留房间是按笔遭电击的时间背景 + 实验事实陈述 → When",
+  "body": "<p>连接词题的第一步不是背词义，而是先判断两个分句之间是什么<b>逻辑关系</b>：被单独留在房间里与按了更多笔、遭了更多电击之间是<b>时间上的包含</b>（留房期间发生了按笔），主句又是实验中<b>确凿发生</b>的事——不是假设、没有转折、也与因果无关。四类逻辑一分流：条件（If / Unless）和让步（Though）出局，时间词 When 入选。When + 过去分词 = when they were left alone 的省略（主从句主语一致才可省略）。</p>"
+ },
+ {
+  "title": "找证据 · 实验是既成事实，不是虚拟假设",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：原文为已完成的实验 → 排除假设类 If / Unless",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Twenty-seven students were told which pens were electrified; another twenty-seven were told only that some were electrified.</div><p>上一句交代了实验分组（27 人知道哪些笔带电、27 人只知道有些带电），本句报告实验结果（不知道的学生按得更多）。整段是<b>对已完成实验的陈述</b>：不存在如果……就会……的虚拟语气，也没有任何让步转折的语义落差。</p>"
+ },
+ {
+  "title": "逐项分析 · A When（当……时）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A When（当……时）✓ 当选",
+  "body": "<p><b>当选。</b>When (they were) left alone in the room：把单独留房定为按笔行为的时间背景，与实验的陈述语气完全相容。</p>"
+ },
+ {
+  "title": "逐项分析 · B If（如果）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B If（如果）✗ 排除",
+  "body": "<p><b>排除。</b>实验情形是确凿发生的，不是假设条件；if 表每当（= whenever）时须搭配习惯性、反复发生的动作，而本次实验是一次性情形。</p><p style=\"color:#b91c1c\">⚠ 典型误解：知道 if 可表时间，就忽略了习惯与一次性的使用条件。</p>"
+ },
+ {
+  "title": "逐项分析 · C Though（虽然；尽管）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C Though（虽然；尽管）✗ 排除",
+  "body": "<p><b>排除。</b>单独留房与按更多笔之间没有语义落差，构不成让步或转折。</p>"
+ },
+ {
+  "title": "逐项分析 · D Unless（除非）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D Unless（除非）✗ 排除",
+  "body": "<p><b>排除。</b>Unless = if not：除非不单独留房否则不按笔，既不是实验设定，也不合常理。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 7 填 When（当……时）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>When</b> left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would __8__ .</div><p>当被单独留在房间里时，不知道哪些笔会电击自己的学生按了更多的笔、遭受了更多的电击。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（When 当……时）——见结论卡",
+  "body": "<p>答案选 <b>A（When 当……时）</b>。</p><p><b>记忆锚点</b>：连接词四分流：时间 / 条件 / 让步 / 因果；实验报告的既成事实优先配 When；When + 过去分词 = when they were... 的省略。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>B（If）</b>：知道 if 有每当的时间用法，却忽略它只适用于习惯性反复动作，本次实验是一次性既成事实。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 7 空 · ____被单独留在房间里，学生按了更多的笔：A When / B If / C Though / D Unless",
+  subtitle: "考点：句内语义逻辑（连接词辨析） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（When 当……时）", "html": "<b>A（When 当……时）</b>。<br>记忆锚点：连接词四分流：时间 / 条件 / 让步 / 因果；实验报告的既成事实优先配 When；When + 过去分词 = when they were... 的省略。<br>最易误选：<b>B（If）</b>——知道 if 有每当的时间用法，却忽略它只适用于习惯性反复动作，本次实验是一次性既成事实。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 7 空 · ____被单独留在房间里，学生按了更多的笔</h2>
+<p>答案：<strong>A（When 当……时）</strong>。</p>
+<h3>第 0 步：先立机制——四类从句逻辑先分流：时间 / 条件 / 让步 / 因果</h3>
+<p>连接词题的第一步不是背词义，而是先判断两个分句之间是什么<strong>逻辑关系</strong>：被单独留在房间里与按了更多笔、遭了更多电击之间是<strong>时间上的包含</strong>（留房期间发生了按笔），主句又是实验中<strong>确凿发生</strong>的事——不是假设、没有转折、也与因果无关。四类逻辑一分流：条件（If / Unless）和让步（Though）出局，时间词 When 入选。When + 过去分词 = when they were left alone 的省略（主从句主语一致才可省略）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote><strong>__7__</strong> left alone in the room, the students who did not know which ones would shock them clicked more pens and incurred more shocks than the students who knew what would __8__ .</blockquote>
+<p>空 7 是句首的连接词，引出 <strong>__ left alone in the room</strong>（被单独留在房间）这个过去分词短语作状语——等于 When (they were) left alone...。它交代主句按笔、遭电击发生的背景。</p>
+<h3>第 2 步：找证据——实验是既成事实，不是虚拟假设</h3>
+<blockquote>Twenty-seven students were told which pens were electrified; another twenty-seven were told only that some were electrified.</blockquote>
+<p>上一句交代了实验分组（27 人知道哪些笔带电、27 人只知道有些带电），本句报告实验结果（不知道的学生按得更多）。整段是<strong>对已完成实验的陈述</strong>：不存在如果……就会……的虚拟语气，也没有任何让步转折的语义落差。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A When</td><td>当……时</td><td>✓ 当选</td><td>When (they were) left alone in the room：把单独留房定为按笔行为的时间背景，与实验的陈述语气完全相容。</td></tr><tr><td>B If</td><td>如果</td><td>✗ 排除</td><td>实验情形是确凿发生的，不是假设条件；if 表每当（= whenever）时须搭配习惯性、反复发生的动作，而本次实验是一次性情形。（典型误解：知道 if 可表时间，就忽略了习惯与一次性的使用条件。）</td></tr><tr><td>C Though</td><td>虽然；尽管</td><td>✗ 排除</td><td>单独留房与按更多笔之间没有语义落差，构不成让步或转折。</td></tr><tr><td>D Unless</td><td>除非</td><td>✗ 排除</td><td>Unless = if not：除非不单独留房否则不按笔，既不是实验设定，也不合常理。</td></tr></tbody></table>
+<p>代入后的完整句义：当被单独留在房间里时，不知道哪些笔会电击自己的学生按了更多的笔、遭受了更多的电击。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（If）</strong>：知道 if 有每当的时间用法，却忽略它只适用于习惯性反复动作，本次实验是一次性既成事实。</li></ul>
+<blockquote>记忆锚点：连接词四分流：时间 / 条件 / 让步 / 因果；实验报告的既成事实优先配 When；When + 过去分词 = when they were... 的省略。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

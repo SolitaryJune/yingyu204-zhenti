@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-16 · 2023 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 16 所在句，考点：句内语义",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This leader will __16__ the target area, set clear goals and establish a time frame for the __17__ of these goals.</div><p>流水线模型：__16__ the target area → set clear goals → establish a time frame。三步有天然先后：先找准领域，再定目标，最后配时间表；范围逐层收窄。</p>"
+ },
+ {
+  "title": "找证据 · 承接上句：领导者带团队“持续改进”的三步动作",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：改进航道上第一步 = 圈定要改进的领域",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It needs someone who can __15__ the interdisciplinary team and keep them on course for improvement.</div><p>宾语 target area 暗示“从模糊中圈定靶心”；后两步 clear goals / time frame 越来越具体——第一步的职责就是把模糊变清晰：identify（识别出、找准）。</p>"
+ },
+ {
+  "title": "逐项分析 · A share（分摊；共同承担）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A share（分摊；共同承担） ✗ 排除——领导者“分摊”目标领域，既不体现领导力也违背团队使命",
+  "body": "<p><b>排除。</b>share the target area 意味着领导者自己也认领一块领域。增长团队的使命是 harness the power of collaboration——**集各部门合力**找增长方式；领导者带头分活儿，既配不上 strong leader 的统筹角色，也把“合力”拆成了单干。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“团队精神”泛化到领导者头上，人人有份 ≠ 领导职能</p>"
+ },
+ {
+  "title": "逐项分析 · B identify（找到；识别出）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B identify（找到；识别出） ✓ 当选",
+  "body": "<p><b>当选。</b>identify the target area → set clear goals → establish a time frame：识别领域、定目标、配时间表，三步流程先后自然，范围从“领域”到“目标”到“时间”逐层收窄，与后两个动作严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · C divide（分开；分割）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C divide（分开；分割） ✗ 排除——“切小分派”看似有理，但同样违背“集合力”使命",
+  "body": "<p><b>排除。</b>divide the target area 可被脑补成“把大领域切成小块分给成员、各自定目标”，乍看符合管理直觉。但领导者在这里的职责是**圈定靶心、统领方向**，不是切割任务；与 A 同病：拆分动作撑不起流水线第一步，也不体现领导力。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“任务分解”错当成管理第一步，没对照团队“合力”的使命</p>"
+ },
+ {
+  "title": "逐项分析 · D broaden（使变宽；使扩大）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D broaden（使变宽；使扩大） ✗ 排除——三个动作的范围在收窄，“扩大”方向相反",
+  "body": "<p><b>排除。</b>流水线走向是：领域（大而模糊）→ 明确目标（小而清晰）→ 时间框架（更具体），范围步步收窄；broaden 却把第一步推向“扩大”，与整条流水线的方向背道而驰。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没有检查并列动作的范围走向</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（identify 找到；发现；识别出）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>这位领导者将识别出目标领域，设定明确的目标，并为这些目标的实现确立时间框架</b>（识别领域 → 定目标 → 定时间表，范围逐层收窄）。</p><p>答案选 <b>B（identify 找到；发现；识别出）</b>。</p><p><b>记忆锚点</b>：并列动词看流程：identify 领域 → set 目标 → establish 时间表；范围逐层收窄，第一步是“找准”；share/divide 拆的是合力，broaden 逆着范围走。</p><p style=\"color:#b91c1c\">最易误选：<b>C（divide）</b>——把“任务分解”错当成管理第一步，没对照团队“合力”的使命</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 16 空 · “____ the target area, set clear goals and…”该填哪个动词",
+  subtitle: "考点：句内语义 · 并列动宾的流程链 + 范围走向",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（identify）", "html": "<b>B identify（找到；发现；识别出）</b>。<br>完整句义：这位领导者将识别出目标领域，设定明确的目标，并为这些目标的实现确立时间框架。<br>记忆锚点：并列动词看流程：identify 领域 → set 目标 → establish 时间表；范围逐层收窄，第一步是“找准”；share/divide 拆的是合力，broaden 逆着范围走。<br>最易误选：<b>C</b>——“化整为零、分派任务”的管理直觉，没对照增长团队“集合力”的使命"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句内语义 + 动词辨析——三步动作链的第一步</h2>
+<p>答案：<strong>B（identify 找到；发现；识别出）</strong>。</p>
+<h3>第 0 步：先立框架——并列动宾 = 一条管理流水线</h3>
+<p>空格句：This leader will <strong>__16__ the target area</strong>, set clear goals and establish a time frame for...。模型：三个并列动宾结构是一条流水线——__16__ 目标领域 → 设定明确目标 → 为目标定时间框架。管理常识里这条流水线有天然的先后：<strong>先找准“要改进的领域”，才能围绕它定目标，最后配时间表</strong>。第一步的动词必须是“识别/找准”，且三个动作的范围逐层收窄。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>This leader will __16__ the target area, set clear goals and establish a time frame for the __17__ of these goals.</blockquote>
+<p>宾语 target area（目标领域）本身暗示“从一片模糊中圈定靶心”；与后两步的 clear（明确）、time frame（具体时间表）对照，第一步的职责就是把模糊变清晰——identify（识别出）。</p>
+<blockquote>It needs someone who can __15__ the interdisciplinary team and keep them on course for improvement.（上一句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A share</td><td>分摊；共同承担</td><td>❌ 排除</td><td>领导者“分摊”目标领域，既不体现领导力也违背团队使命</td></tr><tr><td>B identify</td><td>找到；识别出</td><td>✅ 当选</td><td>流水线第一步：圈定要改进的领域</td></tr><tr><td>C divide</td><td>分开；分割</td><td>❌ 排除</td><td>“切小分派”看似有理，但同样违背“集合力”使命</td></tr><tr><td>D broaden</td><td>使变宽；使扩大</td><td>❌ 排除</td><td>三个动作的范围在收窄，“扩大”方向相反</td></tr></tbody></table>
+<p>代入全句：<strong>这位领导者将识别出目标领域，设定明确的目标，并为这些目标的实现确立时间框架</strong>（识别领域 → 定目标 → 定时间表，范围逐层收窄）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（share 分摊；共同承担）</strong>：把“团队精神”泛化到领导者头上，人人有份 ≠ 领导职能。share the target area 意味着领导者自己也认领一块领域。增长团队的使命是 harness the power of collaboration——<strong>集各部门合力</strong>找增长方式；领导者带头分活儿，既配不上 strong leader 的统筹角色，也把“合力”拆成了单干。</li><li><strong>误选 C（divide 分开；分割）</strong>：把“任务分解”错当成管理第一步，没对照团队“合力”的使命。divide the target area 可被脑补成“把大领域切成小块分给成员、各自定目标”，乍看符合管理直觉。但领导者在这里的职责是<strong>圈定靶心、统领方向</strong>，不是切割任务；与 A 同病：拆分动作撑不起流水线第一步，也不体现领导力。</li><li><strong>误选 D（broaden 使变宽；使扩大）</strong>：没有检查并列动作的范围走向。流水线走向是：领域（大而模糊）→ 明确目标（小而清晰）→ 时间框架（更具体），范围步步收窄；broaden 却把第一步推向“扩大”，与整条流水线的方向背道而驰。</li></ul>
+<blockquote>记忆锚点：并列动词看流程：identify 领域 → set 目标 → establish 时间表；范围逐层收窄，第一步是“找准”；share/divide 拆的是合力，broaden 逆着范围走。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

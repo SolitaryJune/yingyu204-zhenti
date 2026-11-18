@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-39</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>What challenge is the FTC currently faced with?</code>。细节题打法：从选项抓\"关键事物\"，再把\"事物 + 描述\"两截分别与原文比对，两截都对上才选。定位：challenge + the FTC 在第四段末句。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第四段末句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · <b>While</b> the FTC is doing what it can to ensure apps are keeping their promises…, <b>the rate at which these health apps are hitting the market</b> demonstrates just <b>how immense of a challenge</b> this is.</p><p>让步结构：前半句\"FTC 已尽力\"，句子的落点——挑战的来源 = 健康 app 涌入市场的<b>速度</b>。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ B",
+    "body": "<p>B 项 <code>The rapid increase in new health apps</code> ↔ the rate at which these health apps are hitting the market：rapid increase = the rate（上市速度快），new health apps = these health apps…hitting the market。事物、描述双对齐。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 A：原词复现 + 常识脑补",
+    "body": "<p>A 项 The complexity of health information：health information 原词复现引人上当。但前半句是让步（FTC 尽力保护用户健康信息），还没说到挑战；complexity 纯属常识脑补。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：碎片拼接错因",
+    "body": "<p>C 项 subtle deceptiveness of health apps 用首句 deceptive / misleading 碎片拼接。原文说 FTC 只能\"事后\"行动，原因是 <b>Section 5 的授权范围</b>（针对 unfair or deceptive acts），不是\"欺诈难以察觉\"。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 D：把别人的行为读成自己的困难",
+    "body": "<p>D 项 difficulty in assessing consumer harm 把 cause unjustified consumer harm（公司行为造成不当伤害）曲解成\"FTC 难以评估伤害\"——主语错位。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>B（The rapid increase in new health apps 新健康应用的迅速增加）</b>。口诀：\"原词复现\"的选项先别高兴——A 项就是靠\"原词 + 脑补\"骗人的。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 2 · 第 39 题：FTC 面临的挑战",
+  "subtitle": "考点：事实细节题 · 选项抓\"事物+描述\"双比对",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 B",
+    "html": "记忆锚点：挑战 = <b>the rate at which these health apps are hitting the market</b>（新 app 上市太快）。警惕\"原词复现\"陷阱：health information / deceptive / consumer harm 都是碎片挂钩，描述对不上原文。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 2 第 39 题 · FTC 面临的挑战</h2>
+<p>答案：<strong>B（The rapid increase in new health apps 新健康应用的迅速增加）</strong>。</p>
+<h3>第 0 步：先立机制——"事物 + 描述"双截比对法</h3>
+<p>四个选项的主语各不相同（health information / new health apps / health apps / consumer harm），这是出题人故意留的抓手：细节题正确选项必须"事物对、描述也对"，两截都咬合才算数。定位句在第四段末—— FTC 与 challenge 原词共现处。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote><strong>While</strong> the FTC is doing what it can to ensure apps are keeping their promises to consumers around the handling of their sensitive health information, <strong>the rate at which these health apps are hitting the market</strong> demonstrates just <strong>how immense of a challenge</strong> this is.</blockquote>
+<p>让步结构：前半句承认"FTC 已尽力"；主句的落点才是答案——挑战的来源是健康应用<strong>涌入市场的速度</strong>。</p>
+<h3>第 2 步：同义替换</h3>
+<p>the rate at which these health apps are hitting the market = 新应用上市的速度 = <strong>rapid increase</strong>；these health apps = new health apps。事物、描述双对齐，B 当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A The complexity of health information</td><td>✗</td><td>health information 原词复现引人上当；但它在让步半句里（FTC 尽力保护用户健康信息），还没说到挑战，complexity 是常识脑补。（典型误解：见原词就选——原词复现恰恰是干扰惯用手段。）</td></tr><tr><td>C The subtle deceptiveness of health apps</td><td>✗</td><td>用首句 deceptive / misleading 碎片拼接；FTC 只能"事后"行动的原因是 <strong>Section 5 的授权范围</strong>，不是"欺诈难以察觉"。（典型误解：把行动受限的<strong>制度原因</strong>错读成<strong>对象性质</strong>。）</td></tr><tr><td>D The difficulty in assessing consumer harm</td><td>✗</td><td>cause unjustified consumer harm 说的是"公司行为造成不当伤害"，被曲解成"FTC 难以评估伤害"——主语错位。（典型误解：把别人的行为读成监管者的困境。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>FTC 行动为什么受限？</strong>：Section 5 只授权其针对 unfair or deceptive acts 采取行动，且只能 <strong>after the fact</strong>（事后）——这是制度授权问题，与选项 C 的"欺诈隐蔽性"无关。</li><li><strong>A 项为什么迷惑性强？</strong>：它同时具备"原词复现 + 常识合理"两个要素，但它的事物出现在让步从句中，位置本身就不承载"挑战"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：被原词 health information 绑架，不核对它在句中的成分与位置。</li><li><strong>误选 C/D</strong>：都是"词面碎片 + 脑补因果"的杂糅。</li></ul>
+<blockquote>记忆锚点：挑战 = the rate at which these health apps are hitting the market；细节题做"事物 + 描述"两截比对；原词复现是干扰项最爱用的外衣。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

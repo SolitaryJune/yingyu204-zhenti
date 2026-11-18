@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-36 · 2018 阅读第 36 题 · 方法可以任选，关键只有一句 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 问的是 the key", "cls": "key", "tag": "审题", "log": "审题眼：The key to mastering the art of deep work is to ___ —— 问关键要诀，不是问具体方法", "count": 0, "ribbon": null, "body": "<p>题干：The <b>key</b> to mastering the art of deep work is to ___. 预设段落结构：<b>列举＋总结</b>——先摆多种方法，再收一句宗旨。凡是复述具体方法的选项，都过不了 the key 这一关。去第二段定位。</p>"},
+ {"title": "定位原文 · Whichever approach 之后的宗旨句", "cls": "key", "tag": "定位", "log": "定位第二段①②句：三种方法列举 → Whichever approach 收拢 → the key is to…", "count": 0, "ribbon": null, "body": quote("There are <b>a number of approaches</b> to mastering the art of deep work – be it lengthy retreats…; developing a daily ritual; or taking a &ldquo;journalistic&rdquo; approach… <b>Whichever approach, the key is to determine your length of focus time and stick to it.</b>") + "<p>结构：①句破折号列举三种方法（长期闭关／日常惯例／记者式见缝插针）——细节，可略读；②句 <b>Whichever approach</b>（无论哪种方法）收拢，把“关键”从方法层提到宗旨层：<b>确定专注时长并坚守它</b>。it 就近指代 focus time。</p>"},
+ {"title": "同义替换 · stick to it = keep to your focus time", "cls": "key", "tag": "替换", "log": "同义替换：A 是②句的同义改写——stick to → keep to，it 回填为 focus time", "count": 0, "ribbon": null, "body": "<p>[A] <b>keep to your focus time</b> ↔ determine your <b>length of focus time</b> and <b>stick to it</b>：keep to ↔ stick to（坚守）；your focus time ↔ your length of focus time ＋ it（指代回填）。命题人几乎没换词，只把 stick to 换成 keep to。锁定 [A]。</p>"},
+ {"title": "逐项分析 · A keep to your focus time", "cls": "good", "tag": "选定 A", "log": "A 坚守你的专注时间 ✓ ——Whichever approach 之后的宗旨句改写", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>the key is to determine your length of focus time and <b>stick to it</b>——无论选哪种方法，共同且必须做的是“守住专注时间”。方向、层级、对象全部对齐。</p>"},
+ {"title": "逐项分析 · B list your immediate tasks", "cls": "bad", "tag": "排除 B", "log": "B 列出紧迫任务 ✗ ——craft 曲解＋层级错位：方法不是关键", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>④句 <b>craft</b> our to-do lists（把待办事项<b>按优先次序</b>精心排布）被曲解成“列出<b>紧迫</b>任务”——craft ≠ 紧迫；且这只是重排优先级时的一个具体做法，属于方法层，Whichever approach 已把它排除在 the key 之外。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把手段的某个侧面（紧迫）当成关键要诀。</p>"},
+ {"title": "逐项分析 · C make specific daily plans", "cls": "bad", "tag": "排除 C", "log": "C 制定具体的日常计划 ✗ ——糅杂拼贴：两个方法碎片拼出文中没有的说法", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>①句 <b>dedicated to a specific task</b> ＋ <b>developing a daily ritual</b> 两个方法碎片糅成“制定具体的日常计划”——仍是方法层复述，且原文并没有“每日计划”这个说法（daily ritual 是“日常惯例”不是“计划”）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：两个真碎片拼一个假选项——碎片真，命题假。</p>"},
+ {"title": "逐项分析 · D seize every minute to work", "cls": "bad", "tag": "排除 D", "log": "D 争分夺秒地工作 ✗ ——立场颠倒：忙碌正是本文要对抗的陷阱", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>源自首段 putting a premium on <b>being busy</b>（以忙碌为荣的<b>陷阱</b>）和①句 <b>seizing</b> moments of deep work——“争分夺秒”恰是文章开篇要<b>对抗</b>的低效忙碌，与“深度工作”背道而驰。</p><p style=\"color:#b91c1c\">⚠ 典型误解：seizing moments 字面太像，忘了它的语境是“陷阱”。</p>"},
+ {"title": "结论 · 信息层级定答案", "cls": "good", "tag": "答案 A", "log": "答案 A（keep to your focus time）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>三种方法任选（approaches）→ Whichever approach 收拢 → the key：确定专注时长并坚守 → [A]。</b>命题人把三个方法碎片（to-do list／daily ritual／seizing moments）散进 B、C、D——抓住 the key is to… 这个总结句，方法层选项自动出局。</p><p>答案选 <b>A（keep to your focus time）</b>。</p><p><b>记忆锚点</b>：列举＋Whichever 总结的结构里，具体方法让位于总结句；stick to it → keep to your focus time；方法 ≠ 关键，busy 是靶子。</p><p style=\"color:#b91c1c\">最易误选：<b>C（make specific daily plans）</b>——真碎片拼出的假选项。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 36 题 · 「关键要诀」题——方法可以任选，关键只有一句",
+  subtitle: "考点：列举＋Whichever 总结结构 · the key 落在宗旨句 + stick to 同义替换",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位总结句 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（keep to your focus time）", "html": "<b>A 坚守你的专注时间</b>：the key is to determine your length of focus time and <b>stick to it</b> 的同义改写，落在 Whichever approach 之后的宗旨句上。<br>记忆锚点：列举＋总结结构里，具体方法全部让位于总结句；方法 ≠ 关键。<br>最易误选：<b>C</b>——specific task ＋ daily ritual 两个真碎片拼出一个假选项。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 36 题 · "关键要诀"题——方法可以随便挑，关键只有一句</h2>
+<p>答案：<strong>A（keep to your focus time 坚守你的专注时间）</strong>。</p>
+<h3>第 0 步：先立机制——"多种方法＋唯一关键"的段落结构</h3>
+<p>题干问 The <strong>key</strong> to mastering the art of deep work is to ____（掌握深度工作艺术的<strong>关键</strong>）。第二段是一个典型的"列举＋总结"结构：①句用破折号一口气列举<strong>三种</strong>掌握深度工作的方法——lengthy retreats（长期闭关）、developing a daily ritual（形成日常惯例）、"journalistic" approach（记者式见缝插针）；②句立刻用 <strong>Whichever approach</strong>（无论哪种方法）收拢，把"关键"从"方法层"提到"宗旨层"。这条结构线决定了：<strong>凡是复述某种具体方法的选项，全部出局</strong>——Whichever 已经宣布方法可以任选，"关键"只可能是三种方法背后共同的那个动作。带着"方法 ≠ 关键"这条界线去选项里筛。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>There are a number of approaches to mastering the art of deep work – be it lengthy retreats dedicated to a specific task; developing a daily ritual; or taking a "journalistic" approach to seizing moments of deep work when you can throughout the day. <strong>Whichever approach, the key is to determine your length of focus time and stick to it.</strong></blockquote>
+<p>结构：①句列举三种方法（细节，可略读）；②句主干——无论哪种方法，<strong>关键是确定你的专注时长，并坚守它</strong>（the key is to determine your length of focus time and <strong>stick to it</strong>）。it 就近指代 focus time——"坚守"的对象是"专注时间"。</p>
+<h3>第 2 步：同义替换——"stick to it"就是"keep to your focus time"</h3>
+<p>[A] keep to your focus time ↔ determine your <strong>length of focus time</strong> and <strong>stick to it</strong>：<strong>keep to</strong> ↔ stick to（坚守）；<strong>your focus time</strong> ↔ your length of focus time + it（指代回填）。题干＋正确项合起来就是②句的同义改写——命题人甚至没换词，只是把 stick to 换成了 keep to。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B list your immediate tasks</td><td>✗</td><td>两层错：①④句 craft our to-do lists（把待办事项<strong>按优先次序</strong>列出）被曲解成"列出<strong>紧迫</strong>任务"（immediate ≠ 优先排序）；②它只是 deep scheduling 之外的一个具体做法，属于"方法层"，Whichever approach 已把它排除在 the key 之外</td></tr><tr><td>C make specific daily plans</td><td>✗</td><td>糅杂拼贴：①句 dedicated to a specific task + developing a daily ritual 两个方法碎片糅成"制定具体的日常计划"——仍是方法层的复述，且原文并没有"每日计划"这个说法</td></tr><tr><td>D seize every minute to work</td><td>✗</td><td>立场颠倒：源自首段 putting a premium on <strong>being busy</strong>（以忙碌为荣的陷阱）和①句 seizing moments of deep work——"争分夺秒"恰是本文开篇要<strong>对抗</strong>的低效忙碌，与"深度工作"背道而驰</td></tr><tr><td>A keep to your focus time</td><td>✓</td><td>②句 the key is to determine your length of focus time and stick to it 的同义改写，落在 Whichever approach 之后的宗旨句上</td></tr></tbody></table>
+<h3>预判追问：C（制定具体计划）不也是一种好方法吗，为什么不是"关键"？</h3>
+<p>是方法，但不是题干问的"关键"。本题的考点正是<strong>信息层级</strong>：①句的 retreats / ritual / journalistic 三种做法是"可任选的手段"（a number of approaches），②句 Whichever approach 之后才是"万变不离其宗"的那一条。命题人故意把三个方法碎片（B 的 to-do list、C 的 daily ritual、D 的 seizing moments）散进选项——你只要没抓住 the key is to... 这个总结句的定位，就会在方法层里挑花了眼。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：被第四段 to-do lists 吸走——craft 是"精心制作/排序"，不是"列紧迫任务"；且层级错位。</li><li><strong>误选 C</strong>：specific task + daily ritual 两个碎片拼出一个文中没有的"具体日常计划"。</li><li><strong>误选 D</strong>：seizing moments of deep work 字面太像——但 putting a premium on being busy 才是它的语境，"忙"是靶子不是药方。</li></ul>
+<blockquote>记忆锚点：<strong>列举＋Whichever 总结</strong>结构里，具体方法全部让位于总结句；the key is to determine your focus time and <strong>stick to it</strong> → keep to your focus time；方法 ≠ 关键，busy 是靶子。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

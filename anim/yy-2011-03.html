@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-03 · 2011 完形第 3 空 · “日益______的网络世界”——哪个形容词接得住上文</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 3 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空格是形容词，修饰 a world，受 increasingly 修饰", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Can privacy be preserved while bringing safety and security to a world that seems increasingly <b>__3__</b>?</div><p>“给一个日益______的世界带来安全保障”：配得上“需要带来安全”的世界，应当是个<b>不安全、乱</b>的世界。考点：上下文语义（同义复现）。</p>"}, {"title": "找证据 · 第一段已给这个世界定了性", "cls": "key", "tag": "证据", "log": "找证据：网络犯罪激增席卷网络 → 法律管不住 → lawless", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But that very anonymity is also behind the explosion of cyber-crime that has swept across the Web.</div><p>第一段刚说完“网络犯罪激增、席卷整个网络”：犯罪横行 = 法律管不住。空格词就是它的复现：<b>lawless</b>。</p>"}, {"title": "逐项分析 · B lawless（不受法律控制的）", "cls": "good", "tag": "选定 B", "log": "B lawless（不受法律控制的） ✓ 当选——与 cyber-crime 同义复现", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>lawless 与第一段 cyber-crime swept across the Web 同义复现：犯罪横行 = 法律管不住；日益 lawless 的世界正需要 bring safety and security。</p>"}, {"title": "逐项分析 · A careless（粗心的）", "cls": "bad", "tag": "排除 A", "log": "A careless（粗心的） ✗ 排除——词义落点是“人”，world 不能粗心", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>careless 形容人疏忽大意，world 无“粗心”可言，与“犯罪激增”也不构成同义关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由 care 联想到“网络安全”，忘了 careless 说的是人。</p>"}, {"title": "逐项分析 · C pointless（无意义的）", "cls": "bad", "tag": "排除 C", "log": "C pointless（无意义的） ✗ 排除——凭空引入新评价维度", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>“日益无意义的世界”是凭空冒出的新话题，上文没有任何“意义”维度的铺垫。</p><p style=\"color:#b91c1c\">⚠ 典型误解：脱离上文，纯凭语感挑词。</p>"}, {"title": "逐项分析 · D helpless（无助的）", "cls": "bad", "tag": "排除 D", "log": "D helpless（无助的） ✗ 排除——无助的主体是人，且与“犯罪”对不上", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>helpless 的主体通常是“人”（求助者），world 不是求助者；且它与“犯罪激增”没有复现关系，“勉强读得通”不等于“上文有出处”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：情绪上“很乱很无奈”就选它，忘了完形要找复现。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（lawless 不受法律控制的）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>在一个似乎日益失控（不受法律控制）的世界里，能否在带来安全保障的同时保护住隐私？</b></p><p>答案选 <b>B（lawless 不受法律控制的）</b>。</p><p><b>记忆锚点</b>：形容词空 → 回上文找复现；cyber-crime swept across the Web → lawless；careless 说人、helpless 说人、pointless 离题。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 3 空 · “日益______的网络世界”——哪个形容词接得住上文",
+  subtitle: "考点：上下文语义（同义复现） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（lawless）", "html": "<b>B lawless（不受法律控制的）</b>：与第一段 cyber-crime swept across the Web 同义复现——犯罪横行即法律管不住。<br>记忆锚点：形容词空 → 回上文找复现，光“读得顺”不算数。<br>最易误选：<b>D（helpless）</b>——被情绪带走，忘了找出处。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 3 空 · “日益______的网络世界”——哪个形容词接得住上文</h2>
+<p>答案：<strong>B（lawless 不受法律控制的）</strong>。</p>
+<h3>第 0 步：先立机制——完形选形容词的底层逻辑</h3>
+<p>空格是形容词，修饰 a world（网络世界），前面的 increasingly（越来越）提示这是一个程度递增的性质。完形填形容词不是比谁“看起来通顺”，而是比谁<strong>能从上文找到出处</strong>：这个词必须是对已述内容的概括或复现。所以先回头问一句——上文把网络世界写成了什么样？</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Can privacy be preserved while bringing safety and security to a world that seems increasingly __3__?</blockquote>
+<p>“给一个似乎日益______的世界带来安全保障”：能配上“需要带来安全”的世界，应当是一个<strong>不安全、乱</strong>的世界。</p>
+<h3>第 2 步：找证据——第一段已经给这个世界定了性</h3>
+<blockquote>But that very anonymity is also behind the explosion of cyber-crime that has swept across the Web.</blockquote>
+<p>第一段刚说完“网络犯罪激增、席卷整个网络”——犯罪横行，等于法律管不住。空格词就是它的复现：犯罪激增 → <strong>lawless</strong>（不受法律控制的）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B lawless</td><td>不受法律控制的</td><td>✓ 当选</td><td>与 cyber-crime swept across the Web 同义复现：犯罪横行 = 法律管不住，日益 lawless 的世界正需要 bring safety and security。</td></tr><tr><td>A careless</td><td>粗心的</td><td>✗ 排除</td><td>careless 形容人疏忽大意，world 无“粗心”可言，与“犯罪”也不构成同义关系。（典型误解：care 联想到“网络安全”，忘了 careless 的落点是人。）</td></tr><tr><td>C pointless</td><td>无意义的</td><td>✗ 排除</td><td>“日益无意义的世界”凭空引入新话题，上文没有任何“意义”维度的铺垫。（典型误解：脱离上文，纯凭语感挑词。）</td></tr><tr><td>D helpless</td><td>无助的</td><td>✗ 排除</td><td>world 不是求助者，无助的主体通常是“人”；且 helpless 与“犯罪激增”对不上，复现链条断了。（典型误解：觉得“这个世界很无助”勉强能读通，就忘了完形要“上文有出处”。）</td></tr></tbody></table>
+<p>代入后的完整句义：在一个似乎日益失控（不受法律控制）的世界里，能否在带来安全保障的同时保护住隐私？</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>helpless“无助的”读起来也顺，为什么不行？</strong>：“顺”不是标准，出处才是。上文给的关键信息是“犯罪席卷网络”，能与之构成同义复现的只有 lawless；helpless 描述的“无力自救”上文半个字都没提。</li><li><strong>为什么不选 negative 一类贬义词就完了？</strong>：完形考的是精确复现，不是泛泛的贬义——lawless 与 cyber-crime、与句中 safety and security（安全+法治秩序）两头都咬合。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（helpless）</strong>：被“世界很乱、很无奈”的情绪带跑，忽略了完形形容词必须从上文找到出处的铁律。</li><li><strong>误选 A（careless）</strong>：由 care 想到“网络安全”，但 careless 的词义落点是“人粗心”，世界不能粗心。</li><li><strong>误选 C（pointless）</strong>：完全脱离上文的犯罪语境，凭空造了个“无意义”的评价维度。</li></ul>
+<blockquote>记忆锚点：形容词空 → 回上文找复现；cyber-crime swept across the Web → lawless（法律管不住）；careless 说人、helpless 说人、pointless 离题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

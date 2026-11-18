@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-43 动画：配对题——从“被批评”反推 Oliver 的立场</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+.flip{margin:8px 0;padding:8px 12px;border-radius:10px;background:#eff6ff;border:1.5px dashed #60a5fa;
+  color:#1d4ed8;font-size:13.5px;line-height:1.8}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：批评句是“反向观点题”",
+  body:"<p>左栏：<b>Jamie Oliver seemed to believe that ____</b>（名厨奥利佛似乎相信____）。右栏 7 个观点，2 个多余。</p><p>Oliver 全文只出现一次，而且<b>不是自己开口，而是被别人批评</b>。机制：criticize X as an example of “not Y” ⇒ 批评者认为“非 Y”，被批评者的立场自然是 <b>Y</b>——方向要调头。</p>",
+  log:"配对题：Oliver 只出现一次，是“被批评”的反向题"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第六段末句的转述",
+  body:"<div class=\"qq\"><b>第六段末：</b>He has also <b>criticised</b> the celebrity chef Jamie Oliver's high-profile attempt to improve school lunches in England <b>as an example of</b> how “<b>lecturing</b>” people was <b>not the best way</b> to change their behaviour. <span class=\"cn\">（译：他还批评名厨 Oliver 高调改善英国校餐的尝试，称它是“说教不是改变人们行为的最佳方式”的例证。）</span></div><p>主语 He = <b>Lansley</b>；他把 Oliver 的做法归入“说教无效”的阵营来批评。</p>",
+  log:"定位第六段末：Lansley 批评 Oliver 的尝试是说教无效的例子"},
+ {cls:"", ecs:"step", tag:"反向推导", count:0, title:"反向推导：被批评者持相反立场",
+  body:"<div class=\"flip\">① Lansley 批评 Oliver 的尝试＝“说教<b>无效</b>”的例子<br>② 被批评的 Oliver 恰恰<b>相信说教有效</b>（方向调头）<br>③ 选项 C：not the best way 的<b>否定之否定</b>还原为肯定——“lecturing” was <b>an effective way</b></div><p>注意：seemed to believe 的“似乎”正是提示——立场是从批评者的转述里<b>反推</b>出来的。</p>",
+  log:"反向推导：批评句说“X 不是”，被批评者就是“X 是”"},
+ {cls:"bad", ecs:"miss", tag:"排除 D / E", count:2, ribbon:{k:4, ok:false}, title:"排除 D（香烟式警告）与 E（薯片糖果商）",
+  body:"<p><b>D（香烟式警告）</b><span class=\"bad-dot\">✗</span>：<b>Stephenson</b> 的答案（42 题）——“警告”与“说教”都涉及劝人，但类比是 Stephenson 的，与 Oliver 无关。</p><p><b>E（薯片糖果商贡献大）</b><span class=\"bad-dot\">✗</span>：<b>Lansley</b> 的答案（41 题）。Oliver 是被 Lansley 批评的对象，选 E 等于和批评者站到一起。</p>",
+  log:"排除 D（Stephenson 的）、E（Lansley 的）"},
+ {cls:"bad", ecs:"miss", tag:"排除 A / B / G / F", count:6, ribbon:{k:1, ok:false}, title:"排除 A、B、G、F",
+  body:"<p><b>A（脂肪税）</b><span class=\"bad-dot\">✗</span>：首段 <b>leading doctors（名医集体）</b>的要求，文中只字未提 Oliver 主张征税。</p><p><b>B（校园周边禁店）</b><span class=\"bad-dot\">✗</span>：<b>Bhugra</b> 的答案（44 题）；<b>G（强化企业责任）</b><span class=\"bad-dot\">✗</span>：卫生部发言人的答案（45 题）；<b>F（父母榜样）</b><span class=\"bad-dot\">✗</span>：无主选项。</p><p>本题真正的陷阱只有一个：把 criticised…as an example of… 顺读成“Oliver 认为说教无效”，就会与 C 擦肩而过。</p>",
+  log:"排除 A/B/G/F：各有其主或无主"},
+ {cls:"good", ecs:"ok", tag:"锁定 C", count:7, ribbon:{k:3, ok:true}, title:"锁定 C：“lecturing” was an effective way",
+  body:"<p><b>C（说教是改善英国校餐的有效办法）</b><span class=\"ok-dot\">✓</span>：反向链条成立——</p><p>Lansley 批评 Oliver 的校餐尝试，理由是它证明了“<b>说教</b>不是改变行为的最佳方式” ⇒ 站在 Lansley 对立面的 Oliver 认为“<b>说教</b>有效”；C 是第六段末句“not the best way”的反向表述。</p><p>题干的 seemed to believe（似乎相信）正对应这种“从他人转述反推”的口吻 → C。</p>",
+  log:"锁定 C：批评“说教无效”⇒ Oliver 相信说教有效"},
+ {cls:"good", ecs:"done", tag:"结论", count:7, title:"结论：答案 C",
+  body:"<p><b>答案 C</b>——被批评者的立场与批评者的理由方向相反。</p><p><table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr><tr><td class=\"mine\">A 脂肪税</td><td class=\"mine\">首段名医集体</td></tr><tr><td class=\"mine\">B 校园禁店</td><td class=\"mine\">Bhugra（44 题）</td></tr><tr><td class=\"ans\">C 说教有效</td><td class=\"ans\">Oliver ✓ 本题（反推）</td></tr><tr><td class=\"mine\">D 香烟式警告</td><td class=\"mine\">Stephenson（42 题）</td></tr><tr><td class=\"mine\">E 薯片糖果商</td><td class=\"mine\">Lansley（41 题）</td></tr><tr><td class=\"mine\">F 父母榜样</td><td class=\"mine\">无主</td></tr><tr><td class=\"mine\">G 强化企业责任</td><td class=\"mine\">卫生部发言人（45 题）</td></tr></table></p>",
+  log:"结论：Oliver 似乎相信说教有效，答案选 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-43 · 新题型配对：Jamie Oliver 似乎相信什么",
+  subtitle: "考点：Text B 反向观点配对 · 方法：找“被批评”的转述句 → 方向调头 → 他人观点排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位批评句 → 反向推导 → 逐项排查。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>criticised Oliver's attempt as an example of how “lecturing” was not the best way</b> ⇒ 被批评的 Oliver 相信说教有效。记忆锚点：批评句说“X 不是”，被批评者就是“X 是”——方向调头；D/E/A/B/G 各有其主、F 无主。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——从"被批评"反推 Oliver 的立场</h2>
+<p>答案：<strong>C</strong>（"lecturing" was an effective way to improve school lunches in England "说教"是改善英国校餐的有效办法）。</p>
+<h3>第 0 步：先立机制——批评句是"反向观点题"</h3>
+<p>Oliver 全文只出现一次，而且不是自己开口，而是<strong>被别人批评</strong>。机制：criticize X as an example of "not Y"（把 X 当作"非 Y"的例子来批评）⇒ 批评者认为"非 Y"，被批评者 Oliver 的立场自然是 <strong>Y</strong>。借敌人的嘴反推立场，是配对题里的特殊解法——方向要调头。</p>
+<h3>第 1 步：定位唯一一处 Oliver</h3>
+<p>第六段末句：</p>
+<blockquote>He has also criticised the celebrity chef Jamie Oliver's high-profile attempt to improve school lunches in England <strong>as an example of how "lecturing" people was not the best way to change their behaviour</strong>.（他还批评名厨 Oliver 高调改善英国校餐的尝试，称它是"说教不是改变人们行为的最佳方式"的一个例证。）</blockquote>
+<p>拆解这层转述：主语 He = Lansley；他把 Oliver 的做法归入"说教（lecturing）无效"的阵营来批评。</p>
+<p>反向推导两步：</p>
+<ol><li>Lansley 批评 Oliver 的尝试＝说教<strong>无效</strong>的例子 ⇒ 被批评的 Oliver 恰恰<strong>相信说教有效</strong>；</li><li>选项 C 把 not the best way 的<strong>否定之否定</strong>还原成肯定："lecturing" was <strong>an effective way</strong>。</li></ol>
+<p>→ 选 <strong>C</strong>。</p>
+<h3>第 2 步：干扰项归因——其余选项各有其主</h3>
+<ul><li><strong>误选 D（香烟式警告）</strong>：Stephenson 的答案（42 题）。Stephenson 第七段把快餐"当香烟管"，但那是他的类比，与 Oliver 无关——别把"警告/说教都关于劝人"混为一谈。</li><li><strong>误选 E（薯片糖果商贡献大）</strong>：Lansley 的答案（41 题）。Oliver 是被 Lansley 批评的对象，选 E 等于跟批评者站到了一起。</li><li><strong>误选 A（脂肪税）</strong>：首段 leading doctors 的集体要求；若 Oliver 真持某立场，文中也只字未提他主张征税。</li><li><strong>误选 B（校园周边禁店）</strong>：Bhugra 的答案（44 题）；<strong>误选 G（强化企业责任）</strong>：卫生部发言人的答案（45 题）；<strong>误选 F（父母榜样）</strong>：无主选项。</li><li>本题真正的陷阱只有一个：<strong>读不懂转述句的方向</strong>。如果把 criticised…as an example of… 顺读成"Oliver 认为说教无效"，就会与正确项 C 擦肩而过——记住：批评句说"X 不是"，被批评者就是"X 是"。</li></ul>
+<blockquote>记忆锚点：只出现一次的名人 = 找"被转述"的那句；criticize X as an example of "not Y" ⇒ X holds Y（方向调头）→ Oliver 支持 lecturing 有效（C）；D/E/A/B/G/F 各有其主或无主。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

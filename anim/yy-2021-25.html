@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-25 · 2021 阅读第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：动作题拆「决定 + 目的」两层",
+  "body": "<p>题干：<b>Scandinavian Airlines decided to ____</b>（北欧航空决定 ____）。</p><p>decided to 后面的动作链要读全：开办短期再培训项目 → 给<b>被裁员工</b>再培训 → 目的是<b>支援医院</b>。选项改写常在这两层做手脚：换掉培训对象、偷换培训目的。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：decided to 动作链",
+  "body": "<div class='qq'><b>原文：</b>When forced to furlough 90 per cent of their cabin staff, Scandinavian Airlines decided to start up a short retraining program that reskilled the laid-off workers to support hospital staff.</div><p>被迫让 90% 乘务员停职休假 → 决定开办短期再培训项目 → <b>reskilled the laid-off workers</b>（给被裁员工再技能）<b>to support hospital staff</b>（去支援医院）。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：上文「别的缺口能补」正是动机",
+  "body": "<div class='qq'><b>原文：</b>But even if you cannot close that gap, maybe you can close others, and doing so would be to the benefit of all concerned.</div><p>上文铺垫：医生缺口那个 gap 补不上，但「<b>别的 gap 能补</b>」——被裁的乘务员被再培训去补医院缺口，正是「帮被裁员工准备好另一份工作」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：创造岗位空缺——偷换动作",
+  "body": "<p><b>A · create job vacancies for the unemployed（为失业者创造岗位空缺）</b> <span class='bad-dot'>✗</span></p><p>做的是<b>再培训已有员工</b>，不是「创造新空缺」。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：让被裁员工为其他工作做好准备",
+  "body": "<p><b>B · prepare their laid-off workers for other jobs（让被裁员工为其他工作做好准备）</b> <span class='ok-dot'>✓</span></p><p>reskilled the laid-off workers（给被裁员工再技能）to support hospital staff（去支援医院）→ 为下岗员工<b>准备好另一种工作</b>：reskill = prepare ... for other jobs，laid-off workers 逐点对上。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：为更好的服务再培训——偷换目的",
+  "body": "<p><b>C · retrain their cabin staff for better services（为更好的服务再培训乘务员）</b> <span class='bad-dot'>✗</span></p><p>培训去向是<b>支援医院</b>，不是提升航司服务——目的被偷换。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：资助上大学——程度错位",
+  "body": "<p><b>D · finance their staff's college education（资助员工上大学）</b> <span class='bad-dot'>✗</span></p><p>短期 retraining program 不是大学教育，程度与形式都不对。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（prepare their laid-off workers for other jobs）</b>。</p><p>记忆锚点：动作题两层核对——对象（laid-off workers）+ 目的（support hospital staff）；reskill = 为另一种工作做准备。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（retrain... for better services）——把「支援医院」读成「提升服务」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-25 · 阅读第 25 题：北欧航空决定做什么",
+  subtitle: "考点：Text1 第 4 段 · 动作细节题（对象 + 目的两层核对）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B",
+ "html": "<b>B prepare their laid-off workers for other jobs</b>：reskilled the laid-off workers to support hospital staff → 让被裁员工为其他工作做好准备。<br>记忆锚点：动作题两层核对——对象 + 目的；reskill = 为另一种工作做准备。<br>最易误选：C——「支援医院」被偷换成「提升服务」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 25 题——北欧航空决定做什么</h2>
+<p>答案：<strong>B</strong>（prepare their laid-off workers for other jobs）。</p>
+<h3>第 0 步：先立机制——动作题拆「决定 + 目的」两层</h3>
+<p>decided to 后面的动作链要读全：开办短期再培训项目 → 给<strong>被裁员工</strong>再培训 → 目的是<strong>支援医院</strong>。选项改写时最常在这两层上做手脚：换掉培训对象、偷换培训目的。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>When forced to furlough 90 per cent of their cabin staff, Scandinavian Airlines decided to start up a short retraining program that reskilled the laid-off workers to support hospital staff.</blockquote>
+<p>reskilled the laid-off workers（给被裁员工再技能）to support hospital staff（去支援医院）→ <strong>为下岗员工准备好另一种工作</strong>（prepare their laid-off workers for other jobs）：reskill = prepare ... for other jobs，laid-off workers 逐点对上。上文 maybe you can close others（别的缺口能补）正是这一安排的动机。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（create job vacancies for the unemployed）</strong>：偷换动作——做的是「再培训已有员工」，不是「创造岗位空缺」。</li><li><strong>C（retrain their cabin staff for better services）</strong>：偷换目的——培训去向是<strong>支援医院</strong>，不是提升航司服务。</li><li><strong>D（finance their staff's college education）</strong>：程度错位——短期 retraining program 不是大学教育。</li></ul>
+<blockquote>记忆锚点：动作题两层核对——对象（laid-off workers）+ 目的（support hospital staff）；reskill = 为另一种工作做准备。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

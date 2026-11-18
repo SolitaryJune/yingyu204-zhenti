@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-41 动画：新发现会促销新机型吗</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：陈述关键词", "body": "<p>陈述：<b>Findings of the Stanford University researchers will promote the sales of new Boeing and Airbus aircraft.</b>（斯坦福的发现将促销波音与空客的新机型。）</p><p>判断题三查：一定位、二比对、三查口径。关键词 Stanford researchers / new aircraft → 首段。</p>", "log": "三查机制：拿关键词回首段定位"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：首段的引子与转折", "body": "<div class=\"qq\"><b>首段①②句：</b>Both Boeing and Airbus have trumpeted the efficiency of their newest aircraft, the 787 and A350 respectively. <span class=\"cn\">（译：波音与空客分别自夸新机型 787 与 A350 的高效。）</span></div><div class=\"qq\"><b>首段③句：</b>But a group of researchers at Stanford University…has suggested that airlines could take a more naturalistic approach to cutting jet-fuel use and it would not require them to buy new aircraft. <span class=\"cn\">（译：但斯坦福研究者提出：用仿生办法省油，且不需要购买新飞机。）</span></div>", "log": "前两句是引子，But 转折后才是研究者观点"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 2, "title": "比对：方向相反 + 无中生有", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>promote the sales of new aircraft 促销新机</td><td>would not require them to buy new aircraft 不需要买新机</td><td><span class=\"bad-dot\">方向相反</span></td></tr><tr><td>研究者发现帮助卖飞机</td><td>全文无此信息</td><td><span class=\"bad-dot\">无中生有</span></td></tr></table>", "log": "两处比对都失守：正反混淆 + 无中生有"}, {"cls": "bad", "ecs": "miss", "tag": "排除 T", "title": "排除 T：True · 陈述为真", "body": "<p><b>选项 T（True · 陈述为真）</b><span class=\"bad-dot\">✗</span></p><p>\"促销新机\"与原文\"不需要买新机\"方向相反——<b>T 不成立</b>。</p>", "log": "排除 T：True · 陈述为真", "count": 2, "ribbon": {"k": 1, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "判定 F", "title": "判定 F：False · 陈述为假", "body": "<p><b>选项 F（False · 陈述为假）</b><span class=\"ok-dot\">✓</span></p><p>But 转折后才是真观点：省油无需买新机 → 陈述与原文相左，<b>判 F 成立</b>。</p>", "log": "判定 F：False · 陈述为假", "count": 2, "ribbon": {"k": 2, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 2, "title": "结论：答案 F", "body": "<p><b>答案 F</b>——研究发现与\"促销新机\"正好相反。</p><p>记忆锚点：But 转折后才是重点；not require to buy ≠ promote sales。</p>", "log": "结论：陈述与原文相左，答案选 F"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-41 · 判断题：新发现会促销新机型吗",
+  subtitle: "考点：新题型判断正误 · 方法：定位 → 比对 → 口径三查",
+  counterLabel: "比对点",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 逐点比对 → 口径核查。",
+  snaps: snaps,
+  result: {
+    big: "答案 F",
+    html: "<b>\"it would not require them to buy new aircraft\"（省油无需买新机）与 \"promote the sales\"（促销新机）方向相反</b>；前两句 Boeing/Airbus 自夸只是引子，But 转折后才是研究者观点。偷换类型：正反混淆 + 无中生有。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：判断题——But 转折后才是研究者的真观点</h2>
+<p>答案：<strong>F</strong>（陈述错误）。</p>
+<h3>第 0 步：先立机制——判断题"三查"闭环</h3>
+<p>判断正误题不是凭感觉勾 True：机制是三查——<strong>一定位</strong>（拿陈述关键词回原文）、<strong>二比对</strong>（陈述与原句逐点核对）、<strong>三查口径</strong>（范围、方向、语气有没有被偷换）。本题陈述：Findings of the Stanford University researchers will <strong>promote the sales</strong> of new Boeing and Airbus aircraft（斯坦福的发现将<strong>促销</strong>波音与空客的新机型）。关键词 Stanford researchers、new aircraft → 定位首段。</p>
+<h3>第 1 步：定位与比对</h3>
+<blockquote>Both Boeing and Airbus have trumpeted the efficiency of their newest aircraft… <strong>But</strong> a group of researchers at Stanford University, led by Ilan Kroo, has suggested that airlines could take a more naturalistic approach to cutting jet-fuel use and <strong>it would not require them to buy new aircraft</strong>.（波音与空客都在自夸新机型的高效……<strong>但是</strong>斯坦福大学 Kroo 领导的研究组提出：航空公司可以用更仿生的办法省油，而且<strong>不需要购买新飞机</strong>。）</blockquote>
+<p>比对：前两句 Boeing / Airbus 自夸新机型只是<strong>引子</strong>；But 转折之后才是研究者的核心观点——省油<strong>无需买新机</strong>。陈述却把方向拧成"将促进新机型销售"。</p>
+<h3>第 2 步：判定与偷换类型</h3>
+<ul><li><strong>方向偷换（正反混淆）</strong>：not require them to buy new aircraft（不必买新机）→ promote the sales of new aircraft（促销新机），正好相反。</li><li><strong>无中生有</strong>：全文没有"研究者发现帮波音空客卖飞机"的任何信息。</li></ul>
+<p>→ 选 <strong>F</strong>。</p>
+<blockquote>记忆锚点：判断题遇到转折词 But 停一停——转折后才是重点；"不需要买新机"与"促销新机"方向相反。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

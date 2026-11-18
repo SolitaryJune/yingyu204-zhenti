@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-30 · 2013 阅读第 30 题 · 全文最恰当的标题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 标题 = 批评对象 + 态度",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "本文是批评型文章：标题题先找作者点名批评的对象，再看态度词",
+  "count": 0,
+  "body": "<p>文章结构：第一段引子（百年前移民有定居者 / 旅居者之分）→ 第二段亮观点（现行“合法 / 非法”二分法造成制度失灵）→ 三至五段展开“候鸟”与对策。批评型文章的标题 = <b>批评对象 + 态度</b>。作者真正批评的是什么？</p>"
+ },
+ {
+  "title": "定位批评句 · that framework 指什么",
+  "cls": "key",
+  "tag": "批评",
+  "log": "作者点名批评“legal or illegal”二分框架：它极大促成了制度失灵与政治僵局",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We divide newcomers into two categories: legal or illegal, good or bad... That framework has contributed mightily to our broken immigration system and the long political paralysis over how to fix it.</div><p>作者点名批评的正是“<b>legal or illegal</b>”这套二分框架——它“极大地促成”了制度失灵与政治僵局。后文又呼吁 look beyond strict definitions of legal and illegal。批评对象 = legal or illegal；态度 = 大错特错。</p>"
+ },
+ {
+  "title": "选项 D · Legal or Illegal: Big Mistake",
+  "cls": "good",
+  "tag": "当选 D",
+  "log": "D Legal or Illegal: Big Mistake ✓ 当选——批评对象与态度双双对齐，罩住全文",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>前半概括现行体制（合法 / 非法二分法），后半表明态度（作者认为它是错误）——批评对象与态度双双对齐，且能罩住全文：第 1 段引子是背景，第 3-5 段是“错在哪、怎么办”。</p>"
+ },
+ {
+  "title": "选项 A · Come and Go: Big Mistake",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A Come and Go: Big Mistake ✗ 排除——批评对象错位：来去自由是作者支持的东西",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>批评对象错位：来去自由（come and go）是作者<b>支持</b>的东西，他反对的是“不许来去自由”的现行体制——说“来去”是大错与作者立场相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只抓表面话题词，不核对“谁被批评”。</p>"
+ },
+ {
+  "title": "选项 B · Living and Thriving: Great Risk",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Living and Thriving: Great Risk ✗ 排除——原词设障：灰色地带的生活是应被承认的正面状态",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原词设障：living and thriving 确实出自第二段（灰色地带里生活发展），但作者说这是应该被“<b>承认</b>”的正面状态，没说有“巨大风险”；且这只是细节，非主旨。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原文词重现 = 高危选项。</p>"
+ },
+ {
+  "title": "选项 C · With or Without: Great Risk",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C With or Without: Great Risk ✗ 排除——含义模糊，与文章内容建立不起联系",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>含义模糊：“有或没有”（候鸟？）与文章内容建立不起明确联系，勉强解释也大大偏离主旨。</p><p style=\"color:#b91c1c\">⚠ 典型误解：无实际对应，纯干扰。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（Legal or Illegal: Big Mistake）——批评对象 + 态度，罩住全文",
+  "count": 3,
+  "body": "<p>答案选 <b>D（Legal or Illegal: Big Mistake “合法还是非法”：大错特错）</b>。</p><p><b>记忆锚点</b>：标题 = 主旨 + 态度——先找作者“点名批评”的对象（that framework = legal or illegal），再对态度词（broken / paralysis / Big Mistake 同向）；对象错位（A）、原词重现（B）、无对应（C）都罩不住全文。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 30 题 · 全文最恰当的标题",
+  "subtitle": "考点：主旨题（标题）· 找作者“点名批评”的对象 + 态度词",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（Legal or Illegal: Big Mistake）",
+ "html": "<b>D “合法还是非法”：大错特错</b>：批评对象 = 第二段 legal or illegal 二分框架（that framework contributed to broken system / paralysis）。<br>最易误选：<b>A</b>——come and go 是作者支持的，不是被批评的。<br>记忆锚点：批评型文章标题 = 批评对象 + 态度词；原词重现的选项（living and thriving）要警惕。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 30 题 · 全文最恰当的标题</h2>
+<p>答案：<strong>D（Legal or Illegal: Big Mistake “合法还是非法”：大错特错）</strong>。</p>
+<h3>第 0 步：先立机制——批评型文章的标题 = 批评对象 + 态度</h3>
+<p>本文不是中立说明文，而是<strong>批评文</strong>：作者点名抨击现行移民体制的思维方式。批评型文章的标题公式是“批评对象 + 态度”。所以解题分两步：① 找到作者<strong>点名批评</strong>的对象（注意 that framework 这类指代词的指向）；② 核对标题前半与后半是否分别对齐“对象”与“态度”。</p>
+<h3>第 1 步：定位批评句</h3>
+<blockquote>We divide newcomers into two categories: legal or illegal, good or bad... That framework has contributed mightily to our broken immigration system and the long political paralysis over how to fix it.</blockquote>
+<p>作者点名批评的正是“<strong>legal or illegal</strong>”这套二分框架——它“极大地促成”了制度失灵与政治僵局。后文又呼吁 look beyond strict definitions of legal and illegal。批评对象 = legal or illegal；态度 = 这套思维大错特错。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Come and Go: Big Mistake</td><td>✗ 排除</td><td>批评对象错位：来去自由（come and go）是作者<strong>支持</strong>的东西，他反对的是“不许来去自由”的现行体制——说“来去”是大错与作者立场相反。（典型误解：只抓表面话题词，不核对“谁被批评”。）</td></tr><tr><td>B Living and Thriving: Great Risk</td><td>✗ 排除</td><td>原词设障：living and thriving 确实出自第二段（灰色地带里生活发展），但作者说这是应该被“承认”的正面状态，没说有“巨大风险”；且这只是细节，非主旨。（典型误解：原文词重现 = 高危选项。）</td></tr><tr><td>C With or Without: Great Risk</td><td>✗ 排除</td><td>含义模糊：“有或没有”（候鸟？）与文章内容建立不起明确联系，勉强解释也大大偏离主旨。（典型误解：无实际对应，纯干扰。）</td></tr><tr><td>D Legal or Illegal: Big Mistake</td><td>✓ 当选</td><td>前半 = 现行体制（二分法），后半 = 态度（作者认为它是错误）——对象与态度双双对齐，罩住全文。</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>标题能罩住全文吗？</strong>：能。第一段引子讲“百年前对旅居者的宽容”，是给批评提供对照背景；第二段点名批评“合法 / 非法”二分法；三至五段论述“错在哪（逼僵化分类）、怎么办（承认候鸟、打开中间地带）”。标题的“Big Mistake”正是对第 2 段批评句与全文呼吁的浓缩。</li><li><strong>为什么 B 的原词反而危险？</strong>：出题人从原文里摘词（living and thriving）再造一个“听起来有哲理”的标题，但态度（Great Risk）是凭空安的——文中没有任何“风险”论述。判断标题先核对态度词有没有出处。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把作者支持的东西（来去自由）当成了被批评的对象。</li><li><strong>误选 B</strong>：被原词吸引，没发现“Great Risk”在文中无出处。</li></ul>
+<blockquote>记忆锚点：批评型文章标题 = 批评对象 + 态度词；that framework = legal or illegal 二分法；对象错位（A）、原词 + 凭空态度（B）、无对应（C）都罩不住全文。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

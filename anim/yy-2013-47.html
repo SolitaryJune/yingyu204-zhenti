@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2013-47 小作文谋篇：义卖告知信的「细节清单 + 参与动员」双核框架</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两个指令动词定信型',
+    cls: 'key',
+    body: '<p><b>1) inform them about the details</b>（必答点 1：告知细节）+ <b>2) encourage them to participate</b>（必答点 2：鼓励参与）。信型 = <b>「告知 + 动员」双核的义卖通知信</b>。内容线索两条：<code>a charity sale</code>（活动内容：义卖——补时间、货品、地点）+ <code>for kids in need of help</code>（活动目的：帮助什么样的孩子）。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>收信人是 <b>your classmates（同学群体）</b> → 称呼用 <b>Dear classmates</b>（集体称呼即可，不必 Sir or Madam）。两条硬约束：<b>Do not use your own name</b> → 落款署 <b>Li Ming</b>；<b>Do not write your address</b> → 不写地址。书信三件套：称呼 + 正文 + 落款（Yours sincerely, Li Ming）。</p>' },
+  { title: '谋篇：inform 靠清单完整，encourage 靠利益点 + 意义感',
+    cls: 'key',
+    body: '<p>两段式分工：<b>段 1</b> = 细节清单（何时 / 何地 / 为何 / 钱去哪）；<b>段 2</b> = 参与动员（利益点先行、意义感收尾）。机制：只报流水账不动员 = 必答点 2 缺失掉档；只喊口号不给细节 = 动员没有支点。</p>' },
+  { title: '段 1 通知句：开门见山 + 三问补齐',
+    cls: 'good',
+    body: '<p><b>our class will hold a charity sale on September 23, from 8 a.m. to 5 p.m., in the auditorium.</b></p><p>何时（9 月 23 日 8:00–17:00）+ 何地（礼堂）一句打包；进阶写法 <b>a charity sale is scheduled for September 23</b>（be scheduled for = 定于……举办，比 will hold 更书面）。何时何地是 inform 的底线要素。</p>' },
+  { title: '段 1 目的与去向：公益信的可信度来源',
+    cls: 'good',
+    body: '<p><b>All the proceeds will be donated to the Project Hope for kids on the verge of dropping out — our goal is to raise sufficient money to help 15 children in financially strained families.</b></p><p>款项去向（收益捐给希望工程）比只说「帮孩子」更实；受益对象用「数字 + 画像」具体化（15 个家境贫寒的孩子）。关键词：<b>proceeds 收益 · on the verge of 濒临 · in financially strained families 家境贫寒</b>。</p>' },
+  { title: '段 2 动员：利益点先行',
+    cls: 'good',
+    body: '<p><b>You will find latest books and pretty stationery on sale there at attractive discounts.</b></p><p>同学能「得到什么」是参与的最直接理由——打折的图书与文具。<b>at (attractive) discounts 打折</b>是义卖类信件的必备搭配；货品清单可换成自己的版位（二手书、手工艺品、flea market 跳蚤市场）。</p>' },
+  { title: '段 2 动员：意义感收尾 + 号召句',
+    cls: 'good',
+    body: '<p><b>Since every purchase helps, do come and pick what you like; the more of us join in, the closer we get to the goal.</b></p><p><b>every purchase helps</b> 把消费转译成善举（buy 与 help 合二为一）；<b>do come</b> 的 do 强调比 please 更有热度；<b>the more…the closer</b> 把参与和目标挂钩，动员有落点。</p>' },
+  { title: '高分句型清单（背三件套）',
+    cls: 'key',
+    body: '<p><b>be scheduled for</b> + 日期 = 定于……举办 · <b>proceeds</b>（活动）收益 · <b>be donated to</b> = 捐给 · <b>for the sake of</b> = 为了 · <b>on the verge of doing</b> = 濒临 · <b>in financially strained families</b> = 家境贫寒 · <b>be desirous of</b> = 希望 · <b>sufficient</b> = 足够的 · <b>at a discount</b> = 打折 · <b>Your participation is necessary to achieve this aim</b>。</p>' },
+  { title: '成文自检：三个「为什么」',
+    cls: 'key',
+    body: '<p><b>为什么称呼 Dear classmates</b>：集体收信人，不必 Sir or Madam。<b>为什么语域半正式</b>：同学之间亲切即可，但义卖是班级正式活动，不能 Hi guys 口语化。<b>为什么细节要含数字与去向</b>：可信度来自「可核实」——时间、地点、款项用途、受益人数一个不飘。</p>' },
+  { title: '模板迁移（一切「告知 + 邀请」类活动信通用）',
+    cls: 'key',
+    body: '<p>「通知句（何时何地）→ 目的与去向 → 利益点 → 意义感 + 号召」适用于<b>讲座、义演、运动会、招募</b>等一切活动类邮件：换题只换三个槽位——活动名与时间地点、目的与受益对象、货品/节目清单；双必答点（inform / encourage）与落款格式整体复用。</p>' },
+  { title: '结论：要点口径与锚点',
+    cls: 'good',
+    body: '<p>要点口径（与参考一致）：义卖 9 月 23 日 8:00–17:00 · 礼堂；为濒临辍学的孩子筹款，收益捐希望工程；目标帮助 15 个家境贫寒的孩子；动员点 = 图书文具打折 + 每笔购买都是帮助。格式锚点：<b>Dear classmates → 正文两段（细节 / 动员）→ Yours sincerely, Li Ming</b>，不写地址。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var clsMap = { good: 'ok', bad: 'miss', key: 'key' };
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : (clsMap[s.cls] || 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2013-47 小作文谋篇演示：义卖告知信的「细节清单 + 参与动员」',
+  subtitle: '考点：应用文写作（告知 + 动员类邮件）· 方法：拆指令 → 定框架 → 句型升格 → 成文自检（inform the details + encourage to participate）',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '双必答点：inform + encourage',
+    html: '<p><b>范文要点（自行组织，口径与参考一致）</b>：Dear classmates, I\u2019m writing to tell you that our class will hold a charity sale on September 23, from 8 a.m. to 5 p.m., in the auditorium. All the proceeds will be donated to the Project Hope for kids on the verge of dropping out — our goal is to raise sufficient money to help 15 children in financially strained families. You will find latest books and pretty stationery on sale there at attractive discounts. Since every purchase helps, do come and pick what you like; the more of us join in, the closer we get to the goal. Yours sincerely, Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>细节三问（何时/何地/为何）→ 款项去向 → 利益点 + 意义感</b>；称呼 Dear classmates；落款 Yours sincerely, Li Ming；proceeds / be scheduled for / at a discount 三件套。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 小作文——义卖告知信的「细节清单 + 参与动员」双核框架</h2>
+<p>答案（参考范文要点口径）：<strong>时间地点（9 月 23 日 8:00–17:00 · 礼堂 auditorium）+ 活动目的（为濒临辍学的孩子义卖筹款，收益捐给希望工程 Project Hope）+ 受益对象（15 个家境贫寒的孩子）+ 动员参与（最新图书与精美文具打折出售等吸引点）+ 格式（称呼 Dear classmates，落款 Yours sincerely, Li Ming，不写地址）</strong>。以下范文要点为自行组织版本，内容口径与参考一致：</p>
+<blockquote><strong>Dear classmates, I'm writing to tell you that our class will hold a charity sale on September 23, from 8 a.m. to 5 p.m., in the auditorium. All the proceeds will be donated to the Project Hope for kids on the verge of dropping out — our goal is to raise sufficient money to help 15 children in financially strained families. You will find latest books and pretty stationery on sale there at attractive discounts. Since every purchase helps, do come and pick what you like; the more of us join in, the closer we get to the goal. Yours sincerely, Li Ming</strong></blockquote>
+<h3>第 0 步：先立机制——告知信的分数从哪来</h3>
+<p>小作文 = <strong>格式 + 要点 + 语言</strong>三线并行。本题信型是「告知 + 动员」双核：<strong>inform 靠要素清单完整，encourage 靠利益点与意义感</strong>——只报流水账不动员，必答点 2 缺失掉档；只喊口号不给细节，动员没有支点。收信人是同学（group 收信人），语域亲切而不过随意。动笔前先拆指令，把每条指令换算成"信里必须出现的内容"。</p>
+<table><thead><tr><th>指令关键词</th><th>解读</th><th>落到信里</th></tr></thead><tbody><tr><td>write an email</td><td>应用文 = 电子邮件（书信体）</td><td>格式完整：称呼 + 正文 + 落款</td></tr><tr><td>your classmates</td><td>收信人是同学群体</td><td>称呼 Dear classmates；语域亲切、半正式</td></tr><tr><td>1) inform them about the details</td><td>必答点 1：告知细节</td><td>段 1：时间、地点、目的、款项去向</td></tr><tr><td>2) encourage them to participate</td><td>必答点 2：鼓励参与</td><td>段 2：吸引点（打折图书文具）+ 意义感</td></tr><tr><td>a charity sale</td><td>内容线索：活动内容</td><td>义卖——可补充时间、货品、地点</td></tr><tr><td>for kids in need of help</td><td>内容线索：活动目的</td><td>帮助什么样的孩子、如何帮助</td></tr><tr><td>Use "Li Ming" / Do not write your address</td><td>格式红线</td><td>落款 Li Ming；不写地址</td></tr></tbody></table>
+<p>两个必答点（inform / encourage）缺一即结构性扣分；署真名或写地址是踩线扣分。</p>
+<h3>第 1 步：谋篇——细节按"何时何地、为何而卖、钱去哪"补齐</h3>
+<ul><li><strong>段 1 开门见山</strong>：一句话通知活动 + 三问补齐——何时（September 23, 8 a.m.–5 p.m.）、何地（in the auditorium 礼堂）、为何（for kids 濒临辍学的孩子）。</li><li><strong>款项去向是公益活动的可信度来源</strong>：收益捐给希望工程（donate to the Project Hope），比只说"帮孩子"更实、更能立住"义卖"的名义。</li><li><strong>受益对象具体化</strong>：15 个家境贫寒的孩子（15 children in financially strained families）——"数字 + 画像"让目的可感，也为动员段的目标感做铺垫。</li></ul>
+<h3>第 2 步：动员段——利益点先行、意义感收尾</h3>
+<ul><li><strong>利益点</strong>：最新图书与精美文具打折出售（latest books and pretty stationery at attractive discounts）——同学能"得到什么"，这是参与的最直接理由。</li><li><strong>意义感</strong>：每一笔购买都是帮助（every purchase helps）——把消费转译成善举，buy 与 help 合二为一。</li><li><strong>号召句</strong>：do come and pick what you like——<strong>do 强调 + 祈使</strong>比 please 更有热度；再用 the more…the closer 把参与和目标挂钩，动员有落点。</li></ul>
+<h3>第 3 步：语言升格——高分句型清单</h3>
+<ul><li><strong>be scheduled for + 日期</strong> = 定于……举办（比 will hold 更书面）</li><li><strong>for the sake of</strong> = 为了；<strong>on the verge of doing</strong> = 濒临……</li><li><strong>be donated to</strong> = 捐给；<strong>proceeds</strong> = （活动的）收益</li><li><strong>be desirous of</strong> = 希望（书面表达 hope）；<strong>sufficient</strong> = 足够的</li><li><strong>at (attractive) discounts</strong> = （诱人地）打折；<strong>in financially strained families</strong> = 家境贫寒</li><li><strong>Your participation is necessary to achieve this aim</strong> / every purchase counts——把"参与"写成"达成目标的必要条件"</li></ul>
+<h3>第 4 步：成文自检——三个"为什么"</h3>
+<ul><li><strong>为什么称呼 Dear classmates</strong>：收信人是"同学们"这个群体，集体称呼即可，不必 Sir or Madam。</li><li><strong>为什么语域半正式</strong>：同学之间亲切即可、不必公文腔；但义卖是班级正式活动，不能全口语化（Hi guys 之类）。</li><li><strong>为什么细节要含数字与去向</strong>：活动可信度来自"可核实"——时间、地点、款项用途、受益人数，一个都不能飘。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只告知不动员</strong>：必答点 2（encourage）缺失，内容完整性掉档——这是本题型最常见降档原因。</li><li><strong>细节残缺</strong>：漏时间/地点/目的之一——inform about the details 就没完成。</li><li><strong>语域跑偏</strong>：对同学用 Sir or Madam 公文腔，或全篇 Hi guys 口语化——前者过正式，后者失了正式活动的体面。</li><li><strong>目的空泛</strong>：只写 for charity，没有受益对象与款项去向，动员缺少说服力。</li><li><strong>格式踩线</strong>：署自己的名字、写地址、漏称呼或漏落款——指令明令的硬约束。</li><li><strong>落款忘换 Li Ming</strong>：指令要求 Use "Li Ming" instead，署真名直接扣分。</li></ul>
+<blockquote>记忆锚点：告知信 = <strong>细节三问（何时/何地/为何）+ 款项去向 + 动员（利益点 + 意义感）</strong>；称呼 Dear classmates；落款 Yours sincerely, Li Ming；语域亲切而不过随意；proceeds / be scheduled for / at a discount 三件套背下来。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

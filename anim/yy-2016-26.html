@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·26 阅读 · The crash 的跨段回指</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：The + 名词 = 回指信号枪', cls: 'key',
+    body: '<p>因果细节题：listed as threatened 的原因。题干把位置钉在第二段①句，但这句的答案不在句子内部，而在主语 <b>The crash</b> 身上——定冠词 The 是回指标志枪：<b>crash 这个概念上文必然讲过</b>，先回指、再概括。</p>',
+    log: 'The crash = 回指上文' },
+  { title: '定位原文（第二段①句）', cls: 'key',
+    body: src('“<b>The crash</b> was a major reason the U.S. Fish and Wildlife Service (USFWS) decided to formally list the bird as threatened.”') +
+      '<p>句子结构：The crash（原因）→ 列为受威胁物种（结果）。答案 = The crash 的所指。</p>',
+    log: '原因句锁定，回指第一段' },
+  { title: '回指上文：第一段的数字对撞', cls: 'key',
+    body: src('“Biologists estimate that as many as <b>2 million</b> lesser prairie chickens... once lent red to the often grey landscape... But just some <b>22,000</b> birds remain today, occupying about <b>16%</b> of the species’ historic range.”') +
+      '<p>曾经约 200 万只 → 如今约 2.2 万只；栖息地只剩历史分布的 16%。The crash 回指的正是这次<b>数量与活动范围的急剧下跌</b>。</p>',
+    log: '2 million → 22,000，暴跌' },
+  { title: '回指翻译', cls: 'good',
+    body: '<p>The crash = 数量骤减 + 分布收缩。四个选项里唯一触及“数量骤减”这一硬事实的表述：<b>its drastically decreased population</b> → 答案 A。</p>',
+    log: 'crash = drastically decreased population' },
+  { title: 'A its drastically decreased population', cls: 'good',
+    body: '<p>2 million → 22,000 的直接概括，正是 The crash 的所指。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A 回指闭环，命中' },
+  { title: 'B the underestimate of the grassland acreage', cls: 'bad',
+    body: '<p>拼凑 estimate、grasslands、16%——词汇都出自第一段，但拼不出“<b>有人低估了草原面积</b>”这个动作。原词在场 ≠ 命题成立。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 词汇拼凑，无“低估”动作' },
+  { title: 'C a desperate appeal from some biologists', cls: 'bad',
+    body: '<p>双重偷换：desperate 是官员形容<b>物种处境</b>的词；呼吁列“濒危”的是 <b>environmentalists</b>（环保人士）而非 biologists，且<b>未被采纳</b>。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 主体偷换 + 诉求未采纳' },
+  { title: 'D the insistence of private landowners', cls: 'bad',
+    body: '<p>时间线反了：土地所有者的合作是“<b>列为受威胁之后</b>”争取的对象，不是列名的原因——因果倒置。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 因果倒置' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（its drastically decreased population）</b>。记忆锚点：<b>The + 名词 = 回指上文</b>；The crash = 2 million → 22,000 的暴跌。干扰项三来源：词汇拼凑（B）、主体偷换（C）、因果倒置（D）。</p>',
+    log: '锁定 A' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 26 · The crash——定冠词开路的跨段回指',
+  subtitle: '考点：因果细节题 · The + 名词回指 · 数字对撞概括',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开回指与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（its drastically decreased population）',
+    html: '记忆锚点：<b>The crash 回指第一段</b>：2 million → 22,000 birds、栖息地只剩 16% —— 数量与分布的暴跌 → A。B 拼凑 estimate/grasslands/16%，C 偷换主体（biologists vs environmentalists），D 因果倒置（合作是列名后的配套）。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：The crash——定冠词开路的跨段回指</h2>
+<p>答案：<strong>A（its drastically decreased population）</strong>。</p>
+<h3>第一步：先立机制——The + 名词 = 回指信号枪</h3>
+<p>因果细节题：The major reason for listing... as threatened is ____。题干的 listed as threatened 把位置钉死在第二段①句。这句的答案不在句子内部，而在<strong>主语 The crash</strong>身上——定冠词 The 是回指标志枪：crash（暴跌）这个概念上文必然讲过，先回指、再概括，答案自然落地。</p>
+<h3>第二步：定位原文并完成回指</h3>
+<blockquote>Biologists estimate that as many as <strong>2 million</strong> lesser prairie chickens... once lent red to the often grey landscape... But just some <strong>22,000</strong> birds remain today, occupying about <strong>16%</strong> of the species' historic range.<br/><strong>The crash</strong> was a major reason the U.S. Fish and Wildlife Service (USFWS) decided to formally list the bird as threatened.</blockquote>
+<p>第一段给了一组对撞数字：曾经约 200 万只 → 如今约 2.2 万只，栖息地只剩历史分布的 16%。The crash 回指的正是这次<strong>数量与活动范围的急剧下跌</strong>——granted：crash 同时涵盖数量与分布，但四个选项里只有 A 触及"数量骤减"这一硬事实。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A its drastically decreased population</td><td>其数量大幅下降</td><td>2 million → 22,000 的直接概括，The crash 的所指</td></tr><tr><td>B the underestimate of the grassland acreage</td><td>草原面积被低估</td><td>拼凑 estimate、grasslands、16%；原文没说任何人"低估"了面积</td></tr><tr><td>C a desperate appeal from some biologists</td><td>一些生物学家的迫切呼吁</td><td>desperate 是官员形容物种处境的词；呼吁列"濒危"的是环保人士且未采纳</td></tr><tr><td>D the insistence of private landowners</td><td>私有土地所有者的坚持</td><td>土地所有者合作是"列入受威胁"之后争取的对象，因果倒置</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C</strong>：两个身份偷换叠加——呼吁的主体是 environmentalists（不是 biologists）；呼吁的内容是升格为 endangered（不是 threatened，后者恰恰没答应）。</li><li><strong>选 D</strong>：把第二段末"与土地所有者紧密合作"当成列名原因——时间线反了：先有 threatened 标签，才有对土地所有者的柔性安排。</li><li><strong>选 B</strong>：数字（16%）+ 词汇（estimate/grassland）齐全，但拼不出"低估"这个动作——原词在场 ≠ 命题成立。</li></ul>
+<blockquote>记忆锚点：<strong>The + 名词 = 回指上文</strong>；The crash = 2 million → 22,000 的暴跌 → A（drastically decreased population）。干扰项三个来源：词汇拼凑（B）、主体偷换（C）、因果倒置（D）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·27 阅读 · wreaking havoc 的上下文夹逼</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：词义题', cls: 'key',
+    body: '<p>超纲短语 <b>wreaking havoc</b>（第二段末）。机制：<b>上下文双向夹逼</b>——上文看"这种模式是什么"，下文看"它导致了什么"，含义 = 两头证据的交集。</p>',
+    log: '词义 = 上文性质 × 下文后果' },
+  { title: '定位原文', cls: 'key',
+    body: src('“...although American men tend to talk more than women in public situations, they often talk less at home. And <b>this pattern is wreaking havoc with marriage</b>.”') +
+      '<p>这种模式 = 公开场合男多于女、家里男少于女；空格短语 = 它对婚姻做的事。</p>',
+    log: '空格：这种模式正在__婚姻' },
+  { title: '下文证据：后果的性质', cls: 'key',
+    body: src('“...most of the women she interviewed...gave <b>lack of communication</b> as the reason for their <b>divorces</b>. Given the current divorce rate of nearly 50 percent... <b>a virtual epidemic</b> of failed conversation.”') +
+      '<p>数百万离婚、一场"沟通失败的流行病"——后果是<b>严重的负面破坏</b>。</p>',
+    log: 'divorces + epidemic = 重创级别' },
+  { title: '夹逼完成：破坏', cls: 'good',
+    body: '<p>方向（负面）× 程度（重创）→ <b>causing damage（造成破坏）</b>。固定搭配 wreak havoc 本义即"肆意破坏"。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C = 夹逼的交集' },
+  { title: 'A：方向相反', cls: 'bad',
+    body: '<p>"<b>产生动力</b>（generating motivation）"——正面作用，与"数百万离婚"的负面后果直接冲突。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 正面作用，方向反了' },
+  { title: 'B：中性不足', cls: 'bad',
+    body: '<p>"<b>施加影响</b>（exerting influence）"——只说"有影响"，<b>没有负面结果</b>，解释不了 divorce、epidemic；中性词永远不是最优解。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 中性，结果性质缺失' },
+  { title: 'D：程度太轻', cls: 'bad',
+    body: '<p>"<b>制造压力</b>（creating pressure）"——方向对了（负面）但程度不够："压力"远不足以造成"流行病"级的婚姻解体。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 负面但太轻' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（causing damage）</b>。记忆锚点：<b>wreak havoc = 肆意破坏</b>；词义题先抓后果词（divorces、epidemic），再按"方向 → 程度"两刀切干扰项。</p>',
+    log: '锁定 C' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 27 · wreaking havoc 的上下文夹逼',
+  subtitle: 'Text 2（夫妻交流模式）· 考点：词义推断（上文性质 × 下文后果）',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（causing damage）',
+    html: '记忆锚点：<b>词义题双向夹逼</b>——下文 divorces / millions of cases / epidemic 把后果钉在"严重负面"档：A 方向反、B 中性不足、D 负面但太轻，只剩 causing damage。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：wreaking havoc——上下文夹逼出的"严重破坏"</h2>
+<p>答案：<strong>C（causing damage）</strong>。</p>
+<h3>第一步：先立机制——词义题 = 双向夹逼</h3>
+<p>生词短语所在句是第二段末：And this pattern is __wreaking havoc__ with marriage.（这种模式正在____婚姻）。词义题的机制是<strong>两头夹逼</strong>：上文说"这种模式是什么"（男性在家话少），下文说"这种模式导致了什么"（数百万离婚）。短语的含义 = 两头证据的交集。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>This episode crystallizes the irony that although American men tend to talk more than women in public situations, they often talk less at home. And this pattern is wreaking havoc with marriage.</blockquote>
+<h3>第三步：用下文定后果的性质</h3>
+<blockquote>...most of the women she interviewed – but only a few of the men – gave lack of communication as the reason for their divorces. Given the current divorce rate of nearly 50 percent, that amounts to millions of cases in the United States every year – a virtual epidemic of failed conversation.</blockquote>
+<p>数百万离婚案例、一场"沟通失败的流行病"——后果是<strong>实质性的严重破坏</strong>，不是轻微影响，更不是正面作用。</p>
+<h3>第四步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A generating motivation（产生动力）</td><td>✗</td><td>方向相反：正面作用与"数百万离婚"的负面后果冲突</td></tr><tr><td>B exerting influence（施加影响）</td><td>✗</td><td>中性且不足：只说"有影响"，没有负面结果，解释不了 epidemic</td></tr><tr><td>C causing damage（造成破坏）</td><td>✓</td><td>与"数百万离婚"的严重负面后果匹配</td></tr><tr><td>D creating pressure（制造压力）</td><td>✗</td><td>有负面但程度太轻："压力"远不足以解释"流行病"级的婚姻解体</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 D</strong>：方向对了（负面）但程度不够。词义排除的第二刀是"程度"——divorces、epidemic、millions of cases 这些词把后果钉死在"重创"级别。</li><li><strong>选 B</strong>：被"短语作用"的空泛表述迷惑。exerting influence 是"影响中性论"，对任何上下文都能自圆其说，也因此永远不是最优解。</li></ul>
+<blockquote>记忆锚点：wreak havoc = 肆意破坏（固定搭配）；词义题先抓后果词（divorces、epidemic），再按"方向 → 程度"两刀切干扰项。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-05 · 2016 完形第 5 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 5 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第三段首句（研究目的句），考点：上下文语义 + 词义方向",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The researchers wanted to know if the optimism and inclination for risk-taking that come with happiness would <b>__5__</b> the way companies invested.</div><p>这是全文的<b>研究目的句</b>：研究者想知道“随幸福感而来的乐观与冒险倾向，是否会____公司的投资方式”。研究目的是检验某个论断——这个论断必在首段已给出。</p>"
+ },
+ {
+  "title": "找证据 · 回首段论点：influence how firms work",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：首段论点 happiness might influence how firms work → 空格找 influence 的同向词",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And new research suggests that happiness might <b>influence how firms work</b>, too.</div><p>首段提出论点：幸福感可能<b>影响</b>公司的运作方式。第三段把论点落到具体对象“投资方式”上，研究者要检验的就是这个影响是否成立。所以空格应填 <b>influence 的同向词</b>：作用于 the way companies invested（投资方式）。</p>"
+ },
+ {
+  "title": "逐项分析 · A miss（错过）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A miss（错过）✗ 排除——“错过投资方式”搭配不通",
+  "body": "<p><b>排除。</b>miss the way companies invested 读成“错过公司的投资方式”，动宾不搭——方式不是能“错过”的对象；命题人借后文 longer-term thinking（长远思考）诱导“错过投资机会”的联想。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 longer-term thinking 带偏，把“错过机会”硬套到“投资方式”上。</p>"
+ },
+ {
+  "title": "逐项分析 · B echo（反映、回应）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B echo（反映）✗ 排除——方向颠倒：应是投资方式反映幸福感",
+  "body": "<p><b>排除。</b>echo 的比喻义是“……是……的回声/反映”，含<b>方向</b>：A echoes B = A 反映 B。填进去变成“幸福感反映/回应投资方式”——方向恰好反了：全文说投资方式反映幸福感，不是幸福感跟着投资方式走。</p><p style=\"color:#b91c1c\">⚠ 典型误解：借 come with happiness 想成“幸福感是投资方式的反映”，因果倒置。</p>"
+ },
+ {
+  "title": "逐项分析 · C spoil（破坏）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C spoil（破坏）✗ 排除——原文未评判好坏，属过度推断",
+  "body": "<p><b>排除。</b>spoil 是<b>负面</b>动词：“毁掉投资方式”。但首段只说影响（influence），通篇未评价这种影响是好是坏，遑论“破坏”。</p>"
+ },
+ {
+  "title": "逐项分析 · D change（改变）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D change（改变）✓ 当选——influence the way 的同向落点",
+  "body": "<p><b>当选。</b>change the way companies invested：“改变公司的投资方式”，正是首段 influence how firms work 在“投资”上的具体化；wanted to know if... would change 也符合“检验影响是否存在”的研究语气。</p>"
+ },
+ {
+  "title": "结论 · 呼应链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（change 改变）——呼应链见结论卡",
+  "body": "<p>呼应链：<b>首段 influence how firms work（论点）→ 第三段 change the way companies invested（检验）。</b></p><p>答案选 <b>D（change 改变、使变化）</b>。</p><p><b>记忆锚点</b>：研究目的句必须与全文论点同向——找 influence 的同向词；echo 自带方向（A 反映 B），别把方向装反。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 5 空 · 幸福感会____公司的投资方式吗",
+  subtitle: "考点：上下文语义 + 研究目的句与全文论点的呼应 · 词义方向",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 论点呼应 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（change）", "html": "<b>D change（改变）</b>。<br>记忆锚点：研究目的句呼应首段论点 influence how firms work → 同向词 change the way companies invested；echo 的方向是“A 反映 B”，装反即错。<br>最易误选：<b>B（echo）</b>——被 come with happiness 诱导成“幸福感是投资方式的反映”，因果倒置。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 5 空 · 幸福感会____公司的投资方式吗</h2>
+<p>答案：<strong>D（change 改变、使变化）</strong>。</p>
+<h3>第 0 步：先立机制——研究目的句必须与全文论点同向</h3>
+<p>本句是全文的<strong>研究目的句</strong>：The researchers wanted to know if... would __ the way companies invested。研究者想检验的东西，一定是首段已经提出的论断。所以解题机制是：回到首段找论点，再找论点动词的同向词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The researchers wanted to know if the optimism and inclination for risk-taking that come with happiness would __5__ the way companies invested.</blockquote>
+<h3>第 2 步：找证据——首段论点已给出动词方向</h3>
+<blockquote>And new research suggests that happiness might influence how firms work, too.</blockquote>
+<p>首段论点：幸福感可能<strong>影响（influence）</strong>公司运作方式。第三段把“运作方式”具体到“投资方式”，研究者要检验的就是这个影响——空格要填 influence 的同向词，即“对投资方式产生作用”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A miss</td><td>错过</td><td>✗ 排除</td><td>“错过投资方式”动宾不搭；借 longer-term thinking 诱导联想。（典型误解：把“错过机会”硬套到“投资方式”。）</td></tr><tr><td>B echo</td><td>反映、回应</td><td>✗ 排除</td><td>echo 自带方向：A echoes B = A 反映 B；填入即“幸福感反映投资方式”，与全文“投资方式反映幸福感”因果倒置。</td></tr><tr><td>C spoil</td><td>破坏</td><td>✗ 排除</td><td>负面动词；原文通篇未评价影响的好坏，属过度推断。</td></tr><tr><td>D change</td><td>改变</td><td>✓ 当选</td><td>influence the way 的同向落点，研究检验语气吻合。</td></tr></tbody></table>
+<p>代入后的完整句义：研究者想知道，随幸福感而来的乐观与冒险倾向是否会改变公司的投资方式。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>influence 一定等于 change 吗？</strong>：在“would __ the way...”这个检验句式里，研究者要验证的正是“乐观与冒险倾向会不会使投资方式发生变化”；influence 落到“方式”这个宾语上，自然的同向词就是 change（首段 influence how firms work 也只有 D 与之对应）。</li><li><strong>echo 为什么方向反了？</strong>：come with happiness（幸福感带来乐观与冒险）→ 乐观影响投资 → 投资方式是“果”。echo 的比喻义要求“果反映因”：可以说投资方式反映幸福感，不能反过来说幸福感回应投资方式。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（echo）</strong>：被 come with happiness 带偏，把“反映”的方向装反。</li><li><strong>误选 C（spoil）</strong>：给中性论证强加负面评价。</li></ul>
+<blockquote>记忆锚点：研究目的句 → 回首段找论点 → 找 influence 的同向词 = change；echo 自带方向（A 反映 B），方向装反即错。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

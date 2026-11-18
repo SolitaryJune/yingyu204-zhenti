@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2014-48 大作文谋篇：城乡人口此消彼长图表的「解读→归因→评论」三段式</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2012-47 成品范式）：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两个指令定两件事',
+    cls: 'key',
+    body: '<p><b>1) interpret the chart</b>（必答点 1：解读图表）+ <b>2) give your comments</b>（必答点 2：发表评论）。题型 = <b>图表作文</b>，150 词。interpret 不只是报数——核心是<b>趋势概括</b>；comments 不只是点赞——要含<b>意义 + 隐忧 + 建议</b>。最常见丢分是功能错位：第一段逐格报数、第三段喊口号。</p>' },
+  { title: '审图表：两组数据读出三个信息',
+    cls: 'step',
+    body: '<p>横轴 1990 / 2000 / 2010 三个年份，纵轴人口（单位 <b>million = 百万</b>）。</p><p><b>城镇人口</b>：300 百万 → 670 百万（3 亿 → 6.7 亿，显著上升）；<b>农村人口</b>：820 百万 → 680 百万（8.2 亿 → 6.8 亿，有所下降）；两组相加，<b>总人口</b> 11.2 亿 → 13.5 亿，温和上涨。三个信息：总量缓涨 + 分布剧变 + 一升一降——前两条进总述句，第三条进分述句。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> interpret：总述趋势（while 让步句）+ 分述数据（contrastingly 对比句）。<b>段 2</b> 归因：首句报出两个原因，再分层展开（被动转化 + 主动进城）。<b>段 3</b> comments：意义 → 隐忧 → 建议，三层递进。段落功能错位（第一段只报数、第二段复述、第三段空赞）是图表作文最大丢分源。</p>' },
+  { title: '段 1 总述句：while 从句装次要，主句装重点',
+    cls: 'good',
+    body: '<p><b>From 1990 to 2010 while moderate increase occurred in total population in China, population distribution experienced a dramatic shift.</b></p><p>while 让步从句装「总量温和上涨」（moderate = 温和的），主句落「人口分布剧变」（a dramatic shift）——一句话同时完成两个维度的概括，这正是 interpret 的核心动作。</p>' },
+  { title: '段 1 分述句：contrastingly 显化一升一降',
+    cls: 'good',
+    body: '<p><b>Urban population increased considerably from 300 million to 670 million; contrastingly rural population declined from 820 million to 680 million.</b></p><p>分号并列两半，用 <b>contrastingly</b> 点明对照关系；increased considerably（涨得可观）与 declined（降）各配具体数字——数字只作趋势的支撑，不逐格罗列 2000 年的中间值。</p>' },
+  { title: '段 2 首句：一口气报出两个原因',
+    cls: 'key',
+    body: '<p><b>The population gap narrowed largely because of the joint effects of urbanization and unequal economic opportunities.</b></p><p>主句收拢段 1 趋势（人口差距缩小），because of 短语总起两个原因：<b>城市化</b>与<b>经济机会不均</b>——下文分层展开，这就是归因段的「总-分」骨架。</p>' },
+  { title: '段 2 原因一：城市化的被动转化',
+    cls: 'good',
+    body: '<p><b>The 20 years\' urban sprawl caused millions of peasants to be passively transformed into city residents.</b></p><p>20 年城市扩张（urban sprawl）→ cause...to be <b>passively</b> transformed（cause...to do 显化因果，被动式与「被动转化」语义对齐）：土地被城市化，数百万农民被动变为市民。</p>' },
+  { title: '段 2 原因二：机会不均的主动进城',
+    cls: 'good',
+    body: '<p><b>Meanwhile, many more peasants initiatively chose to leave their hometown. In the 20 years, while urban living standards were largely improved, few economic opportunities fell on rural areas, making most peasants remain at the poverty line. Poverty prompted the call for change and healthy young peasants were driven to flock to cities to make a better living.</b></p><p>城市生活水平大涨、农村几乎拿不到机会（<b>making</b> 现在分词作结果状语）→ 多数农民困在贫困线 → 穷则思变（Poverty prompted the call for change）→ 年轻人主动涌向城市。与原因一正好一<b>被动</b>一<b>主动</b>，对应段 1 的一升一降。</p>' },
+  { title: '段 3 意义：先肯定',
+    cls: 'good',
+    body: '<p><b>The increase in urban population is a sure indication of economic achievement.</b></p><p>评论第一层：城市人口增长是经济成就的「指标」（a sure indication of）——肯定要落在具体判断上，不是 Great changes! 式空话。</p>' },
+  { title: '段 3 隐忧：However 转折挖问题',
+    cls: 'bad',
+    body: '<p><b>However, we should not ignore the inability of many urban newcomers to integrate into cities due to lack of education and civilized habits. They wandered around in the cities as urban paupers, isolated from cities\' prosperity and convenience.</b></p><p>隐忧：新市民因缺乏教育与文明习惯难以融入——名词化 <b>the inability of sb to do</b> + due to 原因状语，把两个分句压进一个短语；过去分词 <b>isolated from</b> 与主语 they 视角一致，句子紧凑。</p>' },
+  { title: '段 3 建议：先破后立收尾',
+    cls: 'good',
+    body: '<p><b>In this sense, we cannot be superficially satisfied with the optimistic figure, but should endeavor to foster integration of newcomers.</b></p><p>cannot...but should 先破后立：不能「肤浅地」（superficially）满足于乐观数据，要努力促成新市民融入（foster integration）——评论三层（肯定 → 隐忧 → 建议）齐了。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>解读（总述 + 分述）→ 归因（城市化被动 + 机会不均主动）→ 评论（肯定 → 隐忧 → 建议）</b>；million = 百万；高分句型：while 让步总述、cause...to do、making 结果状语、inability 名词化、isolated from、cannot...but should。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2014-48 大作文谋篇演示：城乡人口此消彼长的「解读→归因→评论」',
+  subtitle: '考点：图表作文 · 方法：审数据 → 定三段功能 → 总述/分述/归因/评论逐段升格（urban 3→6.7 亿，rural 8.2→6.8 亿）',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>From 1990 to 2010 while moderate increase occurred in total population in China, population distribution experienced a dramatic shift. Urban population increased considerably from 300 million to 670 million; contrastingly rural population declined from 820 million to 680 million.</p>' +
+      '<p>The population gap narrowed largely because of the joint effects of urbanization and unequal economic opportunities. The 20 years\' urban sprawl caused millions of peasants to be passively transformed into city residents. Meanwhile, many more peasants initiatively chose to leave their hometown. In the 20 years, while urban living standards were largely improved, few economic opportunities fell on rural areas, making most peasants remain at the poverty line. Poverty prompted the call for change and healthy young peasants were driven to flock to cities to make a better living.</p>' +
+      '<p>The increase in urban population is a sure indication of economic achievement. However, we should not ignore the inability of many urban newcomers to integrate into cities due to lack of education and civilized habits. They wandered around in the cities as urban paupers, isolated from cities\' prosperity and convenience. In this sense, we cannot be superficially satisfied with the optimistic figure, but should endeavor to foster integration of newcomers.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>解读 → 归因 → 评论</b>；while 装次要、主句装重点；原因成对（被动转化 + 主动进城）；评论三层 = 肯定 → 隐忧 → 建议。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 大作文——城乡人口"此消彼长"图表：解读 → 归因 → 评论</h2>
+<p>答案（范文）：<strong>From 1990 to 2010 while moderate increase occurred in total population in China, population distribution experienced a dramatic shift. Urban population increased considerably from 300 million to 670 million; contrastingly rural population declined from 820 million to 680 million.</strong></p>
+<p><strong>The population gap narrowed largely because of the joint effects of urbanization and unequal economic opportunities. The 20 years' urban sprawl caused millions of peasants to be passively transformed into city residents. Meanwhile, many more peasants initiatively chose to leave their hometown. In the 20 years, while urban living standards were largely improved, few economic opportunities fell on rural areas, making most peasants remain at the poverty line. Poverty prompted the call for change and healthy young peasants were driven to flock to cities to make a better living.</strong></p>
+<p><strong>The increase in urban population is a sure indication of economic achievement. However, we should not ignore the inability of many urban newcomers to integrate into cities due to lack of education and civilized habits. They wandered around in the cities as urban paupers, isolated from cities' prosperity and convenience. In this sense, we cannot be superficially satisfied with the optimistic figure, but should endeavor to foster integration of newcomers.</strong></p>
+<h3>第 0 步：先立机制——图表作文三段各干一件事</h3>
+<table><thead><tr><th>段落</th><th>功能</th><th>判分点</th></tr></thead><tbody><tr><td>段 1 interpret the chart</td><td>总述趋势 + 分述数据</td><td>有总起句，不是逐格报数；数据与单位准确</td></tr><tr><td>段 2 归因</td><td>解释为什么会变</td><td>原因合理、有层次，能对应段 1 的趋势</td></tr><tr><td>段 3 give your comments</td><td>评价：意义 + 隐忧 + 建议</td><td>不喊空口号，落到具体问题与方向</td></tr></tbody></table>
+<p>图表作文最常见的丢分不是语言，而是<strong>功能错位</strong>：第一段只报数不概括，第二段复述图表不给原因，第三段只唱赞歌不见问题。范文正是按"三段各司其职"长出来的。</p>
+<h3>第 1 步：审图表——两组数据读出三个信息</h3>
+<p>柱状图横轴是 1990/2000/2010 三个年份，纵轴是以百万为单位的人口数。三组信息：城镇人口 3 亿 → 6.7 亿（显著上升）；农村人口 8.2 亿 → 6.8 亿（有所下降）；两组相加，总人口 11.2 亿 → 13.5 亿，<strong>温和上涨</strong>。"总量缓涨 + 分布剧变 + 一升一降"——前两条正是段 1 总述句的两个维度，第三条是分述句的对比素材。</p>
+<h3>第 2 步：段 1 写法——总述用 while 让步，分述用 contrastingly 对比</h3>
+<p>总述句 <code>From 1990 to 2010 while moderate increase occurred in total population, population distribution experienced a dramatic shift</code>：while 让步从句装次要信息（总量温和上涨），主句落重点（人口分布剧变）——一句话同时完成两个维度的概括。分述句给具体数字：<code>increased considerably from 300 million to 670 million; contrastingly rural population declined from 820 million to 680 million</code>，用 <code>contrastingly</code> 显化一升一降的对照。注意单位：million = 百万，300 million = 3 亿。</p>
+<h3>第 3 步：段 2 归因——首句总起 + 两类原因（被动转化 + 主动进城）</h3>
+<p>首句 <code>The population gap narrowed largely because of the joint effects of urbanization and unequal economic opportunities</code> 一口气报出两个原因，后面分层展开。原因一<strong>城市化</strong>：<code>The 20 years' urban sprawl caused millions of peasants to be passively transformed into city residents</code>——城市扩张使农民<strong>被动</strong>变为市民（cause...to be passively transformed，被动式与"被动转化"的语义对齐）。原因二<strong>经济机会不均</strong>：城市生活水平大幅提升、农村几乎拿不到经济机会，多数农民困在贫困线（<code>making most peasants remain at the poverty line</code>）→ <code>Poverty prompted the call for change</code>（穷则思变）→ 年轻农民<strong>主动</strong>涌向城市谋生。两类原因一被动一主动，恰好对应段 1 的一升一降。</p>
+<h3>第 4 步：段 3 评论——意义 + 隐忧 + 建议，三层递进</h3>
+<ul><li><strong>意义</strong>：城市人口增长是经济成就的指标（<code>a sure indication of economic achievement</code>）。</li><li><strong>隐忧</strong>：许多新市民因缺乏教育与文明习惯难以融入城市，沦为 urban paupers（城市贫民），与城市的繁荣便利隔绝。</li><li><strong>建议</strong>：不能肤浅地满足于乐观数据，要努力促成新市民融入（<code>endeavor to foster integration of newcomers</code>）。</li></ul>
+<p>评论段忌 "Great changes! So wonderful!" 式空话——先肯定、再转折挖隐忧、最后给方向，三层齐了才算完成 comments。</p>
+<h3>高分句型（自组要点）</h3>
+<ul><li><strong>while 让步开总述</strong>：从句装次要信息，主句装趋势重点，一句顶两句。</li><li><strong>cause sb to be passively transformed into...</strong>：cause...to do 显化因果，被动式呼应"被动转化"。</li><li><strong>..., making most peasants remain at the poverty line</strong>：现在分词作结果状语，一句话带出影响。</li><li><strong>the inability of many urban newcomers to integrate into cities</strong>：名词化（inability）+ 不定式后置定语 + due to 原因状语，把两个分句压进一个名词短语。</li><li><strong>isolated from cities' prosperity and convenience</strong>：过去分词作后置状语，与主语 they 视角一致，句子紧凑。</li><li><strong>We cannot be superficially satisfied with..., but should endeavor to...</strong>：cannot...but should 先破后立收尾。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>第一段逐格报数</strong>：把六个数字全列一遍却没有总述句——interpret 的核心是趋势概括，数字只作支撑。</li><li><strong>单位换算错</strong>：million = 百万，300 million = 3 亿；写成 3000 万或 30 亿都是硬伤。</li><li><strong>第二段只复述"城市多了、农村少了"</strong>：那是第一段的活；第二段要回答 why（城市化 + 机会不均）。</li><li><strong>第三段只说好处</strong>：comments 要含隐忧与建议，只夸不评不完整；反过来只批判不给方向同样残缺。</li><li><strong>词义误用</strong>：flock to cities 指"涌向"（聚群而动），不是 flee（逃离）；integrate into = 融入，不是 immigrate（移民）；sprawl 是"无序扩张"的中性描述，不译"杂乱"带贬斥。</li></ul>
+<blockquote>记忆锚点：图表作文三段 = <strong>解读 → 归因 → 评论</strong>；总述句 while 装次要、主句装重点；原因要成对（被动转化 + 主动进城）；评论三层 = 肯定 → 隐忧 → 建议；million = 百万。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

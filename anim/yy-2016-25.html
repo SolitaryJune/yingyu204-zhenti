@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·25 阅读 · 词义题 coax ≈ persuade</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：词义题的两个筛子', cls: 'key',
+    body: '<p>超纲词不靠“猜感觉”，按两步筛：<b>第一步搭配套路</b>——先看目标词出现在什么框架里；<b>第二步语境色彩</b>——全文褒贬基调与人物关系。两个筛子交叉后剩下的那一个就是答案。</p>',
+    log: '先套搭配骨架，再核语境色彩' },
+  { title: '定位原文（末段④句）', cls: 'key',
+    body: src('“The younger they learn how computers think, how to <b>coax the machine into producing what they want</b> – the earlier they learn that they have the power to do that – <b>the better</b>.”') +
+      '<p>coax 出现在 <b>coax the machine into producing...</b> 框架，即 coax sb/sth into doing sth 家族；语境是人学会“让机器产出我想要的东西”。</p>',
+    log: '搭配骨架：coax ... into doing' },
+  { title: '筛子一：into doing 家族的语义', cls: 'step',
+    body: '<p>“X sb into doing” 家族按手段分类：<b>force</b>（武力）、<b>trick</b>（欺骗）、<b>scare/frighten</b>（恐吓）、<b>persuade</b>（言语相劝）。coax 的词源义是“温言软语哄劝”——属<b>劝</b>族。</p>',
+    log: 'coax 属“哄劝”家族' },
+  { title: '筛子二：语境色彩', cls: 'step',
+    body: '<p>全文在夸“早学计算机”的好处（<b>the better</b>），人机关系是<b>正向利用</b>：柔性驱动机器为自己产出。语义必须是“劝服达成意愿”，不能是恐吓、欺骗或对抗。</p>',
+    log: '正向基调：柔性利用' },
+  { title: 'A persuade：劝服', cls: 'good',
+    body: '<p>persuade sb into doing 与 coax into 同构同族，感情色彩正向——“劝机器产出我想要的”正是文中画面。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A 与 coax 同族同向，命中' },
+  { title: 'B frighten：吓唬', cls: 'bad',
+    body: '<p>frighten sb into sth 搭配确实存在——但语义是“<b>恐吓迫使</b>”，负面强压，与“利用工具”的柔性相悖。搭配成立只保证语法通，不保证语义对。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 搭配成立但色彩相反' },
+  { title: 'C misguide：误导', cls: 'bad',
+    body: '<p>misguide 缺少 into doing 的常规搭配；“把机器引上歧途”在文中毫无落点——机器产出你想要的东西不是歧途。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 无搭配、无落点' },
+  { title: 'D challenge：挑战', cls: 'bad',
+    body: '<p>challenge 常接 sb to do，不接 into；且“挑战机器”与“让它产出我想要的”目的相冲——后文 they have the power 强调的是<b>掌控力</b>而非对抗性。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 搭配与目的双不符' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（persuade）</b>。记忆锚点：词义题双筛——<b>先套搭配骨架（coax sb into doing），再核语境色彩</b>；coax ≈ persuade（哄劝族），区别于 frighten（恐吓族）。</p>',
+    log: '锁定 A（persuade）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 25 · coax 词义：哄劝族 vs 恐吓族',
+  subtitle: '考点：词义题 · 搭配骨架 + 语境色彩双筛 · 选项 persuade / frighten / misguide / challenge',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开双筛过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（persuade）',
+    html: '记忆锚点：<b>coax the machine into producing what they want</b>——“into doing”家族按手段分族：force/trick/frighten/persuade；coax = 温言哄劝 = <b>persuade 族</b>。B 搭配虽在但色彩相反，C/D 连搭配都对不上。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：词义题 coax——靠搭配骨架 + 语境色彩双重锁定</h2>
+<p>答案：<strong>A（persuade）</strong>。</p>
+<h3>第一步：先立机制——词义题的两个筛子，先用哪个</h3>
+<p>超纲词/熟词僻义题不能"猜感觉"，按两步筛：<strong>第一步搭配套路</strong>——coax 出现在 coax the machine into producing what they want，即 coax sb/sth into doing sth 框架，"X into doing" 家族的共同语义是<strong>用软办法促使对方做某事</strong>；<strong>第二步语境色彩</strong>——全文在夸"早学计算机"的好处，人对机器的关系是正向利用：让机器产出我想要的东西。两个筛子一交叉，只剩"劝"。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>The younger they learn how computers think, how to <strong>coax the machine into producing what they want</strong> – the earlier they learn that they have the power to do that – the better.</blockquote>
+<p>结构上与 learn how computers think 并列，是"学会的本领"之一；语义上是人机互动：人主动、机器配合产出。coax 的画面感是"好言哄劝"——劝机器（其实是劝程序）按自己的意愿办事。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>into 搭配</th><th>色彩</th></tr></thead><tbody><tr><td>A persuade</td><td>劝服、说服</td><td>persuade sb into doing ✓</td><td>正向达成意愿，与"让机器产出我想要的"同向</td></tr><tr><td>B frighten</td><td>吓唬</td><td>frighten sb into doing ✓</td><td>恐吓迫使，负面强压，与"利用工具"的柔性相悖</td></tr><tr><td>C misguide</td><td>误导</td><td>无 into doing 常规搭配</td><td>"把机器引上歧途"文中无此意</td></tr><tr><td>D challenge</td><td>挑战</td><td>challenge sb to do，不接 into</td><td>与"让它产出我想要的"目的相冲</td></tr></tbody></table>
+<h3>第四步：为什么是 persuade 而不是别的"促使"</h3>
+<p>"X into doing" 家族里成员按手段分类：force/trick/scare/persuade——分别对应暴力、欺骗、恐吓、言语相劝。coax 的词源义是"温言软语哄劝"，与 persuade 同族同向；而语境要的正是"柔性使机器服从"，不是恐吓欺骗。</p>
+<h3>易错点</h3>
+<ul><li><strong>选 B（frighten）</strong>：只认得 frighten sb into sth 这个搭配确实存在，就以为"搭配成立=可以选"——但恐吓机器与全文正向基调（the better）相悖，搭配成立只能保证语法通，不能保证语义对。</li><li><strong>选 D（challenge）</strong>：把人机关系想成"人与机器较劲"——但后文 they have the power to do that 强调的是<strong>掌控力</strong>而非对抗性。</li><li><strong>选 C（misguide）</strong>：misguide 缺少 into doing 的常规搭配，且"误导机器"在文中毫无落点。</li></ul>
+<blockquote>记忆锚点：词义题双筛——<strong>先套搭配骨架（coax sb into doing），再核语境色彩</strong>；coax ≈ persuade（哄劝族），区别于 frighten（恐吓族）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

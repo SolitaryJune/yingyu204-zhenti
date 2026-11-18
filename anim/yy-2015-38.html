@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-38 · 2015 阅读第 38 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · but 之后才是重心",
+  "cls": "key",
+  "tag": "方法",
+  "log": "第四段句句带 but：答案 = 两个后半句的合并",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>英语段落里 <b>but / however 之后的分句才是作者真正想强调的</b>。第四段一共两句，句句带 but，所以正确答案必然是两个后半句的合并：①六月虽有增加，but 总体方向向下；②比衰退前仍高，but 比一年前降了 64 万（7.9%）。合并：非自愿兼职的总体趋势是下降。</p>"
+ },
+ {
+  "title": "定位原文 · 第四段两个转折句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第四段：... but the general direction has been down / ... but it is down by 640,000",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">There was an increase in involuntary part-time in June, but the general direction has been down. Involuntary part-time employment is still far higher than before the recession, but it is down by 640,000 (7.9 percent) from its year ago level.</div><p>两个后半句：<b>the general direction has been down</b>（总体方向向下）+ <b>down by 640,000 (7.9 percent)</b>（比一年前降 64 万）。but 前的内容是让步铺垫。</p>"
+ },
+ {
+  "title": "逐项分析 · B is harder to acquire than one year ago（比一年前更难获得）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 比一年前更难获得 ✗ ——人数减少被读成更难找",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>down by 640,000 说的是<b>从事</b>非自愿兼职的人数在减少（就业市场好转的信号），不是「这种工作更难找」——断章取义 + 逻辑错位。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C satisfies the real need of the jobless（满足失业者的真实需要）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 满足真实需要 ✗ ——与 involuntary 的定义冲突",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b><b>involuntary</b> 的定义就是「别无选择之下的糊口方式」，与「满足失业者的真实需要」天然冲突——混淆了主动与被动。</p>",
+  "body": {
+   "k": "C",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D is lower than before the recession（低于衰退前水平）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 低于衰退前 ✗ ——原文明说 still far higher",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>②句前半明说 <b>still far higher than before the recession</b>——比衰退前高得多，D 反向窜改。</p>",
+  "body": {
+   "k": "D",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · A shows a general tendency of decline（总体呈下降趋势）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 总体呈下降趋势 ✓ ——general direction has been down 的近原词改写",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>the general direction has been down 与 [A] shows a general tendency of decline 几乎原词对应；down by 640,000 (7.9%) 从数据上佐证同一下降趋势。</p>",
+  "body": {
+   "k": "A",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 转折合并与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（shows a general tendency of decline）——两个 but 的后半句合并",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>合并两个转折句：六月小增、总体向下；比衰退前高、比一年前降——长期趋势 = <b>下降</b>。</p><p>答案选 <b>A（shows a general tendency of decline）</b>。</p><p><b>记忆锚点</b>：两个 but = 两半句合并出答案；人数下降 ≠ 更难找到；still far higher 一票否决 D。</p><p style=\"color:#b91c1c\">最易误选：<b>B</b>——只抓后半句的数字，却把「从事人数减少」读成「工作更难找」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T4 第 38 题 · 非自愿兼职的趋势：两个 but 的合并",
+  subtitle: "考点：事实细节 · 转折后取重心 · involuntary 的定义边界",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（shows a general tendency of decline）",
+ "html": "<b>A shows a general tendency of decline（总体呈下降趋势）</b>。<br>两个 but 的后半句合并：the general direction has been down + down by 640,000 (7.9%)。<br>最易误选：<b>B</b>——人数减少 ≠ 更难找到。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——两个 but，语义重点都在后半句</h2>
+<p>答案：<strong>A（shows a general tendency of decline）</strong>。</p>
+<h3>第 0 步：先立方法——转折词之后才是重心</h3>
+<p>英语段落里 but / however 之后的分句才是作者真正想强调的。第四段一共两句，<strong>句句带 but</strong>，所以正确答案必然是两个后半句的合并：①六月虽有增加，but 总体方向向下；②比衰退前仍高，but 比一年前降了 64 万（7.9%）。合并起来一句话：非自愿兼职的总体趋势是下降。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>There was an increase in involuntary part-time in June, but the general direction has been down. Involuntary part-time employment is still far higher than before the recession, but it is down by 640,000 (7.9 percent) from its year ago level.（译：六月非自愿兼职有所增加，但总体趋势在下降。非自愿兼职仍远高于衰退前水平，但比一年前减少了 64 万（7.9%）。）</blockquote>
+<p>the general direction has been down 与 [A] shows a general tendency of decline 几乎原词对应——这是本题最直接的证据句。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B is harder to acquire than one year ago</td><td>✗</td><td>断章取义 + 逻辑错位：down by 640,000 说的是<strong>从事</strong>非自愿兼职的人数在减少（就业市场好转的信号），不是"这种工作更难找"</td></tr><tr><td>C satisfies the real need of the jobless</td><td>✗</td><td>混淆主动与被动：involuntary 的定义就是"别无选择之下的糊口方式"，与"满足失业者的真实需要"天然冲突</td></tr><tr><td>D is lower than before the recession</td><td>✗</td><td>反向窜改：②句前半明说 still far higher than before the recession——比衰退前<strong>高</strong>得多</td></tr></tbody></table>
+<h3>预判追问：为什么"六月有所增加"不构成答案？</h3>
+<p>but 之前的信息是作者<strong>让步用的铺垫</strong>，作用是引出转折后的重点。把让步内容当答案，等于只读了半句话——本题的 B（取后半句数字却改了方向）与 36 题的三个第一段干扰（取"被关注"半边）都是"半句阅读"的产物。细节题的准确，一半来自把转折结构读完。</p>
+<blockquote>记忆锚点：两个 but = 两半句合并出答案；general direction has been down = tendency of decline；人数下降 ≠ 更难找到；still far higher 一票否决 D。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

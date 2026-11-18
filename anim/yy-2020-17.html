@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-17 · 完形第 17 空：面对压力，用什么动词</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：空格词与 stress 的关系",
+  "body": "<p>空格结构：<b>when __17__ by stress</b>——过去分词被动式，逻辑主语是\"父母\"，即\"父母被压力 __\"。</p><p>前文已多次交代发怒诱因：<b>exhausted</b>（筋疲力尽）、<b>a moment of fatigue</b>（疲惫时刻）。文章立场：人会被压力影响，<b>但要学会在压力下控制情绪</b>。所以空格词要表\"受压力影响 / 面临压力\"，且不能重到\"被压垮\"。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：末段第 2 句",
+  "body": "<div class='qq'><b>原文：</b>In fact, the ability to emotionally regulate or maintain emotional control when <b>__17__ by stress</b> is one of the most important of all life's skills.</div><p class='cn'>译：事实上，在 __ 压力时调节情绪、保持情绪控制的能力，是所有人生技能中最重要的之一。</p><p>be <b>confronted</b> by sth 指\"面对（有威胁或难处理的事物）\"：压力正是那个有威胁的事物——语义、搭配双吻合。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：cheated（欺骗）",
+  "body": "<p><b>A · cheated</b> <span class='bad-dot'>✗</span></p><p>\"父母被压力欺骗\"——压力是客观处境，不会\"骗人\"，主宾搭配不通；歪曲了压力的影响方式。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：defeated（击败）",
+  "body": "<p><b>B · defeated</b> <span class='bad-dot'>✗</span></p><p>暗含\"父母已被压力<b>击溃</b>、无可救药\"。但文章的建议恰恰是\"父母<b>可以通过控制情绪避免被压力影响</b>\"——若早已被击败，还谈什么\"调节能力\"？</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：confused（使困惑）",
+  "body": "<p><b>C · confused</b> <span class='bad-dot'>✗</span></p><p>文中只说压力让父母\"无法维持冷静克制\"，并未说压力让父母\"思维混乱、虚实不分\"——把影响曲解为\"认知混乱\"，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：confronted（面对）",
+  "body": "<p><b>D · confronted</b> <span class='ok-dot'>✓</span></p><p><b>be confronted by stress</b> = 面临压力：与 exhausted、fatigue 构成同一诱因链，又给\"情绪调节能力\"留出发挥空间——既承认压力来袭，又不否定人的能动性。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（confronted）</b>。</p><p>记忆锚点：be confronted by sth = 面对难办之事；\"情绪控制 when ___ by stress\"填\"面对\"而非\"被打败/被骗/被弄糊涂\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-17 · 完形第 17 空：面对压力，用什么动词",
+  subtitle: "考点：上下文语义 + 动词搭配（be __ by stress）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 搭配/语义核对 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>be confronted by stress = 面临压力</b>。压力只是\"难办的处境\"，不是\"骗子（cheated）\"、不是\"压垮人的一击（defeated）\"、也没让人\"思维混乱（confused）\"——只有\"面对\"既通搭配又通文意。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 17 空——"面对压力"的动词选择</h2>
+<p>答案：<strong>D</strong>（confronted）。</p>
+<h3>第 0 步：先立机制——空格词要同时满足"搭配"与"文意"</h3>
+<p>空格结构是 when __17__ by stress：过去分词被动式，逻辑主语是"父母"，说的是"父母被压力 __"。再看语境：这句话在讲"情绪调节能力"，而全文前面已反复交代父母发怒的诱因是疲惫与压力（exhausted、a moment of fatigue）。文章的立场是"人会被压力影响，但要学会在压力下控制情绪"——所以空格词必须表"面临 / 受压力影响"，又不能重到"被压垮"。</p>
+<h3>第 1 步：D 对号入座——be confronted by sth</h3>
+<blockquote>In fact, the ability to emotionally regulate or maintain emotional control when <strong>confronted</strong> by stress is one of the most important of all life's skills.</blockquote>
+<p>be confronted by sth 指"面对（有威胁或难处理的事物）"：压力正是那个有威胁的事物，"面对压力时仍能控制情绪"正是全文要论证的能力——语义、搭配双吻合。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（cheated 欺骗）</strong>：压力是客观处境，不会"欺骗"父母，主宾搭配不通。</li><li><strong>B（defeated 击败）</strong>：暗含"父母已被压力击溃、无可救药"，与文章建议"父母可通过控制情绪避免被压力影响"相悖——若早已被击败，还谈什么"调节能力"。</li><li><strong>C（confused 使困惑）</strong>：文中只说压力使父母"无法维持冷静克制"，并未说压力让父母"思维混乱、虚实不分"，属于无中生有。</li></ul>
+<blockquote>记忆锚点：be confronted by sth = 面对难办之事；"情绪控制 when ___ by stress"填"面对"，而非"被打败 / 被骗 / 被弄糊涂"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

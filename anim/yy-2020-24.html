@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-24 · 人物观点题：从「没必要仿真」读出重行动轻外貌</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：Wiles 到底说了什么",
+  "body": "<p>题干：<b>Janet Wiles notes that rats ____</b>。由人名定位第六、七段。</p><p>两段合起来看：①②句说「老鼠愿意与设计<b>简陋</b>（minimal design）的机器鼠交朋友，令人<b>吃惊</b>」；③句借 Wiles 之口给原因——原本以为要仿真才行，实际<b>不需要</b>；第七段①句 Wiles 总结：老鼠对社交信号极其敏感，哪怕它来自简陋机器鼠。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "观点结构：预期 vs 实际",
+  "body": "<table class='aw-mini'><tr><th>层次</th><th>内容</th></tr><tr><td>惊讶</td><td>①句 The readiness ... was surprising given its minimal design</td></tr><tr><td>简陋</td><td>②句 只是带轮子的简易塑料盒（大小与真鼠相当）</td></tr><tr><td>预期</td><td>③句 We'd assumed 要加会动的头尾、五官、仿真气味</td></tr><tr><td><b>实际</b></td><td><b>but that wasn't necessary</b>——外形不必要，行为已足够</td></tr></table>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第六段③句让步转折",
+  "body": "<div class='qq'><b>原文：</b>\"We'd assumed we'd have to give it a moving head and tail, facial features, and put a scent on it to make it smell like a real rat, <b>but that wasn't necessary</b>,\" says Janet Wiles...</div><p class='cn'>译：我们原以为必须给它加上会动的头尾、五官特征、还要喷上仿真老鼠的气味，但结果证明没有必要。</p><p>反过来说：老鼠在意的不是 <b>looks</b>（样貌），而是 <b>actions</b>（跟随、同玩、救鼠等社交行动）——C 正是这个解读。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：原词复现也救不了",
+  "body": "<p><b>A · can remember other rats' facial features</b> <span class='bad-dot'>✗</span></p><p>facial features 原词出自③句——但那是研究者「原以为要给<b>机器鼠</b>加装的东西」；文中论及老鼠对<b>机器鼠</b>的反应，从未提老鼠记忆「其他老鼠」的面部特征。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：捏造比较",
+  "body": "<p><b>B · differentiate smells better than sizes</b> <span class='bad-dot'>✗</span></p><p>scent / smell、size（the same size as a regular rat）都是②③句的词汇，但原文没做「嗅觉 vs 体型」的任何比较——用原词捏造出一个不存在的比较级。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：方向相反",
+  "body": "<p><b>D · can be scared by a plastic box on wheels</b> <span class='bad-dot'>✗</span></p><p>恰恰相反——老鼠不但没被「带轮子的塑料盒」吓到，还<b>愿意与它交朋友</b>（befriend），违背文意。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 4,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：that wasn't necessary 的正确解读",
+  "body": "<p><b>C · respond more to actions than to looks</b> <span class='ok-dot'>✓</span></p><p>对老鼠来说，机器鼠的<b>样貌不重要</b>、<b>社交行动才重要</b>——「重行动、轻外貌」正是 We'd assumed... but that wasn't necessary 的言下之意，也与第七段 how sensitive... even when they come from basic robots 互证。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（respond more to actions than to looks）</b>。</p><p>记忆锚点：观点题先锁定说话人的段落整体，从 We'd assumed... but not necessary 的让步转折里读出「X 不重要、Y 才重要」；原词复现的外形词（facial features / scent / size）常是陷阱燃料。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-24 · 人物观点题：从「没必要仿真」读出重行动轻外貌",
+  subtitle: "考点：Text1 第六、七段 · Wiles 观点的正确解读",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 C", "html": "<b>We'd assumed... but that wasn't necessary = 外形不必要、行动才重要</b>。A 偷换对象（机器鼠→其他老鼠）、B 捏造「嗅觉 vs 体型」比较、D 方向相反（不是被吓到，而是愿意做朋友）。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 24 题——人物观点题：从"没必要仿真"读出"重行动轻外貌"</h2>
+<p>答案：<strong>C</strong>（respond more to actions than to looks）。</p>
+<h3>第 0 步：先立机制——观点题先锁定"谁说了什么"</h3>
+<p>由人名 Janet Wiles 定位第六、七段：第六段①②句说"老鼠愿意与设计简陋的机器鼠交朋友，令人吃惊"，③句借 Wiles 之口给出原因；第七段①句 Wiles 总结：老鼠对社交信号极其敏感，哪怕它来自简陋的机器鼠。合起来一句话：<strong>机器鼠的"长相"无关紧要，它的"社交行动"（跟随、同玩、救鼠）才是老鼠愿意亲近的原因</strong>。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>"We'd assumed we'd have to give it a moving head and tail, facial features, and put a scent on it to make it smell like a real rat, but <strong>that wasn't necessary</strong>," says Janet Wiles...</blockquote>
+<p>研究者原以为"仿真外形"（会动的头尾、五官、气味）是必要条件，结果并不需要——反过来说：老鼠在意的不是 looks（样貌），而是 actions（社交行动）。C 正是对 "that wasn't necessary" 的正确解读，选 C。</p>
+<h3>第 2 步：干扰项归因——都拿②③句的外形词做文章</h3>
+<ul><li><strong>A（can remember other rats' facial features）</strong>：facial features 原词出自③句，但那是研究者"原以为要给<strong>机器鼠</strong>加装的东西"；文中论及的是老鼠对机器鼠的反应，根本没提老鼠记忆"其他老鼠"的面部特征。</li><li><strong>B（differentiate smells better than sizes）</strong>：scent / smell、size（the same size as a regular rat）都是②③句词汇，但原文没做"嗅觉 vs 体型"的任何比较——用原词捏造比较。</li><li><strong>D（can be scared by a plastic box on wheels）</strong>：恰恰相反——老鼠不但没被"带轮子的塑料盒"吓到，还愿意与它做朋友，违背文意。</li></ul>
+<blockquote>记忆锚点：观点题先锁定说话人的段落整体，再从让步转折（We'd assumed... but not necessary）读出"X 不重要、Y 才重要"；原词复现的外形词常是陷阱燃料。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

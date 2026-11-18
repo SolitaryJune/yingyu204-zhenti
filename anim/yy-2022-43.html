@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-43 · 2022 新题型第 43 题 · 【43】段小标题——十分钟天天练，贵在坚持</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · 【43】段——首句主题词 consistency",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：总—分结构，首句 Consistency is the key 定调",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Consistency is the key to getting stronger and building endurance and stamina. Ten minutes of activity per day is a good start…</div><p>本段是标准「总—分」结构：首句直接给主题词 <b>consistency（坚持不懈）</b>；随后的建议都在论证“这事小到天天做得到”。</p>"
+  },
+  {
+   "title": "机制 · 与主题词呼应且罩住细节",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：标题必须同义呼应首句主题词，细节服务主题不反客为主",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>小标题必须与首句主题词<b>同义呼应</b>，且能罩住全部细节——细节（每天十分钟、步行最易行、过渡作用）都是“可坚持”的论据。</p><p>反向验证也不能少：候选标题若只在细节里找到词形、却与主题词冲突，照样排除。</p>"
+  },
+  {
+   "title": "证据 · 每天十分钟 + 步行最易行",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：卖点不是强度低而是“天天做得到”——嵌入日常即习惯",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">All the experts we spoke with highly recommend walking because it’s the easiest, most accessible form of exercise… walking is also a great first step.</div><p>“每天十分钟”的真正卖点不是强度低，而是<b>天天做得到</b>；步行最容易、最可行、还能过渡到其他运动——都是为“可坚持”服务的例证。</p>"
+  },
+  {
+   "title": "逐项分析 · A Make It a Habit",
+   "cls": "good",
+   "tag": "选定 A",
+   "log": "A Make It a Habit ✓ 当选——consistency 的标题化",
+   "count": 0,
+   "ribbon": {
+    "k": "A",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>consistency is the key + ten minutes <b>per day</b> → 把运动嵌入日常、天天坚持即成习惯。Make It a Habit 概括“可坚持”的全段语义。</p>"
+  },
+  {
+   "title": "逐项分析 · B Don’t Go It Alone",
+   "cls": "bad",
+   "tag": "排除 B",
+   "log": "B Don’t Go It Alone ✗ 排除——无“与他人一起”语义",
+   "count": 1,
+   "ribbon": {
+    "k": "B",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>本段没有“找人陪练、与人同行”的语义——那是【45】段的主旨。</p><p style=\"color:#b91c1c\">⚠ 典型误解：隔段串门。</p>"
+  },
+  {
+   "title": "逐项分析 · C Start Low, Go Slow",
+   "cls": "bad",
+   "tag": "排除 C",
+   "log": "C Start Low, Go Slow ✗ 排除——词形相邻但语义不匹配",
+   "count": 2,
+   "ribbon": {
+    "k": "C",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>the easiest、a good start 词面相邻，但本段强调“简单可行、可每天坚持”，没有“逐渐加量”的 go slow 语义——start 只以名词身份出现在 a good start（好开端）里。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 easy/start 就挂 C——那是【41】段的主旨；词形找到 ≠ 语义匹配。</p>"
+  },
+  {
+   "title": "逐项分析 · G Round Out Your Routine",
+   "cls": "bad",
+   "tag": "排除 G",
+   "log": "G Round Out Your Routine ✗ 排除——例证功能被升格",
+   "count": 3,
+   "ribbon": {
+    "k": "G",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>段末说“步行是通往其他运动的第一步”，是为例证“十分钟方案可操作、可持续”；全段没有“补齐项目、完善组合”的语句。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“过渡到其他运动”升格成“完善常规”。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 A",
+   "log": "答案 A（Make It a Habit）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>Consistency is the key → 每天十分钟 + 步行最易行（可坚持的论据）→ Make It a Habit</b>。</p><p>答案选 <b>A（Make It a Habit）</b>。</p><p><b>记忆锚点</b>：主题句先行——habit 是 consistency 的标题化；词形复现必须过语义验证。</p><p style=\"color:#b91c1c\">最易误选：<b>C</b>——【41】讲量与节奏，本段讲频率与坚持，两段别串门。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 新题型第 43 题 · 【43】段小标题——十分钟天天练，贵在坚持",
+  subtitle: "考点：小标题题 · 主题句先行（Consistency is the key）+ 词形≠语义",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 A（Make It a Habit）",
+  "html": "<b>A Make It a Habit（让运动成为习惯）</b>。<br>Consistency is the key + ten minutes per day → 天天做得到即成习惯。<br>记忆锚点：主题句先行——consistency 的标题化是 habit；easy/start 的词形诱惑属于 C 的陷阱区，词形找到 ≠ 语义匹配。<br>最易误选：<b>C</b>——那是【41】段“逐渐加量”的主旨。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 新题型第 43 题 · 【43】段小标题——十分钟天天练，贵在坚持</h2>
+<p>答案：<strong>A（Make It a Habit 让运动成为习惯）</strong>。</p>
+<h3>第 0 步：先立机制——抓"主题句 + 主题词复现"</h3>
+<p>本段是标准的"总—分"结构：首句 Consistency is the key（坚持不懈是关键）直接给出主题词 consistency；随后的建议（每天十分钟）、专家推荐（步行最简单可行）、过渡作用（通往其他运动的敲门砖）都在论证"这事小到天天做得到"。小标题必须与首句主题词同义呼应，且能罩住全部细节——细节服务主题，不能反客为主。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Consistency is the key to getting stronger and building endurance and stamina. Ten minutes of activity per day is a good start... All the experts we spoke with highly recommend walking because it's the easiest, most accessible form of exercise... walking is also a great first step.</blockquote>
+<p>主题句：坚持是变强、攒耐力的关键。支撑细节：每天十分钟是小目标；步行最容易、最可行；步行还能作为恢复其他运动的过渡。</p>
+<h3>第 2 步：正向验证 A</h3>
+<p>"每天十分钟"的真正卖点不是强度低，而是<strong>天天做得到</strong>——把运动嵌入日常即成习惯。Make It a Habit 概括 consistency + every day 的语义。当选。</p>
+<h3>第 3 步：逐项排除（主要干扰项）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Make It a Habit</td><td>✓</td><td>consistency is the key + ten minutes per day → 天天坚持即习惯。</td></tr><tr><td>C Start Low, Go Slow</td><td>✗</td><td>the easiest、a good start 看似"低起步"，但本段强调的是"简单可行、可每天坚持"，而非"逐渐加量"。（典型误解：见 easy/start 就挂 C——那是【41】段的主旨。）</td></tr><tr><td>G Round Out Your Routine</td><td>✗</td><td>a great first step 像"补充/完善"，但段末吹步行是为了例证"十分钟可行、可持续"，不是教你完善组合。（典型误解：把"过渡到其他运动"升格为"完善常规"。）</td></tr><tr><td>B Don't Go It Alone</td><td>✗</td><td>本段无"与他人一起"语义。（典型误解：无关联误选。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C 的两个词 Start、Low 在段里都找得到，为什么错？</strong>：小标题题的验证必须"双向 + 覆盖"：start 只在 a good start 里以名词身份出现，指"十分钟是个好开端"，与"低起点起步"（start low）不是一回事；且全段没有"慢慢加量"的 go slow 语义。词形找到≠语义匹配，还要查反例。</li><li><strong>步行在段里是主角还是例子？</strong>：是例子。专家推荐步行，是为了证明"每天十分钟"这个最小方案可操作——主旨仍在首句的 consistency。若让例子升格成主旨，就会掉进 G。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：与【41】段主旨混淆——【41】讲量与节奏（低起步慢慢来），本段讲频率与坚持（成习惯）。</li><li><strong>误选 G</strong>：把"步行是过渡/敲门砖"的例证功能误读成"完善锻炼组合"。</li></ul>
+<blockquote>记忆锚点：主题句先行——Consistency is the key；每天十分钟、步行最易行 = 论证"可坚持"；habit 是 consistency 的标题化；easy/start 的词形诱惑属于 C 的陷阱区。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

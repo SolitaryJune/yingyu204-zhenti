@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-44 动画：匹配题——凯利：上涨只是暂时的</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：分歧在“涨多久”",
+  "body": "<p>44 题题干：<b>John Kelly</b>。谈房价的选项有 A（上涨是<b>暂时</b>现象）与 D（房价涨得<b>更高</b>）——几位业内人士都承认“短期会涨”，真正的分歧在<b>时间维度</b>：涨多久。A 的核心不是“涨”，是 temporary。</p>",
+  "log": "审题：匹配房价论先问“涨多久”"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第十一段凯利的观点句",
+  "body": "<div class=\"qq\"><b>第十一段：</b>John Kelly, a construction lawyer at Freeths law firm, believes <b>prices will eventually come down. But not in the immediate future</b>. “As the marketplace adapts to the new requirements... <b>the scaling up of these technologies will eventually bring costs down, but in the short term, we will all have to pay the price</b> of the necessary transition,” he says. <span class=\"cn\">（房价终将回落，但不会马上；短期内大家都要为必要的转型付费。）</span></div><p>三层时间刻度：短期付费 → 中期后技术规模化降本 → 最终回落。</p>",
+  "log": "凯利：短期付费、终将回落——转折后才是落点"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "title": "锁定 A：上涨是暂时的",
+  "body": "<p><b>A · The rise of home prices is a temporary matter</b> <span class=\"ok-dot\">✓</span></p><p><b>prices will eventually come down. But not in the immediate future</b> ↔ <b>a temporary matter</b>：上涨只存在于“短期内”这个区间，随后回落——“涨”被时间限定成“暂时现象”，当选。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "log": "锁定 A：短期涨 + 终将降 = temporary"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 2,
+  "title": "排除 D：落点相反 + 一题一选项",
+  "body": "<p><b>D · The new rules will take home prices to an even higher level</b> <span class=\"bad-dot\">✗</span></p><p>D 只说“涨得更高”，与凯利的落点“<b>终将下降</b>”相反；且 D 已是 41 题贝里的选项——<b>一人一选项</b>，不能复用。典型误解：见短期 pay the price 就以为凯利在强调涨价。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "log": "排除 D：与“终将下降”落点相反，且已被 41 题占用"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 G",
+  "count": 3,
+  "title": "排除 G：短期是代价不是收益",
+  "body": "<p><b>G · The rule changes will benefit homeowners eventually</b> <span class=\"bad-dot\">✗</span></p><p>“最终受益”是<b>第十二段梅勒</b>（45 题）的观点；凯利明确说短期内大家都要为必要的转型<b>付费</b>——短期是代价。典型误解：把“长期降价”直接等同于“房主受益”。</p>",
+  "ribbon": {
+   "k": 7,
+   "ok": false
+  },
+  "log": "排除 G：最终受益是 Mellor 的观点"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 3,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（The rise of home prices is a temporary matter）</b>。</p><p>记忆锚点：匹配房价论先问“涨多久”；eventually come down + not immediate = temporary；转折后才是观点落点。</p>",
+  "log": "结论：上涨只是暂时的，答案选 A"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-44 · 匹配题：John Kelly → A",
+ "subtitle": "考点：新题型人物匹配 · 方法：时间维度分界 + 一题一选项",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项 A–G（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位人物段落 → 时间维度分界 → 排除高危干扰。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 A",
+  "html": "<b>prices will eventually come down, but not in the immediate future ↔ a temporary matter</b>。记忆锚点：A/D 的分歧在时间维度——凯利落点在“终将下降”；D 已被 41 题贝里占用，一人一选项。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 新题型第 44 题 · John Kelly 的观点匹配</h2>
+<p>答案：<strong>A（The rise of home prices is a temporary matter 房价上涨是暂时现象）</strong>。</p>
+<h3>第 0 步：先立机制——"时间维度"是本题的唯一分界线</h3>
+<p>几位谈房价的人都承认"短期会涨"，真正的分歧在"涨多久"：贝里说必然涨（不谈回落），凯利说短期涨但终将回落。A 选项的核心不是"涨"，而是 temporary（暂时）——所以匹配凯利的关键证据是"回落"语义，而不是"上涨"语义。找对分界维度，两个高相似选项（A 与 D）自然分开。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>John Kelly, a construction lawyer at Freeths law firm, believes prices will eventually come down. But not in the immediate future. "As the marketplace adapts to the new requirements, and the technologies that support them, the scaling up of these technologies will eventually bring costs down, but in the short term, we will all have to pay the price of the necessary transition," he says.</blockquote>
+<p>三层时间刻度：短期——大家都要为转型付费（in the short term... pay the price）；中期之后——技术规模化拉低成本（scaling up... bring costs down）；最终——房价回落（prices will eventually come down），但不是马上（not in the immediate future）。</p>
+<h3>第 2 步：同义替换对上 A</h3>
+<p>prices will eventually come down. But not in the immediate future ↔ The rise of home prices is a temporary matter：上涨只存在于"短期内"这个区间，随后回落——"涨"被时间限定成"暂时现象"。temporary ↔ not in the immediate future / eventually come down，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A The rise of home prices is a temporary matter</td><td>✓</td><td>短期涨、终将降 = 上涨是暂时的。</td></tr><tr><td>D The new rules will take home prices to an even higher level</td><td>✗</td><td>只说"涨得更高"，与凯利的落点"终将下降"相反；且 D 已是 41 题贝里的选项——一人一选项，不能复用。（典型误解：见短期 pay the price 就以为凯利在强调涨价。）</td></tr><tr><td>G The rule changes will benefit homeowners eventually</td><td>✗</td><td>"最终受益"是 45 题梅勒的观点；凯利明确说短期内大家都要为必要的转型付费，短期是代价不是收益。（典型误解：把 Kelly 的"长期降价"直接等同于"房主受益"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>凯利也承认短期要付钱，为什么不选 D？</strong>：D 是纯"上涨"论断，没有时间边界；凯利的重心在 But not in the immediate future / eventually bring costs down——转折之后才是观点落点。</li><li><strong>"一题一选项"原则怎么用？</strong>：41 题已锁定 D 属贝里，44 题就不可能再取 D；剩下能与凯利对齐的只有 A。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：把"承认短期上涨"当成"主张上涨"——漏掉了 eventually come down 这个核心判断。</li><li><strong>A/D 混淆的根源</strong>：只比对"房价"话题词，不比对"时间走向"。</li></ul>
+<blockquote>记忆锚点：匹配房价论先问"涨多久"；eventually come down + not immediate = temporary；转折后才是观点落点。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

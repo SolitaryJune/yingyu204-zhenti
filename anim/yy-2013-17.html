@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-17 · 2013 完形第 17 空 · “侵入账户之后”该填哪个动词</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 定位原文空 17",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 17 与 access 构成并列谓语，主语是心怀不轨的人，动作对象是别人的账户",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The fact that this is not an __16__ occurrence means that dishonest persons might be able to access bank accounts in electronic payments systems and __17__ from someone else’s accounts.</div><p>空格由 and 与 access bank accounts 连成<b>并列谓语</b>：主语是 dishonest persons（心怀不轨的人），动作对象是“别人的账户”。所以本题只需回答一个问题：骗子侵入别人的电子支付账户，然后从里面做什么？</p>"
+ },
+ {
+  "title": "找证据 · 整段语境已经定调",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：本段讲电子支付的安全之忧——黑客擅改数据库、欺诈成风，空格必须是负面动作",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information there.</div><p>空 17 所在段的主题是电子支付的<b>安全与隐私之忧（security and privacy concerns）</b>：黑客擅改数据库信息、这类事并非偶发（not an uncommon occurrence）、欺诈（fraud）。空格动作必须接续这条“损害他人财产”的叙事线——要一个<b>负面动作</b>。</p>"
+ },
+ {
+  "title": "选项 A · steal（偷取）",
+  "cls": "good",
+  "tag": "当选 A",
+  "log": "A steal（偷取）✓ 当选——steal from someone’s accounts 与欺诈链严丝合缝",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>代入读作“侵入电子支付系统的银行账户，并从别人的账户里窃取（资金）”。steal from... 是“从……偷窃”的固定用法；与 access bank accounts 并列后构成完整的欺诈链：<b>侵入账户 → 盗取资金</b>。语境（安全忧虑）、搭配（steal from）双双成立。</p>"
+ },
+ {
+  "title": "选项 B · choose（选择）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B choose（选择）✗ 排除——“从账户里挑选”无语义需求，与欺诈语境无关",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>choose from 表“从一组同类事物中挑选”，挑选的对象应是可选选项；“挑选别人的账户”既无语义需求，也与“安全之忧”的语境毫无关联。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 from 搭配成立就选，不核对动作与语境是否对得上。</p>"
+ },
+ {
+  "title": "选项 C · benefit（受益）——本组最大陷阱",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C benefit（受益）✗ 排除——benefit from 语法通，但与负面语境色彩相反",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>benefit from someone else’s accounts 语法完全成立（“从……中获益”），是最容易被误选的一项。问题出在<b>色彩</b>：benefit 是中性偏积极的“获益”，而空格前后是 dishonest、fraud 构成的负面语境；叙事要的是“损害他人”，不是“自己受益”。完形填空考的是语义、语境、语法三者<b>同时</b>成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：语法对就选——忘了还要过“语境色彩”这一关。</p>"
+ },
+ {
+  "title": "选项 D · return（返回）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D return（返回）✗ 排除——“从账户返回”没有行程语义，接不上欺诈链",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>return from 意为“从……返回”，前提是曾经“去过”那里；骗子与账户之间不存在“去了再回来”的行程关系，return 也无法与上文“侵入账户”的欺诈链衔接。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 return to / return from 当万能搭配四处套用。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（steal 偷取）——完整句义见结论卡",
+  "count": 3,
+  "body": "<p>完整句义：这类事并非偶发，这意味着不诚之徒可能侵入电子支付系统的银行账户，并从他人账户中<b>窃取</b>资金。</p><p>答案选 <b>A（steal 偷取）</b>。</p><p><b>记忆锚点</b>：dishonest + fraud + access accounts → steal from...；语法成立 ≠ 正确——C（benefit）就是栽在“语境色彩”上的典型。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 完形第 17 空 · “侵入账户之后”该填哪个动词",
+  "subtitle": "考点：上下文语义 + 动词词义辨析 · 定位 → 语境定调 → 逐项排除",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（steal 偷取）",
+ "html": "<b>A steal（偷取）</b>：侵入账户 → 从他人账户窃取资金，与全段“安全与欺诈”语境、并列谓语结构双合。<br>最易误选：<b>C（benefit）</b>——benefit from 语法通，但空格处叙事是“损害他人财产”，语境色彩相反。<br>记忆锚点：dishonest + fraud + access accounts → steal from...；语义、语境、语法三者须同时成立。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 17 空 · “侵入账户之后”该填哪个动词</h2>
+<p>答案：<strong>A（steal 偷取）</strong>。</p>
+<h3>第 0 步：先立机制——本空的句法位置与语境要求</h3>
+<p>空 17 由 and 与 access bank accounts 连成<strong>并列谓语</strong>：主语是 dishonest persons（心怀不轨的人），动作对象是“别人的账户”。同时它所在的整段都在讲电子支付的<strong>安全与隐私之忧</strong>：黑客擅改数据库信息、这类事并非偶发（not an uncommon occurrence）、欺诈（fraud）。于是本题只需回答一个问题：骗子侵入别人的电子支付账户，然后从里面做什么？——答案必须是一个<strong>负面动作</strong>，且能接上“损害他人财产”的叙事线。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The fact that this is not an __16__ occurrence means that dishonest persons might be able to access bank accounts in electronic payments systems and __17__ from someone else's accounts.</blockquote>
+<h3>第 2 步：找证据——上文的语境已经定调</h3>
+<blockquote>We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information there.</blockquote>
+<p>黑客擅改信息是本段的铺垫，紧随其后的本句把镜头对准“银行账户”——<strong>侵入账户 → 盗取资金</strong>是一条完整的欺诈链，空格要填的正是链条的第二环。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A steal</td><td>偷取</td><td>✓ 当选</td><td>steal from... “从……偷窃”是固定用法，与 access 构成完整的欺诈链，语境、搭配双合。</td></tr><tr><td>B choose</td><td>选择</td><td>✗ 排除</td><td>choose from 表“从同类中挑选”，“挑选别人的账户”无语义需求，与安全语境无关。（典型误解：只看 from 搭配成立就选。）</td></tr><tr><td>C benefit</td><td>受益</td><td>✗ 排除</td><td>benefit from 语法完全成立，是本组最大陷阱；但它是中性偏积极的“获益”，与 dishonest、fraud 的负面语境色彩相反。（典型误解：语法对就选，忘了“语境色彩”这一关。）</td></tr><tr><td>D return</td><td>返回</td><td>✗ 排除</td><td>return from 前提是“去过再回来”，骗子与账户没有行程关系。（典型误解：把 return to / from 当万能搭配。）</td></tr></tbody></table>
+<p>代入后的完整句义：这类事并非偶发，这意味着不诚之徒可能侵入电子支付系统的银行账户，并从他人账户中窃取资金。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>benefit from 不也是地道搭配吗？为什么不能选？</strong>：因为完形填空考的是语义、语境、语法三者<strong>同时</strong>成立。benefit 是“受益”，而空格处的叙事主体是欺诈分子、叙事方向是“损害他人财产安全”——“从别人的账户中获益”既接不上欺诈链，也接不上全段“安全之忧”的基调。搭配地道 ≠ 语境正确。</li><li><strong>choose from someone else's accounts 语法上说得通吧？</strong>：语法通，语义不通：choose 需要一个“挑选的意图”，本句主语是侵入账户行窃的骗子，“挑选账户”不构成任何合理的叙事环节。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（benefit）</strong>：只做语法匹配、不做色彩匹配——这是本空最典型的失分路径，negative 语境里出现的“中性偏褒”动词都要多看一眼。</li><li><strong>误选 B（choose）</strong>：被 from 的搭配吸引，没核对动作语义。</li></ul>
+<blockquote>记忆锚点：dishonest + fraud + access accounts → steal from...；语法成立 ≠ 正确——还要过“语境色彩”这一关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

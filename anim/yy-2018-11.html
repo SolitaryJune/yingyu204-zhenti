@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-11 · 与 shelter 并列的基本欲求：____：A pay / B marriage / C schooling / D food</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 11 在 the basic drives for __ or shelter 的名词位；考点：句内语义 + 名词辨析（并列同现）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The drive to discover is deeply rooted in humans, much the same as the basic drives for <b>__11__</b> or shelter, says Christopher Hsee of the University of Chicago.</div><p>空 11 与 <b>shelter</b>（住所）由 or 并列，共同做 the basic drives for（……的基本欲求）的宾语——空格词必须和 shelter 同属一个语义场。</p>"
+ },
+ {
+  "title": "立机制 · 并列词定语义场：与 shelter 同层的生存必需",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：shelter 锁定生存基本需求语义场 → food 同层入列",
+  "body": "<p>shelter（住所）属于人类<b>维持生存</b>层面的最基本需求；由 or 并列的空格词必须与之同级——不是想要，而是不满足就活不下去那一层。食物 food 正是这样的生存必需，food or shelter 还是英语里的常见并列搭配。类比的目的也在这：把好奇心说成与温饱住同级的<b>先天本能</b>。</p>"
+ },
+ {
+  "title": "找证据 · much the same as 的类比作用",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：把好奇心类比成基本欲求 → 例子必须是生存层面的",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The drive to discover is deeply rooted in humans, much the same as the basic drives for __11__ or shelter, says Christopher Hsee of the University of Chicago.</div><p>much the same as（与……几乎一样）表明：作者拿最基本的人类欲求来类比探究欲求，论证好奇心是<b>天生</b>的。类比项选得越原始、越无可争议（食物、住所），论证越有力——所以空格词要落到生存层面。</p>"
+ },
+ {
+  "title": "逐项分析 · A pay（工资）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A pay（工资）✗ 排除",
+  "body": "<p><b>排除。</b>工资是进入社会分工之后才有的需求，不在维持生存的 drive 层级上。</p>"
+ },
+ {
+  "title": "逐项分析 · B marriage（婚姻）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B marriage（婚姻）✗ 排除",
+  "body": "<p><b>排除。</b>婚姻是社会性、文化性的需求，与 shelter 不同层，撑不起先天本能的类比。</p>"
+ },
+ {
+  "title": "逐项分析 · C schooling（学校教育）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C schooling（学校教育）✗ 排除",
+  "body": "<p><b>排除。</b>学校教育是文明社会的产物，同样不在生存必需的语义场里。</p><p style=\"color:#b91c1c\">⚠ 典型误解：三项都算人的需求，但基本 drive 特指生存本能——需求也分层级，不能见需求就选。</p>"
+ },
+ {
+  "title": "逐项分析 · D food（食物）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D food（食物）✓ 当选",
+  "body": "<p><b>当选。</b>food 与 shelter 同属生存必需，food or shelter 是常见并列搭配，类比好奇心乃天生本能最有力。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 11 填 food（食物）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The drive to discover is deeply rooted in humans, much the same as the basic drives for <b>food</b> or shelter, says Christopher Hsee of the University of Chicago.</div><p>探究发现的欲求深深植根于人类，正如对食物或住所的基本欲求一样。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（food 食物）——见结论卡",
+  "body": "<p>答案选 <b>D（food 食物）</b>。</p><p><b>记忆锚点</b>：并列结构（or / and）锁定语义场：见 shelter 就找生存必需层级的词；pay / marriage / schooling 是社会性需求，低一档。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>B（marriage）</b>：只看到也是人的需求，忽略 basic drives 特指生存层面的本能，层级判错。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 11 空 · 与 shelter 并列的基本欲求：____：A pay / B marriage / C schooling / D food",
+  subtitle: "考点：句内语义 + 名词辨析（并列同现） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（food 食物）", "html": "<b>D（food 食物）</b>。<br>记忆锚点：并列结构（or / and）锁定语义场：见 shelter 就找生存必需层级的词；pay / marriage / schooling 是社会性需求，低一档。<br>最易误选：<b>B（marriage）</b>——只看到也是人的需求，忽略 basic drives 特指生存层面的本能，层级判错。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 11 空 · 与 shelter 并列的基本欲求：____</h2>
+<p>答案：<strong>D（food 食物）</strong>。</p>
+<h3>第 0 步：先立机制——并列词定语义场：与 shelter 同层的生存必需</h3>
+<p>shelter（住所）属于人类<strong>维持生存</strong>层面的最基本需求；由 or 并列的空格词必须与之同级——不是想要，而是不满足就活不下去那一层。食物 food 正是这样的生存必需，food or shelter 还是英语里的常见并列搭配。类比的目的也在这：把好奇心说成与温饱住同级的<strong>先天本能</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The drive to discover is deeply rooted in humans, much the same as the basic drives for <strong>__11__</strong> or shelter, says Christopher Hsee of the University of Chicago.</blockquote>
+<p>空 11 与 <strong>shelter</strong>（住所）由 or 并列，共同做 the basic drives for（……的基本欲求）的宾语——空格词必须和 shelter 同属一个语义场。</p>
+<h3>第 2 步：找证据——much the same as 的类比作用</h3>
+<blockquote>The drive to discover is deeply rooted in humans, much the same as the basic drives for __11__ or shelter, says Christopher Hsee of the University of Chicago.</blockquote>
+<p>much the same as（与……几乎一样）表明：作者拿最基本的人类欲求来类比探究欲求，论证好奇心是<strong>天生</strong>的。类比项选得越原始、越无可争议（食物、住所），论证越有力——所以空格词要落到生存层面。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A pay</td><td>工资</td><td>✗ 排除</td><td>工资是进入社会分工之后才有的需求，不在维持生存的 drive 层级上。</td></tr><tr><td>B marriage</td><td>婚姻</td><td>✗ 排除</td><td>婚姻是社会性、文化性的需求，与 shelter 不同层，撑不起先天本能的类比。</td></tr><tr><td>C schooling</td><td>学校教育</td><td>✗ 排除</td><td>学校教育是文明社会的产物，同样不在生存必需的语义场里。（典型误解：三项都算人的需求，但基本 drive 特指生存本能——需求也分层级，不能见需求就选。）</td></tr><tr><td>D food</td><td>食物</td><td>✓ 当选</td><td>food 与 shelter 同属生存必需，food or shelter 是常见并列搭配，类比好奇心乃天生本能最有力。</td></tr></tbody></table>
+<p>代入后的完整句义：探究发现的欲求深深植根于人类，正如对食物或住所的基本欲求一样。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（marriage）</strong>：只看到也是人的需求，忽略 basic drives 特指生存层面的本能，层级判错。</li></ul>
+<blockquote>记忆锚点：并列结构（or / and）锁定语义场：见 shelter 就找生存必需层级的词；pay / marriage / schooling 是社会性需求，低一档。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

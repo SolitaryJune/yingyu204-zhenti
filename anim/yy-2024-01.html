@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-01 · 2024 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 1 所在句，考点：上下文语义 + 句内对比逻辑",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It's important to have a social life, but what's right for one person won't be right for another. Some of us feel energised by spending lots of time with others, __1__ some of us may feel drained, even if it's doing something we enjoy.</div><p>空格为第 1 空，待填一词。考点：<b>上下文语义 + 句内对比逻辑</b>；方法主线：结构对称 → 语义对比，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 先抽句子骨架，再定分句关系",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先抽句子骨架，再定分句关系",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>逻辑连接词题不背词义表，先回答一个问题：<b>空格前后两个分句是什么关系？</b>把两边的骨架抽出来——Some of us feel energised / some of us may feel drained——结构完全平行（都是「某类人 + feel + 情绪形容词」），而 energised（精力充沛）与 drained（精疲力竭）是一对反义词。<b>结构对称 + 语义相反 = 对比关系</b>，空格要填的就是能承载对比的连词。</p>"
+ },
+ {
+  "title": "证据 · 上句已把「两类人」摆上桌",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：上句已把「两类人」摆上桌",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>上句 what's right for one person won't be right for another 铺垫了「社交生活因人而异」：Some of us 与 some of us 分别指<b>两类人群</b>，对同一件事（spending lots of time with others）感受相反。句末 even if it's doing something we enjoy 是让步补充——即便做的是喜欢的事，另一类人照样被「耗尽」，进一步坐实「两类人不同」。</p>"
+ },
+ {
+  "title": "逐项分析 · A because（因为；由于）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A because（因为；由于） ✗ 排除——把精力充沛→精疲力竭脑补成因果过程",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>因果逻辑。前后是两类人的不同感受，两件事相对独立，并非「因为前者怎样，所以后者怎样」。</p><p style='color:#b91c1c'>⚠ 典型误解：把精力充沛→精疲力竭脑补成因果过程——energised 与 drained 是两类人对同一件事的平行感受，不存在谁导致谁。</p>"
+ },
+ {
+  "title": "逐项分析 · B unless（除非；如果不）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B unless（除非；如果不） ✗ 排除——被句末 even if（即使）带偏，以为空格也该填条件词",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>条件逻辑。unless 引出主句情形不成立的唯一条件，而前后两个分句各自成立，互不为条件。</p><p style='color:#b91c1c'>⚠ 典型误解：被句末 even if（即使）带偏，以为空格也该填条件词——even if 是让步补充，服务于右侧分句内部；空格管的却是左右两个分句之间的关系。</p>"
+ },
+ {
+  "title": "逐项分析 · C whereas（而；却；反之）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C whereas（而；却；反之） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>专司对比：恰能承载「一些人精力充沛，而另一些人却精疲力竭」，与结构对称、语义相反的骨架完全咬合。</p>"
+ },
+ {
+  "title": "逐项分析 · D until（直到……为止）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D until（直到……为止） ✗ 排除——把复现的 Some/some 主语读成同一类人的时间变化",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>时间终点逻辑。题面并非引出一类人不再精力充沛的时间点。</p><p style='color:#b91c1c'>⚠ 典型误解：把复现的 Some/some 主语读成同一类人的时间变化——上句 one person...another 表明这是两类人的横向对比，不是一类人的纵向时间线。「一些人直到精疲力竭前都精力充沛」读不成立。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（whereas 而；却；反之）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>我们中的一些人会因与他人共度大量时光而感到精力充沛，而另一些人却可能感到精疲力竭——即便做的是我们喜欢的事。</b></p><p>答案选 <b>C（whereas 而；却；反之）</b>。</p><p><b>记忆锚点</b>：逻辑连接词题先抽骨架：结构对称 + 语义反义（energised ↔ drained）= 对比 → whereas；Some/some 主语复现 + one person...another = 两类人横向对比。</p><p style='color:#b91c1c'>最易误选：<b>D（until）</b>——把复现的 Some/some 读成同一群人的时间变化；回到上句 one person...another 即可排除。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 1 空 · Some of us…，____ some of us…",
+  subtitle: "考点：上下文语义 + 句内对比逻辑 · 结构对称 → 语义对比 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（whereas）",
+    html: "<b>C whereas（而；却；反之）</b>。<br>完整句义：我们中的一些人会因与他人共度大量时光而感到精力充沛，而另一些人却可能感到精疲力竭——即便做的是我们喜欢的事。<br>记忆锚点：逻辑连接词题先抽骨架：结构对称 + 语义反义（energised ↔ drained）= 对比 → whereas；Some/some 主语复现 + one person...another = 两类人横向对比。<br>最易误选：<b>D（until）</b>——把复现的 Some/some 读成同一群人的时间变化；回到上句 one person...another 即可排除。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 1 空 · 上下文语义 + 句内对比逻辑</h2>
+<p>答案：<strong>C（whereas 而；却；反之）</strong>。</p>
+<h3>第 0 步：先立机制——逻辑连接词题：先抽句子骨架，再定分句关系</h3>
+<p>逻辑连接词题不背词义表，先回答一个问题：<strong>空格前后两个分句是什么关系？</strong>把两边的骨架抽出来——Some of us feel energised / some of us may feel drained——结构完全平行（都是「某类人 + feel + 情绪形容词」），而 energised（精力充沛）与 drained（精疲力竭）是一对反义词。<strong>结构对称 + 语义相反 = 对比关系</strong>，空格要填的就是能承载对比的连词。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>It's important to have a social life, but what's right for one person won't be right for another. Some of us feel energised by spending lots of time with others, __1__ some of us may feel drained, even if it's doing something we enjoy.</blockquote>
+<p>上句 what's right for one person won't be right for another 铺垫了「社交生活因人而异」：Some of us 与 some of us 分别指<strong>两类人群</strong>，对同一件事（spending lots of time with others）感受相反。句末 even if it's doing something we enjoy 是让步补充——即便做的是喜欢的事，另一类人照样被「耗尽」，进一步坐实「两类人不同」。</p>
+<h3>第 2 步：语义对号：谁在承载「一些人……而另一些人……」</h3>
+<p>空格左侧是「一些人精力充沛」，右侧是「另一些人精疲力竭」——这正是 whereas 的字典职责：比较两个事物、人或情景，显示二者有重要差别（He has brown eyes, whereas his children have green eyes.）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A because</td><td>因为；由于</td><td>✗ 排除</td><td>因果逻辑。前后是两类人的不同感受，两件事相对独立，并非「因为前者怎样，所以后者怎样」。</td></tr><tr><td>B unless</td><td>除非；如果不</td><td>✗ 排除</td><td>条件逻辑。unless 引出主句情形不成立的唯一条件，而前后两个分句各自成立，互不为条件。</td></tr><tr><td>C whereas</td><td>而；却；反之</td><td>✓ 当选</td><td>专司对比：恰能承载「一些人精力充沛，而另一些人却精疲力竭」，与结构对称、语义相反的骨架完全咬合。</td></tr><tr><td>D until</td><td>直到……为止</td><td>✗ 排除</td><td>时间终点逻辑。题面并非引出一类人不再精力充沛的时间点。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把精力充沛→精疲力竭脑补成因果过程 → 误选 A（because）</strong>：energised 与 drained 是两类人对同一件事的平行感受，不存在谁导致谁。</li><li><strong>被句末 even if（即使）带偏，以为空格也该填条件词 → 误选 B（unless）</strong>：even if 是让步补充，服务于右侧分句内部；空格管的却是左右两个分句之间的关系。</li><li><strong>把复现的 Some/some 主语读成同一类人的时间变化 → 误选 D（until）</strong>：上句 one person...another 表明这是两类人的横向对比，不是一类人的纵向时间线。「一些人直到精疲力竭前都精力充沛」读不成立。</li></ul>
+<blockquote>记忆锚点：逻辑连接词题先抽骨架：结构对称 + 语义反义（energised ↔ drained）= 对比 → whereas；Some/some 主语复现 + one person...another = 两类人横向对比。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

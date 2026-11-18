@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-27 · 2025 阅读第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 总起句后接办法清单",
+    "cls": "key",
+    "tag": "审题",
+    "log": "answers... are well rehearsed 是总起句，办法在其后",
+    "count": 0,
+    "body": "<p>题干 <code>One answer to the crisis in health and care</code> 原词落在段[3]①——<b>总起句</b>，本身不给答案。段[3]②③④ 连给三条办法：② 减少并转移医疗需求；③ 加大社区与基础医疗投入、降低对医院的依赖；④ 提升社会关怀能力。选项只需与其中一条同义替换。</p>"
+  },
+  {
+    "title": "定位原文 · 段[3]③投入句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "段[3]③：加大社区与基础医疗投入，减少对医院的依赖",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Much more needs to be invested in communities and primary care to reduce our reliance on hospitals.</div><p>invested in communities and <b>primary care</b>（加大投入）＝资源增加；目的（减少对医院的依赖）说明医院<b>不是</b>被强化的对象。</p>"
+  },
+  {
+    "title": "同义替换锁定 C",
+    "cls": "good",
+    "tag": "替换",
+    "log": "invested in primary care ⇒ increase resources for primary care",
+    "count": 0,
+    "body": "<p>Much more needs to be invested in... primary care → <b>increase resources for primary care</b>：投入加大即资源增加，直接替换。</p>"
+  },
+  {
+    "title": "逐项分析 · A 提高医院效率",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 提高医院效率 ✗——医院是要“摆脱的依赖”",
+    "count": 1,
+    "body": "<p><b>排除。</b>定位句的逻辑是“多投社区基础医疗，<b>从而少去医院</b>”；医院是被分流的依赖对象，不是被提效的对象——<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 减轻社会关怀负担",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B 减轻社会关怀负担 ✗——原文要“加强”",
+    "count": 2,
+    "body": "<p><b>排除。</b>段[3]④ capacity in social care needs to be <b>greater</b>：要加强社会关怀能力；lighten（减轻）方向说反——<b>反向干扰</b>。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C 增加基础医疗资源",
+    "cls": "good",
+    "tag": "复认 C",
+    "log": "C 增加基础医疗资源 ✓——同义替换闭环",
+    "count": 2,
+    "body": "<p><b>复认。</b>③句有现成替换：invested in primary care → resources for primary care。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D 减少社区压力",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 减少社区压力 ✗——社区担子反而变重",
+    "count": 3,
+    "body": "<p><b>排除。</b>加大社区投入＝社区承担更多基础医疗，压力可能<b>增加</b>；选项方向说反。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C——办法清单里选有替换项的一条",
+    "count": 3,
+    "body": "<p>答案选 <b>C（increase resources for primary care）</b>。</p><p><b>记忆锚点</b>：总起句后逐句找办法，②④虽是真办法但选项里没有对应替换项；greater ≠ lighten、投入社区 ≠ 减社区压力——反向词是主陷阱。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 27 题 · 应对医疗护理危机的办法之一",
+  "subtitle": "Text 2 · 考点：细节理解 · 总起句后找办法清单",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“办法清单 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 C（increase resources for primary care）",
+    "html": "<b>C 增加基础医疗资源</b>——段[3]③ Much more needs to be invested in... primary care 的同义转述。<br>记忆锚点：②④是真办法但无对应选项；greater ≠ lighten、投入社区 ≠ 减社区压力。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 27 题 · 应对医疗护理危机的办法之一</h2>
+<p>答案：<strong>C（increase resources for primary care 增加基础医疗资源）</strong>。</p>
+<h3>第 0 步：先立机制——总起句后接“办法清单”</h3>
+<p>题干 One answer to the crisis in health and care 原词落在段[3]① Many of the answers... are well rehearsed——这是<strong>总起句</strong>，本身不给答案；真正的办法在后文列举。段[3]②③④ 三句各给一条：② 减少并转移医疗需求；③ 加大社区与基础医疗投入、降低对医院的依赖；④ 提升社会关怀能力。选项只需与其中一条做同义替换。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Much more needs to be invested in communities and primary care to reduce our reliance on hospitals.</blockquote>
+<p>Much more needs to be invested in... primary care（加大投入）＝资源增加；目的状语 to reduce our reliance on hospitals 顺便说明医院<strong>不是</strong>被强化的对象，而是要被“分流”的依赖。</p>
+<h3>第 2 步：同义替换核对 C</h3>
+<p>invested in communities and primary care → <strong>increase resources for primary care</strong>：投入加大即资源增加，invested（投入）→ resources（资源）直接替换。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A boost the efficiency of hospitals</td><td>提高医院效率</td><td>✗</td><td>段[3]③的逻辑是“多投社区基础医疗，从而<strong>少去医院</strong>”；医院是要摆脱的依赖，不是要提效的对象，无中生有</td></tr><tr><td>B lighten the burden on social care</td><td>减轻社会关怀的负担</td><td>✗</td><td>段[3]④ capacity in social care needs to be <strong>greater</strong>——要加强而非减负，反向干扰</td></tr><tr><td>C increase resources for primary care</td><td>增加基础医疗资源</td><td>✓</td><td>Much more needs to be invested in...primary care 的同义转述</td></tr><tr><td>D reduce the pressure on communities</td><td>减少社区的压力</td><td>✗</td><td>加大社区投入＝社区承担更多基础医疗，担子变<strong>重</strong>，反向干扰</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>答案为什么选③不选②④</strong>：②（减少转移需求）④（提升社会关怀能力）也是原文的真办法，但选项里没有与它们对应的同义替换项——细节题是“选项与原文匹配”，不是“罗列所有办法”。</li><li><strong>A 与③是不是一回事？都跟医院有关</strong>：③的逻辑是“投入社区与基础医疗，从而<strong>少去医院</strong>”——医院是被分流的依赖；把目的（少依赖医院）读成措施（给医院提效）是偷换。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：见 social care 原词就选，没注意 greater（加强）与 lighten（减轻）方向相反。</li><li><strong>误选 A</strong>：医院在定位句里出现，但角色是“要摆脱的依赖”。</li></ul>
+<blockquote>记忆锚点：总起句（answers are well rehearsed）后逐句找办法；invested in primary care ＝ 增加基础医疗资源；greater ≠ lighten、投入社区 ≠ 减社区压力——反向词是主陷阱。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

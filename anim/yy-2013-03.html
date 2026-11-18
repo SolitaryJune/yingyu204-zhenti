@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 3 空 · 被“彻底变革”的是货币的什么——concept · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 例证句必须与被例证句同义", "cls": "key", "tag": "审题", "log": "先立机制：例证句必须与被例证句同义", "count": 0, "ribbon": null, "body": "<p>for example 开头，本句是上一句的具体例证：上一句说“（无现金社会的）预言存在二十年却未实现”，本句便给出一个样本——《商业周刊》1975 年的预言。空格是 revolutionize（彻底变革）的宾语中心词，前面还有 very 加强：“变革的不是别的，正是货币本身的……”。例证句的内容必须能回填到被例证句里去，所以空格词说的应当就是“支付形态的根本替换”这件事。</p>"}, {"title": "定位原文 · 空 3 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 3 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, Business Week predicted in 1975 that electronic means of payment would soon \"revolutionize the very <b>__3__</b> of money itself,\" only to __4__ itself several years later.</div><p>空格为单数可数名词，受 the very ___ of money itself 修饰；四个候选都是抽象名词，判定标准是哪一种“变革”能与“纸币 → 电子支付”的替换对上。</p>"}, {"title": "找证据 · cash → electronic means of payment：变的是形态与观念", "cls": "key", "tag": "证据", "log": "找证据：cash → electronic means of payment：变的是形态与观念", "count": 0, "ribbon": null, "body": "<p>从纸币支付走向电子支付，钱还是那些钱：购买力没变、货币职能没变、更谈不上“历史”。被替换的是“钱以什么形态存在、支付如何完成”这一根本理解——即货币的概念本身。</p>"}, {"title": "逐项分析 · A power（力量；能力）", "cls": "bad", "tag": "排除 A", "log": "A power（力量；能力）✗ 排除——购买力并未改变", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>货币的购买力在电子化后分毫未变，“变革力量”讲的是钱的强弱，与“纸→电”的形态替换对不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 revolutionize 的气势带着配大词。</p>"}, {"title": "逐项分析 · B concept（观念；概念）", "cls": "good", "tag": "选定 B", "log": "B concept（观念；概念）✓ 当选——形态替换=概念变革", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>“彻底变革货币本身的概念”= 钱的存在形态与支付方式被根本替换——正是“无现金社会”预言的同义表述。</p>"}, {"title": "逐项分析 · C history（历史；来历）", "cls": "bad", "tag": "排除 C", "log": "C history（历史；来历）✗ 排除——预言面向将来", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>预言面向“将来会发生什么”，不是给货币“修史”；in 1975 是预言时间，不是历史属性。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见年份就联想“历史”。</p>"}, {"title": "逐项分析 · D role（角色；作用）", "cls": "bad", "tag": "排除 D", "log": "D role（角色；作用）✗ 排除——货币职能原样保留", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>货币的职能（交换媒介、价值尺度等）电子化后原样保留，变的是形态与观念，不是职能。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“支付方式变了”扩大成“货币职能变了”。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（concept 观念；概念）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”。</b></p><p>答案选 <b>B（concept 观念；概念）</b>。</p><p><b>记忆锚点</b>：for example：例证句必须与被例证句同义；revolutionize the very concept of money = 支付形态的根本替换；职能不变，变的是概念。</p><p style=\"color:#b91c1c\">最易误选：<b>D（role）</b>——“支付方式变化”与“货币职能变化”两个概念最容易搅在一起。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 3 空 · 被“彻底变革”的是货币的什么——concept",
+  subtitle: "考点：上下文语义（名词辨析） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 B（concept 观念；概念）", "html": "<b>B concept（观念；概念）</b>。<br>完整句义：例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”。<br>记忆锚点：for example：例证句必须与被例证句同义；revolutionize the very concept of money = 支付形态的根本替换；职能不变，变的是概念。<br>最易误选：<b>D（role）</b>——“支付方式变化”与“货币职能变化”两个概念最容易搅在一起。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 3 空 · 被“彻底变革”的是货币的什么——concept</h2>
+<p>答案：<strong>B（concept 观念；概念）</strong>。</p>
+<h3>第 0 步：先立机制——例证句必须与被例证句同义</h3>
+<p>for example 开头，本句是上一句的具体例证：上一句说“（无现金社会的）预言存在二十年却未实现”，本句便给出一个样本——《商业周刊》1975 年的预言。空格是 revolutionize（彻底变革）的宾语中心词，前面还有 very 加强：“变革的不是别的，正是货币本身的……”。例证句的内容必须能回填到被例证句里去，所以空格词说的应当就是“支付形态的根本替换”这件事。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For example, Business Week predicted in 1975 that electronic means of payment would soon "revolutionize the very <code>__3__</code> of money itself," only to <code>__4__</code> itself several years later.</blockquote>
+<p>空格为单数可数名词，受 the very ___ of money itself 修饰；四个候选都是抽象名词，判定标准是哪一种“变革”能与“纸币 → 电子支付”的替换对上。</p>
+<h3>第 2 步：找证据——cash → electronic means of payment：变的是形态与观念</h3>
+<p>从纸币支付走向电子支付，钱还是那些钱：购买力没变、货币职能没变、更谈不上“历史”。被替换的是“钱以什么形态存在、支付如何完成”这一根本理解——即货币的概念本身。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A power</td><td>力量；能力</td><td>✗ 排除</td><td>货币的购买力在电子化后分毫未变，“变革力量”讲的是钱的强弱，与“纸→电”的形态替换对不上。（典型误解：被 revolutionize 的气势带着配大词。）</td></tr><tr><td>B concept</td><td>观念；概念</td><td>✓ 当选</td><td>“彻底变革货币本身的概念”= 钱的存在形态与支付方式被根本替换——正是“无现金社会”预言的同义表述。（易错警示：power 与 role 两个大词的迷惑性强；先问“变的是什么”，再选名词。）</td></tr><tr><td>C history</td><td>历史；来历</td><td>✗ 排除</td><td>预言面向“将来会发生什么”，不是给货币“修史”；in 1975 是预言时间，不是历史属性。（典型误解：见年份就联想“历史”。）</td></tr><tr><td>D role</td><td>角色；作用</td><td>✗ 排除</td><td>货币的职能（交换媒介、价值尺度等）电子化后原样保留，变的是形态与观念，不是职能。（典型误解：把“支付方式变了”扩大成“货币职能变了”。）</td></tr></tbody></table>
+<p>代入后的完整句义：例如，《商业周刊》1975 年预言电子支付手段将很快“彻底变革货币本身的概念”。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>very 在 the very concept 里是什么用法？</strong>：形容词，“正是、恰恰是”，用于强调（the very concept of money itself = 恰恰是货币本身的概念），不是程度副词“非常”。</li><li><strong>为什么不能选 role（作用）？</strong>：货币的三大职能——交换媒介、价值尺度、贮藏手段——在电子化之后原样保留；变的是形态（纸→电）与人们对“什么是钱”的理解，即概念，而不是职能。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（power）</strong>：被 revolutionize 的气势带着配大词。</li><li><strong>误选 C（history）</strong>：见年份就联想“历史”。</li><li><strong>误选 D（role）</strong>：把“支付方式变了”扩大成“货币职能变了”。</li></ul>
+<blockquote>记忆锚点：for example：例证句必须与被例证句同义；revolutionize the very concept of money = 支付形态的根本替换；职能不变，变的是概念。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

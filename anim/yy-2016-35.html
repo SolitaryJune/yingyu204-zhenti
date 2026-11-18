@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-35 · 2016 阅读第 35 题 · 标题题两要素 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 标题＝全文主旨的压缩", "cls": "key", "tag": "审题", "log": "审题眼：The best title for this text could be ___——先画骨架再验要素", "count": 0, "ribbon": null, "body": "<p>标题题不是「挑一个顺眼的」，而是先画全文骨架，再检验选项有没有把骨架的两个要素都装进去。本文是标准「问题—分析—解法」三段式，先逐段画出来。</p>"},
+ {"title": "画骨架 · 第一段提出问题", "cls": "key", "tag": "骨架①", "log": "第一段提出问题：There's never any time to read（永远没时间读）", "count": 0, "ribbon": null, "body": quote("That everyone&rsquo;s too busy these days is a clich&eacute;. But one specific complaint is made especially mournfully: There&rsquo;s never any time to read.") + "<p>开篇即点出困境：忙碌不是新闻，<b>「永远没时间读书」</b>才是本文要解决的具体抱怨。变量 <b>time</b> 第一次出场。</p>"},
+ {"title": "画骨架 · 第二三段分析原因", "cls": "key", "tag": "骨架②", "log": "第二三段分析：挤零碎时间没用；「追求效率」本身就是病根", "count": 0, "ribbon": null, "body": quote("But in my experience, using such methods to free up the odd 30 minutes doesn&rsquo;t work. … Deep reading requires not just time, but a special kind of time which can&rsquo;t be obtained merely by becoming more efficient.") + "<p>分析层两层递进：①常规时间管理技巧失灵——挤出的零碎 30 分钟坐下来心思还在飞轮上转；②<b>「追求效率」本身就是问题的一部分</b>（becoming more efficient is part of the problem），沉浸阅读要的是一整块「特殊的时间」。</p>"},
+ {"title": "画骨架 · 第四段给出解法", "cls": "key", "tag": "骨架③", "log": "第四段解法：固定时段阅读，让阅读成为默认状态（主业）", "count": 0, "ribbon": null, "body": quote("So what does work? Perhaps surprisingly, scheduling regular times for reading. … reading becomes the default state from which you temporarily surface to take care of business…") + "<p>解法层：<b>安排固定时段阅读</b>（scheduling regular times），让阅读成为默认状态（主业），其他事务当临时浮出（副业）。末句作者原话点名：it no longer feels as if you&rsquo;re &ldquo;<b>making time to read</b>&rdquo;。</p>"},
+ {"title": "提炼双要素 · Read ＋ Time", "cls": "key", "tag": "提炼", "log": "主线收束：在「没时间读」的困境里为阅读守住时间——对象 Read ＋ 变量 Time", "count": 0, "ribbon": null, "body": "<p>骨架四段三节连成一句话：<b>在「没时间读」的困境里，为阅读守住时间</b>。主词 <b>reading</b> 与变量 <b>time</b> 各出场三次以上——标题必须同时咬住这两个词，缺一个就是不及格的标题。</p>"},
+ {"title": "逐项分析 · A How to Enjoy Easy Reading", "cls": "bad", "tag": "排除 A", "log": "A 如何享受轻松阅读 ✗ ——丢 Time，且「轻松读」无出处", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>丢了 Time 要素；「轻松阅读」更无出处——原文坐下来读的是 a <b>challenging</b> book（有挑战的书），第三段「沉浸阅读」要求敢于低效与无目标，从未推荐「轻松读」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被第三段阅读体验的描写带偏，脑补出「享受轻松读」。</p>"},
+ {"title": "逐项分析 · C How to Set Reading Goals", "cls": "bad", "tag": "排除 C", "log": "C 如何设定阅读目标 ✗ ——丢 Time，全文无「立目标」表述", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>丢了 Time 要素；「设定阅读目标」全文没有任何对应表述——<b>goalless</b>（无目标）倒是被当作沉浸阅读的特征正面出现过。把「安排固定时段」误升格为「设定目标」，是划时段与立目标两码事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：安排时间＝划时段，不是立目标。</p>"},
+ {"title": "逐项分析 · D How to Read Extensively", "cls": "bad", "tag": "排除 D", "log": "D 如何广泛阅读 ✗ ——丢 Time，extensively 在文中无体现", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>丢了 Time 要素；extensively（大量地、广泛地）在文中并无体现——「常浸书中」讲的是<b>频率与主次</b>（阅读吃满默认时间），不是「广泛阅读」的阅读量与阅读面，两个维度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「随时随地都在读」混同于「广泛阅读」。</p>"},
+ {"title": "逐项分析 · B How to Find Time to Read", "cls": "good", "tag": "选定 B", "log": "B 如何找时间阅读 ✓ ——对象 Read ＋ 变量 Time 双要素齐备", "count": 3, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>对象 Read ＋ 变量 Time 双要素齐备，与「问题（没时间读）→ 解法（为阅读守时间）」的骨架完全咬合——主线就是 find time to read。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（How to Find Time to Read）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>问题「没时间读」→ 分析「挤零碎时间没用、效率思维是病根」→ 解法「固定时段＋阅读为主业」→ 标题压缩为 How to Find Time to Read。</b></p><p>答案选 <b>B（How to Find Time to Read）</b>。</p><p><b>记忆锚点</b>：标题题先画骨架（问题→分析→解法），再验对象＋变量双要素——本篇是 Read ＋ Time；丢 Time 的选项无论多顺口都得出局。</p><p style=\"color:#b91c1c\">第四段篇幅再大也只谈「怎么为阅读守时间」——「怎么读」只是表，「时间归谁」才是里。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 35 题 · 标题题——两要素（对象＋变量）缺一不可",
+  subtitle: "考点：主旨标题题 · 问题→分析→解法骨架 + Read / Time 双要素检验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“画骨架 → 提炼双要素 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（How to Find Time to Read）", "html": "<b>B 如何找时间阅读</b>：对象 Read ＋ 变量 Time 双要素齐备。<br>记忆锚点：标题题先画骨架（问题→分析→解法），再验双要素；A/C/D 全都丢了 Time。<br>第四段篇幅再大也只谈「怎么为阅读守时间」——「怎么读」只是表，「时间归谁」才是里。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 35 题 · 标题题——两要素（对象＋变量）缺一不可</h2>
+<p>答案：<strong>B（How to Find Time to Read 如何找时间阅读）</strong>。</p>
+<h3>第 0 步：先立机制——标题是全文主旨的压缩，先画骨架再验要素</h3>
+<p>标题题不是"挑一个顺眼的"，而是把全文骨架先画出来，再检验选项有没有把骨架的两个要素都装进去。本文骨架四段三节，是标准的"问题—分析—解法"三段式：第一段<strong>提出问题</strong>——人们总抱怨 never any time to read（永远没时间读）；第二、三段<strong>分析原因</strong>——常见时间管理技巧为何失灵：挤出的 30 分钟坐下来心思还在飞轮上转，而"追求效率"本身就是沉浸阅读的天敌；第四段<strong>给出解法</strong>——安排固定时段阅读，让阅读成为默认状态（主业），其他事务当临时浮出（副业）。骨架里反复出现的主词是 <strong>reading</strong>，反复出现的变量是 <strong>time</strong>——标题必须同时咬住这两个词。</p>
+<h3>第 1 步：全文骨架与关键词</h3>
+<table><thead><tr><th>段落</th><th>干什么</th><th>关键词</th></tr></thead><tbody><tr><td>第一段</td><td>提出问题</td><td>There's never any time to read（没时间读）</td></tr><tr><td>第二段</td><td>分析：常规技巧失灵</td><td>the odd 30 minutes doesn't work（挤零碎时间没用）</td></tr><tr><td>第三段</td><td>分析：效率思维是病根</td><td>becoming more efficient is part of the problem</td></tr><tr><td>第四段</td><td>解法：固定时段＋主副业</td><td>scheduling regular times；reading becomes the default state</td></tr></tbody></table>
+<p>主线收束成一句话：<strong>在"没时间读"的困境里，为阅读守住时间</strong>。这就是 [B] How to Find Time to Read——对象（Read）与变量（Time）双要素齐备。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A How to Enjoy Easy Reading</td><td>✗</td><td>丢失要素＋无中生有：丢了 Time；"轻松阅读"更无出处——原文坐下来读的是 a challenging book（有挑战的书），从未推荐"轻松读"</td></tr><tr><td>C How to Set Reading Goals</td><td>✗</td><td>丢失要素＋捕风捉影：丢了 Time；"设定阅读目标"全文没有任何对应表述——goalless（无目标）倒是被当作沉浸阅读的特征正面出现过</td></tr><tr><td>D How to Read Extensively</td><td>✗</td><td>丢失要素＋概念偷换：丢了 Time；extensively（大量地、广泛地）在文中并无体现——"常浸书中"讲的是频率与主次，不是"广泛阅读"</td></tr><tr><td>B How to Find Time to Read</td><td>✓</td><td>对象 Read ＋ 变量 Time 双要素齐备，与"问题（没时间）→ 解法（为阅读守时间）"的骨架完全咬合</td></tr></tbody></table>
+<h3>预判追问：第四段占了一大半篇幅谈"怎么读"，为什么不选一个"怎么读"式的标题？</h3>
+<p>因为第四段的每一个建议本质都还是"为阅读<strong>守住时间</strong>"：scheduling regular times（固定时段）是把时间先划给阅读；"随身带书、常浸其中"是让阅读吃满默认时间，其他事务反过来见缝插针——"making time to read" 在末句还被作者原话点名。也就是说，"怎么读"只是表，"时间归谁"才是里。标题若只写"怎么读"，恰好把全文的题眼丢了。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：被第三段 "No mind-set could be worse for losing yourself in a book" 的阅读体验描写带偏，脑补出"享受轻松阅读"，而原文恰恰说挑战性的书才是常态。</li><li><strong>误选 C</strong>：把第四段"安排固定时段"误升格为"设定目标"——安排时间是划时段，不是立目标。</li><li><strong>误选 D</strong>：把"随时随地都在读"混同于"广泛阅读"——前者讲时间占用方式，后者讲阅读量与面，两个维度。</li></ul>
+<blockquote>记忆锚点：标题题先画骨架（问题→分析→解法），再验<strong>对象＋变量</strong>双要素——本篇是 Read ＋ Time；丢 Time 的选项无论多顺口都得出局。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

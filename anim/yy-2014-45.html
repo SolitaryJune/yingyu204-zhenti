@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-45 动画：匹配题——Seven Days 的长途跋涉与就近陷阱</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：\u201c就近原则\u201d是最险的坑",
+   "body": "<p>题干：<b>Seven Days</b>（45 题）——从右栏 [A]–[G] 中选出它的准确描述（两项多余）。</p><p>直觉是选离专名<b>最近</b>的那句描述。但相邻两句的主语经常不同：前句说作品，后句说展览整体。正确项不是\u201c最近的一句\u201d，而是<b>语法上真正挂在专名身上的那句</b>。</p>",
+   "log": "审题：Seven Days 定位第七段，警惕就近陷阱"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：描述句在第二句",
+   "body": "<div class='qq'><b>第七段：</b>In the case of Hamish Fulton, you can't help feeling that the Scottish artist has simply found a way of making his love of walking pay. A typical work, such as <b>Seven Days</b>, consists of a single beautiful black-and-white photograph <b>taken on an epic walk</b>, with the mileage and number of days taken listed beneath. <span class='cn'>（译：代表作《七天》——一张在史诗级长途跋涉中拍下的黑白照片，下面标注里程与天数。）</span></div><p>句眼：<b>taken on an epic walk</b>；mileage + number of days 反自证\u201c长途\u201d。</p>",
+   "log": "定位第七段第二句：taken on an epic walk，里程和天数标注"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 A", "count": 1,
+   "title": "锁定 A：originates from a long walk",
+   "ribbon": {"k": 1, "ok": true},
+   "body": "<p><b>A · originates from a long walk that the artist took</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文</th><th>选项 A</th><th>替换关系</th></tr><tr><td>taken on an epic walk</td><td>originates from a long walk</td><td>epic walk = long walk；\u201c拍摄于\u201d → \u201c源于\u201d</td></tr><tr><td>mileage and number of days listed beneath</td><td>（细节印证）</td><td>记里程、标天数 = 走了很远的路</td></tr></table>",
+   "log": "锁定 A：taken on an epic walk = originates from a long walk"},
+  {"cls": "bad", "ecs": "miss", "tag": "剖析 B", "count": 2,
+   "title": "解剖干扰项 B：就近陷阱的标准样本",
+   "ribbon": {"k": 2, "ok": false},
+   "body": "<p><b>B · illustrates a kind of landscape-orientated light conceptual art</b>——出自<b>紧邻的下一句</b>：</p><div class='qq'><b>第七段第三句：</b><b>British Land Art as shown in this … exhibition</b> wasn't about imposing on the landscape, more a kind of <b>landscape-orientated light conceptual art</b> created passing through. <span class='cn'>（译：这次展览所呈现的英国地景艺术，更像一种途经式创作的、以风景为导向的轻概念艺术。）</span></div><p>原词一字不差，但主语是 <b>British Land Art</b>（展览整体），不是 Seven Days 这一件作品。</p>",
+   "log": "剖析 B：landscape-orientated light conceptual art 说的是展览整体"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 A",
+   "body": "<p><b>答案 A（originates from a long walk that the artist took）</b>——Seven Days 源于艺术家的一次长途跋涉。</p><p>记忆锚点：<b>taken on an epic walk = originates from a long walk</b>；就近 ≠ 正确，每句先问\u201c谓语在说谁\u201d；exhibition 句的主语是 British Land Art 整体（B 为本组多余项）。</p>",
+   "log": "结论：Seven Days 源于一次长途跋涉，选 A"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-45 · 匹配题：Seven Days 的长途跋涉与就近陷阱",
+  subtitle: "考点：新题型左右匹配 · 方法：句眼定位 → epic walk 同义替换 → 主语核验破就近陷阱",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 解剖就近陷阱。",
+  snaps: snaps,
+  result: {
+    big: "答案 A",
+    html: "<b>Seven Days … consists of a single photograph taken on an epic walk = [A] originates from a long walk。</b>记忆锚点：epic walk = long walk；B 是就近陷阱的标准样本——landscape-orientated light conceptual art 原词一字不差，但主语是 British Land Art as shown in this exhibition（展览整体），不是单件作品；每句先问\u201c谓语在说谁\u201d。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——Seven Days 的"长途跋涉"与就近陷阱</h2>
+<p>答案：<strong>A</strong>。</p>
+<h3>第 0 步：先立方法——"就近原则"是匹配题最险的坑</h3>
+<p>很多人凭直觉选离专名<strong>最近</strong>的那句描述。但原文一句接一句推进时，相邻两句的主语经常不同：前句说作品，后句说展览整体。正确项未必是"离得最近的一句"，而是<strong>语法上真正挂在专名身上的那句</strong>。本题就是专门训练这一点。</p>
+<h3>第 1 步：定位原文——描述句就在第二句</h3>
+<blockquote>In the case of Hamish Fulton, you can't help feeling that the Scottish artist has simply found a way of making his love of walking pay. A typical work, such as <strong>Seven Days</strong>, consists of a single beautiful black-and-white photograph <strong>taken on an epic walk</strong>, with the mileage and number of days taken listed beneath.（译：Hamish Fulton 让人觉得这位苏格兰艺术家找到了一个让"走路之爱"变现的方法。代表作如《七天》：一张在史诗级长途跋涉中拍下的黑白照片，下面标注里程与天数。）</blockquote>
+<p><strong>taken on an epic walk</strong>（在史诗级徒步中拍摄）正是 [A] 的 originates from a long walk：照片"源于"一次长途行走。mileage 与 number of days 两个细节又反过来自证"长途"——丈量里程、按天数记账，走的绝不会是短途。</p>
+<h3>第 2 步：同义替换对号入座</h3>
+<table><thead><tr><th>原文</th><th>选项 A</th><th>替换关系</th></tr></thead><tbody><tr><td>taken on an epic walk</td><td>originates from a long walk</td><td>epic walk = long walk；taken（拍摄）→ originates from（源于）</td></tr><tr><td>the mileage and number of days taken listed beneath</td><td>（细节印证）</td><td>记里程、标天数 = 走了很远的路</td></tr></tbody></table>
+<h3>第 3 步：解剖最强干扰项 B——就近陷阱的标准样本</h3>
+<p>[B] illustrates a kind of landscape-orientated light conceptual art 出自<strong>紧邻的下一句</strong>：</p>
+<blockquote>British Land Art <strong>as shown in this well selected, but relatively modestly scaled exhibition</strong> wasn't about imposing on the landscape, more a kind of landscape-orientated light conceptual art created passing through.</blockquote>
+<p>注意主语：是 <strong>British Land Art</strong>（这次展览所呈现的英国地景艺术整体），不是 Seven Days 这一件作品。原词 landscape-orientated light conceptual art 一字不差，但描述对象是"整类艺术"。匹配题的验收公式：<strong>词是真的 → 查主语 → 主语对不上就是假</strong>。</p>
+<h3>预判追问：怎么快速判断修饰语挂在谁身上？</h3>
+<p>看语法主干与例子结构。a typical work, <strong>such as Seven Days</strong>, consists of...——such as 括起来的专名是例证，真正的谓语（consists of ... taken on an epic walk）描述的就是这类作品；下一句的主语是另一个名词短语（British Land Art as shown in this exhibition）。每读到一句，先问"这句话的谓语在说谁"，就近陷阱自动失效。</p>
+<blockquote>记忆锚点：taken on an epic walk = originates from a long walk；就近 ≠ 正确，先看谓语的主语是谁；exhibition 句说的是 British Land Art 整体。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

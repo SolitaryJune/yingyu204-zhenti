@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-12 · 2015 考研英语（二）完形第 12 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 12 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 12 所在句，考点：转折段首句语义 + 主谓搭配", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But once we rip off the band-aid, tuck our smartphones in our pockets and look up, it doesn’t __12__ so bad.</div><p>空格是 doesn't 后的<b>动词原形</b>，主语 it 指“放下手机、抬头看世界”这件事，so bad 补出程度——句子要表达“（放下手机）并没那么____”。</p>"}, {"title": "机制 · 双向夹击：But 转折 + 段尾实验结果", "cls": "key", "tag": "证据", "log": "机制：But 转折预告结论；段尾“没有一个人感到尴尬”实锤正面结果", "count": 0, "ribbon": null, "body": "<p>两路证据夹出主句方向：</p><p>1. <b>But 转折</b>——上文把手机当护身符（躲着人才安全），转折即“其实放下手机没多糟”；</p><p>2. <b>段尾实锤</b>——实验结果 not a single person reported having been embarrassed（没有一个人感到尴尬），正面结论印证主句。</p><p>于是空格 = “（这件事）让人难受/痛”的动词。</p>"}, {"title": "隐喻链 · 撕创可贴会痛，放下手机呢", "cls": "key", "tag": "隐喻", "log": "隐喻链：band-aid → rip off → 预期会痛 → 实际 doesn't hurt so bad", "count": 0, "ribbon": null, "body": "<p>rip off the band-aid（撕掉创可贴）本身就是英语惯用隐喻：<b>忍痛做一件其实利大于弊的事</b>。撕创可贴预期会痛——把手机收起来也一样，预期“难受”；实际结果 it doesn't __ so bad。hurt（痛、使难受）正是这条隐喻链的落点，也是 it doesn't hurt 的口语高频用法。</p>"}, {"title": "逐项分析 · A bend（弯曲；屈服）", "cls": "bad", "tag": "排除 A", "log": "A bend ✗ 排除——it doesn't bend so bad 主谓不搭", "count": 0, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>bend 指“弯曲”或人“屈服”；it（放下手机后的感受/情形）不能“弯”，主谓逻辑不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：取“屈服”引申义硬套，没验主谓关系。</p>"}, {"title": "逐项分析 · B resist（抵抗）", "cls": "bad", "tag": "排除 B", "log": "B resist ✗ 排除——it 是“感受”，感受只会“痛”，谈不上“抵抗”", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>“doesn't resist so bad（没那么抗拒）”看似能读通，但 resist 的主体应是<b>人</b>；it 指代“放下手机之后的感受/情形”，感受不是“抵抗”的主体。</p><p style=\"color:#b91c1c\">⚠ 典型误解：resist 与 bad 连读语感通顺，就放过了主语指代核对。</p>"}, {"title": "逐项分析 · C hurt（痛；伤害）", "cls": "good", "tag": "选定 C", "log": "C hurt ✓ 当选——doesn't hurt so bad 没那么难受，隐喻链与实验结果双合", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>it doesn't hurt so bad = 没那么难受：撕创可贴预期会痛，实际不痛——与 But 转折、段尾正面实验结果两路证据全部咬合。</p>"}, {"title": "逐项分析 · D decay（衰退）", "cls": "bad", "tag": "排除 D", "log": "D decay ✗ 排除——与语境无关", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>decay 指“腐朽、衰退”（牙齿蛀蚀、产业衰退），与“放下手机后的感受”毫无语义交叠。</p><p style=\"color:#b91c1c\">⚠ 典型误解：词义储备里只有“负面动词”一个标签。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（hurt 痛；伤害）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>可一旦我们撕掉“创可贴”、把手机塞进口袋、抬起头来，其实并没有那么难受。</b></p><p>答案选 <b>C（hurt）</b>。</p><p><b>记忆锚点</b>：段首 But = 结论预告；band-aid → rip off → hurt 隐喻链；it doesn't hurt 口语高频。</p><p style=\"color:#b91c1c\">最易误选：<b>B（resist）</b>——语感通顺替代主语指代核对。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 12 空 · 撕掉创可贴会痛——放下手机会吗",
+  subtitle: "考点：转折段首句 + 隐喻链 + 主谓指代 · 双向夹击 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（hurt 痛；伤害）", "html": "<b>C hurt</b>——it doesn't hurt so bad“没那么难受”：band-aid 隐喻链 + 段尾“没人尴尬”双证。<br>记忆锚点：段首 But = 结论预告；rip off the band-aid = 忍痛做利大于弊的事；it doesn't hurt 口语高频。<br>最易误选：<b>B（resist）</b>——it 指感受，感受不会“抵抗”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 12 空 · But 转折段的首句要“接住” band-aid 隐喻</h2>
+<p>答案：<strong>C（hurt）</strong>。</p>
+<h3>第 0 步：先立机制——转折词 + 段尾实验结果双向夹击</h3>
+<p><code>But once we rip off the band-aid, tuck our smartphones in our pockets and look up, it doesn't __12__ so bad.</code> 两路证据：(1) <strong>But 转折</strong>——上文把手机当“护身符”（躲着人才安全），转折即“其实放下手机没多糟”；(2) <strong>段尾实锤</strong>——实验结果 not a single person reported having been embarrassed（没有一个人感到尴尬），正面结论印证主句。空格 = “（放下手机这件事）让人难受、痛”的动词。</p>
+<h3>第 1 步：定位原文与隐喻链</h3>
+<blockquote>But once we rip off the band-aid, tuck our smartphones in our pockets and look up, it doesn't __12__ so bad.</blockquote>
+<p>rip off the band-aid（撕掉创可贴）是英语惯用隐喻：<strong>忍痛做一件其实利大于弊的事</strong>。撕创可贴预期会痛——放下手机也一样，预期难受；实际 it doesn't __ so bad。hurt 正是这条隐喻链的落点，也是 it doesn't hurt 的口语高频用法。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A bend</td><td>弯曲；屈服</td><td>✗ 排除</td><td>it 不能“弯”，主谓不搭。（典型误解：取“屈服”义硬套。）</td></tr><tr><td>B resist</td><td>抵抗</td><td>✗ 排除</td><td>resist 的主体应是人；it 指“放下手机后的感受”，感受不会“抵抗”。（典型误解：语感通顺替代指代核对。）</td></tr><tr><td>C hurt</td><td>痛，伤害</td><td>✓ 当选</td><td>doesn't hurt so bad 没那么难受；隐喻链与实验结果双合。</td></tr><tr><td>D decay</td><td>衰退</td><td>✗ 排除</td><td>与“放下手机后的感受”无语义交叠。</td></tr></tbody></table>
+<p>代入后的完整句义：可一旦我们撕掉“创可贴”、把手机塞进口袋、抬起头来，其实并没有那么难受。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>“doesn't resist so bad（没那么抗拒）”读着挺顺，为什么不行？</strong>：语感顺不等于主谓顺。it 的指代对象是“放下手机、抬头看世界”之后的感受与情形——感受只会“痛”（hurt），“抵抗”必须由人发出。</li><li><strong>为什么必须先看段尾？</strong>：not a single person... embarrassed 是全段的结论实锤；没有它，“转折后的正面方向”只是猜测，空格词的褒贬都无法敲定。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（resist）</strong>：语感通顺替代主语核对——最常见错法。</li><li><strong>误选 A（bend）</strong>：引申义硬套，主谓失配。</li><li><strong>漏看段尾证据</strong>：方向都定不了，选项自然乱选。</li></ul>
+<blockquote>记忆锚点：段首 But = 结论预告；band-aid → rip off → hurt 隐喻链；it doesn't hurt 口语高频。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-20 · 2025 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 本空是“帮不了”的善意解释",
+    "cls": "key",
+    "tag": "审题",
+    "log": "or 并列两解释：都须解释“此刻帮不了”且不带贬义",
+    "count": 0,
+    "body": "<p>空格句 <code>They might just be too __20__, or they might not feel confident about their ability to help</code> 用 or 并列两个原因，共同解释上一句的 <code>if someone can&#39;t help right now</code>（有人此刻帮不了你）。<b>right now（此刻）是题眼</b>：问的是“当下没空帮”，不是“不愿意”或“没能力”；且 avoid taking it personally（别往心里去）要求原因是<b>中性、无可指摘</b>的。</p>"
+  },
+  {
+    "title": "定位原文 · 劝慰句与解释句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "定位末段第 3、4 句：劝慰 + 解释",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And if someone can&#39;t help right now, avoid taking it personally. They might just be too __20__, or they might not feel confident about their ability to help.</div><p>avoid taking it personally 的劝慰口吻提示：接下来的解释必须是<b>无关人品、无可指摘</b>的原因。</p>"
+  },
+  {
+    "title": "证据 · or 后半句定基调",
+    "cls": "key",
+    "tag": "证据",
+    "log": "同基调并列：中性解释 + right now ⇒ 忙",
+    "count": 0,
+    "body": "<p>or 后的原因是“对帮人的能力没信心”——体贴、中性、无关人品。并列的另一原因必须同基调：解释对方<b>为什么此刻帮不上</b>，而不是指责对方。too ____ to help 的常见搭配 busy（忙得脱不开身）正好对应 right now。</p>"
+  },
+  {
+    "title": "逐项分析 · A polite（有礼貌的）",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A polite ✗ 排除——“太礼貌所以帮不了”不成立",
+    "count": 1,
+    "body": "<p><b>排除。</b>polite（有礼貌的）与“帮不了”无因果——礼貌从不构成拒绝帮忙的理由。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B proud（自豪的）",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B proud ✗ 排除——自尊话题属于求助者，不是施助者",
+    "count": 2,
+    "body": "<p><b>排除。</b>proud（自豪的、骄傲的）在此无着落：全文说人们乐于帮人（rewarding）；第三段的 low self-esteem 写的是<b>求助者</b>怕被拒绝，主体不同，不能搬来解释施助者。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被前文自尊话题残留干扰，忽略 They 指代施助者。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C busy（忙碌的）",
+    "cls": "good",
+    "tag": "选定 C",
+    "log": "C busy ✓ 当选——忙得脱不开身，正合 right now",
+    "count": 2,
+    "body": "<p><b>当选。</b>too busy (to help)＝忙到腾不出手，是“此刻帮不了”最常见也最不伤感情的解释，与 right now 严丝合缝；与 or 后“没信心”并列为两个中性原因，支撑“别往心里去”。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D lazy（懒惰的）",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D lazy ✗ 排除——贬义词与劝慰基调相斥",
+    "count": 3,
+    "body": "<p><b>排除。</b>lazy（懒散的）带贬义，与“别往心里去”的劝慰口吻冲突；也和第 4 段“帮人对施助者是种奖赏”的结论相悖。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“解释对方”当成“批评对方”。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 完整句义与记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C（busy 忙碌的）——right now 定 busy",
+    "count": 3,
+    "body": "<p>完整句义：<b>他们可能只是太忙了，或者对自己帮这个忙的能力没有信心。</b>答案选 <b>C（busy）</b>。</p><p><b>记忆锚点</b>：can&#39;t help right now → too busy；劝慰句的原因必须中性；or 并列同基调；self-esteem 是求助者的心事，不是施助者的缺点。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 完形第 20 空 · “他们可能只是太____了”填哪个形容词",
+  "subtitle": "考点：词义辨析（形容词）· right now 题眼 + 劝慰语境",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“题眼定位 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 C（busy 忙碌的）",
+    "html": "<b>C busy（忙碌的）</b>——“此刻帮不了”的善意解释＝忙得脱不开身，与 or 后“没信心”并列中性原因。<br>记忆锚点：right now 定 busy；polite 无因果、proud 主体错位（自尊属求助者）、lazy 贬义违基调。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 20 空 · “他们可能只是太____了”填哪个形容词</h2>
+<p>答案：<strong>C（busy 忙碌的）</strong>。</p>
+<h3>第 0 步：先立机制——本空是“帮不了”的善意解释</h3>
+<p>空格句：They might just be too __20__, or they might not feel confident about their ability to help。or 并列两个“帮不了”的可能原因：空格给出第一种，后文给出第二种（对帮人的能力没信心）。所以空格必须回答：<strong>一个人“此刻帮不了”的常见原因是什么？</strong> 上一句的 right now（此刻）是题眼——强调“当下没空”，不是“不愿意”或“没能力”；而 avoid taking it personally（别往心里去）的劝慰口吻要求原因是<strong>中性、无可指摘</strong>的。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And if someone can't help right now, avoid taking it personally. They might just be too __20__, or they might not feel confident about their ability to help.</blockquote>
+<p>or 后的原因（没信心能帮好）体贴、中性、无关人品——并列的另一原因必须同基调。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A polite</td><td>有礼貌的</td><td>✗</td><td>“太有礼貌所以帮不了”逻辑不通；礼貌与拒绝帮忙无因果</td></tr><tr><td>B proud</td><td>自豪的；骄傲的</td><td>✗</td><td>全文语境是“人们乐于帮忙”，骄傲在此无着落；第三段的 low self-esteem 说的是求助者一侧，不是施助者</td></tr><tr><td>C busy</td><td>忙碌的</td><td>✓</td><td>too busy (to help)＝忙得脱不开手，正是“此刻帮不了”最常见也最不伤感情的解释，与 right now 严丝合缝</td></tr><tr><td>D lazy</td><td>懒惰的</td><td>✗</td><td>“太懒而帮不了”带贬义，与“别往心里去”的劝慰基调相斥；也与第 4 段“帮人是种奖赏”的结论相悖</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么不选 B？前文不是刚讲过 self-esteem 吗</strong>：第三段的 low self-esteem 描写<strong>求助者</strong>怕被拒绝的心理，本空 They 指<strong>施助者</strong>——主体不同，不能搬用。</li><li><strong>or 后半句起什么作用</strong>：它给出第二种善意解释（没信心帮好），与“太忙”并列，共同支撑“避免往心里去”的建议——两个原因都必须中性、非贬义。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（lazy）</strong>：忽略劝慰语境——把“解释对方为何帮不了”当成“批评对方”。</li><li><strong>误选 B（proud）</strong>：被第三段自尊话题残留干扰，忽略主体已从求助者切换为施助者。</li></ul>
+<blockquote>记忆锚点：can't help right now → too busy（此刻没空）；劝慰句里的原因必须中性；or 并列的两解释同基调；self-esteem 是求助者的心事，不是施助者的缺点。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

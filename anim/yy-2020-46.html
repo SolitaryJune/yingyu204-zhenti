@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2020-46 翻译长难句拆解：双重否定转肯定 → 语境定音 → 含蓄虚拟补条件 · up to us 全文定调</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 基于算法/过程类模板：只改 AW.init 区域（含题目专属辅助函数）。
+     英语内容无需 KaTeX，长难句用普通文本 + 分色框呈现；
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属辅助（分色句块） ================== */
+var KSTYLE = {
+  zhu:  'background:#e8f5ec;border:2px solid #2f9e44;color:#14532d;',
+  mod:  'background:#fdf6e3;border:2px solid #e07a2f;color:#92400e;',
+  cong: 'background:#eaf1f8;border:2px solid #3b6ea5;color:#1e3a5f;'
+};
+function chunkEl(text, kind, note){
+  var d = AW.el('span', '', '<b>' + text + '</b>' +
+    (note ? '<em style="display:block;font-style:normal;font-size:11.5px;opacity:.78;margin-top:2px">' + note + '</em>' : ''));
+  d.style.cssText = 'display:inline-block;vertical-align:top;padding:7px 10px;border-radius:9px;margin:4px 6px 4px 0;font-size:13.5px;line-height:1.5;transition:opacity .25s,box-shadow .3s,transform .3s;' + KSTYLE[kind];
+  return d;
+}
+function transEl(text){
+  var d = AW.el('div', '', text);
+  d.style.cssText = 'margin:8px 2px 2px;font-size:13.5px;line-height:1.75;color:#334155;background:#f8fafc;border-left:3px solid #3b6ea5;padding:7px 10px;border-radius:0 8px 8px 0;display:none;';
+  return d;
+}
+function panelEl(label){
+  var p = AW.el('div', '');
+  p.style.cssText = 'margin:0 0 13px;padding:9px 12px 10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;transition:opacity .3s;';
+  p.appendChild(AW.el('div', 'aw-row-label', '<b>' + label + '</b>'));
+  return p;
+}
+/* 十个句子面板：成分块与重组译文 */
+var SENT = [
+  { label: '句① It\'s almost impossible to go through life without experiencing some kind of failure.',
+    chunks: [
+      { t: 'It\'s almost impossible', k: 'zhu', n: '形式主语 + 评价：几乎不可能' },
+      { t: 'to go through life', k: 'zhu', n: '真正主语：过一生（go through = 经历）' },
+      { t: 'without experiencing some kind of failure', k: 'mod', n: '双重否定 impossible…without = 加强肯定' }
+    ],
+    trans: '句①译文：人的一生几乎不可能不经受某些失败。' },
+  { label: '句② But, the wonderful thing about failure is that it\'s entirely up to us to decide how to look at it.',
+    chunks: [
+      { t: 'But, the wonderful thing about failure', k: 'zhu', n: '主语：失败的奇妙之处（But 后是重点）' },
+      { t: 'is that …', k: 'cong', n: '表语从句；is 升格译「在于」强调焦点 B' },
+      { t: 'it\'s entirely up to us to decide how to look at it', k: 'cong', n: 'be up to = 取决于；与 decide 语义重复 → decide 省译' }
+    ],
+    trans: '句②译文：但是，失败的奇妙之处在于，它完全取决于我们如何看待它。' },
+  { label: '句③ We can choose to see failure as “the end of the world”.',
+    chunks: [
+      { t: 'We can choose to see failure as', k: 'zhu', n: '主干：choose to see A as B' },
+      { t: '“the end of the world”', k: 'mod', n: '消极方式：世界末日（天塌地陷）' }
+    ],
+    trans: '句③译文：我们可以把失败看作“世界末日”。' },
+  { label: '句④ Or, we can look at failure as the incredible learning experience that it often is.',
+    chunks: [
+      { t: 'Or, we can look at failure as', k: 'zhu', n: 'Or 与③句并列：换一种方式' },
+      { t: 'the incredible learning experience', k: 'zhu', n: 'incredible 语境定音「绝佳的」；experience 取「经历」' },
+      { t: 'that it often is', k: 'cong', n: '定语从句后译短句：「它常常就是如此」' }
+    ],
+    trans: '句④译文：我们也可以将它视为极好的学习经历，它常常就是如此。' },
+  { label: '句⑤ Every time we fail at something, we can choose to look for the lesson we’re meant to learn.',
+    chunks: [
+      { t: 'Every time we fail at something', k: 'cong', n: '时间状语从句：强调普适性' },
+      { t: 'we can choose to look for the lesson', k: 'zhu', n: '主干：找寻教训' },
+      { t: 'we\'re meant to learn', k: 'cong', n: '省略 that 的定语从句；be meant to = 应当' }
+    ],
+    trans: '句⑤译文：每一次失败时，我们都可以从中找寻应该吸取的教训。' },
+  { label: '句⑥ These lessons are very important; they’re how we grow, and how we keep from making that same mistake again.',
+    chunks: [
+      { t: 'These lessons are very important;', k: 'zhu', n: '分号起解释说明作用' },
+      { t: 'they\'re how we grow, and how we keep from making that same mistake again', k: 'zhu', n: 'they 回指 lessons；how 从句活译使动「使……」' }
+    ],
+    trans: '句⑥译文：这些教训非常重要；它们使我们成长，也使我们不再犯同样的错误。' },
+  { label: '句⑦ Failures stop us only if we let them.',
+    chunks: [
+      { t: 'Failures stop us', k: 'zhu', n: 'stop 熟词僻义：阻挡、击垮（失败拟作对手）' },
+      { t: 'only if we let them', k: 'cong', n: 'only if = 只有……才；let them = let them stop us（补全省略）' }
+    ],
+    trans: '句⑦译文：只有任由失败阻止我们，我们才会被它阻止。' },
+  { label: '句⑧ Failure can also teach us things about ourselves that we would never have learned otherwise.',
+    chunks: [
+      { t: 'Failure can also teach us things about ourselves', k: 'zhu', n: '主干：also 承接上段，teach 呼应 learning/lesson' },
+      { t: 'that we would never have learned otherwise', k: 'cong', n: 'otherwise + 虚拟 = 「没有失败」；后译法条件提前' }
+    ],
+    trans: '句⑧译文：失败也能教给我们一些有关我们自己的事情，没有失败，这些事情我们永远不会了解。' },
+  { label: '句⑨ For instance, failure can help you discover how strong a person you are.',
+    chunks: [
+      { t: 'For instance', k: 'mod', n: '总述 → 例证的路标' },
+      { t: 'failure can help you discover', k: 'zhu', n: 'help sb (to) do 帮某人做某事' },
+      { t: 'how strong a person you are', k: 'cong', n: '感叹语序嵌入宾语从句：你有多么坚强' }
+    ],
+    trans: '句⑨译文：比如，失败可以帮你发现自己有多么坚强。' },
+  { label: '句⑩ Failing at something can help you discover your truest friends, or help you find unexpected motivation to succeed.',
+    chunks: [
+      { t: 'Failing at something', k: 'zhu', n: '动名词作主语：在某件事上失败' },
+      { t: 'can help you discover your truest friends', k: 'zhu', n: '患难见真情 → 最真诚的朋友' },
+      { t: 'or help you find unexpected motivation to succeed', k: 'zhu', n: 'or 并列谓语：意想不到的成功动力' }
+    ],
+    trans: '句⑩译文：失败可以帮你发现最真诚的朋友，或者帮你找到意想不到的成功动力。' }
+];
+/* 每一步的舞台规格：focus=点亮哪些面板（null=全部），hot=[面板,块] 加光环，trans=展示哪些译文 */
+var SPEC = [
+  { hot: [], trans: [] },
+  { focus: [0], hot: [[0, 0], [0, 1], [0, 2]], trans: [0] },
+  { focus: [1], hot: [[1, 0], [1, 1]], trans: [] },
+  { focus: [1], hot: [[1, 2]], trans: [1] },
+  { focus: [2], hot: [[2, 0], [2, 1]], trans: [2] },
+  { focus: [3], hot: [[3, 0], [3, 1]], trans: [] },
+  { focus: [3], hot: [[3, 2]], trans: [3] },
+  { focus: [4], hot: [[4, 0], [4, 1], [4, 2]], trans: [4] },
+  { focus: [5], hot: [[5, 0], [5, 1]], trans: [5] },
+  { focus: [6], hot: [[6, 0], [6, 1]], trans: [6] },
+  { focus: [7], hot: [[7, 0], [7, 1]], trans: [7] },
+  { focus: [8], hot: [[8, 0], [8, 1], [8, 2]], trans: [8] },
+  { focus: [9], hot: [[9, 0], [9, 1], [9, 2]], trans: [9] },
+  { hot: [[0, 2], [1, 2], [6, 1], [7, 1]], trans: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }
+];
+/* ================== 题目专属区域（只改这里） ================== */
+AW.init({
+  title: '2020-46 翻译长难句拆解：双重否定转肯定 → 语境定音 → 含蓄虚拟补条件',
+  subtitle: '考点：英译汉 · 方法：拆结构 → 定词义 → 组语序（绿=主干 · 琥珀=修饰/插入语 · 蓝=从句）',
+  counterLabel: '已拆解',
+  intro: '点击「▶ 播放」逐步演示十个句子的拆解与重组：先立「失败难免 → 两种看法 → 三重益处」语义链，再逐句拆。',
+
+  build: function(stage){
+    stage.innerHTML = '';
+    var wrap = AW.el('div', 'aw-scroll');
+    var panels = [];
+    var chunks = [];
+    var trans = [];
+    for (var p = 0; p < SENT.length; p++) {
+      var pnl = panelEl(SENT[p].label);
+      var row = AW.el('div', '');
+      var cs = [];
+      for (var c = 0; c < SENT[p].chunks.length; c++) {
+        var ch = SENT[p].chunks[c];
+        var el = chunkEl(ch.t, ch.k, ch.n);
+        row.appendChild(el);
+        cs.push(el);
+      }
+      var tr = transEl(SENT[p].trans);
+      pnl.appendChild(row);
+      pnl.appendChild(tr);
+      wrap.appendChild(pnl);
+      panels.push(pnl);
+      chunks.push(cs);
+      trans.push(tr);
+    }
+    stage.appendChild(wrap);
+    this._panels = panels;
+    this._chunks = chunks;
+    this._trans = trans;
+  },
+
+  render: function(stage, sn, i){
+    var spec = SPEC[i] || {};
+    var focus = spec.focus || null;
+    var showTr = spec.trans || [];
+    var hot = {};
+    (spec.hot || []).forEach(function(h){ hot[h[0] * 100 + h[1]] = true; });
+    for (var p = 0; p < this._panels.length; p++) {
+      this._panels[p].style.opacity = (focus == null || focus.indexOf(p) >= 0) ? '1' : '0.4';
+      for (var c = 0; c < this._chunks[p].length; c++) {
+        var isHot = !!hot[p * 100 + c];
+        this._chunks[p][c].style.boxShadow = isHot ? '0 0 0 3px rgba(224,122,47,.4)' : 'none';
+        this._chunks[p][c].style.transform = isHot ? 'scale(1.02)' : 'none';
+      }
+      this._trans[p].style.display = showTr.indexOf(p) >= 0 ? 'block' : 'none';
+    }
+  },
+
+  snaps: [
+    { cls: 'step', tag: '审题', log: '通读定调：全文三段三层——①②句总起「失败难免 + 如何看待由自己定」（entirely up to us 是题眼），③-⑦句对比两种看法，⑧-⑩句说失败的三重益处。翻译三步：拆 → 定 → 组', count: 0 },
+    { cls: 'key', tag: '句①双重否定', log: 'impossible 与 without 构成双重否定 = 加强肯定：失败乃人生常事；go through 取「经历」义；形式主语 it 不译，重组为「几乎不可能不经受」', count: 1 },
+    { cls: 'key', tag: '句②表语从句', log: 'A is B 焦点在 B，is 升格译「在于」；表语从句说明奇妙之处的内容', count: 2 },
+    { cls: 'ok', tag: '句②去重', log: 'be up to us = 由我们决定，与 decide 语义重叠 → decide 省译；「完全取决于我们如何看待它」避免翻译腔', count: 3 },
+    { cls: 'step', tag: '句③消极方式', log: 'choose to see A as B：第一种方式「世界末日」——消极、毁灭性的比喻，与句④的 Or 形成对照', count: 4 },
+    { cls: 'key', tag: '句④定音', log: 'incredible 本义「难以置信的」偏中性，但下文 lesson / grow / keep from mistakes 全是成长叙事 → 定音褒义「极好的」；experience 取「经历」', count: 5 },
+    { cls: 'ok', tag: '句④后译', log: 'that it often is 还原即「失败常常本身就是绝佳的学习经历」——信息重，后译成短句「它常常就是如此」作强调', count: 6 },
+    { cls: 'key', tag: '句⑤普适教训', log: 'Every time 时间状语从句前置，强调任何失败都可取；be meant to = 应当；省略 that 的定语从句顺译「应该吸取的教训」', count: 7 },
+    { cls: 'ok', tag: '句⑥活译', log: '分号表解释；they\'re how we grow 字面「是我们成长的方式」→ 活译使动「使我们成长」；that same mistake = 同样的错误', count: 8 },
+    { cls: 'key', tag: '句⑦三坑一次排清', log: 'stop 语境定音「阻挡、击垮」（失败拟作对手）；let them 补全 = let them stop us；only if = 只有……才——条件不立，结果不生', count: 9 },
+    { cls: 'key', tag: '句⑧含蓄虚拟', log: 'otherwise + would never have learned = 含蓄虚拟条件「如果没有失败」；后译法：从句译在主句后、条件提前', count: 10 },
+    { cls: 'ok', tag: '句⑨例证路标', log: 'For instance 总述转例证；how strong a person you are 是感叹语序嵌宾语从句，按汉语还原「你有多么坚强」', count: 11 },
+    { cls: 'ok', tag: '句⑩收束', log: '动名词 Failing at something 作主语；truest friends 结合患难语境取「最真诚的」；unexpected motivation to succeed 以成功收尾，呼应首句', count: 12 },
+    { cls: 'done', tag: '全篇落定', log: '十句重组完成：失败难免 → 看待方式由自己定（up to us）→ 学习经历与教训 → 认识自己、辨真友、得动力', count: 13, done: true }
+  ],
+
+  result: {
+    big: '拆·定·组 三步落定全篇',
+    html: '<p><b>参考译文（答案口径）</b>：人的一生几乎不可能不经受某些失败。但是，失败的奇妙之处在于，它完全取决于我们如何看待它。我们可以把失败看作“世界末日”。我们也可以将它视为极好的学习经历，它常常就是如此。每一次失败时，我们都可以从中找寻应该吸取的教训。这些教训非常重要；它们使我们成长，也使我们不再犯同样的错误。只有任由失败阻止我们，我们才会被它阻止。失败也能教给我们一些有关我们自己的事情，没有失败，这些事情我们永远不会了解。比如，失败可以帮你发现自己有多么坚强。失败可以帮你发现最真诚的朋友，或者帮你找到意想不到的成功动力。</p>' +
+      '<p>记忆锚点：<b>双重否定 = 加强肯定</b>；be up to + decide 去重；incredible 靠语境翻到「绝佳」；that it often is 后译短句；let them 补全 stop us；otherwise + 虚拟 = 「没有失败」提前补条件。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 翻译——"拆-定-组"：双重否定、熟词僻义与含蓄虚拟各归各位</h2>
+<p>答案（参考译文口径）：<strong>人的一生几乎不可能不经受某些失败。但是，失败的奇妙之处在于，它完全取决于我们如何看待它。我们可以把失败看作“世界末日”。我们也可以将它视为极好的学习经历，它常常就是如此。每一次失败时，我们都可以从中找寻应该吸取的教训。这些教训非常重要；它们使我们成长，也使我们不再犯同样的错误。只有任由失败阻止我们，我们才会被它阻止。失败也能教给我们一些有关我们自己的事情，没有失败，这些事情我们永远不会了解。比如，失败可以帮你发现自己有多么坚强。失败可以帮你发现最真诚的朋友，或者帮你找到意想不到的成功动力。</strong></p>
+<h3>第 0 步：先立机制——全文是"失败难免 → 两种看法 → 三重益处"的语义链</h3>
+<p>翻译不是逐词替换，每句都要走同一套流程：<strong>拆结构 → 定词义 → 组语序</strong>。而"定词义"这一步离不开语篇：本篇三段各干一件事，句子译成什么样由它在链上的位置决定。</p>
+<table><thead><tr><th>层次</th><th>句子</th><th>干什么</th><th>翻译落点</th></tr></thead><tbody><tr><td>总起</td><td>①②</td><td>失败不可避免；如何看待由自己决定</td><td>双重否定转肯定；be up to us 全文题眼</td></tr><tr><td>两种看法</td><td>③④⑤⑥⑦</td><td>"世界末日" vs "学习经历"，重在后者</td><td>Or 并列对比；incredible 定音；only if 收束</td></tr><tr><td>三重益处</td><td>⑧⑨⑩</td><td>认识自己、辨出真友、获得动力</td><td>For instance 总分；otherwise 含蓄虚拟</td></tr></tbody></table>
+<p>全文题眼是②句的 <code>entirely up to us</code>：看待失败的方式<strong>完全由自己决定</strong>。后面所有积极表述（learning experience、lesson、grow、motivation to succeed）都是这个主观能动性结出的果——理解了这条链，每个词义、每个语序都不是猜的，而是从结构里推出来的。</p>
+<h3>第 1 步：句①②——双重否定转肯定，表语从句落在"在于"</h3>
+<ul><li>句① <code>It's almost impossible to go through life without experiencing some kind of failure.</code>：it 是形式主语，真主语是 to go through life...。<strong>impossible 与 without 构成双重否定 = 强烈的肯定</strong>："失败乃人生常事"。go through 取"经历、遭受"义（不是"穿过"），life 语境中指充满艰辛的一生。直译"不经历失败地过完一生几乎不可能"翻译腔重，重组为"人的一生几乎不可能不经受某些失败"——保留"不可能不"的强调力度，又合汉语习惯。</li><li>句② <code>But, the wonderful thing about failure is that it's entirely up to us to decide how to look at it.</code>：主系表结构，表语是 that 从句。A is B 的信息焦点在 B，系动词 is 升格译作"<strong>在于</strong>"，比"是"更有强调味。<code>be up to us</code> = 由我们决定；从句内已有 decide——"取决于"与"决定"语义重复，<strong>decide 省译</strong>，否则"完全取决于我们来决定如何看待"是典型的翻译腔。it 回指 failure。</li></ul>
+<h3>第 2 步：句③④⑤——两种方式对照，incredible 靠语境定音</h3>
+<ul><li>句③④由 Or 并列，摆出看待失败的两种方式：消极的"世界末日"（the end of the world，天塌地陷）与积极的"学习经历"。译文保持句式对称："我们可以把失败看作……我们也可以将它视为……"。</li><li><strong>incredible 定音</strong>：本义"难以置信的"，偏中性甚至存疑；但下文 lesson、grow、keep from making that same mistake 全是成长叙事，语境要求褒义——取另一义"<strong>极好的、绝佳的</strong>"。</li><li><code>the incredible learning experience that it often is</code>：定语从句 that it often is 还原即 Failure is often an incredible learning experience，补充的是"失败往往本身就是绝佳的学习经历"这一事实，信息重、故<strong>后译成短句</strong>"它常常就是如此"，接在主句后作强调。</li><li>句⑤ <code>Every time we fail at something, we can choose to look for the lesson we're meant to learn.</code>：Every time 引导时间状语从句，强调普适性；<code>be meant to</code> = 应当；the lesson 后接省略 that 的定语从句，顺译"应该吸取的教训"。</li></ul>
+<h3>第 3 步：句⑥⑦——分号后的活译与 only if 的省略补全</h3>
+<ul><li>句⑥分号起<strong>解释说明</strong>作用：they're how we grow, and how we keep from...。how 从句字面是"它们是我们成长的方式"，但直译生硬；汉语习惯把"方式"活译成使动："<strong>它们使我们成长，也使我们不再犯同样的错误</strong>"。they 回指 these lessons。</li><li>句⑦ <code>Failures stop us only if we let them.</code> 是全篇最短也最险的句子，三个坑一次排清：</li><li><strong>stop 定音</strong>：常见义"阻止"，但语境把失败拟作对手，取"阻挡、击垮"义——答案口径译作"阻止"，与"任由"搭配恰能传达"被打垮"的意味；</li><li><strong>let them 补全</strong>：省略了动词，还原为 let them stop us（任由失败阻止我们），不补全则"让他们"不知所指；</li><li><strong>only if 双重强调</strong>：只有……才。条件不在，结果不生——任由失败摆布才会被它挡住，反过来就是第二段的积极路线。</li></ul>
+<h3>第 4 步：句⑧⑨⑩——otherwise 的含蓄虚拟与感叹语序还原</h3>
+<ul><li>句⑧ <code>Failure can also teach us things about ourselves that we would never have learned otherwise.</code>：that 定语从句难点在 otherwise + 虚拟语气 would never have learned。otherwise = "在相反的情况下"，即<strong>含蓄虚拟条件"如果没有失败"</strong>，还原即 if it were not for failure。翻译用后译法：从句译在主句之后，并把条件提前——"失败也能教给我们一些有关我们自己的事情，<strong>没有失败，这些事情我们永远不会了解</strong>"。</li><li>句⑨ For instance 标志总述转例证；<code>how strong a person you are</code> 是感叹语序（how strong a person）嵌入 discover 的宾语从句，按汉语还原语序："你有多么坚强"。</li><li>句⑩动名词 Failing at something 作主语（在某件事上失败）；truest friends 结合"患难见真情"的语境取"<strong>最真诚的朋友</strong>"；unexpected motivation to succeed = 意想不到的成功动力——以 succeed 收尾，呼应首句"失败乃常事"，落回"失败乃成功之母"。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>双重否定译漏或译拗</strong>：impossible...without 只译一半（"生活中不可能没有失败"丢掉强调）或硬译"不经历失败地度过人生是不可能的"；机制：双重否定 = 加强肯定，重组为"几乎不可能不经受"。</li><li><strong>decide 不省译</strong>：be up to（取决于）与 decide（决定）语义重叠，译成"完全取决于我们来决定如何看待"——翻译腔扣分点。</li><li><strong>incredible 译"难以置信的"</strong>：与全文成长语境冲突；语境定音是翻译词义选择的第一原则。</li><li><strong>experience 取"经验"</strong>：learning 是活动过程，此处 experience 取"经历、体验"；"极好的学习经验"与"极好的学习经历"一字之差，后者才与"它常常就是如此"衔接。</li><li><strong>let them 不补全</strong>："只有我们让他们，失败才会阻止我们"逻辑断裂；补全 = let them stop us。</li><li><strong>otherwise 丢虚拟</strong>：译成"否则我们永远学不到"条件义含混；含蓄虚拟要把条件补明——"没有失败"。</li><li><strong>how strong a person you are 按原序硬译</strong>："多么强壮的一个人你是"不通；感叹语序还原后再嵌入宾语从句。</li></ul>
+<blockquote>记忆锚点：拆-定-组三步走；双重否定 = 加强肯定；be up to + decide 去重；incredible 靠语境从"难以置信"翻到"绝佳"；that it often is 后译短句；let them 补全 stop us；otherwise + 虚拟 = "没有失败"提前补条件。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

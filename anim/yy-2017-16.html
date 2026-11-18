@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-16 · 闲暇时间相对____：A tricky / B lengthy / C mysterious / D scarce</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：because 从句中的表语形容词；考点：因果链 + 形容词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">These days, because leisure time is relatively <b>__16__</b> for most workers, people use their free time to counterbalance the intellectual and emotional __17__ of their jobs.</div><p>空 16 是 because 从句中 leisure time is relatively __ 的表语形容词。</p>"
+ },
+ {
+  "title": "立机制 · because 因果链倒推形容词",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：因果链倒推 → “闲暇少”才需要“拿它抵消”",
+  "body": "<p>because 前因后果：因（闲暇时间相对 __）→ 果（人们用空闲时间<b>抵消</b>工作的智力与情绪消耗）。要“精心用空闲时间去抵消损耗”，前提是空闲<b>不多</b>——多到随便花就无需 counterbalance（找平）。relatively（相对地）还埋着比较：与未来无工作世界的闲暇充裕相比，当下的闲暇自然<b>稀缺</b>。</p>"
+ },
+ {
+  "title": "找证据 · counterbalance 与“今天 VS 未来”双向印证",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：counterbalance 前提 = 闲暇稀缺；These days 对比未来闲暇充裕",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">people use their free time to counterbalance the intellectual and emotional __17__ of their jobs.</div><p>双向印证：<b>counterbalance（使平衡、抵消）</b>——只有“闲暇少”才需要“拿它来抵消消耗”；<b>These days（如今）</b>对比上文构想的无工作未来——那时 leisure 充裕，如今 for most workers 闲暇相对不足。scarce（不足的、稀少的）落定。</p>"
+ },
+ {
+  "title": "逐项分析 · A tricky（难对付的；狡猾的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A tricky（难对付的；狡猾的）✗ 排除",
+  "body": "<p><b>排除。</b>形容“事情复杂难对付”或“人狡猾”，都不能形容时间。</p>"
+ },
+ {
+  "title": "逐项分析 · B lengthy（长时间的；冗长的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B lengthy（长时间的；冗长的）✗ 排除",
+  "body": "<p><b>排除。</b>反义干扰：若闲暇“漫长”，就不必精打细算地拿去抵消；且 lengthy 多形容讲话/文章冗长。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见时间就配“长”，不走因果链。</p>"
+ },
+ {
+  "title": "逐项分析 · C mysterious（神秘的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C mysterious（神秘的）✗ 排除",
+  "body": "<p><b>排除。</b>指“事件或情况难以解释/理解”，“空闲时间难以理解”讲不通。</p>"
+ },
+ {
+  "title": "逐项分析 · D scarce（不足的；稀少的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D scarce（不足的；稀少的）✓ 当选",
+  "body": "<p><b>当选。</b>闲暇稀缺 → 需要用它抵消工作消耗，因果成立，与 relatively 的对比义合拍。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（scarce 不足的）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>如今，由于大多数工作者的闲暇时间相对不足，人们用空闲时间来抵消工作中智力与情绪上的消耗。</b></p><p>答案选 <b>D（scarce 不足的）</b>。</p><p><b>记忆锚点</b>：because 从句填空，用主句倒推原因；counterbalance 的前提 = 稀缺（scarce）；relatively 提示“今昔对比”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B（lengthy）：只做“时间+形容词”的表层搭配，没走 because 因果链——因果链才是形容词题的裁判。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 16 空 · 闲暇时间相对____：A tricky / B lengthy / C mysterious / D scarce",
+  subtitle: "考点：上下文语义 + 形容词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 D（scarce 不足的）",
+ "html": "<b>D scarce（不足的）</b>。<br>记忆锚点：because 从句填空，用主句倒推原因；counterbalance 的前提 = 稀缺（scarce）；relatively 提示“今昔对比”。<br>最易误选：<b>B（lengthy）</b>——只做“时间+形容词”的表层搭配，没走 because 因果链——因果链才是形容词题的裁判。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 16 空 · 闲暇时间相对____</h2>
+<p>答案：<strong>D（scarce 不足的）</strong>。</p>
+<h3>第 0 步：先立机制——because 因果链倒推形容词</h3>
+<p>These days, because leisure time is relatively __16__ for most workers, people use their free time to counterbalance the intellectual and emotional ... of their jobs。because 前因后果：因（闲暇时间相对 __）→ 果（人们用空闲时间<strong>抵消</strong>工作带来的智力与情绪消耗）。要“精心用空闲时间去抵消工作损耗”，前提是空闲<strong>不多</strong>——多到随便花的话，根本无需 counterbalance（使平衡、找平）。relatively（相对地）还埋着比较：与未来无工作世界的闲暇充裕相比，当下打工人的闲暇自然<strong>稀缺</strong>。scarce（不足的、稀少的）落定。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>These days, because leisure time is relatively __16__ for most workers, people use their free time to counterbalance the intellectual and emotional __17__ of their jobs.</blockquote>
+<h3>第 2 步：找证据——counterbalance 与“今天 VS 未来”双向印证</h3>
+<ul><li><strong>counterbalance（抵消、找平）</strong>：只有“闲暇少”才需要“拿它来抵消消耗”，因果自洽。</li><li><strong>These days（如今）</strong>对比上文构想的无工作未来：那时 leisure 充裕，如今 for most workers 闲暇相对不足——relatively 的比较义正好落在 scarce 上。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A tricky</td><td>棘手的；狡猾的</td><td>✗ 排除</td><td>形容“事情复杂难对付”或“人狡猾”，都不能形容时间。</td></tr><tr><td>B lengthy</td><td>长时间的；冗长的</td><td>✗ 排除</td><td>反义干扰：若闲暇“漫长”，就不必精打细算地拿去抵消；且 lengthy 多形容讲话/文章冗长。（典型误解：见时间就配“长”，不走因果链。）</td></tr><tr><td>C mysterious</td><td>神秘的</td><td>✗ 排除</td><td>指“事件或情况难以解释/理解”，“空闲时间难以理解”讲不通。</td></tr><tr><td>D scarce</td><td>不足的</td><td>✓ 当选</td><td>闲暇稀缺 → 需要用它抵消工作消耗，因果成立，与 relatively 的对比义合拍。</td></tr></tbody></table>
+<p>代入后的完整句义：如今，由于大多数工作者的闲暇时间相对不足，人们用空闲时间来抵消工作中智力与情绪上的消耗。</p>
+<h3>预判追问</h3>
+<ul><li><strong>形容词题的裁判是什么？</strong>：先看句内逻辑链（because → 主句），再看搭配。lengthy 搭配上像样，但塞进去因果链就断：“闲暇充裕”推不出“要用空闲时间抵消消耗”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（lengthy）</strong>：只做“时间 + 形容词”的表层搭配，没走 because 因果链——因果链才是完形形容词题的裁判。</li></ul>
+<blockquote>记忆锚点：because 从句填空，用主句倒推原因；counterbalance 的前提 = 稀缺（scarce）；relatively 提示“今昔对比”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-37 · 2016 阅读第 37 题 · 五连并列的方向词核对 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 长句并列结构是细节题的「货架」", "cls": "key", "tag": "审题", "log": "审题眼：From Paragraph 3, young people tend to ___——答案躺在并列句的某个货架上", "count": 0, "ribbon": null, "body": "<p>第三段是一根超长并列句：young people were more likely… <b>to prioritize</b>…（职业观）、<b>to believe</b>…（职业观续）、<b>to favor</b>…（社区观）、<b>to agree</b>…（家庭观）、<b>and to maintain</b>…（家庭观续）——五个不定式并列，摆开职业、社区、家庭三个货架。本题的核心动作不是「找词」，而是<b>逐个货架核对方向</b>。</p>"},
+ {"title": "定位原文 · 拆开五连并列", "cls": "key", "tag": "定位", "log": "定位第三段：五连并列摆开职业、社区、家庭三个货架，逐个抠方向词", "count": 0, "ribbon": null, "body": quote("Young people… were more likely than older adults to prioritize personal fulfillment in their work, to believe they will advance their careers most by regularly changing jobs, to favor communities with more public services and a faster pace of life, to agree that couples should be financially secure before getting married or having children, and to maintain that children are best served by two parents working outside the home…") + "<p>逐货架抠方向词：职业观＝prioritize fulfillment＋<b>regularly changing jobs</b>（频繁跳槽）；社区观＝<b>faster pace of life</b>（更快节奏）；家庭观＝financially secure <b>before</b> marriage（婚前有保障）＋<b>two parents working outside</b>（父母在外上班）。四个干扰项各对应一个货架。</p>"},
+ {"title": "同义替换 · C 的完整链条", "cls": "key", "tag": "替换", "log": "同义替换：financially secure before getting married ＝ pre-marital finance", "count": 0, "ribbon": null, "body": "<p>[C] attach importance to <b>pre-marital finance</b>：「重视婚前财务」＝ agree that couples should be <b>financially secure before getting married</b>（赞同结婚前就该有经济保障）。financially secure ＝ finance，before getting married ＝ pre-marital，时序与对象都没动——标准的同义改写。</p>"},
+ {"title": "逐项分析 · A favor a slower life pace", "cls": "bad", "tag": "排除 A", "log": "A 更喜欢较慢的生活节奏 ✗ ——faster → slower，方向拧反", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>社区观货架写的是 a <b>faster</b> pace of life（年轻人偏爱公共服务多、节奏<b>快</b>的社区）——A 换成 slower，方向词被顺手改掉。反向干扰的标配：原词出现、方向反转。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 pace of life 原词，不核对方向词。</p>"},
+ {"title": "逐项分析 · B hold an occupation longer", "cls": "bad", "tag": "排除 B", "log": "B 在一个职位待更久 ✗ ——regularly changing jobs 的反向表述", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>职业观货架写的是 <b>regularly changing jobs</b>（频繁跳槽最能推动职业发展）——B 说「在同一个职位待更久」，与「跳槽有利论」正好相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：jobs / occupation 词面相近，把「常换」读成「久留」。</p>"},
+ {"title": "逐项分析 · C attach importance to pre-marital finance", "cls": "good", "tag": "选定 C", "log": "C 重视婚前财务状况 ✓ ——financially secure before getting married 同义改写", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>家庭观货架第一条：couples should be <b>financially secure before getting married</b> or having children——「财务有保障」＋「结婚之前」＝「重视婚前财务状况」，方向、时序、对象全对齐。</p>"},
+ {"title": "逐项分析 · D give priority to childcare outside the home", "cls": "bad", "tag": "排除 D", "log": "D 优先考虑在外面托管孩子 ✗ ——主语偷换：在外工作的是父母，不是孩子", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>家庭观第二条：children best served by <b>two parents working outside the home</b>（在外工作的是<b>父母</b>，孩子是受益者）——D 一挪主语，「父母外出工作养孩子」变成「孩子在外面被托管」，托管机构全文只字未提。词都在，句意不对。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓重合词不抓语法重心主语。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（attach importance to pre-marital finance）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>五个并列不定式摆开三个货架 → 家庭观货架第一条 financially secure before marriage → 同义改写 pre-marital finance → 选 C。</b></p><p>答案选 <b>C（attach importance to pre-marital finance）</b>。</p><p><b>记忆锚点</b>：五连并列＝三个货架（职业 / 社区 / 家庭）；细节题逐货架核对方向词（faster/slower、changing/longer）；outside the home 修饰的是 working 的父母。</p><p style=\"color:#b91c1c\">最易误选：<b>D（childcare outside the home）</b>——每个词都在原文里，主语却被偷换了。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 37 题 · 五连并列结构里的方向词核对",
+  subtitle: "考点：段落细节题 · 并列结构分货架 + faster/slower、changing/longer 方向词核对",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“拆货架 → 核对方向 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（attach importance to pre-marital finance）", "html": "<b>C 重视婚前财务状况</b>：financially secure before getting married 的同义改写。<br>记忆锚点：五连并列＝三个货架（职业 / 社区 / 家庭）；逐货架核对方向词。<br>最易误选：<b>D（childcare outside the home）</b>——词都在原文里，主语却被偷换。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 37 题 · 五连并列结构里的方向词核对</h2>
+<p>答案：<strong>C（attach importance to pre-marital finance 重视婚前财务状况）</strong>。</p>
+<h3>第 0 步：先立机制——长句并列结构是细节题的"货架"</h3>
+<p>第三段是一根超长并列句：young people were more likely... <strong>to prioritize</strong>...（职业观），<strong>to believe</strong>...（职业观续），<strong>to favor</strong>...（社区观），<strong>to agree</strong>...（家庭观），<strong>and to maintain</strong>...（家庭观续）——五个不定式并列，一共摆开职业、社区、家庭三个货架。段落细节题问 young people tend to ____，答案一定躺在某个货架上，且必须是"原方向"的改写：原文说快、选项不能说慢；原文说换、选项不能说留。所以本题的核心动作不是"找词"，而是<strong>逐个货架核对方向</strong>。</p>
+<h3>第 1 步：定位原文（把并列拆开看）</h3>
+<blockquote>...to agree that couples should be financially secure <strong>before getting married</strong> or having children...</blockquote>
+<p>四个干扰项各对应一个货架：职业观（prioritize personal fulfillment / regularly changing jobs）、社区观（favor communities with more public services and a <strong>faster pace of life</strong>）、家庭观两条（financially secure <strong>before</strong> marriage or children；two parents working <strong>outside</strong> the home）。把每个货架的方向词抠出来，再跟选项对方向。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[C] attach importance to <strong>pre-marital finance</strong>——"重视婚前财务" ＝ agree that couples should be financially secure before getting married（赞同结婚前就该有经济保障）。financially secure ＝ finance，before getting married ＝ pre-marital，时序与对象都没动，是标准的同义改写。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A favor a slower life pace</td><td>✗</td><td>方向反转：社区观货架写的是 a <strong>faster</strong> pace of life（喜欢更快的节奏）——A 换成 slower，方向拧反</td></tr><tr><td>B hold an occupation longer</td><td>✗</td><td>方向反转：职业观货架写的是 <strong>regularly changing jobs</strong>（频繁跳槽）——B 说"在同一个职位待更久"，与"跳槽最有利于职业发展"正好相反</td></tr><tr><td>D give priority to childcare outside the home</td><td>✗</td><td>主语偷换：家庭观第二条是 children best served by <strong>two parents working outside the home</strong>（在外工作的是<strong>父母</strong>）——D 把"父母在外上班"偷换成"孩子在外面被托管"</td></tr><tr><td>C attach importance to pre-marital finance</td><td>✓</td><td>financially secure before getting married 的同义改写，方向、时序、对象全对齐</td></tr></tbody></table>
+<h3>预判追问：D 的每个词几乎都在原文里，为什么还是错的？</h3>
+<p>因为"词在"不等于"句意对"。原文那句话的语法重心是 parents working outside the home——动作的执行者是父母，孩子是受益者（children are best served by...）。D 一挪主语，"父母外出工作养孩子"就变成"把孩子的照料放到外面"，托管机构全文只字未提。并列长句里每个分支都有独立的语法重心，<strong>抓重心主语</strong>比抓重合词更可靠。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：pace of life 原词出现，方向词 faster→slower 被顺手改掉——反向干扰的标配。</li><li><strong>误选 B</strong>：jobs / occupation 词面相近，"频繁跳槽"与"久居一职"是同一货架上的反向表述。</li><li><strong>误选 D</strong>：outside the home 原词出现，但挂错了主语——父母≠孩子。</li></ul>
+<blockquote>记忆锚点：五个并列不定式＝三个货架（职业 / 社区 / 家庭）；细节题逐货架<strong>核对方向词</strong>（faster/slower、changing/longer）；outside the home 修饰的是 working 的父母，不是被托管的孩子。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

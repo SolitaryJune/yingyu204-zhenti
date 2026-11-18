@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-33 细节题：much-argued solution——冒号后揭晓"备受争议的办法"</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：much-argued 是定位暗号',
+  'body':'<p>题干：<b>What is the much-argued solution to the labor shortage in U.S. farming?</b>（备受争议的解决美国农业劳动力短缺的办法是什么？）</p><p>细节题机制：题干里的独特搭配是<b>定位暗号</b>。much-argued solution（备受争议的办法）全文只可能对应一处；四个选项都是"办法"，谁与暗号同框谁当选。</p>',
+  'log':'审题：much-argued solution 是定位暗号，四选项全是"办法"，逐一对号'},
+ {'cls':'','ecs':'step','tag':'机制','count':0,
+  'title':'机制：冒号前下判断，冒号后揭底',
+  'body':'<p>原文与之同义的只有第三段末句的 <b>One oft-debated cure</b>——much-argued ↔ oft-debated、solution ↔ cure，两对替换钉死定位。</p><p>这句的真功夫在标点：<b>冒号前</b>下判断（这个办法一如既往不现实 as implausible as it\'s been all along）；<b>冒号后</b>揭底——说出办法的内容（Native U.S. workers 回农场）并说明它为何不现实（won\'t be returning）。问"办法是什么"，答案就坐在冒号后面。</p>',
+  'log':'机制：much-argued ↔ oft-debated 锁定一句；冒号前判断、冒号后揭底'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第三段末句',
+  'body':'<div class="qq"><b>第三段末句：</b>One oft-debated cure for this labor shortage remains as implausible as it\'s been all along: <b>Native U.S. workers won\'t be returning to the farm.</b><span class="cn">（针对劳动力短缺，一个争议不断的补救办法一如既往地不现实：美国本土工人不会重返农场。）</span></div><p>备受争议的"办法" = 让本土工人回农场；"不现实"的判词说的是它实现不了，不是它是别的什么办法。</p>',
+  'log':'定位第三段末句：冒号后揭晓办法——本土工人回归农场'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：吸引更年轻的劳动力务农',
+  'body':'<p><b>A · To attract younger laborers to farm work.</b><span class="bad-dot"> ✗</span></p><p>由第三段摆出的<b>问题</b>"农工老龄化"（超 35 岁农工从三分之一涨到超过一半）反向捏造出的"办法"。文中只摆问题，从没说"吸引年轻人"是那个备受争议的办法——<b>拿问题当办法</b>。</p>',
+  'log':'排除 A：老龄化是问题，"吸引年轻人"是捏造的办法'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':2,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：用更多机器人种高价值作物',
+  'body':'<p><b>C · To use more robots to grow high-value crops.</b><span class="bad-dot"> ✗</span></p><p>第四段 <b>Mechanization isn\'t the answer</b> 确实谈了机械化/机器人——但它是被作者<b>直接否定</b>的另一条路，不与 much-argued 对应；暗号锁的是第三段的 oft-debated。<b>借邻段话题冒充答案</b>。</p>',
+  'log':'排除 C：机械化在第四段且被直接否定，不是"备受争议"的那个'},
+ {'cls':'bad','ecs':'miss','tag':'排除 D','count':3,'ribbon':{'k':4,'ok':false},
+  'title':'排除 D：加强对农户的财政支持',
+  'body':'<p><b>D · To strengthen financial support for farmers.</b><span class="bad-dot"> ✗</span></p><p>financial support（财政支持）全文未提及——<b>无中生有</b>，查无实据。</p>',
+  'log':'排除 D：财政支持全文未提及，无中生有'},
+ {'cls':'good','ecs':'ok','tag':'锁定 B','count':4,'ribbon':{'k':2,'ok':true},
+  'title':'锁定 B：让美国本土工人回归农业',
+  'body':'<p><b>B · To get native U.S. workers back to farming.</b><span class="ok-dot"> ✓</span></p><p>冒号后内容 <b>Native U.S. workers</b>... <b>returning to the farm</b> 与选项逐词对应：get...back to farming ↔ returning to the farm。</p><p>替换链：much-argued solution ↔ oft-debated cure；get back to farming ↔ returning to the farm。</p>',
+  'log':'锁定 B：冒号后揭晓——本土工人回归农场'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 B',
+  'body':'<p><b>答案 B（To get native U.S. workers back to farming）</b>——much-argued solution 即 oft-debated cure，冒号后揭晓其内容：让本土工人回归农业（作者断言他们不会回来，故"不现实"）。</p><p>记忆锚点：细节题先抓题干暗号钉死一句；<b>冒号前下判断、冒号后揭底</b>。</p>',
+  'log':'结论：备受争议的办法 = 让本土工人回归农业，答案选 B'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-33 · 细节题：much-argued solution 是什么办法",
+  subtitle: "考点：Text3 细节定位 · 方法：抓暗号 → 冒号揭底 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：抓定位暗号 → 冒号揭底 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>much-argued solution ↔ oft-debated cure</b>，定位第三段末句；<b>冒号前下判断、冒号后揭底</b>——备受争议的办法就是“让本土工人回归农业”（Native U.S. workers back to the farm）。A 拿问题当办法，C 借邻段话题，D 无中生有。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——much-argued 是定位暗号，冒号负责"揭底"</h2>
+<p>答案：<strong>B（To get native U.S. workers back to farming 让美国本土工人回归农业）</strong>。</p>
+<h3>第 0 步：先立机制——题干的独特搭配就是定位暗号</h3>
+<p>细节题的机制：题干里的独特搭配是命题人留给你的定位暗号。题干问 the much-argued solution（那个备受争议的解决办法），全文与之同义的只有第三段末句的 One oft-debated cure（一个向来争议不断的补救办法）——much-argued ↔ oft-debated、solution ↔ cure，两对替换把定位钉死在一句话上。</p>
+<p>这句的真功夫在标点：<strong>冒号前下判断</strong>（这个办法一如既往不现实 as implausible as it's been all along），<strong>冒号后揭底</strong>——先说出这个办法是什么（Native U.S. workers 回农场），再说明它为何不现实（won't be returning，他们不会回来）。题干问"办法是什么"，答案就坐在冒号后：让本土工人回归农业。也正因为作者断言他们不会回来，这个办法才"备受争议却始终靠不住"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>One oft-debated cure for this labor shortage remains as implausible as it's been all along: Native U.S. workers won't be returning to the farm.（针对这一劳动力短缺，一个争议不断的补救办法一如既往地不现实：美国本土工人不会重返农场。）</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>题干/选项 B</th><th>原文</th></tr></thead><tbody><tr><td>much-argued solution</td><td>oft-debated cure</td></tr><tr><td>get native U.S. workers back to farming</td><td>Native U.S. workers... returning to the farm</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>A（吸引更年轻的劳动力去务农）</strong>：由第三段摆出的问题"农工老龄化"（超 35 岁农工从三分之一涨到超过一半）反向捏造出的"办法"——文中只摆问题，从没说"吸引年轻人"是那个备受争议的办法。<strong>拿问题当办法</strong>。</li><li><strong>C（用更多机器人种高价值作物）</strong>：第四段 Mechanization isn't the answer 确实谈了机械化，但它是被作者<strong>直接否定</strong>的另一条路，不与 much-argued 对应；暗号锁的是第三段的 oft-debated。<strong>借邻段话题冒充答案</strong>。</li><li><strong>D（加强对农户的财政支持）</strong>：financial support 全文未提及，<strong>无中生有</strong>。</li></ul>
+<blockquote>记忆锚点：细节题先抓题干暗号（much-argued solution ↔ oft-debated cure）钉死一句；冒号前下判断、冒号后揭底——问"办法是什么"就看冒号后面。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

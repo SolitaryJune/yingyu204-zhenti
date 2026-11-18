@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-40 · 2017 Text D · 40 题 · 鲍尔奇：人该拿火灾怎么办</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "先立机制 · 谁的观点？", "cls": "key", "tag": "机制", "count": 0, "ribbon": null, "log": "机制：观点题先分“大众现状（被批驳）”与“人物主张”；信号=But 转折、引号直引、crucial/important", "body": "<p>末两段都在引 Professor Balch，但每段里都混着两种声音：<b>大众的错误现状</b>（她要批驳的）和<b>她的主张</b>。区分信号：转折词 But、直接引语、评价词 crucial / really important。主张=But 之后、评价词点名的东西。</p>"}, {"title": "第九段 · 现状 vs 主张（上）", "cls": "key", "tag": "证据", "count": 0, "ribbon": null, "log": "第九段：现状=把火灾当作须全面控制之物；主张=承认火灾在人类生活中必然存在", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">people continue to treat fire as an event that needs to be <b>wholly controlled</b>... <b>But</b> <b>acknowledging fire's inevitable presence</b> in human life is an attitude <b>crucial</b> to developing the laws, policies, and practices...</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第九段①②句（间接引用）</p><p>But 之前是大众现状（全面控制火灾）；But 之后是鲍尔奇的主张：先<b>承认火灾不可避免</b>（inevitable presence），才谈得上把它的危害管到最小。</p>"}, {"title": "第十段 · 现状 vs 主张（下）", "cls": "key", "tag": "证据", "count": 1, "ribbon": null, "log": "第十段：现状=我们已把自己与火灾割裂；主张=理解并理清人与火的关联", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">“We've <b>disconnected ourselves</b> from living with fire,” Balch says. “It is <b>really important</b> to understand and try and tease out what is <b>the human connection with fire</b> today.”</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第十段（直接引用）</p><p>第二组对照：现状=把自己从“与火共处”中割裂出去（批驳对象）；主张=<b>理清人与火的关联</b>（really important 点名）。两段合起来：火灾不可避免 + 人火要理清关系 → 人与火灾要<b>达成妥协、学会共处</b>。</p>"}, {"title": "逐项分析 · B come to terms with", "cls": "good", "tag": "选定 B", "count": 1, "ribbon": {"k": "B", "ok": true}, "log": "B come to terms with（与之妥协共处）✓ 当选——两组观点的合理推断", "body": "<p><b>当选。</b>come to terms with = 接受其存在并与之相处。它同时罩住两条主张：acknowledging fire's inevitable presence（承认必然存在）+ understand the human connection with fire（理清并维持关联）。</p>"}, {"title": "逐项分析 · A do away with", "cls": "bad", "tag": "排除 A", "count": 2, "ribbon": {"k": "A", "ok": false}, "log": "A 终结火灾 ✗ 排除——把被批驳的“全面控制”当成了鲍尔奇的主张", "body": "<p><b>排除。</b>wholly controlled（全面控制）是 But <b>之前</b>的大众错误认知，鲍尔奇正要纠正它；A 拿批驳对象冒充她的主张，张冠李戴。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没盯住 But 的分界线，把转折前的内容当成观点。</p>"}, {"title": "逐项分析 · C pay a price for", "cls": "bad", "tag": "排除 C", "count": 3, "ribbon": {"k": "C", "ok": false}, "log": "C 为火灾付出代价 ✗ 排除——由 inevitable presence 捏造因果", "body": "<p><b>排除。</b>“火灾在人类生活中不可避免（inevitable presence）”只是<b>承认事实</b>，从中推不出“要付出代价”这种惩罚性因果——原文没有这层关系。</p>"}, {"title": "逐项分析 · D keep away from", "cls": "bad", "tag": "排除 D", "count": 4, "ribbon": {"k": "D", "ok": false}, "log": "D 远离火灾 ✗ 排除——把被批驳的“割裂”现状反着当主张", "body": "<p><b>排除。</b>disconnected ourselves from living with fire（与火割裂）是第十段<b>批驳的现状</b>，恰恰是鲍尔奇反对的做法；D 把它捡起来当成她的主张。</p><p style=\"color:#b91c1c\">⚠ 典型误解：分不清“现状（被批驳）”与“主张”：被否定的做法反着读才接近主张。</p>"}, {"title": "结论 · 解题链与记忆锚点", "cls": "good", "tag": "答案 B", "count": 4, "ribbon": null, "log": "答案 B（come to terms with）——批驳的现状反着读，主张正着收", "body": "<p>解题链：<b>But / 直引 / 评价词切分“现状 vs 主张” → 主张=承认必然存在 + 理清人火关联 → 与火灾妥协共处 → B。</b></p><p><b>答案选 B（come to terms with 与之妥协共处）。</b></p>"}];
+
+AW.init({
+  title: "2017 Text D · 40 题 · 鲍尔奇：人该拿火灾怎么办",
+  subtitle: "考点：人物观点题——分清“被批驳的大众现状”与“人物主张”",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“立机制 → 收集观点 → 排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（come to terms with）", "html": "鲍尔奇的主张：火灾<b>不可避免</b>（inevitable presence），人要<b>理清并维持与火的关联</b>——即与火灾妥协共处。<br>记忆锚点：观点题用 <b>But / 直接引语 / crucial / really important</b> 切分“被批驳的现状”与“真主张”。<br>最易误选：<b>A/D</b>——都是被批驳的大众做法（全面控制、割裂远离）改头换面。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text D 第 40 题 · 鲍尔奇：人该拿火灾怎么办</h2>
+<p>答案：<strong>B（come to terms with 与之妥协共处）</strong>。</p>
+<h3>第 0 步：先立机制——分清“被批驳的大众现状”与“人物主张”</h3>
+<p>末两段都挂着 Professor Balch 的名字，但每段混着两种声音：<strong>大众的错误现状</strong>（她批驳的）与<strong>她的主张</strong>。区分信号有三：转折词 <strong>But</strong>、直接引语（引号）、评价词（crucial / really important）。主张 = But 之后、评价词点名的内容；批驳的现状反着读，往往就是主张。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>people continue to treat fire as an event that needs to be <strong>wholly controlled</strong>... <strong>But</strong> <strong>acknowledging fire's inevitable presence</strong> in human life is an attitude <strong>crucial</strong> to developing the laws, policies, and practices...（第九段）</blockquote>
+<p>&gt;</p>
+<blockquote>“We've <strong>disconnected ourselves</strong> from living with fire,” Balch says. “It is <strong>really important</strong> to understand and try and tease out what is <strong>the human connection with fire</strong> today.”（第十段）</blockquote>
+<h3>第 2 步：找证据——两组对照合出一个主张</h3>
+<p>第一组（第九段）：But 前是大众现状“全面控制火灾”；But 后是主张“<strong>承认火灾在人类生活中必然存在</strong>”。第二组（第十段）：现状“我们已把自身与火灾割裂”；主张“<strong>理解并理清人与火的关联</strong>”。两组合起来：火灾不可避免 + 人火关系要理清维持 → 人与火灾要<strong>达成妥协、学会共处</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A do away with</td><td>终结火灾</td><td>✗ 排除</td><td>wholly controlled（全面控制）是 But <strong>之前</strong>被批驳的大众认知。（典型误解：没盯住 But 分界线，把转折前内容当观点。）</td></tr><tr><td>B come to terms with</td><td>与之妥协共处</td><td>✓ 当选</td><td>同时罩住两条主张：acknowledging fire's inevitable presence + understand the human connection with fire。</td></tr><tr><td>C pay a price for</td><td>为火灾付出代价</td><td>✗ 排除</td><td>inevitable presence 只是“承认事实”，从中推不出“付出代价”的惩罚性因果——原文没有。</td></tr><tr><td>D keep away from</td><td>远离火灾</td><td>✗ 排除</td><td>disconnected ourselves（与火割裂）是第十段<strong>批驳的现状</strong>，恰是她反对的做法。（典型误解：把被否定的现状当主张。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么“承认不可避免”能推出“妥协共处”？</strong>：inevitable（必然存在）意味着火灾消灭不了；第十段又要求理解并维持人火关联——承认存在 + 维持关系 = 与之共处。这是合理推断，不是过度推理。</li><li><strong>间接引用和直接引用怎么配合？</strong>：第九段间接引用（says 概括），第十段直接引用（引号原话）；两段的 But / really important 都站在大众做法的反面——人物观点取其“反面正向”的那一半。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（do away with）/ D（keep away from）</strong>：都是被批驳的大众做法（全面控制、割裂远离）改头换面。</li><li><strong>误选 C（pay a price for）</strong>：由 inevitable 捏造因果。</li></ul>
+<blockquote>记忆锚点：观点题用 <strong>But / 直接引语 / crucial / really important</strong> 切分“现状 vs 主张”；被批驳的现状反着读接近主张——人应与火灾<strong>妥协共处</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

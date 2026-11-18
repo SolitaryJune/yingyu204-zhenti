@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-03 · 2024 完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 3 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 3 所在句，考点：句内取舍逻辑",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Spending too much time on your own, not __3__ others, can make you feel lonely and disconnected.</div><p>空格为第 3 空，待填一词。考点：<b>句内取舍逻辑</b>；方法主线：Doing X, not doing Y → 语义相对，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 先认出「取舍结构」这个外壳",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先认出「取舍结构」这个外壳",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本句主语是取舍结构 <b>Doing X, not doing Y</b>——「做 X 而不做 Y」。取舍结构的机制是：not 后的 Y 必须与 X 语义相对，两者合起来才构成同一件事的两面。X = Spending too much time on your own（花太多时间独处，即「不社交」），那么 not __3__ others 就必须是它的反面：<b>与别人见面、交往</b>。空格宾语是 others（他人），要选一个能表示「与人相见/交往」的动词-ing。</p>"
+ },
+ {
+  "title": "证据 · 整句在说「缺乏社交」的危害",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：整句在说「缺乏社交」的危害",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>句子的落点是 can make you feel lonely（让人孤独）——孤独由「社交缺席」造成，所以主语整体必须语义连贯地表示「只有独处、没有交往」：spending too much time on your own（独处太多）+ not ___ others（不见人）。两半拼起来才成立。</p>"
+ },
+ {
+  "title": "逐项分析 · A seeing（与某人见面/交往）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A seeing（与某人见面/交往） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>not seeing others 与 Spending too much time on your own 构成标准取舍：「独处太多 + 不见他人」→ 孤独疏离，句义闭合。</p>"
+ },
+ {
+  "title": "逐项分析 · B pleasing（使满意；取悦）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B pleasing（使满意；取悦） ✗ 排除——词根联想：看到 pleasure/enjoy 就想到 please",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>与上段 pleasure、enjoy 词根近义设障；但文首定义说社交是「为自身的娱乐消遣」，而非「为使他人快乐」——「独处而不取悦他人会孤独」不是文中逻辑。</p><p style='color:#b91c1c'>⚠ 典型误解：词根联想：看到 pleasure/enjoy 就想到 please——取悦他人不是社交的定义要件；文中的对照维度是「见不见人」，不是「愉不愉悦他人」。</p>"
+ },
+ {
+  "title": "逐项分析 · C judging（判断；评判）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C judging（判断；评判） ✗ 排除——把「社交」泛化成「与人互动的任何事」",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>judge sb 是「对某人给出（常带批评的）评价」，与「社交」语境无关：独处与否和「评价他人」凑不成取舍。</p><p style='color:#b91c1c'>⚠ 典型误解：把「社交」泛化成「与人互动的任何事」——取舍要求语义严格相对：独处 ↔ 见面交往；「独处 ↔ 评价他人」两件事不构成反面。</p>"
+ },
+ {
+  "title": "逐项分析 · D teaching（教；教导）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D teaching（教；教导） ✗ 排除——在无关选项里找「看起来像动词」的词",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>错因同 C：「花太多时间独处而不教导他人」同样与「社交」这一大语境无关。</p><p style='color:#b91c1c'>⚠ 典型误解：在无关选项里找「看起来像动词」的词——not teaching others 与独处不构成对照，主语的「缺乏社交」语义就断了一半。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（seeing 看见；与（某人）见面/交往）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>花太多时间独处、不见他人，会让你感到孤独和与人疏离。</b></p><p>答案选 <b>A（seeing 看见；与（某人）见面/交往）</b>。</p><p><b>记忆锚点</b>：取舍结构 Doing X, not doing Y → not 后必须与 X 语义相对；see sb = 与某人见面/交往。</p><p style='color:#b91c1c'>最易误选：<b>B（pleasing）</b>——被上段 pleasure/enjoy 的词根带偏；社交的目的是自我愉悦，不是取悦他人。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 3 空 · Spending too much time on your own, not ____ others",
+  subtitle: "考点：句内取舍逻辑 · Doing X, not doing Y → 语义相对 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（seeing）",
+    html: "<b>A seeing（看见；与（某人）见面/交往）</b>。<br>完整句义：花太多时间独处、不见他人，会让你感到孤独和与人疏离。<br>记忆锚点：取舍结构 Doing X, not doing Y → not 后必须与 X 语义相对；see sb = 与某人见面/交往。<br>最易误选：<b>B（pleasing）</b>——被上段 pleasure/enjoy 的词根带偏；社交的目的是自我愉悦，不是取悦他人。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 3 空 · 句内取舍逻辑</h2>
+<p>答案：<strong>A（seeing 看见；与（某人）见面/交往）</strong>。</p>
+<h3>第 0 步：先立机制——动名词题：先认出「取舍结构」这个外壳</h3>
+<p>本句主语是取舍结构 <strong>Doing X, not doing Y</strong>——「做 X 而不做 Y」。取舍结构的机制是：not 后的 Y 必须与 X 语义相对，两者合起来才构成同一件事的两面。X = Spending too much time on your own（花太多时间独处，即「不社交」），那么 not __3__ others 就必须是它的反面：<strong>与别人见面、交往</strong>。空格宾语是 others（他人），要选一个能表示「与人相见/交往」的动词-ing。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Spending too much time on your own, not __3__ others, can make you feel lonely and disconnected.</blockquote>
+<p>句子的落点是 can make you feel lonely（让人孤独）——孤独由「社交缺席」造成，所以主语整体必须语义连贯地表示「只有独处、没有交往」：spending too much time on your own（独处太多）+ not ___ others（不见人）。两半拼起来才成立。</p>
+<h3>第 2 步：语义对号：see sb 的「交往」义项</h3>
+<p>see 接人时可表「看望；会见；与某人交往」（They've been seeing a lot of each other recently. 他们近来老待在一起）。not seeing others = 见不到他人、缺乏社交，与「独处太多」严丝合缝地互为反面。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A seeing</td><td>与某人见面/交往</td><td>✓ 当选</td><td>not seeing others 与 Spending too much time on your own 构成标准取舍：「独处太多 + 不见他人」→ 孤独疏离，句义闭合。</td></tr><tr><td>B pleasing</td><td>使满意；取悦</td><td>✗ 排除</td><td>与上段 pleasure、enjoy 词根近义设障；但文首定义说社交是「为自身的娱乐消遣」，而非「为使他人快乐」——「独处而不取悦他人会孤独」不是文中逻辑。</td></tr><tr><td>C judging</td><td>判断；评判</td><td>✗ 排除</td><td>judge sb 是「对某人给出（常带批评的）评价」，与「社交」语境无关：独处与否和「评价他人」凑不成取舍。</td></tr><tr><td>D teaching</td><td>教；教导</td><td>✗ 排除</td><td>错因同 C：「花太多时间独处而不教导他人」同样与「社交」这一大语境无关。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>词根联想：看到 pleasure/enjoy 就想到 please → 误选 B（pleasing）</strong>：取悦他人不是社交的定义要件；文中的对照维度是「见不见人」，不是「愉不愉悦他人」。</li><li><strong>把「社交」泛化成「与人互动的任何事」 → 误选 C（judging）</strong>：取舍要求语义严格相对：独处 ↔ 见面交往；「独处 ↔ 评价他人」两件事不构成反面。</li><li><strong>在无关选项里找「看起来像动词」的词 → 误选 D（teaching）</strong>：not teaching others 与独处不构成对照，主语的「缺乏社交」语义就断了一半。</li></ul>
+<blockquote>记忆锚点：取舍结构 Doing X, not doing Y → not 后必须与 X 语义相对；see sb = 与某人见面/交往。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

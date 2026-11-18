@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-37 · 2017 Text D · 37 题 · “放大镜”的比喻义</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位+解回指 · “放大镜”照的是谁", "cls": "key", "tag": "回指", "count": 0, "ribbon": null, "log": "第四段②句 take a magnifying glass to that：that 回指①句“公共资金投向火灾易发区”的问题", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">“It's already a huge problem from a public expenditure perspective for the whole country,” he says. “We need to take a <b>magnifying glass</b> to <b>that</b>.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第四段①②句</p><p>破比喻第一步：<b>先解 that 的回指</b>。that 指第三段提出的问题——其他机构的公共资金是否被投进火灾易发区建设。所以放大镜照的对象=公共资金的<b>投向</b>，不是别的。</p>"}, {"title": "破比喻 · 比喻后面紧跟解释句", "cls": "key", "tag": "比喻", "count": 0, "ribbon": null, "log": "③④句两个问句解释“放大镜”：这么投行不行？要不要转投低风险区？=细审视资金投向", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Like, '<b>Wait a minute, is this OK?</b>' <b>Do we want instead to redirect those funds</b> to concentrate on <b>lower-hazard parts</b> of the landscape?</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第四段③④句</p><p>比喻义藏在紧随其后的问句里：“等一下，这样可行吗？”“要不要转投低风险区域？”——放大镜=把资金投向<b>放大了细看、反复设问</b>，确保这笔公共资金花得稳妥。设问的落点全在“投向对不对”，与“募不募新钱”无关。</p>"}, {"title": "逐项分析 · D guarantee safer spending of public funds", "cls": "good", "tag": "选定 D", "count": 0, "ribbon": {"k": "D", "ok": true}, "log": "D 确保公共资金支出更可靠 ✓ 当选——两个设问的共同落点", "body": "<p><b>当选。</b>is this OK（这样花行不行）+ redirect to lower-hazard parts（要不要调整投向）合起来=对公共资金支出<b>多设问、细审视，确保花得安全可靠</b>。D 是③④句设问意图的准确概括。</p>"}, {"title": "逐项分析 · A raise more funds for fire-prone areas", "cls": "bad", "tag": "排除 A", "count": 1, "ribbon": {"k": "A", "ok": false}, "log": "A 为火灾易发区募更多资金 ✗ 排除——“放大”被联想成“加钱”", "body": "<p><b>排除。</b>“放大镜→放大→更多”是字面联想。原文谈的是<b>现有资金往哪投</b>，自始至终没讨论过募集增量资金。</p><p style=\"color:#b91c1c\">⚠ 典型误解：顺着比喻的字面义脑补，不回到上下文找比喻的解释句。</p>"}, {"title": "逐项分析 · B avoid the redirection of federal money", "cls": "bad", "tag": "排除 B", "count": 2, "ribbon": {"k": "B", "ok": false}, "log": "B 避免改变联邦资金用途 ✗ 排除——redirect 是莫里茨自己抛出的备选，不是要避免的对象", "body": "<p><b>排除。</b>redirect those funds 出现在④句<b>疑问句</b>里：“我们要不要把资金转投低风险区？”——这是莫里茨给出的<b>备选方案</b>，语气是商量，不是否定。B 把一个开放问句读死了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把疑问/商量的语气读成斩钉截铁的否定。</p>"}, {"title": "逐项分析 · C find wildfire-free parts of the landscape", "cls": "bad", "tag": "排除 C", "count": 3, "ribbon": {"k": "C", "ok": false}, "log": "C 寻找林火免疫区 ✗ 排除——lower-hazard 被偷换成 wildfire-free，绝对化", "body": "<p><b>排除。</b>原文说的是 <b>lower-hazard</b>（风险较低）的区域，C 偷换成 <b>wildfire-free</b>（完全没有火灾）——“较低”与“没有”之间隔着一个绝对化陷阱；且“寻找免疫区”这个动作原文根本没有。</p>"}, {"title": "结论 · 破比喻三步法", "cls": "good", "tag": "答案 D", "count": 3, "ribbon": null, "log": "答案 D（guarantee safer spending of public funds）", "body": "<p>破比喻三步：<b>①解 that 回指（公共资金投向）→ ②读比喻后的解释句（两个设问）→ ③落回段落话题（支出是否稳妥）→ D。</b></p><p><b>答案选 D（guarantee safer spending of public funds 确保公共资金支出更可靠）。</b></p>"}];
+
+AW.init({
+  title: "2017 Text D · 37 题 · “放大镜”的比喻义",
+  subtitle: "考点：推理引申题——回指对象 + 比喻后的解释句",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“解回指 → 破比喻 → 排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（guarantee safer spending of public funds）", "html": "“放大镜”照的是<b>公共资金的投向</b>：多设问、细审视（is this OK? / 要不要转投低风险区？），确保花得稳妥。<br>记忆锚点：破比喻=先解<b>回指</b>、再读比喻后紧跟的<b>解释句</b>、最后落回段落话题。<br>最易误选：<b>C</b>——lower-hazard（较低）≠ wildfire-free（没有），绝对化偷换。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text D 第 37 题 · “放大镜”的比喻义</h2>
+<p>答案：<strong>D（guarantee safer spending of public funds 确保公共资金的支出更可靠）</strong>。</p>
+<h3>第 0 步：先立机制——破比喻三步：解回指 → 读解释句 → 落回话题</h3>
+<p>比喻题（a magnifying glass）不能按字面猜。机制三步：①比喻句里的<strong>回指</strong>（to that）先解出来，锁定比喻照的对象；②比喻之后往往<strong>紧跟解释句</strong>（问句、破折号、Like 引出的具体化）；③落回段落话题验证。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>“It's already a huge problem from a public expenditure perspective for the whole country,” he says. “We need to take a <strong>magnifying glass</strong> to <strong>that</strong>.（第四段①②句）</blockquote>
+<p>&gt;</p>
+<blockquote>Like, “<strong>Wait a minute, is this OK?</strong>” <strong>Do we want instead to redirect those funds</strong> to concentrate on <strong>lower-hazard parts</strong> of the landscape?（第四段③④句）</blockquote>
+<h3>第 2 步：找证据——that 指什么，问句答什么</h3>
+<p>that 回指第三段的问题：其他机构的公共资金是否正被投进<strong>火灾易发区</strong>建设。所以“放大镜照的”是公共资金的<strong>投向</strong>。③④句两个问句是比喻的解释：“等一下，这样可行吗？”“要不要转投低风险区域？”——放大镜 = 把资金投向<strong>放大了细看、反复设问</strong>，落点是这笔钱<strong>花得稳不稳</strong>，与“募不募新钱”无关。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A raise more funds for fire-prone areas</td><td>为火灾易发区募集更多资金</td><td>✗ 排除</td><td>“放大镜→放大→更多”是字面联想；原文谈现有资金往哪投，从未讨论增量。（典型误解：顺着比喻字面义脑补。）</td></tr><tr><td>B avoid the redirection of federal money</td><td>避免改变联邦资金用途</td><td>✗ 排除</td><td>redirect 出现在④句<strong>疑问句</strong>里，是莫里茨抛出的备选方案（要不要转投），不是要避免的对象。（典型误解：把商量语气读成否定结论。）</td></tr><tr><td>C find wildfire-free parts of the landscape</td><td>寻找林火免疫区</td><td>✗ 排除</td><td>lower-hazard（风险较低）被偷换成 wildfire-free（没有火灾）——绝对化；“寻找免疫区”的动作原文也没有。</td></tr><tr><td>D guarantee safer spending of public funds</td><td>确保公共资金的支出更可靠</td><td>✓ 当选</td><td>is this OK（这样花行不行）+ redirect to lower-hazard parts（要不要调整投向）= 多设问、细审视，确保花得稳妥。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不能选“找无火区”？</strong>：lower-hazard 是“风险较低”，wildfire-free 是“完全没有”——“较低/可能/一定程度上”被升级为“没有/完全/彻底”就是绝对化偷换。</li><li><strong>比喻词本身需要翻译吗？</strong>：不需要。比喻的功能是形象化地强调，信息量几乎为零；真正承载信息的是回指对象与解释句。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（raise more funds for fire-prone areas）</strong>：比喻字面化（放大→加钱）。</li><li><strong>误选 C（find wildfire-free parts of the landscape）</strong>：lower-hazard 绝对化成 wildfire-free。</li></ul>
+<blockquote>记忆锚点：破比喻 = <strong>先解 that 回指（公共资金投向）→ 读比喻后的解释句（两个设问）→ 落回段落话题（支出是否稳妥）</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

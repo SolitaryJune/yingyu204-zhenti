@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-27 · 2021 阅读第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：报告题先圈定「报告说了什么、没说什么」",
+  "body": "<p>题干：<b>The report by the University of Leeds shows that in the UK ____</b>（利兹大学的报告表明，在英国 ____）。</p><p>报告只出现在第三段，信息就一条：<b>85% 的国土面积与肉奶生产相关</b>。核对选项时要分清「报告的结论」与「下文的推论」。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：报告的 85% 数字",
+  "body": "<div class='qq'><b>原文：</b>According to a report on UK food production from the University of Leeds, UK, 85 per cent of the country’s total land area is associated with meat and dairy production.</div><p>报告结论只有一个数字：<b>85% 的国土总面积与肉奶生产相关</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：补充句进一步坐实",
+  "body": "<div class='qq'><b>原文：</b>That supplies 80 per cent of what is consumed, so even covering the whole country in livestock farms wouldn’t allow us to cover all our meat and dairy needs.</div><p>这 85% 供出了 80% 的消耗——即使全国铺满畜牧场也满足不了肉奶需求，进一步坐实「绝大多数土地在养畜」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：农田利用低效——报告无「效率」评价",
+  "body": "<p><b>A · farmland has been inefficiently utilized（农田被低效利用）</b> <span class='bad-dot'>✗</span></p><p>报告只给出<b>面积占比</b>，没有任何「效率」评价——无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：工厂化生产需改革——下文推论 ≠ 报告结论",
+  "body": "<p><b>B · factory-style production needs reforming（工厂化生产需要改革）</b> <span class='bad-dot'>✗</span></p><p>factory-style production 出现在第 4 段「要更自给就得更集约」的推论里，不是这份报告的结论。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：大部分土地用于肉奶生产——85% ≈ most",
+  "body": "<p><b>C · most land is used for meat and dairy production（大部分土地用于肉奶生产）</b> <span class='ok-dot'>✓</span></p><p>85% of the total land area is associated with meat and dairy production → <b>most land is used for...</b>：85% ≈ most，is associated with ≈ is used for。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：更多绿地转为农田——方向反",
+  "body": "<p><b>D · more green fields will be converted for farming（更多绿地将被转为农田）</b> <span class='bad-dot'>✗</span></p><p>下文说的是 fewer green fields（绿地更少），方向反，且同样不是报告内容。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（most land is used for meat and dairy production）</b>。</p><p>记忆锚点：报告题先圈报告边界；85% associated with = most land used for。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 B——把第 4 段的推论（工厂化生产）当成报告结论，张冠李戴。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-27 · 阅读第 27 题：利兹大学报告的发现",
+  subtitle: "考点：Text2 第 3 段 · 细节题（圈定报告边界防张冠李戴）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C",
+ "html": "<b>C most land is used for meat and dairy production</b>：85% of the total land area is associated with meat and dairy → 大部分土地用于肉奶生产。<br>记忆锚点：报告题先圈「报告说了什么」；85% ≈ most，associated with ≈ used for。<br>最易误选：B——把下文推论当报告结论。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 27 题——利兹大学报告的发现</h2>
+<p>答案：<strong>C</strong>（most land is used for meat and dairy production）。</p>
+<h3>第 0 步：先立机制——报告题先圈定「报告说了什么、没说什么」</h3>
+<p>报告只出现在第三段，信息就一条：85% 的国土面积与肉奶生产相关。核对选项时要分清「报告的结论」与「下文的推论」（第 4 段谈自给需要更集约生产）——后者常被偷换进干扰项。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>According to a report on UK food production from the University of Leeds, UK, 85 per cent of the country's total land area is associated with meat and dairy production. That supplies 80 per cent of what is consumed, so even covering the whole country in livestock farms wouldn't allow us to cover all our meat and dairy needs.</blockquote>
+<p>85% of the total land area is associated with meat and dairy production → <strong>大部分土地用于肉奶生产</strong>：85% ≈ most，is associated with ≈ is used for；补充句「全国铺满畜牧场也不够」进一步坐实。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（farmland has been inefficiently utilized）</strong>：无中生有——报告只有面积占比，没有「效率」评价。</li><li><strong>B（factory-style production needs reforming）</strong>：张冠李戴——factory-style production 是第 4 段「要更自给就得更集约」的推论，不是报告结论。</li><li><strong>D（more green fields will be converted for farming）</strong>：方向反——下文说 fewer green fields（绿地更少）。</li></ul>
+<blockquote>记忆锚点：报告题先圈报告边界；85% associated with = most land used for。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

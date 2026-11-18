@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-40 动画：段落推理题：直觉会影响思考性任务</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：研究型段落推理题＝主旨＋结果句双支撑", "body": "<p>题干：<b>What can we learn from the last paragraph?</b>（从最后一段可以得知什么？）</p><p>末段结构：立规矩（<code>Intuition's special powers are unleashed only in certain circumstances</code>——直觉只在特定情境灵）→ 摆实验（八项任务分两半）→ 出结果（<code>gut hurt the first four ... helped the rest</code>）→ 收金句（Sometimes the heart is smarter than the head）。正确项须同时被首句与结果句支撑。</p>", "log": "推理题机制：段首主旨＋结果句，两头都撑得住才选"}, {"cls": "", "ecs": "step", "tag": null, "count": 0, "title": "定位：末段②④句的实验与结果", "body": "<div class=\"qq\"><b>末段②：</b>participants completed a battery of eight tasks, including four that tapped <b>reflective thinking</b> (discerning rules, comprehending vocabulary) and four that tapped <b>intuition and creativity</b> (generating new products or figures of speech). <span class=\"cn\">（译：八项任务——四项深思型（辨规则、懂词汇），四项直觉创造型（想新产品、造修辞格）。）</span></div><div class=\"qq\"><b>末段④：</b>Use of their gut <b>hurt their performance on the first four tasks</b>, as expected, and <b>helped them on the rest</b>. <span class=\"cn\">（译：用直觉损害前四项任务的表现，对后四项则有帮助。）</span></div>", "log": "实验：四深思＋四创造；结果：直觉伤深思组、帮创造组"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "count": 1, "title": "排除 A：Generating new products takes time.", "body": "<p><b>A · Generating new products takes time.（创造新产品需要时间）</b><span class=\"bad-dot\"> ✗</span></p><p><code>generating new products</code> 只是任务名称，\"耗时多少\"全文未提——拿任务名编故事。</p>", "log": "排除 A：任务名里没有\"耗时\"信息", "ribbon": {"k": 1, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 B", "count": 2, "title": "锁定 B：Intuition may affect reflective tasks.", "body": "<p><b>B · Intuition may affect reflective tasks.（直觉可能会影响思考性工作）</b><span class=\"ok-dot\"> ✓</span></p><p><code>Intuition</code> ↔ use of their gut / heart；<code>reflective tasks</code> ↔ the first four tasks（四项 reflective thinking）；<code>affect</code> ↔ hurt——affect 是 hurt 的<b>中性化改写</b>，正确项常用中性词承载负面结果。</p>", "log": "锁定 B：gut hurt the first four（深思型）→ affect", "ribbon": {"k": 2, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "count": 3, "title": "排除 C：Vocabulary comprehension needs creativity.", "body": "<p><b>C · Vocabulary comprehension needs creativity.（理解词汇需要创造力）</b><span class=\"bad-dot\"> ✗</span></p><p>张冠李戴：<code>comprehending vocabulary</code> 属于 <b>reflective thinking</b> 那一半，与 creativity（直觉创造组）正好相对。</p>", "log": "排除 C：词汇理解在深思组，与创造力相对", "ribbon": {"k": 3, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "count": 4, "title": "排除 D：Objective thinking may boost intuitiveness.", "body": "<p><b>D · Objective thinking may boost intuitiveness.（客观思维可提升直觉力）</b><span class=\"bad-dot\"> ✗</span></p><p><code>objectively</code> 是第四段购车句的碎片词，全文没讲\"如何提升直觉力\"——方向性捏造。</p>", "log": "排除 D：objectively 是他段碎片，提升直觉无出处", "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": null, "title": "结论：答案 B", "body": "<p><b>答案 B（Intuition may affect reflective tasks.）</b>。</p><p>记忆锚点：推理题＝段首主旨＋结果句双支撑；gut hurt the first four（reflective）→ 直觉影响思考性任务；affect 是 hurt 的中性替身。</p>", "log": "结论：伤前四（深思型）→ 直觉影响思考性任务——B"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-40 · 段落推理题：直觉会影响思考性任务",
+  subtitle: "考点：Text3 段落推理 · 方法：段首主旨 + 结果句双支撑",
+  counterLabel: '已核验',
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 B", "html": "<b>gut hurt the first four (reflective) tasks</b> → 直觉会影响思考性任务。记忆锚点：affect 是 hurt 的中性化替身；词汇理解属深思组，与创造力相对。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：段落推理题——末段八任务实验能读出什么</h2>
+<p>答案：<strong>B（Intuition may affect reflective tasks.）</strong>。</p>
+<h3>第 0 步：先立机制——研究型段落推理题 = 段首主旨 + 结果句双支撑</h3>
+<p>末段结构是"立规矩 → 摆实验 → 出结果 → 收金句"：</p>
+<ol><li>立规矩：<code>Intuition's special powers are unleashed only in certain circumstances</code>——直觉只在<strong>特定情境</strong>灵（言外之意：直觉不是万能药）；</li><li>摆实验：八项任务分两半——四项 reflective thinking（辨规则、懂词汇），四项直觉与创造力（想新产品、造修辞格）；参与者给"用了多少直觉"打分；</li><li>出结果：<code>Use of their gut hurt their performance on the first four tasks, and helped them on the rest</code>——直觉<strong>伤</strong>前四项（深思型）、<strong>帮</strong>后四项（创造型）；</li><li>收金句：Sometimes the heart is smarter than the head。</li></ol>
+<p>推理题的正确项必须同时被"首句（直觉有边界）"与"结果句（伤前四、帮后四）"支撑。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Use of their gut hurt their performance on the first four tasks, as expected, and helped them on the rest. Sometimes the heart is smarter than the head.</blockquote>
+<h3>第 2 步：同义替换</h3>
+<table><thead><tr><th>选项 B</th><th>原文</th></tr></thead><tbody><tr><td>Intuition</td><td>use of their gut / heart</td></tr><tr><td>may affect reflective tasks</td><td>hurt their performance on the first four tasks（前四项 = reflective thinking）</td></tr></tbody></table>
+<p><code>affect</code> 是 <code>hurt</code> 的<strong>中性化改写</strong>——正确项常用中性词承载负面结果，别因为"没写 hurt"而排除它。</p>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>误选 A（创造新产品费时）</strong>：<code>generating new products</code> 只是任务名称，"耗时多少"全文未提——拿任务名编故事。</li><li><strong>误选 C（词汇理解需要创造力）</strong>：张冠李戴。<code>comprehending vocabulary</code> 属于 <strong>reflective thinking</strong> 那一半，与 creativity（直觉创造组）正好相对。</li><li><strong>误选 D（客观思维提升直觉力）</strong>：<code>objectively</code> 是第四段购车句的碎片词，全文没讲"如何提升直觉力"——方向性捏造。</li></ul>
+<blockquote>记忆锚点：推理题 = 段首主旨 + 结果句双支撑；gut hurt the first four（reflective）→ 直觉影响思考性任务；affect 是 hurt 的中性替身。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

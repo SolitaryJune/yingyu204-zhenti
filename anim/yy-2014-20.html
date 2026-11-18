@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-20 · 2014 完形第 20 空</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 中性名词 + 介词，先问方向",
+  "cls": "key",
+  "tag": "审题",
+  "log": "介词题两步走：第一步上下文定方向（正/负），第二步用搭配筛掉凑数项",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>campaign（运动）是中性名词，本身不表态；它对 childhood obesity（儿童肥胖）是支持、反对还是无关，全看介词。</p><p>介词题两步走：①由上下文定<b>方向</b>；②用搭配筛掉<b>凑数的</b>。</p>"
+ },
+ {
+  "title": "定位原文 · 空 20 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：even claiming that it represents our greatest national security threat",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Michelle Obama has launched a high-visibility campaign <b>__20__</b> childhood obesity, even claiming that it represents our greatest national security threat.</div><p>句尾“甚至称它是我们最大的<b>国家安全威胁</b>”——把肥胖称作威胁是<b>敌人式语言</b>，立场写在半句外。</p>"
+ },
+ {
+  "title": "找证据 · 本空的“户口”在上一句",
+  "cls": "key",
+  "tag": "证据",
+  "log": "空格句是“一系列抗肥胖政策”的第三个例子：禁糖 → 健身 → 运动，方向全部一致",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Negative attitudes toward obesity ... have stimulated a number of anti-obesity policies. My own hospital system has banned sugary drinks... Many employers have instituted weight loss and fitness initiatives. Michelle Obama has launched a high-visibility campaign __20__ ...</div><p>例一医院<b>禁</b>糖、例二雇主<b>推</b>健身、例三就是米歇尔·奥巴马的运动——前两个例子都在“打肥胖”，第三个不可能突然“支持肥胖”→ 方向定为<b>反对</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A for（支持）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A for（支持） ✗ 排除——campaign for childhood obesity 与政策链矛盾",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>方向反了：campaign for childhood obesity = “支持儿童肥胖的运动”，与 anti-obesity 政策链直接矛盾。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记 for/against 成对，忘核对方向——for 与 campaign 的搭配太熟，最容易顺手选。</p>"
+ },
+ {
+  "title": "逐项分析 · B against（反对）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B against（反对） ✓ 当选——campaign against sth 固定搭配，方向搭配双合",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>campaign against sth 是固定搭配，“反对……的运动”；例子链方向（反对肥胖）与搭配（against + 对象）双合。</p>"
+ },
+ {
+  "title": "逐项分析 · C with（和……一起）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C with（和……一起） ✗ 排除——campaign 不与 with 搭出“针对某目标”",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>campaign 不与 with 搭出“针对某目标”的含义，“与肥胖一起运动”语义也不成立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“与某人并肩”的 with 套在“某现象”上。</p>"
+ },
+ {
+  "title": "逐项分析 · D without（没有）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D without（没有） ✗ 排除——“没有儿童肥胖的运动”歧义且不成话",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“没有儿童肥胖的运动”歧义且荒诞，搭配同样不成立，是纯凑数项。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见介词就蒙，没有先问“运动对肥胖的态度”。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（against）——例子链定方向，搭配定用词",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>米歇尔·奥巴马发起了一场高调的反对儿童肥胖的运动，甚至称它代表我们最大的国家安全威胁。</b></p><p>答案选 <b>B（against 反对）</b>。</p><p><b>记忆锚点</b>：介词题先定方向（本段 = anti-obesity）再验搭配；campaign for/against sth 是一对方向词；例子链（禁糖 → 健身 → 运动）决定第三个例子同向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 A——只做搭配核对、不做方向核对，把“抗肥胖政策链”的例子读成“支持肥胖”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 完形第 20 空 · campaign ______ childhood obesity——介词题先定方向再验搭配",
+  subtitle: "考点：介词搭配 + 上下文方向 · campaign against childhood obesity",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（against）",
+ "html": "<b>B against（反对）</b>：空格句是 anti-obesity 政策链的第三个例子（禁糖 → 健身 → 运动），even claiming“国家安全威胁”坐实敌对立场。<br>A for 方向反、C/D 与 campaign 不成话。<br>记忆锚点：介词题先定方向再验搭配；campaign against sth。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 20 空 · campaign ______ childhood obesity——介词题先定方向再验搭配</h2>
+<p>答案：<strong>B（against 反对）</strong>。</p>
+<h3>第 0 步：先立机制——"中性名词 + 介词短语"先问方向</h3>
+<p>campaign（运动）是中性名词，本身不表态；它对 childhood obesity（儿童肥胖）是支持、反对还是无关，全看介词。介词题两步走：第一步由上下文定<strong>方向</strong>（正 / 负），第二步用搭配筛掉凑数的选项。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Michelle Obama has launched a high-visibility campaign __20__ childhood obesity, even claiming that it represents our greatest national security threat.</blockquote>
+<p>句尾 even claiming that it represents our greatest national security threat（甚至称它是我们最大的国家安全威胁）——把肥胖称作"国家安全威胁"是敌人式语言，立场已经写在半句外。</p>
+<h3>第 2 步：找证据——本空的"户口"在上一句</h3>
+<blockquote>Negative attitudes toward obesity ... have stimulated a number of anti-obesity policies. My own hospital system has banned sugary drinks... Many employers have instituted weight loss and fitness initiatives. Michelle Obama has launched a high-visibility campaign __20__ ...</blockquote>
+<p>空格句是上一句"一系列抗肥胖政策"的<strong>第三个例子</strong>：例一医院禁糖、例二雇主推健身、例三就是米歇尔·奥巴马的运动。前两个例子都在"打肥胖"，第三个不可能突然变成"支持肥胖"——方向定为<strong>反对</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B against</td><td>反对</td><td>✓ 当选</td><td>campaign against sth 是固定搭配，"反对……的运动"，方向、搭配双合。</td></tr><tr><td>A for</td><td>支持</td><td>✗ 排除</td><td>方向反了：campaign for childhood obesity = "支持儿童肥胖的运动"，与 anti-obesity 政策链矛盾。（典型误解：只记 for/against 成对，忘核对方向。）</td></tr><tr><td>C with</td><td>和……一起</td><td>✗ 排除</td><td>campaign 不与 with 搭出"针对某目标"的含义，语义也不成立。（典型误解：把"与某人并肩"的 with 套在"某现象"上。）</td></tr><tr><td>D without</td><td>没有</td><td>✗ 排除</td><td>"没有儿童肥胖的运动"歧义且荒诞，搭配同样不成立。（典型误解：纯凑数项靠乱猜。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么这么肯定方向是"反对"，而不是中性的"关于肥胖"？</strong>：四个选项里根本没有 about——for/against 是立场词，with/without 不成话；而例子链（禁糖 → 健身 → 运动）已把方向钉死。</li><li><strong>even claiming... 这半句在起什么作用？</strong>：把"反对"再推高一格——称儿童肥胖是"最大国家安全威胁"，敌我关系明确，against 无可动摇。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（for）</strong>：只做搭配核对（campaign for 确实成立），不做方向核对——把"抗肥胖政策链"的第三个例子读成"支持肥胖"，荒谬却常被选中，因为 for 与 campaign 的搭配太熟。</li><li><strong>误选 C/D</strong>：见介词就蒙，没有先问"运动对肥胖的态度"。</li></ul>
+<blockquote>记忆锚点：介词题先定方向（本段 = anti-obesity）再验搭配；campaign for/against sth 是一对方向词；例子链（禁糖 → 健身 → 运动）决定第三个例子同向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

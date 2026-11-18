@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-38 动画：发现题——指代还原 the same pattern</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：发现题答“报告了什么”",
+  "body": "<p>题干：<b>What does Crone’s study find about prosocial behavior?</b>（克罗恩的研究就亲社会行为有何发现？）</p><p>发现题的答案必须落在研究“报告了什么”，不能落在“常识里为什么会这样”。本题钥匙是个指代：<b>the same pattern</b>——“同样的模式”回指①句。</p>",
+  "log": "审题：答案在研究“报告了什么”，钥匙是 the same pattern"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第四段①②句，指代还原",
+  "body": "<div class=\"qq\"><b>①②句：</b>Other studies have shown that rebellious behavior <b>increases as you become a teenager and then fades away as you grow older</b>. But the new study shows that, interestingly, <b>the same pattern holds for prosocial behavior</b>. <span class=\"cn\">（叛逆行为进入青春期上升、随年龄增长消退；亲社会行为遵循同样的模式。）</span></div><p>指代还原：<b>the same pattern = ①句的“青春期上升 → 随后消退”曲线</b>。</p>",
+  "log": "指代还原：the same pattern = 先升后降的曲线"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "补充",
+  "count": 0,
+  "title": "第五段：正相关是两特质的关系，不是成因",
+  "body": "<div class=\"qq\"><b>第五段：</b>Most significantly, there was <b>a positive correlation</b> between prosociality and rebelliousness. ... The good and bad sides of adolescence seem to <b>develop together</b>. <span class=\"cn\">（亲社会性与叛逆性正相关；好坏两面相伴相生。）</span></div><p>这说的是两种特质<b>之间的关系</b>，不是亲社会行为本身的成因。</p>",
+  "log": "第五段讲“正相关”，不提供成因"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 1,
+  "title": "锁定 D：青春期趋于巅峰",
+  "body": "<p><b>D · It tends to peak in adolescence</b> <span class=\"ok-dot\">✓</span></p><p><b>increases as you become a teenager and then fades away as you grow older</b> ↔ <b>tends to peak in adolescence</b>：先升后降的曲线，峰值必然落在青春期，当选。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "log": "锁定 D：先升后降 = 峰值在青春期"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 2,
+  "title": "排除 A：常识补因果",
+  "body": "<p><b>A · It results from the wish to cooperate</b> <span class=\"bad-dot\">✗</span></p><p>研究测的是行为<b>频率与相关性</b>，没有探究亲社会行为的成因。典型误解：用常识补因果——“助人当然因为愿意合作”。常识正确 ≠ 文中说了。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "log": "排除 A：研究未探究成因"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 3,
+  "title": "排除 B：教育变量不存在",
+  "body": "<p><b>B · It is cultivated through education</b> <span class=\"bad-dot\">✗</span></p><p>全文没有出现教育变量。典型误解：常识代入。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "log": "排除 B：全文无教育变量"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 4,
+  "title": "排除 C：家庭变量不存在",
+  "body": "<p><b>C · It is subject to family influence</b> <span class=\"bad-dot\">✗</span></p><p>全文没有出现家庭变量。典型误解：常识代入。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "log": "排除 C：全文无家庭变量"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（It tends to peak in adolescence）</b>——与叛逆行为同样的“青春期达峰”曲线。</p><p>记忆锚点：the same pattern 先回指再套用；研究发现答“趋势”，不答“成因”。</p>",
+  "log": "结论：指代还原出“青春期达峰”，答案选 D"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-38 · 研究发现题：亲社会行为的峰值",
+ "subtitle": "考点：Text 2 第四五段 · 方法：指代还原 → 模式复用 → 只答趋势不答成因",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位原文 → 指代还原 → 逐项排除。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 D",
+  "html": "<b>the same pattern 回指①句“青春期上升→随后消退”</b>——先升后降，峰值在青春期。记忆锚点：指代先还原再套用；increases then fades away = peak in adolescence；发现只涉趋势，不涉成因。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 阅读 Text 2 第 38 题 · 克罗恩研究对"亲社会行为"的发现</h2>
+<p>答案：<strong>D（It tends to peak in adolescence 它在青春期趋于巅峰）</strong>。</p>
+<h3>第 0 步：先立机制——发现题 = 指代还原 + 模式复用</h3>
+<p>What does the study find 类题目，答案必须落在研究"报告了什么"上，不能落在"我们常识里为什么会这样"上。本题的钥匙是个指代：第四段②句 the same pattern holds for prosocial behavior——"同样的模式"指什么？回指①句叛逆行为的变化轨迹。指代一还原，发现就出来了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Other studies have shown that rebellious behavior increases as you become a teenager and then fades away as you grow older. But the new study shows that, interestingly, the same pattern holds for prosocial behavior.</blockquote>
+<p>①句给出模式：叛逆行为"进入青春期上升、随年龄增长消退"——先升后降，峰值在青春期；②句 But 转折后宣布新发现：亲社会行为遵循同样的模式。第五段再补一刀：</p>
+<blockquote>Most significantly, there was a positive correlation between prosociality and rebelliousness. ... The good and bad sides of adolescence seem to develop together.</blockquote>
+<p>两者正相关、相伴相生——但这说的是两种特质之间的关系，不是亲社会行为本身的成因。</p>
+<h3>第 2 步：同义替换对上 D</h3>
+<p>increases as you become a teenager and then fades away as you grow older ↔ tends to peak in adolescence：先升后降的曲线，峰值必然落在青春期——"上升然后消退"的合理改写就是"在青春期达到顶点"，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A It results from the wish to cooperate</td><td>✗</td><td>研究测的是行为频率与相关性，没有探究亲社会行为的成因。（典型误解：用常识补因果——"助人当然因为愿意合作"。）</td></tr><tr><td>B It is cultivated through education</td><td>✗</td><td>全文没有出现教育变量。（典型误解：常识代入。）</td></tr><tr><td>C It is subject to family influence</td><td>✗</td><td>全文没有出现家庭变量。（典型误解：常识代入。）</td></tr><tr><td>D It tends to peak in adolescence</td><td>✓</td><td>①②句指代还原：与叛逆行为同样的"青春期达峰"曲线。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>第五段的"正相关"算不算另一个发现，为什么不在选项里？</strong>：正相关讲的是"亲社会与叛逆的关系"，而题干只问亲社会行为本身的表现；本题四个干扰项全在谈"成因/来源"，恰好印证命题思路——研究发现只涉及"变化趋势"，不涉及"影响因素"。</li><li><strong>为什么 A 看起来那么像？</strong>：它借用了常识中"行为源自意愿"的逻辑，但研究没测意愿。阅读题里"常识正确"不等于"文中说了"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A/B/C</strong>：共性都是替研究"补成因"——原文只有一个发现：亲社会行为与叛逆行为同样在青春期达到顶峰。</li></ul>
+<blockquote>记忆锚点：the same pattern 先回指再套用；increases then fades away = peak in adolescence；研究发现答"趋势"，不答"成因"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

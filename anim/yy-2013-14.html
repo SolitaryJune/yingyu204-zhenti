@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 14 空 · 电子支付“引发”了什么——raise concerns · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 主语是“物”，动词先过主语关", "cls": "key", "tag": "审题", "log": "先立机制：主语是“物”，动词先过主语关", "count": 0, "ribbon": null, "body": "<p>Fourth 引出第四条理由。空格是谓语动词，宾语 security and privacy concerns（安全与隐私方面的忧虑），主语是 electronic means of payment（物）。两把判定钥匙：其一，主语是物——能以物作主语引出忧虑的动词是 raise 一类；其二，段落方向——本段（Fourth 之后）全是风险叙事，动词必须往“制造忧虑”的方向使劲，不能往“缓解”上走。</p>"}, {"title": "定位原文 · 空 14 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 14 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Fourth, electronic means of payment may <b>__14__</b> security and privacy concerns.</div><p>___ concerns：动宾搭配位。hide / express / ease / raise 四个动词都能和 concerns 这类情绪名词组队，差异在主语限制与方向。</p>"}, {"title": "找证据 · 全段风险叙事：黑客改库 + 隐私泄露", "cls": "key", "tag": "证据", "log": "找证据：全段风险叙事：黑客改库 + 隐私泄露", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We often hear media reports that an unauthorized hacker has been able to access a computer database… There are concerns that government, employers, and marketers might be able to access these data, thereby violating our privacy.</div><p>黑客入侵、账户被盗、个人数据被政府与营销方调取——整段在“制造忧虑”，首句只能是“电子支付引发忧虑”。raise concerns 中 raise 可接事物主语，方向与全段一致；express 需要人作主语，ease 方向反了，hide 无叙事支撑。</p>"}, {"title": "逐项分析 · A hide（隐藏；隐瞒）", "cls": "bad", "tag": "排除 A", "log": "A hide（隐藏；隐瞒）✗ 排除——无叙事支撑", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>“电子支付隐藏忧虑”在全段风险叙事里没有着落点。</p><p style=\"color:#b91c1c\">⚠ 典型误解：hide 的“保密”义与 privacy 字面挂钩。</p>"}, {"title": "逐项分析 · B express（表达；表示）", "cls": "bad", "tag": "排除 B", "log": "B express（表达；表示）✗ 排除——主语须是人", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>express concerns 是真搭配，但主语一般是人（说出忧虑）；本题主语是“电子支付方式”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背搭配，不看主语。</p>"}, {"title": "逐项分析 · C ease（减轻；缓和）", "cls": "bad", "tag": "排除 C", "log": "C ease（减轻；缓和）✗ 排除——方向反了", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>ease concerns 也是真搭配，但方向反了——后文满纸风险，首句不可能“缓解忧虑”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：真搭配、假方向。</p>"}, {"title": "逐项分析 · D raise（引起，激起）", "cls": "good", "tag": "选定 D", "log": "D raise（引起，激起）✓ 当选——事物主语引发忧虑", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>raise concerns = 引发忧虑；raise 可接事物作主语（The policy raised concerns.），方向与全段风险叙事一致。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（raise 引起，激起）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>其四，电子支付方式可能会引发安全和隐私方面的忧虑。</b></p><p>答案选 <b>D（raise 引起，激起）</b>。</p><p><b>记忆锚点</b>：raise concerns =（事物）引发忧虑；主语是物 → raise；express 是“人说出”、ease 是“往回按”。</p><p style=\"color:#b91c1c\">最易误选：<b>B（express）</b>——express concerns 搭配最“顺口”，但主语是物不是人。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 14 空 · 电子支付“引发”了什么——raise concerns",
+  subtitle: "考点：动宾搭配（raise concerns）+ 主语限制 · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（raise 引起，激起）", "html": "<b>D raise（引起，激起）</b>。<br>完整句义：其四，电子支付方式可能会引发安全和隐私方面的忧虑。<br>记忆锚点：raise concerns =（事物）引发忧虑；主语是物 → raise；express 是“人说出”、ease 是“往回按”。<br>最易误选：<b>B（express）</b>——express concerns 搭配最“顺口”，但主语是物不是人。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 14 空 · 电子支付“引发”了什么——raise concerns</h2>
+<p>答案：<strong>D（raise 引起，激起）</strong>。</p>
+<h3>第 0 步：先立机制——主语是“物”，动词先过主语关</h3>
+<p>Fourth 引出第四条理由。空格是谓语动词，宾语 security and privacy concerns（安全与隐私方面的忧虑），主语是 electronic means of payment（物）。两把判定钥匙：其一，主语是物——能以物作主语引出忧虑的动词是 raise 一类；其二，段落方向——本段（Fourth 之后）全是风险叙事，动词必须往“制造忧虑”的方向使劲，不能往“缓解”上走。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Fourth, electronic means of payment may <code>__14__</code> security and privacy concerns.</blockquote>
+<p>___ concerns：动宾搭配位。hide / express / ease / raise 四个动词都能和 concerns 这类情绪名词组队，差异在主语限制与方向。</p>
+<h3>第 2 步：找证据——全段风险叙事：黑客改库 + 隐私泄露</h3>
+<blockquote>We often hear media reports that an unauthorized hacker has been able to access a computer database… There are concerns that government, employers, and marketers might be able to access these data, thereby violating our privacy.</blockquote>
+<p>黑客入侵、账户被盗、个人数据被政府与营销方调取——整段在“制造忧虑”，首句只能是“电子支付引发忧虑”。raise concerns 中 raise 可接事物主语，方向与全段一致；express 需要人作主语，ease 方向反了，hide 无叙事支撑。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A hide</td><td>隐藏；隐瞒</td><td>✗ 排除</td><td>“电子支付隐藏忧虑”在全段风险叙事里没有着落点。（典型误解：hide 的“保密”义与 privacy 字面挂钩。）</td></tr><tr><td>B express</td><td>表达；表示</td><td>✗ 排除</td><td>express concerns 是真搭配，但主语一般是人（说出忧虑）；本题主语是“电子支付方式”。（典型误解：只背搭配，不看主语。）</td></tr><tr><td>C ease</td><td>减轻；缓和</td><td>✗ 排除</td><td>ease concerns 也是真搭配，但方向反了——后文满纸风险，首句不可能“缓解忧虑”。（典型误解：真搭配、假方向。）</td></tr><tr><td>D raise</td><td>引起，激起</td><td>✓ 当选</td><td>raise concerns = 引发忧虑；raise 可接事物作主语（The policy raised concerns.），方向与全段风险叙事一致。（易错警示：express / ease 与 concerns 都是真搭配，主语与方向两道关都要过。）</td></tr></tbody></table>
+<p>代入后的完整句义：其四，电子支付方式可能会引发安全和隐私方面的忧虑。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>raise concerns 与 express concerns 差在哪？</strong>：raise 的主语可以是事物（The policy raised concerns.），义为“引发”；express 的主语一般是人，义为“说出、表达”。本题主语是 electronic means of payment（物），只能 raise。</li><li><strong>ease concerns 也是真搭配，为什么不行？</strong>：ease = 减轻、缓和，方向是“把忧虑按下去”；而 Fourth 之后的整段在铺陈风险（黑客、盗窃、隐私泄露），首句必须“把忧虑挑起来”。搭配真、方向假，照样排除。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（hide）</strong>：hide 的“保密”义与 privacy 字面挂钩。</li><li><strong>误选 B（express）</strong>：只背搭配，不看主语。</li><li><strong>误选 C（ease）</strong>：真搭配、假方向。</li></ul>
+<blockquote>记忆锚点：raise concerns =（事物）引发忧虑；主语是物 → raise；express 是“人说出”、ease 是“往回按”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

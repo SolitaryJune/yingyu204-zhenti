@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 16 空 · often 泄露的天机——not uncommon · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 双重否定里藏着频度判断", "cls": "key", "tag": "审题", "log": "先立机制：双重否定里藏着频度判断", "count": 0, "ribbon": null, "body": "<p>空格被三层包裹：not（否定）+ an ___ occurrence（一个 ___ 的事件）。this 回指上一句“黑客潜入数据库篡改信息”整件事。occurrence（事件、发生的事）被形容词评价的常见维度是“频率”——事件常不常见。句意再往下推：The fact… means that dishonest persons might…（这件事不稀奇，意味着坏人可能得手）——只有“常见”才能推出“风险真实存在”。所以空格填“不常见”，与 not 叠成双重否定：并非罕见 = 时有发生。</p>"}, {"title": "定位原文 · 空 16 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 16 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The fact that this is not an <b>__16__</b> occurrence means that dishonest persons might be able to access bank accounts in electronic payments systems and __17__ from someone else’s accounts.</div><p>not an ___ occurrence：否定 + 元音开头的形容词 + occurrence。unsafe / unnatural / unclear / uncommon 四个 un- 家族词，靠频度线索定 uncommon。</p>"}, {"title": "找证据 · 频度探针：上一句句首的 often", "cls": "key", "tag": "证据", "log": "找证据：频度探针：上一句句首的 often", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information stored there.</div><p>often（经常听到媒体报道）直接给出频度证据：这类事件不稀奇。not uncommon 是英语里委婉而语气更强的“很常见”；后文“坏人可能得手”的推断也只有在“常见”的前提下才成立。</p>"}, {"title": "逐项分析 · A unsafe（不安全的）", "cls": "bad", "tag": "排除 A", "log": "A unsafe（不安全的）✗ 排除——评的不是安全性", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>occurrence（事件）本身无所谓安全不安全，评价维度错位；not an unsafe occurrence 也推不出后文。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被全段 security 话题裹挟。</p>"}, {"title": "逐项分析 · B unnatural（不自然的）", "cls": "bad", "tag": "排除 B", "log": "B unnatural（不自然的）✗ 排除——无频度义", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>occurrence 没有“自然/不自然”属性，often 的铺垫用不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：un- 词族里随手抓一个。</p>"}, {"title": "逐项分析 · C unclear（不清晰的）", "cls": "bad", "tag": "排除 C", "log": "C unclear（不清晰的）✗ 排除——不修饰频率", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>unclear 修饰信息、表述，修饰“事件的发生频率”不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：词形相近的盲选。</p>"}, {"title": "逐项分析 · D uncommon（不常见的）", "cls": "good", "tag": "选定 D", "log": "D uncommon（不常见的）✓ 当选——双否定=常见", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>not an uncommon occurrence = 双重否定 → 相当常见：often 的铺垫与后文“坏人可能得手”全部接通。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（uncommon 不常见的）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>这类事件并非罕见（= 时有发生），这意味着不诚实的人有可能进入电子支付系统的银行账户，从他人账户中窃取资金。</b></p><p>答案选 <b>D（uncommon 不常见的）</b>。</p><p><b>记忆锚点</b>：not an uncommon occurrence = 并不罕见 = 时有发生；频度词 often 是“频率空”的探针；双否定 = 委婉的强调。</p><p style=\"color:#b91c1c\">最易误选：<b>A（unsafe）</b>——security 话题最近的 un- 词就是 unsafe，但本空评的是频率不是安全。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 16 空 · often 泄露的天机——not uncommon",
+  subtitle: "考点：双重否定 + 频度线索（often） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（uncommon 不常见的）", "html": "<b>D uncommon（不常见的）</b>。<br>完整句义：这类事件并非罕见（= 时有发生），这意味着不诚实的人有可能进入电子支付系统的银行账户，从他人账户中窃取资金。<br>记忆锚点：not an uncommon occurrence = 并不罕见 = 时有发生；频度词 often 是“频率空”的探针；双否定 = 委婉的强调。<br>最易误选：<b>A（unsafe）</b>——security 话题最近的 un- 词就是 unsafe，但本空评的是频率不是安全。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 16 空 · often 泄露的天机——not uncommon</h2>
+<p>答案：<strong>D（uncommon 不常见的）</strong>。</p>
+<h3>第 0 步：先立机制——双重否定里藏着频度判断</h3>
+<p>空格被三层包裹：not（否定）+ an ___ occurrence（一个 ___ 的事件）。this 回指上一句“黑客潜入数据库篡改信息”整件事。occurrence（事件、发生的事）被形容词评价的常见维度是“频率”——事件常不常见。句意再往下推：The fact… means that dishonest persons might…（这件事不稀奇，意味着坏人可能得手）——只有“常见”才能推出“风险真实存在”。所以空格填“不常见”，与 not 叠成双重否定：并非罕见 = 时有发生。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The fact that this is not an <code>__16__</code> occurrence means that dishonest persons might be able to access bank accounts in electronic payments systems and <code>__17__</code> from someone else’s accounts.</blockquote>
+<p>not an ___ occurrence：否定 + 元音开头的形容词 + occurrence。unsafe / unnatural / unclear / uncommon 四个 un- 家族词，靠频度线索定 uncommon。</p>
+<h3>第 2 步：找证据——频度探针：上一句句首的 often</h3>
+<blockquote>We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information stored there.</blockquote>
+<p>often（经常听到媒体报道）直接给出频度证据：这类事件不稀奇。not uncommon 是英语里委婉而语气更强的“很常见”；后文“坏人可能得手”的推断也只有在“常见”的前提下才成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A unsafe</td><td>不安全的</td><td>✗ 排除</td><td>occurrence（事件）本身无所谓安全不安全，评价维度错位；not an unsafe occurrence 也推不出后文。（典型误解：被全段 security 话题裹挟。）</td></tr><tr><td>B unnatural</td><td>不自然的</td><td>✗ 排除</td><td>occurrence 没有“自然/不自然”属性，often 的铺垫用不上。（典型误解：un- 词族里随手抓一个。）</td></tr><tr><td>C unclear</td><td>不清晰的</td><td>✗ 排除</td><td>unclear 修饰信息、表述，修饰“事件的发生频率”不通。（典型误解：词形相近的盲选。）</td></tr><tr><td>D uncommon</td><td>不常见的</td><td>✓ 当选</td><td>not an uncommon occurrence = 双重否定 → 相当常见：often 的铺垫与后文“坏人可能得手”全部接通。（易错警示：unsafe 与 security 最近，但本空评的是频率；often 是探针。）</td></tr></tbody></table>
+<p>代入后的完整句义：这类事件并非罕见（= 时有发生），这意味着不诚实的人有可能进入电子支付系统的银行账户，从他人账户中窃取资金。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>not uncommon 为什么算“常见”？</strong>：not + uncommon（不常见）双重否定 = “不在“不常见”之列”，即常见；英语惯用 not uncommon / not unusual 做委婉但更强调的说法。</li><li><strong>this 指什么？</strong>：the fact that this is… 中 this 回指上一句整件事：黑客访问计算机数据库并篡改其中储存的信息。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（unsafe）</strong>：被全段 security 话题裹挟。</li><li><strong>误选 B（unnatural）</strong>：un- 词族里随手抓一个。</li><li><strong>误选 C（unclear）</strong>：词形相近的盲选。</li></ul>
+<blockquote>记忆锚点：not an uncommon occurrence = 并不罕见 = 时有发生；频度词 often 是“频率空”的探针；双否定 = 委婉的强调。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

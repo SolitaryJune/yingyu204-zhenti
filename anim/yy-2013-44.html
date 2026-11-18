@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-44 动画：新题型选标题——【44】段 Shopkeepers are your friends</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：Everyone says this —— this 指标题本身",
+  body:"<p>【44】段开头 <b>Everyone says this</b>（人人都说这句话）——this 指代的是<b>缺位的标题内容</b>！这类段落先说\"这条建议很妙\"，再给操作与回报。主旨判断看<b>动词句</b>：劝你做什么、换来什么。</p>",
+  log:"\"人人都说\"开头：标题藏在动词句里"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：动作 → 回报",
+  body:"<table class=\"aw-mini\"><tr><th>【44】段句子</th><th>信息</th></tr><tr><td>② <b>Shop</b> at butchers, delis and fish-sellers <b>regularly</b>, even for small things, and <b>be super friendly</b></td><td>动作：常光顾肉铺熟食店鱼贩，买一点点也超级友善</td></tr><tr><td>③ asking if they've any knuckles of ham…which, more often than not, they'll let you have <b>for free</b></td><td>回报：开口要煲汤食材，通常免费给</td></tr></table>",
+  log:"动作（常去+友善）→ 回报（免费食材）"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:1, ribbon:{k:4, ok:false}, title:"排除 D：Remember to treat yourself（已占用＋受益方向反）",
+  body:"<p><b>D（记得犒劳自己）</b><span class=\"bad-dot\">✗</span>：③句 free（免费）容易联想到\"对自己好一点\"。但 D 的动作是<b>自己花钱享受</b>（对应【45】段存钱去好餐厅吃一顿），本段的动作是<b>对店主友善</b>、由<b>店主</b>免费送——受益方向完全不同。且 D 已被【45】占用。</p>",
+  log:"排除 D：店主送你 ≠ 自己犒劳自己"},
+ {cls:"bad", ecs:"miss", tag:"排除 F/A", count:2, ribbon:{k:6, ok:false}, title:"排除 F、A：已占用 / 无对应",
+  body:"<p><b>F（计划就是一切）</b><span class=\"bad-dot\">✗</span>：本段无 plan 关键词，F 已被【41】占用。</p><p><b>A（像农民一样生活）</b><span class=\"bad-dot\">✗</span>：even for small things（哪怕只买一点点）易被读成\"清苦\"，但本段讲的是<b>社交策略换来免费食材</b>，不是\"过苦日子\"。A 是多余项。</p>",
+  log:"排除 F（已占用）、A（无对应）"},
+ {cls:"good", ecs:"ok", tag:"锁定 C", count:3, ribbon:{k:3, ok:true}, title:"锁定 C：Shopkeepers are your friends",
+  body:"<p><b>C（店主是你的朋友）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p><b>Shop…regularly + be super friendly</b>（常去＋超级友善）↔ 店主成为你的朋友；他们让你 <b>for free</b> 拿走火腿块、牛骨、鸡架、鱼头熬汤 ↔ \"朋友\"才有的待遇。①句说它是 top tip for frugal eaters（省钱吃饭妙招）：友谊＝省钱。</p>",
+  log:"锁定 C：常去+友善→免费拿 = Shopkeepers are your friends"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, title:"结论：答案 C",
+  body:"<p><b>答案 C</b>——Shopkeepers are your friends（店主是你的朋友）。</p><p>记忆锚点：Everyone says this 的 this ＝ 标题本身；\"店主送你\"（C）与\"自己犒劳自己\"（D）受益方向相反。多余项：A、B。</p>",
+  log:"结论：【44】段标题为 Shopkeepers are your friends，答案选 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-44 · 新题型：【44】段的小标题",
+  subtitle: "考点：7 选 5 段落主旨 · 方法：动词句（动作→回报）→ 受益方向辨析 → 排除已用项",
+  counterLabel: "已核验",
+  ribbonTitle: "小标题（✓ 命中 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位段落主旨 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>Shopkeepers are your friends</b>（店主是你的朋友）＝ <b>Shop…regularly + be super friendly</b> → 熬汤食材 <b>for free</b>。记忆锚点：受益方向辨析——店主送你（C）≠ 自己犒劳自己（D，已被【45】占用）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型选标题——【44】段的小标题</h2>
+<p>答案：<strong>C</strong>（Shopkeepers are your friends，店主是你的朋友）。</p>
+<h3>第 0 步：先立机制——"俗话开头"的段落抓动词句</h3>
+<p>【44】段开头 Everyone says this（人人都说这句话）——this 指代的是<strong>缺位的标题本身</strong>！这类段落的动作是：先用标题的"内容"把话说满，再给操作与回报。所以主旨判断要看<strong>动词句</strong>：劝你做什么动作、这个动作换来什么。</p>
+<h3>第 1 步：拆段找主旨</h3>
+<table><thead><tr><th>句子</th><th>信息</th></tr></thead><tbody><tr><td>① Everyone says this, but it really is a top tip for frugal eaters</td><td>人人都说"这条"，但真是省钱吃饭的妙招</td></tr><tr><td>② <strong>Shop</strong> at butchers, delis and fish-sellers <strong>regularly</strong>, even for small things, and <strong>be super friendly</strong></td><td>常光顾肉铺、熟食店、鱼贩，哪怕买一点点，也超级友善</td></tr><tr><td>③ Soon you'll feel comfortable asking if they've any knuckles of ham…which, more often than not, they'll let you have <strong>for free</strong></td><td>久了就能开口要煲汤的火腿块、牛骨、鸡架、鱼头——通常免费给</td></tr></tbody></table>
+<p>②句是动作（常去＋友善），③句是回报（免费拿到熬汤食材）。"友善对待店主 → 换来白送的好东西"，这不就是 <strong>Shopkeepers are your friends（店主是你的朋友）</strong>？选 <strong>C</strong>。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>D Remember to treat yourself</td><td>✗</td><td>已被【45】占用＋"犒劳"联想</td></tr><tr><td>F Planning is everything</td><td>✗</td><td>已被【41】占用</td></tr><tr><td>A Live like a peasant</td><td>✗</td><td>多余项，无对应</td></tr></tbody></table>
+<ul><li><strong>误选 D——被"白得好处"带偏</strong>：③句 free（免费）容易联想到"对自己好一点"。但 D（记得犒劳自己）的动作是<strong>自己花钱享受</strong>（对应【45】段存钱去好餐厅吃一顿），而本段的动作是<strong>对店主友善</strong>、让<strong>店主</strong>免费送——受益关系的方向完全不同。D 已被【45】占用。</li><li><strong>误选 F——已占用</strong>：本段无 plan 关键词；F 属【41】。</li><li><strong>误选 A——无对应</strong>：常去买一点点（even for small things）容易被读成"过得清苦"，但本段强调的是<strong>社交策略</strong>带来免费食材，不是"像农民一样生活"；A 是多余项。</li></ul>
+<blockquote>记忆锚点：Everyone says this 的 this ＝ 标题本身；Shop…regularly + be super friendly → for free ↔ Shopkeepers are your friends（C）；"店主送你"（C）与"自己犒劳自己"（D）受益方向相反。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

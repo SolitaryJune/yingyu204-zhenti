@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-41 动画：匹配题——贝里：天价之上再增成本</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：人物匹配流水线",
+  "body": "<p>41 题题干：<b>Brian Berry</b>。匹配题机制：人名 → 定位他所在段 → 摘出观点句 → 拿七个选项逐个试改写。</p><p>本篇六七位业内人士接连出场，头号风险是<b>观点串门</b>——每选定一个答案，都要顺手登记“剩下的选项各归谁”。选项身份速览：D/E 谈房价、A 谈房价走势、F 谈影响人群、C 谈扩建限制、B 谈建筑商重估、G 谈最终受益。</p>",
+  "log": "审题：人名定位 → 观点句改写 → 登记归属"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第四段贝里的观点句",
+  "body": "<div class=\"qq\"><b>第四段：</b>Brian Berry, chief executive of the Federation of Master Builders, says the measures will require <b>new materials, testing methods, products and systems</b> to be installed. “<b>All this comes at an increased cost during a time when prices are already sky high. Inevitably, consumers will have to pay more</b>,” he says. <span class=\"cn\">（新规要求新材料、新检测方法、新产品新系统；在房价已高到天际时这一切带来成本增加，消费者必然多付钱。）</span></div>",
+  "log": "贝里：sky high 之上再增成本，消费者必然多付钱"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 1,
+  "title": "锁定 D：房价被推到更高一层",
+  "body": "<p><b>D · The new rules will take home prices to an even higher level</b> <span class=\"ok-dot\">✓</span></p><p><b>an increased cost...when prices are already sky high</b> ↔ <b>take home prices to an even higher level</b>：本已天价之上再增成本 = 更高一层。even higher 精准对应递进关系，当选。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "log": "锁定 D：already sky high + increased cost = even higher"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 E",
+  "count": 2,
+  "title": "排除 E：话是 Rolande 说的",
+  "body": "<p><b>E · Many people feel that home prices are already beyond what they can afford</b> <span class=\"bad-dot\">✗</span></p><p>对应信息 <b>priced out of homeownership</b> 出现在<b>第十段 Jonathan Rolande</b> 的引语里，且主语是“许多人觉得”。典型误解：见 sky high 就配 beyond——意思相近，但说话人不同。匹配题“话与人对齐”比“意思接近”优先。</p>",
+  "ribbon": {
+   "k": 5,
+   "ok": false
+  },
+  "log": "排除 E：beyond what they can afford 是 Rolande 的话"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 F",
+  "count": 3,
+  "title": "排除 F：门窗是 Belsham 段的事",
+  "body": "<p><b>F · The new rules will affect people whose home extensions include new windows or doors</b> <span class=\"bad-dot\">✗</span></p><p><b>new windows or doors</b> 属第五段 Gareth Belsham 的段落（any new windows or doors must be highly insulated）。典型误解：只匹配话题词、不核对说话人。</p>",
+  "ribbon": {
+   "k": 6,
+   "ok": false
+  },
+  "log": "排除 F：门窗信息属于第五段 Belsham"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 4,
+  "title": "排除 A：“暂时”是 Kelly 的专利",
+  "body": "<p><b>A · The rise of home prices is a temporary matter</b> <span class=\"bad-dot\">✗</span></p><p>“暂时性”是<b>第十一段 John Kelly</b> 的观点（prices will eventually come down, but not in the immediate future）；贝里说的是 <b>Inevitably</b>（必然涨价），毫无“暂时”义。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "log": "排除 A：暂时性属于 John Kelly"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "登记",
+  "count": 4,
+  "title": "剩余选项归属登记",
+  "body": "<p>为后续题铺路——本篇观点归属一览：</p><table class=\"aw-mini\"><tr><th>人物</th><th>段落</th><th>观点方向</th></tr><tr><td>C（扩建限制防热流失）</td><td>第七段</td><td>Thomas Goodman</td></tr><tr><td>B（建筑商重估）</td><td>第九段</td><td>Marcus Jefford</td></tr><tr><td>G（房主最终受益）</td><td>第十二段</td><td>Andrew Mellor</td></tr></table>",
+  "log": "登记：C 归 Goodman、B 归 Jefford、G 归 Mellor"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（The new rules will take home prices to an even higher level）</b>。</p><p>记忆锚点：人名 → 段落 → 他说了什么；already sky high + increased cost = an even higher level；观点串门是匹配题头号杀手。</p>",
+  "log": "结论：贝里 = 天价之上再增成本，答案选 D"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-41 · 匹配题：Brian Berry → D",
+ "subtitle": "考点：新题型人物匹配 · 方法：人名定位 → 观点句改写 → 登记归属",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项 A–G（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位人物段落 → 同义改写 → 排除干扰并登记归属。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 D",
+  "html": "<b>an increased cost when prices are already sky high ↔ take home prices to an even higher level</b>。记忆锚点：匹配题“话与人对齐”比“意思接近”优先；E 归 Rolande（第十段）、F 归 Belsham（第五段）、A 归 Kelly（第十一段）。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 新题型第 41 题 · Brian Berry 的观点匹配</h2>
+<p>答案：<strong>D（The new rules will take home prices to an even higher level 新规将使房价上升到更高的水平）</strong>。</p>
+<h3>第 0 步：先立机制——人物匹配题 = 人名定位 + 观点句改写验证</h3>
+<p>人物观点匹配的机制是一条流水线：用题干人名定位到他所在段 → 摘出他"亲口说的"观点句 → 拿七个选项逐个试改写。本篇是"多方观点"文章（六七位业内人士接连出场），最大风险是"观点串门"——把 A 先生的话配上 B 先生的名字。所以每选定一个答案，都要顺手登记"剩下的选项各归谁"，为后续题铺路。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Brian Berry, chief executive of the Federation of Master Builders, says the measures will require new materials, testing methods, products and systems to be installed. "All this comes at an increased cost during a time when prices are already sky high. Inevitably, consumers will have to pay more," he says.</blockquote>
+<p>贝里的观点链条：新规要求采用新材料、新检测方法、新产品新系统 → 这一切发生在"房价已经高到天际"（prices are already sky high）的时候，必然带来成本增加（an increased cost）→ 消费者必然多付钱（Inevitably, consumers will have to pay more）。</p>
+<h3>第 2 步：同义替换对上 D</h3>
+<p>an increased cost...when prices are already sky high ↔ take home prices to an even higher level：本已天价之上再增成本 = 房价被推到"更高"的一层。even higher 精准对应"已 sky high 还要加"的递进关系，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D take home prices to an even higher level</td><td>✓</td><td>increased cost when prices are already sky high 的改写。</td></tr><tr><td>A The rise of home prices is a temporary matter</td><td>✗</td><td>"暂时性"是第十一段 John Kelly 的观点（prices will eventually come down, but not in the immediate future）；贝里说的是 Inevitably（必然涨价），毫无"暂时"义。（典型误解：把房价话题的选项随手配给出现过的涨价论者。）</td></tr><tr><td>E Many people feel that home prices are already beyond what they can afford</td><td>✗</td><td>对应信息 priced out of homeownership 出现在第十段 Jonathan Rolande 的引语里，且主语是"许多人觉得"，不是贝里的表述。（典型误解：见 sky high 就配 beyond——两处都是房价高的描述，但说话人不同。）</td></tr><tr><td>F The new rules will affect people whose home extensions include new windows or doors</td><td>✗</td><td>new windows or doors 属第五段 Gareth Belsham 的段落（any new windows or doors must be highly insulated）。（典型误解：只匹配话题词、不核对说话人。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>贝里说"消费者多付钱"，跟"房价更高"是一回事吗？</strong>：是同一链条的两端——建房成本涨 → 房价与居住支出涨，consumers pay more 就是"价格更高"的落点。</li><li><strong>选项文本残缺怎么办？</strong>：B/D/E 的选项尾部在数据中被截断，按参考解析补全为完整句（D = ...an even higher level），答案字母口径不变。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 E</strong>：sky high 与 beyond what they can afford 意思相近，但后者出自 Rolande 之口——匹配题"话与人对齐"比"意思接近"优先。</li><li><strong>误选 A</strong>：Kelly 与 Berry 都谈房价走向，方向相反（暂时涨 vs 必然涨），先把"暂时"的专利记在 Kelly 名下。</li></ul>
+<blockquote>记忆锚点：人名 → 段落 → 他说了什么；already sky high + increased cost = an even higher level；观点串门是匹配题头号杀手。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

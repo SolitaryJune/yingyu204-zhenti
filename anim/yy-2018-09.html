@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-09 · 其他刺激，____指甲刮黑板声与恶心昆虫图：A rather than / B regardless of / C such as / D owing to</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 9 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 9 在 other stimuli 与两个例子之间的短语连接词位；考点：句内语义逻辑（短语连接词辨析）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Subsequent experiments reproduced this effect with other stimuli, <b>__9__</b> the sound of fingernails on a chalkboard and photographs of disgusting insects.</div><p>空 9 是逗号后的短语连接词，左边是 <b>other stimuli</b>（泛指的其他刺激），右边是 <b>the sound... and photographs...</b> 两个具体名词短语——连接词的性质由两边的关系决定。</p>"
+ },
+ {
+  "title": "立机制 · 泛指 + 具体列举 = 举例逻辑",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：other stimuli（泛）→ 指甲刮黑板声、昆虫图（具体）→ such as",
+  "body": "<p>左边 other stimuli 是<b>泛指</b>，右边指甲刮黑板的声音、恶心昆虫的照片是两个<b>具体实例</b>——典型的大类 + 举例结构。such as（例如）专门引出同位举例；而 rather than（取前舍后）、regardless of（不管、不顾）、owing to（由于）都不构成泛指与实例的关系。</p>"
+ },
+ {
+  "title": "找证据 · 两个例子都落在令人不快的刺激语义场",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：other stimuli 呼应上段 unpleasant stimuli → 例子是佐证不是原因",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...behavioral scientists ... tested students’ willingness to expose themselves to unpleasant stimuli in an effort to satisfy curiosity.</div><p>上段的实验用的是 unpleasant stimuli（不快刺激），本句说后续实验换用了 <b>other</b> stimuli——刮擦声与恶心图片正是这类不快刺激的另外两个例子。它们与 other stimuli 是<b>同一层级的成员列举</b>，既不是被舍弃的备选（rather than），不是让步条件（regardless of），也不是原因（owing to）。</p>"
+ },
+ {
+  "title": "逐项分析 · A rather than（而不是）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A rather than（而不是）✗ 排除",
+  "body": "<p><b>排除。</b>rather than 连接的前后项是取前舍后的对立选择，但其他刺激与两个例子不是取舍关系，例子就是 stimuli 本身。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见逗号后接名词短语就往关系词上套，没先判泛指与实例的关系。</p>"
+ },
+ {
+  "title": "逐项分析 · B regardless of（不管；不顾）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B regardless of（不管；不顾）✗ 排除",
+  "body": "<p><b>排除。</b>regardless of 引出让步（不管是什么刺激），但原文要的是具体列出刺激是什么，不是刺激是什么都无所谓。</p>"
+ },
+ {
+  "title": "逐项分析 · C such as（例如）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C such as（例如）✓ 当选",
+  "body": "<p><b>当选。</b>such as 引出同位举例：other stimuli 之下列出刮擦声、昆虫图两个实例，方向与语义都吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · D owing to（由于；因为）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D owing to（由于；因为）✗ 排除",
+  "body": "<p><b>排除。</b>owing to 引出原因——实验再现效应是因为指甲刮黑板声，因果倒置：刺激物是被使用的素材，不是效应再现的原因。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "count": 3,
+  "ribbon": null,
+  "log": "代入校验：空 9 填 such as（例如）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Subsequent experiments reproduced this effect with other stimuli, <b>such as</b> the sound of fingernails on a chalkboard and photographs of disgusting insects.</div><p>随后的实验用其他刺激再现了这一效应，例如指甲刮擦黑板的声音和令人恶心的昆虫照片。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（such as 例如）——见结论卡",
+  "body": "<p>答案选 <b>C（such as 例如）</b>。</p><p><b>记忆锚点</b>：泛指词 + 具体列举 = 举例逻辑 → such as；rather than 前后必须是同类取舍，owing to 后接原因——先判关系再选词。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（owing to）</b>：把逗号后的名词短语当成原因，忽略它其实是 other stimuli 的实例列举——素材不是原因。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 9 空 · 其他刺激，____指甲刮黑板声与恶心昆虫图：A rather than / B regardless of / C such as / D owing to",
+  subtitle: "考点：句内语义逻辑（短语连接词辨析） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（such as 例如）", "html": "<b>C（such as 例如）</b>。<br>记忆锚点：泛指词 + 具体列举 = 举例逻辑 → such as；rather than 前后必须是同类取舍，owing to 后接原因——先判关系再选词。<br>最易误选：<b>D（owing to）</b>——把逗号后的名词短语当成原因，忽略它其实是 other stimuli 的实例列举——素材不是原因。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 9 空 · 其他刺激，____指甲刮黑板声与恶心昆虫图</h2>
+<p>答案：<strong>C（such as 例如）</strong>。</p>
+<h3>第 0 步：先立机制——泛指 + 具体列举 = 举例逻辑</h3>
+<p>左边 other stimuli 是<strong>泛指</strong>，右边指甲刮黑板的声音、恶心昆虫的照片是两个<strong>具体实例</strong>——典型的大类 + 举例结构。such as（例如）专门引出同位举例；而 rather than（取前舍后）、regardless of（不管、不顾）、owing to（由于）都不构成泛指与实例的关系。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Subsequent experiments reproduced this effect with other stimuli, <strong>__9__</strong> the sound of fingernails on a chalkboard and photographs of disgusting insects.</blockquote>
+<p>空 9 是逗号后的短语连接词，左边是 <strong>other stimuli</strong>（泛指的其他刺激），右边是 <strong>the sound... and photographs...</strong> 两个具体名词短语——连接词的性质由两边的关系决定。</p>
+<h3>第 2 步：找证据——两个例子都落在令人不快的刺激语义场</h3>
+<blockquote>...behavioral scientists ... tested students’ willingness to expose themselves to unpleasant stimuli in an effort to satisfy curiosity.</blockquote>
+<p>上段的实验用的是 unpleasant stimuli（不快刺激），本句说后续实验换用了 <strong>other</strong> stimuli——刮擦声与恶心图片正是这类不快刺激的另外两个例子。它们与 other stimuli 是<strong>同一层级的成员列举</strong>，既不是被舍弃的备选（rather than），不是让步条件（regardless of），也不是原因（owing to）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A rather than</td><td>而不是</td><td>✗ 排除</td><td>rather than 连接的前后项是取前舍后的对立选择，但其他刺激与两个例子不是取舍关系，例子就是 stimuli 本身。（典型误解：见逗号后接名词短语就往关系词上套，没先判泛指与实例的关系。）</td></tr><tr><td>B regardless of</td><td>不管；不顾</td><td>✗ 排除</td><td>regardless of 引出让步（不管是什么刺激），但原文要的是具体列出刺激是什么，不是刺激是什么都无所谓。</td></tr><tr><td>C such as</td><td>例如</td><td>✓ 当选</td><td>such as 引出同位举例：other stimuli 之下列出刮擦声、昆虫图两个实例，方向与语义都吻合。</td></tr><tr><td>D owing to</td><td>由于；因为</td><td>✗ 排除</td><td>owing to 引出原因——实验再现效应是因为指甲刮黑板声，因果倒置：刺激物是被使用的素材，不是效应再现的原因。</td></tr></tbody></table>
+<p>代入后的完整句义：随后的实验用其他刺激再现了这一效应，例如指甲刮擦黑板的声音和令人恶心的昆虫照片。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（owing to）</strong>：把逗号后的名词短语当成原因，忽略它其实是 other stimuli 的实例列举——素材不是原因。</li></ul>
+<blockquote>记忆锚点：泛指词 + 具体列举 = 举例逻辑 → such as；rather than 前后必须是同类取舍，owing to 后接原因——先判关系再选词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

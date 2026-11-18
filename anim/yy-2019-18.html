@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-18 · 2019 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 18 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 18 所在句，考点：句内语义逻辑 + 形容词辨析（感情色彩）", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I'm experiencing increased zeal for working out since I no longer carry the burden of a __18__ morning weigh-in.</div><p>空格是修饰 <b>morning weigh-in</b>（晨间称重）的形容词，而它又被名词 <b>burden</b>（负担）管辖——burden 是<b>负面名词</b>，它的定语必须延续负面基调。</p>"}, {"title": "去上文找“负担”的具体内容", "cls": "key", "tag": "证据", "log": "第三段给出负担的内容：每日称重却三四周才见变化——天天上秤、天天失望", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I also found that weighing myself daily did not provide an accurate picture of the hard work and progress I was making in the gym. It takes about three weeks to a month to notice significant changes in your weight after altering your training program.</div><p>第三段说得很清楚：每天称重，但体重变化要<b>三周到一个月</b>才看得出来——天天上秤、天天看不到回报，这份“负担”就是<b>失望</b>。</p>"}, {"title": "逐项分析 · A disappointing（令人失望的）", "cls": "good", "tag": "选定 A", "log": "A disappointing（令人失望的） ✓ 当选——每日称重却看不到明显变化 → 失望；与 burden 的负面基调一致，并和第三段“每日称重给不出准确图景”直接呼应", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>每日称重却看不到明显变化 → 失望；与 burden 的负面基调一致，并和第三段“每日称重给不出准确图景”直接呼应。</p><p>代入读作：“我不再背负<b>令人失望的</b>晨间称重带来的负担”——语义、感情色彩双双成立。</p>"}, {"title": "逐项分析 · B surprising（使人吃惊的）", "cls": "bad", "tag": "排除 B", "log": "B surprising（使人吃惊的） ✗ 排除——surprising 是中性词：惊讶可以是“惊喜变轻”也可以是“意外变重”；surprising morning weigh-in 接不住 burden 的负面语义", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>surprising 是中性词：惊讶可以是“惊喜变轻”也可以是“意外变重”；surprising morning weigh-in 接不住 burden 的负面语义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：从第二段“我曾增重（肌肉）”倒推出“结果出乎意料”，是语境外的臆断。</p>"}, {"title": "逐项分析 · C restricting（限制的）", "cls": "bad", "tag": "排除 C", "log": "C restricting（限制的） ✗ 排除——restrict 的对象是被限制者（如 restricting elements 限制性因素）；“具有限制性的称重”在逻辑上立不住", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>restrict 的对象是被限制者（如 restricting elements 限制性因素）；“具有限制性的称重”在逻辑上立不住。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背词义清单不验证搭配，restricting 后面接不出“称重”。</p>"}, {"title": "逐项分析 · D consuming（强烈的，支配人的）", "cls": "bad", "tag": "排除 D", "log": "D consuming（强烈的，支配人的） ✗ 排除——a consuming passion / hatred 形容强烈到压倒一切的“感情、兴趣”，不能用来修饰“称重”这个行为", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>a consuming passion / hatred 形容强烈到压倒一切的“感情、兴趣”，不能用来修饰“称重”这个行为。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 consuming 的“占用时间精力”义泛化到任何名词上。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（disappointing 令人失望的）——burden 的定语先做感情色彩过滤", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>我锻炼的热情高涨，因为我不再背负“令人失望的晨间称重”这份负担。</b></p><p>答案选 <b>A（disappointing 令人失望的，令人沮丧的）</b>。</p><p><b>记忆锚点</b>：burden / unpleasant 类负面名词的定语，先做“感情色彩过滤”；disappointing 的证据链在上文——daily weigh-in + 三四周才见变化 = 天天失望。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>B（surprising）</b>：把“当初没降反增”臆断成“意外”。但 surprising 可好可坏，接不住 burden 的负面语义。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 完形第 18 空 · burden of a ____ morning weigh-in",
+  subtitle: "考点：句内语义逻辑（形容词辨析·感情色彩）· burden 定基调 → 上文找内容 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（disappointing 令人失望的）", "html": "<b>A disappointing（令人失望的）</b>：burden 锁定负面基调；第三段“每日称重、三四周才见变化”给出失望的来源。<br>最易误选：<b>B（surprising）</b>——中性词接不住负担；且“出乎意料”是语境外臆断。<br>记忆锚点：负面名词的定语先过滤感情色彩；disappointing ↔ 每日称重看不到变化。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：空 18 的形容词——“负担”的定语该是什么味道</h2>
+<p>答案：<strong>A（disappointing 令人失望的）</strong>。</p>
+<h3>第 0 步：先立机制——burden 已经把感情色彩锁死</h3>
+<p>空格所在句：I'm experiencing increased zeal for working out since I no longer carry the burden of a __18__ morning weigh-in. 两个先手信息：</p>
+<ul><li>空格是修饰 morning weigh-in（晨间称重）的形容词，而它又被名词 <strong>burden（负担）</strong>管辖——burden 是负面名词，它的定语必须延续负面基调，凡是“可好可坏”的中性词先出局；</li><li>“负担”的具体内容不在本句，要去上文找：每天称重到底带来什么负担？</li></ul>
+<h3>第 1 步：去上文找“负担”的内容</h3>
+<blockquote>I also found that weighing myself daily did not provide an accurate picture of the hard work and progress I was making in the gym. It takes about three weeks to a month to notice significant changes in your weight after altering your training program.</blockquote>
+<p>第三段说得很清楚：每天称重，但体重变化要<strong>三周到一个月</strong>才看得出来——天天上秤、天天看不到回报，这份“负担”就是<strong>失望</strong>。</p>
+<h3>第 2 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A disappointing</td><td>令人失望的</td><td>✓ 每日称重却看不到明显变化 → 失望，负面基调与 burden 一致</td></tr><tr><td>B surprising</td><td>使人吃惊的</td><td>✗ 中性词：惊讶可以是惊喜；与 burden 的负面语义冲突</td></tr><tr><td>C restricting</td><td>限制的</td><td>✗ restrict 的对象是被限制者，“限制性的称重”逻辑不通</td></tr><tr><td>D consuming</td><td>强烈得支配人的</td><td>✗ a consuming passion/hatred 形容强烈感情，与称重不搭</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：从第二段“我曾增重（肌肉）”倒推出“称重结果出乎意料”。但 surprising morning weigh-in 可能是“意外变轻”的好消息，接不住 burden 的负面语义；且“失望”才与第三段“每日称重给不出准确图景”直接呼应。</li><li><strong>误选 C/D</strong>：只看词义清单不验证搭配——restricting 要有限定对象，consuming 要配“感情/兴趣”，morning weigh-in 两者都接不上。</li></ul>
+<blockquote>记忆锚点：burden 类负面名词的定语，先做“感情色彩过滤”；disappointing 的证据链在上文：daily weigh-in + 三四周才见变化 = 天天失望。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

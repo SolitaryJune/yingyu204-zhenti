@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-34 动画：细节题——湖滨公寓哪句是“真话”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：专有名词定位 + 逐句对号",
+  body:"<p>题干：<b>What is true about the apartments Mies built on Chicago's Lake Shore Drive?</b>（关于湖滨公寓，哪项正确？）</p><p>专有名词 Lake Shore Drive 只在<b>第五段</b>集中出现。这一段信息密度极高——短短两句埋下 A、B、C、D 四个选项的出处。细节题不找“感觉对的”，而是逐项领回原文<b>核对方向</b>。</p>",
+  log:"细节题：专有名词定位到第五段，逐句对号"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第五段两句埋四个选项",
+  body:"<div class=\"qq\"><b>第五段①：</b>The apartments…were <b>smaller</b> – two-bedroom units under 1,000 square feet – than those in their <b>older neighbors</b> along the city's Gold Coast. <span class=\"cn\">（译：湖滨公寓比黄金海岸的老邻居更小——两居室、不到 1000 平方英尺。）</span></div><div class=\"qq\"><b>第五段②：</b>But they were popular because of their airy glass walls, the views they afforded and <b>the elegance of the buildings' details and proportions</b>, <b>the architectural equivalent of the abstract art</b> so popular at the time. <span class=\"cn\">（译：……建筑细节与比例的优雅，是当时流行的抽象艺术在建筑上的对等物。）</span></div>",
+  log:"定位第五段：smaller / details and proportions / equivalent of abstract art"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：They ignored details and proportions",
+  body:"<p><b>A（忽视细节与比例）</b><span class=\"bad-dot\">✗</span>：②句说公寓受欢迎的原因之一正是 the <b>elegance</b> of the buildings' <b>details and proportions</b>——细节与比例是优雅的来源。</p><p>A 的 ignored（忽视）把方向翻转：不是“忽视”，恰是“讲究”。看见关键词就选、不看动词方向 → 误选 A。</p>",
+  log:"排除 A：细节与比例恰是优雅来源，ignored 方向翻转"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:2, ribbon:{k:2, ok:false}, title:"排除 B：materials popular at that time",
+  body:"<p><b>B（用当时流行的材料）</b><span class=\"bad-dot\">✗</span>：材料出自第四段③句——</p><div class=\"qq\">he employed metal, glass and laminated wood – materials that we take for granted today but that in the 1940s <b>symbolized the future</b>. <span class=\"cn\">（译：金属、玻璃、层压木——今天习以为常，在 1940 年代却象征未来。）</span></div><p>“象征未来”＝当时<b>超前</b>、鲜有人用；B 说 popular at that time（当时流行），方向反了。</p>",
+  log:"排除 B：材料在 1940s 象征未来，不是“当时流行”"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：more spacious than neighboring buildings",
+  body:"<p><b>C（比邻楼更宽敞）</b><span class=\"bad-dot\">✗</span>：①句 <b>smaller</b> than those in their older neighbors——明明白白的比较级：比黄金海岸老建筑<b>更小</b>（不到 1000 平方英尺）。</p><p>C 的 more spacious（更宽敞）把比较方向掉头。漏看 smaller 或想当然“塔楼=大” → 误选 C。</p>",
+  log:"排除 C：原文 smaller，不是 more spacious"},
+ {cls:"good", ecs:"ok", tag:"锁定 D", count:4, ribbon:{k:4, ok:true}, title:"锁定 D：shared some characteristics of abstract art",
+  body:"<p><b>D（具备抽象艺术的某些特征）</b><span class=\"ok-dot\">✓</span>：②句末 <b>the architectural equivalent of the abstract art</b> so popular at the time——抽象艺术在建筑上的<b>对等物</b>。</p><p>替换链：the architectural <b>equivalent of</b> the abstract art ↔ <b>shared some characteristics of</b> abstract art（对等物＝共享某些特征）。“对等”不是“等于”，some characteristics 的模糊度刚好安全 → D。</p>",
+  log:"锁定 D：equivalent of the abstract art = shared some characteristics"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 D",
+  body:"<p><b>答案 D</b>——湖滨公寓是“抽象艺术的对等物”。</p><p>记忆锚点：细节题第五段一句埋三选项（smaller／details and proportions／equivalent of abstract art）；ignored / popular / more spacious 三个动词方向一翻就错。</p>",
+  log:"结论：湖滨公寓具备抽象艺术的某些特征，答案选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-34 · 细节题：湖滨公寓哪句是“真话”",
+  subtitle: "考点：Text3 第五段事实细节 · 方法：专有名词定位 → 逐句对号 → 方向核对",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>the architectural equivalent of the abstract art</b>（抽象艺术的对等物）＝ shared some characteristics of abstract art。记忆锚点：A/B/C 全是反向翻转——details and proportions 是优雅来源（非 ignored）、玻璃材料象征未来（非当时流行）、公寓 smaller（非更宽敞）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：事实细节题——湖滨公寓的"真话"只有一句</h2>
+<p>答案：<strong>D</strong>（They shared some characteristics of abstract art 具备抽象艺术的某些特征）。</p>
+<h3>第 0 步：先立机制——细节题靠"逐句对号"</h3>
+<p>题干给出具体对象 the apartments Mies built on Chicago's Lake Shore Drive（芝加哥湖滨公寓），这种"专有名词定位"最可靠：它只在第五段集中出现，而这一段的每一句恰好对应一个选项。细节题不是找"感觉对的"，而是把四个选项逐个领回原文，看哪一项的说法方向没被翻转。</p>
+<h3>第 1 步：定位原文，拆出三个"选项埋藏点"</h3>
+<p>第五段两句话，信息密度极高：</p>
+<blockquote>The apartments…were <strong>smaller</strong> – two-bedroom units under 1,000 square feet – than those in their <strong>older neighbors</strong> along the city's Gold Coast.（比黄金海岸的老邻居更小……）<br/>But they were popular because of their airy glass walls, the views they afforded and <strong>the elegance of the buildings' details and proportions</strong>, <strong>the architectural equivalent of the abstract art</strong> so popular at the time.（……是当时流行的抽象艺术在建筑上的对等物。）</blockquote>
+<p>D 的替换链：<strong>the architectural equivalent of the abstract art</strong>（抽象艺术的建筑对等物）↔ shared some characteristics of abstract art（具备抽象艺术的某些共同特征）。"对等物"＝共享特征，方向一致 → 选 <strong>D</strong>。</p>
+<h3>第 2 步：干扰项归因——A/B/C 全是反向翻转</h3>
+<table><thead><tr><th>选项</th><th>原文埋藏点</th><th>翻转方向</th></tr></thead><tbody><tr><td>A 忽视细节和比例</td><td>②句 details and proportions</td><td>忽视 ↔ 恰是优雅来源</td></tr><tr><td>B 用当时流行的材料</td><td>第四段③句 1940s</td><td>流行 ↔ 象征未来</td></tr><tr><td>C 比邻楼更宽敞</td><td>①句 smaller</td><td>宽敞 ↔ 更小</td></tr><tr><td>D 具备抽象艺术特征</td><td>②句 equivalent of</td><td>一致 → 正确</td></tr></tbody></table>
+<ul><li><strong>误选 A——看见关键词就选，没看动词</strong>：②句说公寓受欢迎的原因之一是 the elegance of the buildings' <strong>details and proportions</strong>——细节与比例恰是优雅的来源，A 却说 ignored（忽视），方向完全相反。</li><li><strong>误选 B——把"前卫"当成"流行"</strong>：回溯第四段③句，metal, glass and laminated wood "今天习以为常，但在 1940s <strong>symbolized the future</strong>"——当时很少有人用，是超前的，不是 popular at that time。</li><li><strong>误选 C——漏看比较对象</strong>：①句 smaller than…older neighbors 明明白白：比老建筑<strong>更小</strong>；C 说 more spacious（更宽敞），方向掉头。</li></ul>
+<blockquote>记忆锚点：细节题 = 专有名词定位 + 逐句对号；第五段一句话埋三个选项（smaller／details and proportions／equivalent of abstract art），动词方向（ignored/popular/more）一翻就错；equivalent of = 共享特征 → D。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

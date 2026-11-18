@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-08 · 2011 完形第 8 空 · 一个还不存在的联合体系，该对它做什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 8 所在句", "cls": "key", "tag": "定位", "log": "定位原文：The idea is to __8__ a federation of private online identity systems", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The idea is to <b>__8__</b> a federation of private online identity systems.</div><p>The idea is to do sth——“构想是去……”，说明动作<b>面向未来</b>。先问：宾语这个联合体系现在存在吗？动词必须与它的“存在状态”匹配。</p>"}, {"title": "找证据 · 第 4 空句已定性：这只是个提议", "cls": "key", "tag": "证据", "log": "找证据：offered … a proposal —— 提议尚待采纳，联合体还没建立", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Last month, Howard Schmidt … offered the federal government a proposal to make the Web a safer place.</div><p>Schmidt 一个月前刚<b>提出</b>这项提议，本句的 The idea is to… 是对提议内容的展开：联合体从无到有 → <b>创建</b>。</p>"}, {"title": "逐项分析 · C create（创建，建立）", "cls": "good", "tag": "选定 C", "log": "C create（创建） ✓ 当选——体系不存在，动作是“从无到有”", "count": 1, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>构想是“创建”一个私营在线身份系统的联合体：动作与宾语的存在状态匹配。</p>"}, {"title": "逐项分析 · A dismiss（否决，不予理会）", "cls": "bad", "tag": "排除 A", "log": "A dismiss ✗ 排除——对象还没出生，谈何否决", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>dismiss 的前提是对象已摆在面前；体系尚未建立，“否决”方向反了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把后文反对者的态度，错安到这个 idea 的头上。</p>"}, {"title": "逐项分析 · B discover（发现）", "cls": "bad", "tag": "排除 B", "log": "B discover ✗ 排除——discover 只针对已存在的事物", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>discover 用于“已存在但未被知晓”的对象；联合体尚不存在，无从发现。</p><p style=\"color:#b91c1c\">⚠ 典型误解：中文“发现/建立”近义混淆。</p>"}, {"title": "逐项分析 · D improve（改善）", "cls": "bad", "tag": "排除 D", "log": "D improve ✗ 排除——改善的前提是已存在且运转不佳", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>体系第一步是“建”不是“改”；此处白手起家，谈不上修修补补。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把全文“更安全”的目的，偷换成“改善”的动作。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（create 创建）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>这个构想是要创建一个由私营在线身份系统组成的联合体系。</b></p><p>答案选 <b>C（create 创建，建立）</b>。</p><p><b>记忆锚点</b>：动词空先问“宾语存在吗”——不存在 → create；discover 要早已存在、improve 要先有再改、dismiss 要先有才可否决；The idea is to do = 面向未来。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 8 空 · 一个还不存在的联合体系，该对它做什么",
+  subtitle: "考点：上下文语义（动词）+ 动作与宾语“存在状态”的匹配 · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（create）", "html": "<b>C create（创建，建立）</b>：提议尚未落地，联合体系从无到有 → 创建。<br>记忆锚点：动词空先问“宾语存在吗”——不存在选 create；discover/improve/dismiss 都要求对象先存在。<br>最易误选：<b>B（discover）</b>——中文“发现/开创”近义混淆。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 8 空 · 一个还不存在的联合体系，该对它做什么</h2>
+<p>答案：<strong>C（create 创建，建立）</strong>。</p>
+<h3>第 0 步：先立机制——动词与宾语的“存在状态”要匹配</h3>
+<p>空格动词的宾语是 a federation of private online identity systems（私营在线身份系统的联合体）。选动词前先问一句：这个联合体<strong>现在存在吗</strong>？动词的选择必须与答案匹配——不存在的东西只能“创建”，已存在且没落地的构想谈不上“发现”，已存在且出了毛病才谈得上“改善”，被否定才谈得上“否决”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The idea is to __8__ a federation of private online identity systems.</blockquote>
+<p>句型本身就是答案的一半：The idea is to do sth——“构想是去……”，说明这是<strong>面向未来的动作</strong>，对象在动作发生前不存在。</p>
+<h3>第 2 步：找证据——第 4 空句已经定性：这只是个提议</h3>
+<blockquote>Last month, Howard Schmidt … offered the federal government a proposal to make the Web a safer place.</blockquote>
+<p>Schmidt 一个月前刚向政府<strong>提出</strong>这项提议（proposal），下文才有 The idea is to...；提议尚待采纳，联合体当然还没建立——从无到有，选 create。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C create</td><td>创建</td><td>✓ 当选</td><td>体系尚不存在，The idea is to create... “构想是创建一个……联合体”，动作与宾语的存在状态匹配。</td></tr><tr><td>A dismiss</td><td>否决，不予理会</td><td>✗ 排除</td><td>dismiss 的前提是对象已经摆在面前；东西还没出生，谈何否决——方向反了。（典型误解：担心隐私的人会 dismiss——那是后文反对者的态度，不是这个 idea 的内容。）</td></tr><tr><td>B discover</td><td>发现</td><td>✗ 排除</td><td>discover 只能针对<strong>已存在</strong>但未被知晓的事物；联合体尚不存在，无从发现。（典型误解：中文“发现/建立”近义混淆。）</td></tr><tr><td>D improve</td><td>改善</td><td>✗ 排除</td><td>improve 的前提是对象已存在且运转不佳；此处是白手起家，不是修修补补。（典型误解：把全文“让网络更安全”的目的，迁移成“改善系统”的动作。）</td></tr></tbody></table>
+<p>代入后的完整句义：这个构想是要创建一个由私营在线身份系统组成的联合体系。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>discover 不也有“找到了（一个办法）”的用法吗？</strong>：discover a solution 的宾语是“办法”，且暗示它一直在那里等人找到；a federation 是要<strong>建</strong>出来的组织体系，不是被找到的现成物。</li><li><strong>improve 为什么不对，“改善网络安全”不正是全文目的吗？</strong>：全文目的是安全，但<strong>这个空的动作对象是联合体系本身</strong>——体系还没建立，第一步必然是“建”，不是“改”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（discover）</strong>：被中文近义“发现/开创”带偏，没核“对象是否已存在”。</li><li><strong>误选 D（improve）</strong>：把全文目的（更安全）偷换成动词（改善），动作对象张冠李戴。</li><li><strong>误选 A（dismiss）</strong>：把反对者的态度错安到提议者头上。</li></ul>
+<blockquote>记忆锚点：动词空先问“宾语存在吗”——不存在 → create；discover 要对象早已存在、improve 要先有再改、dismiss 要先有才谈得上否决；The idea is to do = 面向未来的动作。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

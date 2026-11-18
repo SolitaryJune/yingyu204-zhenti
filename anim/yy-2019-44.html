@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-44 新题型匹配：Aaron Norris——HGTV 归纳成 the media</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：44 · Aaron Norris（The Norris Group）',
+  'body':'<p>新题型机制：<b>人名是锚点</b>；匹配常做<b>具体→抽象</b>的归纳替换——认出"归纳"，才不会被字面差异吓退。</p><p>Aaron Norris 锚定第十一至十三段。</p>',
+  'log':'审题：人名锚点 Aaron Norris → 第十一至十三段'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第十一段观点 + 第十二段引语',
+  'body':'<div class="qq"><b>第十一段：</b>The other issue is that <b>many children – especially older ones – may base their real state knowledge on HGTV shows</b>, said <b>Aaron Norris</b>.<span class="cn">（另一个问题是，许多孩子——尤其年龄大些的——把房地产知识建立在 HGTV 节目上。）</span></div><div class="qq"><b>第十二段：</b>"<b>HGTV has seriously changed how people view real estate. It\'s not shelter, it\'s a lifestyle.</b> With that mindset change come some serious money consequences."<span class="cn">（"HGTV 严重改变了人们看待房地产的方式。那不是住所，是一种生活方式。"随之而来的是严重的金钱后果。）</span></div>',
+  'log':'定位：Norris = 许多孩子的房产认知被 HGTV 节目塑造'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：influenced by the media（具体→抽象）',
+  'body':'<table class="aw-mini"><tr><th>选项 G</th><th>原文</th><th>替换方向</th></tr><tr><td><b>many children</b></td><td>many children</td><td>原词复现</td></tr><tr><td><b>views on real estate</b></td><td>how people view real estate / real state knowledge</td><td>同根词</td></tr><tr><td><b>influenced by the media</b></td><td>base... on HGTV shows / HGTV has seriously changed...</td><td>具体→抽象：HGTV（电视真人秀频道）= the media（媒体）</td></tr></table>',
+  'log':'替换：HGTV 节目归纳为 the media；base...on / changed 归纳为 influenced'},
+ {'cls':'good','ecs':'ok','tag':'锁定 G','count':1,'ribbon':{'k':7,'ok':true},
+  'title':'锁定 G：孩子的房产观受媒体影响',
+  'body':'<p><b>G · assumes that many children\'s views on real estate are influenced by the media.</b><span class="ok-dot"> ✓</span></p><p>many children 复现；influenced 收编 base...on 与 changed；the media 收编 HGTV 节目——<b>具体到抽象，归纳成立</b>。</p>',
+  'log':'锁定 G：HGTV → the media，归纳替换成立'},
+ {'cls':'bad','ecs':'miss','tag':'辨析 E','count':2,'ribbon':{'k':5,'ok':false},
+  'title':'辨析 E：friends 是别人的词',
+  'body':'<p><b>E · notes that aspects like children\'s friends and social activities should be considered</b><span class="bad-dot"> ✗</span></p><p>那是文中<b>未被编号</b>的 Greg Jaroszewski 的观点——friends / social activities 在 Norris 的三段里毫无对应。认人比认词重要；F（基于需要而非意见）是 Gurner 的，B（隐瞒）是第三段老一辈做法，均无人认领于本题。</p>',
+  'log':'辨析：E 属于未编号的 Jaroszewski，与 Norris 无关'},
+ {'cls':'good','ecs':'done','tag':'结论','count':2,
+  'title':'结论：44 选 G',
+  'body':'<p><b>44 → G</b>——HGTV 节目 = the media；base...on / changed = influenced。</p><p>记忆锚点：匹配题要会"具体→抽象"；观点认主人，friends 是别人的词。</p>',
+  'log':'结论：Aaron Norris → G，答案 G'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-44 · 新题型匹配：Aaron Norris 的观点",
+  subtitle: "考点：Text5（买房与孩子）观点匹配 · 方法：人名锚点 → 具体→抽象归纳",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 匹配 / ✗ 落选）",
+  intro: "点击「▶ 播放」逐步展开：人名定位 → HGTV 归纳为 the media → 干扰项辨析。",
+  snaps: snaps,
+  result: {
+    big: "44 → G",
+    html: "<b>具体→抽象的归纳</b>：base their knowledge on <b>HGTV shows</b> / HGTV has <b>changed</b> how people view real estate → views on real estate are <b>influenced by the media</b>。E（friends）是未编号人物 Jaroszewski 的词。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——专有名词 HGTV 归纳成 the media（Aaron Norris）</h2>
+<p>答案：<strong>G（assumes that many children's views on real estate are influenced by the media）</strong>。</p>
+<h3>第 0 步：先立机制——人名锚点 + 具体到抽象的归纳</h3>
+<p>Aaron Norris 锚定第十一至十三段。第十一段给观点：许多孩子——尤其是年龄大些的——<strong>把房地产知识建立在 HGTV 节目上</strong>；第十二段引语展开：HGTV 严重改变了人们看待房地产的方式——"那不是住所，是一种生活方式"，随之而来的是严重的金钱后果。选项 G 做了两个归纳：把具体的 HGTV（电视装修真人秀频道）<strong>归纳成抽象的 the media（媒体）</strong>，把 base...on / changed <strong>归纳成 influenced</strong>——具体→抽象是匹配题的常规替换方向，认出"归纳"才不会被字面差异吓退。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The other issue is that many children – especially older ones – may base their real state knowledge on HGTV shows, said Aaron Norris...<br/>"HGTV has seriously changed how people view real estate. It's not shelter, it's a lifestyle. With that mindset change come some serious money consequences."</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 G</th><th>原文</th></tr></thead><tbody><tr><td>many children</td><td>many children（原词复现）</td></tr><tr><td>views on real estate</td><td>how people view real estate / real state knowledge</td></tr><tr><td>influenced by the media</td><td>base... on HGTV shows / HGTV has seriously changed...</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>E（购房应考虑孩子的朋友与社交活动）</strong>：未被编号的 <strong>Greg Jaroszewski</strong> 的观点——friends 一词在 Norris 两段里毫无对应；认人比认词重要。</li><li><strong>F（应基于需要而非意见）</strong>：那是 <strong>Julie Gurner</strong> 的结论，与"HGTV 影响孩子认知"无关。</li><li><strong>B（对孩子隐瞒购房决定）</strong>：第三段老一辈做法，无人认领——本篇的"公共干扰项"，五题共用。</li></ul>
+<blockquote>记忆锚点：匹配题要会"具体→抽象"——HGTV 节目 = the media；观点认主人，friends 是别人的词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

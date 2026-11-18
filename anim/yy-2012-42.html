@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 新题型 · 42 · Machiavelli：领袖无须美德 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 序号带 1–7 对应选项 A–G。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, ribbon:null, title:"审题眼：先找“方向反转”开关",
+  body:"<p>题干：<b>Niccolò Machiavelli</b> ____。右栏 7 个观点（A–G）。</p><p>机制：马基雅维利的出场句自带解题开关——<b>turned on its head</b>（把……颠倒过来）：它预告此人与前文 Petrarch 的传统<b>方向相反</b>。方向词（rather than、turn on its head）是配对题里最硬的证据。</p>",
+  log:"审题：Machiavelli —— 方向反转的预告"},
+ {cls:"key", ecs:"shift", tag:"定位", count:0, ribbon:null, title:"定位：第三段末两句《君主论》",
+  body:"<div class=\"qq\"><b>第三段④末：</b>This was the biographical tradition which <b>Niccolò Machiavelli turned on its head</b>. In <b>The Prince</b>, he <b>championed cunning, ruthlessness, and boldness, rather than virtue, mercy and justice</b>, as the skills of successful leaders. <span style=\"color:#64748b;font-size:12.5px\">（《君主论》：推崇狡诈、冷酷、大胆，而非美德、仁慈、正义，视之为成功领袖的技能。）</span></div><p>两个信号：①颠覆了 Petrarch 的传记传统；②推崇 A 组、<b>而非</b> B 组——B 组里就有 virtue。</p>",
+  log:"定位第三段末：championed cunning... rather than virtue"},
+ {cls:"good", ecs:"ok", tag:"锁定 F", count:0, ribbon:{k:"6", ok:true}, title:"锁定 F：dismissed virtue as unnecessary for successful leaders",
+  body:"<p><b>F（认为成功领袖无须美德）</b><span class=\"ok-dot\">✓</span>：逐字对齐——</p><p><b>championed X rather than virtue</b>（推崇奸诈而非美德）↔ <b>dismissed virtue as unnecessary</b>（把美德晾在一边）；<b>successful leaders</b> 原词保真（the skills of successful leaders）。“推崇非美德” = “美德不被需要”，方向、对象双对齐。</p>",
+  log:"锁定 F：rather than virtue ↔ dismissed virtue as unnecessary"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:"1", ok:false}, title:"排除 A：emphasized the virtue of classical heroes",
+  body:"<p><b>A（强调古典英雄的美德）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Petrarch</b>（41 题答案）。A 与 F 是同一枚硬币的两面——Petrarch <b>立</b>美德，Machiavelli <b>破</b>美德；turned on its head 颠覆的正是 A 这条传统。</p><p style=\"color:#b91c1c\">⚠ 同段一立一破，题干问的是“破”的那个人。</p>",
+  log:"排除 A：立美德的是 Petrarch，方向相反"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:2, ribbon:{k:"3", ok:false}, title:"排除 C：focused on epochal figures whose lives were hard to imitate",
+  body:"<p><b>C（聚焦人生难以模仿的划时代人物）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Thomas Carlyle</b>（44 题答案）——他写路德、克伦威尔、拿破仑；马基雅维利写的是领袖技能论，两者不在一个时代也不在一个话题。</p><p style=\"color:#b91c1c\">⚠ C 的画像词（epochal figures）与《君主论》零交集。</p>",
+  log:"排除 C：划时代人物属 Carlyle"},
+ {cls:"bad", ecs:"miss", tag:"排除 E", count:3, ribbon:{k:"5", ok:false}, title:"排除 E：held that history should be the story of the masses",
+  body:"<p><b>E（历史应当是大众的故事与斗争记录）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Marx and Engels</b>（45 题答案）——大众史观与马氏的领袖技能论恰好在坐标系两端：一个抬大众、一个讲领袖。</p><p style=\"color:#b91c1c\">⚠ 立场对冲：讲领袖如何成功的人不会主张“历史属于大众”。</p>",
+  log:"排除 E：大众史观属 Marx & Engels"},
+ {cls:"", ecs:"step", tag:"归主", count:3, ribbon:null, title:"其余选项归主：一张表看全篇",
+  body:"<table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr>" +
+    "<tr><td class=\"mine\">A 古典英雄美德</td><td class=\"mine\">Petrarch（41 题）</td></tr>" +
+    "<tr><td class=\"mine\">B 艺术家公共荣耀</td><td class=\"mine\">The Romantics</td></tr>" +
+    "<tr><td class=\"mine\">C 难以模仿的划时代人物</td><td class=\"mine\">Thomas Carlyle（44 题）</td></tr>" +
+    "<tr><td class=\"mine\">D 理解历史的新领域</td><td class=\"mine\">“自下而上”史学（Hill 等）</td></tr>" +
+    "<tr><td class=\"mine\">E 大众的历史与斗争记录</td><td class=\"mine\">Marx & Engels（45 题）</td></tr>" +
+    "<tr><td class=\"ans\">F 领袖无须美德</td><td class=\"ans\">Machiavelli ✓ 本题</td></tr>" +
+    "<tr><td class=\"mine\">G 工程师们有价值的人生</td><td class=\"mine\">Samuel Smiles（43 题）</td></tr></table>",
+  log:"归主：7 项各归其位，F 属 Machiavelli"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, ribbon:null, title:"结论：答案 F",
+  body:"<p><b>答案 F</b>——马基雅维利在《君主论》里推崇狡诈、冷酷、大胆而非美德，即“成功领袖无须美德”。</p><p><b>记忆锚点</b>：turned on its head = 方向反转预告；rather than 后是“被抛弃的”；cunning 等生词不认识没关系——rather than 前后方向相反，virtue 是褒义词，逻辑自动收敛到“反美德”。</p>",
+  log:"结论：Machiavelli 抛弃美德传统，答案 F"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "2012 新题型 · 42 · Machiavelli 的画像",
+  subtitle: "考点：人物观点配对 · 方法：方向反转开关 → 逐字比对 → 干扰项归主",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 1–7 对应 A–G（✓ 认领 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位 → 方向判定 → 归主。",
+  snaps: snaps,
+  result: {
+    big: "答案 F",
+    html: "<b>championed cunning, ruthlessness, and boldness, rather than virtue ＝ dismissed virtue as unnecessary for successful leaders</b>。记忆锚点：turned on its head 预告方向反转；rather than 后是“被抛弃的”；Petrarch 立美德（A）、Machiavelli 破美德（F）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——Machiavelli 把美德传统“掀了个底朝天”</h2>
+<p>答案：<strong>F（dismissed virtue as unnecessary for successful leaders 认为成功领袖无须美德）</strong>。</p>
+<h3>第 0 步：先立机制——认出“turned on its head”的转向标志</h3>
+<p>Machiavelli 的出场句里有一个解题开关：turned on its head（把……颠倒过来）。它宣告马基雅维利与前文 Petrarch 的传统<strong>方向相反</strong>。方向词（rather than、instead、turn on its head）是配对题里最硬的证据——选项方向与原文方向一致才可能配对成功。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>This was the biographical tradition which Niccolò Machiavelli turned on its head. In The Prince, he championed cunning, ruthlessness, and boldness, rather than virtue, mercy and justice, as the skills of successful leaders.</blockquote>
+<p>《君主论》：推崇（championed）狡诈、冷酷、大胆，<strong>而非（rather than）</strong>美德、仁慈、正义，视之为成功领袖的技能。</p>
+<h3>第 2 步：逐字比对</h3>
+<p>championed cunning/ruthlessness/boldness <strong>rather than virtue</strong> ↔ <strong>dismissed virtue as unnecessary for successful leaders</strong>：“推崇奸诈而非美德” = “把美德晾在一边，认为领袖不需要它”；successful leaders 原词保真（the skills of successful leaders）。</p>
+<h3>第 3 步：干扰项归主</h3>
+<table><thead><tr><th>选项</th><th>主人</th><th>排除理由</th></tr></thead><tbody><tr><td>A emphasized the virtue of classical heroes</td><td>Petrarch（41 题答案）</td><td>与 Machiavelli 方向相反——他正是要推翻这一传统（turned on its head）</td></tr><tr><td>C focused on epochal figures whose lives were hard to imitate</td><td>Thomas Carlyle（44 题答案）</td><td>对象是路德、克伦威尔、拿破仑等划时代人物，与《君主论》无关</td></tr><tr><td>E held that history should be the story of the masses</td><td>Marx and Engels（45 题答案）</td><td>大众史观，与马氏的领袖技能论不在一个坐标系</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>cunning、ruthlessness 不认识怎么办？</strong>：不必认识。rather than 前后必然方向相反：前面是 championed（推崇），后面 virtue 是褒义词——五个生词可以互相抵消，逻辑只剩“反美德”。</li><li><strong>为什么不选 A？</strong>：A 与 F 是同一枚硬币的两面：Petrarch 立美德，Machiavelli 破美德；题干问的是“破”的那个人。</li></ul>
+<blockquote>记忆锚点：turned on its head = 方向反转预告；rather than 后是“被抛弃的”；championed X rather than virtue → dismissed virtue；美德之争的两端：Petrarch 立（A）、Machiavelli 破（F）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

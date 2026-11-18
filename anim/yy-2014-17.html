@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-17 · 2014 完形第 17 空</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 空格在句首，先看它连接谁",
+  "cls": "key",
+  "tag": "审题",
+  "log": "句首连接词题：给空格前后两句各写一句大白话，再定性方向关系",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题眼：空格位于句首，连接<b>上一句</b>与<b>本句</b>。逻辑连接词题不考词义背诵，考一个动作——给前后两句定性：是“顺着说”（递进）、“反着说”（转折）还是“挑着说”（限定）。</p>"
+ },
+ {
+  "title": "定位原文 · 空 17 所在两句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：前句主语=成年人/专业人士，本句主语=非常年幼的儿童",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Teachers, employers, and health professionals have been shown to harbor biases against the obese. <b>__17__</b> very young children tend to look down on the overweight, and teasing about body build has long been a problem in schools.</div><p>前句主语：教师、雇主、健康专业人士——<b>有话语权的成年人</b>；本句主语：very young children——<b>最不该有偏见的孩子</b>。本段在列举“对肥胖的偏见无处不在”，正从成年人一路说到幼儿。</p>"
+ },
+ {
+  "title": "找证据 · 主语的“下沉”就是递进",
+  "cls": "key",
+  "tag": "证据",
+  "log": "偏见名单从成年人下沉到幼儿：范围扩大、程度加深 → 同向加码",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>偏见人群：老师/雇主/专业人士 → <b>非常年幼的儿童</b>——范围不减反增、程度不浅反深：连本该天真的幼儿都看不起超重者。句尾 and 后“以体型取笑人早已是校园问题”再补一刀。</p><p>两句方向<b>一致</b>且本句更极端 → 典型的<b>递进</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A Even（甚至）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A Even（甚至） ✓ 当选——递进词，与前句同向加码",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>Even 标注递进：“甚至非常年幼的儿童也往往看不起超重的人”，与前句“成年人已被证明怀有偏见”方向一致、力度加码，严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · B Still（尽管如此）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Still（尽管如此） ✗ 排除——转折词，要求前后反向",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Still 的核心是“让步后状态持续”，要求后句与前句<b>反向</b>；但“幼儿也偏见”与“成人有偏见”方向一致，不存在让步语境。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 still 当成万能过渡词，见句首空格就塞。</p>"
+ },
+ {
+  "title": "逐项分析 · C Yet（然而）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Yet（然而） ✗ 排除——同为转折，本段无语义逆转",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Yet 需要前后句意思相对。本段通篇在铺陈“偏见之普遍”，前后句同向推进，没有任何逆转点。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见句首空格就默认“转折”，没先给前后两句定性。</p>"
+ },
+ {
+  "title": "逐项分析 · D Only（只有）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Only（只有） ✗ 排除——与上句“成年人也有偏见”矛盾",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Only 表限定：“只有幼儿看不起超重的人”单句能通，但与上句“教师、雇主、健康专业人士已被证明怀有偏见”直接相撞。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只读空格所在句，不把前后两句放在一起核。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（Even 甚至）——成人→幼儿的主语下沉 = 递进",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>甚至非常年幼的儿童也往往看不起超重的人，而以体型取笑人在校园里早已是个问题。</b></p><p>答案选 <b>A（Even 甚至）</b>。</p><p><b>记忆锚点</b>：句首逻辑词先给前后句各写一句大白话再定性；“成人 → 幼儿”主语下沉 = 递进（Even）；Still/Yet 表转折、Only 表限定。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 B/C——把连接词当语气填充词，凭语感填“然而/仍然”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 完形第 17 空 · “连幼儿都看不起超重者”——句首逻辑词的递进信号",
+  subtitle: "考点：上下文逻辑关系 · 成人 → 幼儿的主语下沉 = 递进（Even）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（Even）",
+ "html": "<b>A Even（甚至）</b>：教师/雇主/专业人士 → <b>非常年幼的儿童</b>，偏见名单同向加码 = 递进。<br>B/C 是转折词（前后无逆转）；D“只有”与上句“成年人也偏见”矛盾。<br>记忆锚点：句首逻辑词 = 标注两句的方向关系；主语下沉 → Even。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 17 空 · "连幼儿都看不起超重者"——句首逻辑词的递进信号</h2>
+<p>答案：<strong>A（Even 甚至）</strong>。</p>
+<h3>第 0 步：先立机制——句首连接词的职责是"标注两句话的方向关系"</h3>
+<p>逻辑连接词题不考词义背诵，考一个动作：把空格前一句、后一句各自说成一句大白话，再判断两句是"顺着说"（递进）、"反着说"（转折）还是"挑着说"（限定）。空格里的词必须准确标注这个方向。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Teachers, employers, and health professionals have been shown to harbor biases against the obese. __17__ very young children tend to look down on the overweight, and teasing about body build has long been a problem in schools.</blockquote>
+<p>前句主语是教师、雇主、健康专业人士——<strong>有话语权的成年人</strong>；后句主语是 very young children——<strong>最年幼、最不该有偏见的孩子</strong>。本段在列举"对肥胖的偏见无处不在"，正从成年人一路说到幼儿。</p>
+<h3>第 2 步：找证据——主语的"下沉"就是递进</h3>
+<p>偏见人群从"老师、雇主、健康专业人士"下沉到"非常年幼的儿童"：范围不减反增、程度不浅反深——连本该天真的幼儿都看不起超重者。句尾 and teasing about body build has long been a problem in schools（以体型取笑人早已是校园问题）再补一刀，证明这不是孤立现象：作者在<strong>同一方向上加码</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A Even</td><td>甚至</td><td>✓ 当选</td><td>递进词：连幼儿都如此，与前句"成年人也偏见"同向加码，方向、力度双合。</td></tr><tr><td>B Still</td><td>尽管如此</td><td>✗ 排除</td><td>转折词：要求后句与前句反向，但"幼儿也偏见"与"成人有偏见"方向一致。（典型误解：把 still 当成万能过渡词。）</td></tr><tr><td>C Yet</td><td>然而</td><td>✗ 排除</td><td>同为转折：本段通篇铺陈"偏见之普遍"，前后不存在语义逆转。（典型误解：见句首空格就默认"转折"。）</td></tr><tr><td>D Only</td><td>只有</td><td>✗ 排除</td><td>限定词：读成"只有幼儿看不起超重者"，与上句"成年人已被证明怀有偏见"直接矛盾。（典型误解：只读空格所在句，不看前句。）</td></tr></tbody></table>
+<p>代入后的完整句义：甚至非常年幼的儿童也往往看不起超重的人，而以体型取笑人在校园里早已是个问题。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>Still 表"仍然"，不也有延续前文的意思吗？</strong>：still 的核心是"让步后状态持续"，用在"原以为会改变、但没改变"的语境。这里没有任何"预期改变"的铺垫——作者在把偏见名单越列越长，是加码而非让步。</li><li><strong>为什么不能是 Yet？</strong>：Yet 需要前后句意思相对（如"成人本该明理，然而他们歧视"）。实际前句已确立"人人有偏见"，本句只是把范围推到更极端的人群——同向推进，不是反向。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/C</strong>：把句首连接词当语气填充词，凭语感塞一个"然而/仍然"，没先给前后两句定性。</li><li><strong>误选 D（Only）</strong>：只读空格所在句——"只有幼儿看不起超重者"单句能通，但与上句"教师、雇主、健康专业人士已被证明有偏见"相撞；逻辑题必须两句一起读。</li></ul>
+<blockquote>记忆锚点：句首逻辑词先给前后句各写一句大白话再定性；"成人 → 幼儿"主语下沉 = 递进（Even）；Still/Yet 表转折、Only 表限定。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 完形第 7 空 · 缩写 G.I. 与 Government Issue 是什么关系 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 7 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 7 所在句，考点：句内语义 + 现在分词定语（缩写释义）", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">G.I. is just a military abbreviation __7__ Government Issue, and it was on all of the articles handed out to soldiers.</div><p>空格分词的逻辑主语 abbreviation 是无生命名词：分词动词既要表达“释义”，又要允许无生命主语。</p>"}, {"title": "找证据 · 上一句 His name isn’t much 早就定了调", "cls": "key", "tag": "证据", "log": "找证据：上一句 His name isn’t much 早就定了调", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">His name isn’t much. G.I. is just a military abbreviation __7__ Government Issue.</div><p>“这名字没什么了不起”+ just（只不过是）：作者强调 G.I. 只是字面对应“政府配发”，没有任何深意与象征。这直接排除了“暗示、象征”方向。</p>"}, {"title": "逐项分析 · A implying（暗示，暗指）", "cls": "bad", "tag": "排除 A", "log": "A implying（暗示，暗指）✗ 排除——imply 是“言外之意”，缩写是直接对应", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>imply 带推理成分（His silence implied consent），表示话里话外透出的意思；缩写与全称是等号，不存在“暗指”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“缩写暗含全称”的语感错当成 imply 的用法。</p>"}, {"title": "逐项分析 · B meaning（意为）", "cls": "good", "tag": "选定 B", "log": "B meaning（意为）✓ 当选", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>an abbreviation meaning “Government Issue” = 意为“政府配发”的缩写，直接释义，与 just 的平淡语气严丝合缝。</p>"}, {"title": "逐项分析 · C symbolizing（象征）", "cls": "bad", "tag": "排除 C", "log": "C symbolizing（象征）✗ 排除——G.I. 与全称是缩写关系，不是象征关系", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>symbolize 需要抽象象征链（The dove symbolizes peace）；G.I. 与 Government Issue 之间只有“缩写-全称”的等号。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被首句 the symbol of American military adventurism 的 symbol 串场——那是作者要纠正的误读，不是 G.I. 的本义。</p>"}, {"title": "逐项分析 · D claiming（声称）", "cls": "bad", "tag": "排除 D", "log": "D claiming（声称）✗ 排除——无生命主语不会“声称”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>claim 的主语应是人或机构；abbreviation 不会开口声称什么。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略主语的生命性这一步。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（meaning 意为，意思是）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>G.I. 只是一个军事缩写，意为“政府配发”，印在所有配发给士兵的物品上。</b></p><p>答案选 <b>B（meaning 意为，意思是）</b>。</p><p><b>记忆锚点</b>：缩写 + meaning + 全称 = 意为；imply = 暗示（需推理）；symbolize = 象征；claim 主语须是人。</p><p style=\"color:#b91c1c\">最易误选：<b>A（implying）</b>——“这个词暗指什么”是背单词时的高频问句，看到 abbreviation 就顺手选了 imply。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 完形第 7 空 · 缩写 G.I. 与 Government Issue 是什么关系",
+  subtitle: "考点：句内语义 + 现在分词定语（缩写释义） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 B（meaning 意为，意思是）", "html": "<b>B meaning（意为，意思是）</b>。<br>完整句义：G.I. 只是一个军事缩写，意为“政府配发”，印在所有配发给士兵的物品上。<br>记忆锚点：缩写 + meaning + 全称 = 意为；imply = 暗示（需推理）；symbolize = 象征；claim 主语须是人。<br>最易误选：<b>A（implying）</b>——“这个词暗指什么”是背单词时的高频问句，看到 abbreviation 就顺手选了 imply。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2012 完形第 7 空 · 缩写 G.I. 与 Government Issue 是什么关系</h2>
+<p>答案：<strong>B（meaning 意为，意思是）</strong>。</p>
+<h3>第 0 步：先立机制——本空的解题结构</h3>
+<p>a military abbreviation __7__ Government Issue：空格是现在分词作后置定语，逻辑主语是 abbreviation，被说明对象是 Government Issue。“缩写—全称”之间是等号关系：意思就是。判定关键是分词动词必须表达“直接释义”，任何“暗示、象征、声称”类的间接动词都不匹配。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>G.I. is just a military abbreviation __7__ Government Issue, and it was on all of the articles handed out to soldiers.</blockquote>
+<p>空格分词的逻辑主语 abbreviation 是无生命名词：分词动词既要表达“释义”，又要允许无生命主语。</p>
+<h3>第 2 步：找证据——上一句 His name isn’t much 早就定了调</h3>
+<blockquote>His name isn’t much. G.I. is just a military abbreviation __7__ Government Issue.</blockquote>
+<p>“这名字没什么了不起”+ just（只不过是）：作者强调 G.I. 只是字面对应“政府配发”，没有任何深意与象征。这直接排除了“暗示、象征”方向。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A implying</td><td>暗示，暗指</td><td>✗ 排除</td><td>imply 带推理成分（His silence implied consent），表示话里话外透出的意思；缩写与全称是等号，不存在“暗指”。（典型误解：把“缩写暗含全称”的语感错当成 imply 的用法。）</td></tr><tr><td>B meaning</td><td>意为</td><td>✓ 当选</td><td>an abbreviation meaning “Government Issue” = 意为“政府配发”的缩写，直接释义，与 just 的平淡语气严丝合缝。</td></tr><tr><td>C symbolizing</td><td>象征</td><td>✗ 排除</td><td>symbolize 需要抽象象征链（The dove symbolizes peace）；G.I. 与 Government Issue 之间只有“缩写-全称”的等号。（典型误解：被首句 the symbol of American military adventurism 的 symbol 串场——那是作者要纠正的误读，不是 G.I. 的本义。）</td></tr><tr><td>D claiming</td><td>声称</td><td>✗ 排除</td><td>claim 的主语应是人或机构；abbreviation 不会开口声称什么。（典型误解：忽略主语的生命性这一步。）</td></tr></tbody></table>
+<p>代入后的完整句义：G.I. 只是一个军事缩写，意为“政府配发”，印在所有配发给士兵的物品上。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>imply 不也有“含有……意思”的义项吗？</strong>：imply 的“含有”指话未明说、需要听者推理（他沉默暗示同意）。缩写与全称是明摆着的等号关系，语义通道是“直接说破”，只能用 mean。</li><li><strong>meaning 在这里是什么语法成分？</strong>：现在分词作后置定语，相当于定语从句 which means “Government Issue”，修饰 abbreviation；分词的被动/主动与逻辑主语关系要保持一致。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（implying）</strong>：“暗示”义与“没有深意”的语境正面冲突。</li><li><strong>误选 C（symbolizing）</strong>：被首句的 symbol 带偏，忘了那是要纠正的误解。</li><li><strong>误选 D（claiming）</strong>：没检查主语的生命性。</li></ul>
+<blockquote>记忆锚点：缩写 + meaning + 全称 = 意为；imply = 暗示（需推理）；symbolize = 象征；claim 主语须是人。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

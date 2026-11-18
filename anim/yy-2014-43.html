@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-43 动画：匹配题——Across the Park 的同一张照片</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：独句成段 = 例证自带答案",
+   "body": "<p>题干：<b>Across the Park</b>（43 题）——从右栏 [A]–[G] 中选出它的准确描述（两项多余）。</p><p>第五段<b>只有一句话</b>，全部用来介绍 John Hilliard 的这件作品。独句成段几乎必出考点：没有多余信息，专名与描述同句，替换关系往往是全组最直白的。</p>",
+   "log": "审题：第五段独句成段，Across the Park 的描述就在这一句里"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：一句话读三层",
+   "body": "<div class='qq'><b>第五段：</b>Parks feature, particularly in the earlier works, such as John Hilliard's very funny <b>Across the Park</b>, in which a long-haired stroller is variously smiled at by a pretty girl and unwittingly assaulted in <b>a sequence of images that turn out to be different parts of the same photograph</b>. <span class='cn'>（译：长发流浪者接连被漂亮姑娘微笑相待、又\u201c遇袭\u201d——这一系列影像结果竟是同一张照片的不同部分。）</span></div><p>句子三层：流浪者遭遇 → 一系列影像（a sequence of images）→ 揭底（<b>turn out to be</b> 同一照片的不同部分）。</p>",
+   "log": "定位第五段：turn out to be 揭底——同一张照片的不同部分"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 G", "count": 1,
+   "title": "锁定 G：contains images from different parts of the same photograph",
+   "ribbon": {"k": 7, "ok": true},
+   "body": "<p><b>G · contains images from different parts of the same photograph</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文</th><th>选项 G</th><th>替换关系</th></tr><tr><td>a sequence of images</td><td>contains images</td><td>序列影像 → 包含影像</td></tr><tr><td>different parts of the same photograph</td><td>from different parts of the same photograph</td><td>几乎原词复现</td></tr></table><p>turn out to be（结果竟是）这类揭示性短语后面，永远跟着作品最本质的特征。</p>",
+   "log": "锁定 G：different parts of the same photograph 几乎原词对应"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除他项", "count": 4,
+   "title": "排除他项：其余描述各有所属",
+   "ribbon": {"k": 4, "ok": false},
+   "body": "<p>右栏描述各自\u201c有主\u201d，逐一归档：</p><table class='aw-mini'><tr><th>选项</th><th>归属</th><th>原文落点</th></tr><tr><td>D represents the elegance</td><td>Stone Circle</td><td>第四段首句（41 题）</td></tr><tr><td>E depicts the ordinary side</td><td>Olaf Street Study</td><td>第四段末句（42 题）</td></tr><tr><td>C reminds … painting tradition</td><td>Towards Avebury</td><td>第六段末句（44 题）</td></tr><tr><td>A originates from a long walk</td><td>Seven Days</td><td>第七段第二句（45 题）</td></tr><tr><td>B / F</td><td>本组多余项</td><td>B 是整体风格描述、F 是异地杂糅</td></tr></table><p><b>排除已配对项</b>是匹配题的加速器：明确属于别人的描述，不必为本题纠结。</p>",
+   "log": "排除他项：D/E/C/A 各有归属，B、F 为多余选项"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 G",
+   "body": "<p><b>答案 G（contains images from different parts of the same photograph）</b>——Across the Park 的一系列影像其实是同一张照片的不同部分。</p><p>记忆锚点：<b>独句成段必出考点</b>；turn out to be 后面是本质特征；已配对描述可直接排除。</p>",
+   "log": "结论：同一张照片的不同部分，选 G"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-43 · 匹配题：Across the Park 的\u201c同一张照片\u201d",
+  subtitle: "考点：新题型左右匹配 · 方法：独句成段定位 → 原词替换 → 已配对排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 归档排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 G",
+    html: "<b>a sequence of images that turn out to be different parts of the same photograph = [G] contains images from different parts of the same photograph。</b>记忆锚点：独句成段必出考点；turn out to be 揭底本质特征；D/E/C/A 各有所属，B/F 是本组多余项。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——Across the Park 的"同一张照片"</h2>
+<p>答案：<strong>G</strong>。</p>
+<h3>第 0 步：先立方法——独句成段 = 例证自带答案</h3>
+<p>第五段只有一句话，全部用来介绍 John Hilliard 的 Across the Park。<strong>独句成段的段落几乎必出考点</strong>：没有多余信息干扰，专名与描述同处一句，替换关系往往是全组里最直白的一题。这类题唯一的陷阱是"看词不看句"——把别的作品的描述安过来。</p>
+<h3>第 1 步：定位原文——一句话读三层</h3>
+<blockquote>Parks feature, particularly in the earlier works, such as John Hilliard's very funny Across the Park, in which a long-haired stroller is variously smiled at by a pretty girl and unwittingly assaulted in a sequence of images that turn out to be different parts of the same photograph.（译：公园出现在早期作品中，比如 John Hilliard 非常有趣的《漫步公园》：一个长发流浪者接连被一位漂亮姑娘报以微笑、又在不知不觉中"遇袭"——这一系列影像结果竟是<strong>同一张照片的不同部分</strong>。）</blockquote>
+<p>句子结构：主句讲流浪者的遭遇 → 介词短语 in a sequence of images → 定语从句 <strong>that turn out to be different parts of the same photograph</strong> 收尾点题。作品的核心特征全落在最后五个词上。</p>
+<h3>第 2 步：同义替换对号入座</h3>
+<table><thead><tr><th>原文</th><th>选项 G</th><th>替换关系</th></tr></thead><tbody><tr><td>a sequence of images</td><td>contains images</td><td>序列影像 → 包含影像</td></tr><tr><td>different parts of the same photograph</td><td>from different parts of the same photograph</td><td>几乎原词复现</td></tr></tbody></table>
+<h3>第 3 步：为什么别的选项都不用逐条细查</h3>
+<p>本组右栏七项里，D、E、C、A 已分别对应 Stone Circle（第四段首句）、Olaf Street Study（第四段末句）、Towards Avebury（第六段末句）、Seven Days（第七段第二句）——各有所属。B 与 F 是两项多余选项。所以 Across the Park 唯一"无人认领"且能从原文找到落点的描述就是 G。<strong>匹配题做完一题，可以顺手用"排除已配对项"加速</strong>：已明确属于别人作品的描述，不必再为本题纠结。</p>
+<h3>预判追问：turn out to be 在句中起什么作用？</h3>
+<p>"结果竟是"——先给读者一个假象（流浪者被笑、被袭，仿佛多张照片记录的一天），再揭底牌（其实是同一张照片的不同部分）。这种"揭示性短语"（turn out to be / actually / in fact）后面永远跟着作品最本质的特征，正是描述句的出处。</p>
+<blockquote>记忆锚点：独句成段必出考点；different parts of the same photograph = [G]；turn out to be 后面是本质特征。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

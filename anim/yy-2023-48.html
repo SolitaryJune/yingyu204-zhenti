@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023-48 大作文谋篇：折线图的「两个锚点—三条归因—两层意义」三段法</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开读图、归因与评论的推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 数据锚点小框 */
+function dbox(text){
+  return '<span style="background:#eff6ff;border:1.5px solid #2563eb;color:#1e40af;padding:2px 8px;' +
+         'border-radius:6px;font-weight:600;display:inline-block;margin:2px 0">' + text + '</span>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：describe and interpret + comments 双指令',
+    cls: 'key',
+    body: '<p>指令两个动词定内容：<b>1) describe and interpret the chart</b>（描述并阐释图表）+ <b>2) give your comments</b>（给出评论）。图表：2012—2021 年我国居民健康素养水平折线图。</p><p>折线图的描述抓两类信息：<b>总量趋势</b>（整体升降、从多少到多少）与<b>关键拐点</b>（哪一年增速变了）。interpret 就落在拐点句上——只报数字是 describe，点出分水岭才是 interpret。</p>' },
+  { title: '数据锚点：三数一分水岭',
+    cls: 'key',
+    body: '<p>' + dbox('2012：8.80%') + ' → ' + dbox('2016：11.58%') + ' → ' + dbox('2021：25.40%') + '</p><p>十年间升到近三倍，且 2016 年前慢、2016 年后快——<b>趋势锚点</b>（8.80% → 25.40%）与<b>拐点锚点</b>（2016）就是第一段的全部内容，也是第二段归因与第三段评论的引子。</p><p>数字必须与图表一致，原样摘录不取整——描述段靠精确数字立信。</p>' },
+  { title: '段 1①② 主题句 + 趋势句',
+    cls: 'good',
+    body: '<p><b>The line chart above illustrates the variation in the health literacy rate of Chinese residents from 2012 to 2021. As it shows, these years witnessed an uninterrupted rise in residents\' health literacy rate from 8.80% to 25.40%.</b></p><p><b>illustrate</b>（以图表说明）替代 show；<b>variation</b>（变化）替代 change；趋势句用外刊句型「时间段 + <b>witnessed</b> + an <b>uninterrupted</b> rise in... from 8.80% to 25.40%」，替代普通句 the rate increased——uninterrupted 强调一路没回头。</p>' },
+  { title: '段 1③ 拐点句：一句装下「哪年 + 怎么变」',
+    cls: 'good',
+    body: '<p><b>And notably, the year 2016 marked a watershed when the growth accelerated considerably.</b></p><p><b>marked a watershed</b>（标志分水岭）替代 2016 is an important year；when 定语从句补出「增速明显加快」，<b>accelerate</b> 替代 speed up / increase faster。</p><p>趋势句 + 拐点句两句话，describe 和 interpret 双指令同时完成——第一段到此封顶，再多就挤掉归因。</p>' },
+  { title: '段 2① 归因总起：multifaceted 一词领三层',
+    cls: 'good',
+    body: '<p><b>The reasons behind the progress in Chinese people\'s health literacy are multifaceted.</b></p><p><b>multifaceted</b>（多方面的）总起原因段，预示后面按并列结构展开；The reasons behind the progress 点明讨论对象是「素养提高」这一现象本身——归因必须接在现象上，不是泛谈健康的好处。</p>' },
+  { title: '段 2② 原因一（个人）：生活水平与教育 → 健康意识',
+    cls: 'good',
+    body: '<p><b>To begin with, as general living standards and educational levels improve, residents become more aware of their health and start to seek various ways to stay healthy.</b></p><p>因果链完整：as 引出「因」（生活与教育水平提高）→「果」（更关注健康、主动寻找保持健康的方法）。become more aware of their health 是本条落到「素养」上的抓手——缺果的句子不算归因。</p>' },
+  { title: '段 2③ 原因二（技术）：服务数字化 → 便捷获得建议',
+    cls: 'good',
+    body: '<p><b>Secondly, the digitalization of many health services such as online consultation and AI diagnosis enabled residents to gain easy and fast access to professional health advice.</b></p><p>「因」= <b>digitalization</b>（线上问诊、AI 诊断等健康服务的数字化）；「果」= <b>gain easy and fast access to</b> professional health advice（方便快捷地获得专业健康建议）。举例（online consultation / AI diagnosis）让技术这条原因看得见摸得着。</p>' },
+  { title: '段 2④ 原因三（政府）：宣传推动 → 素养提升',
+    cls: 'good',
+    body: '<p><b>Moreover, government campaigns to promote public hygiene and healthy lifestyles have also played a significant role in raising residents\' health literacy.</b></p><p>「因」= government campaigns（推广 <b>public hygiene</b> 公共卫生与健康生活方式的宣传活动）；「果」= <b>played a significant role in raising</b> residents\' health literacy（在素养提升中起重要作用）。</p><p>个人—技术—政府三个主体各占一条，To begin with / Secondly / Moreover 排队，覆盖面与层次感同时拿到。</p>' },
+  { title: '段 3①② 意义一：健康的劳动群体',
+    cls: 'good',
+    body: '<p><b>The general public\'s improved health literacy is beneficial to the whole society in many ways. First and foremost, a society consisting of people who pay high regard to health is more likely to have a healthy workforce.</b></p><p>评论接在「素养提高」这个现象上（beneficial to the whole society），不空谈「健康很重要」。</p><p><b>consisting of</b>（现在分词后置定语）+ <b>who pay high regard to health</b>（定语从句）两层修饰压在 society 上，一句装下「高度重视健康的人组成的社会更可能有健康的劳动群体」。</p>' },
+  { title: '段 3③ 意义二：危机面前的准备',
+    cls: 'good',
+    body: '<p><b>In addition, this society would be well prepared in times of a health crisis such as a pandemic.</b></p><p>从日常（劳动群体）推到危机情境（pandemic 大流行病等健康危机时的充分准备），评论有了纵深，comments 才算做完。First and foremost / In addition 两条意义并列，段 3 收束。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>line chart 折线图 · illustrate [v.] 以图表说明 · variation [n.] 变化 · witness [v.] 见证（时间段作主语）· uninterrupted [a.] 不间断的 · mark a watershed 标志分水岭 · accelerate [v.] 加快 · multifaceted [a.] 多方面的 · become aware of 意识到 · digitalization [n.] 数字化 · online consultation 线上问诊 · AI diagnosis 人工智能诊断 · gain easy and fast access to sth 方便快捷地获得 · campaign [n.]（宣传）活动 · public hygiene 公共卫生 · play a significant role in 在……中起重要作用 · consist of 由……组成 · pay high regard to 高度重视 · pandemic [n.] 大流行病</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>两个锚点 → 三条归因 → 两层意义</b>；趋势句「时间段 + witnessed + an uninterrupted rise」、拐点句「年份 + marked a watershed + when the growth accelerated」；归因按「个人—技术—政府」铺开；意义落在 healthy workforce 与 health危机应对——第一段三句封顶。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2023-48 大作文谋篇演示：折线图的「两个锚点—三条归因—两层意义」三段法',
+  subtitle: '考点：图表作文（2012—2021 居民健康素养水平折线图） · 方法：读锚点 → 搭三段 → 因果链 → 句型升格',
+  counterLabel: '步骤',
+  intro: '点击「▶ 播放」逐步展开读图、归因与评论的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>The line chart above illustrates the variation in the health literacy rate of Chinese residents from 2012 to 2021. As it shows, these years witnessed an uninterrupted rise in residents\' health literacy rate from 8.80% to 25.40%. And notably, the year 2016 marked a watershed when the growth accelerated considerably.</p>' +
+      '<p>The reasons behind the progress in Chinese people\'s health literacy are multifaceted. To begin with, as general living standards and educational levels improve, residents become more aware of their health and start to seek various ways to stay healthy. Secondly, the digitalization of many health services such as online consultation and AI diagnosis enabled residents to gain easy and fast access to professional health advice. Moreover, government campaigns to promote public hygiene and healthy lifestyles have also played a significant role in raising residents\' health literacy.</p>' +
+      '<p>The general public\'s improved health literacy is beneficial to the whole society in many ways. First and foremost, a society consisting of people who pay high regard to health is more likely to have a healthy workforce. In addition, this society would be well prepared in times of a health crisis such as a pandemic.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>两个锚点（8.80% → 25.40% 趋势 / 2016 分水岭）→ 三条归因（个人意识 / 服务数字化 / 政府宣传）→ 两层意义（healthy workforce / prepared for a health crisis）</b>；高分句型 = 时间段 + witnessed + an uninterrupted rise、年份 + marked a watershed + when the growth accelerated。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：折线图作文的「两个锚点—三条归因—两层意义」三段法（2023 大作文）</h2>
+<p>答案（参考范文口径）：<strong>The line chart above illustrates the variation in the health literacy rate of Chinese residents from 2012 to 2021. As it shows, these years witnessed an uninterrupted rise in residents' health literacy rate from 8.80% to 25.40%. And notably, the year 2016 marked a watershed when the growth accelerated considerably. The reasons behind the progress in Chinese people's health literacy are multifaceted. To begin with, as general living standards and educational levels improve, residents become more aware of their health and start to seek various ways to stay healthy. Secondly, the digitalization of many health services such as online consultation and AI diagnosis enabled residents to gain easy and fast access to professional health advice. Moreover, government campaigns to promote public hygiene and healthy lifestyles have also played a significant role in raising residents' health literacy. The general public's improved health literacy is beneficial to the whole society in many ways. First and foremost, a society consisting of people who pay high regard to health is more likely to have a healthy workforce. In addition, this society would be well prepared in times of a health crisis such as a pandemic.</strong></p>
+<h3>第 0 步：先立机制——图表作文按「描述 + 解读 + 评论」三线给分</h3>
+<p>指令两个动词定内容：<strong>1) describe and interpret the chart</strong>（描述并阐释图表）+ <strong>2) give your comments</strong>（给出评论）。折线图的描述要抓两类信息：<strong>总量趋势</strong>（整体升还是降、从多少到多少）与<strong>关键拐点</strong>（哪一年增速变了）。本题数据：2012 年 8.80% → 2016 年 11.58% → 2021 年 25.40%——十年间升到近三倍，且 2016 年前慢、2016 年后快。这两个锚点（趋势 + 拐点）就是第一段的全部内容，也是第二段「为什么涨」与第三段「涨了有什么用」的引子：整个作文 = 用一个趋势带出一次归因与一次评论。</p>
+<h3>第 1 步：读图——数据锚点怎么变成句子</h3>
+<ul><li><strong>锚点一（趋势）</strong>：8.80% → 25.40% 连续上升不间断 → these years witnessed an uninterrupted rise in residents' health literacy rate from 8.80% to 25.40%。「时间段 + witnessed + a rise in...」是外刊句型，替代普通句 the rate increased；uninterrupted（不间断的）比 continuous 更强调「一路没回头」。</li><li><strong>锚点二（拐点）</strong>：2016 年前后增速明显加快 → the year 2016 marked a watershed when the growth accelerated considerably。marked a watershed（标志分水岭）+ when 定语从句，一句话同时交代「哪一年」与「怎么变」。</li><li>数据必须与图表一致：8.80%、25.40%、2016 三个数字原样摘录，不能取整或模糊化——图表作文的描述段靠精确数字立信。</li></ul>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1 描述图表（三句封顶）</strong>：主题句（折线图显示了什么）+ 趋势句 + 拐点句。describe and interpret 的 interpret 就落在拐点句上——只报数字是 describe，点出「2016 是分水岭」才是 interpret。</li><li><strong>段 2 归因</strong>：multifaceted 一词总起，三条原因按 To begin with / Secondly / Moreover 并列，覆盖「个人—技术—政府」三个主体。</li><li><strong>段 3 评论意义</strong>：两条影响按 First and foremost / In addition 并列，从社会日常推到危机情境。</li></ul>
+<h3>第 3 步：归因怎么归——预判「为什么是这三条」</h3>
+<p>原因不必穷尽，但每条必须是完整的因果链「因（主体动作）→ 果（素养提升）」，三个主体各占一条，覆盖面与层次感同时拿到：</p>
+<ul><li><strong>个人侧</strong>：as general living standards and educational levels improve（生活与教育水平提高）→ residents become more aware of their health and start to seek various ways to stay healthy（更关注健康并主动寻找保持健康的方法）。</li><li><strong>技术侧</strong>：the digitalization of many health services such as online consultation and AI diagnosis（线上问诊、AI 诊断等健康服务的数字化）→ gain easy and fast access to professional health advice（方便快捷地获得专业健康建议）。</li><li><strong>政府侧</strong>：government campaigns to promote public hygiene and healthy lifestyles（推广公共卫生与健康生活方式的宣传活动）→ played a significant role in raising residents' health literacy（在提升素养中起重要作用）。</li></ul>
+<p>只写「政府很重视」而不接到「素养提升」上的句子不算归因——衔接词只是排队，因果链才是给分点。</p>
+<h3>第 4 步：评论怎么评——意义落到社会两层</h3>
+<ul><li><strong>意义一（日常）</strong>：a society consisting of people who pay high regard to health is more likely to have a healthy workforce——两层后置定语（现在分词 consisting of + 定语从句 who pay...）压缩在名词 society 上，一句装下「健康的人组成的社会更可能有健康的劳动群体」。</li><li><strong>意义二（危机）</strong>：this society would be well prepared in times of a health crisis such as a pandemic——从日常推到疫情这类健康危机的应对，评论有了纵深，comments 才算做完。</li></ul>
+<h3>第 5 步：语言升格——图表作文的高分信号词</h3>
+<ul><li><strong>illustrate</strong>（以图表说明）替代 show；<strong>variation</strong>（变化）替代 change。</li><li>「时间段 + witnessed + an uninterrupted rise in sth from A to B」替代 sth increased。</li><li><strong>marked a watershed + when 从句</strong>替代 2016 is an important year；<strong>accelerate</strong> 替代 speed up / increase faster。</li><li><strong>multifaceted</strong>（多方面的）总起原因段；<strong>gain easy and fast access to</strong>（方便快捷地获得）；<strong>public hygiene</strong>（公共卫生）；<strong>pay high regard to</strong>（高度重视）；<strong>consisting of</strong> 分词后置定语压缩定语从句。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只描述不解读</strong>：第一段只报数字、没有拐点句——describe and interpret 的 interpret 落空；2016 分水岭句就是「解读」的落点。</li><li><strong>数字记错或取整</strong>：8.80% / 25.40% / 2016 必须与图表一致；图表作文数字错误是硬伤，趋势词（上升、加速）也要与折线走向对应。</li><li><strong>原因堆砌无链条</strong>：To begin with / Secondly / Moreover 只是排队词，每条必须有「因 → 果」；缺「果」的句子不给归因分。</li><li><strong>评论与现象脱节</strong>：第三段空谈「健康很重要」；意义必须接在「素养提高」这个现象上（健康劳动群体 / 危机应对），才是本题的 comments。</li><li><strong>段落失衡</strong>：描述段写到四句以上会挤掉归因与评论——三段制下第一段三句封顶。</li><li><strong>图表类型用错</strong>：折线图是 line chart；写成 bar chart / pie chart 属于看图不清。</li></ul>
+<blockquote>记忆锚点：折线图作文 = <strong>两个锚点 → 三条归因 → 两层意义</strong>；趋势句用「时间段 + witnessed + an uninterrupted rise in... from... to...」，拐点句用「年份 + marked a watershed + when the growth accelerated」；归因按「个人—技术—政府」铺开（more aware of health / gain easy and fast access to / played a significant role）；意义落在 healthy workforce 与 health crisis 的准备上。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

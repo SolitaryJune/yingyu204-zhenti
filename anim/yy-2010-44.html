@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-44 动画：天气影响尚无定论</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：不确定性断言", "body": "<p>陈述：<b>The role that weather plays in formation flight has not yet been clearly defined.</b>（天气对编队飞行的作用尚不明确。）</p><p>这是\"不确定性断言\"——去原文找<b>同一家族</b>的表述：It remains to be seen / has yet to…</p>", "log": "陈述是\"尚不明确\"，去原文找\"尚待观察\"类表述"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：第五段首句", "body": "<div class=\"qq\"><b>第五段①句：</b>It remains to be seen how weather conditions affect the air flows that make formation flight more efficient. <span class=\"cn\">（译：天气会如何影响让编队飞行更高效的气流，尚待观察。）</span></div>", "log": "It remains to be seen（尚待观察）正是同义家族"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 2, "title": "比对：两个要点对齐", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>The role that weather plays 天气的作用</td><td>how weather conditions affect the air flows 天气如何影响气流</td><td><span class=\"ok-dot\">✓ 同一问题</span></td></tr><tr><td>has not yet been clearly defined 尚不明确</td><td>It remains to be seen 尚待观察 + investigate further 待研究</td><td><span class=\"ok-dot\">✓ 同义家族</span></td></tr></table>", "log": "两个要点都口径对齐"}, {"cls": "good", "ecs": "ok", "tag": "判定 T", "title": "判定 T：True · 陈述为真", "body": "<p><b>选项 T（True · 陈述为真）</b><span class=\"ok-dot\">✓</span></p><p>\"尚不明确\"与\"尚待观察\"口径一致——<b>判 T 成立</b>。</p>", "log": "判定 T：True · 陈述为真", "count": 2, "ribbon": {"k": 1, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 F", "title": "排除 F：False · 陈述为假", "body": "<p><b>选项 F（False · 陈述为假）</b><span class=\"bad-dot\">✗</span></p><p>陈述与原文同义对应，无偷换——F 不成立。</p>", "log": "排除 F：False · 陈述为假", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 2, "title": "结论：答案 T", "body": "<p><b>答案 T</b>——天气影响确实尚无定论。</p><p>记忆锚点：It remains to be seen / investigate further = \"尚无定论\"家族。</p>", "log": "结论：不确定性断言对口，答案选 T"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-44 · 判断题：天气影响尚无定论",
+  subtitle: "考点：新题型判断正误 · 方法：不确定性断言对口\"尚无定论\"家族",
+  counterLabel: "比对点",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 逐点比对 → 口径核查。",
+  snaps: snaps,
+  result: {
+    big: "答案 T",
+    html: "<b>\"It remains to be seen how weather conditions affect the air flows…\"（天气影响尚待观察）= has not yet been clearly defined</b>。同义家族：It remains to be seen / has yet to… / investigate further——不确定性断言找不确定性原文。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：判断题——"尚无定论"的同义家族</h2>
+<p>答案：<strong>T</strong>（陈述正确）。</p>
+<h3>第 0 步：先立机制——锁定"不确定性"表述</h3>
+<p>陈述 The role that weather plays in formation flight <strong>has not yet been clearly defined</strong>（天气对编队飞行的作用<strong>尚不明确</strong>）是一个"不确定性断言"。判断题机制：拿陈述的确定性口径去原文找同一家族的表述——It remains to be seen / remains unknown / has yet to… 这类短语就是"尚无定论"的同义家族，口径对齐即判 T。</p>
+<h3>第 1 步：定位与比对</h3>
+<blockquote><strong>It remains to be seen</strong> how weather conditions affect the air flows that make formation flight more efficient. In zones of increased turbulence, the planes' wakes will decay more quickly and the effect will diminish. Dr. Kroo says this is one of the areas his team will <strong>investigate further</strong>.（天气状况会如何影响那些让编队飞行更省油的气流，<strong>尚待观察</strong>。湍流增强的区域里尾流衰减更快、效果减弱。克鲁博士说这是团队要<strong>进一步研究</strong>的领域之一。）</blockquote>
+<table><thead><tr><th>陈述</th><th>原文对应</th><th>判定</th></tr></thead><tbody><tr><td>The role that weather plays in formation flight</td><td>how weather conditions affect the air flows…（天气如何影响气流 → 影响效率）</td><td>✓ 同一问题</td></tr><tr><td>has not yet been clearly defined</td><td>It remains to be seen（尚待观察）+ will investigate further（待研究）</td><td>✓ 同义家族</td></tr></tbody></table>
+<p>→ 选 <strong>T</strong>。</p>
+<blockquote>记忆锚点：It remains to be seen / has yet to… / investigate further = "尚无定论"家族；不确定性断言找不确定性原文，口径对齐即 T。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

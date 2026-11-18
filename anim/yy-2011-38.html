@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-38 动画：观点细节题——德国的提议与三个方向翻转</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：观点题先给人物“划地盘”",
+  body:"<p>题干：<b>To solve the euro problem, Germany proposed that ____.</b>（为解决欧元问题，德国提议____。）</p><p>第四段整段都是 Germany 的发言席：①句总主张，②③句配套细节（制裁手段、协调范围）。观点题先抓“最直白的那句”——总主张；②③句往往是挖坑原料库。</p>",
+  log:"观点题：锁定第四段 Germany 的发言席"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：①句总主张 + ②③句细节",
+  body:"<div class=\"qq\"><b>第四段①：</b>Germany thinks the euro must be saved by <b>stricter rules</b> on borrowing, spending and competitiveness, backed by quasi-automatic sanctions… <span class=\"cn\">（译：德国认为拯救欧元必须靠借贷、支出与竞争力上更严格的规则，并以准自动制裁作后盾。）</span></div><div class=\"qq\"><b>第四段②③：</b>threats to <b>freeze</b> EU funds for poorer regions…even the <b>suspension</b> of a country's voting rights…economic co-ordination should involve <b>all 27 members</b> of the EU club… <span class=\"cn\">（译：威胁冻结贫困地区的欧盟资金……甚至暂停一国投票权……经济协调应让全体 27 国参与……）</span></div>",
+  log:"定位第四段：①stricter rules ②freeze/suspension ③all 27 members"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：EU funds for poor regions be increased",
+  body:"<p><b>A（增加贫困地区的欧盟基金）</b><span class=\"bad-dot\">✗</span>：②句德国的制裁威胁是 threats to <b>freeze</b> EU funds for poorer regions（<b>冻结</b>资金）。</p><p>德国主张拿资金当“大棒”惩戒不守规矩者，A 却说 be increased（增加）——freeze ↔ increase 方向翻转。</p>",
+  log:"排除 A：原文 freeze（冻结），不是 increase（增加）"},
+ {cls:"good", ecs:"ok", tag:"锁定 B", count:2, ribbon:{k:2, ok:true}, title:"锁定 B：stricter regulations be imposed",
+  body:"<p><b>B（采取更严格的规定）</b><span class=\"ok-dot\">✓</span>：①句原词保真——</p><p>the euro must be saved ↔ To solve the euro problem；<b>stricter rules</b> on borrowing, spending and competitiveness ↔ stricter <b>regulations</b> be imposed（rules ↔ regulations，stricter 原词）。</p><p>①句总主张的同义改写 → B。</p>",
+  log:"锁定 B：stricter rules = stricter regulations"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：only core members be involved in economic co-ordination",
+  body:"<p><b>C（只有核心国参与经济协调）</b><span class=\"bad-dot\">✗</span>：③句 It insists that economic co-ordination should involve <b>all 27 members</b>（坚持让<b>全体 27 国</b>参与）。</p><p>德国恰恰反对只在核心小圈子协调——它担心核心圈内多数会支持法国式干预。all 27 ↔ only core 方向翻转。</p>",
+  log:"排除 C：原文 all 27 members，不是 only core members"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:4, ribbon:{k:4, ok:false}, title:"排除 D：voting rights of the EU members be guaranteed",
+  body:"<p><b>D（成员国投票权得到保障）</b><span class=\"bad-dot\">✗</span>：②句制裁手段包括 even the <b>suspension</b> of a country's voting rights（甚至<b>暂停</b>一国投票权）。</p><p>suspension 与 guaranteed 是一对反义词：德国要把暂停投票权当大棒，D 却说“保障投票权”。方向翻转。</p>",
+  log:"排除 D：原文 suspension（暂停），不是 guaranteed（保障）"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 B",
+  body:"<p><b>答案 B</b>——Germany thinks the euro must be saved by <b>stricter rules</b>…</p><p>记忆锚点：观点题抓①句总主张；②③句是挖坑原料库——freeze/increase、all 27/only core、suspension/guaranteed 三组反义词就是三个翻转开关。</p>",
+  log:"结论：德国提议采取更严格的规定，答案选 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-38 · 观点细节题：德国的欧元拯救方案",
+  subtitle: "考点：Text4 第四段人物观点 · 方法：抓①句总主张 → ②③句坑位方向核对",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>stricter rules on borrowing, spending and competitiveness</b>＝ stricter regulations be imposed。记忆锚点：A freeze→increase、C all 27→only core、D suspension→guaranteed，三个反义词翻转开关全在②③句。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：观点细节题——德国的提议与"反向干扰大满贯"</h2>
+<p>答案：<strong>B</strong>（stricter regulations be imposed 采取更严格的规定）。</p>
+<h3>第 0 步：先立机制——观点题先给人物"划地盘"</h3>
+<p>第四段整段都是 Germany 的发言席：①句提出总主张，②③句是主张的配套细节（制裁手段、协调范围）。观点题先找"这个人最直白的一句话"——总主张句；②③句往往是命题人挖坑的原料库。本题 A、C、D 三个坑全部挖自②③句，只是把方向翻转。</p>
+<h3>第 1 步：定位原文，抓总主张句</h3>
+<p>第四段①句：</p>
+<blockquote><strong>Germany thinks</strong> the euro must be saved by <strong>stricter rules</strong> on borrowing, spending and competitiveness, backed by quasi-automatic sanctions…（德国认为，拯救欧元必须靠在借贷、支出与竞争力上更严格的规则，并以准自动制裁作后盾。）</blockquote>
+<p>替换链：To solve the euro problem ↔ the euro must be saved；stricter regulations be imposed ↔ <strong>stricter rules</strong> on borrowing, spending and competitiveness。rules ↔ regulations，stricter 原词保真 → 选 <strong>B</strong>。</p>
+<h3>第 2 步：干扰项归因——②③句的三个方向翻转</h3>
+<table><thead><tr><th>选项</th><th>原文（②③句）</th><th>翻转</th></tr></thead><tbody><tr><td>A 增加贫困地区基金</td><td>freeze（冻结）EU funds</td><td>冻结 ↔ 增加</td></tr><tr><td>B 更严格的规定</td><td>①句 stricter rules</td><td>一致 → 正确</td></tr><tr><td>C 仅核心国参与协调</td><td>involve all 27 members</td><td>全体 ↔ 仅核心</td></tr><tr><td>D 保障成员国投票权</td><td>suspension（暂停）voting rights</td><td>暂停 ↔ 保障</td></tr></tbody></table>
+<ul><li><strong>误选 A——freeze 读成 increase</strong>：②句德国的制裁威胁是 threats to <strong>freeze</strong> EU funds for poorer regions（<strong>冻结</strong>对贫困地区的欧盟资金）。A 却说 be <strong>increased</strong>（增加）——德国主张的是拿资金当大棒，不是发红包。</li><li><strong>误选 C——把"全体"读成"核心"</strong>：③句 It insists that economic co-ordination should involve <strong>all 27 members</strong> of the EU club（坚持让欧盟全部 27 国参与经济协调）——德国恰恰<strong>反对</strong>只在核心小圈子里协调（它担心核心圈内多数会支持法国式干预）。C 说 only core members，方向完全相反。</li><li><strong>误选 D——把"大棒"读成"保护伞"</strong>：②句制裁手段包括 even the <strong>suspension</strong> of a country's voting rights（甚至<strong>暂停</strong>一国投票权）。D 说 voting rights be guaranteed（投票权得到保障）——suspension 与 guaranteed 是一对反义词。</li></ul>
+<blockquote>记忆锚点：观点题先抓①句总主张（stricter rules → B）；②③句是干扰项原料库，freeze/increase、all 27/only core、suspension/guaranteed 三组反义词就是三个坑的翻转开关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

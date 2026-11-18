@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-45 动画：匹配题——梅勒：房主终将受益</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：However 转折处出“长期利好”",
+  "body": "<p>45 题题干：<b>Andrew Mellor</b>。全文情绪曲线：前半人人谈涨价（负面）→ 第十一段转向（短期付代价）→ 末段 <b>However</b> 一转——长期看更舒适节能、能省电费回本。However + long-term + benefit 三个特征锁定 G。</p>",
+  "log": "审题：However + long-term + benefit 三特征"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第十二段梅勒的观点句",
+  "body": "<div class=\"qq\"><b>第十二段：</b><b>However, the long-term effects</b> of the changes will be <b>more comfortable and energy-efficient homes</b>, adds Andrew Mellor, of PRP architects. “<b>Homeowners will probably recoup that cost over time in energy bill savings</b>. It will obviously be very volatile at the moment, <b>but they will have that benefit over time</b>.” <span class=\"cn\">（长期看房屋更舒适节能；房主可能通过省电费逐步收回成本；最终将获得这份好处。）</span></div><p>三层递进：长期效果 → 回本路径 → 最终归属。</p>",
+  "log": "梅勒：长期更节能、省电费回本、终将受益"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 G",
+  "count": 1,
+  "title": "锁定 G：房主终将受益",
+  "body": "<p><b>G · The rule changes will benefit homeowners eventually</b> <span class=\"ok-dot\">✓</span></p><p><b>recoup that cost... in energy bill savings</b> + <b>they will have that benefit over time</b> ↔ <b>benefit homeowners eventually</b>：benefit homeowners 收拢“节能的房子 + 省电费回本”；<b>eventually</b> ↔ over time / the long-term effects，当选。</p>",
+  "ribbon": {
+   "k": 7,
+   "ok": true
+  },
+  "log": "锁定 G：benefit over time = benefit homeowners eventually"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "title": "排除 C：Goodman 的引语",
+  "body": "<p><b>C · There will be specific limits on home extensions to prevent heat loss</b> <span class=\"bad-dot\">✗</span></p><p><b>prevent heat loss</b> 出自<b>第七段 Thomas Goodman</b> 的引语（扩建玻璃面积不超过地面面积 25% 以防热流失）——有出处、无人认领：Goodman 不在任何题干名单里。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "log": "排除 C：prevent heat loss 是 Goodman 的引语"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 E",
+  "count": 3,
+  "title": "排除 E：Rolande 的引语",
+  "body": "<p><b>E · Many people feel that home prices are already beyond what they can afford</b> <span class=\"bad-dot\">✗</span></p><p><b>priced out of homeownership</b>（买不起房）出自<b>第十段 Jonathan Rolande</b> 的引语——同样“有出处、无人认领”。7 选 5 的两个干扰项各有其主。</p>",
+  "ribbon": {
+   "k": 5,
+   "ok": false
+  },
+  "log": "排除 E：priced out 是 Rolande 的引语"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 3,
+  "title": "结论：答案 G",
+  "body": "<p><b>答案 G（The rule changes will benefit homeowners eventually）</b>。</p><p>记忆锚点：However + long-term = 收尾反转出利好；recoup cost over time = benefit homeowners eventually；Goodman 持 C、Rolande 持 E。</p>",
+  "log": "结论：房主终将受益，答案选 G"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-45 · 匹配题：Andrew Mellor → G",
+ "subtitle": "考点：新题型人物匹配 · 方法：末段反转收尾 + 干扰项归属收网",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项 A–G（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位人物段落 → 同义改写 → 收网剩余干扰项。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 G",
+  "html": "<b>recoup that cost over time in energy bill savings / that benefit over time ↔ benefit homeowners eventually</b>。记忆锚点：However 转折收尾出利好；eventually ↔ long-term / over time；两个干扰项各有其主——C 归 Goodman、E 归 Rolande。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 新题型第 45 题 · Andrew Mellor 的观点匹配</h2>
+<p>答案：<strong>G（The rule changes will benefit homeowners eventually 新规最终会使房主受益）</strong>。</p>
+<h3>第 0 步：先立机制——末段反转收尾处出"长期利好"</h3>
+<p>全文情绪曲线：前半段人人谈涨价（负面），第十一段开始转向（短期付代价），末段 However 一转——长期看房屋更舒适节能、房主能省电费回本。However 转折 + long-term 时间词 + benefit 语义，三个特征锁定 G 选项（benefit homeowners eventually）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>However, the long-term effects of the changes will be more comfortable and energy-efficient homes, adds Andrew Mellor, of PRP architects. "Homeowners will probably recoup that cost over time in energy bill savings. It will obviously be very volatile at the moment, but they will have that benefit over time."</blockquote>
+<p>三层递进：长期效果——更舒适、更节能的房子；回本路径——省下的电费逐步抵回改造成本（recoup that cost over time in energy bill savings）；最终归属——房主将获得这份好处（they will have that benefit over time）。</p>
+<h3>第 2 步：同义替换对上 G</h3>
+<p>recoup that cost... in energy bill savings + they will have that benefit over time ↔ The rule changes will benefit homeowners eventually：benefit homeowners 收拢"更节能的房子 + 省电费回本"，eventually ↔ over time / the long-term effects。当选。</p>
+<h3>第 3 步：逐项排除（剩余干扰项登记）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归属</th></tr></thead><tbody><tr><td>G benefit homeowners eventually</td><td>✓</td><td>梅勒：long-term / over time → eventually。</td></tr><tr><td>C specific limits on home extensions to prevent heat loss</td><td>✗</td><td>第七段 Thomas Goodman 的引语（扩建玻璃面积不超过地面面积 25% 以防热流失）。</td></tr><tr><td>E Many people feel that home prices are already beyond what they can afford</td><td>✗</td><td>第十段 Jonathan Rolande 的引语（priced out of homeownership 买不起房）。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>It will obviously be very volatile at the moment 会不会削弱 G？</strong>：梅勒承认"当下波动"，但句子重心在 but they will have that benefit over time——短期波动与长期受益并存，G 的 eventually 恰好只取"长期受益"这一层。</li><li><strong>五个题为什么总剩 C、E 两个干扰项？</strong>：新题型 7 选 5，命题人配两个"错位观点"：C、E 在文中有明确出处，只是说话人不是任何被题干点名的人物——这正是"登记归属"复习法要抓的两条漏网之鱼。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C/E</strong>：都是"有出处、无人认领"的选项——匹配它们的段落主人（Goodman、Rolande）都不在题干名单里。</li><li><strong>漏看 However</strong>：末段转折词一出现，观点方向反转，前面"人人谈涨价"的惯性不能再沿用。</li></ul>
+<blockquote>记忆锚点：However + long-term = 收尾反转出利好；recoup cost over time = benefit homeowners eventually；7 选 5 的两个干扰项各有其主（Goodman 持 C、Rolande 持 E）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

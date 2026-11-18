@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-36 动画：总-分段细节题——一正一反合起来才是答案</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：tend to 问总体倾向",
+  "body": "<p>题干：<b>According to Paragraph 1, children growing into adolescence tend to ____.</b>（根据第一段，进入青春期的孩子往往会____。）</p><p>首段总-分：①句 <b>Teenagers are paradoxical</b>（青少年是矛盾体）定调，④⑤句具体展开。答案必须<b>同时装下④⑤句的一正一反</b>。</p>",
+  "log": "审题：①句定调 paradoxical，答案要装下④⑤两句"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第一段④⑤句",
+  "body": "<div class=\"qq\"><b>④句：</b>In adolescence, helpless and dependent children who have relied on grown-ups for just about everything become <b>independent people</b> who can take care of themselves and help each other. <span class=\"cn\">（曾经事事依赖大人的孩子变成能自理、能互助的独立者——正的一面。）</span></div><div class=\"qq\"><b>⑤句：</b><b>At the same time</b>, once cheerful and compliant children become <b>rebellious teenage risk-takers</b>. <span class=\"cn\">（与此同时，曾经欢快听话的孩子变成叛逆冒险的少年——反的一面。）</span></div>",
+  "log": "④正⑤反，At the same time 把两面焊死在同一群人身上"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "title": "锁定 A：对立的个性特征",
+  "body": "<p><b>A · develop opposite personality traits</b> <span class=\"ok-dot\">✓</span></p><p>independent（正）+ rebellious risk-takers（反），At the same time 强调两面同在 ↔ <b>opposite personality traits</b>。opposite 正是④⑤“一正一反”的合称，当选。</p>",
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "log": "锁定 A：独立 + 叛险同时发生 = 对立的个性特征"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "title": "排除 B：行为叛逆 ≠ 非理性世界观",
+  "body": "<p><b>B · see the world in an unreasonable way</b> <span class=\"bad-dot\">✗</span></p><p>⑤句只说行为变得<b>叛逆冒险</b>，没涉及“世界观”，see the world 无据。典型误解：把 rebellious 升格成“非理性”——细节题不帮原文加戏。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "log": "排除 B：see the world 在文中无据"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "title": "排除 C：变得不同 ≠ 怀念过去",
+  "body": "<p><b>C · have fond memories of their past</b> <span class=\"bad-dot\">✗</span></p><p>⑤句说的是“变得<b>与童年不同</b>”，不是“怀念童年”。once cheerful and compliant 是对比铺垫。典型误解：由“曾经欢快听话”脑补出怀旧。</p>",
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "log": "排除 C：“怀念童年”无中生有"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "title": "排除 D：主客颠倒",
+  "body": "<p><b>D · show affection for their parents</b> <span class=\"bad-dot\">✗</span></p><p>②句“父母用更强的语言表达（孩子的矛盾性）”<b>主语是父母</b>，被曲解成“孩子向父母表达爱意”。典型误解：主客颠倒。</p>",
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "log": "排除 D：②句主语是父母，不是孩子"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（develop opposite personality traits）</b>——④⑤两句一正一反的合称。</p><p>记忆锚点：总-分段先抓定调词 paradoxical；At the same time = 两面同在；行为叛逆 ≠ 非理性世界观。</p>",
+  "log": "结论：一正一反合称 opposite personality traits，答案选 A"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-36 · 细节题：青春期孩子的总体倾向",
+ "subtitle": "考点：Text 2 第一段 · 方法：定调词 paradoxical → ④⑤句合并 → 逐项排除",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 A",
+  "html": "<b>independent（正）+ rebellious risk-takers（反），At the same time 两面同在</b>——合称 opposite personality traits。记忆锚点：总-分段先抓定调词；一正一反的选项才是“总体倾向”。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 阅读 Text 2 第 36 题 · 进入青春期的孩子会有什么变化</h2>
+<p>答案：<strong>A（develop opposite personality traits 生成对立的个性特征）</strong>。</p>
+<h3>第 0 步：先立机制——tend to 细节题 = 落点句合并 + 段旨校验</h3>
+<p>题干 children growing into adolescence tend to 问的是青春期孩子的总体倾向。首段是"总—分"结构：①句 Teenagers are paradoxical（青少年是矛盾体）先定调，④⑤句才是具体展开。所以正确项必须同时装下④⑤两句的"一正一反"，任何只覆盖半边、或凭空加戏的选项都排除——这正是 paradoxical 在细节层的展开。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In adolescence, helpless and dependent children who have relied on grown-ups for just about everything become independent people who can take care of themselves and help each other. At the same time, once cheerful and compliant children become rebellious teenage risk-takers.</blockquote>
+<p>④句：曾经事事依赖大人的孩子变成能自理、能互助的独立者——"正"的一面；⑤句 At the same time：曾经欢快听话的孩子变成叛逆冒险的少年——"反"的一面。At the same time 把两面焊死在同一群人身上。</p>
+<h3>第 2 步：同义替换对上 A</h3>
+<p>independent people（正）+ rebellious risk-takers（反），且 At the same time 强调两面同在 ↔ develop opposite personality traits（发展出对立的个性特征）。opposite 正是对④⑤"一正一反"的概括，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A develop opposite personality traits</td><td>✓</td><td>独立互助 + 叛逆冒险同时发生，opposite personality traits 是④⑤两句的合称。</td></tr><tr><td>B see the world in an unreasonable way</td><td>✗</td><td>⑤句只说行为变得叛逆冒险，没有涉及"世界观"，see the world 无据。（典型误解：把 rebellious 升格成"非理性"。）</td></tr><tr><td>C have fond memories of their past</td><td>✗</td><td>⑤句说的是"变得与童年不同"，不是"怀念童年"。（典型误解：由"曾经欢快听话"脑补出怀旧。）</td></tr><tr><td>D show affection for their parents</td><td>✗</td><td>②句"父母用更强的语言表达（孩子的矛盾性）"主语是父母，被曲解成"孩子向父母表达爱意"。（典型误解：主客颠倒。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选 B？叛逆不就是不讲理吗？</strong>：rebellious 是"反抗、不听话"的行为描述，"以非理性方式看世界"是认知层面的判断，原文没做这个升级。细节题不帮原文加戏。</li><li><strong>tend to 要不要管？</strong>：要。tend to（往往会）问的是总体倾向，恰好呼应①句 paradoxical 这个定调词——答案必须能概括整段，而不是某一个侧面。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把行为层面的叛逆偷换成认知层面的"非理性"。</li><li><strong>误选 C</strong>：once cheerful and compliant 是"过去的他"的对比铺垫，不是怀旧。</li><li><strong>误选 D</strong>：把父母的主语换给孩子。</li></ul>
+<blockquote>记忆锚点：总—分段先抓定调词 paradoxical；At the same time = 两面同在 = opposite personality traits；行为叛逆 ≠ 非理性世界观。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

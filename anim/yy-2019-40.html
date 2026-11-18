@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-40 观点题：作者对个人努力的评价——too...to... + We need</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：The author concludes that individual efforts ____',
+  'body':'<p>题干：<b>The author concludes that individual efforts ____.</b>（作者得出结论：个人努力____。）</p><p>作者结论题机制：抓<b>语气最强的句式</b>——强烈否定（too...to...）与建议呼吁（We need）。结论通常压在全文最后两段。</p>',
+  'log':'审题：作者结论题，抓 too...to... 否定句式与 We need 呼吁句式'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第七段②句与第八段收口句',
+  'body':'<div class="qq"><b>第七段②：</b>It\'s just that <b>individual actions are too slow</b>, she says, <b>for that to be the only, or even primary, approach</b> to changing widespread behavior.<span class="cn">（只是个人行动太慢，不足以成为改变大范围行为的唯一、甚至首要途径。）</span></div><div class="qq"><b>第八段末：</b><b>We need progressive policies</b> that shape collective action (and rein in polluting businesses), <b>alongside</b> engaged citizens pushing for change.<span class="cn">（我们需要进步政策来塑造集体行动、约束污染企业，与积极参与的公民并肩。）</span></div>',
+  'log':'定位：too...to... 否定"个人单干"；We need... alongside 给出路'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：are far from sufficient',
+  'body':'<table class="aw-mini"><tr><th>选项 C</th><th>原文</th></tr><tr><td><b>far from sufficient</b></td><td>too slow to be the only, or even primary, approach</td></tr><tr><td>（需要政策补位）</td><td>We need progressive policies... alongside engaged citizens</td></tr></table><p>too...to... 判"个人单干"死刑，We need 补出政策——两头合观：<b>个人努力远远不够</b>。</p>',
+  'log':'替换：far from sufficient ← too slow to be the only approach'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：可能过于激进',
+  'body':'<p><b>A · can be too aggressive</b><span class="bad-dot"> ✗</span></p><p>progressive（进步的、先进的）本是褒义词，修饰的是 <b>policies</b>；把它安到"个人努力"头上再歪译成"激进"——<b>主语偷换 + 词义曲解</b>。</p>',
+  'log':'排除 A：progressive 修饰的是政策，不是个人努力'},
+ {'cls':'bad','ecs':'miss','tag':'排除 B','count':2,'ribbon':{'k':2,'ok':false},
+  'title':'排除 B：可能前后不一',
+  'body':'<p><b>B · can be too inconsistent</b><span class="bad-dot"> ✗</span></p><p>把"自带购物袋的环保行为"与"破坏环境的行为"杂糅成"人们时好时坏"——文中两类行为<b>来自不同群体</b>，不是同一群人摇摆。</p>',
+  'log':'排除 B：环保与污染行为来自不同群体，不是"反复无常"'},
+ {'cls':'bad','ecs':'miss','tag':'排除 D','count':3,'ribbon':{'k':4,'ok':false},
+  'title':'排除 D：远非理性',
+  'body':'<p><b>D · are far from rational</b><span class="bad-dot"> ✗</span></p><p>第三段 our limited sense 被断章取义成"不理性"——原文限定的是对"<b>需要实现什么</b>"认识有限（of what needs to be achieved），不是批评人不理性。</p>',
+  'log':'排除 D：limited sense 指"对目标认识有限"，不是不理性'},
+ {'cls':'good','ecs':'ok','tag':'锁定 C','count':4,'ribbon':{'k':3,'ok':true},
+  'title':'锁定 C：远远不够',
+  'body':'<p><b>C · are far from sufficient</b><span class="ok-dot"> ✓</span></p><p>too slow to be the only, or even primary, approach——个人行动连"唯一途径"都当不了；第八段还要政策 alongside 并肩——<b>个人努力远远不够</b>。</p>',
+  'log':'锁定 C：个人努力远远不够，需要政策并行'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 C',
+  'body':'<p><b>答案 C（are far from sufficient）</b>——too...to... 否定"个人单打独斗"，We need... alongside... 呼吁政策并肩：个人努力远远不够。</p><p>记忆锚点：作者结论抓语气最强句式——too...to... 与 We need。</p>',
+  'log':'结论：作者认为个人努力远远不够，答案选 C'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-40 · 观点题：作者如何评价个人努力",
+  subtitle: "考点：Text4 作者观点 · 方法：抓语气最强句式（too...to... / We need）→ 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位末两段 → 语气最强句式定调 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>too...to... 判死刑，We need... 给出路</b>：individual actions too slow to be the only approach + We need progressive policies alongside citizens → 个人努力 <b>far from sufficient</b>。A 主语偷换，B 群体杂糅，D 断章取义。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：观点题——too...to... 判死刑，We need... 给出路</h2>
+<p>答案：<strong>C（are far from sufficient 远远不够）</strong>。</p>
+<h3>第 0 步：先立机制——作者结论藏在语气最强的句式里</h3>
+<p>题干 The author concludes that individual efforts ____。找作者结论的机制：抓<strong>语气最强的句式</strong>——强烈否定（too...to...）与建议呼吁（we need）。第七段②句：individual actions are <strong>too</strong> slow... <strong>to</strong> be the only, or even primary, approach（个人行动太慢，不足以成为应对大范围行为改变的唯一、甚至首要途径）——too...to... 直接否定了"个人行动单打独斗"这条路；第八段收口给出路：<strong>We need progressive policies</strong> that shape collective action..., <strong>alongside</strong> engaged citizens（我们需要进步政策来塑造集体行动，与积极参与的公民<strong>并肩</strong>）。两句合观：个人努力远远不够，必须有政策并行 → C。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It's just that individual actions are too slow, she says, for that to be the only, or even primary, approach to changing widespread behavior.<br/>We need progressive policies that shape collective action (and rein in polluting businesses), alongside engaged citizens pushing for change.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 C</th><th>原文</th></tr></thead><tbody><tr><td>far from sufficient</td><td>too slow to be the only, or even primary, approach</td></tr><tr><td>（需要政策补位）</td><td>We need progressive policies... alongside engaged citizens</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>A（可能过于激进）</strong>：progressive（进步的）本是褒义词，修饰的是 <strong>policies</strong>；把它安到"个人努力"头上再歪译成"激进"——<strong>主语偷换 + 词义曲解</strong>。</li><li><strong>B（可能前后不一）</strong>：把"自带购物袋的环保行为"与"破坏环境的行为"杂糅成"人们时好时坏"——文中两类行为<strong>来自不同群体</strong>，不是同一群人摇摆。</li><li><strong>D（远非理性）</strong>：第三段 our limited sense 被断章取义成"不理性"——原文限定的是对"<strong>需要实现什么</strong>"认识有限（of what needs to be achieved），不是批评人不理性。</li></ul>
+<blockquote>记忆锚点：作者结论题抓 too...to...（否定）与 We need...（呼吁）；individual actions too slow to be the only approach = 个人努力 far from sufficient。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·28 阅读 · 免诉条件：签计划 + 付款</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：条件填充题 = 串起条件链', cls: 'key',
+    body: '<p>题干：unintentional harm-doers will <b>not be prosecuted</b> if they ____。原文的免诉条件往往<b>不止一句</b>：①句给总条件（签计划），②句解释该计划要求什么。两句必须串读，答案 = 条件链最后一环的具体动作。</p>',
+    log: '免诉条件跨句，串链作答' },
+  { title: '条件链第一环（③段①句）', cls: 'key',
+    body: src('“...it would <b>not prosecute</b> landowners or businesses that unintentionally kill, harm, or disturb the bird, <b>as long as they had signed a range-wide management plan</b> to restore prairie chicken habitat.”') +
+      '<p>总条件：非故意伤害者须签署一份覆盖全分布区的栖息地恢复管理计划。</p>',
+    log: '第一环：签管理计划' },
+  { title: '条件链第二环（③段②句）', cls: 'key',
+    body: src('“...the plan <b>requires</b> individuals and businesses that damage habitat as part of their operations <b>to pay into a fund</b> to replace every acre destroyed with <b>2 new acres</b> of suitable habitat.”') +
+      '<p>计划内容：向保护基金<b>付款</b>——每毁 1 英亩，须补 2 英亩合适栖息地（1 赔 2）。</p>',
+    log: '第二环：向保护基金付款' },
+  { title: '条件链合并', cls: 'good',
+    body: '<p>签计划（①）→ 计划要求付款（②）→ 合并：非故意伤害者免于起诉的条件 = <b>掏一笔补偿金</b>。agree to pay a sum for compensation ← signed a plan + pay into a fund。</p>',
+    log: '合并 = 同意支付补偿金' },
+  { title: 'A agree to pay a sum for compensation', cls: 'good',
+    body: '<p>付款入基金正是计划的核心要求，条件链的落点。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = 条件链落点，命中' },
+  { title: 'B volunteer to set up an equally big habitat', cls: 'bad',
+    body: '<p>③句 set aside habitat（让出栖息地）是“<b>获得</b>基金补偿”的条件——拿钱的资格，不是免罚的前提，受益方向相反；equally big 也错——原文是 <b>2 倍</b>（1 赔 2）。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 方向反 + 数量错' },
+  { title: 'C offer to support the WAFWA monitoring job', cls: 'bad',
+    body: '<p>⑤句“监测进程”是 <b>WAFWA（州级机构联盟）</b>的职责——第三方的任务，与个人免诉条件无关。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 第三方职责，无关免诉' },
+  { title: 'D promise to raise funds for USFWS operations', cls: 'bad',
+    body: '<p>operations 指伤害者的“<b>经营活动</b>”，fund 是保护基金——“为 USFWS 运作筹款”属张冠李戴，原文从未说 USFWS 运作需要筹款。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 词项嫁接' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（agree to pay a sum for compensation）</b>。记忆锚点：条件题串句作答——<b>签计划（①）→ 计划要付款（②）→ pay a sum for compensation</b>；1 赔 2（2 new acres）与“获补偿”（set aside）分属两个方向。</p>',
+    log: '锁定 A' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 28 · 免诉的条件：签计划 → 付款',
+  subtitle: '考点：条件填充题 · 跨句条件链 · set aside 与 pay into 方向辨析',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开条件链与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（agree to pay a sum for compensation）',
+    html: '记忆锚点：免诉条件链 = <b>signed a range-wide management plan（①）+ pay into a fund（②）</b> → 同意支付补偿金。B 把“获补偿的条件”当“免罚的前提”且 equally big 与 1 赔 2 矛盾；C 混入 WAFWA 第三方职责；D 张冠李戴 operations/fund。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：免诉的条件——as long as 之后还有一道"付款"工序</h2>
+<p>答案：<strong>A（agree to pay a sum for compensation）</strong>。</p>
+<h3>第一步：先立机制——条件句跨句作答，答案是"条件链的合并"</h3>
+<p>题干：It can be learned from Paragraph 3 that unintentional harm-doers will not be prosecuted if they ____。这是"条件填充"题：原文免诉的完整条件往往<strong>不止一个句子</strong>——①句给总条件（签计划），②句解释该计划要求什么。两句必须串起来读，答案 = 条件链最后一环的具体动作。</p>
+<h3>第二步：定位原文，串起条件链</h3>
+<blockquote>...it would not prosecute landowners or businesses that unintentionally kill, harm, or disturb the bird, <strong>as long as they had signed a range-wide management plan</strong> to restore prairie chicken habitat. ...the plan <strong>requires</strong> individuals and businesses that damage habitat as part of their operations <strong>to pay into a fund</strong> to replace every acre destroyed with <strong>2 new acres</strong> of suitable habitat.</blockquote>
+<p>条件链：签管理计划（①句）→ 计划内容：向保护基金<strong>付款</strong>，每毁 1 英亩补 2 英亩（②句）。合并后：非故意伤害者要免于起诉，就得掏一笔补偿金。agree to pay a sum for compensation ← signed a plan + pay into a fund。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A agree to pay a sum for compensation</td><td>同意支付一笔赔偿金</td><td>付款入基金正是计划要求，条件链的落点</td></tr><tr><td>B volunteer to set up an equally big habitat</td><td>自愿建同样大的栖息地</td><td>set aside habitat 是"获补偿"的条件（③句），方向反了；equally big 也错——是 2 倍</td></tr><tr><td>C offer to support the WAFWA monitoring job</td><td>愿意支持 WAFWA 的监督工作</td><td>监督是⑤句 WAFWA 的职责，与个人免诉条件无关</td></tr><tr><td>D promise to raise funds for USFWS operations</td><td>承诺为 USFWS 运作筹资</td><td>operations 指伤害者的"经营活动"，fund 是保护基金；"USFWS 运作要筹款"系嫁接</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 B</strong>：把③句 set aside habitat（让出栖息地者<strong>可获得</strong>补偿）与"免诉条件"混淆——一个是拿钱的资格，一个是免罚的前提，受益方向完全相反；equally big 属于捏造，原文是 1 赔 2。</li><li><strong>选 C</strong>：看到第五句 WAFWA 与"监测"就联想参与——但免诉条件在①②句，⑤句说的是第三方机构的任务，与伤害者无关。</li><li><strong>选 D</strong>：operations 与 a fund 两个词都在原文，但 operations 归属伤害者的经营，fund 是保护基金；"为 USFWS 运作筹款"是典型张冠李戴。</li></ul>
+<blockquote>记忆锚点：条件题串句作答——<strong>签计划（①）→ 计划要付款（②）→ pay a sum for compensation（A）</strong>；注意 1 赔 2（2 new acres）与"获补偿"（set aside）分属两个方向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

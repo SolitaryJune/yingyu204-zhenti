@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-23 · 2011 阅读第 23 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 研究发现题：答案必须“逐字可回溯”",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：According to the researchers…, after a surprise departure, the firm is likely to ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干挂在 researchers from Ohio University 名下 → 定位第三段研究结论。研究类细节题铁律：正确项是对发现某一句的<b>同义改写</b>，增删程度词、换动作方向都会变成干扰项。</p>"
+ },
+ {
+  "title": "定位原文 · “突然离职”之后的三个数据点",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第三段 ④⑤ 句——重申盈利、卷入诉讼、股票变糟",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("They found that after a surprise departure, the probability that the company will subsequently have to restate earnings increases by nearly 20%.") + quote("The likelihood of being named in a federal class-action lawsuit also increases, and the stock is likely to perform worse.") + "<p>研究发现三件事：①被迫重申盈利的可能性＋20%；②卷入联邦集体诉讼的可能性增加；③<b>股票表现可能变糟</b>。全部是负面变化。</p>"
+ },
+ {
+  "title": "同义替换 · the stock perform worse 的逐词改写",
+  "cls": "key",
+  "tag": "替换",
+  "log": "同义替换：the stock is likely to perform worse → do less well in the stock market",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>do less well ↔ perform worse，stock market ↔ stock：改写干净、信息不增不减。先记下这个最干净的对应，再回头看其他项差在哪。</p>"
+ },
+ {
+  "title": "逐项分析 · C do less well in the stock market",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C do less well in the stock market（股市表现变差） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "body": "<p><b>当选。</b>the stock is likely to perform worse 的同义改写——动词、对象、方向三处全对上。</p>"
+ },
+ {
+  "title": "逐项分析 · B report increased earnings（报告盈利增长）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B report increased earnings ✗ 排除——restate 拆错：增加的是“重申的可能性”",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>restate ＝ 重新申报/更正：公司“不得不重申盈利”，暗示此前报表有问题——增加的是“被迫重申的<b>可能性</b>”，不是“盈利”本身。B 把坏事读成了好事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认得 earnings，没拆 restate ＋ increases 的结构。</p>"
+ },
+ {
+  "title": "逐项分析 · D perform worse in lawsuits（诉讼中表现更糟）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D perform worse in lawsuits ✗ 排除——“被卷入”≠“表现差”",
+  "count": 2,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>原文是“<b>被卷入</b>联邦集体诉讼的可能性增加”（being named in…），不是“在诉讼中打输了”——卷入≠表现差，动作方向被偷换。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓住 lawsuit 这个词就选，不核对事件本身。</p>"
+ },
+ {
+  "title": "逐项分析 · A become more stable（变得更稳定）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A become more stable ✗ 排除——三条发现全是负面，方向相反",
+  "count": 3,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>研究三条发现（重申盈利、卷入诉讼、股票变糟）全是负面变化，“更稳定”与方向完全相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭“换人或许稳定”的常识反向作答。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（do less well in the stock market）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>研究发现，外部董事突然离职后，公司被迫重申盈利的可能性增加近 20%，卷入联邦集体诉讼的可能性也增加，且股票表现可能变糟。</b></p><p>答案选 <b>C（do less well in the stock market 在股市的表现变差）</b>。</p><p><b>记忆锚点</b>：研究发现题逐句对译、改写不增不减；restate earnings ＝ 被迫更正财报（坏事概率上升）；be named in a lawsuit ＝ 被卷入诉讼。</p><p style=\"color:#b91c1c\">最易误选：<b>B（report increased earnings）</b>——restate 的“更正”义被读丢。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 23 题 · 外部董事突然离职后公司会怎样",
+  subtitle: "考点：第三段研究发现 · 同义改写不增不减",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（do less well in the stock market）",
+    html: "<b>C do less well in the stock market（股市表现变差）</b>＝ the stock perform worse。<br>记忆锚点：restate earnings ＝ 被迫更正财报；be named in a lawsuit ＝ 被卷入诉讼。<br>最易误选：<b>B（report increased earnings）</b>——增加的是“重申的可能性”，不是盈利。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 23 题 · 研究发现三连句，"the stock" 指向哪一项</h2>
+<p>答案：<strong>C（do less well in the stock market 在股市表现变差）</strong>。</p>
+<h3>第 0 步：先立机制——研究发现题，答案必须"逐字可回溯"</h3>
+<p>题干挂在 researchers from Ohio University 名下，定位就是研究结论所在的第三段。研究类细节题的铁律：正确项是对研究发现某一句的<strong>同义改写</strong>，且改写幅度不超出原句信息——增删程度词、换动作发出者都会变成干扰项。先找到全部发现，再逐项对译。</p>
+<h3>第 1 步：定位原文——"突然离职"之后的三个数据点</h3>
+<blockquote>They found that after a surprise departure, the probability that the company will subsequently have to restate earnings increases by nearly 20%.</blockquote>
+<blockquote>The likelihood of being named in a federal class-action lawsuit also increases, and <strong>the stock is likely to perform worse</strong>.</blockquote>
+<p>两个句子给出三件事：被迫重申盈利的可能性增加；卷入联邦集体诉讼的可能性增加；<strong>股票表现可能变糟</strong>。C 的 do less well in the stock market ＝ the stock perform worse 的逐词改写（do less well ↔ perform worse，stock market ↔ stock），改写干净、信息不增不减。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A become more stable</td><td>变得更稳定</td><td>原文三条全是负面变化（重申盈利、卷入诉讼、股票变糟），"更稳定"方向完全相反</td></tr><tr><td>B report increased earnings</td><td>报告盈利有所增长</td><td>restate earnings increases 拆错对象：增加的是"被迫重申盈利的<strong>可能性</strong>"，不是"盈利"；restate（重新申报/更正）恰恰暗示此前报表有问题</td></tr><tr><td>C do less well in the stock market</td><td>在股市的表现变差</td><td>✓ the stock is likely to perform worse 的同义改写</td></tr><tr><td>D perform worse in lawsuits</td><td>在诉讼中表现更糟糕</td><td>偷换事件：原文是"<strong>被卷入</strong>联邦集体诉讼的可能性增加"，不是"在诉讼中打输了"——卷入≠表现差</td></tr></tbody></table>
+<h3>预判追问：restate 为什么不能读成"报告盈利增加"？</h3>
+<p>restate ＝ state again（重新表述），商业语境里特指<strong>更正已发布的财报</strong>。公司"不得不重申盈利"，言外之意是之前的数字站不住、要重新报——这是负面事件；它的概率上升是"坏事的概率上升"。B 把动词宾语偷换成"盈利增加"，正好把负面读成正面，是本段最大的语义陷阱。同理 D 把"被点名卷入诉讼"（被动的坏事）升级成"诉讼表现差"（原文没有的结果）。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（report increased earnings）</strong>：只认得 earnings，没拆 restate ＋ increases by 的结构——增加的是"重申的可能性"。</li><li><strong>误选 D（perform worse in lawsuits）</strong>：抓住 lawsuit 但替换了动作方向——"卷入诉讼"≠"诉讼表现差"。</li><li><strong>误选 A（become more stable）</strong>：对研究发现的整体方向（负面）没有把握，凭"换人或许稳定"的常识反向作答。</li></ul>
+<blockquote>记忆锚点：研究发现题逐句对译，改写不增不减；restate earnings ＝ 被迫更正财报（坏事概率上升）；be named in a lawsuit ＝ 被卷入诉讼；the stock perform worse ＝ do less well in the stock market。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

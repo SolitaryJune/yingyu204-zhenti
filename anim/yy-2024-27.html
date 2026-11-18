@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-27 · 2024 阅读第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 评价题找连续否定',
+    cls: 'key',
+    tag: '审题',
+    log: 'According to Confor, the fresh incentives ____——态度藏在第二段首句',
+    count: 0,
+    body: '<p>题干问 Confor 对政府新激励政策的评价。定位第二段首句：<code>the trade body says these don’t go far enough and fail to promote...</code>——<b>两个连续否定</b>是人物观点的富矿。</p>'
+  },
+  { title: '定位原文 · 两个否定是核心',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：don’t go far enough + fail to promote the benefits',
+    count: 0,
+    body: quote('Coming at a time of fresh incentives from the UK government for landowners to grow more trees, the trade body says these don’t go far enough and fail to promote the benefits of planting them to boost timber supplies.') +
+      '<p>否定一：<b>don’t go far enough</b>（力度不够）；否定二：<b>fail to promote the benefits...to boost timber supplies</b>（没把“植树保木材供应”的益处宣传到位）。</p>'
+  },
+  { title: '替换推演 · 否定 → 选项的桥',
+    cls: 'key',
+    tag: '替换',
+    log: '替换链：don’t go far enough → can hardly address a construction crisis',
+    count: 0,
+    body: '<p>政策力度不足以扭转“仅 20% 木材自给”的局面，也就<b>几乎无力解决 Confor 警告过的建筑业危机</b>（第一段已埋下 crisis 一词）。A 项的 can hardly address a construction crisis 正是两个否定的合并推理。</p>'
+  },
+  { title: 'A：can hardly address a construction crisis —— 闭环',
+    cls: 'good',
+    tag: '锁定 A',
+    log: 'A 难解建筑业危机 ✓——两个连续否定的合理推理',
+    count: 0,
+    ribbon: { k: 1, ok: true },
+    body: '<p><b>don’t go far enough</b>（力度不够）＋ <b>fail to promote the benefits of planting them to boost timber supplies</b>（没讲透好处）→ 政策<b>不足以解决建筑业危机</b>。A 是对原文否定的正确推理。</p>'
+  },
+  { title: 'B：come at a wrong time —— 背景状语不是评价',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 时机不对 ✗——Coming at a time of... 只是时间背景',
+    count: 1,
+    ribbon: { k: 2, ok: false },
+    body: '<p>句首 <code>Coming at a time of fresh incentives...</code> 的主语是 Confor 的<b>警告</b>：警告发出的时间点恰逢新政出台。句中没有对政策<b>时机</b>的任何评价；且鼓励植树客观上有利于解决危机，谈不上不合时宜。</p><p style="color:#b91c1c">⚠ 典型误解：把背景状语读成态度句。</p>'
+  },
+  { title: 'C：misleading for landowners —— 批错了性质',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C 有误导性 ✗——批的是“力度不足”，不是“颠倒是非”',
+    count: 2,
+    ribbon: { k: 3, ok: false },
+    body: '<p>选项抓到 landowners 与批判语气，但 Confor 的不满是“政策没把该讲的益处讲够”：<b>方向正确、效力不足</b>。鼓励植树本身有助于增加国内木材供应——这不是 mislead（误导），是“讲得不够”。</p><p style="color:#b91c1c">⚠ 典型误解：见否定语气就配“误导”，不辨批评的性质。</p>'
+  },
+  { title: 'D：too costly to put into practice —— 杂糅捏造',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D 代价过高 ✗——把“力度不足”与“进口价格波动”捏成“成本高”',
+    count: 3,
+    ribbon: { k: 4, ok: false },
+    body: '<p>两处信息被糅杂：首句说的是<b>政策力度不足</b>（该加大力度）；第 3 句 fluctuating prices 说的是<b>国内供应不足导致英国承受进口价格波动</b>——都与“政策成本高昂”无关。</p><p style="color:#b91c1c">⚠ 典型误解：把不同句的信息糅成一个因果。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 A',
+    log: '答案 A（can hardly address a construction crisis）——连续否定 = 力度不足难解危机',
+    count: 3,
+    body: '<p>答案选 <b>A（can hardly address a construction crisis）</b>。</p><p><b>记忆锚点</b>：评价题先找连续否定——don’t go far enough + fail to promote；背景状语（Coming at a time of...）不表态度；批判的对象是政策<b>效力</b>，不是时机（B）、道德（C）或成本（D）。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 27 题 · Confor 如何评价新激励政策',
+  subtitle: 'Text 2 · 考点：人物观点（连续否定）· don’t go far enough → can hardly address',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“定位否定 → 替换推演 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（can hardly address a construction crisis）',
+    html: '两个连续否定：<b>don’t go far enough + fail to promote the benefits</b> → 力度不足、难解危机。<br>记忆锚点：背景状语不表态度；批判的是效力——B 批时机、C 批道德、D 批成本，全无文本支撑。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 27 题 · Confor 如何评价新激励政策</h2>
+<p>答案：<strong>A（can hardly address a construction crisis 几乎无力解决建筑业危机）</strong>。</p>
+<h3>第 0 步：先立机制——两个连续否定就是观点</h3>
+<p>According to Confor, the UK government's fresh incentives ____：人物评价题。定位第二段首句，Confor 对新政策的态度由两个连续否定给出——these <strong>don't go far enough</strong> and <strong>fail to promote</strong>...。把这两个否定合起来读：政策方向没错（鼓励植树），但力度不够、又没宣传“植树保木材供应”的好处 → 不足以解决它自己警告过的建筑业危机。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Coming at a time of fresh incentives from the UK government for landowners to grow more trees, the trade body says these don’t go far enough and fail to promote the benefits of planting them to boost timber supplies.</blockquote>
+<h3>第 2 步：同义替换核对</h3>
+<ul><li>these <strong>don't go far enough</strong>（力度不够）→ <strong>can hardly address a construction crisis</strong>（几乎无力解决危机）——激励政策与“建筑业危机”之间的桥，就是“力度不足以扭转 20% 自给的局面”；</li><li><strong>fail to promote the benefits...to boost timber supplies</strong> 补足理由：政策没把“植树保木材供应”讲到位。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A can hardly address a construction crisis</td><td>难解建筑业危机</td><td>✓</td><td>don't go far enough + fail to promote 的合理推理</td></tr><tr><td>B are believed to come at a wrong time</td><td>时机不对</td><td>✗</td><td>Coming at a time of... 是“警告恰逢政策出台”的时间背景，不是批时机</td></tr><tr><td>C seem to be misleading for landowners</td><td>对土地所有者有误导</td><td>✗</td><td>批判的是“力度不足”，不是“误导”；鼓励植树的方向本身正确</td></tr><tr><td>D will be too costly to put into practice</td><td>代价过高难落地</td><td>✗</td><td>杂糅：把“政策力度不足”与第 3 句“进口价格波动”捏成“成本高”</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不是“时机不对”？</strong>：Coming at a time of fresh incentives... 的主语是 Confor 的警告——只是说警告发出的时间点赶上了新政，句中没有任何对政策出台时机的评价；且鼓励植树客观上有利解决危机，谈不上不合时宜。</li><li><strong>“误导”为何不成立？</strong>：Confor 的不满是“政策没把该讲的益处讲够”，即方向对、效力弱；misleading 指颠倒是非，性质完全不同。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把背景状语 Coming at a time of... 读成对时机的批评。</li><li><strong>误选 C</strong>：抓住 landowners 和批判语气，脑补“误导”指控。</li><li><strong>误选 D</strong>：把 fluctuating prices（进口价格波动风险）杂糅进“政策成本”叙事。</li></ul>
+<blockquote>记忆锚点：评价题找连续否定——don't go far enough + fail to promote = 力度不足难解危机；背景状语不表态度，批判的必须是政策的“效力”，不是“时机/道德/成本”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

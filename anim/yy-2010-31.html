@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·31 阅读 · 观点题的"对象 + 态度"拆解</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：观点题', cls: 'key',
+    body: '<p>题干 <b>According to Dr. Curtis</b>，问她对 <b>habits like hand washing with soap（用肥皂洗手的习惯）</b>的看法。机制：观点题先拆<b>对象 + 态度</b>——她的态度给谁、针对什么。</p>',
+    log: '先拆：对什么 + 什么态度' },
+  { title: '辨析两个对象', cls: 'key',
+    body: '<p>两个易混对象：① <b>dirty hands</b>（不用肥皂洗手的现状）——她持否定；② <b>soap habit</b>（用肥皂洗手的习惯）——她倡导建立。题干问的是 <b>②</b>，答案必须落在"建立/培养"一侧。</p>',
+    log: '脏手 = 要改变；洗手习惯 = 要培养' },
+  { title: '定位原文', cls: 'key',
+    body: src('“There are fundamental public health problems, like <b>dirty hands instead of a soap habit</b>, that remain killers only because we can’t figure out how to change people’s habits... We wanted to learn from private industry how to <b>create new behaviors that happen automatically</b>.”') +
+      '<p>落点：脏手仍是杀手，因为习惯还没建立；要向企业学的是"创造新的自动行为"。</p>',
+    log: 'dirty hands instead of a soap habit' },
+  { title: '同义替换核对 A', cls: 'step',
+    body: '<p><b>create new behaviors that happen automatically → should be further cultivated</b>；"a soap habit"（尚缺的习惯）→ habits like hand washing with soap。替换闭环。</p>',
+    log: 'create → cultivate' },
+  { title: 'A：进一步培养', cls: 'good',
+    body: '<p>"<b>should be further cultivated</b>（应进一步培养）"——习惯缺失 → 缺的要补：用企业方法把洗手变成自动行为。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = 缺失习惯待建立' },
+  { title: 'B/C：对象偷换', cls: 'bad',
+    body: '<p>"应<b>逐渐改变</b> / <b>根植于历史</b>"——change 的对象是"不洗手"的现状，remain 修饰的是"脏手仍是杀手"；根深蒂固的不是洗手习惯（它恰恰尚未形成）。<b>B、C 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B/C 把态度安错了对象' },
+  { title: 'D：private 嫁接', cls: 'bad',
+    body: '<p>"基本是<b>私人事务</b>（private concerns）"——private 来自 <b>private industry</b>（私营企业），且原文定性为 <b>public</b> health problems：方向相反。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 词义嫁接，public ≠ private' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（should be further cultivated）</b>。记忆锚点：<b>观点题先拆对象与态度</b>——dirty hands instead of a soap habit 的落点是"习惯缺失"，缺的习惯要 create/cultivate，而不是 change。</p>',
+    log: '锁定 A' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 31 · 观点题的"对象 + 态度"拆解',
+  subtitle: 'Text 3（习惯科学）· 考点：人物观点理解（对象辨析 + 同义替换）',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（should be further cultivated）',
+    html: '记忆锚点：<b>dirty hands instead of a soap habit = 习惯缺失</b>——Curtis 要向企业学"create new behaviors"，即进一步培养洗手习惯；B/C 把"改变/根深蒂固"安到洗手习惯上（对象偷换），D 的 private 来自 private industry，原文定性是 public health problems。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Dr. Curtis 论"用肥皂洗手"——说的是"还要培养"，不是"要改变"</h2>
+<p>答案：<strong>A（should be further cultivated）</strong>。</p>
+<h3>第一步：先立机制——观点题先拆"对象 + 态度"</h3>
+<p>人物观点题的机制：把观点句的<strong>宾语</strong>拆开。本题极易混淆两个对象——"不用肥皂洗手"（脏手的现状）与"用肥皂洗手"（要养成的习惯）。Dr. Curtis 对前者是否定、要改变；对后者是倡导、要建立。题干问的是后者（habits like hand washing with soap），所以答案必须落在"建立/培养"这一侧。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>"There are fundamental public health problems, like dirty hands instead of a soap habit, that remain killers only because we can't figure out how to change people's habits," said Dr. Curtis... "We wanted to learn from private industry how to create new behaviors that happen automatically."</blockquote>
+<h3>第三步：同义替换确认 A</h3>
+<table><thead><tr><th>原文</th><th>选项 A</th></tr></thead><tbody><tr><td>create new behaviors that happen automatically</td><td>should be further cultivated</td></tr><tr><td>a soap habit（尚缺的习惯）</td><td>habits like hand washing with soap</td></tr></tbody></table>
+<p>dirty hands instead of a soap habit 的落点是"习惯缺失"——缺的要补，所以是"进一步培养"。</p>
+<h3>第四步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B 应逐渐改变</td><td>✗</td><td>对象偷换：要改变的是"不洗手"的现状，不是"洗手"习惯</td></tr><tr><td>C 根植于历史</td><td>✗</td><td>对象偷换：remain 安在"脏手仍是杀手"上；洗手习惯恰恰"尚未形成"，谈不上根深蒂固</td></tr><tr><td>D 基本是私人事务</td><td>✗</td><td>词义嫁接：private 来自 private industry（私营企业），且首句已定性为 public health problems（公共问题）</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 B</strong>：看到原文 change people's habits 就选"改变"。但句子里"改变"的宾语是让人养成新习惯这件事很难，要改变的是 dirty hands 现状——宾语错位。</li><li><strong>选 C</strong>：remain 一词被安错对象：根深蒂固、至今夺命的是"脏手问题"，不是"洗手习惯"。</li><li><strong>选 D</strong>：抓 private 一词嫁接到"私人事务"。原文明说这些是 fundamental public health problems，方向相反。</li></ul>
+<blockquote>记忆锚点：观点题两问——"对什么"与"什么态度"；dirty hands instead of a soap habit 的落点是"习惯缺失"，缺的习惯要 create/cultivate，而不是 change。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

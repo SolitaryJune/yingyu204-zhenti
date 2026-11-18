@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-03 · 2015 考研英语（二）完形第 3 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 3 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 3 所在句，考点：分词伴随状语 + into 喻义搭配", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But you wouldn’t know it, __3__ into your phone.</div><p>逗号后是<b>分词作伴随状语</b>，逻辑主语是 you，描述“你对手机做的动作”；它要回答前半句的“为什么”——为什么你不知道（聊天有收益）？因为你整个人埋在手机里。空格 + into your phone 必须是“<b>人主动扎进手机</b>”的喻义。</p>"}, {"title": "机制 · 上下文给“沉浸”定了性", "cls": "key", "tag": "证据", "log": "机制：universal protection 回指手机——手机是屏障，人是主动沉浸", "count": 0, "ribbon": null, "body": "<p>两条上下文证据把空格的性格定死：</p><p>1. 前句：与陌生人聊天有 much 收益，但你不会知道——信息被手机挡住了；</p><p>2. 下句：This universal protection（这种普遍的自我防护）<b>回指手机</b>——手机是屏障。屏障 + 主动投入 → 空格要“沉浸其中”的喻义动词。</p>"}, {"title": "逐项分析 · A beaten（强迫（beat sb into sth））", "cls": "bad", "tag": "排除 A", "log": "A beaten (into) ✗ 排除——beat sb into 是“强迫”，宾语必须是人", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>beat sb into sth 意为“强迫某人做某事”，及物结构、宾语必须是人（beat some sense into sb）；且玩手机是自愿行为，不是“被强迫打进手机”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 into 搭配，不查 beat into 的宾语类型与“强迫”义。</p>"}, {"title": "逐项分析 · B plugged（插上；沉浸于）", "cls": "good", "tag": "选定 B", "log": "B plugged (into) ✓ 当选——本义插插头，喻指“接入/深陷”，埋头玩手机正是此义", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>plug 本义“插插头”，plugged into 引申为“接入、深陷其中”：plugged into your phone = 埋头扎在手机里。既解释了“你不会知道”的原因，又与 universal protection 的屏障意象相扣。</p>"}, {"title": "逐项分析 · C guided（引导进入）", "cls": "bad", "tag": "排除 C", "log": "C guided (into) ✗ 排除——“被引导”与自愿沉浸矛盾", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>guided into 意为“被引导进入”，需要外部引导者；本句逻辑主语 you 是主动方，自己埋头玩手机，不存在“被谁引进手机”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“引导”误配给“自我沉浸”的场景，没核对主被动关系。</p>"}, {"title": "逐项分析 · D brought（带进；使卷入）", "cls": "bad", "tag": "排除 D", "log": "D brought (into) ✗ 排除——多接组织/状态，“被带进手机”不成立", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>bring sb into sth 多接组织、状态、接触（bring sb into contact/power）；“被带进手机”既无施动者，也与“自愿低头刷屏”的事实不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 brought into 当普通“进入”处理，忽略语境要的是“沉浸”的主观状态。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（plugged 沉浸于）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>但你不会知道这一切——因为你埋头扎在手机里。</b></p><p>答案选 <b>B（plugged）</b>。</p><p><b>记忆锚点</b>：plugged into = 沉浸/接入（手机语境高频喻义）；beat sb into = 强迫某人做某事（宾语必须是人）；guide/bring into 需要外部施动者。</p><p style=\"color:#b91c1c\">最易误选：<b>D（brought）</b>——把“带入”当“进入”，漏掉“沉浸”这一语境要求。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 3 空 · “你不会知道”——因为你整个人____手机里",
+  subtitle: "考点：分词伴随状语 + into 喻义搭配 · 逻辑主语与主被动 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 B（plugged 沉浸于）", "html": "<b>B plugged (into)</b>——本义插插头，喻指“接入、深陷”：埋头扎在手机里。<br>记忆锚点：plugged into = 沉浸/接入；beat sb into = 强迫（宾语必须是人）；guide/bring into 需要外部施动者。<br>最易误选：<b>D（brought）</b>——把“带入”当“进入”，漏掉“沉浸”这一语境要求。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 3 空 · plugged into 的“沉浸”喻义</h2>
+<p>答案：<strong>B（plugged）</strong>。</p>
+<h3>第 0 步：先立机制——伴随状语要说清“你对手机做了什么”</h3>
+<p><code>But you wouldn't know it, __3__ into your phone.</code>：逗号后是分词作<strong>伴随状语</strong>，逻辑主语是 you。它要回答前半句的“为什么”——为什么你不知道（聊天有收益）？因为你整个人埋在手机里。所以空格 + into your phone 必须是“<strong>人主动扎进手机</strong>”的喻义。</p>
+<h3>第 1 步：定位原文与证据链</h3>
+<blockquote>But you wouldn't know it, __3__ into your phone.</blockquote>
+<ul><li>前句：与陌生人聊天有 much 收益，但你不会知道——信息被手机挡住了；</li><li>下句：This universal protection（这种普遍的自我防护）回指手机——手机是屏障；</li><li>屏障 + 主动投入 → “沉浸其中”的喻义动词。</li></ul>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>搭配义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A beaten (into)</td><td>强迫某人做某事</td><td>✗ 排除</td><td>beat sb into sth 宾语必须是人且含强迫义；玩手机是自愿行为。（典型误解：只认 into 搭配，不查宾语类型。）</td></tr><tr><td>B plugged (into)</td><td>接入；深陷于</td><td>✓ 当选</td><td>本义“插插头”，喻指“沉浸其中”，与屏障意象相扣。</td></tr><tr><td>C guided (into)</td><td>被引导进入</td><td>✗ 排除</td><td>需要外部引导者；逻辑主语 you 是主动方。（典型误解：把“引导”误配给“自我沉浸”。）</td></tr><tr><td>D brought (into)</td><td>被带进；使卷入</td><td>✗ 排除</td><td>多接组织、状态；“被带进手机”无施动者，与自愿刷屏不符。（典型误解：把 brought into 当普通“进入”。）</td></tr></tbody></table>
+<p>代入后的完整句义：但你不会知道这一切——因为你埋头扎在手机里。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>brought into 不就是“进入手机（的世界）”吗？</strong>：bring into 的核心是“使进入”，需要把某人/某物带进去的施动者；本句只有 you 自己，“被带进”悬空。语境要的也不是“进入”这个动作，而是“沉浸”这种持续状态。</li><li><strong>beaten into 有“被打进”义，硬译行不行？</strong>：beat sb into sth 是固定强迫句式（宾语必须是人），且与“自愿玩手机”的常识冲突。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（brought）</strong>：把“带入”当“进入”，漏掉“沉浸”这一语境要求——最常见错法。</li><li><strong>误选 A（beaten）</strong>：只认 into 搭配不查宾语类型与词义方向。</li><li><strong>误选 C（guided）</strong>：主被动关系没过脑子。</li></ul>
+<blockquote>记忆锚点：plugged into = 沉浸/接入；beat sb into = 强迫（宾语必须是人）；guide/bring into 需要外部施动者。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

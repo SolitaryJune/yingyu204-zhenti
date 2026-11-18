@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-01 · 2020 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 1 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 1 空所在句，考点：上下文语义 + 形容词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But defining what it means to be a good parent is undoubtedly very __1__ , particularly since children respond differently to the same style of parenting.</div><p>空格在系动词后做表语，说明\"界定什么是好父母\"这件事的性质；since 从句紧随其后补出原因——线索就在本句之内。</p>"
+ },
+ {
+  "title": "找证据 · 三条线索全部指向\"难\"",
+  "cls": "key",
+  "tag": "证据",
+  "log": "But 定负面方向，since 从句给出\"难\"的原因——孩子反应不同，没有统一标准",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But defining what it means to be a good parent is undoubtedly very __1__ , particularly since children respond differently to the same style of parenting.</div><p>But：理想 → 现实障碍（负面）；particularly since：孩子反应不同 → 没有统一标准。第二段 easier 与本空\"难\"首尾呼应——锁定\"客观上难界定\"。</p>"
+ },
+ {
+  "title": "逐项分析 · A tedious（单调乏味的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A tedious（单调乏味的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>负面词但方向错：tedious 说的是\"因冗长、太慢或无趣而令人厌烦\"，是对过程的主观情绪评价；文意是客观上\"难以界定、没有标准\"，不是\"界定这件事很烦\"。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到负面词就选，没核对\"难\"的侧重方向。</p>"
+ },
+ {
+  "title": "逐项分析 · B pleasant（令人愉悦的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B pleasant（令人愉悦的） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>正面语义，与句首 But 的转折方向正面相撞：But 之后应是\"现实障碍\"，不是\"愉悦\"。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认词义，不核对转折词定下的方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C instructive（富有教益的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C instructive（富有教益的） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>同为正面语义，且\"界定好坏标准\"这件事本身谈不上有无教益，语义两端都接不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：同 B：忽略 But 的转向。</p>"
+ },
+ {
+  "title": "逐项分析 · D tricky（难办的，棘手的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D tricky（难办的，棘手的） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与\"难以界定\"严丝合缝：孩子反应各异 → 没有统一标准 → 不好拿捏；并与第二段 easier 形成难/易对照。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（tricky 难办的，棘手的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>但界定\"好父母\"意味着什么，无疑是一件非常棘手的事，尤其因为孩子们对同一种育儿方式的反应各不相同。</b></p><p>答案选 <b>D（tricky 难办的，棘手的）</b>。</p><p><b>记忆锚点</b>：But 后接\"难\"；particularly since 给\"难\"供原因；tricky=客观棘手，tedious=主观乏味；下文 easier 反向呼应。</p><p style=\"color:#b91c1c\">最易误选：<b>A（tedious）</b>——只看\"负面\"不看侧重——tedious 是主观上的\"乏味\"，文意要的是客观上的\"难办\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 1 空 · \"界定好父母\"为什么难——转折词定方向，原因从句给依据",
+  subtitle: "考点：上下文语义 + 形容词辨析 · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（tricky）",
+ "html": "<b>D tricky（难办的，棘手的）</b>。<br>完整句义：但界定\"好父母\"意味着什么，无疑是一件非常棘手的事，尤其因为孩子们对同一种育儿方式的反应各不相同。<br>记忆锚点：But 后接\"难\"；particularly since 给\"难\"供原因；tricky=客观棘手，tedious=主观乏味；下文 easier 反向呼应。<br>最易误选：<b>A（tedious）</b>——只看\"负面\"不看侧重——tedious 是主观上的\"乏味\"，文意要的是客观上的\"难办\"。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 1 空 · "界定好父母"为什么难——转折词定方向，原因从句给依据</h2>
+<p>答案：<strong>D（tricky 难办的，棘手的）</strong>。</p>
+<h3>第 0 步：先立机制——转折词定方向，原因从句给依据</h3>
+<p>空格做表语，说明"界定什么是好父母"这件事的性质。选词前先把本句的两条线索摆清：一是句首 But——上一句说"人人都想当好父母"（理想），But 一转，落到"界定好父母的含义"上（现实），空格必须顺着转折走负面语义；二是 particularly since 引出的原因从句——"孩子们对同一种育儿方式的反应各不相同"，这正是"难"的具体内容：反应不同，就没有一套放之四海皆准的标准。两条线索合起来，空格要表达"客观上难以界定、不好拿捏"，而不是任何主观感受。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>But defining what it means to be a good parent is undoubtedly very __1__ , particularly since children respond differently to the same style of parenting.</blockquote>
+<p>空格在系动词后做表语，说明"界定什么是好父母"这件事的性质；since 从句紧随其后补出原因——线索就在本句之内。</p>
+<h3>第 2 步：找证据——三条线索全部指向"难"</h3>
+<ul><li><strong>But 转折</strong>：理想 vs 现实障碍，空格落在"障碍"一侧，语义必须负面；</li><li><strong>since 原因从句</strong>：孩子反应不同 → 没有统一标准 → "难"；</li><li><strong>下文呼应</strong>：第二段开头 there's another sort of parent that's a bit easier to __4__（另一种父母更好"描述"），easier 正是与本空的"难"相对照——前后咬合。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A tedious</td><td>单调乏味的</td><td>✗ 排除</td><td>负面词但方向错：tedious 说的是"因冗长、太慢或无趣而令人厌烦"，是对过程的主观情绪评价；文意是客观上"难以界定、没有标准"，不是"界定这件事很烦"。（典型误解：看到负面词就选，没核对"难"的侧重方向。）</td></tr><tr><td>B pleasant</td><td>令人愉悦的</td><td>✗ 排除</td><td>正面语义，与句首 But 的转折方向正面相撞：But 之后应是"现实障碍"，不是"愉悦"。（典型误解：只认词义，不核对转折词定下的方向。）</td></tr><tr><td>C instructive</td><td>富有教益的</td><td>✗ 排除</td><td>同为正面语义，且"界定好坏标准"这件事本身谈不上有无教益，语义两端都接不上。（典型误解：同 B：忽略 But 的转向。）</td></tr><tr><td>D tricky</td><td>难办的，棘手的</td><td>✓ 当选</td><td>与"难以界定"严丝合缝：孩子反应各异 → 没有统一标准 → 不好拿捏；并与第二段 easier 形成难/易对照。</td></tr></tbody></table>
+<p>代入后的完整句义：但界定"好父母"意味着什么，无疑是一件非常棘手的事，尤其因为孩子们对同一种育儿方式的反应各不相同。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>tedious 不也是负面词吗？为什么不行？</strong>：tedious 的"难"是"烦"——冗长、无趣、令人厌烦，说的是人的主观感受；tricky 的"难"是"棘手"——情况复杂、不好对付。since 从句给出的原因是"孩子反应不同、没有标准"，这是"复杂难办"，不是"冗长乏味"。</li><li><strong>B、C 为什么可以直接排除？</strong>：句首 But 已经决定空格落在"现实障碍"一侧；pleasant（愉悦）、instructive（有教益）都是正面词，方向相反，无需再细抠词义。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（tedious）</strong>：只看"负面"不看侧重——tedious 是主观上的"乏味"，文意要的是客观上的"难办"。</li><li><strong>误选 B（pleasant）</strong>：忽略句首 But：转折之后必须接负面语义。</li></ul>
+<blockquote>记忆锚点：But 后接"难"；particularly since 给"难"供原因；tricky=客观棘手，tedious=主观乏味；下文 easier 反向呼应。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-10 · 2011 完形第 10 空 · 政府______的网络“驾照”——哪个“发”配得上官方证件</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 10 所在句", "cls": "key", "tag": "定位", "log": "定位原文：an Internet driver's license __10__ by the government", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The approach contrasts with one that would require an Internet driver's license <b>__10__</b> by the government.</div><p>过去分词后置定语：逻辑主语是网络“驾照”，施动者是政府。四个词都能往“发”上译 → 真考点是<b>主语（官方）+ 宾语（证件）的搭配框架</b>。</p>"}, {"title": "找证据 · “驾照”喻体锁定 issue", "cls": "key", "tag": "证据", "log": "找证据：现实里驾照只能由官方“签发”（issue a license）", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…an Internet driver's license issued by the government.</div><p>作者借“驾照”作比，就是要唤起“官方签发证件”的标准搭配：issue a passport / permit / visa / license——政府 + 驾照两头咬合。</p>"}, {"title": "逐项分析 · B issued（发给，签发）", "cls": "good", "tag": "选定 B", "log": "B issued（签发） ✓ 当选——issue a license 官方签发证件", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>issue 的标准用法就是官方机构签发护照/签证/许可证/驾照：与 the government + driver's license 两头咬合。</p>"}, {"title": "逐项分析 · A released（发布，发行）", "cls": "bad", "tag": "排除 A", "log": "A released ✗ 排除——release 发的是消息/影片，不签发证件", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>release 用于发布消息、发行影片/软件（release a film），不与“签发证件”搭配。</p><p style=\"color:#b91c1c\">⚠ 典型误解：release 也译“发放”，混淆发行与签发。</p>"}, {"title": "逐项分析 · C distributed（分发，分配）", "cls": "bad", "tag": "排除 C", "log": "C distributed ✗ 排除——是物流意义上的“分”，无官方签发义", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>distribute 强调把一批物品有计划地分发到各处；证件先要有“签发”这道官方手续，才谈得上分发。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“发”就选 distribute。</p>"}, {"title": "逐项分析 · D delivered（递送）", "cls": "bad", "tag": "排除 D", "log": "D delivered ✗ 排除——deliver 是包裹/信件的物流动作", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>deliver 是把包裹/信件送到某地（deliver a parcel），与证件的官方签发无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：“送驾照上门”式直译。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（issued 签发）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>这一途径与另一种要求持有政府签发的网络“驾照”的方案形成对比。</b></p><p>答案选 <b>B（issued 发给，分发）</b>。</p><p><b>记忆锚点</b>：官方机构 + 证件 → issue；release 发消息/影片、distribute 分发物品、deliver 递送包裹；“驾照”喻体 = issue 的签名场景。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 10 空 · 政府______的网络“驾照”——哪个“发”配得上官方证件",
+  subtitle: "考点：动词过去分词辨析（官方签发证件） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（issued）", "html": "<b>B issued（发给，签发）</b>：issue a license = 官方签发证件，与 the government + driver's license 两头咬合。<br>记忆锚点：官方 + 证件 → issue；辨析看搭配框架，不看中译名。<br>最易误选：<b>C（distributed）</b>——把物流“分发”当成签发。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 10 空 · 政府______的网络“驾照”——哪个“发”配得上官方证件</h2>
+<p>答案：<strong>B（issued 发给，分发）</strong>。</p>
+<h3>第 0 步：先立机制——“谁 + 发 + 什么东西”三个词定搭配</h3>
+<p>空格是过去分词后置定语，逻辑主语是 an Internet driver's license（网络“驾照”），施动者是 by the government（政府）。四个选项都能往“发”上译，区分点在于动词与<strong>主语类型（政府）和宾语类型（证件）</strong>的搭配：政府签发护照、签证、许可证、驾照这类官方证件，用的是 issue——issue a passport/permit/visa/license 是固定用法。本句还带着与私人方案的对比：政府版 = 官方强制签发。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The approach contrasts with one that would require an Internet driver's license __10__ by the government.</blockquote>
+<p>这一途径（私营联合系统）与另一种方案形成对比——后者要求一张由政府______的网络“驾照”。“驾照”是命题人挑的词：驾照天然由官方<strong>签发</strong>。</p>
+<h3>第 2 步：找证据——“驾照”这一喻体锁定了 issue</h3>
+<blockquote>…an Internet driver's license issued by the government.</blockquote>
+<p>现实世界里驾照只能由车管部门 issue（签发），不能由谁 release/distribute/deliver。作者借“驾照”作比，正是要让读者联想到“官方签发证件”的标准搭配 issue。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B issued</td><td>发给，签发</td><td>✓ 当选</td><td>issue 的标准用法就是官方机构签发护照/签证/许可证/驾照等证件（issue a license），与 the government + driver's license 两头咬合。</td></tr><tr><td>A released</td><td>发布，发行</td><td>✗ 排除</td><td>release 用于发布消息、发行影片/软件（release a film），不与“签发证件”搭配。（典型误解：release 也译作“发放”，混淆了发行与签发。）</td></tr><tr><td>C distributed</td><td>分发，分配</td><td>✗ 排除</td><td>distribute 强调把一批物品<strong>有计划地分发到各处</strong>，是物流意义上的“分”；证件先要有“签发”这道官方手续，才谈得上分发。（典型误解：见“发”就选 distribute。）</td></tr><tr><td>D delivered</td><td>递送</td><td>✗ 排除</td><td>deliver 是把包裹/信件<strong>送到某地</strong>的物流动作（deliver a parcel），与证件的官方性无关。（典型误解：“送驾照上门”式直译。）</td></tr></tbody></table>
+<p>代入后的完整句义：这一途径与另一种要求持有政府签发的网络“驾照”的方案形成对比。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>distribute 不也能说“发证”吗？</strong>：distribute 发的是“一批东西到多个接收点”，不承载“赋予法律效力”的官方义；驾照的核心是签发许可，动词必须带这层含义——issue。</li><li><strong>为什么四个词都往“发”上靠还错三个？</strong>：考研完形的动词辨析从不比中译名，比的是<strong>主语+宾语的搭配框架</strong>：政府（官方）+ 证件 → issue；发行物 → release；批量物品 → distribute；包裹信件 → deliver。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（distributed）</strong>：只记住“分”的中译，没区分“物流分发”与“官方签发”。</li><li><strong>误选 A（released）</strong>：把“发布/发行”义套在证件上。</li><li><strong>误选 D（delivered）</strong>：被“把驾照送到用户手里”的画面感带走。</li></ul>
+<blockquote>记忆锚点：官方机构 + 证件（license/passport/permit/visa）→ issue；release 发消息/影片、distribute 分发物品、deliver 递送包裹；“驾照”喻体 = issue 的签名场景。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

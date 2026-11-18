@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-06 · 2020 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 6 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 6 空所在句，考点：句内语义 + 名词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Still, while every parent would like to be patient, this is no easy __6__ .</div><p>空格做表语：this（主语）is no easy ____。this 指什么，决定了表语选什么。</p>"
+ },
+ {
+  "title": "找证据 · this 的回指对象与搭配结构",
+  "cls": "key",
+  "tag": "证据",
+  "log": "this 回指 to be patient（目标）→ 表语须与\"目标\"同类：no easy task 非易事",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Still, while every parent would like to be patient, this is no easy __6__ .</div><p>this = to be patient（一个目标）；表语与主语同类呼应：目标 ↔ task（任务）——no easy task 为惯用表达。access 的固定句型是 no easy access <b>to</b> sth，套不进本句骨架。</p>"
+ },
+ {
+  "title": "逐项分析 · A answer（答案，解决办法）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A answer（答案，解决办法） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"耐心是个答案\"不通；若理解成\"耐心未必解决问题\"，又与上一句\"孩子各年龄段都受益于耐心\"矛盾。</p>"
+ },
+ {
+  "title": "逐项分析 · B task（任务；工作）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B task（任务；工作） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与主语 this（目标）同类呼应：\"变得有耐心\"是项任务、并非易事；no easy task 为惯用搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · C choice（选择；被选中的东西）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C choice（选择；被选中的东西） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>文意是\"耐心本身难达成\"，不是\"做出选择很难\"——把\"难达成\"偷换成\"难选择\"。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没分清\"达成难\"与\"选择难\"。</p>"
+ },
+ {
+  "title": "逐项分析 · D access（通路；机会，权利）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D access（通路；机会，权利） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>双重排除：结构上没有 sth is no easy access 的说法（惯用是 (there is) no easy access to sth）；语义上 access 的对象是资源、设施、场所、人，\"变耐心\"是目标，配不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看中文释义\"能获得\"，不核句型骨架与搭配对象。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（task 任务；工作）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>不过，尽管每位父母都想做到有耐心，这却不是一件容易的事（并非易事）。</b></p><p>答案选 <b>B（task 任务；工作）</b>。</p><p><b>记忆锚点</b>：this 回指 → 表语同类呼应；no easy task 非易事；access 必带 to sth 且对象是资源。</p><p style=\"color:#b91c1c\">最易误选：<b>C（choice）</b>——把\"耐心难达成\"偷换成\"选择难做\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 6 空 · this 回指 to be patient——表语要和主语同类呼应",
+  subtitle: "考点：句内语义 + 名词辨析 · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（task）",
+ "html": "<b>B task（任务；工作）</b>。<br>完整句义：不过，尽管每位父母都想做到有耐心，这却不是一件容易的事（并非易事）。<br>记忆锚点：this 回指 → 表语同类呼应；no easy task 非易事；access 必带 to sth 且对象是资源。<br>最易误选：<b>C（choice）</b>——把\"耐心难达成\"偷换成\"选择难做\"。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 6 空 · this 回指 to be patient——表语要和主语同类呼应</h2>
+<p>答案：<strong>B（task 任务；工作）</strong>。</p>
+<h3>第 0 步：先立机制——先解决 this 的回指，再让表语与它"同类呼应"</h3>
+<p>主语 this 回指上文的不定式 to be patient——"变得有耐心"是一个目标。表语 no easy ____ 必须能和"目标"同类呼应："成为一个有耐心的人，不是一件容易的____"——填"任务/事"才通：no easy task（非易事）正是惯用表达。排除时抓两头：一是语义同类（task/事）；二是结构搭配——access 这类名词有自己的固定句型（no easy access to sth），套不进 sth is no easy ____ 的骨架。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Still, while every parent would like to be patient, this is no easy __6__ .</blockquote>
+<p>空格做表语：this（主语）is no easy ____。this 指什么，决定了表语选什么。</p>
+<h3>第 2 步：找证据——this 的回指对象与搭配结构</h3>
+<ul><li><strong>回指</strong>：this = to be patient（变得有耐心）——性质是"目标"；</li><li><strong>呼应</strong>：目标 ↔ 任务（task）：no easy task = 非易事，惯用；</li><li><strong>结构核验</strong>：access 惯用 no easy access to sth，没有 sth is no easy access 的说法；answer/choice 语义接不上"目标"。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A answer</td><td>答案，解决办法</td><td>✗ 排除</td><td>"耐心是个答案"不通；若理解成"耐心未必解决问题"，又与上一句"孩子各年龄段都受益于耐心"矛盾。</td></tr><tr><td>B task</td><td>任务；工作</td><td>✓ 当选</td><td>与主语 this（目标）同类呼应："变得有耐心"是项任务、并非易事；no easy task 为惯用搭配。</td></tr><tr><td>C choice</td><td>选择；被选中的东西</td><td>✗ 排除</td><td>文意是"耐心本身难达成"，不是"做出选择很难"——把"难达成"偷换成"难选择"。（典型误解：没分清"达成难"与"选择难"。）</td></tr><tr><td>D access</td><td>通路；机会，权利</td><td>✗ 排除</td><td>双重排除：结构上没有 sth is no easy access 的说法（惯用是 (there is) no easy access to sth）；语义上 access 的对象是资源、设施、场所、人，"变耐心"是目标，配不上。（典型误解：只看中文释义"能获得"，不核句型骨架与搭配对象。）</td></tr></tbody></table>
+<p>代入后的完整句义：不过，尽管每位父母都想做到有耐心，这却不是一件容易的事（并非易事）。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>access 为什么连语法都不合格？</strong>：access 表"获得/使用（某物）的机会或权利"，必须指向"被获取的对象"：惯用 no easy access to sth。本句骨架是 this is no easy ____，没有 to sth 的位置；且"变得有耐心"不是可 access 的资源或场所。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（choice）</strong>：把"耐心难达成"偷换成"选择难做"。</li></ul>
+<blockquote>记忆锚点：this 回指 → 表语同类呼应；no easy task 非易事；access 必带 to sth 且对象是资源。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

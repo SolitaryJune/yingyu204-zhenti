@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·21 阅读 · Cortina：早接触 → 思维重塑</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：makes it easier 是最强替换信号', cls: 'key',
+    body: '<p>细节题。拿 <b>Cortina + early exposure to computer science</b> 定位，再死盯题干的 <b>makes it easier</b>——题干出现“更容易”，原文几乎必然以比较结构出现（not as hard as / the more... the better）。找到比较级，答案就在它的宾语里。</p>',
+    log: '题干 easier → 原文找比较级' },
+  { title: '定位原文（第二段③句）', cls: 'key',
+    body: src('“When younger kids learn computer science, they learn that it’s not just a confusing, endless string of letters and numbers – but a tool to build apps, or create artwork, or test hypotheses. <b>It’s not as hard for them to transform their thought processes as it is for older students.</b>”') +
+      '<p>②句是三个用途的铺垫，<b>③句才是比较级所在</b>：小孩子改变思维过程不像大龄学生那么难。</p>',
+    log: '比较级住在第二段③句' },
+  { title: '同义替换闭环', cls: 'good',
+    body: '<p>题干 <b>makes it easier</b> ← 原文 <b>not as hard... as</b>；题干 <b>remodel the way of thinking</b> ← 原文 <b>transform their thought processes</b>。两组替换全部落位 → 答案 B。</p>',
+    log: 'easier ← not as hard；remodel ← transform' },
+  { title: 'A complete future job training：完成职业培训', cls: 'bad',
+    body: '<p>拼凑⑤句的 training、jobs gap——原文说“增加对该领域感兴趣的人数，从而<b>帮助填补岗位空缺</b>”，被夸大成“完成未来工作培训”。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 用邻近词汇编造新命题' },
+  { title: 'B remodel the way of thinking：重塑思维方式', cls: 'good',
+    body: '<p>transform their thought processes 的同义改写，且有 not as hard as 支撑题干的“更容易”。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B 替换闭环，命中' },
+  { title: 'C formulate logical hypotheses：构想逻辑假设', cls: 'bad',
+    body: '<p>②句原词是 <b>test</b> hypotheses（检验假设），动词被偷换成“构想”；且那是计算机科学“能干什么”的背景，与题干“更容易做什么”无关。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 偷换动词 test → formulate' },
+  { title: 'D perfect artwork production：完善艺术制作', cls: 'bad',
+    body: '<p>②句原词 <b>create</b> artwork（创作艺术作品），被偷换为“完善制作”；同样脱离比较结构。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 偷换动词 create → perfect' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（remodel the way of thinking）</b>。记忆锚点：题干出现 makes it easier → 原文找 <b>not as hard... as</b>；②句的用途列举只管“是什么”，不管“更容易”。</p>',
+    log: '锁定 B' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 21 · Cortina：早接触计算机 → 思维重塑更容易',
+  subtitle: '考点：细节题 · 比较结构替换 · 选项 job training / remodel thinking / hypotheses / artwork',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（remodel the way of thinking）',
+    html: '记忆锚点：<b>makes it easier ← not as hard... as</b>，<b>remodel the way of thinking ← transform their thought processes</b>。干扰项来源：A 用⑤句 training/jobs gap 拼凑夸大，C/D 把②句 test hypotheses、create artwork 的动词各偷换一个。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Cortina 说"更容易"——定位 not as hard...as 的同义改写</h2>
+<p>答案：<strong>B（remodel the way of thinking）</strong>。</p>
+<h3>第一步：先立机制——题干里的 makes it easier 是最强的替换信号</h3>
+<p>题干：Cortina holds that early exposure to computer science makes it easier to ____。细节题的规矩：拿 <strong>Cortina + early exposure</strong> 定位，再盯着 <strong>makes it easier</strong>——"更容易"在原文几乎必然以比较结构出现（not as hard as / easier than / the more... the better）。找到比较级，答案就在它的宾语里。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>When younger kids learn computer science, they learn that it's not just a confusing, endless string of letters and numbers – but a tool to build apps, or create artwork, or test hypotheses. <strong>It's not as hard for them to transform their thought processes as it is for older students.</strong></blockquote>
+<p>②句列举计算机科学的三个用途（build apps / create artwork / test hypotheses），③句才是比较级所在：小孩子"改变思维过程"<strong>不像大龄学生那么难</strong>——即越早接触，重塑思维越容易。makes it easier ← not as hard as；remodel the way of thinking ← transform their thought processes，同义替换闭环。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A complete future job training</td><td>完成未来的职业培训</td><td>拼凑⑤句 training、jobs gap；原文说增加兴趣人数以填补岗位空缺，未说"完成培训"</td></tr><tr><td>B remodel the way of thinking</td><td>重塑思维方式</td><td>transform their thought processes 的同义改写，且有 not as hard as 支撑"更容易"</td></tr><tr><td>C formulate logical hypotheses</td><td>构想逻辑假设</td><td>②句是 test hypotheses（检验假设），"构想"偷换动词；且那是工具用途，与"更容易"无关</td></tr><tr><td>D perfect artwork production</td><td>完善艺术制作</td><td>②句 create artwork（创作）被偷换为"完善制作"，同样脱离题干比较义</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：看到后文 help fill the jobs gap 就联想"培训就业"——把"填补岗位空缺"夸大成"完成职业培训"，属于用邻近词汇编造新命题。</li><li><strong>选 C 或 D</strong>：被②句的三个用途吸引——但 build apps / create artwork / test hypotheses 是"计算机科学能干什么"的背景铺垫，题干问的是"更容易做什么"，落点在③句的比较结构上；命题人正是拿②句原词（hypotheses、artwork）改写动词设障。</li></ul>
+<blockquote>记忆锚点：题干出现 makes it easier → 原文找 <strong>not as hard...as / 比较级</strong>；本题主句答案 = <strong>transform their thought processes → remodel the way of thinking</strong>。②句的用途列举只管"是什么"，不管"更容易"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-30 · 2018 Text2 第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 末段三句各定主旨",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：末段①②③句，考点：段落推断（言外之意）",
+  "body": quote("① While there's a long way to go, the trend lines for renewables are <b>spiking</b>.") + quote("③ What Washington does — <b>or doesn't do</b> — to promote alternative energy may mean <b>less and less</b> at a time of a global shift in thought.") + "<p>段落推断题：正确项不对应原文字句，是定位信息的<b>思想升华</b>；干扰项常“贴原文但贴错方向”。先给三句各定主旨。</p>"
+ },
+ {
+  "title": "立机制 · 三句主旨连成一条线",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：①势头强劲（While 让步、重心在主句）②利好（减缓气候变化）③政府作用递减 → “做/不做”并置的潜台词",
+  "body": "<p>①句：长路漫漫 <b>vs</b> 趋势线激增——While 让步，重心在<b>势头强劲</b>。</p><p>②句：变化加速 → 有望<b>减缓</b>气候变化——利好。</p><p>③句：华盛顿<b>做或不做</b>，影响都愈来愈小——“做与不做”并置要成立，前提是政府<b>本来就没认真在做</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · C is not really encouraged by the US government",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C ✓ 当选——“做或不做都无所谓”的潜台词 = 政府并未真正鼓励；回第四段验证",
+  "body": "<p><b>当选。</b>③句潜台词展开：若政府真在大力鼓励，“doesn't do”无从谈起，其态度也不可能被边缘化。</p><p>验证：第四段特朗普 underlined fossil fuels、dismissed wind power——推理链闭合。not really 留了分寸，encouraged 对应 does...to promote。</p>"
+ },
+ {
+  "title": "逐项分析 · A will bring the US closer to other countries",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ✗ 排除——与③句相悖：全球在变、美国影响变小，差距只会拉大",
+  "body": "<p><b>排除。</b>“全球思想转型之际，美国的影响愈来愈小”意味着：全球在拥抱可再生能源，美国不动。</p><p>度量的是<b>话语权</b>，不是亲密度——差距拉大，谈不上“更接近其他国家”。</p><p style='color:#b91c1c'>⚠ 典型误解：把“影响变小”读成“关系变近”。</p>"
+ },
+ {
+  "title": "逐项分析 · B will accelerate global environmental change",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——与②句相悖：可再生能源的作用是减缓（slow）气候变化",
+  "body": "<p><b>排除。</b>②句明说：这一转变或许正好来得及 a meaningful effect in <b>slowing</b> climate change。</p><p>“加速全球环境变化”方向恰好相反——可再生能源是减缓者。</p>"
+ },
+ {
+  "title": "逐项分析 · D is not competitive enough with regard to its cost",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——只见①句让步从句 long way to go，漏了主句趋势线激增",
+  "body": "<p><b>排除。</b>①句结构：While there's a long way to go（让步），the trend lines are <b>spiking</b>（主句重心）。</p><p>让步从句的信息永远不是段落重心；势头激增恰说明有竞争力——何况第二段说过价格已大跌八成。</p><p style='color:#b91c1c'>⚠ 典型误解：只见树木不见森林。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（is not really encouraged by the US government）——潜台词 + 前文验证",
+  "body": "<p>完整逻辑：<b>无论华盛顿推不推，可再生能源的全球大势都不可挡——这句话的底气，恰来自美国政府“并未真正鼓励”的事实。</b></p><p>答案选 <b>C（is not really encouraged by the US government）</b>。</p><p><b>记忆锚点</b>：末段推断 = 三句各定主旨 → 取“做/不做”并置的潜台词 → 回前文验证；让步从句不是重心；“or doesn't do”的默认值往往就是事实。</p><p style='color:#b91c1c'>⚠ 最易误选 D：While 从句里的“长路漫漫”不是段落态度。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text2 第 30 题 · 由末段推断可再生能源____",
+  subtitle: "考点：段落推断（言外之意） · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 三句主旨机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（is not really encouraged by the US government）", "html": "<b>C</b>：does — or doesn't do — ... may mean less and less 的潜台词 = 政府并未真正鼓励；第四段特朗普站位验证。<br>记忆锚点：让步从句不是重心；“做/不做”并置的默认值往往就是事实。<br>最易误选：<b>D</b>——long way to go 是让步，主句才是 spiking。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text2 第 30 题 · 末段推断：可再生能源与美国政府</h2>
+<p>答案：<strong>C（is not really encouraged by the US government）</strong>。</p>
+<h3>第 0 步：先立机制——段落推断题的答案在"言外之意"，且必须紧贴段落主旨</h3>
+<p>末段推断题的机制：正确项<strong>不直接对应原文字句</strong>，而是定位信息的<strong>思想升华</strong>；干扰项则常"贴原文但贴错方向"。所以解题时先给末段三句话各自定主旨：①句"长路漫漫 vs 趋势线激增"（While 让步——重心在<strong>势头强劲</strong>）；②句"变化加速 → 有望减缓气候变化"（重心在<strong>利好</strong>）；③句"华盛顿做或不做什么，影响愈来愈小"（重心在<strong>政府作用递减</strong>）。三句连起来读出主旨：可再生能源是大势所趋，连政府的态度都拦不住。③句还埋着一个言外之意——"做<strong>或不做</strong>都无所谓"这种表述要成立，前提是政府<strong>本来就没认真在做</strong>；再回第四段验证（特朗普强调化石燃料、贬风能），C 项的推理链就闭合了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>What Washington does — <strong>or doesn't do</strong> — to promote alternative energy may mean <strong>less and less</strong> at a time of a global shift in thought.</blockquote>
+<ul><li><code>Washington</code> 是美国政府的代称；<code>alternative energy</code> 指可再生能源；</li><li><code>does — or doesn't do —</code>：这一插入结构故意把"做与不做"并置——言外之意是：现状更接近"不做"；</li><li><code>may mean less and less</code>：它对全球大势的影响将愈来愈小。</li></ul>
+<h3>第 2 步：同义替换——"做与不做都无所谓" = "并没真正鼓励"</h3>
+<p>把③句的言外意展开：如果美国政府真在大力鼓励可再生能源，"doesn't do"就无从谈起，华盛顿的态度也不可能被"边缘化"。作者敢说"做或不做影响都越来越小"，等于承认<strong>美国政府并没有真正鼓励</strong>可再生能源的发展——这与第四段特朗普"强调化石燃料、把风能贬为不可靠"完全一致。C 项 <code>is not really encouraged by the US government</code> 正是这一潜台词的直接翻译：not really（并没有真正）留了分寸，encouraged（鼓励）对应 does...to promote。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A will bring the US closer to other countries</td><td>将使美国更接近其他国家</td><td>✗ 排除</td><td>与③句相悖：全球思想转型中"美国的影响愈来愈小"，意味着全球在变而美国不动——差距只会拉大，不会拉近。</td></tr><tr><td>B will accelerate global environmental change</td><td>将加速全球环境变化</td><td>✗ 排除</td><td>与②句相悖：可再生能源的作用是<strong>减缓</strong>（slow）气候变化，"加速环境变化"方向反了。</td></tr><tr><td>C is not really encouraged by the US government</td><td>并未真正获得美国政府鼓励</td><td>✓ 当选</td><td>③句"做或不做影响渐小"的潜台词 + 第四段特朗普站位的验证：政府并未真正鼓励可再生能源。</td></tr><tr><td>D is not competitive enough with regard to its cost</td><td>在成本上竞争力不足</td><td>✗ 排除</td><td>只见树木不见森林：只抓住①句让步从句 there's a long way to go，漏掉主句 the trend lines are spiking（趋势线激增）——势头强劲恰说明有竞争力；且②段早说过价格大跌。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>推断题凭什么能推出"没鼓励"？</strong>：推断的合法性来自两处文本的合流——③句把"不做"当默认选项谈论，④段给出"不做"的具体表现（重化石、贬风能）。单凭③句略显含蓄，加上④段就扎实了；这正是"用文中其他部分验证正确项"的流程。</li><li><strong>②句 appears to（似乎）会不会削弱主旨？</strong>：不会——appears to 缓和的是语气，不是方向；speeding up 与 spiking 同向，主旨仍是"势头强劲"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：让步从句（While there's a long way to go）里的信息永远不是段落重心——主句才是。</li><li><strong>误选 A</strong>：把"影响变小"读成"关系变近"——影响力的度量方向是"话语权"，不是"亲密度"。</li></ul>
+<blockquote>记忆锚点：末段推断 = <strong>三句各定主旨 → 取"做/不做"并置结构的潜台词 → 回前文验证</strong>；让步从句不是重心；"or doesn't do"的默认值往往就是事实。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-45 · 2015 新题型第 45 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 先破后立，标题取「立」",
+  "cls": "key",
+  "tag": "方法",
+  "log": "驳斥 + 建议两段式：标题必须落在作者提倡的方向上",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本段是标准的「先破后立」结构：前两句驳斥一种流行做法（不信任自己的观点、向外部求客观），后两句给出正面建议（相信自己的决定、按自己的想法生活）。小标题概括的是作者<b>提倡的方向</b>——只对应被驳斥那一半的标题必错。本题头号诱饵 [F] 的设错原理正在于此。</p>"
+ },
+ {
+  "title": "定位段落 ·【45】先破后立",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位【45】段：devalue your opinion（破）→ believe in yourself（立）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today many people find it difficult to trust their own opinion and seek balance by gaining objectivity from external sources. This way you devalue your opinion and show that you are incapable of managing your own life. When you are struggling to achieve something important you should believe in yourself and be sure that your decision is the best. You live in your skin, think your own thoughts, have your own values and make your own choices.</div><p>「破」：向外求客观 = 贬低自己的见解 = 表明你没能力经营自己的人生；「立」：<b>believe in yourself</b> → think <b>your own</b> thoughts → have <b>your own</b> values → make <b>your own</b> choices。</p>"
+ },
+ {
+  "title": "提炼段旨 · 一串「自己的」",
+  "cls": "key",
+  "tag": "提炼",
+  "log": "your own thoughts / values / choices 的画面 = 走自己的路",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>「立」的排比共享同一个主词「<b>自己的</b>」——这正是 [C] Pave your own unique path 的画面：走一条<b>自己铺成的路</b> = 用自己的思想、价值观做自己的选择、经营自己的生活。</p>"
+ },
+ {
+  "title": "逐项分析 · F Don't fear responsibility for your life（别怕承担人生责任）",
+  "cls": "bad",
+  "tag": "排除 F",
+  "log": "F 别怕人生责任 ✗ ——只覆盖被驳斥的「破」，接不住「立」",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>incapable of managing your own life 让人以为段落谈「人生责任」，但那是<b>被驳斥</b>句里的表述；[F] 只覆盖「破」的一半，完全接不住后半「信自己、走自己的路」的正面建议。</p>",
+  "body": {
+   "k": "F",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B Experience helps you grow（经历助你成长）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 经历助成长 ✗ ——段中自始至终没有「成长」论点",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>struggling to achieve something important 的「奋斗」与「经历助成长」貌合神离——本段自始至终没有「成长」这一论点。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C Pave your own unique path（走出自己的独特道路）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C 走自己的独特道路 ✓ ——「自己的」排比的画面化概括",
+  "count": 2,
+  "ribbon": "<p><b>当选。</b>[C] Pave your own unique path 与 managing <b>your own</b> life、think <b>your own</b> thoughts、have <b>your own</b> values、make <b>your own</b> choices 相契合——按自己的判断铺自己的路。</p>",
+  "body": {
+   "k": "C",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 破立边界与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（Pave your own unique path）——标题取「立」",
+  "count": 2,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（Pave your own unique path）</b>。</p><p><b>记忆锚点</b>：先破后立，标题取「立」；your own thoughts / values / choices = unique path。</p><p style=\"color:#b91c1c\">最易误选：<b>F</b>——「破」的影子接不住「立」；external sources 是被否定的做法，别读成「向外求助是好事」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 新题型【45】· 先驳后立的段落，标题取「立」",
+  subtitle: "考点：小标题匹配 · 先破后立结构 · 半段诱饵",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（Pave your own unique path）",
+ "html": "<b>C Pave your own unique path（走出自己的独特道路）</b>。<br>先破后立：标题取「立」——your own thoughts / values / choices = own unique path。<br>最易误选：<b>F</b>——只覆盖被驳斥的「破」的一半。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：小标题题【45】——先驳后立的段落，标题取"立"</h2>
+<p>答案：<strong>C（Pave your own unique path）</strong>。</p>
+<h3>第 0 步：先立方法——"驳斥 + 建议"两段式，标题必须落在建议上</h3>
+<p>本段是标准的"先破后立"结构：前两句驳斥一种流行做法（不信任自己的观点、向外部求客观），后两句给出正面建议（相信自己的决定、按自己的想法生活）。小标题概括的是作者<strong>提倡的方向</strong>——只对应被驳斥那一半的标题必错。本题头号诱饵 [F] 的设错原理正在于此。</p>
+<h3>第 1 步：定位段落</h3>
+<blockquote>Today many people find it difficult to trust their own opinion and seek balance by gaining objectivity from external sources. This way you devalue your opinion and show that you are incapable of managing your own life. When you are struggling to achieve something important you should believe in yourself and be sure that your decision is the best. You live in your skin, think your own thoughts, have your own values and make your own choices.</blockquote>
+<p>"立"的部分是一串排比：believe in yourself → think your own thoughts → have your own values → make your own choices → managing your own life。五个短语共享同一个主词"<strong>自己的</strong>"——这正是 [C] Pave your own unique path 的画面：走一条自己铺成的路 = 用自己的思想、价值观做自己的选择、经营自己的生活。</p>
+<h3>第 2 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>F Don't fear responsibility for your life</td><td>✗</td><td>半段诱饵：incapable of managing your own life 让人以为段落谈"人生责任"，但那是<strong>被驳斥</strong>句里的表述；[F] 只覆盖"破"的一半，接不住后半"信自己、走自己的路"的正面建议</td></tr><tr><td>B Experience helps you grow</td><td>✗</td><td>多余项：struggling to achieve something important 的"奋斗"与"经历助成长"貌合神离，本段自始至终没有"成长"这一论点</td></tr></tbody></table>
+<h3>预判追问：external sources（外部来源）与 C 有关吗？</h3>
+<p>有关，且是反向相关：seek balance by gaining objectivity from external sources 是作者否定的做法——向外求答案 = 贬低自己的见解。它的反面恰是"按自己的判断铺自己的路"。注意别把它读成"向外求助是好事"，那是把破与立读反了。</p>
+<blockquote>记忆锚点：先破后立，标题取"立"；your own thoughts / values / choices = unique path；[F] 是"破"的影子，接不住"立"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-36 动画：五原则对号入座</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：the principles 定位第一段", "body": "<p>题干：<b>From the principles of the US jury system, we learn that ____</b>（从陪审制度的原则中得知____）</p><p>the principles 钉死第一段 including the principles that 后的<b>五条并列同位语从句</b>。清单题机制：编号列出，选项逐条对号。</p>", "log": "the principles → 第一段五条原则，编号对号入座"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：五条原则编号", "body": "<table class=\"aw-mini\"><tr><th>原则</th><th>原句关键词</th><th>内容</th></tr><tr><td>①</td><td>minimal qualifications of age and literacy</td><td>满足年龄与文化最低要求</td></tr><tr><td>②</td><td>selected randomly from a cross section</td><td>从各阶层随机选出</td></tr><tr><td>③</td><td>no citizen should be denied the right</td><td>不得因种族宗教性别被拒</td></tr><tr><td>④</td><td>entitled to trial by their peers</td><td>被告有权由同龄人审判</td></tr><tr><td>⑤</td><td>verdicts should represent the conscience of the community</td><td>判决应体现社会良知</td></tr></table>", "log": "五条原则编号登记完毕，开始逐条对号"}, {"cls": "", "ecs": "step", "tag": "替换", "count": 0, "title": "同义替换：选项 D 对上原则⑤", "body": "<table class=\"aw-mini\"><tr><th>选项 D</th><th>原则⑤ 原文</th></tr><tr><td>judgment 判决</td><td>verdicts 判决</td></tr><tr><td>consider 考虑</td><td>represent 体现</td></tr><tr><td>the opinion of the public 公众意见</td><td>the conscience of the community 社会良知</td></tr></table><p>三处同义替换严丝合缝。</p>", "log": "judgment / consider / opinion of the public 逐一对上"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "title": "排除 A：文盲也能当陪审员", "body": "<p><b>A · 文盲也能当陪审员</b><span class=\"bad-dot\">✗</span></p><p>原则①明写 meet minimal qualifications of <b>age and literacy</b>——有文化与年龄门槛，文盲不达标。</p><p>把\"有门槛\"读成\"没门槛\"——<b>反向干扰</b>。</p>", "log": "排除 A：文盲也能当陪审员", "count": 1, "ribbon": {"k": 1, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "title": "排除 B：被告免于同龄人审判", "body": "<p><b>B · 被告免于同龄人审判</b><span class=\"bad-dot\">✗</span></p><p>原则④ entitled <b>to</b> trial（有权受审）被改成 immune <b>from</b> trial（免于受审）——方向拧反。</p>", "log": "排除 B：被告免于同龄人审判", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "title": "排除 C：不应有年龄限制", "body": "<p><b>C · 不应有年龄限制</b><span class=\"bad-dot\">✗</span></p><p>同出原则①——minimal qualifications of <b>age</b> 明确有年龄要求。</p><p>与 A 同源的反向干扰。</p>", "log": "排除 C：不应有年龄限制", "count": 3, "ribbon": {"k": 3, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 D", "title": "锁定 D：判决应考虑公众意见", "body": "<p><b>D · 判决应考虑公众意见</b><span class=\"ok-dot\">✓</span></p><p>原则⑤ verdicts should represent the conscience of the community 的同义改写——<b>对号成功</b>。</p>", "log": "锁定 D：判决应考虑公众意见", "count": 4, "ribbon": {"k": 4, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 D", "body": "<p><b>答案 D</b>——判决应考虑公众意见（原则⑤）。</p><p>记忆锚点：清单题编号对号；entitled to ≠ immune from；minimal qualifications = 有门槛。</p>", "log": "结论：原则⑤的同义改写，答案选 D"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-36 · 细节题：陪审制度五原则对号入座",
+  subtitle: "考点：Text2 细节理解 · 方法：原则定位 → 同义替换 → 防反向干扰",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>原则⑤ \"verdicts should represent the conscience of the community\"（判决应体现社会良知）= judgment should consider the opinion of the public</b>。易错：A/C 是原则① \"minimal qualifications of age and literacy\"（有门槛）的反向干扰；B 把 entitled to（有权受审）拧成 immune from（免于受审）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——陪审制度五原则对号入座</h2>
+<p>答案：<strong>D</strong>（judgment should consider the opinion of the public）。</p>
+<h3>第 0 步：先立机制——"原则清单题"逐条对号</h3>
+<p>题干 From the <strong>principles</strong> of the US jury system 把考点钉死在第一段：including the principles that 后面用五个 that 同位语从句并列了五条原则。清单题的机制：<strong>把原则编号列出，再让选项逐条对号</strong>——对得上的叫同义改写，对不上还跟原文唱反调的，叫<strong>反向干扰</strong>。</p>
+<table><thead><tr><th>序号</th><th>原则（原句关键词）</th><th>内容</th></tr></thead><tbody><tr><td>①</td><td>meet minimal qualifications of age and literacy</td><td>满足年龄与文化最低要求即可胜任</td></tr><tr><td>②</td><td>selected randomly from a representative cross section</td><td>从有代表性的社会各阶层随机选出</td></tr><tr><td>③</td><td>no citizen should be denied the right…</td><td>不得因种族、宗教、性别等被剥夺资格</td></tr><tr><td>④</td><td>defendants are entitled to trial by their peers</td><td>被告有权由同龄人审判</td></tr><tr><td>⑤</td><td>verdicts should represent the conscience of the community</td><td>判决应体现社会良知</td></tr></tbody></table>
+<h3>第 1 步：定位与同义替换</h3>
+<blockquote>…and that <strong>verdicts should represent the conscience of the community</strong> and not just the letter of the law.（……判决应体现<strong>社会良知</strong>，而不仅仅是法律条文。）</blockquote>
+<p>选项 D：judgment（≈ verdicts 判决）should <strong>consider the opinion of the public</strong>（≈ represent the conscience of the community 体现社会良知 = 考虑公众意见）。三处同义替换严丝合缝。</p>
+<h3>第 2 步：干扰项归因——三个"反向干扰"</h3>
+<ul><li><strong>A（文盲也能当陪审员）</strong>：原则① 明写 meet minimal qualifications of <strong>age and literacy</strong>——有最低文化与年龄门槛，文盲不达标。把"有门槛"读成"没门槛"。</li><li><strong>B（被告免于同龄人审判）</strong>：原则④ entitled <strong>to</strong> trial（有权<strong>受</strong>审）被改成 immune <strong>from</strong> trial（免于受审）——方向整个拧反。</li><li><strong>C（不应有年龄限制）</strong>：同出原则①——minimal qualifications of <strong>age</strong> 明确有年龄要求。A、C 是同一句原文埋的两颗"反向"雷。</li></ul>
+<blockquote>记忆锚点：清单题 → 编号对号入座；entitled to（有权受审）不等于 immune from（免于受审）；minimal qualifications = 有门槛，反向干扰专坑漏读限定词的人。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022 阅读第 31 题 · 概念细节题：impair + influence（负面）合并改写出 undermine</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2022 阅读第 31 题 · 概念细节题：impair + influence（负面）合并改写出 undermine","subtitle":"考点：概念细节题 · 方法：合并所有定义性信息 → 同义改写；先排积极项再核细节（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 首段定义 → 第二段定义 → 合并同义替换 → 逐项排除”的推理链。","stemEn":"It can be learned from the first two paragraphs that dark patterns <b>____</b>.","stemZh":"从前两段可以得知，黑暗模式____。（概念细节题：正确项常是定义信息的合并改写）","quotes":[{"tag":"定义① · 首段③句（现象层面）","en":"Something that should be simple and transparent can be complicated, intentionally or unintentionally, in ways that <b>impair consumer choice</b>.","zh":"本应简单透明的事被复杂化——损害消费者的选择权。"},{"tag":"定义② · 第二段①句（术语定义）","en":"First coined in 2010 by user experience expert Harry Brignull, “dark patterns” is a catch-all term for practices that <b>manipulate user interfaces to influence the decision-making ability of users</b>.","zh":"黑暗模式 = 操纵用户界面以影响用户的决策能力；结合首段消极语境，influence 实指负面影响。"}],"opts":[{"k":"A","en":"improve user experiences","zh":"改善用户体验","why":"只看见第二段 a user experience seems easy and intuitive，漏掉语义重点“想退出时 turns difficult”——操纵带来的“顺滑”是诱饵，不是改善。"},{"k":"B","en":"leak user information for profit","zh":"泄露用户信息以牟利","why":"过度推导——data privacy rights 出现在第五段，“泄露信息牟利”既超出本题定位范围，也非文中表述。"},{"k":"C","en":"undermine users’ decision-making","zh":"损害用户的决策","why":"","good":"undermine（暗中损害）同时接住 impair consumer choice 与 influence the decision-making ability（负面）。"},{"k":"D","en":"remind users of hidden costs","zh":"提醒用户注意隐藏成本","why":"反向利用——hidden costs（隐藏成本）是黑暗模式坑害用户的常见形式之一，不是“提醒”用户。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}}],"snaps":[{"cls":"step","tag":"审题","log":"概念细节题，定位明确（前两段）：先排积极/反向项，再把定义性信息合并改写","count":0},{"cls":"shift","tag":"定义①（首段）","log":"“一键注册、难以取消”的订阅让人受骗——should be simple... can be complicated in ways that impair consumer choice：损害消费者选择","count":0},{"cls":"shift","tag":"定义②（第二段）","log":"术语定义：manipulate user interfaces to influence the decision-making ability of users——操纵界面、影响决策","count":0},{"cls":"shift","tag":"合并改写","log":"impair consumer choice + influence decision-making（结合消极语境）↔ undermine users’ decision-making → C","count":0},{"cls":"miss","tag":"排除 A","log":"A improve ✗：只看 seems easy and intuitive，漏掉 but turns difficult——“顺滑”是诱饵不是改善","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B leak information ✗：data privacy rights 在第五段——超出本题定位范围，且文中无“泄露牟利”表述","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"ok","tag":"选定 C","log":"C undermine decision-making ✓：undermine 同时接住 impair 与 influence（负面）——合并改写","count":2,"ribbon":{"k":"C","ok":true}},{"cls":"miss","tag":"排除 D","log":"D remind ✗：hidden costs 是“坑害”用户的手段，不是“提醒”——原词复现、逻辑反向","count":2,"ribbon":{"k":"D","ok":false}},{"cls":"done","tag":"结论","log":"答案 C：概念题合并所有定义句再改写；impair / manipulate = 消极语义场，先排积极项","count":2,"done":true}],"result":{"big":"答案 C（undermine users’ decision-making）","html":"<b>C</b>：首段 <b>impair consumer choice</b>（损害选择权）+ 第二段 <b>influence the decision-making ability</b>（操纵界面影响决策）→ 暗中损害用户决策。<br>A 只看“体验顺滑”漏掉 turns difficult；B 泄露信息超出定位范围；D hidden costs 是坑害手段不是提醒。<br>最易误选：<b>A</b>（积极词复现——要看整句走向，but turns difficult 才是重点）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 31 题——概念细节题：impair + influence → undermine</h2>
+<p>答案：<strong>C（undermine users' decision-making）</strong>。</p>
+<h3>第一步：先立机制——概念题的答案 = 两处定义性信息的合并同义改写</h3>
+<p>题干定位明确（前两段）。首段给"现象定义"（损害消费者选择），第二段给"术语定义"（影响决策能力）——概念细节题的正确项常是<strong>两处信息的合并改写</strong>；同时要警惕用段中碎片词设置的积极/反向干扰。</p>
+<h3>第二步：定位原文——两处定义</h3>
+<blockquote>Something that should be simple and transparent can be complicated, intentionally or unintentionally, in ways that impair consumer choice.</blockquote>
+<blockquote>First coined in 2010 by user experience expert Harry Brignull, "dark patterns" is a catch-all term for practices that manipulate user interfaces to influence the decision-making ability of users.</blockquote>
+<ul><li>首段：本应简单透明的事被复杂化——<strong>损害消费者选择（impair consumer choice）</strong>；</li><li>第二段：黑暗模式 = <strong>操纵界面以影响用户决策能力（influence the decision-making ability）</strong>——结合首段的消极语境，influence 实指负面影响。</li></ul>
+<p>合并改写：impair choice + influence decision-making → <strong>undermine users' decision-making</strong>，选 C。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A improve user experiences ✗</strong>：只看见第二段 a user experience seems easy and intuitive，漏掉语义重点"<strong>想退出时 turns difficult</strong>"——操纵带来的"顺滑"是诱饵，不是改善。</li><li><strong>B leak user information for profit ✗</strong>：过度推导——data privacy rights 出现在第五段，"泄露信息牟利"既超出本题定位范围，也非文中表述。</li><li><strong>D remind users of hidden costs ✗</strong>：反向利用——hidden costs（隐藏成本）是黑暗模式<strong>坑害</strong>用户的常见形式之一，不是"提醒"用户。</li><li><strong>C undermine users' decision-making ✓</strong>：undermine（暗中损害）同时接住 impair 与 influence（负面）。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（最强干扰）</strong>："体验顺滑"的字面复现——判断积极词要看<strong>整句走向</strong>（seems easy at the start, but turns difficult）。</li><li><strong>误选 D</strong>：hidden costs 原词复现但逻辑反向——坑你的是它，提醒你的不是它。</li></ul>
+<blockquote>记忆锚点：概念题合并所有定义句再改写；impair / manipulate = 消极语义场，先排积极项（improve）再核对细节项。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

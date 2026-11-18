@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-18 · 2017 完形第 18 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 对照机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 18 所在引语",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：末段 Danaher 引语，考点：句内语义 + 现在与未来的对照结构",
+  "body": quote("&ldquo;When I come home from a <b>hard day&rsquo;s work</b>, I often feel <b>__18__</b>,&rdquo; Danaher says, adding, &ldquo;In a world in which I don&rsquo;t have to work, I might feel <b>rather different</b>&rdquo;") + "<p>这段引语自带结构：<b>前半句说现在</b>（辛苦工作一天后的感受），<b>后半句说未来</b>（不必工作时 feel rather different）。空格填“现在”的状态，后文用“大不相同”与之对照。</p>"
+ },
+ {
+  "title": "立机制 · 把“不同”反过来看",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：hard day's work 的消耗 + demands 的辛劳 → 空格是“被消耗后”的状态",
+  "body": "<p>两处照应锁死方向：</p><p>① 上一空刚说过：闲暇用来抵消工作的 intellectual and emotional <b>demands</b>（辛劳）——被消耗一整天后，状态自然是<b>疲惫</b>；</p><p>② 后半句 might feel <b>rather different</b>：未来“大不相同”，不同之处正对着“累”——不必工作就不累了。空格填什么，rather different 的对照才有着落。</p>"
+ },
+ {
+  "title": "逐项分析 · B tired（疲惫的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "log": "B tired ✓ 当选——hard day's work 的直接体感，且给 rather different 留出“不累”的对照面",
+  "body": "<p><b>当选。</b>辛苦工作一天 → 感到<b>疲惫</b>，因果直接；与上文 demands（工作的辛劳）同向呼应；未来不必工作 feel rather different 对照的正是“累”——投身爱好（下文）需要精力恢复。三头照应，唯它落点。</p>"
+ },
+ {
+  "title": "逐项分析 · A ignored（被忽视的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A ignored ✗ 排除——辛苦工作不导致“被忽视”，对照义不成立",
+  "body": "<p><b>排除。</b>辛苦工作与“被忽视”之间没有因果；若填 ignored，则“不必工作就不再被忽视”的对照更讲不通。</p><p style='color:#b91c1c'>⚠ 典型误解：feel ignored 搭配通顺就入选——本题干扰项<b>全部搭配通顺</b>，搭配不设防。</p>"
+ },
+ {
+  "title": "逐项分析 · C confused（困惑的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C confused ✗ 排除——消耗的是精力，不是认知的清晰度",
+  "body": "<p><b>排除。</b>工作的 demands 消耗的是<b>智力与情感的精力</b>，不是认知的清晰度；“累”与“乱”是两回事。下文说未来会以专业热情投身爱好，缺的是精力，不是“不困惑”。</p><p style='color:#b91c1c'>⚠ 典型误解：把“体力精力消耗”偷换成“脑子混乱”。</p>"
+ },
+ {
+  "title": "逐项分析 · D starved（饥饿的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D starved ✗ 排除——生活常识脑补，全文无进食话题",
+  "body": "<p><b>排除。</b>“辛苦一天会饿”是生活常识，不是文本线索：全文没有任何进食、饮食话题，starved 与上下文零照应。</p><p style='color:#b91c1c'>⚠ 典型误解：hard day&rsquo;s work → 肚子饿，用常识替代文本照应。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（tired）——对照裁判：现在累 ↔ 未来大不相同",
+  "body": "<p>完整句义：<b>“辛苦工作一天回到家，我常常感到疲惫，”Danaher 说，接着补充道，“在一个不需要工作的世界里，我的感受可能会大不相同。”</b></p><p>答案选 <b>B（tired）</b>。</p><p><b>记忆锚点</b>：hard day&rsquo;s work ↔ feel tired；rather different 的对照方向 = 把空格反过来。</p><p style='color:#b91c1c'>⚠ 最易误选 D（starved）：干扰项全部搭配通顺，<b>照应</b>才是裁判。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 18 空 · 辛苦工作一天下班后常常感到____：ignored / tired / confused / starved 选哪个",
+  subtitle: "考点：句内语义 + “现在 vs 未来”对照结构 · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 对照机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（tired）", "html": "<b>B tired</b>：hard day's work 的直接体感，接住上文 demands、给下文 rather different 留对照面。<br>记忆锚点：对照结构里，答案 = 把“大不相同”反过来的那个状态。<br>最易误选：<b>D（starved）</b>——本题四个选项搭配全通，靠照应不靠搭配。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 18 空 · 辛苦工作一天下班后的状态</h2>
+<p>答案：<strong>B（tired）</strong>。</p>
+<h3>第 0 步：先立机制——引语是一组"现在 vs 未来"的对照</h3>
+<p>Danaher 这段话自带结构：<strong>前半句说现在</strong>（When I come home from a hard day's work, I often feel <code>__18__</code>），<strong>后半句说未来</strong>（In a world in which I don't have to work, I might feel <strong>rather different</strong>）。空格填的是"现在"的状态，而后文用 rather different 与之对照——把"现在的状态"反过来看，就是答案的方向。再叠加上一空刚立好的语境：闲暇是用来抵消工作带来的智力和情感<strong>辛劳</strong>（the demands）的——被消耗一整天之后的状态是什么？疲惫。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"When I come home from a <strong>hard day's work</strong>, I often feel <code>__18__</code>," Danaher says, adding, "In a world in which I don't have to work, I might feel <strong>rather different</strong>."</blockquote>
+<h3>第 2 步：找证据——两处照应锁死方向</h3>
+<ul><li><code>a hard day's work</code>（一天辛劳的工作）：辛劳的直接体感就是累；</li><li>上文 <code>counterbalance the intellectual and emotional demands of their jobs</code>（17 空）：闲暇要抵消的正是工作的消耗——消耗的体感即疲惫；</li><li><code>might feel rather different</code>（未来会大不相同）：不同之处正对着"累"——不必工作就不累了。若空格填"困惑/饥饿/被忽视"，"不同"就失去了对照的落点。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A ignored</td><td>被忽视的</td><td>✗ 排除</td><td>辛苦工作≠被忽视；"未来不必工作就不再被忽视"的对照义不成立。（典型误解：feel ignored 搭配通顺就入选——本题干扰项全部搭配通顺，搭配不设防。）</td></tr><tr><td>B tired</td><td>疲惫的</td><td>✓ 当选</td><td>hard day's work ↔ feel tired 直接因果；与 17 空 demands（辛劳）同向，又给 rather different 提供了"不累"的对照面。</td></tr><tr><td>C confused</td><td>困惑的</td><td>✗ 排除</td><td>辛劳消耗的是精力，不是认知的清晰度；下文"不必工作时想投入爱好"也说明问题在精力不在困惑。（典型误解：把"工作累"混同成"脑子乱"。）</td></tr><tr><td>D starved</td><td>饥饿的</td><td>✗ 排除</td><td>纯字面干扰：辛苦一天也许会饿，但全文没有任何进食话题；starved 与上下文无照应。（典型误解：hard day's work → 肚子饿的生活常识脑补。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么搭配都通还要排除？</strong>：完形干扰项的第一层设计就是"都搭配得通"——feel ignored/confused/starved 都是合法短语。真正的裁判是<strong>语义照应</strong>：答案必须同时接住上文 demands（辛劳）和下文 rather different（对照），只有 tired 两头都落点。</li><li><strong>rather different 为什么指向"不累"？</strong>：Danaher 接着解释这种不同——会以专业级的热情投身爱好（19、20 空）。能投身爱好，前提是精力恢复，即"现在累、未来不累"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（starved）</strong>：用生活常识替代文本照应。</li><li><strong>误选 C（confused）</strong>：把"体力精力消耗"偷换成"认知混乱"。</li></ul>
+<blockquote>记忆锚点：hard day's work ↔ feel tired；rather different 的对照方向 = 把空格反过来。干扰项全靠搭配设障，<strong>照应</strong>才是裁判。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

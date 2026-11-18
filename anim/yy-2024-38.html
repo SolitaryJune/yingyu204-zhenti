@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-38</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>Before sharing its users' health information, Flo Health is required to ____</code>。定位第三段 Consent Order（同意令）长难句。关键动作：<b>捋清三个主体各自的动作</b>——Flo Health、用户、第三方，别串门。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第三段末句）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · Flo Health and the FTC settled the matter with a Consent Order requiring the company to <b>get app users' express affirmative consent before sharing</b> their health information as well as to <b>instruct the third parties to delete</b> the data they had obtained.</p><p>一句话两层要求：①共享前先拿到<b>用户</b>的明确同意；②通知<b>第三方</b>删掉已拿到的数据。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ D",
+    "body": "<p>D 项 <code>obtain their explicit permission</code> ↔ get app users' express affirmative consent：obtain = get；explicit permission = express affirmative consent；their = app users（用户）。题干 Before sharing + D 项 = 原句完整改写。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 A：偷换\"谁同意\"",
+    "body": "<p>A 项 seek the approval of the FTC：同意令是 Flo 与 FTC 签的<b>结果</b>，令里要求的是\"征得<b>用户</b>同意\"——把\"用户的同意\"偷换成\"FTC 的批准\"。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 B：偷换对第三方的动作",
+    "body": "<p>B 项 find qualified third parties 挂靠 third parties。原文对第三方的动作是\"通知他们<b>删除</b>数据\"，不是\"寻找有资质的第三方\"。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：主体与宾语双偷换",
+    "body": "<p>C 项 remove irrelevant personal data 挂靠 delete the data。删数据的主体是<b>第三方</b>（Flo 只负责通知），删的是\"已获取的数据\"——不是\"Flo 移除无关个人数据\"。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>D（obtain their explicit permission 获得用户的明确许可）</b>。口诀：长难句细节题先画\"主体—动作\"清单，再按题干问的那一对去比对。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 2 · 第 38 题：Flo Health 共享信息前的义务",
+  "subtitle": "考点：事实细节题 · 多主体长难句拆对",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 D",
+    "html": "记忆锚点：一句话三层关系——<b>Flo↔FTC</b>（签同意令）、<b>Flo↔用户</b>（get express affirmative consent before sharing ⇒ explicit permission）、<b>Flo↔第三方</b>（instruct them to delete）。A 偷主体、B/C 偷动作。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 2 第 38 题 · Flo Health 共享信息前的义务</h2>
+<p>答案：<strong>D（obtain their explicit permission 获得用户的明确许可）</strong>。</p>
+<h3>第 0 步：先立机制——多主体长难句，先画"主体—动作"清单</h3>
+<p>定位句是全篇最长的句子之一，一口气出现三个主体：Flo Health、用户（app users）、第三方（third parties）。细节题在长难句上的正确姿势：先把每个主体各自的动作拆出来列清单，再按题干问的那一对去比对——本题问的是 Flo Health 与<strong>用户</strong>之间的关系（共享前要做什么）。</p>
+<h3>第 1 步：定位原文并拆清单</h3>
+<blockquote>Flo Health and the FTC settled the matter with a Consent Order requiring the company to <strong>get app users' express affirmative consent before sharing</strong> their health information as well as to <strong>instruct the third parties to delete</strong> the data they had obtained.</blockquote>
+<table><thead><tr><th>关系对</th><th>动作</th></tr></thead><tbody><tr><td>Flo ↔ FTC</td><td>签署同意令（和解）</td></tr><tr><td>Flo ↔ 用户</td><td>共享前须先取得用户的明确同意</td></tr><tr><td>Flo ↔ 第三方</td><td>通知第三方删除已获取的数据</td></tr></tbody></table>
+<h3>第 2 步：同义替换</h3>
+<p>obtain their explicit permission ↔ get app users' express affirmative consent：obtain = get；explicit permission = express affirmative consent；their = app users。题干 Before sharing + D 项 = 原句两层要求的完整改写，D 当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A seek the approval of the FTC</td><td>✗</td><td>偷梁换柱：同意令是 Flo 与 FTC 签的<strong>结果</strong>，令里要求的是征得<strong>用户</strong>同意——把"谁给许可"换了人。（典型误解：见 required to 就回想到 FTC。）</td></tr><tr><td>B find qualified third parties</td><td>✗</td><td>对第三方的动作是"通知删除数据"，不是"寻找有资质的第三方"。（典型误解：只认 third parties 词面，不看动作。）</td></tr><tr><td>C remove irrelevant personal data</td><td>✗</td><td>删数据的<strong>主体是第三方</strong>（Flo 只负责通知），删的是"已获取的数据"——主体与宾语双双偷换。（典型误解：把 delete the data 安到 Flo 头上。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>their 指代谁？</strong>：原句 get app users' express affirmative consent——their 复指 app users；这正是 D 项 explicit permission 的授予方。</li><li><strong>为什么题干要强调 Before sharing？</strong>：这是从"两层要求"里挑出对应一层的关键词——只有"用户同意"挂在 sharing 之前；"通知第三方删除"没有时间限定。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把签令对象（FTC）当成许可来源（用户）。</li><li><strong>误选 C</strong>：张冠李戴——删数据的不是 Flo 自己。</li></ul>
+<blockquote>记忆锚点：一句话三层关系——Flo↔FTC（签令）、Flo↔用户（get express affirmative consent before sharing ⇒ explicit permission）、Flo↔第三方（instruct them to delete）；先画主体—动作清单再做题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

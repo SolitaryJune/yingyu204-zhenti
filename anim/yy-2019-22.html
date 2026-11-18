@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-22 · 2019 阅读 Text 1 第 22 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · “大众观点”对应“通俗印象”", "cls": "key", "tag": "定位", "log": "题干 many people still consider ↔ In the popular imagination，定位第二段前两句", "count": 0, "ribbon": null, "body": "<p>题干：According to Paragraph 2, many people still consider guilt to be ____.</p><p>many people still consider ↔ 原文 In the popular imagination（在大众想象中）——“大众”与“仍”两处信号同时命中。再借 Yet this understanding is outdated 的转折把解题范围锁定在转折<b>前</b>的①②句（ outdated 之前的理解）。</p>"}, {"title": "定位原文 · 隐喻是答案的容器", "cls": "key", "tag": "证据", "log": "“装满石头的夹克”= 沉重的负担；deeply uncomfortable 佐证负面", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In the popular imagination, of course, guilt still gets a bad rap. It is deeply uncomfortable – it’s the emotional equivalent of wearing a jacket weighted with stones.</div><p>②句是关键：内疚 = 穿上<b>装满石头的夹克</b>。石头夹克压在身上——这就是“沉重的负担”；deeply uncomfortable 进一步佐证负面感受。</p>"}, {"title": "逐项分析 · A deceptive（欺骗性的）", "cls": "bad", "tag": "排除 A", "log": "A deceptive（欺骗性的） ✗ 排除——④句 feelings may be advantageous in one context / harmful in another 说的是“情绪双面性”，与“欺骗”无关", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>④句 feelings may be advantageous in one context / harmful in another 说的是“情绪双面性”，与“欺骗”无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“同一情绪有好有坏”升格为“情绪骗人”；双面性说的是情境不同结果不同。</p>"}, {"title": "逐项分析 · B burdensome（沉重的）", "cls": "good", "tag": "选定 B", "log": "B burdensome（沉重的） ✓ 当选——a jacket weighted with stones（装满石头的夹克）= 沉重负担；burdensome 是对这句隐喻的还原与概括", "count": 1, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>a jacket weighted with stones（装满石头的夹克）= 沉重负担；burdensome 是对这句隐喻的还原与概括。</p><p>对应关系：the emotional equivalent of wearing a jacket weighted with stones ↔ burdensome。</p>"}, {"title": "逐项分析 · C addictive（使人上瘾的）", "cls": "bad", "tag": "排除 C", "log": "C addictive（使人上瘾的） ✗ 排除——文中只说“适量内疚是好事”（in the right amount），“上瘾”属于无中生有", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>文中只说“适量内疚是好事”（in the right amount），“上瘾”属于无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：由“要控制量”臆想出“容易过量成瘾”。</p>"}, {"title": "逐项分析 · D inexcusable（不可原谅的）", "cls": "bad", "tag": "排除 D", "log": "D inexcusable（不可原谅的） ✗ 排除——rap 有“罪名”的字面义，但 get a bad rap 是习语——“名声差、被误解”，不是“罪不可赦”", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>rap 有“罪名”的字面义，但 get a bad rap 是习语——“名声差、被误解”，不是“罪不可赦”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：不识习语 get a bad rap，拿字面义硬套。</p>"}, {"title": "结论 · 隐喻还原与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（burdensome）——把隐喻还原成词：装满石头的夹克=沉重", "count": 3, "ribbon": null, "body": "<p>答案选 <b>B（burdensome 沉重的）</b>：大众仍觉得内疚“像个装满石头的夹克”——沉重、令人不适。</p><p><b>记忆锚点</b>：popular imagination ↔ many people；metaphor 还原法——装满石头的夹克 = burdensome；get a bad rap = 名声差。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>D（inexcusable）</b>：rap 字面有“罪名”义，但 bad rap 说的是“被冤枉、名声差”。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 1 第 22 题 · 大众眼中的内疚是什么（观点细节题）",
+  subtitle: "考点：观点细节题（修辞理解）· popular imagination 定位 → 隐喻还原 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（burdensome 沉重的）", "html": "<b>B burdensome（沉重的）</b>：the emotional equivalent of wearing a jacket weighted with stones = 沉重负担；deeply uncomfortable 佐证。<br>最易误选：<b>D（inexcusable）</b>——get a bad rap 是“名声差”，不是“罪名”。<br>记忆锚点：隐喻还原法——石夹克=burden；转折 Yet 前=大众旧观念。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：观点细节题——把隐喻“装满石头的夹克”还原成词</h2>
+<p>答案：<strong>B（burdensome 沉重的）</strong>。</p>
+<h3>第 0 步：先立机制——题干的“大众观点”对应原文的“通俗印象”</h3>
+<p>题干 many people still consider guilt to be ____ ↔ 原文 In the popular imagination（在大众想象中）。“大众”与“仍然”两处信号同时命中。再借 Yet this understanding is outdated（这种理解已过时）的转折，把解题范围锁定在转折<strong>前</strong>的①②句——过时的正是“大众的旧观念”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In the popular imagination, of course, guilt still gets a bad rap. It is deeply uncomfortable – it's the emotional equivalent of wearing a jacket weighted with stones.</blockquote>
+<p>②句是关键：内疚 = 穿上<strong>装满石头的夹克</strong>。石头夹克压在身上——即“沉重的负担”；deeply uncomfortable 进一步佐证负面感受。</p>
+<h3>第 2 步：同义替换确认 B</h3>
+<table><thead><tr><th>原文</th><th>选项 B</th></tr></thead><tbody><tr><td>a jacket weighted with stones（装满石头的夹克）</td><td>burdensome</td></tr><tr><td>deeply uncomfortable（深感不适）</td><td>佐证负面</td></tr></tbody></table>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A deceptive</td><td>✗</td><td>无中生有：④句 advantageous in one context / harmful in another 是“双面性”，不是“欺骗性”</td></tr><tr><td>C addictive</td><td>✗</td><td>臆造：由①段末 in the right amount（适量）臆想出“上瘾”，文中无据</td></tr><tr><td>D inexcusable</td><td>✗</td><td>字面陷阱：rap 有“罪名”义，但 get a bad rap = “名声差、被冤枉”，不是“罪不可赦”</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：不识习语 get a bad rap，拿 rap 的字面义“敲击/罪名”硬套，推出“不可原谅”。</li><li><strong>误选 A</strong>：把“情绪有利有弊”升格为“情绪骗人”；双面性说的是<strong>情境</strong>不同结果不同，与欺骗无关。</li><li><strong>误选 C</strong>：过量 ≠ 上瘾；原文说“适量内疚是好事”，从没提“成瘾机制”。</li></ul>
+<blockquote>记忆锚点：popular imagination ↔ many people；metaphor 还原法——装满石头的夹克 = burdensome；get a bad rap = 名声差。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

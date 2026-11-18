@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-31 · 2025 阅读第 31 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · for instance ⇒ 例子回本体",
+    "cls": "key",
+    "tag": "审题",
+    "log": "for instance ⇒ 例子回到本体读目的",
+    "count": 0,
+    "body": "<p>题干限定第 1 段问 <code>Nagpur&#39;s plan proposes measures to ____</code>。段[1]③ <code>Nagpur&#39;s plan, for instance, calls for...</code>——那格浦尔是<b>例子</b>，例子的目的由它说明的本体（HAPs＝Heat action plans，应对高温行动计划）规定。两条措施：医院夏天设清凉病房收治中暑患者＋建议建筑商酷热天让工人停工。</p>"
+  },
+  {
+    "title": "定位原文 · 本体句 + 例子句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "本体是“高温”，例子的关键词全是热",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Heat action plans, or HAPs, have been proliferating in India in the past few years. In general, an HAP spells out when and how officials should issue heat warnings and alert hospitals and other institutions.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Nagpur&#39;s plan, for instance, calls for hospitals to set aside “cold wards” in the summer for treating heatstroke patients, and advises builders to give construction laborers a break from work on very hot days.</div><p>本体：HAP 应对高温（heat warnings）；例子：清凉病房治 heatstroke（中暑）＋ very hot days 停工——关键词全是“热”。</p>"
+  },
+  {
+    "title": "同义替换锁定 A",
+    "cls": "good",
+    "tag": "替换",
+    "log": "heat warnings / heatstroke / very hot days ⇒ extreme weather",
+    "count": 0,
+    "body": "<p>清凉病房<b>治中暑</b>、酷热天<b>停工避热</b>——两条措施共同指向极端<b>高温</b> → <b>tackle extreme weather</b>（heat 是 extreme weather 在本文的形态）。</p>"
+  },
+  {
+    "title": "逐项分析 · A 应对极端天气",
+    "cls": "good",
+    "tag": "复认 A",
+    "log": "A 应对极端天气 ✓——例子回到本体",
+    "count": 0,
+    "body": "<p><b>复认。</b>for instance 前的本体（HAPs 应对高温）规定例子方向，A 概括两条措施的共同目的。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · B 确保施工质量",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B 确保施工质量 ✗——停工是护人不是护楼",
+    "count": 1,
+    "body": "<p><b>排除。</b>让建筑工人歇的是<b>很热的天</b>，为的是人不受暑；与工程质量无关——<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C 监测紧急预警",
+    "cls": "bad",
+    "tag": "排除 C",
+    "log": "C 监测紧急预警 ✗——预警是 HAP 的定义，不是措施目的",
+    "count": 2,
+    "body": "<p><b>排除。</b>heat warnings 出现在“HAP 一般包含什么”的介绍句（段[1]②）；题干问<b>那格浦尔两条具体措施</b>的目的——处置（治病、避热），不是监测（monitor）——<b>曲解文意</b>。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · D 解决工作量过大",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 解决工作量过大 ✗——歇的是“热”不是“累”",
+    "count": 3,
+    "body": "<p><b>排除。</b>a break 的修饰语是 <b>on very hot days</b>——因热而歇，不是因活多而歇；偷换停工原因。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 laborers a break 就联想“减负”。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 A",
+    "log": "答案 A——for instance 的例子回本体",
+    "count": 3,
+    "body": "<p>答案选 <b>A（tackle extreme weather）</b>。</p><p><b>记忆锚点</b>：for instance 的例子回到本体读目的：HAP＝应对高温 → 清凉病房＋酷热停工＝tackle extreme weather；break 止于“很热”，与 workload／quality 无关。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 31 题 · 那格浦尔计划提出措施的目的",
+  "subtitle": "Text 3（印度高温行动计划 HAPs）· 考点：细节理解 · 例子回本体",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“例子回本体 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 A（tackle extreme weather）",
+    "html": "<b>A 应对极端天气</b>——清凉病房治中暑＋酷热天停工，两条措施共同指向应对极端高温；本体 HAPs＝Heat action plans。<br>记忆锚点：for instance 的例子回本体读目的；break 止于“很热”。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 31 题 · 那格浦尔计划提出措施的目的</h2>
+<p>答案：<strong>A（tackle extreme weather 应对极端天气）</strong>。</p>
+<h3>第 0 步：先立机制——“举例句”要回到例子所服务的本体</h3>
+<p>题干 According to Paragraph 1, Nagpur's plan proposes measures to ____。段[1]③ Nagpur's plan, <strong>for instance</strong>, calls for...——for instance 表明那格浦尔是例子，例子的目的由它说明的<strong>本体</strong>规定：HAPs（Heat action plans，应对高温行动计划）。两条具体措施：医院夏天设“cold wards”（清凉病房）收治中暑患者＋建议建筑商在酷热天让建筑工人停工休息。两条措施全部围绕<strong>高温</strong>：治病（中暑）＋避热（停工）——目的＝应对极端高温天气。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Heat action plans, or HAPs, have been proliferating in India in the past few years. In general, an HAP spells out when and how officials should issue heat warnings and alert hospitals and other institutions.<br/>Nagpur's plan, for instance, calls for hospitals to set aside “cold wards” in the summer for treating heatstroke patients, and advises builders to give construction laborers a break from work on very hot days.</blockquote>
+<p>本体：HAP 应对高温（heat warnings）；例子：清凉病房治 heatstroke（中暑）＋ very hot days 停工——例子与本体的关键词全是“热”。</p>
+<h3>第 2 步：同义替换核对 A</h3>
+<p>heat warnings / heatstroke / very hot days → 极端<strong>高温</strong>天气 → <strong>tackle extreme weather（应对极端天气）</strong>。heat 是 extreme weather 在本文的具体形态，A 是对两条措施共同目的的合理概括。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A tackle extreme weather</td><td>应对极端天气</td><td>✓</td><td>清凉病房治中暑＋酷热停工，两条措施共同指向应对极端高温</td></tr><tr><td>B ensure construction quality</td><td>确保施工质量</td><td>✗</td><td>停工是为了<strong>保护工人免受酷热</strong>，与工程质量无关，无中生有</td></tr><tr><td>C monitor emergency warnings</td><td>监测紧急预警</td><td>✗</td><td>heat warnings 是 HAP 的<strong>一般内容</strong>（段[1]②），且“发布预警”不是那格浦尔两条措施的目的，曲解文意</td></tr><tr><td>D address excessive workloads</td><td>解决工作量过大</td><td>✗</td><td>让工人歇的是“很热的天”（on very hot days），不是“太重的活”，偷换停工原因</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C 为什么不行？段[1]②不就写着 heat warnings 吗</strong>：位置与角色都要对：heat warnings 出现在“HAP 一般包含什么”的介绍句里，题干问的是<strong>那格浦尔计划两条具体措施</strong>（清凉病房、酷热停工）的目的；且这两条是<strong>处置</strong>（治病、避热），不是<strong>监测</strong>（monitor）。</li><li><strong>例子题的通用机制</strong>：for instance 前面的本体句规定例子的方向——本体是 HAP（针对高温），例子的每个细节都往“热”上落；选项若跳出“热”，即为偏离。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：见 laborers a break 就想成“减负”；break 的修饰语是 on very hot days——歇的是热，不是累。</li><li><strong>误选 C</strong>：把 HAP 的定义成分（发预警）误当成具体措施的目的。</li></ul>
+<blockquote>记忆锚点：for instance 的例子回到本体读目的：HAP＝应对高温 → 清凉病房＋酷热停工＝tackle extreme weather；break 止于“很热”，与 workload／quality 无关。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

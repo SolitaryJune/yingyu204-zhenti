@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·22 阅读 · Flatiron 考虑的是兴趣</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：专有名词定位 + but 之后是答案区', cls: 'key',
+    body: '<p>两根定位桩：<b>Flatiron</b>（专有名词，第四段起）与 <b>high-schoolers</b>（题干限定的对象）。抓结构信号：②句先让步（课程相同）再转折（but...）——<b>but 之后才是该校的独门做法</b>，即“考虑到了什么”的答案区。</p>',
+    log: 'Flatiron + high-schoolers 定位第四段②句' },
+  { title: '定位原文（第四段②句）', cls: 'key',
+    body: src('“The high-schoolers get the same curriculum, but “we try to <b>gear lessons toward things they’re interested in</b>,” said Victoria Friedman, an instructor.”') +
+      '<p>curriculum 相同排除了“按背景区分”；but 后揭晓不同之处：<b>让课程迁就学生的兴趣</b>。</p>',
+    log: 'but 之后 = gear lessons toward interests' },
+  { title: '同义替换闭环', cls: 'good',
+    body: '<p>题干 <b>has considered their interest</b> ← 原文 <b>gear lessons toward things they’re interested in</b>——considered（考虑）对 gear toward（迁就），interest（兴趣）对 interested in。替换直接。</p>',
+    log: 'considered their interest ← interested in' },
+  { title: 'A experience：经历', cls: 'bad',
+    body: '<p>来自①句 <b>adults</b> looking for a career change 的成人语境——“成年人经历多”是常识脑补；且题干问的是<b>高中生</b>，成人信息一律无效。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 成人语境 + 常识脑补' },
+  { title: 'B interest：兴趣', cls: 'good',
+    body: '<p>gear lessons toward things they’re interested in 的同义改写，是 but 转折后的核心信息。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B 替换闭环，命中' },
+  { title: 'C career prospects：职业前景', cls: 'bad',
+    body: '<p>①句的 <b>career change</b>（成人想转行）张冠李戴到高中生头上——转行是成人学员的动机，不是学校对高中生的考虑。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 成人动机移花接木' },
+  { title: 'D academic backgrounds：学术背景', cls: 'bad',
+    body: '<p>从 get the same curriculum <b>反着推断</b>——恰恰是“课程相同”说明<b>没有</b>按学术背景区分个体；相同意味着统一，不构成“考虑”。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 与让步句逻辑相反' },
+  { title: '下句佐证', cls: 'step',
+    body: '<p>③句举例：学生开发的应用 <b>suggests movies based on your mood</b>（根据心情推荐电影）——“心情”正属于个人兴趣偏好，学校按兴趣定制课程有了实物证据。</p>',
+    log: 'For instance：按心情推荐电影' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（interest）</b>。记忆锚点：专有名词定位 + <b>but 之后是考点</b>；gear lessons toward things they’re interested in = considered their interest。让步句排除 D，成人语境贡献 A、C。</p>',
+    log: '锁定 B（interest）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 22 · Flatiron 给高中生上课考虑什么',
+  subtitle: '考点：细节题 · 专有名词定位 + 转折结构 · 选项 experience / interest / career prospects / academic backgrounds',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（interest）',
+    html: '记忆锚点：<b>but 之后是考点</b>——gear lessons toward things they’re interested in → considered their interest。A/C 来自①句成人 bootcamp 语境（career change），D 与让步句 the same curriculum 逻辑恰好相反；③句按心情推荐电影是佐证。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Flatiron 给高中生上课考虑什么——but 后面的" interested in"</h2>
+<p>答案：<strong>B（interest）</strong>。</p>
+<h3>第一步：先立机制——专有名词是天然的定位桩，转折词是答案的"住址"</h3>
+<p>题干：In delivering lessons for high-schoolers, Flatiron has considered their ____。两根桩：<strong>Flatiron</strong>（专有名词，全文只在第四段后出现）与 <strong>high-schoolers</strong>。定位到第四段后还要抓结构信号：②句先让步（get the same curriculum 课程相同）再转折（but...），<strong>but 之后才是该校的独门做法</strong>，也就是"考虑到了什么"的答案区。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>The high-schoolers get the same curriculum, but "we try to <strong>gear lessons toward things they're interested in</strong>," said Victoria Friedman, an instructor.</blockquote>
+<p>curriculum 相同排除了"按背景区分"，but 后揭晓不同之处：<strong>让课程迁就学生的兴趣</strong>。considered their interest ← gear lessons toward things they're interested in，替换直接。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A experience</td><td>经历</td><td>来自①句 adults looking for a career change 的成人语境，"经历多"是常识脑补，且题干问的是高中生</td></tr><tr><td>B interest</td><td>兴趣</td><td>gear lessons toward things they're interested in 的同义改写，but 转折后的核心信息</td></tr><tr><td>C career prospects</td><td>职业前景</td><td>①句的 career change（成人想转行）张冠李戴到高中生头上</td></tr><tr><td>D academic backgrounds</td><td>学术背景</td><td>从 get the same curriculum 反着推断；恰恰是"课程相同"说明没按学术背景区分</td></tr></tbody></table>
+<h3>第四步：下句佐证</h3>
+<p>③句举例：学生开发的应用是 <strong>based on your mood</strong>（根据心情推荐电影）——"心情"正属于个人兴趣偏好，学校按兴趣定制课程有了实物证据。</p>
+<h3>易错点</h3>
+<ul><li><strong>选 C 或 A</strong>：根因是把①句成人 bootcamp 的背景（career change）平移到高中生身上；题干限定 <strong>high-schoolers</strong>，成人信息一律无效。</li><li><strong>选 D</strong>：从"课程相同"倒推出"考虑了学术背景"——逻辑恰好相反：相同意味着统一，不构成"考虑个体"。</li></ul>
+<blockquote>记忆锚点：专有名词定位 + <strong>but 之后是考点</strong>；gear lessons toward things they're interested in = considered their interest。让步句（the same curriculum）负责排除 D，成人语境（career change）负责贡献 A、C。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

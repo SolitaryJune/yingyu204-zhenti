@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·19 完形 · 并列结构圈定"疾病"范畴</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：并列结构', cls: 'key',
+    body: '<p>空格前是 <b>breathing difficulties, heart disease</b>，后接 <b>or several other __</b>。other + 复数名词 = 并列追加：空格必须与前文<b>同范畴</b>。</p>',
+    log: '并列清单：空格不能跳出前文范畴' },
+  { title: '定位原文', cls: 'key',
+    body: src('“...which is not recommended for pregnant women, people over 50 or those with <b>breathing difficulties, heart disease</b> or several <b>other</b> __19__.”') +
+      '<p>不宜接种名单 = 孕妇、50 岁以上、呼吸系统疾病、心脏病、其他若干——？</p>',
+    log: '清单全是"身体状况"' },
+  { title: '空格任务：补进"疾病"', cls: 'step',
+    body: '<p>清单的每一项都是疾病名。空格词也必须是"疾病"——本题考 <b>problem 的熟词僻义</b>：health problem = 疾病。</p>',
+    log: '空格 = 疾病类名词' },
+  { title: 'A problems：僻义入场', cls: 'good',
+    body: '<p>problems（熟词僻义）疾病——health problems 即慢性病、健康问题（Does she have any long-term health problems?）。能与 difficulties、disease 顺利并列。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = 唯一的"疾病"词' },
+  { title: 'B issues：话题词插队', cls: 'bad',
+    body: '<p>issues 议题、争论的问题——抽象<b>话题</b>词，不是身体状况；"讨论的议题"进不了疾病清单。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 层面错：话题 ≠ 病症' },
+  { title: 'C agonies：感受词过重', cls: 'bad',
+    body: '<p>agonies 极大的痛苦——描述<b>痛苦感受</b>而非病名，程度也远超"呼吸困难、心脏病"的平静列举。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 层面错：感受 ≠ 病名' },
+  { title: 'D sufferings：苦难不并列', cls: 'bad',
+    body: '<p>sufferings（肉体或精神上的）苦难、折磨——偏抽象苦难，无法与具体病症并列成清单。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 层面错：抽象苦难' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（problems）</b>。记忆锚点：<b>several other __ 与前文并列同范畴</b>；problem 熟词僻义 = 疾病；并列清单里不容"话题词"与"感受词"插队。</p>',
+    log: '锁定 A（problems）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 19 · several other __ 圈定"疾病"范畴',
+  subtitle: '考点：句内语义（并列结构）＋ 熟词僻义 · 选项：problems / issues / agonies / sufferings',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（problems）',
+    html: '记忆锚点：<b>并列清单定范畴</b>——breathing difficulties / heart disease 都是病名，other 后只能跟"疾病"；<b>problem 的熟词僻义 = 疾病</b>（health problems）。issues 是话题、agonies/sufferings 是感受，都进不了清单。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：several other __——并列结构圈定"疾病"范畴</h2>
+<p>答案：<strong>A（problems）</strong>。</p>
+<h3>第一步：先立机制——并列结构是最硬的线索</h3>
+<p>空格前已列出 breathing difficulties（呼吸困难）、heart disease（心脏病），再用 or several other __ 收尾。<strong>other + 复数名词</strong>要求空格与前文并列项<strong>同范畴</strong>：前两项都是疾病，空格也必须表"疾病"。本题同时考 problem 的熟词僻义——health problem = 疾病。</p>
+<h3>第二步：定位原文——一张"身体状况"清单</h3>
+<blockquote>...which is not recommended for pregnant women, people over 50 or those with breathing difficulties, heart disease or several other __19__.</blockquote>
+<p>不宜接种名单：孕妇、50 岁以上、有呼吸系统疾病、心脏病或其他若干<strong>疾病</strong>的人——从头到尾都是身体状况的列举，空格不会跳出这个清单。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A problems</td><td>（熟词僻义）疾病</td><td>health problems 即慢性病、健康问题，能与 difficulties、disease 并列</td></tr><tr><td>B issues</td><td>议题、争论的问题</td><td>抽象话题词，不是身体状况</td></tr><tr><td>C agonies</td><td>极大的痛苦</td><td>描述痛苦感受，不是病名，程度也过重</td></tr><tr><td>D sufferings</td><td>苦难、折磨</td><td>偏抽象苦难，不与具体病症并列</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C/D（agonies/sufferings）</strong>：被"病人、病症"的语境带向"痛苦"。并列项 difficulties、disease 停在<strong>病名</strong>层面，而 agony/suffering 是<strong>感受</strong>层面，范畴不齐。</li><li><strong>选 B（issues）</strong>：常见失误是认识不到 problem 的僻义。problem 表"疾病"有据可查：Does she have any long-term health problems? 它是四个选项中唯一能进"疾病清单"的词。</li></ul>
+<blockquote>记忆锚点：several other __ 与前文并列同范畴；problem 熟词僻义 = 疾病（health problems）；并列清单里不容"话题词"与"感受词"插队。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

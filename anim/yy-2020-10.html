@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-10 · 2020 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 10 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 10 空所在句，考点：并列结构 + 形容词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You lose your patience and either scream at your kids or say something that was a bit too __10__ and does nobody any good.</div><p>either...or 并列两组\"失去耐心后的表现\"；空格与 does nobody any good 由 and 并列，共同修饰 something。</p>"
+ },
+ {
+  "title": "找证据 · 并列结构与强度基准",
+  "cls": "key",
+  "tag": "证据",
+  "log": "scream ↔ say 同级并列，too ____ ↔ does nobody any good 同向——\"说狠话\"：harsh",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...either scream at your kids or say something that was a bit too __10__ and does nobody any good.</div><p>either...or：吼叫 ↔ 说话（同级过激）；too ____ 与 does nobody any good（对谁都没好处）并列——消极且分量足：说狠话 = harsh。</p>"
+ },
+ {
+  "title": "逐项分析 · A boring（无聊的，令人厌倦的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A boring（无聊的，令人厌倦的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"话无聊\"是孩子听不进去——够不上\"对双方都无益\"的分量，也接不上\"吼叫\"的强度。</p>"
+ },
+ {
+  "title": "逐项分析 · B naive（幼稚的；天真的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B naive（幼稚的；天真的） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"话幼稚\"是没有指导意义——同样是轻评价，与\"吼叫\"不同级。</p>"
+ },
+ {
+  "title": "逐项分析 · C harsh（严厉的；残酷的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C harsh（严厉的；残酷的） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>言语\"严酷无情\"：与 scream 同级并列，与 does nobody any good 同向等重——\"说狠话\"。</p>"
+ },
+ {
+  "title": "逐项分析 · D vague（含糊的，粗略的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D vague（含糊的，粗略的） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"话含糊\"是难以理解——问题出在\"听不懂\"，分量同样不够。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到\"消极色彩\"，不核对并列强度。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（harsh 严厉的；残酷的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>你失去耐心，要么朝孩子们吼叫，要么说出一些有点过重、对谁都没有好处的话。</b></p><p>答案选 <b>C（harsh 严厉的；残酷的）</b>。</p><p><b>记忆锚点</b>：either...or → 两端同级；too ____ ↔ does nobody any good 同向等重；scream 定强度基调 → harsh。</p><p style=\"color:#b91c1c\">最易误选：<b>D（vague）</b>——只认\"消极色彩\"，忽略 either...or 两端与 too ____ / does nobody any good 的强度对齐。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 10 空 · either...or 并列同级，too ____ 对 does nobody any good——重话 harsh",
+  subtitle: "考点：并列结构 + 形容词辨析 · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（harsh）",
+ "html": "<b>C harsh（严厉的；残酷的）</b>。<br>完整句义：你失去耐心，要么朝孩子们吼叫，要么说出一些有点过重、对谁都没有好处的话。<br>记忆锚点：either...or → 两端同级；too ____ ↔ does nobody any good 同向等重；scream 定强度基调 → harsh。<br>最易误选：<b>D（vague）</b>——只认\"消极色彩\"，忽略 either...or 两端与 too ____ / does nobody any good 的强度对齐。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 10 空 · either...or 并列同级，too ____ 对 does nobody any good——重话 harsh</h2>
+<p>答案：<strong>C（harsh 严厉的；残酷的）</strong>。</p>
+<h3>第 0 步：先立机制——两组并列各自收口，强度要对齐</h3>
+<p>这句话里有两处并列，各管一层。第一层：either scream at your kids or say something...——"吼叫"与"说话"并列，都是失去耐心后的过激表现，两组必须同级同向：吼叫是重话，"说"的内容也必须是重话。第二层：too ____ 与 does nobody any good（对谁都没好处）并列修饰 something——空格必须是消极词，且分量要配得上"对父母、孩子双方都无益"。两句合起来：向孩子说"狠话"。harsh（严厉的、刻薄的）说的是言语行为"严酷无情"，正好落在强度上。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>You lose your patience and either scream at your kids or say something that was a bit too __10__ and does nobody any good.</blockquote>
+<p>either...or 并列两组"失去耐心后的表现"；空格与 does nobody any good 由 and 并列，共同修饰 something。</p>
+<h3>第 2 步：找证据——并列结构与强度基准</h3>
+<ul><li><strong>第一层并列</strong>：scream at your kids ↔ say something——同为过激表现，强度同级；</li><li><strong>第二层并列</strong>：too ____ ↔ does nobody any good——消极且分量足；</li><li><strong>强度基准</strong>：does nobody any good 是"对双方都无益"的重评价，与"吼叫"同级。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A boring</td><td>无聊的，令人厌倦的</td><td>✗ 排除</td><td>"话无聊"是孩子听不进去——够不上"对双方都无益"的分量，也接不上"吼叫"的强度。</td></tr><tr><td>B naive</td><td>幼稚的；天真的</td><td>✗ 排除</td><td>"话幼稚"是没有指导意义——同样是轻评价，与"吼叫"不同级。</td></tr><tr><td>C harsh</td><td>严厉的；残酷的</td><td>✓ 当选</td><td>言语"严酷无情"：与 scream 同级并列，与 does nobody any good 同向等重——"说狠话"。</td></tr><tr><td>D vague</td><td>含糊的，粗略的</td><td>✗ 排除</td><td>"话含糊"是难以理解——问题出在"听不懂"，分量同样不够。（典型误解：只看到"消极色彩"，不核对并列强度。）</td></tr></tbody></table>
+<p>代入后的完整句义：你失去耐心，要么朝孩子们吼叫，要么说出一些有点过重、对谁都没有好处的话。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>boring、vague 的话不也是"没好处"吗？</strong>：是消极，但分量不够：does nobody any good 是"对父母、孩子双方都无益"的重话，与"朝孩子吼叫"同级；"无聊/含糊"只是低效，够不上"伤人"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（vague）</strong>：只认"消极色彩"，忽略 either...or 两端与 too ____ / does nobody any good 的强度对齐。</li></ul>
+<blockquote>记忆锚点：either...or → 两端同级；too ____ ↔ does nobody any good 同向等重；scream 定强度基调 → harsh。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

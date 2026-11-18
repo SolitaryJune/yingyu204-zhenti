@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-09 · 2014 完形第 9 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 9 空所在句（先拆句法）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 9 空所在句——While...seem __, they are not，让步 + 否定结构",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">While such numerical standards seem <b>__9__</b>, they are not.</div><p>本句结构是解题钥匙：<b>While（让步）... seem（表面印象）__ , they are not（一票否决）</b>。空格填的是“数值标准**看起来**的样子”，这个印象随即被后半句否定；作者真正要立的观点在其后——肥胖其实关乎体脂而非体重，BMI 标准并不可靠。所以空格词必须是“诱人轻信”的那一面。</p>"
+ },
+ {
+  "title": "找证据 · 一张分级表的第一印象 + 下文的反驳方向",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上段摆出 BMI 公式与三级界值（第一印象：干净利落）；下句立刻用“体脂”拆台",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">An adult with a BMI of 18 to 25 is often considered to be normal weight. Between 25 and 30 is overweight. And over 30 is considered obese.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Obesity is probably less a matter of weight than body fat.</div><p>上段整段在列 BMI 的公式与分级（18-25 正常 / 25-30 超重 / 30+ 肥胖）——一张数值表<b>看上去直接明了</b>。下句 Obesity is probably less a matter of weight than body fat 马上拆台：这把尺子量的是体重不是体脂。先立“看似”，再破“实则”，正是 While..., they are not 的句法功能。</p>"
+ },
+ {
+  "title": "逐项分析 · A complicated（复杂的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A complicated（复杂的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>若填 complicated，句意成“虽然看着复杂、其实并不复杂”——与 they are not 之后要引出的“标准不可靠”接不上，也与分级表“一眼看清”的直观印象相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：记住本段主旨是“BMI 不准”，就把贬义形容词填进“表面印象”槽位，方向颠倒。</p>"
+ },
+ {
+  "title": "逐项分析 · B conservative（保守的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B conservative（保守的） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>界值 18/25/30 谈不上“保守或激进”，conservative 与“数值标准”不构成自然的直观印象搭配。</p><p style=\"color:#b91c1c\">⚠ 典型误解：想到“医学标准谨慎保守”，强行代入。</p>"
+ },
+ {
+  "title": "逐项分析 · C variable（可变的，易变的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C variable（可变的，易变的） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>分级界值是固定的，标准并不“易变”；且“看似易变、实则不变”也与下文“看似可靠、实则不准”的主旨错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“不同人有不同 BMI”曲解成“标准易变”。</p>"
+ },
+ {
+  "title": "逐项分析 · D straightforward（直接明了的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D straightforward（直接明了的） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>“看似直接明了，实则不然”——让步否定结构成立，“实则不然”恰好引出下文对 BMI 标准的反驳（它量体重不量体脂）。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（straightforward 直接明了的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>虽然这样的数值标准看上去直接明了，但其实不然。</b></p><p>答案选 <b>D（straightforward 直接明了的）</b>。</p><p><b>记忆锚点</b>：While..., they are not = 先立表面印象再推翻；数值分级表的第一印象 → straightforward；主旨词不能反着填进让步槽。</p><p style=\"color:#b91c1c\">最易误选：<b>A（complicated）</b>——把段落主旨（BMI 不准）错放进“表面印象”槽位，方向颠倒。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 9 空 · While ... seem ______, they are not 填什么",
+  subtitle: "考点：句内语义 + 让步否定结构 · 认结构 → 定“表面印象” → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“认让步否定结构 → 定表面印象 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（straightforward）",
+ "html": "<b>D straightforward（易懂的，直接明了的）</b>。<br>记忆锚点：While..., they are not = 先立表面印象再推翻；数值分级表的第一印象 → straightforward；主旨词不能反着填进让步槽。<br>最易误选：<b>A（complicated）</b>——把段落主旨（BMI 不准）错放进“表面印象”槽位，方向颠倒。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 9 空 · While such numerical standards seem ______, they are not——让步否定槽位里填什么</h2>
+<p>答案：<strong>D（straightforward 直接明了的）</strong>。</p>
+<h3>第 0 步：先立机制——让步否定结构：空格装的是“被推翻的表面印象”</h3>
+<p>While...seem <code>__</code>, they are not 的分工非常明确：while 引出让步，seem 给出表面印象，they are not 一票否决。因此空格词是作者<strong>准备推翻</strong>的那个印象，不是作者的真实观点。作者的真实观点在下文：BMI 量体重不量体脂、并不可靠。被推翻的印象必须“诱人轻信”——一张干净利落的数值分级表给人的第一印象，正是“直接明了”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>While such numerical standards seem __9__, they are not.</blockquote>
+<p>such numerical standards 指代上段那一整套 BMI 公式与界值——空格词要概括的是这套标准摆在纸面上的观感。</p>
+<h3>第 2 步：找证据——上段的分级表 + 下句的拆台</h3>
+<blockquote>An adult with a BMI of 18 to 25 is often considered to be normal weight. Between 25 and 30 is overweight. And over 30 is considered obese.</blockquote>
+<blockquote>Obesity is probably less a matter of weight than body fat.</blockquote>
+<p>上一段的三句话把 BMI 标准摆得清清楚楚：三个区间、三条界线，任何人都能照着自查——这就是“直接明了”的印象来源。下一句立刻反转：肥胖更多关乎体脂而非体重，标准其实靠不住。空格必须站在“被反转”的位置上。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A complicated</td><td>复杂的</td><td>✗ 排除</td><td>若填 complicated，句意成“虽然看着复杂、其实并不复杂”——与 they are not 之后要引出的“标准不可靠”接不上，也与分级表“一眼看清”的直观印象相反。（典型误解：把段落主旨词直接填进“表面印象”槽位，方向颠倒。）</td></tr><tr><td>B conservative</td><td>保守的</td><td>✗ 排除</td><td>界值 18/25/30 谈不上“保守或激进”，conservative 与“数值标准”不构成自然的直观印象搭配。（典型误解：想到“医学标准谨慎保守”，强行代入。）</td></tr><tr><td>C variable</td><td>可变的，易变的</td><td>✗ 排除</td><td>分级界值是固定的，标准并不“易变”；且“看似易变、实则不变”也与下文“看似可靠、实则不准”的主旨错位。（典型误解：把“不同人有不同 BMI”曲解成“标准易变”。）</td></tr><tr><td>D straightforward</td><td>直接明了的</td><td>✓ 当选</td><td>“看似直接明了，实则不然”——让步否定结构成立，“实则不然”恰好引出下文对 BMI 标准的反驳。</td></tr></tbody></table>
+<p>代入后的完整句义：虽然这样的数值标准看上去直接明了，但其实不然。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么空格必须填褒义/中性词，不能填贬义词？</strong>：they are not 否定的是空格词；作者要先让读者看到标准“诱人”的一面（简单好用），再说它靠不住。填 complicated 等于“先贬后扬”，与下文的反驳方向相反——主旨词不能反着填进让步槽。</li><li><strong>they are not 到底否定什么？</strong>：否定“标准真的 straightforward”这一表面印象，即“其实并不那么直接明了”——因为 BMI 衡量的是体重不是体脂。这句是全段的论点句，下文例子都在为“实则不然”服务。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（complicated）</strong>：把段落主旨（BMI 不准）错放进“表面印象”槽位，方向颠倒。</li><li><strong>误选 C（variable）</strong>：凭“个体差异”的联想硬塞词，忽略界值固定的事实。</li><li><strong>误选 B（conservative）</strong>：语义场与“数值标准”不搭。</li></ul>
+<blockquote>记忆锚点：While..., they are not = 先立表面印象再推翻；数值分级表的第一印象 → straightforward；主旨词不能反着填进让步槽。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

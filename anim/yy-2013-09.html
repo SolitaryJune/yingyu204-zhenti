@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 9 空 · 纸质支票的“天然优势”——provide receipts · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · advantage 从句必须写出“好处”", "cls": "key", "tag": "审题", "log": "先立机制：advantage 从句必须写出“好处”", "count": 0, "ribbon": null, "body": "<p>Second 引出第二条理由。paper checks have the advantage that they ___ receipts：that 从句负责解释 advantage 的内容——纸质支票对收据（receipts）做的什么动作算“好处”。两个判定钥匙：主语 they 指纸质支票（动作执行者是支票本身）；advantage 定下褒义方向，动作必须是“给消费者带来好处”的那一类。</p>"}, {"title": "定位原文 · 空 9 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 9 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Second, paper checks have the advantage that they <b>__9__</b> receipts, something that many consumers are unwilling to __10__.</div><p>they ___ receipts：及物动词 + 宾语。collect / copy / provide / print 四选一，同时它还是第 10 空的链头——“提供了消费者不愿放弃的东西”这一闭环由两空共同完成。</p>"}, {"title": "找证据 · 收据 = 报销、对账、维权的凭证（生活常识）", "cls": "key", "tag": "证据", "log": "找证据：收据 = 报销、对账、维权的凭证（生活常识）", "count": 0, "ribbon": null, "body": "<p>下一层定语从句 something that many consumers are unwilling to __10__ 回指 receipts：消费者“不愿 ___”收据，说明收据是他们想要留住的东西。生活常识补全：付款凭证可用于报销、对账、退换维权。支票天然自带这张凭证——“提供收据”正是它的 advantage。</p>"}, {"title": "逐项分析 · A collect（收集；采集）", "cls": "bad", "tag": "排除 A", "log": "A collect（收集；采集）✗ 排除——主客体错位", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>支票不能“收集收据”——收据是支票自带属性带来的，不是支票去收集来的，主客体错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“消费者保存收据”的动作安到支票头上。</p>"}, {"title": "逐项分析 · B copy（复制；复印）", "cls": "bad", "tag": "排除 B", "log": "B copy（复制；复印）✗ 排除——支票非复印设备", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>纸质支票不是复印设备，copy receipts 无从谈起。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 paper 就联想复印。</p>"}, {"title": "逐项分析 · C provide（提供；供给）", "cls": "good", "tag": "选定 C", "log": "C provide（提供；供给）✓ 当选——自带付款凭证", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>纸质支票天然自带付款凭证——“提供收据”正是它的 advantage，并为第 10 空“不愿舍弃”铺路。</p>"}, {"title": "逐项分析 · D print（印刷；打印）", "cls": "bad", "tag": "排除 D", "log": "D print（印刷；打印）✗ 排除——支票非打印设备", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>同样把支票当成打印设备；支票上书写的是付款信息，不是去“打印收据”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：print 与 paper 的字面联想。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（provide 提供；供给）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。</b></p><p>答案选 <b>C（provide 提供；供给）</b>。</p><p><b>记忆锚点</b>：have the advantage that… 接“主体的天然属性”；paper check 自带凭证 → provide receipts；收据 = 报销/对账凭证。</p><p style=\"color:#b91c1c\">最易误选：<b>A（collect）</b>——“收集收据”在中文里勉强通顺，但动作主体是支票不是人。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 9 空 · 纸质支票的“天然优势”——provide receipts",
+  subtitle: "考点：句内语义 + 生活常识（动词辨析） · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（provide 提供；供给）", "html": "<b>C provide（提供；供给）</b>。<br>完整句义：其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。<br>记忆锚点：have the advantage that… 接“主体的天然属性”；paper check 自带凭证 → provide receipts；收据 = 报销/对账凭证。<br>最易误选：<b>A（collect）</b>——“收集收据”在中文里勉强通顺，但动作主体是支票不是人。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 9 空 · 纸质支票的“天然优势”——provide receipts</h2>
+<p>答案：<strong>C（provide 提供；供给）</strong>。</p>
+<h3>第 0 步：先立机制——advantage 从句必须写出“好处”</h3>
+<p>Second 引出第二条理由。paper checks have the advantage that they ___ receipts：that 从句负责解释 advantage 的内容——纸质支票对收据（receipts）做的什么动作算“好处”。两个判定钥匙：主语 they 指纸质支票（动作执行者是支票本身）；advantage 定下褒义方向，动作必须是“给消费者带来好处”的那一类。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Second, paper checks have the advantage that they <code>__9__</code> receipts, something that many consumers are unwilling to <code>__10__</code>.</blockquote>
+<p>they ___ receipts：及物动词 + 宾语。collect / copy / provide / print 四选一，同时它还是第 10 空的链头——“提供了消费者不愿放弃的东西”这一闭环由两空共同完成。</p>
+<h3>第 2 步：找证据——收据 = 报销、对账、维权的凭证（生活常识）</h3>
+<p>下一层定语从句 something that many consumers are unwilling to __10__ 回指 receipts：消费者“不愿 ___”收据，说明收据是他们想要留住的东西。生活常识补全：付款凭证可用于报销、对账、退换维权。支票天然自带这张凭证——“提供收据”正是它的 advantage。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A collect</td><td>收集；采集</td><td>✗ 排除</td><td>支票不能“收集收据”——收据是支票自带属性带来的，不是支票去收集来的，主客体错位。（典型误解：把“消费者保存收据”的动作安到支票头上。）</td></tr><tr><td>B copy</td><td>复制；复印</td><td>✗ 排除</td><td>纸质支票不是复印设备，copy receipts 无从谈起。（典型误解：见 paper 就联想复印。）</td></tr><tr><td>C provide</td><td>提供；供给</td><td>✓ 当选</td><td>纸质支票天然自带付款凭证——“提供收据”正是它的 advantage，并为第 10 空“不愿舍弃”铺路。（易错警示：collect / print 字面都沾边，动作主体是支票本身这一关先过。）</td></tr><tr><td>D print</td><td>印刷；打印</td><td>✗ 排除</td><td>同样把支票当成打印设备；支票上书写的是付款信息，不是去“打印收据”。（典型误解：print 与 paper 的字面联想。）</td></tr></tbody></table>
+<p>代入后的完整句义：其次，纸质支票有一个优势：它们能提供收据——许多消费者不愿舍弃的东西。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>they 指什么？</strong>：that 从句内的 they 回指从句主语 paper checks（纸质支票），动作执行者是支票本身——这直接排除了“收集、复印、打印”这类需要人或设备执行的动作。</li><li><strong>receipts 为什么重要到能阻碍无现金化？</strong>：付款凭证是报销、对账、退换维权的凭据，消费者在乎；电子支付早期没有对等的凭证体验，这就是第二条“纸票优势”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（collect）</strong>：把“消费者保存收据”的动作安到支票头上。</li><li><strong>误选 B（copy）</strong>：见 paper 就联想复印。</li><li><strong>误选 D（print）</strong>：print 与 paper 的字面联想。</li></ul>
+<blockquote>记忆锚点：have the advantage that… 接“主体的天然属性”；paper check 自带凭证 → provide receipts；收据 = 报销/对账凭证。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

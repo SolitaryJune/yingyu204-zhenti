@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-31 · 2021 阅读第 31 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：after their acquisitions 锁定「收购后」的事实层",
+  "body": "<p>题干：<b>What is true about Wunderlist and Sunrise after their acquisitions?</b>（关于 Wunderlist 与 Sunrise 被收购后的情况，哪项正确？）</p><p>第一段是收购<b>前</b>（当时很热门），第二段才是<b>后</b>——两个事实：应用被砍（scrapped）、工程师团队留任（stayed on）。「true about」题逐项核对事实层，原文无信息的一律排除。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：收购后的两个事实",
+  "body": "<div class='qq'><b>原文：</b>Both apps, however, were later scrapped, after Microsoft said it had used their best features in its own products. Their teams of engineers stayed on, making them two of the many “acqui-hires” that the biggest companies have used to feed their great hunger for tech talent.</div><p>事实一：两个应用后来被<b>砍掉（scrapped）</b>，功能被用于微软自家产品；事实二：<b>工程师团队留了下来（stayed on）</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：acqui-hire 点破收购性质",
+  "body": "<div class='qq'><b>原文：</b>making them two of the many “acqui-hires” that the biggest companies have used to feed their great hunger for tech talent</div><p>「acqui-hire（收购即雇人）」一词点破性质：大公司买下它们主要是为了<b>人才</b>——团队被留用正是题眼。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：工程师被留用——stayed on = retained",
+  "body": "<p><b>A · Their engineers were retained.（他们的工程师被留用了）</b> <span class='ok-dot'>✓</span></p><p>Their teams of engineers <b>stayed on</b> → Their engineers <b>were retained</b>：stayed on = retained 逐字同义；acqui-hire（收购即雇人）正是佐证。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：市场估值下滑——无估值信息",
+  "body": "<p><b>B · Their market values declined.（它们的市场估值下滑了）</b> <span class='bad-dot'>✗</span></p><p>全文没有两家公司收购前后估值的信息，无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：技术特性得到改进——「被吸收」≠「被改进」",
+  "body": "<p><b>C · Their tech features improved.（它们的技术特性得到了改进）</b> <span class='bad-dot'>✗</span></p><p>应用被 scrapped（砍掉），其功能是被「搬进」微软自家产品，谈不上「被改进」——语义偷换。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：产品重新定价——无定价信息",
+  "body": "<p><b>D · Their products were re-priced.（它们的产品被重新定价了）</b> <span class='bad-dot'>✗</span></p><p>全文无定价信息，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（Their engineers were retained.）</b>。</p><p>记忆锚点：acqui-hire = 买公司实为买人；scrapped（应用被砍）≠ improved，stayed on（人留下）= retained。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（tech features improved）——把「功能被吸收」读成「被改进」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-31 · 阅读第 31 题：收购之后，两个应用的真实命运",
+  subtitle: "考点：Text3 第 1-2 段 · 细节题（收购前 / 后分层核对）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A",
+ "html": "<b>A Their engineers were retained.</b>：Their teams of engineers <b>stayed on</b> → 工程师被留用；acqui-hire = 买公司实为买人。<br>记忆锚点：收购后两事实——应用被砍（scrapped）、团队留任（stayed on）。<br>最易误选：C——「功能被吸收」≠「被改进」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 31 题——收购之后，两个应用的真实命运</h2>
+<p>答案：<strong>A</strong>（Their engineers were retained.）。</p>
+<h3>第 0 步：先立机制——after the acquisitions 锁定「收购后」的事实层</h3>
+<p>题干问收购<strong>之后</strong>的真实情况：第一段是收购<strong>前</strong>（当时很热门），第二段才是<strong>后</strong>——两个事实：应用被砍（scrapped）、工程师团队留任（stayed on）。「true about」题逐项核对事实层，凡原文无信息的一律排除。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>Both apps, however, were later scrapped, after Microsoft said it had used their best features in its own products. Their teams of engineers stayed on, making them two of the many "acqui-hires" that the biggest companies have used to feed their great hunger for tech talent.</blockquote>
+<p>Their teams of engineers <strong>stayed on</strong> → Their engineers <strong>were retained</strong>：stayed on = retained 逐字同义；acqui-hire（收购即雇人）一词点破性质——大公司买它们主要为了<strong>人才</strong>，团队留任正是题眼。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（Their market values declined.）</strong>：无中生有——全文没有两家公司收购前后估值的信息。</li><li><strong>C（Their tech features improved.）</strong>：语义偷换——应用被 scrapped（砍掉），功能是被「搬进」微软自家产品，谈不上「被改进」。</li><li><strong>D（Their products were re-priced.）</strong>：无中生有——全文无定价信息。</li></ul>
+<blockquote>记忆锚点：acqui-hire = 买公司实为买人；scrapped（应用被砍）≠ improved，stayed on（人留下）= retained。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

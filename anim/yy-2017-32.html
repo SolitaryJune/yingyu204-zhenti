@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-32 · 2017 Text 3 第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 选项交叉 → 定位研究段 → 概括替换 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 定位面大，先做选项交叉",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：Studies from the US and Australia imply ... helps ____ → 四选项共性“缓解问题”，C/D 交叠“减轻压力”",
+  "body": "<p>题干：Studies from the US and Australia imply that taking a gap year helps ____.</p><p>四个选项：unrealistic / career risks / financial burdens / pressures——共性是“缓解某问题”，C、D 交叠在“减轻压力”。命题焦点预判：**新生与压力**。</p>"
+ },
+ {
+  "title": "定位原文 · 第三段的美澳研究",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：第三段——better prepared / perform better / struggle with the most / lessen the blow",
+  "body": quote("① Studies...show that students who take a gap year are generally <b>better prepared for</b> and perform better in college... ② ...preparing them for <b>independence, new responsibilities and environmental changes</b> &ndash; all things that <b>first-year students often struggle with the most</b>. ③ Gap year experiences can <b>lessen the blow</b> when it comes to <b>adjusting to college</b>...") + "<p>研究说的全是“新生最头疼的事被间隔年减轻了”。</p>"
+ },
+ {
+  "title": "找证据 · 把“头疼清单”翻译成“压力”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "翻译：struggle with the most ＋ lessen the blow → 新生的压力被缓解",
+  "body": "<p>②句破折号：独立、新责任、环境变化 = <b>大一新生最头疼（struggle with the most）</b>的事；</p><p>③句：间隔年可以 <b>lessen the blow</b>（减轻冲击），让适应更容易、更专注于学业。</p><p>合并：<b>freshmen ← first-year students；pressures ← struggle with the most + the blow</b> → 选项 D。</p>"
+ },
+ {
+  "title": "逐项分析 · D relieve freshmen of pressures",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "log": "D relieve freshmen of pressures ✓ 当选——概括型替换：lessen the blow + struggle with the most",
+  "body": "<p><b>当选。</b>字面虽无 pressures，但“减轻冲击（lessen the blow）＋新生最头疼的事（struggle with the most）＋更容易专注”三处细节共同盖住“减轻新生压力”——<b>重神似、轻形似</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A keep students from being unrealistic",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A keep students from being unrealistic ✗ 排除——第二段心态的反向曲解",
+  "body": "<p><b>排除。</b>第二段②句 constant <b>fear of falling behind</b> 是“不选间隔年”的心态；把它倒装成“间隔年让人更现实”，语义反向。</p><p style='color:#b91c1c'>⚠ 典型误解：利用“现实/落后”反向拼装。</p>"
+ },
+ {
+  "title": "逐项分析 · B lower risks in choosing careers",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B lower risks in choosing careers ✗ 排除——例证错位：lucrative career 只是氛围举例",
+  "body": "<p><b>排除。</b>第二段②句的 lucrative career（赚钱的职业）只是举“无论终点是什么”的氛围例子，不构成“降低择业风险”的研究结论。</p><p style='color:#b91c1c'>⚠ 典型误解：见 career 就联想到职业规划。</p>"
+ },
+ {
+  "title": "逐项分析 · C ease freshmen’s financial burdens",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C ease freshmen’s financial burdens ✗ 排除——来源错位：financial 在第四段且对象是换专业成本",
+  "body": "<p><b>排除。</b>两刀：①来源——financial impact / costly / save money 全在**第四段**，数据出自 National Center for Education Statistics，不是题干的美澳研究；②对象——那段说的是**换专业补学分的成本**，不是“新生经济负担”。</p><p style='color:#b91c1c'>⚠ 典型误解：全文唯一的“钱”字勾走注意力，忘了题干限定。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D——选项交叉锁焦点，概括型替换定答案",
+  "body": "<p>答案选 <b>D（relieve freshmen of pressures）</b>。</p><p><b>记忆锚点</b>：定位面大时先做**选项交叉**锁定命题焦点；struggle with the most / lessen the blow ↔ relieve pressures；题干限定研究来源时，别段热词一律无效。</p><p style='color:#b91c1c'>⚠ 最易误选 C（financial burdens）：来源与对象双双错位。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 3 第 32 题 · 美澳研究表明间隔年有助于：unrealistic / career risks / financial burdens / pressures",
+  subtitle: "考点：事实细节题（选项交叉 + 概括型替换） · 审题 → 定位 → 替换 → 排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 选项交叉 → 定位 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（relieve freshmen of pressures）", "html": "<b>D</b>：新生最头疼的事（struggle with the most），间隔年帮着减轻冲击（lessen the blow）→ 卸下压力。<br>记忆锚点：选项交叉锁焦点；重神似轻形似。<br>最易误选：<b>C（financial burdens）</b>——financial 在第四段且是换专业成本，来源错位。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 3 第 32 题 · 美澳研究暗示间隔年帮了谁什么忙</h2>
+<p>答案：<strong>D（relieve freshmen of pressures）</strong>。</p>
+<h3>第 0 步：先立机制——选项交叉信息法：先从选项反推命题焦点</h3>
+<p>本题定位面较大，先用选项<strong>互查</strong>锁定方向：A"避免不切实际"、B"降低择业风险"、C"减轻经济负担"、D"减轻新生压力"——四项共性是"缓解/防止某种问题"，而 C、D 交叠在"<strong>减轻压力</strong>"上（一个说经济、一个说整体）。命题焦点大概率落在"新生与压力"。带着这个预判进原文：第三段说的正是"大学新生最头疼的事"。</p>
+<h3>第 1 步：定位原文（第三段）</h3>
+<blockquote>① Studies from the United States and Australia show that students who take a gap year are generally <strong>better prepared for</strong> and <strong>perform better</strong> in college... ② Rather than pulling students back, a gap year pushes them ahead by preparing them for <strong>independence, new responsibilities and environmental changes</strong> – <strong>all things that first-year students often struggle with the most</strong>. ③ Gap year experiences can <strong>lessen the blow</strong> when it comes to <strong>adjusting to college</strong> and being thrown into a brand new environment, making it easier to <strong>focus</strong> on academics and activities...</blockquote>
+<h3>第 2 步：找证据——把"头疼清单"翻译成"压力"</h3>
+<ul><li>②句破折号：独立、新责任、环境变化——正是<strong>大一新生 often struggle with the most</strong>（最头疼）的事；</li><li>③句：间隔年经历可以 <strong>lessen the blow</strong>（减轻冲击）——冲击的对象是适应大学、进入全新环境。</li></ul>
+<p>→ <strong>relieve freshmen of pressures</strong>：freshmen ← first-year students，pressures ← the things they struggle with + the blow of adjusting。同义替换成立。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D relieve freshmen of pressures</td><td>✓ 当选</td><td>lessen the blow + first-year students often struggle with the most 的合并概括：帮新生卸下适应压力。</td></tr><tr><td>A keep students from being unrealistic</td><td>✗ 排除</td><td>反向曲解：第二段②句 fear of falling behind 是<strong>不选</strong>间隔年的心态，把它倒过来读成"间隔年让人更现实"。（典型误解：利用"现实/落后"的语义反向拼装。）</td></tr><tr><td>B lower risks in choosing careers</td><td>✗ 排除</td><td>例证错位：②句 lucrative career（赚钱的职业）只是举例说明"无论终点是什么"的社会氛围，与"择业风险"无关。（典型误解：见 career 就联想到职业规划。）</td></tr><tr><td>C ease freshmen's financial burdens</td><td>✗ 排除</td><td>来源错位＋对象偷换：financial impact / costly / save money 全在<strong>第四段</strong>，数据来源是 National Center for Education Statistics——不是题干问的美澳研究；且那段说的是"换专业的补学分成本"，不是新生经济负担。（典型误解：全文有 financial 就往回搬，忘了题干限定。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不用精确对应词就敢选 D？</strong>：D 是"概括型替换"——lessen the blow（减轻冲击）、struggle with the most（最头疼的事）、easier to focus（更容易专注）三处细节共同指向"压力被缓解"，字面虽无 pressures，语义全盖住。这正是"重神似、轻形似"。</li><li><strong>C 离正确最近，怎么排它？</strong>：两刀——①来源：题干钉死 Studies from the US and Australia（第三段），financial 材料在第四段；②对象：第四段说的是<strong>换专业补学分的费用</strong>，不是"新生经济负担"。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（financial burdens）</strong>：被全文唯一的"钱"字勾走，忘了题干限定美澳研究。</li><li><strong>误选 B（career risks）</strong>：把举例的氛围词当成研究结论。</li></ul>
+<blockquote>记忆锚点：定位面大时先做<strong>选项交叉</strong>锁定命题焦点；struggle with the most / lessen the blow ↔ relieve pressures；题干限定研究来源时，别段的"热词"一律无效。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

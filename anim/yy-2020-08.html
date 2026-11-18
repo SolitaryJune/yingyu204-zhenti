@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-08 · 2020 完形第 8 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 8 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 8 空所在句，考点：句内语义 + 固定搭配",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You're only human, and sometimes your kids can __8__ you just a little too far.</div><p>空格动词接 you...too far：动词必须能与\"too far（过头）\"搭配，并引出下文\"失去耐心\"的爆发。</p>"
+ },
+ {
+  "title": "找证据 · 前后句的因果链",
+  "cls": "key",
+  "tag": "证据",
+  "log": "only human（有极限）+ too far（过头）+ 下句爆发——\"逼人太甚\"：push sb too far",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You're only human, and sometimes your kids can __8__ you just a little too far. → And then the __9__ happens: You lose your patience...</div><p>凡人有极限 → 孩子把你\"____过头\" → 下句失去耐心、吼叫：因果链锁定\"逼人太甚\"——固定搭配 push sb too far。</p>"
+ },
+ {
+  "title": "逐项分析 · A move（移动；改变；感动）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A move（移动；改变；感动） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"感动\"与\"失去耐心、爆发\"方向相反；move 也无 move sb too far 的\"逼人\"用法。</p>"
+ },
+ {
+  "title": "逐项分析 · B drag（拉，拽；硬拉，强迫）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B drag（拉，拽；硬拉，强迫） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>drag 的\"强迫\"是具体的\"生拉硬拽\"：drag you all this way（硬拉着你跑了这一路），宾语补足语是地点；too far 是抽象的程度，接不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记中文释义\"强迫\"，不看 drag 的搭配对象。</p>"
+ },
+ {
+  "title": "逐项分析 · C push（迫使；推动）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C push（迫使；推动） ✓ 当选",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>固定搭配 push sb too far（逼人太甚）：\"孩子有时会把你逼得有点过头\"，正引出下文的爆发。</p>"
+ },
+ {
+  "title": "逐项分析 · D send（使（向某方向）移动；使作出反应）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D send（使（向某方向）移动；使作出反应） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>send 的使动用法要接方向或结果（send sb to/into sth）；too far 既非方向也非行为结果，无法搭配。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（push 迫使；推动）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>你只是个凡人，有时孩子们可能会把你逼得有些过头。</b></p><p>答案选 <b>C（push 迫使；推动）</b>。</p><p><b>记忆锚点</b>：push sb too far 逼人太甚；drag 后接地点、send 后接方向；only human 埋\"极限\"伏笔，too far 点\"过头\"。</p><p style=\"color:#b91c1c\">最易误选：<b>B（drag）</b>——只记\"drag=强迫\"的中文释义，忽略它接的是具体地点而非抽象程度。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 8 空 · only human 埋伏笔，too far 点题——固定搭配 push sb too far",
+  subtitle: "考点：句内语义 + 固定搭配 · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（push）",
+ "html": "<b>C push（迫使；推动）</b>。<br>完整句义：你只是个凡人，有时孩子们可能会把你逼得有些过头。<br>记忆锚点：push sb too far 逼人太甚；drag 后接地点、send 后接方向；only human 埋\"极限\"伏笔，too far 点\"过头\"。<br>最易误选：<b>B（drag）</b>——只记\"drag=强迫\"的中文释义，忽略它接的是具体地点而非抽象程度。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 8 空 · only human 埋伏笔，too far 点题——固定搭配 push sb too far</h2>
+<p>答案：<strong>C（push 迫使；推动）</strong>。</p>
+<h3>第 0 步：先立机制——从"过头"到"爆发"——搭配与语境双向锁定</h3>
+<p>这句话是因果链的起点。前半句 You're only human（你只是凡人）——凡人有极限，这是伏笔；后半句"孩子有时会把你____得有点过头"。过头了会怎样？下一句立刻交代：失去耐心、吼叫、说狠话。所以空格要表达"把人逼过头、逼得发脾气"——英语的固定说法是 push sb too far（逼人太甚）。反过来核对其余三项：能与 too far 组成"逼人"短语的只有 push；move 的方向是"感动"，drag、send 的搭配对象各自另有所指。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>You're only human, and sometimes your kids can __8__ you just a little too far.</blockquote>
+<p>空格动词接 you...too far：动词必须能与"too far（过头）"搭配，并引出下文"失去耐心"的爆发。</p>
+<h3>第 2 步：找证据——前后句的因果链</h3>
+<ul><li><strong>伏笔</strong>：You're only human（凡人有极限）；</li><li><strong>空格</strong>：can ____ you just a little too far（把你____得有点过头）；</li><li><strong>后果</strong>：And then the __9__ happens: You lose your patience...（爆发）；</li><li><strong>搭配</strong>：push sb too far = 逼人太甚、把人逼得发脾气。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A move</td><td>移动；改变；感动</td><td>✗ 排除</td><td>"感动"与"失去耐心、爆发"方向相反；move 也无 move sb too far 的"逼人"用法。</td></tr><tr><td>B drag</td><td>拉，拽；硬拉，强迫</td><td>✗ 排除</td><td>drag 的"强迫"是具体的"生拉硬拽"：drag you all this way（硬拉着你跑了这一路），宾语补足语是地点；too far 是抽象的程度，接不上。（典型误解：只记中文释义"强迫"，不看 drag 的搭配对象。）</td></tr><tr><td>C push</td><td>迫使；推动</td><td>✓ 当选</td><td>固定搭配 push sb too far（逼人太甚）："孩子有时会把你逼得有点过头"，正引出下文的爆发。</td></tr><tr><td>D send</td><td>使（向某方向）移动；使作出反应</td><td>✗ 排除</td><td>send 的使动用法要接方向或结果（send sb to/into sth）；too far 既非方向也非行为结果，无法搭配。</td></tr></tbody></table>
+<p>代入后的完整句义：你只是个凡人，有时孩子们可能会把你逼得有些过头。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>drag 不也是"强迫"的意思吗？</strong>：drag 的"强迫"停留在具体动作：硬拉某人去某地（drag sb somewhere）。本空后接的是抽象程度 too far，需要的是"把人逼过火"的抽象用法——这是 push 的专职搭配。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（drag）</strong>：只记"drag=强迫"的中文释义，忽略它接的是具体地点而非抽象程度。</li></ul>
+<blockquote>记忆锚点：push sb too far 逼人太甚；drag 后接地点、send 后接方向；only human 埋"极限"伏笔，too far 点"过头"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

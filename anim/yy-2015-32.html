@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-32 · 2015 阅读第 32 题 · “并非巧合”的潜台词——team-oriented 的源头在体育文化 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · “与什么相关”＝找源头", "cls": "key", "tag": "审题", "log": "审题眼：“Team”-oriented corporate vocabulary is closely related to ___——找“团队导向”词汇的来源", "count": 0, "ribbon": null, "body": "<p>题干问“团队”导向的企业词汇与什么<b>密切相关</b>。预判：定位段若出现“并非巧合/原因”类表述，答案就是它的解释对象。</p>"},
+ {"title": "定位原文 · not by coincidence 是路标", "cls": "key", "tag": "定位", "log": "定位原文：…is very “team”-oriented – and not by coincidence → 下文给原因", "count": 0, "ribbon": null, "body": quote("Koehn pointed out that this new era of corporate vocabulary is very “team”-oriented – and not by coincidence.") + "<p>“<b>并非巧合</b>”是写作路标：既然不是巧合，背后必有原因——②③④句随即展开解释。</p>"},
+ {"title": "找证据 · coach→team→win 三连词", "cls": "key", "tag": "证据", "log": "找证据：Let’s not forget sports…；CEO 自认 coach、公司是 team、一心想 win", "count": 0, "ribbon": null, "body": quote("“Let’s not forget sports – in male-dominated corporate America, it’s still a big deal. … most think of themselves as coaches and this is their team and they want to win.”") + "<p>②句：体育在美国企业仍是大事；③④句：管理者以体育角色自居——教练、球队、赢。企业词汇的“团队导向”正是从<b>体育团队文化</b>里借来的。</p>"},
+ {"title": "逐项分析 · A sports culture（体育文化）", "cls": "good", "tag": "选定 A", "log": "A sports culture ✓ 当选——coach/team/win 的体育思维是“团队导向”的源头", "count": 0, "ribbon": {"k": "A", "ok": true}, "body": "<p><b>当选。</b>整合②③④句：体育文化深刻影响企业管理思维（教练—球队—赢），“团队”导向的企业词汇与其密切相关——原文细节上的合理整合。</p>"},
+ {"title": "逐项分析 · B gender difference（性别差异）", "cls": "bad", "tag": "排除 B", "log": "B gender difference ✗ 排除——male-dominated 是背景中介，不是词汇的关联对象", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>②句因果是“因为男性主导 → 体育文化对企业影响大”。male-dominated 是通向体育文化的<b>背景条件</b>；题干问词汇直接关联的对象，落在因果链末端仍是 sports。</p><p style=\"color:#b91c1c\">⚠ 典型误解：链条中间环节冒充答案。</p>"},
+ {"title": "逐项分析 · C historical incidents（历史事件）", "cls": "bad", "tag": "排除 C", "log": "C historical incidents ✗ 排除——时间词拼凑：20 years ago/1990/historically 各自另有其职", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>20 years ago、in 1990（第一段举例）与 historically（第三段谈术语来源）都是别处的普通时间表述，全文没有任何“历史事件”叙事——跨段拼词伪造选项。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把时间词当成事件叙事。</p>"},
+ {"title": "逐项分析 · D athletic executives（运动型高管）", "cls": "bad", "tag": "排除 D", "log": "D athletic executives ✗ 排除——“CEO 自认教练”是思维比喻，不是体格像运动员", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>think of themselves as coaches 说的是管理<b>思维</b>上借鉴体育（教练带队争胜），不是高管体格健壮“像运动员”——比喻义被读成字面义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：比喻当字面。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 A", "log": "答案 A（sports culture 体育文化）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>团队导向词汇并非巧合（①）→ 体育在美国企业仍是大事（②）→ CEO 以教练、球队、赢自居（③④）→ 词汇源头是体育文化。</b></p><p>答案选 <b>A（sports culture 体育文化）</b>。</p><p><b>记忆锚点</b>：not by coincidence＝下文给原因；coach→team→win 指向体育文化；male-dominated 是背景中介；时间词拼凑多为伪造选项。</p><p style=\"color:#b91c1c\">最易误选：<b>B（gender difference）</b>——把背景条件当成关联对象。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 32 题 · “并非巧合”的潜台词——team-oriented 的源头在体育文化",
+  subtitle: "考点：判断推理题 · not by coincidence 原因预告 + 跨句信息整合",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 证据整合 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（sports culture）", "html": "<b>A 体育文化</b>：not by coincidence 预告原因，coach→team→win 三连词把“团队导向”引回体育。<br>记忆锚点：not by coincidence＝下文给原因；male-dominated 只是背景中介。<br>最易误选：<b>B（gender difference）</b>——背景条件冒充关联对象。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 32 题 · "并非巧合"的潜台词——team-oriented 的源头在体育文化</h2>
+<p>答案：<strong>A（sports culture 体育文化）</strong>。</p>
+<h3>第 0 步：先立机制——"not by coincidence"预告了原因段</h3>
+<p>题干问 "team"-oriented corporate vocabulary is closely related to ___（"团队"导向的企业词汇与什么密切相关）。定位第二段①句：Koehn 指出这种新时代企业词汇 very "team"-oriented——and <strong>not by coincidence</strong>（而这并非巧合）。"并非巧合"是作者的写作路标：既然不是巧合，背后必有原因，<strong>下文就是在给原因</strong>。②③④句随即给出：别忘体育——在男性主导的美国企业里体育仍是大事；CEO 们把自己当教练（coach）、把公司当球队（team）、一心想赢（win）。企业词汇的"团队导向"正是从体育团队文化里借来的。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Koehn pointed out that this new era of corporate vocabulary is very "team"-oriented – and not by coincidence. "Let's not forget sports – in male-dominated corporate America, it's still a big deal. ... most think of themselves as coaches and this is their team and they want to win."</blockquote>
+<ul><li>①句：团队导向——并非巧合；</li><li>②句：体育在美国企业仍是大事（sports…a big deal）；</li><li>③④句：教练—球队—赢，体育思维被搬进企业管理。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A sports culture</td><td>体育文化</td><td>✓ 当选</td><td>coach/team/win 的体育思维 + ②句 sports is still a big deal——团队导向词汇源于体育文化</td></tr><tr><td>B gender difference</td><td>性别差异</td><td>✗ 排除</td><td>male-dominated 只是②句交代体育影响企业<strong>的背景条件</strong>（男性主导→体育影响大），不是词汇的关联对象</td></tr><tr><td>C historical incidents</td><td>历史事件</td><td>✗ 排除</td><td>20 years ago/1990（第一段）、historically（第三段）的时间词被拼凑成"历史事件"；原文没有任何历史事件叙事</td></tr><tr><td>D athletic executives</td><td>运动型高管</td><td>✗ 排除</td><td>把"CEO 自认是教练"曲解成"高管像运动员"；是思维借鉴，不是体格特征</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>male-dominated 为什么不是答案？性别差异信息确实出现了。</strong>：②句的因果是"因为男性主导 → 体育文化对企业影响大"——male-dominated 是通向体育文化的<strong>中介背景</strong>，题干问的是词汇直接关联的对象（related to），落到因果链末端仍是 sports。干扰项常用"链条中间环节"冒充答案。</li><li><strong>"closely related"要到哪一步才算"推出"？</strong>：整合②③④句——体育是企业思维的重要来源（a big deal）、管理者以体育角色自居（coach/team/win）——团队导向的词汇从体育文化借来，这是在原文细节上的合理整合，不是越级脑补。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（gender difference）</strong>：抓到 male-dominated 原词就选；它是背景条件，不是"词汇与什么相关"的答案。</li><li><strong>误选 D（athletic executives）</strong>：把"CEO 以教练自居"错读成"高管体格像运动员"——比喻义被当成字面义。</li><li><strong>误选 C（historical incidents）</strong>：被各段时间词拼贴误导；跨段词汇拼凑是推理题最常见的原料库。</li></ul>
+<blockquote>记忆锚点：not by coincidence ＝ 下文给原因；coach→team→win 三连词指向体育文化；male-dominated 是"体育影响企业"的背景中介，不是答案本身；时间词拼凑（20 years ago/historically）多为伪造选项。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

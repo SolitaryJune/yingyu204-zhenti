@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-27 · 总分结构题：在「技能清单」里找职责</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：Compared with their predecessors 定位第三段",
+  "body": "<p>题干：<b>Compared with their predecessors, today's CEOs are required to ____</b>。predecessors（前任）一词指向第三段③句 better... than their predecessors，解题范围即第三段。</p><p>段首总领：Today's CEO ... must have <b>many more skills</b> than simply being able to \"run the company\"；随后 <b>also / Then / Plus / Beyond this</b> 逐一列举分述。题干问「被要求……」，就是从这份清单里挑一条与选项对应。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "总分骨架：一条总述 + 六条分述",
+  "body": "<table class='aw-mini'><tr><th>句</th><th>技能 / 职责</th></tr><tr><td>②</td><td>a good sense of financial markets（金融判断力）</td></tr><tr><td>③</td><td>better public relations skills（公关能力，与前任比较）</td></tr><tr><td>④⑤</td><td><b>全球化公司</b>：supply chains spread across countries → To lead in that system</td></tr><tr><td>⑥</td><td>大公司正变成科技公司（暗示科技领导力）</td></tr><tr><td>⑦</td><td>仍要做全部日常工作</td></tr></table><p>正确项须能挂回某条分述，且对象关系不能错。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第四、五句（全球化）",
+  "body": "<div class='qq'><b>原文：</b>Then there's the fact that large American companies are much more <b>globalized</b> than ever before, with supply chains spread across a larger number of countries. <b>To lead in that system</b> requires knowledge that is fairly mind-boggling.</div><p class='cn'>译：美国大公司的全球化程度空前，供应链遍布更多国家。在这样的体系中发挥领导作用，需要相当惊人的知识。</p><p>D 的 <b>operate more globalized companies</b> ↔ To lead in that system（that system = 全球化大公司）：operate ↔ lead、more globalized ↔ much more globalized than ever before。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：sense of 的宾语被换",
+  "body": "<p><b>A · foster a stronger sense of teamwork</b> <span class='bad-dot'>✗</span></p><p>③句是 have a good sense of <b>financial markets</b>（对金融市场的判断力）——A 把 sense of 后面的宾语换成「团队意识」，曲解原文。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：financial → finance 杂糅",
+  "body": "<p><b>B · finance more research and development</b> <span class='bad-dot'>✗</span></p><p>financial（金融的）捏造出动词 finance（资助），再杂糅「研发」概念；原文只说大公司正变成科技公司，没说 CEO 资助研发。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：科技公司关系错位",
+  "body": "<p><b>C · establish closer ties with tech companies</b> <span class='bad-dot'>✗</span></p><p>⑥句说美国大公司<b>自身</b>正变成科技公司——CEO 领导的就是那家科技公司，不是去「与科技公司建立更紧密联系」；把「转型」曲解成了「攀关系」。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：④⑤句职责的改写",
+  "body": "<p><b>D · operate more globalized companies</b> <span class='ok-dot'>✓</span></p><p>领导「供应链遍布多国、全球化程度空前的公司」= 经营更加全球化的公司——lead ↔ operate，与首句 many more skills 的总述相容。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（operate more globalized companies）</b>。</p><p>记忆锚点：列举段做题 = 总起句（many more skills）+ 列举词（also / Then / Plus / Beyond this）把选项逐一挂回分述句；CEO 的职责是「领导全球化的大公司」，不是「和科技公司交朋友」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-27 · 总分结构题：在「技能清单」里找职责",
+  subtitle: "考点：Text2 第三段 · 总起句 + 列举词的分述结构",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>总分结构挂回分述句</b>：④⑤句 To lead in that system（全球化大公司）↔ operate more globalized companies。A 换掉 sense of 的宾语、B 用 financial 凑出 finance R&D、C 把「公司转型」曲解为「与科技公司攀关系」。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 27 题——总分结构题：在"技能清单"里找职责</h2>
+<p>答案：<strong>D</strong>（operate more globalized companies）。</p>
+<h3>第 0 步：先立机制——先抓段落的总分骨架</h3>
+<p>由题干 Compared with their predecessors 定位第三段。首句总领：Today's CEO ... must have <strong>many more skills</strong> than simply being able to "run the company"；随后 also / Then / Plus / Beyond this 逐一列举分述技能。题干问"如今 CEO 被要求……"，就是从这份清单里挑一条与选项对应。分述中④⑤句：大公司全球化程度空前（supply chains spread across a larger number of countries），To lead in that system（领导"那样的体系"）需要惊人知识——"领导全球化公司"正是 CEO 的职责之一。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>Then there's the fact that large American companies are much more globalized than ever before... To lead in that system requires knowledge that is fairly mind-boggling.</blockquote>
+<p>D 的 operate more globalized companies ↔ To lead in that system（that system = 供应链遍布多国的全球化公司）：operate ↔ lead、more globalized companies ↔ much more globalized than ever before。选 D。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（foster a stronger sense of teamwork）</strong>：把③句 have a good sense of financial markets（对<strong>金融市场</strong>的判断力）曲解成"团队意识"——sense of 后面的宾语被换了。</li><li><strong>B（finance more research and development）</strong>：financial（金融的）捏造出动词 finance（资助），再杂糅"研发"概念；原文只说大公司正变成科技公司，没说 CEO 资助研发。</li><li><strong>C（establish closer ties with tech companies）</strong>：把⑥句"美国大公司<strong>自身</strong>正变成科技公司"曲解为"CEO 与科技公司建立更紧密联系"——CEO 领导的就是那家科技公司，不是去"跟它攀关系"。</li></ul>
+<blockquote>记忆锚点：列举段做题 = 总起句 + 列举词（also / Then / Plus / Beyond this）把选项逐一挂回分述句；CEO 的职责是"领导全球化的大公司"，不是"和科技公司交朋友"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

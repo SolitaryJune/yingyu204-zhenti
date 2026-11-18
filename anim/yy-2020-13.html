@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-13 · 2020 完形第 13 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片式）
+     只改 AW.init 区域；外壳引用 ../assets/ 与站点布局一致（勿改 ../../）。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 13 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 13 空所在句，考点：上下文语义（动词辨析）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...you can say something to your child that you may __13__ for a long time.</div><p>空格是定语从句的谓语：say something that you may ____ for a long time——\"说出让你____很久的话\"。</p>"
+ },
+ {
+  "title": "找证据 · 三处复现锁定悔意",
+  "cls": "key",
+  "tag": "证据",
+  "log": "fatigue / say something / 想倒转时光——第三段悔意的复现：regret for a long time",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...you can say something to your child that you may __13__ for a long time. ← You wish that you could __11__ the clock and start over.</div><p>第三段刚说完\"想倒转时光、从头再来\"（悔意）——本句\"说出让你____良久的话\"是同一情绪的复现：regret。</p>"
+ },
+ {
+  "title": "逐项分析 · A like（喜欢；愿意）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A like（喜欢；愿意） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>正面语义：与\"危害\"主线（下句 do damage）方向相反。</p>"
+ },
+ {
+  "title": "逐项分析 · B miss（错过；想念）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B miss（错过；想念） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"想念一句话良久\"语义不通；miss 的对象通常是人或错过的事物。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记 miss 有\"想念\"义，不看搭配对象。</p>"
+ },
+ {
+  "title": "逐项分析 · C believe（相信；认为）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C believe（相信；认为） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>\"相信一句话很久\"同样不通——believe 的对象是观点命题，且与悔意无关。</p>"
+ },
+ {
+  "title": "逐项分析 · D regret（后悔；遗憾）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D regret（后悔；遗憾） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与第三段\"想倒转时光重来\"的悔意复现一致：\"说出让自己后悔良久的话\"，并自然引出下句的危害。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（regret 后悔；遗憾）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>在感到疲惫的那一瞬间，你可能会对孩子说出一些让自己长久后悔的话。</b></p><p>答案选 <b>D（regret 后悔；遗憾）</b>。</p><p><b>记忆锚点</b>：复现即提示：fatigue↔exhausted、say something↔too harsh、想重来↔悔意 → regret for a long time。</p><p style=\"color:#b91c1c\">最易误选：<b>B（miss）</b>——只认\"miss=想念\"的义项，不核对搭配对象与上下文的悔意方向。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2020 完形第 13 空 · 复现第三段的悔意——regret for a long time",
+  subtitle: "考点：上下文语义（动词辨析） · 定位 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开\"定位 → 找证据 → 逐项排除\"的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（regret）",
+ "html": "<b>D regret（后悔；遗憾）</b>。<br>完整句义：在感到疲惫的那一瞬间，你可能会对孩子说出一些让自己长久后悔的话。<br>记忆锚点：复现即提示：fatigue↔exhausted、say something↔too harsh、想重来↔悔意 → regret for a long time。<br>最易误选：<b>B（miss）</b>——只认\"miss=想念\"的义项，不核对搭配对象与上下文的悔意方向。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2020 完形第 13 空 · 复现第三段的悔意——regret for a long time</h2>
+<p>答案：<strong>D（regret 后悔；遗憾）</strong>。</p>
+<h3>第 0 步：先立机制——本句是旧事的复现，答案藏在第二、三段</h3>
+<p>这个空不需要新信息——本句是把第二、三段的情形原样再讲一遍，考的就是"认出复现"。逐项对照：moment of fatigue（疲惫的瞬间）呼应第二段 exhausted and frustrated（又累又挫败）；say something to your child 呼应第三段 say something that was a bit too harsh（说狠话）；而第三段紧随其后的反应是 You wish that you could turn back the clock and start over——想倒转时光、从头再来，这就是悔意。所以"说出让你____良久的话"——regret（后悔）。本句的作用是过渡：把"悔意"接过去，引出下句的具体危害（伤感情、伤自尊）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...you can say something to your child that you may __13__ for a long time.</blockquote>
+<p>空格是定语从句的谓语：say something that you may ____ for a long time——"说出让你____很久的话"。</p>
+<h3>第 2 步：找证据——三处复现锁定悔意</h3>
+<ul><li><strong>fatigue</strong> ↔ 第二段 exhausted and frustrated（疲惫）；</li><li><strong>say something</strong> ↔ 第三段 say something...too harsh（说狠话）；</li><li><strong>后果</strong> ↔ 第三段 wish...turn back the clock and start over（想倒转时光重来 = 悔意）；</li><li><strong>句法</strong>：that you may ____ for a long time——"后悔良久"自然衔接下句"危害"。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A like</td><td>喜欢；愿意</td><td>✗ 排除</td><td>正面语义：与"危害"主线（下句 do damage）方向相反。</td></tr><tr><td>B miss</td><td>错过；想念</td><td>✗ 排除</td><td>"想念一句话良久"语义不通；miss 的对象通常是人或错过的事物。（典型误解：只记 miss 有"想念"义，不看搭配对象。）</td></tr><tr><td>C believe</td><td>相信；认为</td><td>✗ 排除</td><td>"相信一句话很久"同样不通——believe 的对象是观点命题，且与悔意无关。</td></tr><tr><td>D regret</td><td>后悔；遗憾</td><td>✓ 当选</td><td>与第三段"想倒转时光重来"的悔意复现一致："说出让自己后悔良久的话"，并自然引出下句的危害。</td></tr></tbody></table>
+<p>代入后的完整句义：在感到疲惫的那一瞬间，你可能会对孩子说出一些让自己长久后悔的话。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>miss 不是有"想念"的意思吗，"想念自己说的话"为什么不通？</strong>：miss 的"想念"对象是人或失去的事物（miss my hometown）；对"自己说过的话"，中文也只说"后悔说过"而不说"想念说过"。且上下文要的是悔意，不是怀念。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（miss）</strong>：只认"miss=想念"的义项，不核对搭配对象与上下文的悔意方向。</li></ul>
+<blockquote>记忆锚点：复现即提示：fatigue↔exhausted、say something↔too harsh、想重来↔悔意 → regret for a long time。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

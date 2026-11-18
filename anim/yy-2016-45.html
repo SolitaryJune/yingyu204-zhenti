@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-45 · 2016 新题型第 45 题 · 建议先行：「别太用力」 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 认出「建议先行」的段落结构", "cls": "key", "tag": "方法", "log": "本段换了阵型：首句直接亮建议，后面全是论据——标题＝建议句的压缩", "count": 0, "ribbon": null, "body": "<p>前面几段的建议都藏在段中或段尾，这一段换了阵型：<b>首句直接亮建议</b>——Having said all of the above, it's important to add that…（说完以上，还要补一句重要的）。「最后补充」出现在全篇收束位，作者在此亮出的必然是压轴建议；随后的引文只需要核对方向，不需要逐句细读。</p>"},
+ {"title": "定位段落 · 建议句 + 三块论据", "cls": "key", "tag": "定位", "log": "定位【45】段：别太用力追求幸福 → 科学「适得其反」→ 庄子「幸福的缺席」→ 孩子的「副产品」", "count": 0, "ribbon": null, "body": quote("…it&rsquo;s important to add that we <b>shouldn&rsquo;t try too hard to be happy</b>. Scientists tell us this can <b>backfire</b> and actually have a negative impact on our wellbeing. As the Chinese philosopher Chuang Tzu is reported to have said: &ldquo;<b>Happiness is the absence of striving for happiness</b>.&rdquo; And in that, once more, we need to look to the example of our children, to whom happiness is not a goal but a natural byproduct of the way they live.") + "<p>三块论据同指一个方向：①科学——刻意用力会 <b>backfire</b>（适得其反）；②庄子——幸福是「为幸福而奋斗」的<b>缺席</b>（absence of striving）；③收尾——对孩子来说幸福不是目标（not a goal），而是<b>自然副产品</b>（byproduct）。三块反复强调同一件事：别把幸福当成刻意追的目标。</p>"},
+ {"title": "提炼段旨 · overthink ＝ try too hard 的反向压缩", "cls": "key", "tag": "提炼", "log": "提炼段旨：try too hard（太用力）与 overthink（想太多/刻意）同指「过度强求」", "count": 0, "ribbon": null, "body": "<p>[E] Don't <b>overthink</b> it——「别想太多/别太用力」＝ shouldn't <b>try too hard</b> ＋ striving 的反向压缩：两者同指「过度强求」这一个动作。backfire / absence of striving / not a goal 三处论据全是它的注脚。</p>"},
+ {"title": "逐项分析 · E Don't overthink it（别想太多）", "cls": "good", "tag": "选定 E", "log": "E 别想太多 ✓ ——建议句 shouldn't try too hard to be happy 的压缩", "count": 0, "ribbon": {"k": "E", "ok": true}, "body": "<p><b>当选。</b>[E] Don't overthink it：与首句建议 shouldn't try too hard to be happy 同向压缩——「太用力追求幸福」正是「想太多/刻意」的表现；三块论据（backfire、absence of striving、not a goal but byproduct）全部为它作证。</p>"},
+ {"title": "逐项分析 · B Have fun（尽情玩乐）", "cls": "bad", "tag": "排除 B", "log": "B 尽情玩乐 ✗ ——话题错位：本段教「别刻意追」，不是「主动找乐」", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>happiness 字面贯穿全段，容易联想「玩乐」，但「安排享乐」是【44】段的主题——本段的建议恰恰是「<b>别刻意</b>」，与「主动找乐」方向相反。方向判断比词面重合优先：同说 happiness，B 教「追」，本段教「放」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被高频词 happiness 带去「找乐子」方向。</p>"},
+ {"title": "逐项分析 · C Ask for help（寻求帮助）", "cls": "bad", "tag": "排除 C", "log": "C 寻求帮助 ✗ ——多余项的最后一次客串：词面与段落无任何交点", "count": 2, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>C 是全篇两个没人认领的<b>多余项</b>之一——前面在【41】【44】段客串过诱饵，本段依然接不上，词面与段落无任何交点。G Notice things 同为多余项。</p><p style=\"color:#b91c1c\">⚠ 提示：凡反复「客串」的选项就是那两个没人认领的多余项。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 E", "log": "答案 E（Don't overthink it）——见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>首句亮建议（别太用力追求幸福）→ 科学 + 庄子 + 孩子三块论据同证「放下刻意」→ 标题压缩为 Don't overthink it。</b></p><p>其余选项归宿：D Express your emotions（【41】）、F Be easily pleased（【42】）、A Be silly（【43】）、B Have fun（【44】）；C Ask for help 与 G Notice things 为全篇多余项——至此六个选项全部归位。</p><p><b>记忆锚点</b>：建议先行的段落——首句 shouldn't try too hard ＝ overthink 的反向压缩；引文是论据，标题不引名言、只压建议。</p><p style=\"color:#b91c1c\">happiness 词面重合 ≠ 方向一致——B 教「追」，本段教「放」。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 新题型第 45 题 · 建议先行：首句亮建议、引言作论据",
+  subtitle: "考点：小标题题 · 建议先行结构 + try too hard / overthink 方向压缩",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位建议句 → 核对论据方向 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 E（Don't overthink it）", "html": "<b>E 别想太多</b>：首句 shouldn't try too hard to be happy 的反向压缩。<br>记忆锚点：建议先行的段落，标题＝建议句的压缩；backfire / absence of striving / not a goal 三处论据同证「放下刻意」。<br>最易误选：<b>B（Have fun）</b>——happiness 词面重合，但方向是「追」不是「放」。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 新题型第 45 题——首句亮建议、引言作论据的"倒装段"</h2>
+<p>答案：<strong>E（Don't overthink it 别想太多）</strong>。</p>
+<h3>第 0 步：先立方法——认出"建议先行"的段落结构</h3>
+<p>前面几段的建议都藏在段中或段尾，这一段换了阵型：<strong>首句直接亮建议</strong>——Having said all of the above, it's important to add that <strong>we shouldn't try too hard to be happy</strong>（别太用力追求幸福）；随后的科学发现与庄子名言全是给这条建议<strong>作证</strong>的论据。识别出"建议句在开头"，标题就等于建议句的压缩——后面的引文只需要核对方向，不需要逐句细读。</p>
+<h3>第 1 步：定位段落</h3>
+<blockquote>...it's important to add that we <strong>shouldn't try too hard to be happy</strong>. Scientists tell us this can <strong>backfire</strong> and actually have a negative impact on our wellbeing. As the Chinese philosopher Chuang Tzu is reported to have said: "<strong>Happiness is the absence of striving for happiness</strong>." And in that, once more, we need to look to the example of our children, to whom happiness is not a goal but a natural byproduct of the way they live.</blockquote>
+<p>三块论据同指一个方向：①科学——刻意用力会 <strong>backfire</strong>（适得其反）；②庄子——幸福是"为幸福而奋斗"的<strong>缺席</strong>（absence of striving）；③收尾——对孩子来说幸福不是目标（goal），而是生活方式的<strong>自然副产品</strong>（byproduct）。三块论据反复强调同一件事：<strong>别把幸福当成刻意追的目标</strong>。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[E] <strong>Don't overthink it</strong>——"别想太多/别太用力" ＝ shouldn't try too hard ＋ striving 的反向压缩。try too hard（太用力）与 overthink（想太多、刻意）同指"过度强求"这一个动作；backfire / absence of striving / not a goal 三处论据全是它的注脚。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B Have fun</td><td>✗</td><td>话题错位：happiness 字面贯穿全段，容易联想"玩乐"，但"安排享乐"是【44】段的主题——本段的建议恰恰是"别刻意"，与"主动找乐"方向相反</td></tr><tr><td>C Ask for help</td><td>✗</td><td>多余项的最后一次"客串"：全篇两个没人认领的选项之一，词面与段落无任何交点——它前面在【41】【44】段客串过，本段依然接不上</td></tr></tbody></table>
+<p>其余 A Be silly（【43】段傻气傻笑）、D Express your emotions（【41】段情绪表达）、F Be easily pleased（【42】段容易满足）、G Notice things（多余项）各有归宿，本段内容与之无涉。</p>
+<h3>预判追问：整段都在谈 happiness，为什么不是 B（Have fun）？</h3>
+<p>因为方向不同。B 是"去做点让自己开心的事"（主动制造快乐），E 是"别把快乐当任务来追"（放下刻意追求）。本段三处论据全部反对"刻意"：try too hard 会 backfire，庄子说幸福是 striving 的缺席，孩子的幸福"不是目标而是副产品"——没有一个字在教你去"玩"。标题题里，<strong>方向判断比词面重合优先</strong>：同说 happiness，一个教"追"，一个教"放"，本题的全段落点在"放"。</p>
+<h3>易错点</h3>
+<ul><li><strong>被 happiness 字面吸走</strong>：全段高频词 happiness 会让"找乐子"类标题显得顺理成章——须核对建议句的方向（别追，不是去玩）。</li><li><strong>漏读首句的建议标记</strong>：Having said all of the above, it's important to add that... 是全篇收束位，作者在此亮出的"最后补充"必然是压轴建议。</li><li><strong>把引文当主旨</strong>：庄子名言是论据，标题不引名言、只压建议。</li></ul>
+<blockquote>记忆锚点：建议先行的段落——首句 shouldn't try too hard ＝ E 的 overthink 反向压缩；backfire / absence of striving / not a goal 三处论据同证"放下刻意"；happiness 词面重合 ≠ 方向一致（B 教"追"，本段教"放"）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

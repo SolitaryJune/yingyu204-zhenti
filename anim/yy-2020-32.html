@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-32 · 细节题：薄弱之处 = 成本加错了对象</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：weakness 的出处句在哪",
+  "body": "<p>题干：<b>Which is considered a weakness of the city-level measures to tackle dirty air?</b></p><p>第三段①句点名：<b>Among other weaknesses</b>, the measures cities must employ... are <b>politically contentious, and therefore vulnerable</b>（易引发政治争议，因而脆弱）。①句只说「是什么」，②句的 <b>That's because</b> 才解释「为什么」——原因句才是选项的原料。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "取舍结构 A rather than B 是题眼",
+  "body": "<table class='aw-mini'><tr><th>环节</th><th>内容</th></tr><tr><td>现象</td><td>①句措施 politically contentious → vulnerable（引发争议、脆弱）</td></tr><tr><td>原因</td><td>②句 That's because：put the costs <b>on to individual drivers</b> ... <b>rather than</b> on to the car manufacturers</td></tr><tr><td>要害</td><td>无责者（车主）付费，全责者（厂商，whose cheating is the real cause）脱身</td></tr></table><p>成本加错对象 → 车主反弹 → 政策脆弱，一推就倒。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第三段②句",
+  "body": "<div class='qq'><b>原文：</b>That's because they inevitably <b>put the costs of cleaning the air on to individual drivers</b>—who must pay fees or buy better vehicles—<b>rather than</b> on to the car manufacturers whose cheating is the real cause of our toxic pollution.</div><p class='cn'>译：因为这些措施不可避免地把治污成本加诸司机个人——他们必须缴费或换更好的车——而非加诸真正造成有毒污染的汽车生产商。</p><p>D 的 <b>put too much burden on individual motorists</b> ↔ put the costs ... on to individual drivers：burden ↔ costs、motorists ↔ drivers。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：取舍两端被对调",
+  "body": "<p><b>A · They are biased against car manufacturers</b> <span class='bad-dot'>✗</span></p><p>被「加担子」的是<b>车主个人</b>，厂商反而没被要求承担；A 说「对厂商不公」恰好把 rather than 两端<b>对调</b>了。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：曲解首段再扩大",
+  "body": "<p><b>B · They prove impractical for city councils</b> <span class='bad-dot'>✗</span></p><p>首段「市议会<b>中止实施</b>清洁空气区」是作者的客观描述，被曲解成市议会视角的「措施不切实际」，再扩大成「市级措施的薄弱处」——原文没有这层判断。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：两处语义都被改写",
+  "body": "<p><b>C · They are deemed too mild for politicians</b> <span class='bad-dot'>✗</span></p><p>politically contentious 指「各派政治家<b>观点对立</b>」，不是「一致认为力度太轻」；vulnerable 指「易被推翻」，也不是「太温和」——把争议与脆弱双双改写。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：on to individual drivers 的改写",
+  "body": "<p><b>D · They put too much burden on individual motorists</b> <span class='ok-dot'>✓</span></p><p>成本（costs）→ 负担（burden）、司机（drivers）→ 车主（motorists）——把治污成本压到个人头上，正是③句预测「相似逆转将在伦敦上演」的依据。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（They put too much burden on individual motorists）</b>。</p><p>记忆锚点：weakness = 把成本加给 A（车主）rather than B（厂商）；That's because 引出原因句，A rather than B 的取舍两端千万别对调。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-32 · 细节题：薄弱之处 = 成本加错了对象",
+  subtitle: "考点：Text3 第三段 · That's because + A rather than B 取舍结构",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：选项回文定位 → 比对判别 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>That's because + A rather than B</b>：措施把治污成本 put on to individual drivers（↔ burden on individual motorists）而非真正的肇事者厂商。A 把两端对调、B 曲解首段、C 把「争议/脆弱」改写成「力度太轻」。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 32 题——"薄弱之处"= 成本加错了对象</h2>
+<p>答案：<strong>D</strong>（They put too much burden on individual motorists）。</p>
+<h3>第 0 步：先立机制——先找 weakness 的出处句，再拆它的解释句</h3>
+<p>题干问 city-level measures 的 weakness。第三段①句点名：these measures are <strong>politically contentious, and therefore vulnerable</strong>（易引发政治争议，因而脆弱）；②句用 That's because 解释原因：they inevitably <strong>put the costs of cleaning the air on to individual drivers</strong> ... <strong>rather than on to the car manufacturers</strong> whose cheating is the real cause（把治污成本加诸司机个人，而非真正的肇事者——汽车生产商）。取舍结构 A rather than B 是本题的题眼：<strong>无责者（车主）付费，全责者（厂商）脱身</strong>——所以措施一推重、车主就反弹，政策因此脆弱。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>That's because they inevitably <strong>put the costs of cleaning the air on to individual drivers</strong>—who must pay fees or buy better vehicles—rather than on to the car manufacturers...</blockquote>
+<p>D 的 put too much burden on individual motorists ↔ put the costs... on to individual drivers：burden ↔ costs、motorists ↔ drivers。选 D。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（They are biased against car manufacturers）</strong>：把取舍结构的两端<strong>对调</strong>了——被"加担子"的是车主个人，厂商反而没被要求承担；"对厂商不公"恰好说反。</li><li><strong>B（They prove impractical for city councils）</strong>：把首段"市议会<strong>中止实施</strong>清洁空气区"这一作者描述曲解为市议会视角的"措施不切实际"，再扩大成"市级措施的薄弱处"——原文没有这层判断。</li><li><strong>C（They are deemed too mild for politicians）</strong>：politically contentious 指"各派政治家<strong>观点对立</strong>"，不是"一致认为力度太轻"；vulnerable 指"易被推翻"，也不是"太温和"——两处语义都被改写。</li></ul>
+<blockquote>记忆锚点：weakness = 把成本加给 A（车主）rather than B（厂商）；That's because 引出原因句，A rather than B 的取舍两端千万别对调。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

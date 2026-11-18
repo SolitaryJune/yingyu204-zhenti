@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025-48 大作文框架：读图 → 归因 → 建议（老年人休闲活动条形图）</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链类模板：图表数据条 + 结构框架卡片（读图 → 谋篇 → 高分句型）。
+     英语内容无需 KaTeX。外壳仅引用 ../assets/ 两件资源，无外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 图表数据条：label 活动项 / pct 百分比 / kind = hi 最高档(绿) / low 最低档(红) */
+function bar(label, pct, kind){
+  var C = { hi: '#16a34a', low: '#dc2626' };
+  var bg = C[kind] || '#64748b';
+  return '<div style="display:flex;align-items:center;margin:5px 0">' +
+    '<div style="width:92px;font-size:12.5px;color:#334155;text-align:right;padding-right:8px;white-space:nowrap">' + label + '</div>' +
+    '<div style="flex:1;background:#f1f5f9;border-radius:6px;height:20px;position:relative">' +
+      '<div style="width:' + pct + '%;height:100%;background:' + bg + ';border-radius:6px;opacity:.85"></div>' +
+      '<span style="position:absolute;left:' + Math.min(pct, 62) + '%;top:1px;font-size:12px;color:#0f172a;font-weight:600;padding-left:4px">' + pct + '%</span>' +
+    '</div></div>';
+}
+
+/* 英文示例句分色框：kind = frame 骨架(绿) / lang 语言点(蓝) / warn 易错(红) */
+function hl(text, kind){
+  var C = {
+    frame: ['#ecfdf5', '#16a34a', '#14532d'],
+    lang:  ['#eff6ff', '#2563eb', '#1e40af'],
+    warn:  ['#fef2f2', '#dc2626', '#991b1b']
+  };
+  var c = C[kind] || ['#f1f5f9', '#64748b', '#0f172a'];
+  return '<span style="background:' + c[0] + ';border-bottom:2px solid ' + c[1] +
+         ';color:' + c[2] + ';padding:1px 4px;border-radius:3px;font-weight:600">' + text + '</span>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '机制先行：静态占比图三级火箭——描图 → 归因 → 建议',
+    cls: 'key',
+    tag: '评分',
+    log: '只描图不归因是最大死法：数字后面要回答「为什么差这么多」',
+    count: 0,
+    body: '<p>本题是<b>静态占比</b>条形图（不是趋势变化），interpret 的正确打开方式不是"为什么增长"，而是<b>归因</b>——数字背后的原因。三级推进：<b>① 描图</b>——按从大到小报数据，两高一组、三低一组，In contrast 从断崖处转折；<b>② 归因</b>——高数据各归其因、低数据合而归因；<b>③ 建议</b>——先立观点再给措施。</p>' +
+      '<p>分色图例：' + hl('英文骨架', 'frame') + ' ' + hl('语言点', 'lang') + ' ' + hl('易错警示', 'warn') + '。150 词三段式：描图段 3 句、归因段 4 句、评论段 2 句。</p>' },
+  { title: '读图：五根柱子两高、三低，断崖即立意',
+    cls: 'key',
+    tag: '读图',
+    log: '90.8 / 68.3 高档，34.7 / 31.8 / 18.4 低档——断崖式落差就是文章立意',
+    count: 0,
+    body: '<p style="font-size:13px;color:#475569;margin-bottom:4px">某社区老年人主要日常休闲活动调查</p>' +
+      bar('看电视', 90.8, 'hi') + bar('散步', 68.3, 'hi') + bar('养花', 34.7, 'low') + bar('阅读', 31.8, 'low') + bar('下棋', 18.4, 'low') +
+      '<p>观察：看电视 90.8%、散步 68.3% 遥遥领先；养花、阅读、下棋都在 35% 以下，最高与最低之间差了 72 个百分点——<b>中间没有过渡档</b>，断崖式落差就是立意：大众化活动（便捷/低门槛）与兴趣型活动（有门槛）的分野。</p>' },
+  { title: '第一段·描图：从大到小 + In contrast 断崖转折',
+    cls: 'step',
+    tag: '第一段',
+    log: '两高一组顺势报，三低合成一句 respectively 收数——五个数字一个不能漏',
+    count: 1,
+    ribbon: { k: 1, ok: true },
+    body: '<p>三句骨架：' + hl('The bar chart illustrates the distribution of daily leisure activities among the elderly in a certain community', 'frame') + '（概括主题，distribution 一词点出占比性质）；' + hl('Watching TV ranks first at 90.8%, followed by taking walks at 68.3%', 'frame') + '（两高一组）；' + hl('In contrast, planting flowers, reading and playing chess account for merely 34.7%, 31.8% and 18.4% respectively', 'frame') + '（三低合一句）。</p>' +
+      '<p>语言点：' + hl('rank first / followed by', 'lang') + ' 一句串两柱；' + hl('account for merely...', 'lang') + ' 把落差说足；' + hl('respectively', 'lang') + ' 三个数各归各位。' + hl('漏报任何一个数字都是硬伤。', 'warn') + '</p>' },
+  { title: '第二段·归因总起：原因跟数据分档走',
+    cls: 'step',
+    tag: '第二段',
+    log: 'The reasons behind these differences can be summarized as follows',
+    count: 2,
+    ribbon: { k: 2, ok: true },
+    body: '<p>骨架：' + hl('The reasons behind these differences can be summarized as follows.', 'frame') + '</p>' +
+      '<p>归因段的总起句先立"差异背后有原因"的框架，替换俗套的 There are many reasons。' + hl('原因数量跟着数据分档走：两高各给一条原因，三低合用一条原因，段落天然对称。', 'lang') + '</p>' },
+  { title: '第二段·原因一：看电视 = 便捷',
+    cls: 'step',
+    tag: '归因',
+    log: '90.8% 的背后：获取信息与娱乐的最便捷方式',
+    count: 2,
+    body: '<p>骨架：' + hl('First and foremost, watching TV offers an effortless way for the elderly to access information and enjoy entertainment.', 'frame') + '</p>' +
+      '<p>语言点：' + hl('effortless', 'lang') + ' 点出"不费力气"——看电视的门槛几乎为零，这正是它能覆盖九成老人的原因；' + hl('access information', 'lang') + ' 外刊搭配。归因要落在数据说得通的层面上：门槛低 → 覆盖广。</p>' },
+  { title: '第二段·原因二：散步 = 低强度户外',
+    cls: 'step',
+    tag: '归因',
+    log: '68.3% 的背后：低强度户外活动适合大多数老年人',
+    count: 2,
+    body: '<p>骨架：' + hl('Moreover, as a low-intensity outdoor exercise, walking suits most senior citizens and helps them stay physically active.', 'frame') + '</p>' +
+      '<p>语言点：' + hl('as a low-intensity outdoor exercise', 'lang') + ' 介词短语作同位语给散步定性；' + hl('suit most senior citizens', 'lang') + ' 用 senior citizens 替换 the elderly 避免重复。低强度 → 适合多数人 → 占比自然高。</p>' },
+  { title: '第二段·原因三：三低合而归因 = 兴趣门槛',
+    cls: 'step',
+    tag: '归因',
+    log: '养花/阅读/下棋共用一条原因：只有真正感兴趣的人才会参与',
+    count: 2,
+    body: '<p>骨架：' + hl('By comparison, although gardening, reading and chess are also beneficial, they call for particular interests, and only a smaller group of the elderly will participate in them.', 'frame') + '</p>' +
+      '<p>语言点：' + hl('although... are also beneficial', 'lang') + ' 先让步再转折，避免把低占比说成活动没价值；' + hl('call for particular interests', 'lang') + ' 把"兴趣门槛"立起来——三条低柱共用这一条原因，一句话收拢。</p>' +
+      '<p>' + hl('别把低占比绝对化成「老年人不喜欢读书」——正确口径是「只有真正感兴趣的人才会参与」，留有余地。', 'warn') + '</p>' },
+  { title: '第三段·评论：先立观点，再给建议',
+    cls: 'step',
+    tag: '第三段',
+    log: '多样化休闲活动丰富晚年生活（观点）→ 尝试更多形式（建议）',
+    count: 3,
+    ribbon: { k: 3, ok: true },
+    body: '<p>骨架：' + hl('In conclusion, a diverse range of leisure activities plays a crucial role in enriching the lifestyle of the elderly.', 'frame') + '（观点）' + hl('It is advisable for them to explore more forms of leisure activities beyond their current ones to add more color to their later years.', 'frame') + '（建议）</p>' +
+      '<p>语言点：' + hl('plays a crucial role in enriching...', 'lang') + ' 先立观点；' + hl('It is advisable for... to...', 'lang') + ' 建议口吻；' + hl('add more color to their later years', 'lang') + ' 收尾有画面。' + hl('直接跳到建议会显得只有措施没有立场——先观点后建议两件套。', 'warn') + '</p>' },
+  { title: '高分表达盘点：按功能备一块词板',
+    cls: 'key',
+    tag: '词板',
+    log: '概括 / 报数 / 转折 / 归因 / 建议，五类各备一块',
+    count: 3,
+    body: '<table style="width:100%;border-collapse:collapse;font-size:13px">' +
+      '<tr style="background:#f1f5f9"><th style="padding:4px 6px;text-align:left">功能</th><th style="padding:4px 6px;text-align:left">表达</th></tr>' +
+      '<tr><td style="padding:4px 6px">概括图表</td><td style="padding:4px 6px">The bar chart illustrates the distribution of daily leisure activities among the elderly...</td></tr>' +
+      '<tr><td style="padding:4px 6px">报最高项</td><td style="padding:4px 6px">rank first at 90.8%, followed by taking walks at 68.3%</td></tr>' +
+      '<tr><td style="padding:4px 6px">转折报低项</td><td style="padding:4px 6px">In contrast, ... account for merely 34.7%, 31.8% and 18.4% respectively</td></tr>' +
+      '<tr><td style="padding:4px 6px">引出归因</td><td style="padding:4px 6px">The reasons behind these differences can be summarized as follows</td></tr>' +
+      '<tr><td style="padding:4px 6px">立原因</td><td style="padding:4px 6px">offers an effortless way to... / as a low-intensity outdoor exercise / call for particular interests</td></tr>' +
+      '<tr><td style="padding:4px 6px">建议收束</td><td style="padding:4px 6px">It is advisable for them to explore more forms of leisure activities</td></tr>' +
+      '</table>' },
+  { title: '结论：描图 → 归因 → 建议，断崖落差立到底',
+    cls: 'good',
+    tag: '结论',
+    log: '从大到小报完五个数，高项各归其因、低项合而归因，观点 + 建议收尾',
+    count: 3,
+    body: '<p>框架回顾：<b>第一段</b> 3 句描图（90.8 → 68.3 → In contrast 34.7 / 31.8 / 18.4）；<b>第二段</b> 4 句归因（总起 → 便捷 → 低强度 → 兴趣门槛）；<b>第三段</b> 2 句评论（观点 + 建议）。</p>' +
+      '<p style="color:#b91c1c">⚠ 三大硬伤：漏报数据；只描图不归因；归因绝对化（说成「老年人不爱读书」）。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: s.count,
+    ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2025-48 大作文框架：读图 → 归因 → 建议',
+  subtitle: '考点：静态占比条形图（老年人日常休闲活动） · 骨架=绿 / 语言点=蓝 / 易错=红',
+  counterLabel: '已过段',
+  ribbonTitle: '段落进度（一·二·三段谋篇）',
+  intro: '点击「▶ 播放」逐步展开读图、三段谋篇与高分句型。',
+  snaps: snaps,
+  result: {
+    big: '框架速记：描图（从大到小、分组报数）→ 归因（高项各归其因、低项合而归因）→ 建议（观点 + 措施）',
+    html: '<p><b>数据</b>：看电视 90.8% · 散步 68.3% · 养花 34.7% · 阅读 31.8% · 下棋 18.4%——两高、三低，断崖式落差即立意。</p>' +
+      '<p><b>三段</b>：① The bar chart illustrates the distribution... → rank first / followed by → In contrast... respectively 报完五个数；② The reasons behind these differences... → effortless way to access information（看电视）→ low-intensity outdoor exercise（散步）→ call for particular interests（三低合归）；③ a diverse range of leisure activities plays a crucial role... → It is advisable to explore more forms...</p>' +
+      '<p style="margin-top:8px">记忆锚点：静态占比图 interpret = 归因；rank first / followed by / In contrast / respectively 串数据；高项各归其因、低项合而归因；评论 = 观点 + 建议两件套；漏数据、只描图、绝对化归因是三大硬伤。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 大作文 · 老年人休闲活动条形图（静态占比 + 归因）</h2>
+<p>答案：<strong>图表作文（15 分）</strong>，评分口径 = 描图准确 + 解读到位 + 评论有据。图表五项数据：看电视 90.8%、散步 68.3%、养花 34.7%、阅读 31.8%、下棋 18.4%——<strong>两高、三低</strong>，中间没有过渡档，这个断崖式落差就是文章的立意所在。</p>
+<h3>第 0 步：先立机制——静态占比图作文的"描图 → 归因 → 建议"三级火箭</h3>
+<p>图表作文最常见的死法是"只描图不解读"。本题是<strong>静态占比</strong>图（不是趋势变化），interpret 的正确打开方式不是"为什么增长"，而是<strong>归因</strong>——数字背后的原因。三级推进：</p>
+<ol><li><strong>描图</strong>：按从大到小报数据，两高一组、三低一组，用 In contrast 从断崖处转折；</li><li><strong>归因</strong>：高数据各自给一条原因（看电视便捷、散步低强度），低数据合起来给一条原因（有兴趣门槛）——原因数量与数据分档对应，评论才有结构；</li><li><strong>建议</strong>：收一句"多样化休闲活动丰富晚年生活"，建议尝试更多形式。</li></ol>
+<h3>第 1 步：读图——五根柱子各归其位</h3>
+<table><thead><tr><th>活动</th><th>占比</th><th>分层</th><th>归因方向</th></tr></thead><tbody><tr><td>看电视</td><td>90.8%</td><td>最高档</td><td>极为便捷的获取信息与娱乐方式</td></tr><tr><td>散步</td><td>68.3%</td><td>高档</td><td>低强度户外活动，适合多数老年人</td></tr><tr><td>养花</td><td>34.7%</td><td>低档</td><td>需要兴趣与耐心，参与者有限</td></tr><tr><td>阅读</td><td>31.8%</td><td>低档</td><td>同上，兴趣门槛</td></tr><tr><td>下棋</td><td>18.4%</td><td>最低档</td><td>同上，且需同伴，门槛最高</td></tr></tbody></table>
+<p>描述顺序固定"从大到小"：90.8% → 68.3% 一组顺势报完，三低项合成一句用 In contrast 引出、respectively 收数——五分数据一笔不漏。</p>
+<h3>第 2 步：谋篇——三段各干一件事</h3>
+<ul><li><strong>第一段（描图，3 句）</strong>：首句概括图表主题（条形图显示某社区老年人主要日常休闲活动占比），随后最高两项一组（90.8%、68.3%），三低项一组（34.7%、31.8%、18.4%）；</li><li><strong>第二段（归因，4 句）</strong>：先立"原因可以总结如下"的总起句，再按"高 → 低"顺序给原因：看电视 = 便捷获取信息与娱乐；散步 = 低强度户外活动适合大多数老人；养花/阅读/下棋 = 虽有益处，但通常只有真正感兴趣的人才会参与——低数据的原因三条合一句说；</li><li><strong>第三段（评论，2 句）</strong>：多样化休闲活动对丰富老年人生活方式至关重要；建议老年人尝试现有活动之外更多形式的休闲活动，为生活添彩。</li></ul>
+<h3>第 3 步：高分表达（按功能备一块词板）</h3>
+<table><thead><tr><th>功能</th><th>表达</th><th>说明</th></tr></thead><tbody><tr><td>概括图表</td><td>The bar chart illustrates the distribution of daily leisure activities among the elderly in a certain community</td><td>distribution 一词点出"占比"性质</td></tr><tr><td>报最高项</td><td>...rank first at 90.8%, followed by walking at 68.3%</td><td>rank first / followed by 一句串两柱</td></tr><tr><td>转折报低项</td><td>In contrast, planting flowers, reading and playing chess account for merely 34.7%, 31.8% and 18.4% respectively</td><td>三项合一句，merely 把落差说足</td></tr><tr><td>引出归因</td><td>The reasons behind these differences can be summarized as follows</td><td>替换俗套的 There are many reasons</td></tr><tr><td>原因一</td><td>watching TV offers an effortless access to information and entertainment</td><td>effortless 点出"便捷"</td></tr><tr><td>原因二</td><td>As a low-intensity outdoor exercise, walking suits most senior citizens</td><td>low-intensity 外刊用语</td></tr><tr><td>原因三</td><td>...call for particular interests, which only a smaller group possess</td><td>call for 把"兴趣门槛"立起来</td></tr><tr><td>建议收束</td><td>It is advisable for the elderly to explore a wider variety of leisure activities</td><td>it is advisable to 建议口吻</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>五个数字必须全报吗？</strong>：必须。五项数据漏一个都是硬伤；但报法可分组——两高顺势报、三低合成一句 respectively 收数，既全又不碎。</li><li><strong>第二段归因的中心句怎么立？</strong>：用"高数据各归其因、低数据合而归因"的结构——90.8% 归便捷、68.3% 归低强度，三低项共用"兴趣门槛"一条原因；原因数量跟着数据分档走，段落天然对称。</li><li><strong>评论只写建议够吗？</strong>：先立观点再给建议——"多样化休闲活动丰富晚年生活"是观点，"尝试更多形式"是建议；直接跳到建议会显得只有措施没有立场。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>漏报数据</strong>：五项只报两三项 → 内容不完整，阅卷按缺失项扣；</li><li><strong>只描图不归因</strong>：第一段报完数直接结尾 → 缺 interpret 与 comments，内容要点缺一半；</li><li><strong>归因想当然</strong>：把低占比解释成"老年人不喜欢看书"的绝对判断——正确口径是"只有真正感兴趣的人才会参与"，留有余地；</li><li><strong>数据排序混乱</strong>：想到哪根柱子报哪根，断崖式落差被稀释，In contrast 立不起来；</li><li><strong>建议空泛</strong>：只写 we should pay more attention to the elderly，没有落到"尝试更多形式的活动"这一具体方向。</li></ul>
+<blockquote>记忆锚点：静态占比图三级火箭 = <strong>描图（从大到小、分组报数）→ 归因（高项各归其因、低项合而归因）→ 建议（观点 + 措施）</strong>；rank first / followed by / In contrast / respectively 串数据；漏数据、只描图、绝对化归因是三大硬伤。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

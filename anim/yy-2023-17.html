@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023 完形第 17 题 · 句内语义 + 动作链并列：三连动作的终点是「给目标完成定时限」</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2023 完形第 17 题 · 句内语义 + 动作链并列：三连动作的终点是「给目标完成定时限」","subtitle":"考点：上下文语义（名词辨析） · 方法：identify → set → establish 并列动作链 + time frame 搭配（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位空格句 → 立动作链 → 逐项排除”的推理链。","stemEn":"This leader will <b>__16__</b> the target area, set clear goals and establish a time frame for the <b>__17__</b> of these goals.","stemZh":"这位领导者将识别目标领域、设定清晰目标，并为这些目标的____定下时间框架。（空格填名词，被 establish a time frame for 修饰）","quotes":[{"tag":"定位 · 空格所在句（第五段③句）","en":"This leader will <b>__16__ the target area</b>, <b>set clear goals</b> and <b>establish a time frame</b> for the <b>__17__ of these goals</b>.","zh":"领导者的一串并列动作：识别领域 → 定目标 → 为目标的____定时限。identify / set / establish 三个动词共用一个主语，指向同一套推进流程。"},{"tag":"机制 · time frame 只能修饰「要花时间的持续动作」","en":"establish a time frame <b>for the ____ of these goals</b>","zh":"time frame（时间框架）是一段时间跨度，只能搭配需要“花时间做”的持续性名词——即目标的“完成/实现”；瞬时性动作（如“宣布”）与时间跨度无法搭配。"},{"tag":"旁证 · 上文（第五段①②句）确立正面基调","en":"But in order for your growth team <b>to succeed</b>, it needs to have a strong leader. It needs someone who can <b>keep them on course for improvement</b>.","zh":"本段反复强调“团队成功、强大领导者”：空格所在的动作链是通向成功的流程，空格词也要维持这一正面语义。"}],"opts":[{"k":"A","en":"announcement","zh":"宣布；宣告","why":"“为宣布目标定时限”流程错位——宣布是瞬时动作，与 time frame（时间跨度）不搭；且“宣布目标”应发生在 set clear goals 之前，排不进动作链。误选 A 多受“领导定目标后会向团队宣布”的常识影响。"},{"k":"B","en":"assessment","zh":"评定；判定","why":"the assessment of these goals 指对目标<b>本身</b>的评定（是否合理、可行），这在设定目标阶段就应考虑，无法跟在“设定明确目标”之后；若指“评定目标完成情况”须说 assessment of the progress on these goals。"},{"k":"C","en":"adjustment","zh":"调整；调节","why":"“为调整目标定时限”暗示项目进展不顺、目标需要修整，与“团队获得成功”“强大领导者”奠定的正面基调不符；且并非每个项目都需要调整目标。"},{"k":"D","en":"accomplishment","zh":"完成；成就","why":"","good":"accomplishment = 完成：为目标的<b>“完成”</b>定下时间框架——identify → set → establish 三步都服务于把目标做成，流程通顺，搭配（持续性动作 + 时间跨度）与正面基调双合。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1,2],"state":{}},{"show":[0,1,2],"state":{"A":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"空格在 the __17__ of these goals 中：of 属格填名词，前面被 establish a time frame for 修饰——即“给这些目标的____定时间框架”；线索就在本句的动作链里","count":0},{"cls":"shift","tag":"定位动作链","log":"identify the target area → set clear goals → establish a time frame for the __17__ of these goals：三个并列动词按“识别→设定→定时限”推进，共同指向“把目标做成”的流程","count":0},{"cls":"shift","tag":"机制：搭配方向","log":"time frame 是一段时间跨度，只能修饰“要花时间做”的持续性名词——目标的完成/实现；瞬时动作进不了 time frame","count":0},{"cls":"shift","tag":"旁证基调","log":"上文 in order for your growth team to succeed / keep them on course for improvement：全段是“通向成功”的正面叙事，空格词须维持正面语义","count":0},{"cls":"miss","tag":"排除 A","log":"A announcement ✗ 宣布：瞬时动作与 time frame 不搭；“宣布目标”还发生在定目标之前——流程错位，常识联想陷阱","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B assessment ✗ 评定：评定目标本身是否合理可行，发生在定目标阶段，无法排在 set clear goals 之后；强干扰项","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C adjustment ✗ 调整：暗示项目不顺、目标要修整——与“团队成功、强大领导”的正面基调冲突","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D accomplishment ✓ 完成：为目标的“完成”定下时间框架——动作链的终点正是把目标做成，语义与搭配双合","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：识别领域 → 定目标 → 给“完成”定时限，一气呵成；瞬时名词（宣布）进不了 time frame","count":3,"done":true}],"result":{"big":"答案 D（accomplishment）","html":"<b>D</b>：identify the target area → set clear goals → establish a time frame for the <b>accomplishment</b> of these goals——识别领域、定目标、为“完成”目标定下时间框架。<br>A 宣布是瞬时动作，与 time frame 不搭且流程错位；B 评定目标本身发生在定目标阶段；C “调整”暗示进展不顺、与正面基调冲突。<br>最易误选：<b>B</b>（把“对目标完成情况的评定”与“对目标本身的评定”混为一谈）。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 17 题——动作链并列 + time frame 搭配，锁「完成」</h2>
+<p>答案：<strong>D（accomplishment）</strong>。</p>
+<h3>第一步：先立机制——空格词是三个并列动作的「落点」</h3>
+<p>空格在 <code>establish a time frame for the __17__ of these goals</code> 中，填名词，被「为……定下时间框架」修饰。本句是排比句：identify the target area（识别目标领域）→ set clear goals（设定清晰目标）→ establish a time frame for the __17__ of these goals。三个并列动词共用一个主语，描述同一套「推进目标」的流程——空格词就是这套流程的落点。再看搭配：time frame（时间框架）是一段时间跨度，只能修饰需要「花时间做」的持续性动作；瞬时性动作与时间跨度不搭。</p>
+<h3>第二步：定位原文——正面基调</h3>
+<blockquote>But in order for your growth team to succeed, it needs to have a strong leader. It needs someone who can unite the interdisciplinary team and keep them on course for improvement.</blockquote>
+<p>上文反复强调「团队成功、强大领导者」：空格所在的动作链是通向成功的流程，空格词须维持这一正面语义。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A announcement</td><td>宣布；宣告</td><td>✗ 瞬时动作进不了 time frame；且「宣布目标」发生在定目标之前，流程错位</td></tr><tr><td>B assessment</td><td>评定；判定</td><td>✗ 评定目标「本身」是否合理可行，发生在定目标阶段，排不进动作链</td></tr><tr><td>C adjustment</td><td>调整；调节</td><td>✗ 暗示进展不顺、目标要修整，与「团队成功」的正面基调冲突</td></tr><tr><td>D accomplishment</td><td>完成；成就</td><td>✓ 为目标的「完成」定时限——动作链的终点正是把目标做成</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（最强干扰）</strong>：把 the assessment of these goals 理解成「对目标完成情况的评定」——但该短语指「对目标本身的评定」；要表达「评定完成情况」须说 assessment of the progress on these goals。</li><li><strong>误选 A</strong>：顺着「领导定目标后会向团队宣布」的常识代入，忽略了「宣布」是瞬时动作，无法与 time frame 搭配。</li></ul>
+<blockquote>记忆锚点：排比句先找并列动词的公共流程；time frame 只搭「持续过程」名词，瞬时名词（宣布）一律出局。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

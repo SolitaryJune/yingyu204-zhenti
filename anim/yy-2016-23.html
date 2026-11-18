@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·23 阅读 · Seehorn：技能通用，语言会过时</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：观点题先分主语', cls: 'key',
+    body: '<p>按人名 <b>Deborah Seehorn</b> 定位第五段，观点对象是 <b>the skills</b>（技能）。本段结构：②句先抑（语言会过时）+ ③句 But 后扬（技能通用）。题干问的是 skills——<b>“会过时”的主语是 Programming languages，两个主语必须分家</b>，这是本题唯一但致命的区分点。</p>',
+    log: 'skills vs programming languages 主语分家' },
+  { title: '定位原文（第五段②③句）', cls: 'key',
+    body: src('“Programming languages have a quick turnover, so the “Ruby on Rails” language they learned may not even be relevant by the time they enter the job market. <b>But the skills they learn – how to think logically through a problem and organize the results – apply to any coding language.</b>”') +
+      '<p>②句：编程语言更迭快，学的那门语言可能过时；③句 But：<b>技能</b>（逻辑思考、组织结果）适用于<b>任何</b>编码语言。</p>',
+    log: '②抑③扬，But 之后是观点' },
+  { title: '同义替换闭环', cls: 'good',
+    body: '<p><b>apply to any coding language</b>（适用于任何编码语言）→ 概括为 <b>help students learn other computer languages</b>（有助于掌握其他语言）：通用 = 可迁移 = 学别的语言更容易。</p>',
+    log: 'apply to any coding language → A' },
+  { title: 'A help students learn other computer languages', cls: 'good',
+    body: '<p>技能通用 → 迁移到别的编码语言毫无障碍，正是 But 之后 Seehorn 的观点。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = ③句概括，命中' },
+  { title: 'B have to be upgraded when new technologies come', cls: 'bad',
+    body: '<p>“会过时、要升级”是②句对<b>编程语言</b>的陈述——③句 But 恰恰把<b>技能</b>豁免出来（通用、不过时）。把语言的命运转嫁给技能，读反了。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 主语偷换：语言 ≠ 技能' },
+  { title: 'C need improving when students look for jobs', cls: 'bad',
+    body: '<p>②句 may not even be relevant by the time they enter the job market 的主语是<b>那门语言</b>（Ruby on Rails），不是 skills——求职脱节的担忧落在语言上，But 已替技能解围。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 又是主语偷换' },
+  { title: 'D enable students to make big quick money', cls: 'bad',
+    body: '<p>①句说他们<b>不会</b>辍学去建下一个 Facebook；turnover 在此意为“<b>更新换代</b>”而非“营业额”，取商务义会凭空推出“变现快”。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 词义误读 + 与①句相撞' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（help students learn other computer languages）</b>。记忆锚点：观点题先分主语——<b>语言会过时（②），But 技能通用（③）</b>；apply to any coding language = help students learn other computer languages。</p>',
+    log: '锁定 A' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 23 · Seehorn：学到的技能适用于任何语言',
+  subtitle: '考点：观点题 · 让步转折 + 主语区分 · turnover 词义',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（help students learn other computer languages）',
+    html: '记忆锚点：本题主语分家——<b>Programming languages 会过时（②句），But the skills 通用（③句）</b>。B/C 都是把语言的命运转嫁给技能；D 靠 turnover（更新换代 ≠ 营业额）词义误读。apply to any coding language → 能帮学生学其他语言。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：Seehorn 眼中的"技能"——But 转折后的 apply to any coding language</h2>
+<p>答案：<strong>A（help students learn other computer languages）</strong>。</p>
+<h3>第一步：先立机制——观点题要分清"哪个词在被转折保护"</h3>
+<p>题干：Deborah Seehorn believes that the skills learned at Flatiron will ____。观点题三步：按人名定位 → 找观点句 → 判断句内让步转折关系。第五段结构是"②句先抑（语言会过时）+ ③句 But 后扬（技能通用）"。题干问 <strong>the skills</strong>，而"会过时"的主语是 <strong>Programming languages</strong>——两个主语必须分家，这是本题唯一但致命的区分点。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>Programming languages have a quick turnover, so the "Ruby on Rails" language they learned may not even be relevant by the time they enter the job market. <strong>But the skills they learn – how to think logically through a problem and organize the results – apply to any coding language.</strong></blockquote>
+<p>②句：编程语言更迭快，学的那门语言可能过时；③句 But：<strong>技能</strong>（逻辑思考、组织结果）适用于<strong>任何</strong>编码语言。apply to any coding language → 帮助学生掌握其他语言，选 A。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A help students learn other computer languages</td><td>有助于学其他语言</td><td>apply to any coding language 的概括：通用 → 能迁移到别的语言</td></tr><tr><td>B have to be upgraded when new technologies come</td><td>新技术来时要升级</td><td>"过时"是②句对编程语言的陈述，③句 But 恰恰否定了技能会过时</td></tr><tr><td>C need improving when students look for jobs</td><td>求职时需要提高</td><td>②句说的是那门语言 may not be relevant，主语偷换成 skills</td></tr><tr><td>D enable students to make big quick money</td><td>快速赚大钱</td><td>①句说他们不会辍学去建下一个 Facebook；turnover（更新换代）被误读为"营业额"</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 B 或 C</strong>：根因是没有把②③句的主语分开——"可能过时/与就业脱节"的定语是 <strong>the 'Ruby on Rails' language</strong>（那一门语言），But 之后作者把"技能"单独拎出来豁免；把②句的压力转嫁到 skills 上，正好读反。</li><li><strong>选 D</strong>：对 turnover 取"营业额、成交额"义（商务语境常用义），推出"变现快"——此处 turnover 意为"更新换代"；且①句 Facebook 一句已明确否定了"赚快钱"式想象。</li></ul>
+<blockquote>记忆锚点：观点题先分主语——<strong>语言会过时（②），But 技能通用（③）</strong>；apply to any coding language = help students learn other computer languages。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

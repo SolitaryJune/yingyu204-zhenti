@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-36 动画：段落概括题——欧洲职场的总体图景</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：generally = 概括题",
+  body:"<p>题干：<b>In the European corporate workplace, generally ____.</b>（在欧洲企业环境里，通常____。）</p><p><b>generally（总体而言）</b>是段落概括题记号：定位第一段，答案必须是整段信息的<b>压缩</b>，不是照抄某个细节短语。</p>",
+  log:"概括题：定位第一段，答案要压缩整段"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第一段信息盘点",
+  body:"<table class=\"aw-mini\"><tr><th>原文</th><th>信息</th></tr><tr><td>Europe is <b>not</b> a gender-equality heaven</td><td>总起：并非性别平等天堂</td></tr><tr><td>top corporate-governance positions <b>remain overwhelmingly male</b></td><td>高层男性占绝对主导</td></tr><tr><td>women hold <b>only 14 per cent</b> of positions on European corporate boards</td><td>女性仅占 14%</td></tr></table><p>三条信息指向同一件事：高层由男性说了算。</p>",
+  log:"第一段：overwhelmingly male + only 14%"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：women take the lead",
+  body:"<p><b>A（女性带头）</b><span class=\"bad-dot\">✗</span>：干扰来自 until women are part of senior management decisions——注意 <b>until</b>：那是<b>尚未实现的理想状态</b>（直到女性参与高层决策，职场才算真正家庭友好），现实是 14%。拿理想当现实 = 断章取义。</p>",
+  log:"排除 A：until 从句是理想，不是现实"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:2, ribbon:{k:3, ok:false}, title:"排除 C：corporate governance is overwhelmed",
+  body:"<p><b>C（企业管理遭受重创）</b><span class=\"bad-dot\">✗</span>：<b>overwhelmed</b>（被击垮）与原文 <b>overwhelmingly male</b>（绝大多数是男性）共享词根 overwhelm，但原文说的是男性\"占据\"绝大多数，不是企业管理\"被\"击垮。同根词假熟词，词义曲解。</p>",
+  log:"排除 C：overwhelmed ≠ overwhelmingly，同根不同义"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:3, ribbon:{k:4, ok:false}, title:"排除 D：senior management is family-friendly",
+  body:"<p><b>D（高层管理是家庭友好型）</b><span class=\"bad-dot\">✗</span>：senior management 与 family-friendly 都是第一段原词，但原文逻辑是\"女性参与高层决策<b>之后</b>职场才能家庭友好\"——D 把<b>前提条件</b>错当成已实现的事实。词都认识，逻辑是错的：拼贴式干扰。</p>",
+  log:"排除 D：family-friendly 是条件结果，不是现状"},
+ {cls:"good", ecs:"ok", tag:"锁定 B", count:4, ribbon:{k:2, ok:true}, title:"锁定 B：men have the final say",
+  body:"<p><b>B（男性拥有最终话语权）</b><span class=\"ok-dot\">✓</span>：替换链——</p><p>the corporate workplace ↔ top corporate-governance positions；men have the final say ↔ <b>remain overwhelmingly male</b>（男性占绝对主导）；印证：women hold <b>only 14 per cent</b>（女性只有 14%，反衬男性主导）。</p><p>\"最终话语权\"正是\"谁主导高层治理\"的概括说法。</p>",
+  log:"锁定 B：overwhelmingly male = men have the final say"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 B",
+  body:"<p><b>答案 B</b>——men have the final say（男性享有最终话语权）。</p><p>记忆锚点：generally = 概括题；overwhelmingly male + only 14% → B；同根词 overwhelmed ≠ overwhelmingly，until 从句说的是未实现的理想。</p>",
+  log:"结论：欧洲企业高层仍是男性说了算，答案选 B"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-36 · 段落概括题：欧洲职场的总体图景",
+  subtitle: "考点：Text2 第一段 · 方法：信息盘点 → 压缩成概括 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>men have the final say</b>（男性享有最终话语权）＝ <b>top corporate-governance positions remain overwhelmingly male</b> + 女性仅 14%。记忆锚点：generally 要整段压缩；overwhelmed ≠ overwhelmingly（C 同根假熟词）；until 从句是理想不是现实（A 断章取义）。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：段落概括题——欧洲职场的总体图景</h2>
+<p>答案：<strong>B</strong>（men have the final say，男性享有最终话语权）。</p>
+<h3>第 0 步：先立机制——"generally" 问的是概括，不是细节</h3>
+<p>题干 <strong>In the European corporate workplace, generally ____</strong>：generally（总体而言）是段落概括题的记号，答案必须是对整段信息的<strong>压缩</strong>，而不是照抄某个具体数字或短语。定位在第一段，先把信息列全，再看哪个选项配得上"概括"二字。</p>
+<h3>第 1 步：第一段信息盘点</h3>
+<table><thead><tr><th>原文</th><th>信息</th></tr></thead><tbody><tr><td>Europe is <strong>not</strong> a gender-equality heaven</td><td>总起：欧洲并非性别平等天堂</td></tr><tr><td>Europe's top corporate-governance positions <strong>remain overwhelmingly male</strong></td><td>高层职位男性占绝对主导</td></tr><tr><td>women hold <strong>only 14 per cent</strong> of positions on European corporate boards</td><td>女性仅占 14%</td></tr></tbody></table>
+<p>三条信息指向同一件事：欧洲企业高层由男性说了算。选 <strong>B</strong>——men have the final say（男性拥有最终话语权）是对 overwhelmingly male + only 14% 的概括，"final say（最终决定权）"正是"谁主导高层治理"的另一种说法。</p>
+<h3>第 2 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A women take the lead</td><td>✗</td><td>断章取义</td></tr><tr><td>C corporate governance is overwhelmed</td><td>✗</td><td>词义曲解</td></tr><tr><td>D senior management is family-friendly</td><td>✗</td><td>词语嫁接</td></tr></tbody></table>
+<ul><li><strong>误选 A——拿"理想"当"现实"</strong>：take the lead 的干扰来自 women are part of senior management decisions（女性参与高层决策），但原文说的是"<strong>until</strong> women are part of senior management decisions, the workplace will never be completely family-friendly"——那是尚未实现的理想状态（直到女性参与决策，职场才算真正家庭友好），现实是 14%。断章取义。</li><li><strong>误选 C——被 overwhelm 的假象骗</strong>：overwhelmed（遭受重创）与原文 overwhelmingly male（绝大多数是男性）共享词根 overwhelm，但原文说的是"男性<strong>占据</strong>绝大多数"，不是"企业管理被<strong>击垮</strong>"。同根词张冠李戴，是命题人最爱设的"假熟词"。</li><li><strong>误选 D——两个词的强行拼贴</strong>：senior management 与 family-friendly 都是第一段原词，但原文逻辑是"女性参与高层决策<strong>之后</strong>职场才能家庭友好"——D 把前提条件错当成已实现的事实。词都认识，逻辑是错的：拼贴式干扰。</li></ul>
+<blockquote>记忆锚点：generally = 概括题，答案要压缩整段；overwhelmingly male + only 14% → men have the final say（B）；同根词 overwhelmed ≠ overwhelmingly，until 从句说的是未实现的理想。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

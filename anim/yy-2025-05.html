@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-05 · 2025 完形第 5 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 5 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 5 所在句，考点：词义辨析 · which 非限从句的表语（感受形容词）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">You're broadcasting your own weakness, which can be __5__. You might have __6__ about losing control of whatever it is you are asking for help with.</div><p>空格待填正确答案；本题考点：<b>词义辨析 · which 非限从句的表语（感受形容词）</b>。方法主线：锁定 which 指代 → 下文担忧清单投票 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · which 指整件事，空格给这件事「定性感受」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：which 指整件事，空格给这件事「定性感受」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格在 which 引导的非限定性定语从句里作表语：which 回指主句整件事（你公开自己的弱点），can be ____ =「这件事可能是____的」。要填的是<b>这件事给人的感受</b>。下文随即铺开担忧清单：怕失去掌控、被接手抢功、惹人厌烦添麻烦——公开弱点的滋味是<b>令人不安</b>。</p>"
+ },
+ {
+  "title": "证据 · ④句起的担忧清单是定性依据",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：④句起的担忧清单是定性依据",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>④~⑥句列出了多种具体担忧（怕失去掌控被接手抢功、怕惹人厌烦添麻烦）。这些 worry 都由「公开弱点」引出——作者先把③句定性为「令人不安」，再用④~⑥句举证。所以空格装的感受必须能统领「worry 满篇」的下文。</p>"
+ },
+ {
+  "title": "逐项分析 · A unrealistic（不切实际的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A unrealistic（不切实际的） ✗ 排除——公开弱点真实会发生，且统领不了 worry 清单",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>公开弱点是真实会发生的事（下文全是真实担忧），不存在「不切实际」的问题；它也统领不了 worry 清单。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「求助难」误读成「这种想法不现实」。</p>"
+ },
+ {
+  "title": "逐项分析 · B deceptive（欺骗性的；误导的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B deceptive（欺骗性的；误导的） ✗ 排除——全文无欺骗语境，公开弱点恰是亮出真实",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>全文无「欺骗/误导」语境：公开弱点恰恰是把真实情况亮出来。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 weakness 与「说谎」错误挂钩。</p>"
+ },
+ {
+  "title": "逐项分析 · C tiresome（令人厌烦的；讨厌的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C tiresome（令人厌烦的；讨厌的） ✗ 排除——tiresome 是「烦」，这里的情绪是「怕/不安」",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>tiresome 形容任务/过程繁琐惹人烦；这里的情绪是难堪、不安（为下文 worry 铺垫），不是「烦」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「不安」与「厌烦」两种情绪混为一谈。</p>"
+ },
+ {
+  "title": "逐项分析 · D uncomfortable（令人担忧的，令人不安的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D uncomfortable（令人担忧的，令人不安的） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>公开自己的弱点令人不安——正是下文一连串 worry 的总纲，语义与上下文衔接全部咬合。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（uncomfortable 令人担忧的，令人不安的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>换句话说，你在公开自己的弱点，而这可能令人不安。</b></p><p>答案选 <b>D（uncomfortable 令人担忧的，令人不安的）</b>。</p><p><b>记忆锚点</b>：which can be ____ 先锁定 which = 主句整件事，再让下文的担忧清单投票：满篇 worry → uncomfortable；tiresome 是「烦」，不是「怕」。</p><p style=\"color:#b91c1c\">最易误选：<b>C（tiresome）</b>——把「不安」与「厌烦」两种情绪混为一谈。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 5 空 · broadcasting your own weakness, which can be ____",
+  subtitle: "考点：词义辨析（感受形容词）· 下文担忧清单投票 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 D（uncomfortable）",
+ "html": "<b>D uncomfortable（令人担忧的，令人不安的）</b>。<br>完整句义：换句话说，你在公开自己的弱点，而这可能令人不安。<br>记忆锚点：which can be ____ 先锁定 which = 主句整件事，再让下文的担忧清单投票：满篇 worry → uncomfortable；tiresome 是「烦」，不是「怕」。<br>最易误选：<b>C（tiresome）</b>——把「不安」与「厌烦」两种情绪混为一谈。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 5 空 · 词义辨析 · which 非限从句的表语（感受形容词）</h2>
+<p>答案：<strong>D（uncomfortable 令人担忧的，令人不安的）</strong>。</p>
+<h3>第 0 步：先立机制——which 指整件事，空格给这件事「定性感受」</h3>
+<p>空格在 which 引导的非限定性定语从句里作表语：which 回指主句整件事（你公开自己的弱点），can be ____ =「这件事可能是____的」。要填的是<strong>这件事给人的感受</strong>。下文随即铺开担忧清单：怕失去掌控、被接手抢功、惹人厌烦添麻烦——公开弱点的滋味是<strong>令人不安</strong>。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>You're broadcasting your own weakness, which can be __5__. You might have __6__ about losing control of whatever it is you are asking for help with.</blockquote>
+<p>④~⑥句列出了多种具体担忧（怕失去掌控被接手抢功、怕惹人厌烦添麻烦）。这些 worry 都由「公开弱点」引出——作者先把③句定性为「令人不安」，再用④~⑥句举证。所以空格装的感受必须能统领「worry 满篇」的下文。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A unrealistic</td><td>不切实际的</td><td>✗ 排除</td><td>公开弱点是真实会发生的事（下文全是真实担忧），不存在「不切实际」的问题；它也统领不了 worry 清单。</td></tr><tr><td>B deceptive</td><td>欺骗性的；误导的</td><td>✗ 排除</td><td>全文无「欺骗/误导」语境：公开弱点恰恰是把真实情况亮出来。</td></tr><tr><td>C tiresome</td><td>令人厌烦的；讨厌的</td><td>✗ 排除</td><td>tiresome 形容任务/过程繁琐惹人烦；这里的情绪是难堪、不安（为下文 worry 铺垫），不是「烦」。</td></tr><tr><td>D uncomfortable</td><td>令人担忧的，令人不安的</td><td>✓ 当选</td><td>公开自己的弱点令人不安——正是下文一连串 worry 的总纲，语义与上下文衔接全部咬合。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「求助难」误读成「这种想法不现实」 → 误选 A（unrealistic）</strong>：公开弱点是真实会发生的事（下文全是真实担忧），不存在「不切实际」的问题；它也统领不了 worry 清单。</li><li><strong>把 weakness 与「说谎」错误挂钩 → 误选 B（deceptive）</strong>：全文无「欺骗/误导」语境：公开弱点恰恰是把真实情况亮出来。</li><li><strong>把「不安」与「厌烦」两种情绪混为一谈 → 误选 C（tiresome）</strong>：tiresome 形容任务/过程繁琐惹人烦；这里的情绪是难堪、不安（为下文 worry 铺垫），不是「烦」。</li></ul>
+<blockquote>记忆锚点：which can be ____ 先锁定 which = 主句整件事，再让下文的担忧清单投票：满篇 worry → uncomfortable；tiresome 是「烦」，不是「怕」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

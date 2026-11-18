@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-04 · 2014 完形第 4 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 4 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 4 空所在句，考点：句内语义 + 名词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Likewise, among the elderly, being somewhat overweight is often an <b>__4__</b> of good health.</div><p>空格结构是 <b>an __ of good health</b>，主语是 <b>being somewhat overweight</b>（略微超重）。要回答的问题是：微胖与健康之间是什么关系？四个候选——标志、目标、起源、例子——各自预设了一种不同关系：伴随暗示、追求达成、因果产生、类别取样。选哪个，取决于原文证据呈现的是哪种关系。</p>"
+ },
+ {
+  "title": "找证据 · 全段证据都是“见体重状态，推健康风险”",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：前文两条证据都是“观察体重 → 推知风险”的相关性叙述",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A number of studies have concluded that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For example, heavier women are less likely to develop calcium deficiency than thin women.</div><p>第 1 空句：研究得出“正常体重者某些疾病风险更高”（反之超重者风险更低）；For example 句：胖女性更不容易缺钙。全段都在做同一件事——<b>用体重状态当健康的风向标</b>：看到微胖，就推知健康大概率良好。这正是“标志”的逻辑，不是“起源”的因果，也不是“例子”的取样。</p>"
+ },
+ {
+  "title": "逐项分析 · B objective（目标，目的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B objective（目标，目的） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“微胖是健康的目标”= 把变胖当作追求健康的途径，既不合常理，也与原句的客观陈述语气冲突（objective 带主观追求义）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：四个中文释义都抽象，凭语感抓词，不核对关系类型。</p>"
+ },
+ {
+  "title": "逐项分析 · C origin（起源，开端）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C origin（起源，开端） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“微胖是健康的起源”= 微胖导致健康——把相关性强扭成因果；原文证据只说风险更低，没说超重“制造”了健康。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“同时出现”误读为“前者产生后者”。</p>"
+ },
+ {
+  "title": "逐项分析 · D example（例子，实例）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D example（例子，实例） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>an example of good health = “健康的一个实例”——主语“微胖”得是健康的样本，可它是一种体型而非健康状况；且前句 For example 已完成举例职能，此处是陈述规律。</p><p style=\"color:#b91c1c\">⚠ 典型误解：example 是万能熟词，代入后“读得顺”就不细究主宾逻辑。</p>"
+ },
+ {
+  "title": "逐项分析 · A indicator（标志，指示）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A indicator（标志，指示） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>“微胖往往是身体健康良好的标志”——以外在体型指示内在健康，与前文“体重—风险”的观察角度完全一致：见微胖，推健康。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（indicator 标志）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>同样地，在老年人中，略微超重往往是身体健康良好的标志。</b></p><p>答案选 <b>A（indicator 标志，指示）</b>。</p><p><b>记忆锚点</b>：“见 A 推 B” → indicator；“A 是 B 的样本” → example；“A 造出 B” → origin；objective 要有“追求”语境。</p><p style=\"color:#b91c1c\">最易误选：<b>D（example）</b>——熟词优先的惯性，不核对“主语能否充当宾语的实例”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 4 空 · “微胖是健康的 ______”——状态与结果的关系",
+  subtitle: "考点：句内语义 + 名词辨析（标志/目标/起源/例子） · 立关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“立句内关系 → 四名词辨析 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（indicator）",
+ "html": "<b>A indicator（标志，指示）</b>。<br>记忆锚点：“见 A 推 B” → indicator；“A 是 B 的样本” → example；“A 造出 B” → origin；objective 要有“追求”语境。<br>最易误选：<b>D（example）</b>——熟词优先的惯性，不核对“主语能否充当宾语的实例”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 4 空 · “微胖是健康的 ______”——状态与结果之间是什么关系</h2>
+<p>答案：<strong>A（indicator 标志，指示）</strong>。</p>
+<h3>第 0 步：先立机制——名词题：四个候选各自预设一种关系，用原文证据裁决</h3>
+<p>空格结构是 an <code>__</code> of good health，主语是 being somewhat overweight。四个候选词各预设一种关系：indicator（标志）= 伴随暗示“见微胖推健康”；objective（目标）= 主观追求；origin（起源）= 因果产生；example（例子）= 类别取样。原文证据呈现的是哪一种，答案就是哪一个。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Likewise, among the elderly, being somewhat overweight is often an __4__ of good health.</blockquote>
+<p>句意骨架：“老年人中，略微超重往往是健康的某种东西”——这个“东西”必须能把“体型”和“健康”连成一条推断链。</p>
+<h3>第 2 步：找证据——全段证据都是“观察体重 → 推知风险”的相关性叙述</h3>
+<blockquote>A number of studies have concluded that normal-weight people are in fact at higher risk of some diseases compared to those who are overweight.</blockquote>
+<blockquote>For example, heavier women are less likely to develop calcium deficiency than thin women.</blockquote>
+<p>两条证据的共同结构：给出体重状态，给出患病风险，两者同向浮动。原文从头到尾没有说“超重产生了健康”，也没说“微胖是健康的样本”——它只提供了一个可观察的信号。所以名词必须取“信号/标志”义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A indicator</td><td>标志，指示</td><td>✓ 当选</td><td>“微胖往往是身体健康良好的标志”——以外在体型指示内在健康，与前文“体重—风险”的观察角度完全一致。</td></tr><tr><td>B objective</td><td>目标，目的</td><td>✗ 排除</td><td>“微胖是健康的目标”= 把变胖当作追求健康的途径，既不合常理，也与原句的客观陈述语气冲突（objective 带主观追求义）。（典型误解：四个中文释义都抽象，凭语感抓词，不核对关系类型。）</td></tr><tr><td>C origin</td><td>起源，开端</td><td>✗ 排除</td><td>“微胖是健康的起源”= 微胖导致健康——把相关性强扭成因果；原文证据只说风险更低，没说超重“制造”了健康。（典型误解：把“同时出现”误读为“前者产生后者”。）</td></tr><tr><td>D example</td><td>例子，实例</td><td>✗ 排除</td><td>an example of good health = “健康的一个实例”——主语“微胖”得是健康的样本，可它是一种体型而非健康状况；且前句 For example 已完成举例职能，此处是陈述规律。（典型误解：example 是万能熟词，代入后“读得顺”就不细究主宾逻辑。）</td></tr></tbody></table>
+<p>代入后的完整句义：同样地，在老年人中，略微超重往往是身体健康良好的标志。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>indicator 和 example 都有“代表”意味，差别在哪？</strong>：example 是“类别中的一个样本”（健康的一个实例）；indicator 是“由这个征兆可推知那件事”（标志）。原文逻辑是“见微胖 → 推健康”，是推断不是取样，所以只能 indicator。</li><li><strong>“超重有益”难道不是因果吗，为什么 origin 不行？</strong>：“超重有益”说的是风险对比（更不容易缺钙、风险更低），不是“超重制造健康”；且 an origin of good health 搭配生硬。完形选词要贴原句结构与证据强度，不能替原文升级论断。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（example）</strong>：熟词优先的惯性，不核对“主语能否充当宾语的实例”。</li><li><strong>误选 C（origin）</strong>：把“相关性”升级成“因果性”，替原文多说了话。</li><li><strong>误选 B（objective）</strong>：只凭中文释义相近抓词，忽略原句是客观陈述。</li></ul>
+<blockquote>记忆锚点：“见 A 推 B” → indicator；“A 是 B 的样本” → example；“A 造出 B” → origin；objective 要有“追求”语境。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

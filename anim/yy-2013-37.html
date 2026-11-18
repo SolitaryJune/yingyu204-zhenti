@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-37 动画：因果推断题——欧盟立法是什么性质的选择</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：问立法\"性质\"，题干定位不到句",
+  body:"<p>题干：<b>The European Union's intended legislation is ____.</b>（欧盟意欲制定的立法是____。）</p><p>四个选项给的都是性质描述（体现 / 回应 / 勉强 / 自愿）。仅凭题干找不到落点句，要把<b>第二段的来龙去脉整段串起来</b>：原因 → 铺垫 → 判定。</p>",
+  log:"性质题：串第二段因果链"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第二段叙事链四步",
+  body:"<table class=\"aw-mini\"><tr><th>第二段句子</th><th>信息</th></tr><tr><td>① considering legislation to <b>compel</b> corporate boards…</td><td>现在：立法\"强迫\"董事会</td></tr><tr><td>② born of <b>frustration</b></td><td>点睛：生于\"挫折\"</td></tr><tr><td>③ Reding issued a call to <b>voluntary action</b></td><td>此前：\"自愿\"路线</td></tr><tr><td>④ her appeal was a <b>failure</b>: only 24 companies</td><td>自愿失败：仅 24 家响应</td></tr></table>",
+  log:"链条：自愿呼吁失败 → 被迫改走立法强制"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：a reflection of gender balance",
+  body:"<p><b>A（性别平衡的一种体现）</b><span class=\"bad-dot\">✗</span>：a reflection of B 表示\"反映 B <b>已存在</b>\"。但立法与性别平衡是<b>手段—目的</b>关系：立法是\"为了实现\"性别平衡的手段，不是\"平衡已实现\"的体现。手段与目的颠倒。</p>",
+  log:"排除 A：立法是手段，性别平衡是目的"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:2, ribbon:{k:2, ok:false}, title:"排除 B：a response to Reding's call",
+  body:"<p><b>B（对瑞丁呼吁的回应）</b><span class=\"bad-dot\">✗</span>：时间线是\"瑞丁<b>去年</b>呼吁自愿参与 → 失败 → 欧盟<b>今年</b>考虑立法\"。立法是失败后的<b>替代方案</b>（顺承衍变），不是\"发出呼吁—响应呼吁\"的关系；何况瑞丁呼吁的对象是欧洲企业，不是欧盟自己。</p>",
+  log:"排除 B：顺承衍变 ≠ 响应呼吁"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:3, ribbon:{k:4, ok:false}, title:"排除 D：a voluntary action",
+  body:"<p><b>D（一项自愿行动）</b><span class=\"bad-dot\">✗</span>：voluntary action 原文确实有——但它描述的是<b>去年瑞丁的呼吁</b>；今年欧盟的提案恰是自愿失败后的<b>强制</b>方案（compel）。把\"自愿\"这顶帽子从去年的呼吁挪到今年的立法上：张冠李戴。</p>",
+  log:"排除 D：voluntary 属于去年的呼吁，立法是强制"},
+ {cls:"good", ecs:"ok", tag:"锁定 C", count:4, ribbon:{k:3, ok:true}, title:"锁定 C：a reluctant choice",
+  body:"<p><b>C（一种不情愿的选择）</b><span class=\"ok-dot\">✓</span>：证据链——</p><div class=\"qq\"><b>②句：</b>This proposed mandate was <b>born of frustration</b>. <span class=\"cn\">（译：这项提案诞生于挫折。）</span></div><p>\"自愿行不通（仅 24 家响应）→ 只好立法强制\"＝退而求其次的选择。born of frustration 把\"不情愿\"写在明面上；compel（强迫）正是对\"不情愿\"的注脚。</p>",
+  log:"锁定 C：自愿失败后才立法 = 不情愿的选择"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 C",
+  body:"<p><b>答案 C</b>——a reluctant choice（一种不情愿的选择）。</p><p>记忆锚点：性质题 = 串因果链；compel 与 voluntary 是一对反义词，\"自愿\"别挪用到今年的立法上。</p>",
+  log:"结论：欧盟立法是自愿路线失败后的无奈之选，答案选 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2013-37 · 因果推断题：欧盟立法是什么性质的选择",
+  subtitle: "考点：Text2 第二段来龙去脉 · 方法：串因果链 → 定性质 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>a reluctant choice</b>（不情愿的选择）＝ 自愿呼吁失败（仅 24 家响应）→ <b>born of frustration</b> → 只好立法强制。记忆锚点：compel ↔ voluntary 是反义词；A 手段目的颠倒，B 顺承误读成响应，D 张冠李戴。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：因果推断题——欧盟立法是种什么选择</h2>
+<p>答案：<strong>C</strong>（a reluctant choice，一种不情愿的选择）。</p>
+<h3>第 0 步：先立机制——"性质题"顺着来龙去脉读</h3>
+<p>题干 <strong>The European Union's intended legislation is ____</strong> 问的是这项立法的<strong>性质</strong>（A–D 给的都是性质描述：体现 / 回应 / 勉强 / 自愿）。仅凭题干定位不到句，要把<strong>第二段的来龙去脉整段串起来</strong>：立法从哪来（原因）→ 之前发生了什么（铺垫）→ 结果如何（判定）。</p>
+<h3>第 1 步：第二段叙事链拆解</h3>
+<table><thead><tr><th>句子</th><th>信息</th></tr></thead><tbody><tr><td>① The EU is considering legislation to <strong>compel</strong> corporate boards…</td><td>现在考虑立法"强迫"董事会保持女性比例</td></tr><tr><td>② This proposed mandate was <strong>born of frustration</strong></td><td>点睛：这项提案诞生于"挫折"</td></tr><tr><td>③ Reding issued a call to <strong>voluntary action</strong></td><td>此前走的是"自愿"路线</td></tr><tr><td>④ But her appeal was considered <strong>a failure</strong>: only 24 companies took it up</td><td>自愿路线失败（仅 24 家响应）</td></tr></tbody></table>
+<p>链条完整：<strong>自愿呼吁失败 → 被迫改走立法强制</strong>。立法是"自愿行不通之后的退而求其次"——这不正是"不情愿的选择"？选 <strong>C</strong>。born of frustration（生于挫折）已经把"不情愿"写在了明面上。</p>
+<h3>第 2 步：干扰项归因——每个选项对应一种逻辑误读</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A a reflection of gender balance</td><td>✗</td><td>手段—目的颠倒</td></tr><tr><td>B a response to Reding's call</td><td>✗</td><td>顺承误读成响应</td></tr><tr><td>D a voluntary action</td><td>✗</td><td>张冠李戴</td></tr></tbody></table>
+<ul><li><strong>误选 A——把"目的"当"现状"</strong>：a reflection of B 表示"反映了 B 已存在"。但立法与性别平衡是<strong>手段—目的</strong>关系：立法是*为了实现*性别平衡的手段，而不是"性别平衡已实现"的体现。一念之差，时态与逻辑全变。</li><li><strong>误选 B——把"顺承"读成"响应"</strong>：原文顺序是"先有瑞丁去年的自愿呼吁 → 失败 → 今年欧盟考虑立法"，立法是失败之后的<strong>替代方案</strong>，不是对瑞丁呼吁的响应；何况瑞丁呼吁的对象是欧洲企业，不是欧盟自己。</li><li><strong>误选 D——偷走"自愿"这顶帽子</strong>：voluntary action 原文确实有，但它描述的是<strong>去年瑞丁的呼吁</strong>；今年欧盟的提案恰是自愿失败后的<strong>强制</strong>方案（compel）。把 A 物体的帽子扣到 B 头上，张冠李戴的典型。</li></ul>
+<blockquote>记忆锚点：性质题 = 把来龙去脉串成因果链；自愿呼吁失败（24 家）→ born of frustration → 立法是 reluctant choice（C）；compel 与 voluntary 是一对反义词，别让"自愿"挪用到今年的立法上。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

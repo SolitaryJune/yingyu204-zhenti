@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2013 完形第 15 空 · 数据库里的信息是“存”着的——stored · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题眼 · 分词后置定语：先问存放关系", "cls": "key", "tag": "审题", "log": "先立机制：分词后置定语：先问存放关系", "count": 0, "ribbon": null, "body": "<p>空格在 alter information ___ there 里：information 之后、there 之前，过去分词作后置定语，说明“信息与数据库之间是什么存放关系”。there 回指前半句的 a computer database。数据库之于信息，天然关系就是“存放”——黑客能“改动那里的信息”，前提正是信息被存放在那里。</p>"}, {"title": "定位原文 · 空 15 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 15 所在句", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information <b>__15__</b> there.</div><p>information ___ there：分词定语位。analyzed / shared / stored / displayed 都是真实动作，判定标准是哪一项描述“信息与库的基本关系”而非一次性加工动作。</p>"}, {"title": "找证据 · access a database and alter information there：能改的前提是存着", "cls": "key", "tag": "证据", "log": "找证据：access a database and alter information there：能改的前提是存着", "count": 0, "ribbon": null, "body": "<p>访问数据库、改动其中的信息——改的对象必然是“库中存放的数据”。be stored in a database 是数据库英语的标准搭配；analyze / display 是对信息的加工与呈现动作，shared 描述的是人与人之间的分发关系，都不是“信息待在库里”的存放状态。</p>"}, {"title": "逐项分析 · A analyzed（分析的）", "cls": "bad", "tag": "排除 A", "log": "A analyzed（分析的）✗ 排除——加工动作非存放", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>分析是对信息的加工动作，不是信息在库中的存放状态。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 database 就联想数据分析。</p>"}, {"title": "逐项分析 · B shared（共享的）", "cls": "bad", "tag": "排除 B", "log": "B shared（共享的）✗ 排除——非库的基本关系", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>“共享”描述人与人之间的分发，不是信息与数据库的存放关系，且与“非授权入侵”叙事冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“联网”直接等同于“共享”。</p>"}, {"title": "逐项分析 · C stored（储存的）", "cls": "good", "tag": "选定 C", "log": "C stored（储存的）✓ 当选——信息储存于库", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>information stored there = 存放在那里的信息——信息被储存于数据库，be stored in a database 是标准搭配。</p>"}, {"title": "逐项分析 · D displayed（展示的）", "cls": "bad", "tag": "排除 D", "log": "D displayed（展示的）✗ 排除——屏幕呈现非存储", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>display 是屏幕上的呈现动作，不是数据库的存储状态。</p><p style=\"color:#b91c1c\">⚠ 典型误解：display 与 computer 的表面联想。</p>"}, {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（stored 储存的）——完整句义与记忆锚点见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>我们常听媒体报道：非法黑客能够访问计算机数据库，并篡改其中储存的信息。</b></p><p>答案选 <b>C（stored 储存的）</b>。</p><p><b>记忆锚点</b>：information stored in a database = 库中储存的信息；分词定语问一句“信息与库的基本关系”→ 存放 → stored。</p><p style=\"color:#b91c1c\">最易误选：<b>A（analyzed）</b>——database 的现代联想是“分析数据”，可空格要的是存放关系。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2013 完形第 15 空 · 数据库里的信息是“存”着的——stored",
+  subtitle: "考点：过去分词后置定语 + 上下文语义 · 审题 → 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（stored 储存的）", "html": "<b>C stored（储存的）</b>。<br>完整句义：我们常听媒体报道：非法黑客能够访问计算机数据库，并篡改其中储存的信息。<br>记忆锚点：information stored in a database = 库中储存的信息；分词定语问一句“信息与库的基本关系”→ 存放 → stored。<br>最易误选：<b>A（analyzed）</b>——database 的现代联想是“分析数据”，可空格要的是存放关系。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 15 空 · 数据库里的信息是“存”着的——stored</h2>
+<p>答案：<strong>C（stored 储存的）</strong>。</p>
+<h3>第 0 步：先立机制——分词后置定语：先问存放关系</h3>
+<p>空格在 alter information ___ there 里：information 之后、there 之前，过去分词作后置定语，说明“信息与数据库之间是什么存放关系”。there 回指前半句的 a computer database。数据库之于信息，天然关系就是“存放”——黑客能“改动那里的信息”，前提正是信息被存放在那里。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>We often hear media reports that an unauthorized hacker has been able to access a computer database and to alter information <code>__15__</code> there.</blockquote>
+<p>information ___ there：分词定语位。analyzed / shared / stored / displayed 都是真实动作，判定标准是哪一项描述“信息与库的基本关系”而非一次性加工动作。</p>
+<h3>第 2 步：找证据——access a database and alter information there：能改的前提是存着</h3>
+<p>访问数据库、改动其中的信息——改的对象必然是“库中存放的数据”。be stored in a database 是数据库英语的标准搭配；analyze / display 是对信息的加工与呈现动作，shared 描述的是人与人之间的分发关系，都不是“信息待在库里”的存放状态。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A analyzed</td><td>分析的</td><td>✗ 排除</td><td>分析是对信息的加工动作，不是信息在库中的存放状态。（典型误解：见 database 就联想数据分析。）</td></tr><tr><td>B shared</td><td>共享的</td><td>✗ 排除</td><td>“共享”描述人与人之间的分发，不是信息与数据库的存放关系，且与“非授权入侵”叙事冲突。（典型误解：把“联网”直接等同于“共享”。）</td></tr><tr><td>C stored</td><td>储存的</td><td>✓ 当选</td><td>information stored there = 存放在那里的信息——信息被储存于数据库，be stored in a database 是标准搭配。（易错警示：analyzed 的现代语感强，但空格要的是“存放关系”不是加工动作。）</td></tr><tr><td>D displayed</td><td>展示的</td><td>✗ 排除</td><td>display 是屏幕上的呈现动作，不是数据库的存储状态。（典型误解：display 与 computer 的表面联想。）</td></tr></tbody></table>
+<p>代入后的完整句义：我们常听媒体报道：非法黑客能够访问计算机数据库，并篡改其中储存的信息。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么必须是过去分词？</strong>：information 与 store 是被动关系（信息被储存），过去分词 stored 作后置定语，相当于 information which is stored there。</li><li><strong>there 指代什么？</strong>：前半句的 a computer database。“alter information stored there” = 改动储存在数据库里的信息。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（analyzed）</strong>：见 database 就联想数据分析。</li><li><strong>误选 B（shared）</strong>：把“联网”直接等同于“共享”。</li><li><strong>误选 D（displayed）</strong>：display 与 computer 的表面联想。</li></ul>
+<blockquote>记忆锚点：information stored in a database = 库中储存的信息；分词定语问一句“信息与库的基本关系”→ 存放 → stored。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

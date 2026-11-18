@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-21 · 研究目的题：分清「已知能力」与「待验证目标」</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：问的是「试验想验证什么」",
+  "body": "<p>题干：<b>Quinn and her colleagues conducted a test to see if rats can ____</b>（奎因和同事做试验想看看老鼠能否 __）。</p><p>这问的是<b>研究目标</b>——不是老鼠已知的能力。首段两句功能不同：①句摆<b>已知信息</b>，②句用 <b>To find out if this extends to...</b> 引出<b>待验证目标</b>。目标句是正确项来源，背景句多半被拿来设干扰。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "首段分工：背景句 vs 目标句",
+  "body": "<table class='aw-mini'><tr><th>句</th><th>内容</th><th>功能</th></tr><tr><td>①</td><td>老鼠需要高度关注社交信号，以识别可合作的友与该躲避的敌</td><td>已知信息（已证能力）</td></tr><tr><td>②</td><td>为看这是否延伸到非生命体，Quinn 团队<b>测试</b>老鼠能否察觉机器鼠的社交信号</td><td>研究目标（待验证）</td></tr></table><p>题干问 test to see if → 只能对 ② 句 tested whether。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：首段末句（目标句）",
+  "body": "<div class='qq'><b>原文：</b>To find out if this extends to <b>non-living beings</b>, Laleh Quinn ... and her colleagues <b>tested whether</b> rats can <b>detect social signals from robotic rats</b>.</div><p class='cn'>译：为弄清这是否也适用于非生命体，奎因团队测试了老鼠能否察觉机器鼠发出的社交信号。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：同义替换逐点对上",
+  "body": "<p><b>A · pick up social signals from non-living rats</b> <span class='ok-dot'>✓</span></p><p>conducted a test to see if ↔ tested whether；<b>pick up ↔ detect</b>（接收/察觉）；<b>non-living rats ↔ robotic rats / non-living beings</b>（机器鼠即「非生命鼠」）。逐点改写，选 A。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：拿①句背景做干扰",
+  "body": "<p><b>B · distinguish a friendly rat from a hostile one</b> <span class='bad-dot'>✗</span></p><p>改写自①句 <b>identify friends... and enemies to avoid</b>。但「接收社交信号以分辨敌友」是老鼠<b>已被证实的能力</b>（need to be 的常识铺垫），不是这次试验<b>待验证</b>的目标。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：断章取义 + 臆断",
+  "body": "<p><b>C · attain sociable traits through special training</b> <span class='bad-dot'>✗</span></p><p>把①句 need to be highly attuned to social signals 断章取义为「老鼠对社交信号不够敏感」，再臆断研究者想观察「特殊训练能否提升技能」——全文毫无训练之说。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：方向整个反转",
+  "body": "<p><b>D · send out warning messages to their fellows</b> <span class='bad-dot'>✗</span></p><p>研究目标是老鼠能否<b>接收（detect）</b>机器鼠发出的信号；D 篡改成老鼠向同伴<b>发出（send out）</b>信号——方向完全反了。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（pick up social signals from non-living rats）</b>。</p><p>记忆锚点：首段①句 = 背景（已证能力）、②句 = 目标（待验证）；问「试验想看什么」就对②句同义替换，警惕①句背景改写与 detect→send out 的方向反转。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-21 · 研究目的题：分清「已知能力」与「待验证目标」",
+  subtitle: "考点：Text1 首段 · 试验目的的事实细节题",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 A", "html": "<b>研究目标只看②句</b>：tested whether rats can detect social signals from robotic rats → pick up = detect、non-living rats = robotic rats。干扰项 B/C 用①句已证能力设障，D 把「接收」反转为「发出」。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 21 题——分清"已知能力"与"待验证目标"</h2>
+<p>答案：<strong>A</strong>（pick up social signals from non-living rats）。</p>
+<h3>第 0 步：先立机制——首段两句话的功能分工</h3>
+<p>首段两句各司其职：①句 Rats and other animals need to be highly attuned to social signals... so they can identify friends to cooperate with and enemies to avoid 是<strong>已知信息</strong>（老鼠本来就会接收社交信号来辨敌友）；②句 To find out if this extends to non-living beings, ... Quinn ... tested whether rats can detect social signals from robotic rats 才是<strong>研究目标</strong>（待验证的新问题）。题干问"试验想看看老鼠能不能……"，问的就是②句的目标；①句八成被拿来做干扰项。②句里的 robotic rats 正是前半句 non-living beings 的化身。</p>
+<h3>第 1 步：同义替换——题干 + A 改写②句</h3>
+<blockquote>To find out if this extends to non-living beings, Laleh Quinn at the University of California, San Diego, and her colleagues tested whether rats can detect social signals from robotic rats.</blockquote>
+<p>题干 conducted a test to see if = tested whether；A 的 pick up = detect（接收 / 察觉），non-living rats = robotic rats / non-living beings（机器鼠即"非生命鼠"）。逐点对上，选 A。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（distinguish a friendly rat from a hostile one）</strong>：改写①句 identify friends... and enemies to avoid。但"接收社交信号以分辨敌友"是老鼠<strong>已被证实的能力</strong>，不是这次试验要验证的目标。</li><li><strong>C（attain sociable traits through special training）</strong>：把 need to be highly attuned to social signals 断章取义为"老鼠对社交信号不够敏感"，再臆断"想通过特殊训练提升技能"——文中毫无训练之说。</li><li><strong>D（send out warning messages to their fellows）</strong>：方向整个反了——研究目标是老鼠能否<strong>接收（detect）</strong>机器鼠发出的信号，不是老鼠向同伴<strong>发出（send out）</strong>信号。</li></ul>
+<blockquote>记忆锚点：首段①句 = 背景（已证能力）、②句 = 目标（待验证）；事实细节题优先对②句做同义替换，警惕①句背景改写与 detect→send out 的方向反转。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

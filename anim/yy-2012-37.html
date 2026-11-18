@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T2 · 37 · 萧条使人们改变了什么 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {title:"审题眼 · 段落题先圈证据句群", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：According to Paragraph 2, the recession has made people ____。<b>A</b> 彼此斗争 / <b>B</b> 实现民族梦 / <b>C</b> 挑战自身谨慎度 / <b>D</b> 重新思考生活方式。</p><p>机制：段落题先通读第二段，把所有“萧条 → 人的变化”的句子圈出来，再合成<b>最大公约数</b>——四个选项谁覆盖最全、谁只抄局部，就是分辨点。</p>",
+  log:"审题：段落细节题——先圈证据句群"},
+ {title:"证据一 · ②句：价值观与金钱观", cls:"key", tag:"证据", count:0, ribbon:null,
+  body:quote("Many said that unemployment, while extremely painful, had improved them in some ways: they had become less materialistic and more financially prudent; they were more aware of the struggles of others.")+"<p>三个变化：<b>物质欲下降</b>（less materialistic）、<b>花钱更谨慎</b>（more financially prudent）、<b>更体察他人的艰难</b>（more aware of the struggles of others）——全落在“怎么看待钱、怎么生活”上。</p>",
+  log:"②句：materialistic / prudent / aware of struggles 三处变化"},
+ {title:"证据二 · ④句：从暴富迷梦中醒来", cls:"key", tag:"证据", count:0, ribbon:null,
+  body:quote("At the very least, it has awoken us from our national fever dream of easy riches and bigger houses, and put a necessary end to an era of reckless personal spending.")+"<p>把整个国家从“轻松发财、住大房子”的狂热梦中<b>唤醒</b>，终结挥霍消费的时代——还是“怎么生活”层面。两处证据指向同一层：价值观 + 消费观 = <b>生活方式</b>。</p>",
+  log:"④句：awoken from fever dream、终结挥霍时代——仍是生活方式"},
+ {title:"同义替换 · 变化合并 = reconsider lifestyle", cls:"key", tag:"替换", count:0, ribbon:null,
+  body:"<p>价值观（materialistic）+ 消费观（financially prudent / reckless personal spending）合起来 = <b>lifestyle</b>；变得 less、被唤醒（awoken）= <b>reconsider</b>（重新审视）。D 是两处证据的合并概括。</p>",
+  log:"合并：价值观+消费观的变化 → reconsider their lifestyle"},
+ {title:"逐项分析 · A struggle against each other", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:"<p><b>排除。</b>原文是 more aware of the <b>struggles of others</b>——体察“他人的奋斗/艰难”，不是“彼此相互斗争”。struggles 被偷换了用法。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词多义陷阱——struggles 是名词化的“艰难”，不是“斗殴”；aware of 是体察，不是对抗。</p>",
+  log:"A struggle against each other ✗ 排除——struggles 原词被偷换"},
+ {title:"逐项分析 · B realize the national dream", cls:"bad", tag:"排除 B", count:2, ribbon:{k:"B", ok:false},
+  body:"<p><b>排除。</b>原文是 awoken us from our national fever dream——从民族狂热梦中<b>醒来</b>，不是“实现民族梦”。dream 原词没变，动词方向全反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 dream 不看动词——醒来 vs 圆梦，一字之差方向相反。</p>",
+  log:"B realize the national dream ✗ 排除——awoken from ≠ realize"},
+ {title:"逐项分析 · C challenge their prudence", cls:"bad", tag:"排除 C", count:3, ribbon:{k:"C", ok:false},
+  body:"<p><b>排除。</b>原文是 more financially <b>prudent</b>——变得更谨慎，不是“挑战自身谨慎度”。prudent 原词没变，more 的方向被改成 challenge。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认 prudent 不看 more 的方向。</p>",
+  log:"C challenge their prudence ✗ 排除——more prudent 方向被反转"},
+ {title:"逐项分析 · D reconsider their lifestyle", cls:"good", tag:"选定 D", count:3, ribbon:{k:"D", ok:true},
+  body:"<p><b>当选。</b>②句（价值观、金钱观）+ ④句（从暴富梦醒来、终结挥霍）= 怎么生活被重新审视；题干问全称人群，D 的抽象层级正好是两处证据的<b>合并概括</b>。</p>",
+  log:"D reconsider their lifestyle ✓ 合并概括，当选"},
+ {title:"结论 · 并句与记忆锚点", cls:"good", tag:"答案 D", count:3, ribbon:null,
+  body:"<p>并句：②句三变化 + ④句两点 → <b>reconsider their lifestyle</b>。</p><p>答案选 <b>D（重新思考生活方式）</b>。</p><p><b>记忆锚点</b>：段落题先并句再选；struggles ≠ 斗争，是“艰难”；fever dream 前的动词是 awoken from——醒，不是圆梦；prudent 前的 more 决定方向。</p>",
+  log:"结论：价值观+消费观之变 = reconsider lifestyle，答案 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text2 · 37 · 萧条使人们改变了什么",
+  subtitle: "考点：段落细节题 · 圈证据句群 → 合并概括 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“圈句 → 合并 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（reconsider their lifestyle）",
+    html: "<b>答案 D：价值观 + 消费观的变化 = 重新思考生活方式</b>——②句 less materialistic / more financially prudent / 体察他人，④句从暴富梦醒来、终结挥霍。<br>记忆锚点：段落题先并句再选；struggles 是“艰难”，awoken from 是“醒来”，more prudent 是“更谨慎”——三个原词都被换了方向。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：段落细节题——“萧条使人改变”改的是哪一层</h2>
+<p>答案：<strong>D（reconsider their lifestyle 重新思考生活方式）</strong>。</p>
+<h3>第 0 步：先立机制——段落题先圈定“证据句群”，再合成最大公约数</h3>
+<p>According to Paragraph 2 的段落题：先通读该段找所有“萧条 → 人的变化”句，再合成一个最大公约数。本段证据有两处：②句讲个人层面（价值观、金钱观、体察他人），④句讲社会层面（从暴富迷梦中醒来、终结挥霍时代）。四个选项谁覆盖最全、谁只抄局部，就是本题的分辨点。</p>
+<h3>第 1 步：定位证据句群</h3>
+<blockquote>they had become less materialistic and more financially prudent; they were more aware of the struggles of others.</blockquote>
+<p>②句三个变化：物质欲下降、花钱更谨慎、更能体察他人的奋斗——全落在“怎么看待钱、怎么生活”上。</p>
+<blockquote>At the very least, it has awoken us from our national fever dream of easy riches and bigger houses, and put a necessary end to an era of reckless personal spending.</blockquote>
+<p>④句：把整个国家从“轻松发财、住大房子”的狂热梦中唤醒，终结挥霍消费的时代——还是“怎么生活”层面。</p>
+<h3>第 2 步：同义替换与概括</h3>
+<p>价值观（materialistic）、消费观（financially prudent / reckless personal spending）合起来 = <strong>生活方式（lifestyle）</strong>；变得 less materialistic、被唤醒（awoken）= 重新审视 = <strong>reconsider</strong>。D 是两处证据的合并概括。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A struggle against each other</td><td>✗ 排除</td><td>曲解 more aware of the struggles of others：体察“他人的奋斗/艰难”，不是“彼此斗争”；struggles 被偷换了用法。（典型误解：原词多义陷阱——struggles 是名词化的“艰难”，不是“斗殴”。）</td></tr><tr><td>B realize the national dream</td><td>✗ 排除</td><td>词块杂糅：原文是 awoken us from our national fever dream——从梦中<strong>醒来</strong>，不是实现梦想。（典型误解：只认 dream 不看动词方向。）</td></tr><tr><td>C challenge their prudence</td><td>✗ 排除</td><td>反向干扰：more financially prudent 是“变得更谨慎”，不是“挑战谨慎”。（典型误解：只认 prudent 不看 more 的方向。）</td></tr><tr><td>D reconsider their lifestyle</td><td>✓ 当选</td><td>覆盖②④两句的价值观与消费观变化，抽象层级与题干匹配</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选更“具体”的表述？</strong>：题干问 the recession has made people（全称人群），具体例句只落在失业者与国家整体两处，D 的抽象层级正好适配段落题的“概括”要求。</li><li><strong>A 的 struggles 为什么不能算“斗争”？</strong>：struggles of others 是名词化的“艰难、奋斗”，aware of 是“体察”，与“彼此”无关——原词干扰是段落题里最需警惕的形态。</li></ul>
+<blockquote>记忆锚点：段落题先并句再选；struggles ≠ 斗争，是“艰难”；fever dream 前的动词是 awoken from——醒，不是圆梦；prudent 前的 more 决定方向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

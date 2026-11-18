@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-42 · 2018 新题型第 42 题 · 「寒暄困局」段的建议是跳过寒暄 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 破立结构，标题取“立”", "cls": "key", "tag": "方法", "log": "痛点 → 病因 → 解法的段群，标题要概括转向动作；暗规则：两个多余项盯字面", "count": 0, "ribbon": null, "body": "<p>七选五小标题题：找<b>对象</b>＋找<b>建议</b>。本段群是“目标 → 病因 → 解法”的破立结构——标题要概括整段群的<b>转向动作</b>：从客套寒暄转向实质话题。只概括痛点、或只复述字面的选项，都接不住转向。</p>"},
+ {"title": "定位段群 ·【42】时间有限，寒暄困局", "cls": "key", "tag": "定位", "log": "定位⑦至⑨段：目标 memorable → 病因 rut of “hi/hello” → 解法 ask personal questions", "count": 0, "ribbon": null, "body": quote("you have <b>limited time</b>… and you want to make this talk <b>memorable</b>. Honestly, if we <b>got stuck in the rut of &ldquo;hi&rdquo;, &ldquo;hello&rdquo;, &ldquo;how are you?&rdquo;</b>…, you will fail to give the initial jolt to the conversation… So <b>don't be afraid to ask more personal questions.</b>") + "<p>推进链三层：①目标——时间有限、要让谈话 memorable；②病因——困在寒暄老套（<b>rut</b>）里，谈不出“最初那一下撞击”；③解法——别怕问更<b>私人的问题</b>。rut（窠臼）是病根：作者态度是“别困在里面”——也就是“跳过去”。</p>"},
+ {"title": "提炼段旨 · 从寒暄转向私人问题", "cls": "key", "tag": "提炼", "log": "提炼段旨：破（寒暄无用）＋立（转向私人问题）＝跳过寒暄", "count": 0, "ribbon": null, "body": "<p>讨论对象 = <b>寒暄闲谈</b>（rut of “hi/hello/how are you?”）；作者建议 = <b>跳过它们、问私人问题</b>。标题必须同时压住⑦⑧（寒暄耽误事）与⑨（转向私人问题）两层——只用一个动作词或一个对象词都不够宽。</p>"},
+ {"title": "逐项分析 · F Skip the small talk", "cls": "good", "tag": "选定 F", "log": "F 略过寒暄 ✓ ——“别困在 rut 里”的合并改写：skip 压住破与立两层", "count": 0, "ribbon": {"k": "F", "ok": true}, "body": "<p><b>当选。</b>[F] <b>Skip the small talk</b> ↔ got stuck in the rut of &ldquo;hi&rdquo;, &ldquo;hello&rdquo;…（→ 跳过去）：the small talk ↔ 寒暄老套；skip ↔ “困在里面会失败”的反面。两个词同时完成“破（寒暄无用）＋立（转向私人问题）”。</p>"},
+ {"title": "逐项分析 · G Ask for an opinion", "cls": "bad", "tag": "排除 G", "log": "G 征求意见 ✗ ——对象偷换＋宽度不足：ask 的宾语是 personal questions", "count": 1, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>⑨句 <b>ask</b> 确实复现，但问的对象是 <b>personal questions</b>（对方私人的信息），不是“对方的<b>意见</b>”（an opinion）；且 [G] 无法表达⑦⑧句“寒暄太占时间、应做简略处理”的转向——只概括了动作的一半，还把对象换掉了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：动词对上就算匹配——宾语才是身份。</p>"},
+ {"title": "逐项分析 · A / C 的错位归宿", "cls": "bad", "tag": "排除 A·C", "log": "A 就说出来／C 独特赞美 ✗ ——A 是【41】段标题，C 全篇无涉", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>[A] <b>Just say it</b> 是【41】段“勇敢开口说第一个词”的标题——本段谈的是开口<b>之后</b>的深入；[C] <b>Pay a unique compliment</b>（赞美）全篇无一处谈起，与本段至多是“礼貌用语”的模糊联想。标题题做完要<b>互相验算</b>：A 说出口、F 跳过寒暄、G 问意见，祈使句只能各归其位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：真标题在本篇里只有一个家，占了的不能再分。</p>"},
+ {"title": "结论 · 概括宽度决定成败", "cls": "good", "tag": "答案 F", "log": "答案 F（Skip the small talk）—— 见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>目标 memorable → 病因 rut of 寒暄 → 解法 ask personal questions → [F] Skip the small talk。</b></p><p>答案选 <b>F（Skip the small talk）</b>。</p><p><b>记忆锚点</b>：破立段群标题取转向动作；ask 的宾语是 personal questions 不是 opinion；<b>概括宽度</b>不足的选项再顺眼也不选；rut = 窠臼，是“寒暄困局”的病根。</p><p style=\"color:#b91c1c\">最易误选：<b>G（Ask for an opinion）</b>——动词对上、宾语换人。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 新题型第 42 题 ·「寒暄困局」段的建议是跳过寒暄",
+  subtitle: "考点：小标题题 · 破立结构的转向概括 + 动词匹配宾语验证",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段群 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 F（Skip the small talk）", "html": "<b>F 略过寒暄</b>：got stuck in the rut of &ldquo;hi&rdquo;, &ldquo;hello&rdquo;… → 别困在寒暄里，转向私人问题。<br>记忆锚点：破立段群标题取转向动作；ask 的宾语是 personal questions 不是 opinion；概括宽度不足的选项再顺眼也不选。<br>最易误选：<b>G（Ask for an opinion）</b>——动词对上、宾语换人。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 新题型第 42 题 · 小标题题——"寒暄困局"段的建议是跳过寒暄</h2>
+<p>答案：<strong>F（Skip the small talk 略过寒暄闲谈）</strong>。</p>
+<h3>第 0 步：先立机制——先"破"后"立"的段群，标题取"立"的那一半</h3>
+<p>本段群（⑦至⑨段）是标准的"痛点＋破解"结构：⑦句摆问题（时间有限，想让谈话 memorable）；⑧句点名<strong>病因</strong>——困在 hi / hello / how are you 的寒暄老套（rut）里，谈话就"无法产生最初那一下撞击"；⑨句收出<strong>解法</strong>——don't be afraid to ask more <strong>personal questions</strong>（别怕问更私人的问题）。小标题要概括的是整段群的<strong>转向动作</strong>：从"客套寒暄"转向"实质话题"——即"略过寒暄"。凡是只概括痛点（时间有限）或只复述字面（问问题）的选项，都接不住这个转向。</p>
+<h3>第 1 步：定位段群</h3>
+<blockquote>you have limited time with the person that you want to talk with and you want to make this talk memorable. Honestly, if we <strong>got stuck in the rut of "hi", "hello", "how are you?" and "what is going on?"</strong>, you will fail to give the initial jolt to the conversation... So <strong>don't be afraid to ask more personal questions.</strong></blockquote>
+<p>推进链三层：①目标——时间有限、要 memorable；②病因——寒暄老套（rut of "hi", "hello"...）谈不出名堂；③解法——问更<strong>私人的</strong>问题。rut（车辙/老套）是关键词：作者的态度是"别困在里面"，也就是"跳过去"。</p>
+<h3>第 2 步：同义替换——"别困在寒暄里"就是"略过寒暄"</h3>
+<p>[F] <strong>Skip the small talk</strong> 是②③层的合并改写：<strong>the small talk</strong> ↔ the rut of "hi", "hello", "how are you?"（寒暄闲谈＝那些客套老套）；<strong>skip</strong> ↔ got stuck in...you will fail / don't be afraid to...（"困在里面会失败"的反面就是"跳过它"）。标题用两个词完成了"破（寒暄无用）＋立（转向私人问题）"的合并。</p>
+<h3>第 3 步：干扰项归因</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>G Ask for an opinion</td><td>✗</td><td>字面近义＋对象偷换：⑨句 ask 确实复现（don't be afraid to <strong>ask</strong>...），但问的对象是 <strong>personal questions</strong>（对方私人的信息），不是"对方的<strong>意见</strong>"（an opinion）；且 G 无法表达⑦⑧句"寒暄太占时间、应做简略处理"的转向——只概括了动作的一半，还把动作对象换掉了</td></tr><tr><td>A Just say it</td><td>✗</td><td>错位归宿：这是【41】段"勇敢开口说第一个词"的标题；本段谈的是开口之后的深入，不是"说不说出来"</td></tr><tr><td>C Pay a unique compliment</td><td>✗</td><td>错位归宿：全篇没有一处谈"赞美"，本段更无；它与本段的唯一交集是"礼貌用语"的模糊联想</td></tr></tbody></table>
+<h3>预判追问：F 和 G 都能算"换掉寒暄"的动作，为什么 G 输？</h3>
+<p>两个层面：<strong>对象</strong>层面——⑨句问的是 personal questions（关于对方的事实/信息），an opinion 是"问他怎么看某事"，原文没有任何一处要你征求看法；<strong>结构</strong>层面——标题必须涵盖整个段群的转向（寒暄→实质），[G] 只描述"问"这个动作，既没有"跳过寒暄"的否定面，也搭不上 memorable 的目标。[F] 用 skip 一词同时压住⑦⑧（寒暄耽误事）与⑨（转向私人问题）两层。小标题题的对错常在"概括宽度"：<strong>只盖住三分之一段落的选项，再顺眼也不能选</strong>。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：被 ask 一词吸住——ask 的宾语在原文是 personal questions，opinion 是命题人发的私货。</li><li><strong>误选 A</strong>：本段确实也在"说话"，但【41】段已被 A 精确占用；标题题做完要<strong>互相验算</strong>——A 说出口、F 跳过寒暄、G 问意见，三个祈使句只能各归其位。</li><li><strong>漏掉 rut</strong>：不认识 rut（老套/窠臼）就抓不到"寒暄困局"这个病根，从而感觉 F"凭空"。rut of "hi/hello" 本身就在解释 the small talk。</li></ul>
+<blockquote>记忆锚点：本段群＝<strong>目标（memorable）→ 病因（rut of 寒暄）→ 解法（ask personal questions）</strong>，标题取转向动作 → Skip the small talk；ask 的宾语是 personal questions 不是 opinion；概括宽度不足的选项再顺眼也不选。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

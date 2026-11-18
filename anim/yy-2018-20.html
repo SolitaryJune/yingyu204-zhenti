@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-20 · 2018 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 文末引证句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：全文最后一句 Hsee 引语，考点：上下文语义 + 名词辨析",
+  "body": quote("\"Thinking about long-term <b>__20__</b> is key to reducing the possible negative effects of curiosity,\" Hsee says. In other words, don't read online comments.") + "<p>引语的位置决定了它的机制：科学家用引语收尾时，说的永远是<b>刚刚论证过的内容</b>——这句话是对上文实验结论的总结复述。</p>"
+ },
+ {
+  "title": "立机制 · 引证句 = 上一句的“换装复述”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：imagining the outcome of... ←→ thinking about long-term __20__，空格必须与 outcome 近义",
+  "body": "<p>上一句刚说完：<b>imagining the outcome</b> of following through on one's curiosity ahead of time can help determine whether it is worth the endeavor（提前设想坚持好奇心的<b>结果</b>）。</p><p>对应关系：imagining ←→ thinking about；the outcome of... ←→ long-term __20__。空格词必须与 <b>outcome（结果）</b>近义——这是本空唯一的判定标准。</p>"
+ },
+ {
+  "title": "逐项分析 · A consequences（后果）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A consequences ✓ 当选——与 outcome 近义复现，“考虑长期后果 → 降低负效应”逻辑贯通",
+  "body": "<p><b>当选。</b>outcome 是中性的“结果”，但它对上的是“看难受的图”的产物——<b>事先预想、事后难受</b>的东西。</p><p>落到“降低负效应”的语境里，“坚持好奇心的长期结果”带贬义 = 长期<b>后果</b>。think about long-term consequences 正是“预想结果”在劝诫句里的换装。</p>"
+ },
+ {
+  "title": "逐项分析 · B investments（投资；投入）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B investments ✗ 排除——long-term investments 搭配通顺，但上下文无“投入/收益”话题",
+  "body": "<p><b>排除。</b>long-term investments（长期投资）搭配本身通顺——这正是命题人故意安排的<b>搭配陷阱</b>。</p><p>但全文谈的是好奇心实验，没有任何“投入/收益”话题：搭配好 ≠ 文意对。</p><p style='color:#b91c1c'>⚠ 典型误解：只做 long-term + 名词的搭配题。</p>"
+ },
+ {
+  "title": "逐项分析 · C strategies（策略；战略）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C strategies ✗ 排除——“预想结果”不等于“制定策略”，文中无谋划手段的论述",
+  "body": "<p><b>排除。</b>long-term strategies（长期战略）搭配同样自然，但实验的核心动作是<b>预想结果</b>，不是<b>制定策略</b>。</p><p>文中没有任何关于“如何谋划、用什么手段”的论述——与 B 同病：搭配好、文意无关。</p>"
+ },
+ {
+  "title": "逐项分析 · D limitations（限制；局限）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D limitations ✗ 排除——“好奇心的局限”≠“它造成的负面影响”，偷换概念",
+  "body": "<p><b>排除。</b>“考虑好奇心的长期局限性很有裨益”看似有理，但“好奇心（自身）的<b>局限</b>”≠“它（对人）的<b>负效应</b>”。</p><p>前者是属性描述，后者是行为后果；且“克服局限”是改进事物，本文的方案是<b>预先评估后果、自己刹车</b>——主体动作完全不同。</p><p style='color:#b91c1c'>⚠ 典型误解：由 reducing negative effects 联想到“克服局限”。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（consequences）——引证句换装复述上文：outcome → consequences",
+  "body": "<p>完整句义：<b>“思考长远后果，是降低好奇心可能带来的负效应的关键。”</b>换句话说：别去读网络评论。</p><p>答案选 <b>A（consequences）</b>。</p><p><b>记忆锚点</b>：文末引证句 = 上文结论的<b>换装复述</b>；outcome（结果）→ consequences（后果）；当四个名词都能接 long-term 时，<b>文意对应是唯一裁判</b>。</p><p style='color:#b91c1c'>⚠ 最易误选 B/C：只看搭配不做文意复现检查。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 20 空 · 思考长期____是降低好奇心负效应的关键：consequences / investments / strategies / limitations 选哪个",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 换装复述机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（consequences）", "html": "<b>A consequences</b>：引语是对上一句 imagining the outcome 的换装复述——“长期后果”对“事先预想的结果”。<br>记忆锚点：文末引证句 = 上文结论换装复述；搭配不产生区分度时，文意对应是唯一裁判。<br>最易误选：<b>B investments / C strategies</b>——long-term 搭配都顺，但全文无投资、战略话题。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 20 空 · "思考长期____"是降低好奇心负效应的关键</h2>
+<p>答案：<strong>A（consequences）</strong>。</p>
+<h3>第 0 步：先立机制——引证句是上一句的"换装复述"</h3>
+<p>空 20 在全文最后一句 Hsee 的引语里：<code>Thinking about long-term __20__ is key to reducing the possible negative effects of curiosity</code>（思考长期____是降低好奇心可能带来的负效应的关键）。这句话的位置决定了它的机制：它是<strong>对上文实验结论的总结复述</strong>——科学家用引语收尾时，说的永远是刚刚论证过的内容。上一句刚说完：<code>imagining the outcome of following through on one's curiosity ahead of time can help determine whether it is worth the endeavor</code>（提前设想坚持好奇心的<strong>结果</strong>，有助于判定值不值得）。两句话是同一意思的两次表达：<code>imagining</code> ↔ <code>thinking about</code>，<code>the outcome of...</code> ↔ <code>long-term __20__</code>，<code>determine whether it is worth</code> ↔ <code>is key to reducing the negative effects</code>。对应关系一立起来，空格词就必须与 <strong>outcome（结果、后果）</strong>近义——这是本空唯一的判定标准，四个选项在它面前高下立判。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>"Thinking about long-term <strong><code>__20__</code></strong> is key to reducing the possible negative effects of curiosity," Hsee says. In other words, don't read online comments.</blockquote>
+<ul><li>空格受 <code>long-term</code>（长期的）修饰，是一个<strong>可数/不可数皆可的抽象名词</strong>；</li><li>判定标准来自上一句：<code>imagining the outcome of... ahead of time</code>——空格要与 outcome 对应。</li></ul>
+<h3>第 2 步：同义替换——"结果"的换装是"后果"</h3>
+<p>outcome 是中性的"结果"；但它对上的是"看难受的图"这件事的产物——<strong>事先预想、事后难受</strong>的东西。落到"降低负效应"这个语境里，"坚持好奇心的长期结果"就带有贬义，即"长期<strong>后果</strong>"。consequences 恰好是"后果"义（常含不好的结果），且能被 long-term 自然修饰：think about long-term consequences = 考虑长远后果，正是"预想结果"在劝诫句里的换装。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A consequences</td><td>后果</td><td>✓ 当选</td><td>与上一句 outcome 构成近义复现；"考虑长期后果 → 降低负效应"逻辑贯通，也与全文"先想结果再决定值不值得"的实验结论一致。</td></tr><tr><td>B investments</td><td>投资；投入</td><td>✗ 排除</td><td>long-term investments（长期投资）搭配本身通顺，是命题人故意安排的"搭配陷阱"——但上下文没有谈任何"投入/收益"话题，纯属搭配好、文意无关。</td></tr><tr><td>C strategies</td><td>策略；战略</td><td>✗ 排除</td><td>long-term strategies（长期战略）同样搭配自然；但实验的核心是"预想<strong>结果</strong>"，不是"制定<strong>策略</strong>"——文中没有任何谋划手段的论述。</td></tr><tr><td>D limitations</td><td>限制；局限</td><td>✗ 排除</td><td>"考虑好奇心的长期局限性很有裨益"看似有理，但"好奇心（自身）的局限"≠"它（对人）造成的负面影响"——前者是属性描述，后者是行为后果，偷换了概念。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 B/C 搭配那么顺还是错？</strong>：完形空格的双重标准里，<strong>搭配是必要条件、文意是充分条件</strong>——本题四个名词全都能接 long-term，所以搭配在这里<strong>不产生区分度</strong>，真正筛人的只有"与 outcome 近义复现"这一条。</li><li><strong>为什么 limitations 特别像对的？</strong>：reducing negative effects 让人联想到"克服局限"；但克服局限是<strong>改进事物</strong>，而本文的方案是<strong>预先评估后果、自己刹车</strong>——主体动作完全不同。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/C</strong>：只做 long-term + 名词的搭配题，忘了引证句必须<strong>复述上文</strong>——全文没有任何投资、战略话题。</li><li><strong>误选 D</strong>：把"降低负效应"曲解为"克服局限性"，混淆了"事物属性"与"行为后果"。</li></ul>
+<blockquote>记忆锚点：文末引证句 = 上文结论的<strong>换装复述</strong>；outcome（结果）→ 换装成 consequences（后果）；搭配不产生区分度时，文意对应是唯一裁判。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

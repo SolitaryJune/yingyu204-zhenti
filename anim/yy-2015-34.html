@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-34 · 2015 阅读第 34 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 推理题要顺因果链多走一步",
+  "cls": "key",
+  "tag": "方法",
+  "log": "It can be inferred：答案不在字面，而在 prompting 牵出的因果链上",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>It can be inferred</b> 提示推理题：答案不在原句字面上，而在句内因果链上。本题的链由分词结构 <b>prompting</b>（催生、激起）牵着——「妈咪大战」激起两样东西：①关于「女性为何不能兼顾工作与家庭」的<b>争论</b>；②《向前一步》这类<b>书</b>。书是被争论催生的，书谈的必然是争论的话题。</p>"
+ },
+ {
+  "title": "定位原文 · 第四段②句的一因两果",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第四段②句：prompting arguments ... and books like Lean In",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The \"mommy wars\" of the 1990s are still going on today, prompting arguments about why women still can't have it all and books like Sheryl Sandberg's Lean In, whose title has become a buzzword in its own right.</div><p><b>prompting</b> 接两个宾语：arguments about why women still can't have it all（争论）+ books like <b>Lean In</b>（书）。三步推理：争论主题 = <b>职场女性兼顾工作与家庭的困境</b> → 书因争论而生 → 书讨论职场女性的困扰、替她们发声 = <b>voices for working women</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · B appeals to passionate workaholics（吸引有激情的工作狂）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 有激情的工作狂 ✗ ——同段的 passion 与这本书无关",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>passion 出现在同段④句「如果工作是你的 <b>passion</b> 所在」，说的是<b>员工</b>投入工作，与这本书无关；workaholics（工作狂）更是原文没有的词。</p><p style=\"color:#b91c1c\">⚠ 典型误解：同段看到 passion 就把它和书挂钩，忘了检查动作的发出者与对象。</p>",
+  "body": {
+   "k": "B",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C triggers debates among mommies（引起妈妈间的争论）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 引起妈妈间的争论 ✗ ——因果倒置",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>原文是「妈咪大战<b>催生了</b>这本书」（prompting ... books），C 反说成「这本书引发妈妈间的争论」——<b>因果倒置</b>；且 mommy wars 指关于「女性平衡工作与家庭」的争论，「妈妈之间的争论」表意笼统。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例证（书）当成了原因。</p>",
+  "body": {
+   "k": "C",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D praises motivated employees（赞扬有积极性的员工）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 赞扬有积极性的员工 ✗ ——①句内容与书无关",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>keep employees motivated 是①句讲企业新词汇的激励作用，主语是新用语而非该书——<b>无中生有</b>。</p>",
+  "body": {
+   "k": "D",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · A voices for working women（为职场女性发声）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 为职场女性发声 ✓ ——争论话题催生书，书承话题",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>have it all 锁定话题人群 = 职场女性；争论至今未息 = 困境真实存在；书应运而生 = 替她们说出困扰。四个环节全部来自同一句话，只是把 prompting 的因果补全——这是「合理推理」与「无中生有」的分界线。</p>",
+  "body": {
+   "k": "A",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 推理链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（voices for working women）——推理链见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>推理链：妈咪大战激起「女性为何不能兼顾工作与家庭」的争论 → 争论催生《向前一步》→ 书为职场女性发声。</p><p>答案选 <b>A（voices for working women）</b>。</p><p><b>记忆锚点</b>：prompting arguments ... and books = 一因两果；书承争论之话题。</p><p style=\"color:#b91c1c\">最易误选：<b>C（triggers debates among mommies）</b>——因果倒置是例证类选项的头号陷阱。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T3 第 34 题 · 《向前一步》为何是「为职场女性发声」",
+  subtitle: "考点：推理判断 · 因果链补全 · prompting 一因两果",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（voices for working women）",
+ "html": "<b>A voices for working women（为职场女性发声）</b>。<br>prompting arguments ... and books = 一因两果；书承「女性兼顾工作与家庭」争论之话题。<br>最易误选：<b>C</b>——因果倒置：是妈咪大战催生了书，不是书引发了争论。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：推理题——《向前一步》为什么是"为职场女性发声"</h2>
+<p>答案：<strong>A（voices for working women）</strong>。</p>
+<h3>第 0 步：先立方法——推理题要顺着因果链多走一步</h3>
+<p>It can be inferred 提示这是推理题：答案不在原句字面上，而在句内的因果链上。本题的链由一个分词结构牵着——<strong>prompting</strong> arguments ... <strong>and</strong> books ...："妈咪大战"激起两样东西：①关于"女性为何不能兼顾工作与家庭"的争论；②《向前一步》这类书。书是被争论<strong>催生的</strong>，所以书谈论的必然是争论的话题。</p>
+<h3>第 1 步：定位原文，搭出因果链</h3>
+<blockquote>The "mommy wars" of the 1990s are still going on today, prompting arguments about why women still can't have it all and books like Sheryl Sandberg's Lean In, whose title has become a buzzword in its own right.（译：上世纪九十年代的"妈咪大战"至今仍在继续，激起关于"女性为何仍无法兼顾一切"的争论，也催生了桑德伯格《向前一步》这类书，书名本身已成了流行语。）</blockquote>
+<p>三步推理：争论的主题是<strong>职场女性兼顾工作与家庭的困境</strong>（why women still can't have it all）→ 书因这场争论而生（prompting ... books）→ 所以书讨论的是职场女性的困扰、替她们发声。[A] 的 voices for working women 正是这条链的落点。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B appeals to passionate workaholics</td><td>✗</td><td>错位嫁接 + 捏造：passion 出现在同段④句"如果工作是你的激情所在"，说的是<strong>员工</strong>投入工作，与这本书无关；workaholics（工作狂）更是原文没有的词</td></tr><tr><td>C triggers debates among mommies</td><td>✗</td><td>因果倒置：原文是"妈咪大战催生了这本书"，C 反说成"这本书引发妈妈间的争论"；且 mommy wars 指关于女性平衡工作家庭的争论，"妈妈之间的争论"表意笼统</td></tr><tr><td>D praises motivated employees</td><td>✗</td><td>无中生有：keep employees motivated 是①句讲企业新词汇的激励作用，与该书毫不相干</td></tr></tbody></table>
+<h3>预判追问：A 算不算"过度推理"？</h3>
+<p>不算。推理题的边界是"每一环都能在原文落脚"：have it all 锁定话题人群 = 职场女性；争论至今未息 = 困境真实存在；书应运而生 = 替她们说出困扰。四个环节全部来自同一句话，只是把 prompting 的因果补全——这是"合理推理"与"无中生有"的分界线。</p>
+<blockquote>记忆锚点：prompting arguments ... and books = 一因两果；书承争论之话题 → voices for working women；因果倒置（C）是例证类选项的头号陷阱。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·31 阅读 · 技巧失效：特殊时间拿不到</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：因果题先找“因为”住哪句', cls: 'key',
+    body: '<p>题干 The usual time-management techniques <b>don’t work</b> because ____。因果题的坑：题干句与原因句常<b>不同句</b>。第二段分工：②句列技巧 → ③句宣布不管用 → ④⑤句失败场景 → ⑥句根本原因。<b>③句是现象，⑥句才是原因</b>。</p>',
+    log: '现象在③句，原因在⑥句' },
+  { title: '定位原文（第二段⑥句）', cls: 'key',
+    body: src('“<b>Deep reading requires not just time, but a special kind of time which can’t be obtained merely by becoming more efficient.</b>”') +
+      '<p>深度阅读需要的不只是时间，而是一种<b>特殊时间</b>；这种时间<b>光靠提高效率拿不到</b>。</p>',
+    log: '⑥句宣判：特殊时间，提效拿不到' },
+  { title: '机制拆解', cls: 'good',
+    body: '<p>时间管理技巧的全部能耐 = <b>提高效率、挤出时间</b>；但深度阅读要的是“特殊时间”（不被打扰、能沉浸），提效挤出来的只是普通时间。<b>技巧能保证“有时间”，保证不了“特殊时间”</b>——这就是失效根源。</p>',
+    log: '有普通时间 ≠ 有特殊时间' },
+  { title: '同义替换闭环', cls: 'good',
+    body: '<p>题干 the usual time-management techniques ← 句中 becoming more efficient；题干 don’t work ← can’t be obtained；选项 <b>cannot be guaranteed</b> ← can’t be obtained merely by...。D 落位。</p>',
+    log: 'cannot be guaranteed ← can’t be obtained' },
+  { title: 'A what they can offer does not ease the modern mind', cls: 'bad',
+    body: '<p>⑤句 The modern mind... inclined to interruption 是对现代心智的<b>背景诊断</b>（天然易被打断），不是技巧的效果；文中没说技巧承诺过“安抚”——强加因果。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 背景诊断 ≠ 技巧效果' },
+  { title: 'B what challenging books demand is repetitive reading', cls: 'bad',
+    body: '<p>a challenging book 出现在④句“<b>人太累读不进硬书</b>”的场景里，用于衬托疲惫；“反复阅读”凭空造出。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 原词勾引，无中生有' },
+  { title: 'C what people often forget is carrying a book with them', cls: 'bad',
+    body: '<p>②句 Carry a book with you at all times 是<b>技巧本身</b>的举例——题干问“技巧为什么失败”，拿技巧举例当失败原因，答非所问。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 技巧举例 ≠ 失败原因' },
+  { title: 'D what deep reading requires cannot be guaranteed', cls: 'good',
+    body: '<p>直指⑥句：深度阅读所需（特殊时间）无法靠提效获得——技巧的能力上限，恰是失效根源。<b>D 正确</b>。</p>',
+    ribbon: { k: 4, ok: true },
+    log: 'D 对位⑥句，命中' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>D（what deep reading requires cannot be guaranteed）</b>。记忆锚点：因果题认准总结句——<b>技巧 = 提效挤时间；深度阅读 = 特殊时间，提效拿不到 → D</b>。④⑤句负责描绘失败，⑥句负责宣判原因。</p>',
+    log: '锁定 D' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 31 · 时间管理技巧为何失效',
+  subtitle: '考点：因果细节题 · 定位总结句 · 特殊时间 vs 普通时间',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（what deep reading requires cannot be guaranteed）',
+    html: '记忆锚点：<b>Deep reading requires a special kind of time which can’t be obtained merely by becoming more efficient</b>——技巧只能提效挤时间，保证不了深度阅读所需的“特殊时间” → D。A 是背景诊断强加因果，B 无中生有，C 拿技巧举例当原因。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：技巧为何失效——"普通时间"换不来深度阅读的"特殊时间"</h2>
+<p>答案：<strong>D（what deep reading requires cannot be guaranteed）</strong>。</p>
+<h3>第一步：先立机制——因果题先找到"因为"真正住的那句</h3>
+<p>题干：The usual time-management techniques don't work <strong>because</strong> ____。因果题的坑在于：题干句与原因句常常<strong>不同句</strong>。第二段结构是"②句列举技巧 → ③句宣布不管用 → ④⑤句描述失败场景 → ⑥句一锤定音说根本原因"。逐句分工：③句是现象，⑥句才是原因。原因题的答案必须落在⑥句上。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>Sit down to read and the flywheel of work-related thoughts keeps spinning – or else you're so exhausted that a challenging book's the last thing you need. ... "It is not simply that one is interrupted; it is that one is actually inclined to interruption." <strong>Deep reading requires not just time, but a special kind of time which can't be obtained merely by becoming more efficient.</strong></blockquote>
+<p>⑥句拆开：深度阅读需要的不只是时间，而是一种<strong>特殊时间</strong>；这种时间<strong>光靠提高效率拿不到</strong>。时间管理技巧的全部能耐恰是"提高效率"——它能挤出时间，却保证不了"特殊时间"。所以技巧失效的根源：深度阅读所需的东西，技巧给不了保障。cannot be guaranteed ← can't be obtained merely by becoming more efficient。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A what they can offer does not ease the modern mind</td><td>它们提供的东西无法安抚现代头脑</td><td>⑤句 The modern mind... inclined to interruption 是客观状态描述，与"技巧"没有因果绑定，强加关联</td></tr><tr><td>B what challenging books demand is repetitive reading</td><td>有挑战的书需要反复阅读</td><td>challenging book 出现在"太累"场景里，"反复阅读"凭空造出</td></tr><tr><td>C what people often forget is carrying a book with them</td><td>人们常忘记随身带书</td><td>②句 Carry a book 是技巧举例，非"忘记"之事，反向利用原文</td></tr><tr><td>D what deep reading requires cannot be guaranteed</td><td>深度阅读所需无法得到保证</td><td>⑥句 can't be obtained merely by... 的同义改写，直指技巧的能力上限</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A</strong>：④⑤句的场景（思绪飞转、疲惫、易被打断）很生动，容易顺手选"技巧安抚不了现代人"——但⑤句说的现代心智"天然倾向于被打断"，这是背景诊断，不是技巧的效果；文中没说技巧承诺过"安抚"。</li><li><strong>选 B</strong>：被 a challenging book 原词勾引——原文用它是衬托"人太累，读不进硬书"，与"反复阅读"毫无关系。</li><li><strong>选 C</strong>：Carry a book with you at all times 就在②句——但它是<strong>技巧本身</strong>的例子，题干问的是"技巧为什么失败"，拿技巧举例当失败原因属于答非所问。</li></ul>
+<blockquote>记忆锚点：因果题认准总结句——<strong>技巧 = 提效挤出时间；深度阅读 = 特殊时间，提效拿不到 → D</strong>。④⑤句负责"描绘失败"，⑥句负责"宣判原因"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

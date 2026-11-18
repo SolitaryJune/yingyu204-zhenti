@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-30 · 2025 阅读第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 问句探讨职能分配的倾向",
+    "cls": "key",
+    "tag": "审题",
+    "log": "问句探讨职能分配，答案顺着问句的倾向走",
+    "count": 0,
+    "body": "<p>题干 <code>It can be inferred that local leaders should ____</code>。段[6]②是一个问句：哪些医疗职能留在<b>中央</b>、哪些<b>下放</b>给地方领导？随后两个定语说明地方的优势：负责创造健康的服务＋更懂本地需求。问句的倾向＋地方优势 ⇒ 职能应更多流向地方。</p>"
+  },
+  {
+    "title": "定位原文 · 权力分配之问 + 问句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "should be given to local leaders + 两大优势",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Reform wants to ask how power and resources should be distributed in our health system.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">What health functions should remain at the centre, and what should be given to local leaders, often responsible for services that create health, and with a much better understanding of the needs of their populations?</div><p>should be given to local leaders（应下放给地方领导）＋ 两个优势定语——问句本身已经倾斜。</p>"
+  },
+  {
+    "title": "同义替换锁定 C",
+    "cls": "good",
+    "tag": "替换",
+    "log": "职能下放 + 地方优势 ⇒ play a bigger role",
+    "count": 0,
+    "body": "<p>“更多职能下放＋地方有优势”→ 地方领导应承担更多职能 → <b>play a bigger role in the health system</b>。</p>"
+  },
+  {
+    "title": "逐项分析 · A 更合理地行使权力",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 更合理地行使权力 ✗——问的是分配不是行使",
+    "count": 1,
+    "body": "<p><b>排除。</b>段[6]① power 谈的是“权力如何<b>分配</b>”（distributed）；选项换成“如何<b>行使</b>”（exercise reasonably）——动词一换，问题就换了，<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 培养更强责任感",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B 更强责任感 ✗——responsible 指分工",
+    "count": 2,
+    "body": "<p><b>排除。</b>responsible for services 指“<b>负责</b>……服务”的分工事实，与个人“责任感”无关——<b>曲解词义</b>。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C 发挥更大作用",
+    "cls": "good",
+    "tag": "复认 C",
+    "log": "C 发挥更大作用 ✓——问句倾向的合理推断",
+    "count": 2,
+    "body": "<p><b>复认。</b>be given more functions ＝ role 变大。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D 更好了解健康需求",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 更好了解需求 ✗——那是已有优势，不是待办",
+    "count": 3,
+    "body": "<p><b>排除。</b>with a much better understanding 是地方<b>已具备</b>的优势（现状）；题干问 should（应当做什么）——把已有优势包装成建议，时态与逻辑错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词复现就选，不辨“已有”与“应做”。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C——原词 D 是陷阱",
+    "count": 3,
+    "body": "<p>答案选 <b>C（play a bigger role in the health system）</b>。</p><p><b>记忆锚点</b>：推断题盯住 should 的落点；D 的原词复现是“已有优势”冒充“待办事项”；distribute（分配）≠ exercise（行使）、responsible for（负责分工）≠ 责任感。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 30 题 · 推断：地方领导应当怎样",
+  "subtitle": "Text 2 · 考点：细节理解（推断）· 问句倾向 + 原词陷阱",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“问句倾向 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 C（play a bigger role in the health system）",
+    "html": "<b>C 发挥更大作用</b>——职能下放之问＋地方两大优势（负责创造健康的服务、更懂本地需求）的合理推断。<br>记忆锚点：D 是“已有优势”冒充“待办事项”的原词陷阱；distribute ≠ exercise。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 30 题 · 推断：地方领导应当怎样</h2>
+<p>答案：<strong>C（play a bigger role in the health system 在医疗体系中发挥更大作用）</strong>。</p>
+<h3>第 0 步：先立机制——问句探讨的“分配格局”及其倾向</h3>
+<p>题干 It can be inferred that local leaders should ____。定位段[6]②：这是一个问句——What health functions should remain at the centre, and what should be given to local leaders...? 它探讨医疗职能在<strong>中央与地方</strong>之间怎么分：哪些留在中央，哪些下放给地方。随后两个定语是地方领导的<strong>优势</strong>：often responsible for services that create health（往往负责创造健康的服务）＋ a much better understanding of the needs of their populations（更懂本地需求）。问句的倾向＋地方优势 ⇒ 职能应更多流向地方——地方领导应承担更多职能。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Reform wants to ask how power and resources should be distributed in our health system.<br/>What health functions should remain at the centre, and what should be given to local leaders, often responsible for services that create health, and with a much better understanding of the needs of their populations?</blockquote>
+<p>should be given to local leaders（应下放给地方领导）＋ 两个优势定语——问句本身已经倾斜：职能应更多流向地方。</p>
+<h3>第 2 步：同义替换核对 C</h3>
+<p>“更多职能下放＋地方有优势” → local leaders <strong>play a bigger role in the health system</strong>（发挥更大作用）。be given more functions＝role 变大，属问句语气的合理推断。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A exercise their power more reasonably</td><td>更合理地行使权力</td><td>✗</td><td>段[6]① power 谈的是“权力如何<strong>分配</strong>”（distributed）；选项换成“如何<strong>行使</strong>”（exercise reasonably）——动词一换问题就换了，无中生有</td></tr><tr><td>B develop a stronger sense of responsibility</td><td>培养更强的责任感</td><td>✗</td><td>responsible for services 指“负责……服务”的<strong>分工</strong>事实，与个人“责任感”无关，曲解词义</td></tr><tr><td>C play a bigger role in the health system</td><td>在医疗体系中发挥更大作用</td><td>✓</td><td>职能下放之问＋地方两大优势的合理推断</td></tr><tr><td>D understand people's health needs better</td><td>更好地了解人们的健康需求</td><td>✗</td><td>a much better understanding 是地方<strong>已具备</strong>的优势（现状），不是“应该去做”的事，偷换时间方向</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D 不是原词高度复现吗，为什么不选</strong>：这是“原词陷阱”——原文说地方领导“更懂需求”是<strong>既成优势</strong>（with a much better understanding），题干问的是 should（将来应当做什么）；把已有优势包装成建议，时态与逻辑都错位。</li><li><strong>A 的 power 不是段[6]①原词吗</strong>：原词说的是“权力如何<strong>分配</strong>”（how distributed），选项改成“如何<strong>行使</strong>”（exercise reasonably）——动词一换，问题就换了。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：只认词不复句——没区分“已具备的优势”与“应完成的动作”。</li><li><strong>误选 A</strong>：见 power 选 power，忽略 distribute 与 exercise 的差别。</li></ul>
+<blockquote>记忆锚点：推断题盯住 should 的落点：职能下放＋地方有优势 → play a bigger role；原词复现的 D 是“已有优势”冒充“待办事项”；distribute（分配）≠ exercise（行使）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

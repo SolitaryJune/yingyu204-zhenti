@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-26 · 2011 阅读第 26 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 句意理解题：问例子背后的观点",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：By saying “Newspapers like… their own doom”, the author indicates that newspapers ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>“by saying X, the author indicates…”考的不是引号句字面，而是它<b>替上下文论证了什么</b>。操作顺序：先读字面义 → 再看前后句的论证对象 → 答案是对“上下文观点”的改写。</p>"
+ },
+ {
+  "title": "定位原文 · 例子前后全是“濒死”意象",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第一段 ②③④ 句——the death / the end seemed near / chronicling their own doom",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Whatever happened to the death of newspapers? A year ago the end seemed near.") + quote("The recession threatened to remove the advertising and readers that had not already fled to the internet. Newspapers like the San Francisco Chronicle were chronicling their own doom.") + "<p>往上看：the death、the end seemed near、threatened to remove；往下看：how to save newspapers 的讨论。例子的论证对象只有一件事：<b>一年前报纸业命悬一线</b>。</p>"
+ },
+ {
+  "title": "字面与双关 · chronicling their own doom＝为自己写讣告",
+  "cls": "key",
+  "tag": "双关",
+  "log": "字面与双关：chronicle（编年记录）正是 Chronicle 报名的动词化",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>引号句字面：《旧金山纪事报》之类的报纸正在“记录自己的末日”。chronicle（编年记录）恰好是该报报名 Chronicle 的动词化——专为他者记史的报纸，如今只能记自己的死亡，双关带出“为自己写讣告”的画面。字面绕弯，更要靠上下文定价。</p>"
+ },
+ {
+  "title": "逐项分析 · D were in a desperate situation",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D were in a desperate situation（处于绝望境地） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "body": "<p><b>当选。</b>the death / the end seemed near / chronicling their own doom 三句同向：报纸业危在旦夕——引号句论证的正是这一点。</p>"
+ },
+ {
+  "title": "逐项分析 · B／C：议题不是事实",
+  "cls": "bad",
+  "tag": "排除 B/C",
+  "log": "B state subsidies ✗ C charitable corporations ✗ ——原词活在疑问句里",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除 B、C。</b>Should the state subsidize them? / Should they become charitable corporations? 主语是<b>联邦贸易委员会的讨论内容</b>（“是否应该”的设想），不是对报社现状的陈述——是否获得补贴、是否变成慈善公司，文中从未交代。</p><p style=\"color:#b91c1c\">⚠ 典型误解：认得原词就选；没发现句子功能是疑问（议题）不是事实（结果）。</p>"
+ },
+ {
+  "title": "逐项分析 · A neglected the sign of crisis",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A neglected the sign of crisis ✗ 排除——时间与主语双重错位",
+  "count": 2,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>第二段 little sign of crisis 说的是“<b>现在</b>”危机迹象少（主语是全世界），搬来配第一段“一年前”的题干，时间和主语都对不上；且原文没有“报纸忽略征兆”的表述。</p><p style=\"color:#b91c1c\">⚠ 典型误解：跨段挪用细节，不核对时间线。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（were in a desperate situation）——见结论卡",
+  "count": 2,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>一年前报纸末日似乎近在咫尺——衰退威胁着卷走仅存的广告与读者，像《旧金山纪事报》这样的报纸已在“记录自己的末日”；引号句论证的是报纸业处于绝望境地。</b></p><p>答案选 <b>D（were in a desperate situation 处于绝望境地）</b>。</p><p><b>记忆锚点</b>：by saying X 题＝问例子论证什么；chronicling their own doom＝双关→为自己写讣告；Should they…? 是议题不是事实。</p><p style=\"color:#b91c1c\">最易误选：<b>B（failed to get state subsidies）</b>——原词出现≠事实成立。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 26 题 · “记录自己的末日”在论证什么",
+  subtitle: "考点：第一段句意理解 · 例证题靠上下文定价",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 双关解析 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（were in a desperate situation）",
+    html: "<b>D were in a desperate situation（处于绝望境地）</b>。<br>记忆锚点：chronicling their own doom＝双关（Chronicle 报名）→ 为自己写讣告；the death / the end seemed near / own doom 三句同向。<br>最易误选：<b>B（failed to get state subsidies）</b>——Should they…? 是议题不是事实。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 26 题 · 句意理解题，引号句为上下文服务</h2>
+<p>答案：<strong>D（were in a desperate situation 处于绝望境地）</strong>。</p>
+<h3>第 0 步：先立机制——"by saying X, the author indicates..."要问例子背后的观点</h3>
+<p>这类题考的不是引号句字面说了什么，而是它<strong>替上下文论证了什么</strong>。操作顺序：先读引号句本身（字面义），再看它前后句（论证对象），答案是对"上下文观点"的改写，不是对引号句的复述。引号句里如果出现双关（本题的 Chronicle），字面义还会故意绕弯——更要靠上下文定价。</p>
+<h3>第 1 步：定位原文——例子前后全是"濒死"意象</h3>
+<blockquote>Whatever happened to the death of newspapers? A year ago the end seemed near.</blockquote>
+<blockquote>The recession threatened to remove the advertising and readers that had not already fled to the internet.</blockquote>
+<blockquote>Newspapers like the San Francisco Chronicle were <strong>chronicling their own doom</strong>.</blockquote>
+<p>引号句字面：《旧金山纪事报》之类的报纸正在"记录自己的末日"——chronicle（编年记录）恰好是该报报名 Chronicle 的动词化，双关带出"为自己写讣告"的画面。往上看：the death、the end seemed near、threatened to remove；往上看的上面还有 save newspapers 的讨论。例子的论证对象只有一件事：<strong>一年前报纸业命悬一线</strong>。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A neglected the sign of crisis</td><td>忽略了危机的征兆</td><td>时间错位＋反向：第二段 little sign of crisis 说的是"现在"危机迹象少，且主语是全世界，不是报纸"忽略"征兆</td></tr><tr><td>B failed to get state subsidies</td><td>没能得到州政府补贴</td><td>议题≠事实：Should the state subsidize them? 只是讨论会的议题，是否获得补贴文中从未交代</td></tr><tr><td>C were not charitable corporations</td><td>并非慈善性公司</td><td>同上：Should they become charitable corporations? 是讨论议题；"没变成"不等于"原本就不是"，更非引号句要说的观点</td></tr><tr><td>D were in a desperate situation</td><td>处于绝望境地</td><td>✓ the death / the end seemed near / chronicling their own doom 三句同向：报纸业危在旦夕</td></tr></tbody></table>
+<h3>预判追问：B、C 为什么特别诱人？</h3>
+<p>因为它们是"原词出现"的选项——state subsidize、charitable corporations 都在第一段里。但注意这两个问句的主语是<strong>联邦贸易委员会的讨论内容</strong>（Should they...?＝"是否应该"的设想），不是对报社现状的陈述。句子形态是疑问（提议），不是事实（结果）。原词回炉重造时，句子功能一变，选项即伪——这是句意理解题最常见的机关。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B / C（subsidies / charitable）</strong>：认得原词就选；没发现它们活在疑问句（讨论议题）里，而非事实陈述里。</li><li><strong>误选 A（neglected the sign of crisis）</strong>：把第二段的 little sign of crisis 搬来配第一段的题干——时间（现在 vs 一年前）和主语都对不上。</li><li><strong>只看字面</strong>：把"记录自己的末日"读成报纸在做"末日报道"的职业行为——丢了例子为观点服务的方向。</li></ul>
+<blockquote>记忆锚点：by saying X 题＝问例子论证什么；chronicling their own doom＝双关（Chronicle 报名）→ 为自己写讣告；Should they...? 是议题不是事实；the death / the end seemed near / own doom 三句同向 → desperate situation。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

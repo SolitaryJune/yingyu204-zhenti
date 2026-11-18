@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-07 · 抑郁率翻倍，比谁：A rich / B urban / C working / D educated</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：double the rate for __ Americans；考点：句内语义 + 对比结构",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">One Gallup poll found that 20 percent of Americans who have been unemployed for at least a year report having depression, double the rate for <b>__7__</b> Americans.</div><p>空 7 是 double the rate for __ Americans 中的定语形容词，圈定对比的 B 组人群。</p>"
+ },
+ {
+  "title": "立机制 · 对比句的双方必须只差“一个变量”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：对比变量唯一化 → 空格词 = unemployed 的直接反义",
+  "body": "<p>A 组 = <b>失业至少一年的美国人</b>（20% 患抑郁），B 组 = __ Americans。对比要能“翻倍”出意义，两组必须<b>只在空格变量上不同</b>：A 组的标记变量是 unemployed → B 组应是它的直接反义 working（有工作的）。</p>"
+ },
+ {
+  "title": "找证据 · unemployed 的唯一对照是 working",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：对比双方须只差一个变量——unemployed ↔ working",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">20 percent of Americans who have been unemployed for at least a year report having depression, double the rate for __7__ Americans.</div><p>全文主线是“工作对人的意义”：无工作 ↔ 疾病率上升。把失业者与<b>就业者</b>作比，正好凸显“无工作”的危害；rich/urban/educated 各自的对照（贫穷的/乡村的/未受教育的）都与 unemployed 对不上号。</p>"
+ },
+ {
+  "title": "逐项分析 · A rich（富有的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A rich（富有的）✗ 排除",
+  "body": "<p><b>排除。</b>rich 的对照应是“贫穷的”，与 unemployed 不构成同维度对比。</p>"
+ },
+ {
+  "title": "逐项分析 · B urban（城市的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B urban（城市的）✗ 排除",
+  "body": "<p><b>排除。</b>urban 的对照是“乡村的”，变量错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：三个词都能修饰 Americans，忽略“对比变量唯一化”。</p>"
+ },
+ {
+  "title": "逐项分析 · C working（有工作的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C working（有工作的）✓ 当选",
+  "body": "<p><b>当选。</b>unemployed ↔ working 直接对照，double the rate 的比较才有意义，并服务“工作重要”主线。</p>"
+ },
+ {
+  "title": "逐项分析 · D educated（受过教育的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D educated（受过教育的）✗ 排除",
+  "body": "<p><b>排除。</b>看似与下文 poorly-educated 相对，但下文重心是 shortage of well-paid jobs（缺“工作”）；此处对比维度不是教育。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（working 有工作的）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>一项盖洛普调查发现，失业至少一年的美国人中 20% 表示患有抑郁症，是有工作的美国人比例的两倍。</b></p><p>答案选 <b>C（working 有工作的）</b>。</p><p><b>记忆锚点</b>：double the rate for X → X 与前文主语只差一个变量；unemployed ↔ working。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（educated）：被下句的 poorly-educated 诱惑前移；对比句认“空格处的直接反义”，不认“全文出现过的另一维度”。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 7 空 · 抑郁率翻倍，比谁：A rich / B urban / C working / D educated",
+  subtitle: "考点：句内语义 + 对比结构 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 C（working 有工作的）",
+ "html": "<b>C working（有工作的）</b>。<br>记忆锚点：double the rate for X → X 与前文主语只差一个变量；unemployed ↔ working。<br>最易误选：<b>D（educated）</b>——被下句的 poorly-educated 诱惑前移；对比句认“空格处的直接反义”，不认“全文出现过的另一维度”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 7 空 · 抑郁率翻倍——是失业者的两倍，比谁</h2>
+<p>答案：<strong>C（working 有工作的）</strong>。</p>
+<h3>第 0 步：先立机制——对比句的双方必须只差“一个变量”</h3>
+<p>double the rate for __7__ Americans 是对比结构：A 组 = Americans who have been unemployed for at least a year（失业至少一年的美国人，20% 患抑郁症），B 组 = __7__ Americans。对比要能“翻倍”出意义，两组必须<strong>只在空格变量上不同</strong>：A 组的标记变量是 unemployed，B 组就应是它的直接反义——working（有工作的）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>One Gallup poll found that 20 percent of Americans who have been unemployed for at least a year report having depression, double the rate for __7__ Americans.</blockquote>
+<h3>第 2 步：找证据——unemployed 的唯一对照是 working</h3>
+<p>全文主线是“工作对人的意义”：无工作 ↔ 疾病率上升。调查把“失业者抑郁症率”与“就业者”作比，正好凸显“无工作”的危害。rich/urban/educated 各自的对照（贫穷的/乡村的/未受教育的）都与 unemployed 对不上号。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A rich</td><td>富有的</td><td>✗ 排除</td><td>rich 的对照应是“贫穷的”，与 unemployed 不构成同维度对比。</td></tr><tr><td>B urban</td><td>城市的</td><td>✗ 排除</td><td>urban 的对照是“乡村的”，变量错位。（典型误解：三个词都能修饰 Americans，忽略“对比变量唯一化”。）</td></tr><tr><td>C working</td><td>有工作的</td><td>✓ 当选</td><td>unemployed ↔ working 直接对照，double the rate 的比较才有意义，并服务“工作重要”主线。</td></tr><tr><td>D educated</td><td>受过教育的</td><td>✗ 排除</td><td>看似与下文 poorly-educated 相对，但下文重心是 shortage of well-paid jobs（缺“工作”）；此处对比维度不是教育。</td></tr></tbody></table>
+<p>代入后的完整句义：一项盖洛普调查发现，失业至少一年的美国人中 20% 表示患有抑郁症，是有工作的美国人比例的两倍。</p>
+<h3>预判追问</h3>
+<ul><li><strong>educated 不是正好呼应下文的 poorly-educated 吗？</strong>：呼应对象找错了。下文那句的重心落在 a shortage of well-paid jobs 上——仍是“工作”这条主线；本句对比要的是 unemployed 的直接反义，而不是全文里出现过的另一个维度。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（educated）</strong>：被下一句的 poorly-educated 诱惑前移；对比句认“空格处的直接反义”，不认“全文出现过的高级词”。</li></ul>
+<blockquote>记忆锚点：double the rate for X → X 与前文主语只差一个变量；unemployed ↔ working。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

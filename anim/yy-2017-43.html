@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-43 · 2017 新题型 · 43 · Birgit Klohs 的观点</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "先立机制 · 人物—观点匹配怎么破", "cls": "key", "tag": "机制", "count": 0, "ribbon": null, "log": "机制：人名回文定位 → 抓观点标记词（says/points to/双引号）锁定观点 → 与选项同义替换比对", "body": "<p>本篇新题型是<b>人物—观点匹配</b>：左列 5 个人物，右列 7 个观点（2 个多余）。解法三步：<b>① 人名回文定位</b>——人物名字只在某一段出现，直接跳到那一段；<b>② 抓观点标记词</b>——says / points to / says + 双引号，标记词管到哪儿，观点就到哪儿；<b>③ 同义替换比对</b>——选项几乎都是原文观点的改写，比关键词复现与语义等值。</p>"}, {"title": "定位第八段 · Klohs 说了什么", "cls": "key", "tag": "定位", "count": 0, "ribbon": null, "log": "定位第八段：②句引号内是千禧一代的记忆，says Birgit Klohs 标明出处", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But to win over these young workers, manufacturers have to clear another major hurdle: parents... telling them to avoid the factory. Millennials “<b>remember their father and mother both were laid off</b>. <b>They blame it on the manufacturing recession</b>,” <b>says Birgit Klohs</b>...</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第八段①②句</p><p>观点标记 says Birgit Klohs 挂在句末——引号里的内容就是她的转述：千禧一代<b>记得父母双双被裁</b>，并把这笔账<b>算到制造业衰退头上</b>。</p>"}, {"title": "同义比对 · G 当选", "cls": "good", "tag": "选定 G", "count": 1, "ribbon": {"k": "G", "ok": true}, "log": "G ✓ 当选——laid off ↔ lay-off、blame it on ↔ is to blame 双替换", "body": "<p><b>当选 G。</b>“says that <b>the manufacturing recession is to blame</b> for <b>the lay-off of the young people's parents</b>.”——两处同义替换：the lay-off of ... parents ↔ father and mother both were laid off；is to blame for ↔ They blame it on。语义完全等值。</p>"}, {"title": "逐项归位 · C 的主人是Donald Trump", "cls": "bad", "tag": "C→Donald", "count": 0, "ribbon": {"k": "C", "ok": false}, "log": "C ✗ 排除——该选项属于Donald Trump（第一段）", "body": "<p><b>排除 C。</b>points out that the US doesn't manufacture anything anymore.</p><p>依据（第一段）：“We don't make anything anymore,” he told Fox News</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · D 的主人是Robert Roth", "cls": "bad", "tag": "D→Robert", "count": 0, "ribbon": {"k": "D", "ok": false}, "log": "D ✗ 排除——该选项属于Robert Roth（第六段）", "body": "<p><b>排除 D。</b>believes that it is important to keep a close eye on the age of his workers.</p><p>依据（第六段）：Robert Roth keeps a close eye on the age of his nearly 200 workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · A 的主人是Jason Stenquist", "cls": "bad", "tag": "A→Jason ", "count": 0, "ribbon": {"k": "A", "ok": false}, "log": "A ✗ 排除——该选项属于Jason Stenquist（第七段）", "body": "<p><b>排除 A。</b>says that he switched to electrical engineering because he loves working with tools.</p><p>依据（第七段）：considered medical school before switching to electrical engineering / “I love working with tools. I love creating.”</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · E 的主人是Jay Dunwell", "cls": "bad", "tag": "E→Jay Du", "count": 0, "ribbon": {"k": "E", "ok": false}, "log": "E ✗ 排除——该选项属于Jay Dunwell（第五段）", "body": "<p><b>排除 E。</b>says that for factory owners, workers are harder to find because of stiff competition.</p><p>依据（第五段）：“They're harder to find and they have job offers” + ①句 stiff competition for workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · B 的主人是Rob Spohr", "cls": "bad", "tag": "B→Rob Sp", "count": 0, "ribbon": {"k": "B", "ok": false}, "log": "B ✗ 排除——该选项属于Rob Spohr（第十段）", "body": "<p><b>排除 B。</b>points out that there are enough people to fill the jobs that don't need much skill.</p><p>依据（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · F 的主人是Julie Parks", "cls": "bad", "tag": "F→Julie ", "count": 0, "ribbon": {"k": "F", "ok": false}, "log": "F ✗ 排除——该选项属于Julie Parks（第十一段）", "body": "<p><b>排除 F。</b>points out that a work/life balance can attract young people into manufacturing.</p><p>依据（第十一段）：points to another key to luring Millennials into manufacturing: a work/life balance</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "结论 · 匹配链与记忆锚点", "cls": "good", "tag": "答案 G", "count": 7, "ribbon": null, "log": "43 = G——says 尾挂式观点标记，管住前面的引号内容", "body": "<p>匹配链：<b>人名 Birgit Klohs → 第八段 → 句末 says → “父母被裁归咎制造业衰退” → G。</b></p><p>观点标记既可前置（says Jay Dunwell）也可<b>尾挂</b>（..., says Birgit Klohs）——认准引号范围即可，<b>答案选 G</b>。</p>"}];
+
+AW.init({
+  title: "2017 新题型 · 43 · Birgit Klohs 的观点",
+  subtitle: "考点：人物—观点匹配——定位 + 观点标记词 + 同义替换",
+  counterLabel: "已比对",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 归属他人）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 比对 → 逐项归位”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "43 → G（Birgit Klohs）", "html": "Klohs：千禧一代<b>父母曾被裁员，并把之归咎于制造业衰退</b>（laid off ↔ lay-off；blame it on ↔ is to blame）。<br>记忆锚点：观点标记<b>尾挂</b>（..., says X）同样有效，认准引号辖域。<br>最易误选：<b>C</b>——同为“制造业衰退”话题，但“美国不再制造任何东西”是第一段 Trump 的原话。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 新题型第 43 题 · Birgit Klohs 的观点</h2>
+<p>答案：<strong>G（says that the manufacturing recession is to blame for the lay-off of the young people’s parents.）</strong>。</p>
+<h3>第 0 步：先立机制——观点标记词可以“尾挂”</h3>
+<p>（三步法同前。）本题看点：says Birgit Klohs 挂在<strong>句末</strong>（尾挂式）——引号内容是她的转述，标记词管住前面整句。认准引号辖域即可，不必纠结标记词位置。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Millennials “<strong>remember their father and mother both were laid off</strong>. <strong>They blame it on the manufacturing recession</strong>,” <strong>says Birgit Klohs</strong>, chief executive of The Right Place...（第八段②句）</blockquote>
+<h3>第 2 步：找证据——两处同义替换</h3>
+<p>与 G 项比对：the lay-off of the young people's parents ↔ father and mother both were laid off；is to blame for ↔ They blame it on。语义完全等值，高保真改写。</p>
+<h3>第 3 步：逐项排除（归位到主人）</h3>
+<table><thead><tr><th>选项</th><th>观点内容</th><th>判定</th><th>主人与依据</th></tr></thead><tbody><tr><td>A</td><td>says that he switched to electrical engineering because he loves working with tools.</td><td>✗ 排除</td><td>Jason Stenquist（第七段）：considered medical school before switching to electrical engineering；“I love working with tools. I love creating.”</td></tr><tr><td>B</td><td>points out that there are enough people to fill the jobs that don’t need much skill.</td><td>✗ 排除</td><td>Rob Spohr（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</td></tr><tr><td>C</td><td>points out that the US doesn’t manufacture anything anymore.</td><td>✗ 排除</td><td>Donald Trump（第一段）：“We don't make anything anymore,” he told Fox News</td></tr><tr><td>D</td><td>believes that it is important to keep a close eye on the age of his workers.</td><td>✗ 排除</td><td>Robert Roth（第六段）：keeps a close eye on the age of his nearly 200 workers</td></tr><tr><td>E</td><td>says that for factory owners, workers are harder to find because of stiff competition.</td><td>✗ 排除</td><td>Jay Dunwell（第五段）：“They're harder to find and they have job offers” + For factory owners, it all adds up to stiff competition for workers</td></tr><tr><td>F</td><td>points out that a work/life balance can attract young people into manufacturing.</td><td>✗ 排除</td><td>Julie Parks（第十一段）：points to another key to luring Millennials into manufacturing: a work/life balance</td></tr><tr><td>G</td><td>says that the manufacturing recession is to blame for the lay-off of the young people’s parents.</td><td>✓ 当选（本题）</td><td>Birgit Klohs（第八段）：“remember their father and mother both were laid off. They blame it on the manufacturing recession”</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>C 也谈“制造业衰退”，为什么不是 Klohs？</strong>：话题相近但主人是第一段 Trump，且 C 是 Trump 的原话“We don't make anything anymore”——夸张的竞选式断言，与 Klohs 转述的“父母被裁、归咎衰退”内容不同。</li><li><strong>laid off 与 lay-off 什么关系？</strong>：前者动词（被解雇），后者名词化（解雇事件）——动名转换是同义替换的常见手法。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（points out that the US doesn’t manufacture anything anymore.）</strong>：见“制造业衰退”就配，不查主人。</li><li><strong>尾挂式标记词跟丢</strong>：says 在句末，只顾句首找人名的考生会漏。</li></ul>
+<blockquote>记忆锚点：观点标记<strong>尾挂</strong>（..., says X）同样有效，管住前面的引号；blame it on ↔ is to blame for、laid off ↔ lay-off。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

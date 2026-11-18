@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-04 · 一个被“漫无目的”所____的荒地：A characterized / B divided / C balanced / D measured</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 4 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：同位语 one 的后置定语；考点：句内语义 + 分词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...the future will be a wasteland of a different sort, one <b>__4__</b> by purposelessness: Without jobs to give their lives __5__, people will simply become lazy and depressed.</div><p>空 4 是同位语 one 的后置定语（过去分词），by purposelessness 交代“被什么怎样”。</p>"
+ },
+ {
+  "title": "立机制 · “one”是同位语，空格词与首段对仗",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：one = a wasteland 的同位语 → 与首段 defined by inequality 结构对仗",
+  "body": "<p>purposelessness 是<b>性质</b>，能挂到“一片荒地”上的动词须表达“性质从属于对象”。再看首段：work-free world will be <b>defined by</b> inequality——本句与它结构完全对仗（wasteland of a different sort / one __ by purposelessness ↔ world / defined by inequality），空格词应与 defined 同义复现。</p>"
+ },
+ {
+  "title": "找证据 · 对仗是决定性证据，冒号后是特征的白描",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：defined by inequality ↔ 空 4 by purposelessness 同构对仗",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A different and not mutually exclusive prediction holds that the future will be a wasteland of a different sort, one __4__ by purposelessness.</div><p><b>defined by inequality ↔ __ by purposelessness</b>：两句同构。冒号后“人们只会变得懒惰和消沉”正是“漫无目的”作为<b>特征</b>的表现——特征描绘一幅状态画面，不是“分割/平衡/衡量”的动作。</p>"
+ },
+ {
+  "title": "逐项分析 · A characterized（以……为特点）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A characterized（以……为特点）✓ 当选",
+  "body": "<p><b>当选。</b>“被漫无目的标示特点的荒地”，与首段 defined by inequality 结构、语义双双对仗。</p>"
+ },
+ {
+  "title": "逐项分析 · B divided（分开）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B divided（分开）✗ 排除",
+  "body": "<p><b>排除。</b>divided by 后接“造成分割的因素”（如 divided by a common language）；“被漫无目的分割的荒地”逻辑不通，“除以”义项更不沾边。</p>"
+ },
+ {
+  "title": "逐项分析 · C balanced（平衡）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C balanced（平衡）✗ 排除",
+  "body": "<p><b>排除。</b>平衡要求施动、受动双方属性相当：“荒地（地点）”与“漫无目的（性质）”无法互相平衡。</p>"
+ },
+ {
+  "title": "逐项分析 · D measured（测量）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D measured（测量）✗ 排除",
+  "body": "<p><b>排除。</b>measured by 引出“评判标准/参照”；用一种“性质”去衡量一片“地”不合逻辑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 by 就想到“标准”，套进 measured by。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（characterized 以……为特点）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>……未来将是另一种荒地，一个以“漫无目的”为特征的荒地。</b></p><p>答案选 <b>A（characterized 以……为特点）</b>。</p><p><b>记忆锚点</b>：同位语 one __ by... ↔ 上文 defined by... 对仗；性质词 + 荒地/世界 → characterized by。</p><p style=\"color:#b91c1c\">⚠ 最易误选 D（measured）：把 purposelessness 当“衡量指标”，忘了它是 defined by 的对应物，功能是“标示特征”。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 4 空 · 一个被“漫无目的”所____的荒地：A characterized / B divided / C balanced / D measured",
+  subtitle: "考点：句内语义 + 分词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 A（characterized 以……为特点）",
+ "html": "<b>A characterized（以……为特点）</b>。<br>记忆锚点：同位语 one __ by... ↔ 上文 defined by... 对仗；性质词 + 荒地/世界 → characterized by。<br>最易误选：<b>D（measured）</b>——把 purposelessness 当“衡量指标”，忘了它是 defined by 的对应物，功能是“标示特征”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 4 空 · 一个被“漫无目的”所____的荒地</h2>
+<p>答案：<strong>A（characterized 以……为特点）</strong>。</p>
+<h3>第 0 步：先立机制——“one”是同位语，空格词与首段对仗</h3>
+<p>one __4__ by purposelessness 中，one 是 a wasteland of a different sort 的同位语，过去分词短语作后置定语：<strong>这种荒地“被漫无目的”怎样了？</strong> purposelessness 是性质、状态，能挂到“一片荒地”上的动词，必须表达“性质从属于对象”的关系。再看首段：the coming work-free world will be <strong>defined by</strong> inequality——本句与它结构完全对仗（wasteland of a different sort / one __ by purposelessness ↔ world / defined by inequality），空格词应与 defined 同义复现：characterized（以……为特征）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>A different and not mutually exclusive prediction holds that the future will be a wasteland of a different sort, one __4__ by purposelessness: Without jobs to give their lives __5__, people will simply become lazy and depressed.</blockquote>
+<h3>第 2 步：找证据——冒号后是 purposelessness 的白描</h3>
+<p>冒号后“人们只会变得懒惰和消沉（become lazy and depressed）”正是“漫无目的”作为<strong>特征</strong>的表现：特征描绘一幅状态画面，而不是“分割/平衡/衡量”某个动作。defined by inequality ↔ __ by purposelessness 的对仗是决定性证据。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A characterized</td><td>以……为特点</td><td>✓ 当选</td><td>“被漫无目的标示特点的荒地”，与首段 defined by inequality 结构、语义双双对仗。</td></tr><tr><td>B divided</td><td>分开</td><td>✗ 排除</td><td>divided by 后接“造成分割的因素”（如 divided by a common language）；“被漫无目的分割的荒地”逻辑不通，“除以”义项更不沾边。</td></tr><tr><td>C balanced</td><td>平衡</td><td>✗ 排除</td><td>平衡要求施动、受动双方属性相当；“荒地（地点）”与“漫无目的（性质）”不能互相平衡。</td></tr><tr><td>D measured</td><td>测量</td><td>✗ 排除</td><td>measured by 引出“评判标准/参照”；用一种“性质”去衡量一片“地”不合逻辑。（典型误解：见 by 就想到“标准”，套进 measured by。）</td></tr></tbody></table>
+<p>代入后的完整句义：……未来将是另一种荒地，一个以“漫无目的”为特征的荒地。</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么 purposelessness 不能是“衡量标准”？</strong>：它在首段的对应物 defined by inequality 里，inequality 是世界的“特征”而非“指标”；本段由同位语 one 复制了同一关系。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（measured）</strong>：把 purposelessness 当成“衡量指标”，忘了它是 defined by 的对应物，功能是“标示特征”。</li></ul>
+<blockquote>记忆锚点：同位语 one __ by... ↔ 上文 defined by... 对仗；性质词 + 荒地/世界 → characterized by。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

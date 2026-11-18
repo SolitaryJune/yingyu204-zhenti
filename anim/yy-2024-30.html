@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-30 · 2024 阅读第 30 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 段群观点题的三路信号',
+    cls: 'key',
+    tag: '审题',
+    log: 'What does Goodall think the UK government should do?——观点横跨第四、五段',
+    count: 0,
+    body: '<p>人物观点横跨两段，靠三组信号立起段群主旨：① <b>词义复现</b>——productive tree planting / supplies of wood / enough wood；② <b>三个 While 让步句</b>——重心在主句；③ <b>建议标志</b>——we need...、Confor is now calling for...</p>'
+  },
+  { title: '定位原文 · While 句一：现状不足',
+    cls: 'key',
+    tag: '定位',
+    log: '主句：政府支持的重心仍在粮食生产与仅保多样性的林地',
+    count: 0,
+    body: quote('While productive tree planting can deliver real financial benefits to rural economies and contribute to the UK’s net-zero strategy, the focus of government support continues to be on food production and the rewilding and planting of native woodland solely for biodiversity.') +
+      '<p>While 从句让步（种树有乡村经济、净零两大好处），<b>主句才是重心</b>：政府支持的重点至今不在生产性林木种植上——现状不足。</p>'
+  },
+  { title: '定位原文 · While 句二、三：需求 + 要推力',
+    cls: 'key',
+    tag: '定位',
+    log: '主句：土地还要提供木材供应 + Confor calling for 更大推力',
+    count: 0,
+    body: quote('“While food production and biodiversity health are clearly of critical importance, we need our land to also provide secure supplies of wood for construction, manufacturing and contribute to net zero.”') +
+      quote('“While the UK government has stated its ambition for more tree planting, there has been little action on the ground. Confor is now calling for much greater impetus behind those aspirations...”') +
+      '<p>主句二：<b>土地还要提供可靠木材供应</b>（需求）；主句三：有雄心无行动，<b>Confor 呼吁更大推力</b>（建议标志）。</p>'
+  },
+  { title: '归纳 · 三路并指一件事',
+    cls: 'key',
+    tag: '归纳',
+    log: '归纳：现状不足 + 木材需求 + 呼吁推力 → 加大对生产性林木种植的扶持',
+    count: 0,
+    body: '<p>三个 While 主句与建议标志共同指向：<b>政府应把支持的重心转向生产性林木种植</b>。词义复现链：productive tree planting → supplies of wood → enough wood to meet increasing demand。</p>'
+  },
+  { title: 'C：Provide more support for productive tree planting —— 归纳闭环',
+    cls: 'good',
+    tag: '锁定 C',
+    log: 'C 加大扶持生产性林木种植 ✓——段群主旨的合理概括',
+    count: 0,
+    ribbon: { k: 3, ok: true },
+    body: '<p>现状（支持没给到位）+ 需求（木材要供上）+ 建议（calling for greater impetus）→ <b>Provide more support for productive tree planting</b>。support / impetus、productive tree planting / wood supplies 双重对应。</p>'
+  },
+  { title: 'B：boosting rural economies —— 让步从句的好处冒充建议',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 提振乡村经济 ✗——种树的好处之一，不是建议本身',
+    count: 1,
+    ribbon: { k: 2, ok: false },
+    body: '<p><code>deliver real financial benefits to rural economies</code> 出现在 While <b>让步从句</b>里——它是种树的“好处铺垫”，用来衬托主句的诉求（政府支持该往哪倾斜）。把好处当建议，就是舍本逐末。</p><p style="color:#b91c1c">⚠ 典型误解：让步句里的信息优先级高于主句。</p>'
+  },
+  { title: 'D：net-zero strategy —— 同为让步从句的好处',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D 优先贯彻净零战略 ✗——另一处好处铺垫，不是建议核心',
+    count: 2,
+    ribbon: { k: 4, ok: false },
+    body: '<p><code>contribute to the UK’s net-zero strategy</code> 同样在 While 让步从句中——净零是种树的另一大好处，不是 Goodall 建议的内容；第四段 2 句把它列为种树的作用之一，性质与 B 相同。</p><p style="color:#b91c1c">⚠ 典型误解：见“战略重要性”就当成行动建议。</p>'
+  },
+  { title: 'A：Subsidise low-carbon homes —— 偷换环节',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A 补贴低碳住宅 ✗——“提供建材”≠“补贴盖房”',
+    count: 3,
+    ribbon: { k: 1, ok: false },
+    body: '<p><code>build low-carbon homes</code>、<code>supplies of wood for construction</code> 的意思是土地要<b>提供建房木材</b>；选项把“提供材料”偷换成“补贴盖房”这一下游环节，主体与动作全变。</p><p style="color:#b91c1c">⚠ 典型误解：由住宅字眼联想补贴政策。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 C',
+    log: '答案 C（Provide more support for productive tree planting）——While 句重心在主句',
+    count: 3,
+    body: '<p>答案选 <b>C（Provide more support for productive tree planting）</b>。</p><p><b>记忆锚点</b>：While 让步句的重心在主句；建议标志 we need / calling for 指向 productive tree planting；选项先删共同动词（Subsidise / Pay attention / Provide support / Give priority 都是“给支持”），再比差异宾语。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 30 题 · Goodall 认为英国政府该做什么',
+  subtitle: 'Text 2 · 考点：段群观点题 · While 让步句重心 + 建议标志',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“定位段群 → 归纳主旨 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（support productive tree planting）',
+    html: '三路信号：<b>词义复现 + 三个 While 主句 + we need / calling for</b> → 政府应加大对生产性林木种植的扶持。<br>记忆锚点：While 重心在主句——B（乡村经济）、D（净零）是让步从句里的好处铺垫，不是建议；A 把“提供建材”偷换成“补贴建房”。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 30 题 · Goodall 认为英国政府该做什么</h2>
+<p>答案：<strong>C（Provide more support for productive tree planting 加大对生产性林木种植的扶持）</strong>。</p>
+<h3>第 0 步：先立机制——段群主旨靠三样东西撑起来</h3>
+<p>What does Goodall think the UK government should do：人物观点横跨第四、五段，是“段群主旨式”的观点题。段群靠三组信号确立重心：① 词义复现——productive tree planting / supplies of wood / enough wood 反复出现；② 三个 While 主句——While 让步句的重心永远在主句；③ 建议标志——we need our land to...、Confor is now calling for...。三路并指一件事：政府应把支持重心转向<strong>生产性林木种植</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>While productive tree planting can deliver real financial benefits to rural economies and contribute to the UK’s net-zero strategy, the focus of government support continues to be on food production and the rewilding and planting of native woodland solely for biodiversity.<br/>“While food production and biodiversity health are clearly of critical importance, we need our land to also provide secure supplies of wood for construction, manufacturing and contribute to net zero.”<br/>“While the UK government has stated its ambition for more tree planting, there has been little action on the ground. Confor is now calling for much greater impetus behind those aspirations...”</blockquote>
+<h3>第 2 步：归纳——让步句的重心串起来读</h3>
+<p>三个 While 句的主句分别是：政府支持的重心<strong>仍在粮食生产与仅保生物多样性的林地</strong>（现状不足）；我们的土地<strong>还要提供可靠木材供应</strong>（需求）；政府有雄心却<strong>缺乏落地行动</strong>（要推力）。合成一句：政府应加大对生产性林木种植的支持——C 项。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A Subsidise the building of low-carbon homes</td><td>补贴低碳住宅建设</td><td>✗</td><td>文意是土地要“提供建房木材”，不是补贴盖房</td></tr><tr><td>B Pay greater attention to boosting rural economies</td><td>更注重提振乡村经济</td><td>✗</td><td>舍本逐末：乡村受益只是种树的好处之一，非建议本身</td></tr><tr><td>C Provide more support for productive tree planting</td><td>加大对生产性林木种植的扶持</td><td>✓</td><td>三个 While 主句 + calling for 的共同指向</td></tr><tr><td>D Give priority to pursuing its net-zero strategy</td><td>优先贯彻净零战略</td><td>✗</td><td>同 B：净零是种树的另一好处，不是建议核心</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>B、D 不都在原文吗？</strong>：在，但都是 While 让步从句里的“好处铺垫”（种树能振兴乡村、能助净零），建议的落点在主句——“政府支持该往哪倾斜”。把好处当建议，就是舍本逐末。</li><li><strong>怎么快速抓差异？</strong>：四个选项的前半（Subsidise / Pay greater attention / Provide more support / Give priority）都是“给予支持”义，属共同信息可淡化；真正分胜负的是后半宾语：低碳住宅 / 乡村经济 / 生产性林木种植 / 净零战略——只有“生产性林木种植”在段群中反复复现。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B／D</strong>：把让步从句里的“好处”当成了建议内容。</li><li><strong>误选 A</strong>：由 build low-carbon homes 字眼联想，混淆“提供建材”与“补贴建房”。</li></ul>
+<blockquote>记忆锚点：While 让步句的重心在主句；建议标志 we need / calling for 指向 productive tree planting；选项先删共同动词，再比差异宾语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

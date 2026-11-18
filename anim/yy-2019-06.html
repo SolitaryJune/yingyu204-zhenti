@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 6 空 · 称重与锻炼成果的关系（名词）：A definition / B depiction / C distribution / D prediction</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 6 在「称重与锻炼成果的关系（名词）」位；考点：句内语义 + 名词词义辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I also found that weighing myself daily did not provide an accurate <b>__6__</b> of the hard work and progress I was making in the gym.</div><p>空 6 是 provide an accurate __ of... 里的名词：每日称重不能对“我在健身房付出的努力和进步”提供准确的什么。名词要说明“称重数字”与“锻炼成果”之间的作用关系。</p>"
+ },
+ {
+  "title": "立机制 · 称重数字是锻炼成果的“镜子”",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：称重数字是锻炼成果的“镜子”",
+  "body": "<p>称重是“监测锻炼成果”的手段——数字是成果的一面“镜子/照片”，即对成果的“反映、呈现”。作者抱怨的正是这面镜子失真：体重变化滞后（下句：三周到一个月才显现），每天照镜子照不出真东西。accurate depiction of... = 对……的准确描绘/反映。I also found 承接第二段：这是过度称重的第二条弊端。</p>"
+ },
+ {
+  "title": "找证据 · 下句揭示“照不出”的原因：体重滞后",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下句揭示“照不出”的原因：体重滞后",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It takes about three weeks to a month to notice significant changes in your weight.</div><p>下句解释了“照不出”的原因：体重变化要三周到一个月才显现——每日称重这面“镜子”反映不了当下的真实成果，故空格取“描绘、反映”义的名词。</p>"
+ },
+ {
+  "title": "逐项分析 · A definition（定义）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A definition（定义）✗ 排除",
+  "body": "<p><b>排除。</b>“下定义”是对事物本质属性的说明，文中无意解释“努力和进步”的概念。</p>"
+ },
+ {
+  "title": "逐项分析 · B depiction（描述；反映）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B depiction（描述；反映）✓ 当选",
+  "body": "<p><b>当选。</b>provide an accurate depiction of the hard work and progress = 准确反映付出与进步，正是“称重数字 ↔ 锻炼成果”的关系。</p>"
+ },
+ {
+  "title": "逐项分析 · C distribution（分配；分布）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C distribution（分配；分布）✗ 排除",
+  "body": "<p><b>排除。</b>利用中文“安排、规划”的联想干扰：distribution 实指“把物资分发/共享给群体”，与“称重反映成果”无关。</p>"
+ },
+ {
+  "title": "逐项分析 · D prediction（预测）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D prediction（预测）✗ 排除",
+  "body": "<p><b>排除。</b>prediction of + 未来情形（如 a prediction of a Republican victory）；而 hard work and progress I was making 是“当下正在发生”的事，不是未来，谈不上预测。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 6 填 depiction（描述；反映）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">weighing myself daily did not provide an accurate <b>depiction</b> of the hard work and progress I was making in the gym.</div><p>每日称重无法准确反映我在健身房付出的努力和取得的进步。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "log": "答案 B（depiction 描述；反映）——见结论卡",
+  "body": "<p>答案选 <b>B（depiction 描述；反映）</b>。</p><p><b>记忆锚点</b>：称重数字是锻炼成果的“照片”：depiction（描绘、反映）；镜子失真的原因是体重变化滞后三周到一个月。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（prediction）</b>：把“称重”想成“预测走势”；但 of 后是“当下的努力与进步”（I was making），不是未来事件。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 6 空 · 称重与锻炼成果的关系（名词）：A definition / B depiction / C distribution / D prediction",
+  subtitle: "考点：句内语义 + 名词词义辨析 · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（depiction 描述；反映）", "html": "<b>B（depiction 描述；反映）</b>。<br>记忆锚点：称重数字是锻炼成果的“照片”：depiction（描绘、反映）；镜子失真的原因是体重变化滞后三周到一个月。<br>最易误选：<b>D（prediction）</b>——把“称重”想成“预测走势”；但 of 后是“当下的努力与进步”（I was making），不是未来事件。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 6 空 · 称重与锻炼成果的关系（名词）</h2>
+<p>答案：<strong>B（depiction 描述；反映）</strong>。</p>
+<h3>第 0 步：先立机制——称重数字是锻炼成果的“镜子”</h3>
+<p>称重是“监测锻炼成果”的手段——数字是成果的一面“镜子/照片”，即对成果的“反映、呈现”。作者抱怨的正是这面镜子失真：体重变化滞后（下句：三周到一个月才显现），每天照镜子照不出真东西。accurate depiction of... = 对……的准确描绘/反映。I also found 承接第二段：这是过度称重的第二条弊端。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>I also found that weighing myself daily did not provide an accurate <strong>__6__</strong> of the hard work and progress I was making in the gym.</blockquote>
+<p>空 6 是 provide an accurate __ of... 里的名词：每日称重不能对“我在健身房付出的努力和进步”提供准确的什么。名词要说明“称重数字”与“锻炼成果”之间的作用关系。</p>
+<h3>第 2 步：找证据——下句揭示“照不出”的原因：体重滞后</h3>
+<blockquote>It takes about three weeks to a month to notice significant changes in your weight.</blockquote>
+<p>下句解释了“照不出”的原因：体重变化要三周到一个月才显现——每日称重这面“镜子”反映不了当下的真实成果，故空格取“描绘、反映”义的名词。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A definition</td><td>定义</td><td>✗ 排除</td><td>“下定义”是对事物本质属性的说明，文中无意解释“努力和进步”的概念。</td></tr><tr><td>B depiction</td><td>描述；反映</td><td>✓ 当选</td><td>provide an accurate depiction of the hard work and progress = 准确反映付出与进步，正是“称重数字 ↔ 锻炼成果”的关系。</td></tr><tr><td>C distribution</td><td>分配；分布</td><td>✗ 排除</td><td>利用中文“安排、规划”的联想干扰：distribution 实指“把物资分发/共享给群体”，与“称重反映成果”无关。</td></tr><tr><td>D prediction</td><td>预测</td><td>✗ 排除</td><td>prediction of + 未来情形（如 a prediction of a Republican victory）；而 hard work and progress I was making 是“当下正在发生”的事，不是未来，谈不上预测。</td></tr></tbody></table>
+<p>代入后的完整句义：weighing myself daily did not provide an accurate depiction of the hard work and progress I was making in the gym.（每日称重无法准确反映我在健身房付出的努力和取得的进步。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（prediction）</strong>：把“称重”想成“预测走势”；但 of 后是“当下的努力与进步”（I was making），不是未来事件。</li></ul>
+<blockquote>记忆锚点：称重数字是锻炼成果的“照片”：depiction（描绘、反映）；镜子失真的原因是体重变化滞后三周到一个月。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

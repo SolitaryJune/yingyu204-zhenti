@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-35 动画：态度题——作者怎么看"广告造习惯"</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：态度题三板斧", "body": "<p>题干：<b>The author's attitude toward the influence of advertisement on people's habits is ____</b>（作者对\"广告影响习惯\"的态度）</p><p>三板斧：一锁评价对象（广告对习惯的影响）；二扫<b>作者自己的</b>情感词；三辨引用——商家的话只代表商家。</p>", "log": "态度题三板斧：锁对象、扫情感词、分清谁在说话"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：末段是作者的落点", "body": "<div class=\"qq\"><b>末段：</b>…there is power in tying certain behaviors to habitual cues through ruthless advertising. As this new science of habit has emerged, controversies have erupted when the tactics have been used to sell questionable beauty creams or unhealthy foods. <span class=\"cn\">（译：通过无情广告绑定习惯确有其效；但当这些策略被用来销售可疑美容霜或不健康食品时，激烈争议爆发。）</span></div>", "log": "作者态度落在末段——逐个扫情感词"}, {"cls": "", "ecs": "step", "tag": "扫描", "count": 0, "title": "情感词扫描：四个词全是负面", "body": "<table class=\"aw-mini\"><tr><th>情感词</th><th>含义</th><th>倾向</th></tr><tr><td>ruthless</td><td>无情的、冷酷的</td><td><span class=\"bad-dot\">贬</span></td></tr><tr><td>questionable</td><td>效用可疑的</td><td><span class=\"bad-dot\">贬</span></td></tr><tr><td>unhealthy</td><td>不健康的</td><td><span class=\"bad-dot\">贬</span></td></tr><tr><td>controversies have erupted</td><td>激烈争议爆发</td><td><span class=\"bad-dot\">贬</span></td></tr></table><p>负面词密集 → 作者态度指向 negative。</p>", "log": "ruthless / questionable / unhealthy / controversies——全负面"}, {"cls": "bad", "ecs": "miss", "tag": "排除 A", "title": "排除 A：indifferent（漠不关心）", "body": "<p><b>A · indifferent（漠不关心）</b><span class=\"bad-dot\">✗</span></p><p>全文七段篇幅专论商家制造习惯，笔墨如此集中——不可能漠不关心。</p><p>干扰性最低的选项。</p>", "log": "排除 A：indifferent（漠不关心）", "count": 1, "ribbon": {"k": 1, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 C", "title": "排除 C：positive（支持的）", "body": "<p><b>C · positive（支持的）</b><span class=\"bad-dot\">✗</span></p><p>来源是第六段 Berning 的话 \"Creating positive habits is a huge part…\"——这是<b>商家引语</b>，且 positive 修饰的是 habits，不是作者态度。</p><p><b>引语冒充作者立场</b>——态度题头号陷阱。</p>", "log": "排除 C：positive（支持的）", "count": 2, "ribbon": {"k": 3, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 D", "title": "排除 D：biased（片面的）", "body": "<p><b>D · biased（片面的）</b><span class=\"bad-dot\">✗</span></p><p>文章先述商家做法、再借公共卫生诉求、末段承认有效又指其争议——正反都有笔墨，恰不是\"偏颇\"。</p>", "log": "排除 D：biased（片面的）", "count": 3, "ribbon": {"k": 4, "ok": false}}, {"cls": "good", "ecs": "ok", "tag": "锁定 B", "title": "锁定 B：negative（消极的）", "body": "<p><b>B · negative（消极的）</b><span class=\"ok-dot\">✓</span></p><p>末段负面词链 ruthless / questionable / unhealthy / controversies 表明作者的担忧与批评——<b>negative 成立</b>。</p>", "log": "锁定 B：negative（消极的）", "count": 4, "ribbon": {"k": 2, "ok": true}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 4, "title": "结论：答案 B", "body": "<p><b>答案 B（negative）</b>——作者对\"广告造习惯\"持批评态度。</p><p>记忆锚点：态度题先分\"谁在说话\"；作者自己的贬义词链才是立场。</p>", "log": "结论：作者态度是 negative，答案选 B"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-35 · 态度题：作者怎么看\"广告造习惯\"",
+  subtitle: "考点：Text1 观点态度 · 方法：锁定评价对象 → 扫情感词 → 辨引用与立场",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 B",
+    html: "<b>情感词链 ruthless / questionable / unhealthy / controversies 全负面 → negative</b>。易错：C 的 positive 来自商家 Berning 的<b>引语</b>，且 positive 修饰 habits——引语冒充作者立场是态度题头号陷阱。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：态度题——分清"谁在说话"</h2>
+<p>答案：<strong>B</strong>（negative）。</p>
+<h3>第 0 步：先立机制——态度题的三板斧</h3>
+<p>观点态度题的机制：作者态度藏在<strong>作者自己的用词</strong>里，不藏在别人嘴里。三步走：一锁评价对象（the influence of advertisement on people's habits——广告对习惯的影响）；二扫情感词（贬义词密集 → negative）；三辨"引用"——文中商家、专家的话是<strong>引语</strong>，只代表说话人自己，不能直接当作者立场。</p>
+<h3>第 1 步：定位——末段的情感词链</h3>
+<blockquote>Through experiments and observation, social scientists like Dr. Berning have learned that there is power in tying certain behaviors to habitual cues through <strong>ruthless</strong> advertising. As this new science of habit has emerged, <strong>controversies</strong> have erupted when the tactics have been used to sell <strong>questionable</strong> beauty creams or <strong>unhealthy</strong> foods.（……通过<strong>无情的</strong>广告把行为与习惯暗示绑定确实有效。随着这门新兴习惯科学兴起，这些策略被用来销售<strong>可疑的</strong>美容霜或<strong>不健康的</strong>食品，<strong>激烈争议</strong>随之爆发。）</blockquote>
+<p>ruthless（无情的）、questionable（可疑的）、unhealthy（不健康的）、controversies have erupted（争议爆发）——四个负面评价词密集落在末段，这是作者给"广告造习惯"下的判词。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（indifferent）漠不关心</strong>：全文七段篇幅专论商家如何制造习惯，笔墨如此集中，谈不上漠不关心——干扰性最低。</li><li><strong>C（positive）支持</strong>：来源是第六段商家心理学家 Berning 的话 "Creating positive habits is a huge part of improving our consumers' lives…"。两个破绽：这是<strong>引语</strong>，代表商家立场；且 positive 修饰的是 habits（正面习惯），不是作者对广告的态度。<strong>被引用观点冒充作者立场</strong>，是态度题的头号陷阱。</li><li><strong>D（biased）片面的</strong>：文章先述商家做法、再借公共卫生诉求、末段承认有效又指其争议——正反都有笔墨，恰不是"偏颇"。</li></ul>
+<blockquote>记忆锚点：态度题先分"谁在说话"——商家的话是引用；作者自己的贬义词链 ruthless / questionable / unhealthy / controversies 才是立场 → negative。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

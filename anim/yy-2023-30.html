@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023 阅读第 30 题 · 全文推断题：「资金短缺」四次同义复现 → 需要增加拨款</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2023 阅读第 30 题 · 全文推断题：「资金短缺」四次同义复现 → 需要增加拨款","subtitle":"考点：主旨推断 · 方法：抓全文复现的同义表述链 → 提炼言外之意（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 串复现链 → 提炼结论 → 逐项排除”的推理链。","stemEn":"It can be concluded from the text that the national park system <b>____</b>.","stemZh":"从文中可以得知，国家公园系统____。（全文推断题：找反复出现的主题词）","quotes":[{"tag":"定位① · 复现链前两环（首、二段）","en":"…the federal government’s ideas for plugging <b>the chronic funding gap</b> of our national parks… they have a <b>maintenance backlog of more than $12 billion</b>.","zh":"chronic funding gap（长期资金缺口）→ maintenance backlog（维护积压 120 亿）：开篇两段已把「缺钱」立起来。"},{"tag":"定位② · 复现链后两环（五、七段）","en":"<b>The real problem is that the parks have been chronically starved of funding</b>… The parks do all this <b>on a shoestring</b>. Congress allocates <b>only</b> $3 billion a year—an amount that <b>has been flat since 2001</b>.","zh":"starved of funding（缺钱缺到饿）→ on a shoestring（靠鞋带般微薄的钱硬撑）→ 拨款 20 年不涨：四次同义复现，主题只有一个——缺钱。"},{"tag":"机制 · 复现即主旨","en":"funding gap → maintenance backlog → starved of funding → on a shoestring","zh":"同一件事被换着说法讲四遍，就是作者最想说的：国家公园系统需要更多资金；游客 1980 年以来涨 50% 而拨款不涨，紧迫感再加一码。"}],"opts":[{"k":"A","en":"is able to cope with staff shortages","zh":"能够应付人员短缺","why":"把 on a shoestring（资金微薄）误读成「人员短缺」——偷换概念；且「能应付」与全文的危机叙事相反。"},{"k":"B","en":"is able to meet visitors’ demands","zh":"能够满足游客需求","why":"与文意相悖——游客增长 50%+ 而拨款 20 年不涨，加上基础设施 crumbling，「能满足需求」无从谈起。"},{"k":"C","en":"is in need of a new pricing policy","zh":"需要新的定价政策","why":"偷换对象——「20 年持平」说的是国会拨款额，不是门票价格；全文从未出现「定价」。"},{"k":"D","en":"is in need of a funding increase","zh":"需要增加资金拨付","why":"","good":"funding gap → backlog → starved of funding → on a shoestring 四次复现，言外之意只有一个：<b>需要增加资金拨付</b>。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1],"state":{"A":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}},{"show":[0,1],"state":{"A":"bad","B":"bad","C":"bad","D":"good"}}],"snaps":[{"cls":"step","tag":"审题","log":"It can be concluded… 全文推断题——先找全文反复出现的同义表述，复现最多的就是主旨","count":0},{"cls":"shift","tag":"复现链前两环","log":"① the chronic funding gap（首段）② maintenance backlog of more than $12 billion（二段）——「缺钱」开篇即立","count":0},{"cls":"shift","tag":"复现链后两环","log":"③ chronically starved of funding（五段）④ on a shoestring + 拨款 only $3 billion、20 年 flat（末段）——缺钱讲到第四遍，加上游客涨 50%","count":0},{"cls":"miss","tag":"排除 A","log":"A staff shortages ✗：on a shoestring 说的是钱不是人——偷换概念；「能应付」也与危机叙事相悖","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B meet visitors’ demands ✗：游客涨 50% 而拨款不涨、设施破败——「能满足」与文意相反","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"miss","tag":"排除 C","log":"C new pricing policy ✗：「20 年持平」说的是国会拨款不是门票价格——对象偷换","count":3,"ribbon":{"k":"C","ok":false}},{"cls":"ok","tag":"选定 D","log":"D funding increase ✓：四次复现的言外之意——国家公园系统需要增加资金拨付","count":3,"ribbon":{"k":"D","ok":true}},{"cls":"done","tag":"结论","log":"答案 D：同一主题词换四套说法 = 主旨；复现链 funding gap → backlog → starved → shoestring","count":3,"done":true}],"result":{"big":"答案 D（is in need of a funding increase）","html":"<b>D</b>：chronic funding gap → $12 billion backlog → starved of funding → on a shoestring——「缺钱」复现四次，结论：<b>需要增加资金拨付</b>。<br>A 把「缺钱」读成「缺人」；B 与「游客涨、拨款不涨、设施破败」相悖；C 把「拨款持平」偷换成「定价问题」。<br>记忆锚点：<b>同一件事换着说法讲多遍 = 全文主旨</b>；on a shoestring 靠钱说事，别读成「人手」。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 30 题——「缺钱」四度复现：结论是需要增加拨款</h2>
+<p>答案：<strong>D（is in need of a funding increase）</strong>。</p>
+<h3>第一步：先立机制——同一件事换着说法讲多遍 = 主旨</h3>
+<p>It can be concluded from the text 是全文推断题。本文的「缺钱」主题被换了四套说法反复讲——复现最多的就是作者最想说的；再由「拨款 20 年不涨、游客却涨 50%」补上紧迫感，结论自然浮现。</p>
+<h3>第二步：定位原文——串起复现链</h3>
+<blockquote>…the federal government's ideas for plugging the chronic funding gap of our national parks… Collectively, they have a maintenance backlog of more than $12 billion.</blockquote>
+<blockquote>The real problem is that the parks have been chronically starved of funding… The parks do all this on a shoestring. Congress allocates only $3 billion a year—an amount that has been flat since 2001…</blockquote>
+<p>复现链：funding gap（资金缺口）→ maintenance backlog（维护积压）→ starved of funding（缺钱缺到饿）→ on a shoestring（靠微薄资金硬撑）——四次表述，一个主题。</p>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A is able to cope with staff shortages ✗</strong>：把 on a shoestring（资金微薄）误读成「人员短缺」——偷换概念；且「能应付」与全文的危机叙事相反。</li><li><strong>B is able to meet visitors' demands ✗</strong>：与文意相悖——游客增长 50%+ 而拨款 20 年不涨，加上基础设施 crumbling，「能满足需求」无从谈起。</li><li><strong>C is in need of a new pricing policy ✗</strong>：偷换对象——「20 年持平」说的是国会拨款额（an amount 指拨款），不是门票价格；全文从未出现「定价」。</li><li><strong>D is in need of a funding increase ✓</strong>：四次复现的言外之意——需要增加资金拨付。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：flat（持平）被联想成「价格问题」——看清主语：an amount that has been flat 指的是 Congress allocates 的拨款。</li><li><strong>误选 A</strong>：shoestring 的词典义是「极少的钱」，不是「人手不足」。</li></ul>
+<blockquote>记忆锚点：复现链 funding gap → backlog → starved → shoestring = 主旨；末段 only + flat + 游客涨 50% 把「需要加钱」顶到明面上。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

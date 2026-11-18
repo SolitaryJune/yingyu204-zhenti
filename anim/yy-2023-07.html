@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-07 · 2023 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 7 所在句，考点：上下文语义 + 句内逻辑 + 介词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And __7__ improvements to the premium, paid version, few people were making the upgrade.</div><p>介词题三步：① 切出前后两半句；② 查逻辑开关——few 是否定倾向词（几乎没有）；③ 定关系——“改进了”vs“没人升级” = 转折。</p>"
+ },
+ {
+  "title": "找证据 · And 承接上句，把“没人升级”的落差写满",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：上句“都用免费版” + 本句“改进了也几乎没人升级” → 转折",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The __6__ was that too many customers were using the basic, free version of their product.</div><p>And 顺接上句继续揭伤疤：客户赖在免费版上，即便公司多次改进付费版，升级的人依旧寥寥。despite improvements... few people... 把“白费劲”的落差装进一个介词。</p>"
+ },
+ {
+  "title": "逐项分析 · A despite（尽管；即使）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A despite（尽管；即使） ✓ 当选",
+  "body": "<p><b>当选。</b>despite 恰好契合句内两部分的反差：“尽管对付费版做了多次改进，依然鲜少有人升级”；再顺接上句（And），把“用户不升级”的问题写得层层加深。</p>"
+ },
+ {
+  "title": "逐项分析 · B unlike（与……不同）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B unlike（与……不同） ✗ 排除——unlike 引出对比，但对比双方不对等，语法先塌",
+  "body": "<p><b>排除。</b>unlike 之后应接与主语对等的比较对象。本句 unlike improvements... 与主语 few people 一个是“改进”一个是“人”，不是同类事物，对比结构立不住。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看出“对比味儿”就选，没检查对比双方是否对称</p>"
+ },
+ {
+  "title": "逐项分析 · C through（凭借；因为）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C through（凭借；因为） ✗ 排除——忽视 few 的否定语义，把转折误判成因果顺承",
+  "body": "<p><b>排除。</b>读成“凭借对付费版的改进→人们进行升级”就全反了：few people 本义是“几乎没人升级”。few 的否定读出来，因果链当场断裂。</p><p style=\"color:#b91c1c\">⚠ 典型误解：few / a few 一字之差的否定语义没有读出来</p>"
+ },
+ {
+  "title": "逐项分析 · D besides（除……之外（还））",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D besides（除……之外（还）） ✗ 排除——递进补充语义不通——“除了改进，没人升级”不成立",
+  "body": "<p><b>排除。</b>besides 引出追加信息：“除多次改进付费版之外，鲜少有人升级”——两件事不是并列追加的关系，语义拼不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“递进/追加”当成万能连接词</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（despite 尽管；即使）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>尽管对高级付费版本做了多次改进，依然鲜少有人进行版本升级</b>（few 的否定语义 → 句内转折）。</p><p>答案选 <b>A（despite 尽管；即使）</b>。</p><p><b>记忆锚点</b>：介词题先切半句、再查逻辑开关：few = 否定倾向 → 转折 → despite；unlike 要求对比双方对等；through 的因果前提是“确实发生了”，few 一票否决。</p><p style=\"color:#b91c1c\">最易误选：<b>C（through）</b>——few / a few 一字之差的否定语义没有读出来</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 7 空 · “____ improvements…, few people…”该填哪个介词",
+  subtitle: "考点：句内逻辑 + 介词辨析 · few 的否定语义 → despite",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 A（despite）", "html": "<b>A despite（尽管；即使）</b>。<br>完整句义：尽管对高级付费版本做了多次改进，依然鲜少有人进行版本升级。<br>记忆锚点：介词题先切半句、再查逻辑开关：few = 否定倾向 → 转折 → despite；unlike 要求对比双方对等；through 的因果前提是“确实发生了”，few 一票否决。<br>最易误选：<b>C</b>——few 的否定语义没读出来，把转折误判成因果"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句内逻辑 + 介词辨析——few 自带否定，转折浮出水面</h2>
+<p>答案：<strong>A（despite 尽管；即使）</strong>。</p>
+<h3>第 0 步：先立框架——介词题先做“半句关系判断”，few 是判断开关</h3>
+<p>空格句：And __7__ improvements to the premium, paid version, few people were making the upgrade。模型：介词/连接词题先做<strong>半句关系判断</strong>。前半：公司对付费版做了多次改进；后半：few people 做出升级。注意 <strong>few 是否定倾向词</strong>（几乎没有）——后半句在说“没多少人升级”。一边“努力改进”、一边“几乎没人买账”，句内逻辑 = 转折；能装下“尽管”的介词只有 despite。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>And __7__ improvements to the premium, paid version, few people were making the upgrade.</blockquote>
+<p>句首的 And 说明本句顺着上句继续揭伤疤：太多客户用免费版 → <strong>即便</strong>改进付费版也没人升级——问题层层递进，despite 恰好把“改进白做了”的落差装了进去。</p>
+<blockquote>The __6__ was that too many customers were using the basic, free version of their product.（上一句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A despite</td><td>尽管；即使</td><td>✅ 当选</td><td>despite + 改进 vs few 人升级，落差严丝合缝</td></tr><tr><td>B unlike</td><td>与……不同</td><td>❌ 排除</td><td>unlike 引出对比，但对比双方不对等，语法先塌</td></tr><tr><td>C through</td><td>凭借；因为</td><td>❌ 排除</td><td>忽视 few 的否定语义，把转折误判成因果顺承</td></tr><tr><td>D besides</td><td>除……之外（还）</td><td>❌ 排除</td><td>递进补充语义不通——“除了改进，没人升级”不成立</td></tr></tbody></table>
+<p>代入全句：<strong>尽管对高级付费版本做了多次改进，依然鲜少有人进行版本升级</strong>（few 的否定语义 → 句内转折）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 B（unlike 与……不同）</strong>：看出“对比味儿”就选，没检查对比双方是否对称。unlike 之后应接与主语对等的比较对象。本句 unlike improvements... 与主语 few people 一个是“改进”一个是“人”，不是同类事物，对比结构立不住。</li><li><strong>误选 C（through 凭借；因为）</strong>：few / a few 一字之差的否定语义没有读出来。读成“凭借对付费版的改进→人们进行升级”就全反了：few people 本义是“几乎没人升级”。few 的否定读出来，因果链当场断裂。</li><li><strong>误选 D（besides 除……之外（还））</strong>：把“递进/追加”当成万能连接词。besides 引出追加信息：“除多次改进付费版之外，鲜少有人升级”——两件事不是并列追加的关系，语义拼不上。</li></ul>
+<blockquote>记忆锚点：介词题先切半句、再查逻辑开关：few = 否定倾向 → 转折 → despite；unlike 要求对比双方对等；through 的因果前提是“确实发生了”，few 一票否决。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

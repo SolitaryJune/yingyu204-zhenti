@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 16 空 · Choose one criterion and you may well __16__ others：A interpret / B criticize / C sacrifice / D tolerate</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 16 在「Choose one criterion and you may well __16__ others」；考点：句内语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Choose one criterion and you may well __16__ others.</div><p>空 16 是 may well 后的动词原形，宾语是 others（其他标准）；它是 Choose one 的必然后果。</p>"
+ },
+ {
+  "title": "立机制 · 全文机制在此收口：选一失余",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：全文机制在此收口：选一失余",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Choose one criterion and you may well __16__ others.</div><p>Choose... and you may well... 是“条件 → 结果”句式：选一个标准，就很可能____其他。全文机制闭环在此收口——首段说“重视一个，其余 distorted”；公交例说“保准点就牺牲收益与安全”；航空例说“保准时就改写航程时长”。</p><p>所有例证的共同后果都是“其他标准受损”，空格词必须是贬义的“舍弃 / 损害” ⇒ sacrifice（牺牲）。它正是 distorted 在结论段的同义升级。</p>"
+ },
+ {
+  "title": "找证据 · 首段伏笔：Emphasize one and the others become distorted",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：首段伏笔：Emphasize one and the others become distorted",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Emphasize one and the others become distorted.</div><p>首段已预告后果（distorted 扭曲），末段用一个更凝练的动词重述——sacrifice。两词同向：被冷落的要素不是被“解读 / 容忍 / 批评”，而是被牺牲。</p>"
+ },
+ {
+  "title": "逐项分析 · A interpret（诠释；解读）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A interpret（诠释；解读）✗ 排除",
+  "body": "<p><b>排除。</b>interpret（解读）是中性词，常用结构 interpret A as B；“解读其他标准”与“选一个”构不成因果。</p>"
+ },
+ {
+  "title": "逐项分析 · B criticize（批评）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B criticize（批评）✗ 排除",
+  "body": "<p><b>排除。</b>criticize（批评）虽是贬义方向，但“批评其他标准”不是“选择一个”的结果——批评是态度动作，牺牲才是后果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见到“负面影响”就往“批评”上靠；先问“这个动作是不是‘选一个’的必然后果”——只有 sacrifice 是。</p>"
+ },
+ {
+  "title": "逐项分析 · C sacrifice（牺牲；舍弃）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C sacrifice（牺牲；舍弃）✓ 当选",
+  "body": "<p><b>当选。</b>sacrifice（牺牲）与 distorted 同向，把全文“顾此失彼”收束成一个动词。</p>"
+ },
+ {
+  "title": "逐项分析 · D tolerate（容忍）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D tolerate（容忍）✗ 排除",
+  "body": "<p><b>排除。</b>tolerate（容忍）暗含宾语是“不喜欢的事”，但“容忍其他标准”同样不是“选一个”的必然后果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“容忍”当成消极语气的万能词；tolerate 的主语须有意愿，且容忍不等于受损。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（sacrifice 牺牲；舍弃）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>Choose one criterion and you may well sacrifice others.（选择一个标准，那么就很可能要牺牲其他标准。）</b></p><p>答案选 <b>C（sacrifice 牺牲；舍弃）</b>。</p><p><b>记忆锚点</b>：Choose...and... = 条件 → 结果；选一个 ⇄ 牺牲其他（sacrifice others）；与首段 distorted 遥相呼应。</p><p style=\"color:#b91c1c\">⚠ 最易误选 B（criticize）：见到“负面影响”就往“批评”上靠；先问“这个动作是不是‘选一个’的必然后果”——只有 sacrifice 是。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 16 空 · Choose one criterion and you may well __16__ others：A interpret / B criticize / C sacrifice / D tolerate",
+  subtitle: "考点：句内语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 C（sacrifice 牺牲；舍弃）",
+ "html": "<b>C sacrifice（牺牲；舍弃）</b>。<br>完整句：Choose one criterion and you may well sacrifice others.（选择一个标准，那么就很可能要牺牲其他标准。）<br>记忆锚点：Choose...and... = 条件 → 结果；选一个 ⇄ 牺牲其他（sacrifice others）；与首段 distorted 遥相呼应。<br>最易误选：<b>B criticize（批评）</b>——见到“负面影响”就往“批评”上靠；先问“这个动作是不是‘选一个’的必然后果”——只有 sacrifice 是。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 16 空 · Choose... and... 的结果：选一个，牺牲其他</h2>
+<p>答案：<strong>C（sacrifice 牺牲；舍弃）</strong>。</p>
+<h3>第 0 步：先立机制——全文机制在此收口：选一失余</h3>
+<blockquote>Choose one criterion and you may well __16__ others.</blockquote>
+<p>Choose... and you may well... 是“条件 → 结果”句式：选一个标准，就很可能____其他。全文机制闭环在此收口——首段说“重视一个，其余 distorted”；公交例说“保准点就牺牲收益与安全”；航空例说“保准时就改写航程时长”。</p>
+<p>所有例证的共同后果都是“其他标准受损”，空格词必须是贬义的“舍弃 / 损害” ⇒ sacrifice（牺牲）。它正是 distorted 在结论段的同义升级。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Choose one criterion and you may well __16__ others.</blockquote>
+<p>空 16 是 may well 后的动词原形，宾语是 others（其他标准）；它是 Choose one 的必然后果。</p>
+<h3>第 2 步：找证据——首段伏笔：Emphasize one and the others become distorted</h3>
+<blockquote>Emphasize one and the others become distorted.</blockquote>
+<p>首段已预告后果（distorted 扭曲），末段用一个更凝练的动词重述——sacrifice。两词同向：被冷落的要素不是被“解读 / 容忍 / 批评”，而是被牺牲。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A interpret</td><td>诠释；解读</td><td>✗ 排除</td><td>interpret（解读）是中性词，常用结构 interpret A as B；“解读其他标准”与“选一个”构不成因果。</td></tr><tr><td>B criticize</td><td>批评</td><td>✗ 排除</td><td>criticize（批评）虽是贬义方向，但“批评其他标准”不是“选择一个”的结果——批评是态度动作，牺牲才是后果。（典型误解：见到“负面影响”就往“批评”上靠；先问“这个动作是不是‘选一个’的必然后果”——只有 sacrifice 是。）</td></tr><tr><td>C sacrifice</td><td>牺牲；舍弃</td><td>✓ 当选</td><td>sacrifice（牺牲）与 distorted 同向，把全文“顾此失彼”收束成一个动词。</td></tr><tr><td>D tolerate</td><td>容忍</td><td>✗ 排除</td><td>tolerate（容忍）暗含宾语是“不喜欢的事”，但“容忍其他标准”同样不是“选一个”的必然后果。（典型误解：把“容忍”当成消极语气的万能词；tolerate 的主语须有意愿，且容忍不等于受损。）</td></tr></tbody></table>
+<p>代入后的完整句义：Choose one criterion and you may well sacrifice others.（选择一个标准，那么就很可能要牺牲其他标准。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>may well 是什么语气？</strong>：may well = 很可能、多半会——表示高概率的必然倾向。它把“选一个 ⇒ 牺牲其他”写成普遍规律，与首段 Most work-related behaviors have multiple components 的普遍性表述一致。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（criticize）</strong>：只对上“负面”的褒贬，没对上“后果”的逻辑。criticize 是主动的态度行为，sacrifice 才是“选一个”之后被动发生的代价。</li></ul>
+<blockquote>记忆锚点：Choose...and... = 条件 → 结果；选一个 ⇄ 牺牲其他（sacrifice others）；与首段 distorted 遥相呼应。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

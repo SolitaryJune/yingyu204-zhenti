@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-28 · 2011 阅读第 28 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 比较＋因果题要同时填满两个条件",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：Compared with their American counterparts, Japanese newspapers are much more stable because they ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干结构：Compared with…, …much more stable <b>because</b>…。答案要同时满足：①与“美国”构成对比；②能解释“稳定”。定位指令：Japanese newspapers 所在的第四段。</p>"
+ },
+ {
+  "title": "定位原文 · 一组数据加一句总结",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：87% vs 35% 的广告收入占比，Not surprisingly 收尾",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("American papers have long been highly unusual in their reliance on ads. Fully 87% of their revenues came from advertising in 2008… In Japan the proportion is 35%.") + quote("Not surprisingly, Japanese newspapers are much more stable.") + "<p>美国：对广告依赖异常严重，87% 收入靠广告；日本：占比仅 35%，读者收入占大头。</p>"
+ },
+ {
+  "title": "找因果 · Not surprisingly 把“依赖差→稳定差”钉死",
+  "cls": "key",
+  "tag": "因果",
+  "log": "找因果：依赖度差这么大 → 日本的稳定“毫不意外”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>Not surprisingly（毫不意外）是明示的因果评价词：正因两国广告依赖度差这么多，日本的稳定才“毫不意外”。C 的 <b>less dependent on advertising</b> ＝ reliance on ads 更低的同义改写。</p>"
+ },
+ {
+  "title": "逐项分析 · C are less dependent on advertising",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C are less dependent on advertising（对广告依赖更低） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "body": "<p><b>当选。</b>87% vs 35% 的唯一差别＝对广告依赖更低；“依赖低 → 收入结构稳 → 报纸稳”正是 Not surprisingly 收束的因果链。</p>"
+ },
+ {
+  "title": "逐项分析 · A have more sources of revenue（营利渠道更多）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A have more sources of revenue ✗ 排除——原文只比较结构比例，不比渠道数量",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>全段只讲读者和广告两类收入，比较的维度是<b>结构比例</b>（谁占大头），不是<b>渠道数量</b>（有几个来源）——把“结构更均衡”偷换成“渠道更多”是拿常识填空位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用“日本报纸发行收入丰厚”的常识补白。</p>"
+ },
+ {
+  "title": "逐项分析 · B have more balanced newsrooms（更均衡的编辑部）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B more balanced newsrooms ✗ 排除——balanced 的修饰对象被调包",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>①句 more balanced 修饰的是 businesses（收益结构），不是 newsrooms（编辑部）——机构名词被调包，句子重心换了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认形容词不认修饰对象。</p>"
+ },
+ {
+  "title": "逐项分析 · D are less affected by readership（受读者影响较小）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D less affected by readership ✗ 排除——方向反了：读者影响反而更大",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>日本广告仅占 35%，来自读者的收入约 65%——读者影响反而<b>更大</b>，不是更小。</p><p style=\"color:#b91c1c\">⚠ 典型误解：35% 的占比换算错了方向。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（are less dependent on advertising）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>美国报纸 87% 的收入来自广告，对广告依赖异常严重；日本这一比例仅 35%，收入以读者为主——依赖度低，所以毫不意外地更稳定。</b></p><p>答案选 <b>C（are less dependent on advertising 对广告的依赖程度更低）</b>。</p><p><b>记忆锚点</b>：数据对比＋Not surprisingly＝因果已定；87% vs 35% 的差别只有一条——对广告的依赖（reliance on ads）；依赖低 → 收入结构稳 → 报纸稳。</p><p style=\"color:#b91c1c\">最易误选：<b>A（more sources of revenue）</b>——结构比例被偷换成渠道数量。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 28 题 · 日本报纸为何更稳定",
+  subtitle: "考点：第四段数据对比 · 87% vs 35% 的因果链",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找因果 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 C（are less dependent on advertising）",
+    html: "<b>C are less dependent on advertising（对广告依赖更低）</b>。<br>记忆锚点：87% vs 35% ＋ Not surprisingly ＝ 因果已定；依赖低 → 收入结构稳 → 报纸稳。<br>最易误选：<b>A（more sources of revenue）</b>——原文比较的是结构比例，不是渠道数量。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 28 题 · 87% 对 35%——数字对比句里藏着因果</h2>
+<p>答案：<strong>C（are less dependent on advertising 对广告依赖程度更低）</strong>。</p>
+<h3>第 0 步：先立机制——比较＋因果题，答案必须同时填满"比较差"和"因果链"</h3>
+<p>题干结构：Compared with American counterparts, Japanese newspapers are much more stable <strong>because</strong>...。要同时满足两个条件：一是与"美国"构成对比，二是能解释"稳定"。定位段的写法是典型的"数据对比＋结论"：先摆两国的广告收入占比（87% vs 35%），再用 Not surprisingly（毫不意外）把"稳定"收尾——占比差与稳定差之间的因果，正是作者排好递给读者的。</p>
+<h3>第 1 步：定位原文——一组数据加一句总结</h3>
+<blockquote>American papers have long been <strong>highly unusual in their reliance on ads</strong>. Fully <strong>87%</strong> of their revenues came from advertising in 2008... In Japan the proportion is <strong>35%</strong>.</blockquote>
+<blockquote><strong>Not surprisingly</strong>, Japanese newspapers are much more stable.</blockquote>
+<p>美国：对广告依赖异常严重（highly unusual in their reliance on ads），87% 的收入靠广告；日本：占比仅 35%，来自读者的收入占大头。Not surprisingly 是明示的因果评价词：正因两国依赖度差这么大，日本的稳定才"毫不意外"。C 的 less dependent on advertising ＝ reliance on ads 更低的同义改写。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A have more sources of revenue</td><td>营利渠道更多</td><td>无中生有：全段只讲读者和广告两类收入，没比较"渠道数量"，更没说日本有额外渠道</td></tr><tr><td>B have more balanced newsrooms</td><td>拥有更均衡的编辑部</td><td>词语偷换：①句 more balanced 修饰的是 businesses（收益结构），不是 newsrooms（编辑部）；机构名词被调包</td></tr><tr><td>C are less dependent on advertising</td><td>对广告的依赖程度更低</td><td>✓ 87% vs 35% 的唯一差别＝对广告依赖更低；"依赖低 → 更稳"正是 Not surprisingly 收束的因果</td></tr><tr><td>D are less affected by readership</td><td>受读者的影响较小</td><td>方向反了：日本广告仅占 35%，来自读者的收入约 65%——读者影响反而更大</td></tr></tbody></table>
+<h3>预判追问：为什么 A（渠道更多）不行？日本不是还有发行收入吗？</h3>
+<p>常识上日本报纸发行收入丰厚，但原文只给了"读者收入＋广告收入"这一副骨架，比较的维度只有<strong>结构比例</strong>（谁占大头），不是<strong>渠道数量</strong>（有几个来源）。两国都是两类收入，差别只在占比：美国畸重广告、日本以读者为主。A 把"结构更均衡"偷换成"渠道更多"，是拿常识填补原文空位。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（more sources of revenue）</strong>：把"收入结构健康"读成"来源更多"；原文未比较渠道数量。</li><li><strong>误选 B（more balanced newsrooms）</strong>：balanced 的修饰对象被调包——是收益结构均衡，不是编辑部均衡。</li><li><strong>误选 D（less affected by readership）</strong>：把 35% 的广告占比换算错了方向——读者收入占比高意味着读者影响大，不是小。</li></ul>
+<blockquote>记忆锚点：数据对比＋Not surprisingly＝因果已定；87% vs 35% 的差别只有一条——对广告的依赖（reliance on ads）；依赖低 → 收入结构稳 → 报纸稳。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

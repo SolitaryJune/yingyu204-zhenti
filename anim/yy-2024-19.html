@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-19 · 2024 完形第 19 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 定语从句里的 be + adj. + for',
+    cls: 'key',
+    tag: '审题',
+    log: '四个选项均为形容词，构成 be ____ for socialising 系表结构',
+    count: 0,
+    body: '<p><code>some time in your diary when you’re __19__ for socialising</code> 是修饰 some time 的定语从句。先看词性：ungrateful / unavailable / responsible / regretful 都是形容词，填入后构成 <b>be + adj. + for sth</b>。要判断的核心是：这段 some time 是一段什么时间？</p>'
+  },
+  { title: '定位原文 · 空 19 所在句',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：空 19 在定语从句中，考点：上下文语义 + 句内语义',
+    count: 0,
+    body: quote('Make sure you __18__ some time in your diary when you’re __19__ for socialising and use this time to relax, __20__ and recover.') +
+      '<p>从句交代的是“被标出的时间”的属性：这是一段____社交的时间。</p>'
+  },
+  { title: '找证据 · 这段时间的用途反推形容词',
+    cls: 'key',
+    tag: '证据',
+    log: '找证据：use this time to relax ... and recover——腾出来专门休息',
+    count: 0,
+    body: '<p>对策的目的是避免上文点名的 social burnout（社交倦怠）：把一段时间标出来专门休息，等于宣布这段时间<b>谢绝社交</b>。be ____ for socialising 应取“没空、不去”之义。</p>'
+  },
+  { title: '逐项分析 · A ungrateful（不领情的）',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A ungrateful ✗ 排除——贬义色彩与客观建议口吻不符',
+    count: 1,
+    ribbon: { k: 'A', ok: false },
+    body: '<p><b>排除。</b>be ungrateful for sth = “对……不领情、忘恩负义”，带贬义指责色彩。全文是冷静客观的健康建议，不存在“怪罪”谁。</p><p style="color:#b91c1c">⚠ 典型误解：只做词义匹配，不核对词汇的情感色彩。</p>'
+  },
+  { title: '逐项分析 · B unavailable（没空的）',
+    cls: 'good',
+    tag: '选定 B',
+    log: 'B unavailable ✓ 当选——“没空社交”的时间正是拿来休息的时间',
+    count: 1,
+    ribbon: { k: 'B', ok: true },
+    body: '<p><b>当选。</b>形容人时 unavailable 取“没空、不便出面”义，如 The manager is unavailable today。“标出你没空社交的时间，并利用这段时间放松休息”——与“避免社交倦怠”的对策逻辑严丝合缝。</p>'
+  },
+  { title: '逐项分析 · C responsible（负责的）',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C responsible ✗ 排除——“对社交负责”在文中不成立',
+    count: 2,
+    ribbon: { k: 'C', ok: false },
+    body: '<p><b>排除。</b>be responsible for sth = 对某项工作、职责负责，或对事故错误担责。socialising 是个人意愿、主观选择，不是可以被“负责”的职责对象。</p><p style="color:#b91c1c">⚠ 典型误解：只认高频搭配 be responsible for，不问搭配在语境中是否成立。</p>'
+  },
+  { title: '逐项分析 · D regretful（后悔的）',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D regretful ✗ 排除——“后悔”的前提是已发生，与前瞻性安排冲突',
+    count: 3,
+    ribbon: { k: 'D', ok: false },
+    body: '<p><b>排除。</b>be regretful for sth = 对已发生的事感到遗憾、后悔。命题人借上文“社交过度的危害”诱导“后悔社交”；但本句 some time 是<b>前瞻性安排</b>（腾出来休息的时间），且“后悔”与后文“利用这段时间放松”无法衔接。</p><p style="color:#b91c1c">⚠ 典型误解：顺着危害段落脑补情绪，不检查词义前提。</p>'
+  },
+  { title: '结论 · 完整句义与记忆锚点',
+    cls: 'good',
+    tag: '答案 B',
+    log: '答案 B（unavailable 没空的）——完整句义见结论卡',
+    count: 3,
+    body: '<p>完整句义：<b>务必在日程簿里划出你没空社交的一段时间，并用它来放松、休息、恢复。</b></p><p>答案选 <b>B（unavailable）</b>。</p><p><b>记忆锚点</b>：腾出来休息的时间 = unavailable for socialising；responsible for 管“责任”、regretful for 管“懊悔”，都要有成立前提；ungrateful 是贬义，进不了客观建议的语境。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 完形第 19 空 · “你____社交的那段时间”该填哪个形容词',
+  subtitle: '考点：上下文语义 + 句内语义（be + adj. + for 结构）',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（unavailable）',
+    html: '<b>B unavailable（没空的；不能/不愿的）</b>——被腾出来休息的时间，正是“没空社交”的时间。<br>最易误选 <b>D（regretful）</b>——命题人借“社交过度的危害”诱导“后悔社交”，但“后悔”以已发生为前提，与前瞻性安排矛盾。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 19 空 · “你____社交的那段时间”填哪个形容词</h2>
+<p>答案：<strong>B（unavailable 没空的；不能/不愿的）</strong>。</p>
+<h3>第 0 步：先立机制——定语从句里的 be + adj. + for 结构</h3>
+<p>some time in your diary when you’re ____ for socialising 是修饰 some time 的定语从句；四个选项均为形容词，构成 be + adj. + for sth 的系表结构。这段 some time 的下文是 use this time to relax... and recover——它是被特意腾出来“不社交、只休息”的时间。所以空格形容词要表达“没空／不愿社交”，而不是任何带评价色彩的情绪词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Make sure you __18__ some time in your diary when you’re __19__ for socialising and use this time to relax, __20__ and recover.</blockquote>
+<h3>第 2 步：找证据——这段时间的用途反推形容词</h3>
+<blockquote>...and use this time to relax, __20__ and recover.</blockquote>
+<p>对策的目的是避免社交疲劳（上文 social burnout）：把一段时间标出来专门休息，等于宣布这段时间“谢绝社交”。be ____ for socialising 因此应取“没空、不便、不去”之义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A ungrateful</td><td>不领情的</td><td>✗</td><td>含贬义、带指责色彩；全文是客观建议口吻，情感色彩不符</td></tr><tr><td>B unavailable</td><td>没空的</td><td>✓</td><td>be unavailable for sth = 没空做某事；“标出你没空社交的时间来休息”贴合对策逻辑</td></tr><tr><td>C responsible</td><td>负责的</td><td>✗</td><td>be responsible for sth 是“对某事负责”；socialising 是个人意愿的选择，谈不上“负责”</td></tr><tr><td>D regretful</td><td>后悔的</td><td>✗</td><td>“后悔社交”的前提是已经社交过，与“把这段时间用来放松”衔接不上</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 D 迷惑性大？</strong>：命题人利用上文“社交过度的种种危害”诱导出“后悔社交”。但 be regretful for 的语义重心是“对已发生的事感到懊悔”，本句的 some time 是前瞻性安排（腾出来的休息时间），不存在懊悔对象。</li><li><strong>unavailable 不是“不可获得的”吗？</strong>：形容人时取“没空、不便出面”之义，如 The manager is unavailable today。be unavailable for socialising 即“没空社交”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（regretful）</strong>：顺着“社交过度有危害”脑补“会后悔”，没检查 regretful 的语义前提与从句用途是否兼容。</li><li><strong>误选 C（responsible）</strong>：只认得 be responsible for 这一高频搭配，不问“对社交负责”在文中是否成立。</li></ul>
+<blockquote>记忆锚点：腾出来休息的时间 = when you’re unavailable for socialising；responsible for 管“责任”，regretful for 管“懊悔”，都要有成立前提。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

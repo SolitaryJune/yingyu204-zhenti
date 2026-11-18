@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-33 · 2018 阅读第 33 题 · 竞争法的评价在 But 之后 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 问作者对竞争法的评价", "cls": "key", "tag": "审题", "log": "审题眼：According to the author, competition law ___. —— 评价题，评价在转折词之后", "count": 0, "ribbon": null, "body": "<p>题干：According to the author, <b>competition law</b> ___. 评价型段落的铁律：<b>表面肯定 → 转折否定 → 给理由</b>，作者真实态度从转折词开始。带着这条结构线去第三段定位。</p>"},
+ {"title": "定位原文 · appears to be / But 的分界", "cls": "key", "tag": "定位", "log": "定位第三段①②③句：appears to be 表面肯定 → But it is clumsy 转折定性 → For one thing 给理由", "count": 0, "ribbon": null, "body": quote("Competition law <b>appears to be</b> the only way to address these imbalances of power. <b>But it is clumsy.</b> For one thing, it is <b>very slow compared to the pace of change</b> within the digital economy.") + "<p>结构：①appears to be（“似乎是”）让步铺垫——表面肯定；②<b>But it is clumsy</b>（笨拙不堪）一锤定音；③For one thing 给第一条理由：与数字经济的变化速度相比<b>太慢</b>。①句不是作者立场，②③句才是。</p>"},
+ {"title": "同义替换 · very slow = cannot keep pace", "cls": "key", "tag": "替换", "log": "同义替换：D cannot keep pace with the changing market 是③句的概括改写", "count": 0, "ribbon": null, "body": "<p>[D] <b>cannot keep pace with the changing market</b> ↔ <b>very slow</b> compared to <b>the pace of change within the digital economy</b>：very slow = 跟不上；数字经济的变化速度 = 变化的市场。整个比较结构被压成一个短语，替换是“概括级”的。</p>"},
+ {"title": "逐项分析 · A should serve the new market powers", "cls": "bad", "tag": "排除 A", "log": "A 应服务于新的市场权力 ✗ ——碎片臆断＋方向颠倒：新巨头是要约束的对象", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>④句 to be replaced by <b>new abuses of power</b>（新的权力滥用）说的是“问题没解决完，新垄断又冒头”，意在证明竞争法<b>更新太慢</b>；新的市场巨头恰恰是竞争法<b>要约束的对象</b>，“服务于它”与作者立场完全相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“新权力不断出现”读成“竞争法要为新权力服务”——方向读反。</p>"},
+ {"title": "逐项分析 · B may worsen the economic imbalance", "cls": "bad", "tag": "排除 B", "log": "B 可能加剧经济不平衡 ✗ ——碎片拼接：作者只说管不住，没说帮倒忙", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>imbalances（①句 imbalances <b>of power</b> 权力失衡）、economy、financial disadvantage 都是本段字面零件。作者只说竞争法<b>管不住</b>巨头、护不住用户，从未说它会<b>加剧</b>经济不平衡——管不了 ≠ 帮倒忙。</p><p style=\"color:#b91c1c\">⚠ 典型误解：三个词都在段里出现过，拼出来的命题作者却没说过。</p>"},
+ {"title": "逐项分析 · C should not provide just one legal solution", "cls": "bad", "tag": "排除 C", "log": "C 不该只提供一种法律对策 ✗ ——过度推测：the only way 是现状不是靶心", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>the only way（唯一手段）+ clumsy 被引申为“不该只提供一种对策”。作者批评的是竞争法<b>整体跟不上现实</b>，不是嫌它的具体策略“太单一”——the only way 是作者承认的现状，不是他批评的靶心。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 the only way 就联想“只有一种办法不好”。</p>"},
+ {"title": "逐项分析 · D cannot keep pace with the changing market", "cls": "good", "tag": "选定 D", "log": "D 无法跟上变化的市场 ✓ ——But it is clumsy 之后的正式理由", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>very slow compared to the pace of change within the digital economy = cannot keep pace with the changing market，方向、程度、对象全部对齐——这是 But it is clumsy 之后的正式理由，是作者的真实评价。</p>"},
+ {"title": "结论 · 划意群定乾坤", "cls": "good", "tag": "答案 D", "log": "答案 D（cannot keep pace with the changing market）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>appears to be 让步 → But it is clumsy 定性 → For one thing 理由：太慢 → [D]。</b>第三段两大意群：③④句“跟不上时代”、⑤至⑧句“概念缺陷”（那是第 34 题的定位区）——本题四个选项没有一个触及概念层面，答案只能落在第一意群的概括上。</p><p>答案选 <b>D（cannot keep pace with the changing market）</b>。</p><p><b>记忆锚点</b>：评价题先切 appears to be / But——让步侧是靶子，转折侧才是评价；very slow = cannot keep pace；管不住 ≠ 帮倒忙 ≠ 嫌单一。</p><p style=\"color:#b91c1c\">最易误选：<b>B（may worsen the economic imbalance）</b>——碎片词都在场，命题作者没说过。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 33 题 · 评价题的「表面肯定—转折否定」——竞争法的评价在 But 之后",
+  subtitle: "考点：评价细节题 · appears to be / But 分界 + very slow 概括级同义替换",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位原文 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（cannot keep pace with the changing market）", "html": "<b>D 无法跟上变化的市场</b>：very slow compared to the pace of change within the digital economy 的概括改写，落在 But it is clumsy 之后。<br>记忆锚点：评价题先切 <b>appears to be / But</b>——让步侧是靶子，转折侧才是评价；管不住 ≠ 帮倒忙 ≠ 嫌单一。<br>最易误选：<b>B</b>——imbalances / economy / financial 碎片拼接，作者没说过。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 33 题 · 评价题的"表面肯定—转折否定"——竞争法的评价在 But 之后</h2>
+<p>答案：<strong>D（cannot keep pace with the changing market 无法跟上变化的市场）</strong>。</p>
+<h3>第 0 步：先立机制——问作者对某事物的评价，答案落在转折词之后</h3>
+<p>题干 According to the author, competition law ____. 是典型的评价细节题。评价型段落有一条铁律：<strong>"表面肯定 → 转折否定 → 给理由"三段式</strong>，作者真实态度永远从转折词开始。第三段恰好是标准样本：①句 Competition law <strong>appears to be</strong> the only way（表面上"似乎是"唯一手段——appears 已经打了折扣）；②句 <strong>But it is clumsy</strong>（但它笨拙不堪）完成转折定性；③句 <strong>For one thing</strong> 引出第一条理由。审题时先立这条结构线：①句的"肯定"是靶子，②③句的"否定+理由"才是作者的话。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Competition law appears to be the only way to address these imbalances of power. But it is clumsy. For one thing, it is very slow compared to the pace of change within the digital economy.</blockquote>
+<p>结构：①"似乎是唯一手段"是让步铺垫；②<strong>But it is clumsy</strong> 一锤定音；③④ For one thing 给第一条理由——<strong>very slow compared to the pace of change within the digital economy</strong>（与数字经济的变化速度相比太慢）；⑤句 But there is a deeper conceptual problem 再给第二条（概念层面的）理由。</p>
+<h3>第 2 步：同义替换——"太慢"就是"跟不上"</h3>
+<p>[D] cannot keep pace with the changing market 是③句的紧凑概括：<strong>very slow</strong> ↔ cannot keep pace（太慢 = 跟不上）；<strong>the pace of change within the digital economy</strong> ↔ the changing market（数字经济的变化速度 = 变化的市场）。原文无生僻词，替换是"概括级"的——命题人把整个比较结构压成一个短语。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A should serve the new market powers</td><td>✗</td><td>碎片臆断＋方向颠倒：④句 to be replaced by <strong>new abuses of power</strong>（新的权力滥用）说的是"问题还没解决完，新垄断又冒头"，意在证明竞争法<strong>更新太慢</strong>；新的市场巨头恰恰是竞争法<strong>要约束的对象</strong>，"服务于它"与作者立场完全相反</td></tr><tr><td>B may worsen the economic imbalance</td><td>✗</td><td>碎片拼接：imbalances（①句 imbalances <strong>of power</strong> 权力失衡）、economy、financial disadvantage 都是本段的字面零件；作者只说竞争法<strong>管不住</strong>巨头、护不住用户，从未说它会<strong>加剧</strong>经济不平衡——管不了 ≠ 帮倒忙</td></tr><tr><td>C should not provide just one legal solution</td><td>✗</td><td>过度推测：the only way + clumsy 被引申为"不该只提供一种法律对策"；作者批评的是竞争法<strong>整体跟不上现实</strong>，不是嫌它的具体策略"太单一"</td></tr><tr><td>D cannot keep pace with the changing market</td><td>✓</td><td>very slow compared to the pace of change within the digital economy 的概括改写，是 But it is clumsy 之后的正式理由</td></tr></tbody></table>
+<h3>预判追问：明明还有第二条理由（概念问题），为什么答案只取第一条？</h3>
+<p>问的是 competition law 整体——四个选项里能同时接住"clumsy"这个总评的，只有"跟不上"这一条概括；⑤句以后的概念问题（用户不是消费者）是<strong>第 34 题的定位区</strong>，本题四个选项没有一个触及"概念"层面，命题人只考了 For one thing 这一翼。这也提示：<strong>本题真正考的是"划分意群"</strong>——③④句为一组（跟不上时代），⑤至⑧句为一组（概念缺陷），先分好组，答案自然落在第一组的概括上。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把④句 new abuses of power 读成"竞争法服务于新权力"——恰好读反：新滥用是问题，不是服务对象。</li><li><strong>误选 B</strong>：被 imbalances / economy / financial 三个词吸住——词都对，拼出来的命题作者没说过。</li><li><strong>误选 C</strong>：看到 the only way 就联想"只有一种办法不好"——the only way 是作者承认的现状，不是他批评的靶心。</li></ul>
+<blockquote>记忆锚点：评价题先切 <strong>appears to be / But</strong>——让步侧是靶子，转折侧才是评价；very slow = cannot keep pace；管不住（clumsy）≠ 帮倒忙（worsen）≠ 嫌单一（not just one solution）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

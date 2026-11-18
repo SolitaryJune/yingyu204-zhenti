@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 5 空 · train to __ my goals（动词：实现目标）：A modify / B set / C review / D reach</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 5 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 5 在「train to __ my goals（动词：实现目标）」位；考点：上下文语义 + 动词辨析（reach one's goals）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That conflicted with how I needed to train to <b>__5__</b> my goals.</div><p>空 5 是 train to __ my goals 里的动词：训练是为了对目标做什么。句意：我改过的训练计划，与我“需要怎样训练来 __ 目标”相冲突。</p>"
+ },
+ {
+  "title": "立机制 · 总—分—总：②④句互为回声",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：总—分—总：②④句互为回声",
+  "body": "<p>本段②③④句是“总—分—总”：②句总说 That was bad to my overall fitness goals（有害于整体健身目标），③句举例（盯数字、改计划），④句收束 That conflicted with how I needed to train to __ my goals。②④互为回声：bad to my goals ↔ conflicted with (training to) __ my goals，空格 = “实现、达成”。训练与目标之间是“途径 → 达成”的关系：train to reach one's goals。</p>"
+ },
+ {
+  "title": "找证据 · ②④句互为回声",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：②④句互为回声",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That was bad to my overall fitness goals.</div><p>②句 bad to my overall fitness goals 直接给出了④句的同义框架：坏的是“达成目标”这件事。空格填“实现、达成”，两句的对应才闭合。</p>"
+ },
+ {
+  "title": "逐项分析 · A modify（修改）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A modify（修改）✗ 排除",
+  "body": "<p><b>排除。</b>“修改目标”不是训练的结果，也与②句“有害于目标的达成”不呼应——②句否定的是“达成”受阻，不是目标本身要改。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被第一段 altered my training program 带偏成“改目标”；文中“目标”始终是要被实现的，出问题的是达成手段。</p>"
+ },
+ {
+  "title": "逐项分析 · B set（树立，设置）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B set（树立，设置）✗ 排除",
+  "body": "<p><b>排除。</b>“设立目标”发生在训练之前，不是 train to 引出的结果；“训练是为了设立目标”逻辑颠倒。</p>"
+ },
+ {
+  "title": "逐项分析 · C review（回顾）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C review（回顾）✗ 排除",
+  "body": "<p><b>排除。</b>“回顾目标”与训练之间构不成“途径 → 结果”关系，也与②句的“有害于目标”无法呼应。</p>"
+ },
+ {
+  "title": "逐项分析 · D reach（实现，达到）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D reach（实现，达到）✓ 当选",
+  "body": "<p><b>当选。</b>reach my goals = 实现目标：与②句 bad to my goals 呼应——改错了计划，就达不成目标。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 5 填 reach（实现，达到）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">That conflicted with how I needed to train to <b>reach</b> my goals.</div><p>这与我实现目标所需要的训练方式相冲突。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "log": "答案 D（reach 实现，达到）——见结论卡",
+  "body": "<p>答案选 <b>D（reach 实现，达到）</b>。</p><p><b>记忆锚点</b>：②④句互为回声：bad to my overall fitness goals ↔ train to reach my goals；reach one's goals = 实现目标（固定搭配）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>A（modify）</b>：被“改变训练计划”带偏成“改目标”；训练的宾语方向是“达成目标”，不是“修改目标”。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 5 空 · train to __ my goals（动词：实现目标）：A modify / B set / C review / D reach",
+  subtitle: "考点：上下文语义 + 动词辨析（reach one's goals） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（reach 实现，达到）", "html": "<b>D（reach 实现，达到）</b>。<br>记忆锚点：②④句互为回声：bad to my overall fitness goals ↔ train to reach my goals；reach one's goals = 实现目标（固定搭配）。<br>最易误选：<b>A（modify）</b>——被“改变训练计划”带偏成“改目标”；训练的宾语方向是“达成目标”，不是“修改目标”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 5 空 · train to __ my goals（动词：实现目标）</h2>
+<p>答案：<strong>D（reach 实现，达到）</strong>。</p>
+<h3>第 0 步：先立机制——总—分—总：②④句互为回声</h3>
+<p>本段②③④句是“总—分—总”：②句总说 That was bad to my overall fitness goals（有害于整体健身目标），③句举例（盯数字、改计划），④句收束 That conflicted with how I needed to train to __ my goals。②④互为回声：bad to my goals ↔ conflicted with (training to) __ my goals，空格 = “实现、达成”。训练与目标之间是“途径 → 达成”的关系：train to reach one's goals。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>That conflicted with how I needed to train to <strong>__5__</strong> my goals.</blockquote>
+<p>空 5 是 train to __ my goals 里的动词：训练是为了对目标做什么。句意：我改过的训练计划，与我“需要怎样训练来 __ 目标”相冲突。</p>
+<h3>第 2 步：找证据——②④句互为回声</h3>
+<blockquote>That was bad to my overall fitness goals.</blockquote>
+<p>②句 bad to my overall fitness goals 直接给出了④句的同义框架：坏的是“达成目标”这件事。空格填“实现、达成”，两句的对应才闭合。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A modify</td><td>修改</td><td>✗ 排除</td><td>“修改目标”不是训练的结果，也与②句“有害于目标的达成”不呼应——②句否定的是“达成”受阻，不是目标本身要改。（典型误解：被第一段 altered my training program 带偏成“改目标”；文中“目标”始终是要被实现的，出问题的是达成手段。）</td></tr><tr><td>B set</td><td>树立，设置</td><td>✗ 排除</td><td>“设立目标”发生在训练之前，不是 train to 引出的结果；“训练是为了设立目标”逻辑颠倒。</td></tr><tr><td>C review</td><td>回顾</td><td>✗ 排除</td><td>“回顾目标”与训练之间构不成“途径 → 结果”关系，也与②句的“有害于目标”无法呼应。</td></tr><tr><td>D reach</td><td>实现，达到</td><td>✓ 当选</td><td>reach my goals = 实现目标：与②句 bad to my goals 呼应——改错了计划，就达不成目标。</td></tr></tbody></table>
+<p>代入后的完整句义：That conflicted with how I needed to train to reach my goals.（这与我实现目标所需要的训练方式相冲突。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（modify）</strong>：被“改变训练计划”带偏成“改目标”；训练的宾语方向是“达成目标”，不是“修改目标”。</li></ul>
+<blockquote>记忆锚点：②④句互为回声：bad to my overall fitness goals ↔ train to reach my goals；reach one's goals = 实现目标（固定搭配）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

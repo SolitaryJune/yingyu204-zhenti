@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-08 · 疾病率上升的____是缺少高薪工作：A explanation / B requirement / C compensation / D substitute</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 8 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：the __ for ... is a shortage of well-paid jobs；考点：句内逻辑关系 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Also, some research suggests that the <b>__8__</b> for rising rates of mortality, mental-health problems, and addiction __9__ poorly-educated, middle-aged people is a shortage of well-paid jobs.</div><p>空 8 是主语中心名词，带 for 介词短语（疾病率上升），句末 is a shortage of well-paid jobs 是它的表语。</p>"
+ },
+ {
+  "title": "立机制 · 先抽主干，再辨名词",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：主干 A is B → 空格词 = “B 是 A 的成因”义 → explanation",
+  "body": "<p>剥掉修饰后是一个 A is B 判断句：左边“疾病率上升”，右边“缺少高薪工作”。常识与上文（无工作 ↔ 患病率高）都指向同一因果：<b>缺工作（因）→ 疾病率上升（果）</b>。所以空格词要说“右边的成因”——“……的原因是缺少高薪工作”。</p>"
+ },
+ {
+  "title": "找证据 · 与上句 Gallup poll 并列，同讲“无工作 → 疾病”",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：Also 并列补充；“缺工作（因）→ 疾病上升（果）”因果成立",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">the __8__ for rising rates of mortality, mental-health problems, and addiction __9__ poorly-educated middle-aged people is a shortage of well-paid jobs.</div><p>Also 承接上句：上句发现“失业者抑郁症率翻倍”（无工作 VS 疾病的关联）；本句换一项研究、换一组疾病（死亡、心理问题、成瘾），结论仍是“缺高薪工作”。<b>explanation for sth = “某事的原因”</b>，正好承载这层因果。</p>"
+ },
+ {
+  "title": "逐项分析 · A explanation（原因）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A explanation（原因）✓ 当选",
+  "body": "<p><b>当选。</b>the explanation for A is B = “B 是 A 的原因”，因果承载到位。</p>"
+ },
+ {
+  "title": "逐项分析 · B requirement（必要条件）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B requirement（必要条件）✗ 排除",
+  "body": "<p><b>排除。</b>requirement for 接“要实现的事”；“疾病率上升的必备条件是缺工作”不合逻辑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背搭配 for，不看 for 后是什么。</p>"
+ },
+ {
+  "title": "逐项分析 · C compensation（补偿）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C compensation（补偿）✗ 排除",
+  "body": "<p><b>排除。</b>compensation for = “对坏局面的补偿”，须能改善情况；shortage of well-paid jobs 本身是消极事物，补偿不了什么。</p><p style=\"color:#b91c1c\">⚠ 典型误解：记得“for 接坏情况”，没检查补偿者是否积极。</p>"
+ },
+ {
+  "title": "逐项分析 · D substitute（代替者）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D substitute（代替者）✗ 排除",
+  "body": "<p><b>排除。</b>substitute for 要求替代物与被替代物同质；“疾病率上升”与“缺工作”不同质。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（explanation 原因）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>研究还表明，受教育程度低的中年人群中死亡率、心理健康问题与成瘾率上升的原因，是缺少高薪工作。</b></p><p>答案选 <b>A（explanation 原因）</b>。</p><p><b>记忆锚点</b>：the explanation for A is B = B 是 A 的原因；辨 for 短语先问“for 后的成分与主语是什么关系”。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（compensation）：记得 for 接坏情况，忘了 shortage 也是坏情况——“坏”补偿不了“坏”。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 8 空 · 疾病率上升的____是缺少高薪工作：A explanation / B requirement / C compensation / D substitute",
+  subtitle: "考点：句内逻辑关系 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 A（explanation 原因）",
+ "html": "<b>A explanation（原因）</b>。<br>记忆锚点：the explanation for A is B = B 是 A 的原因；辨 for 短语先问“for 后的成分与主语是什么关系”。<br>最易误选：<b>C（compensation）</b>——记得 for 接坏情况，忘了 shortage 也是坏情况——“坏”补偿不了“坏”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 8 空 · 疾病率上升的“____”是缺少高薪工作</h2>
+<p>答案：<strong>A（explanation 原因）</strong>。</p>
+<h3>第 0 步：先立机制——先抽主干，再辨名词</h3>
+<p>本句主干：the __8__ for rising rates of mortality, mental-health problems, and addiction __9__ poorly-educated, middle-aged people <strong>is a shortage of well-paid jobs</strong>。剥掉修饰后是一个 A is B 判断句：左边是“疾病率上升”这件事，右边是“缺少高薪工作”。常识与上文（无工作 ↔ 患病率高）都指向同一因果：<strong>缺工作（因）→ 疾病率上升（果）</strong>。所以空格词要说的是“右边的成因”——“……的原因是缺少高薪工作”。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Also, some research suggests that the __8__ for rising rates of mortality, mental-health problems, and addiction __9__ poorly-educated middle-aged people is a shortage of well-paid jobs.</blockquote>
+<h3>第 2 步：找证据——与上句 Gallup poll 并列，同讲“无工作 → 疾病”</h3>
+<p>Also 承接上句：上句发现“失业者抑郁症率翻倍”（无工作 VS 疾病的关联）；本句换一项研究、换一组疾病（死亡、心理问题、成瘾），结论仍是“缺高薪工作”。explanation for sth = “某事的原因”，正好承载这层因果。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A explanation</td><td>原因</td><td>✓ 当选</td><td>the explanation for A is B = “B 是 A 的原因”，因果承载到位。</td></tr><tr><td>B requirement</td><td>必要条件</td><td>✗ 排除</td><td>requirement for 接“要实现的事”；“疾病率上升的必备条件是缺工作”不合逻辑。（典型误解：只背搭配 for，不看 for 后是什么。）</td></tr><tr><td>C compensation</td><td>补偿</td><td>✗ 排除</td><td>compensation for = “对坏局面的补偿”，须能改善情况；shortage of well-paid jobs 本身是消极事物，补偿不了什么。</td></tr><tr><td>D substitute</td><td>代替者</td><td>✗ 排除</td><td>substitute for 要求替代物与被替代物同质；“疾病率上升”与“缺工作”不同质。</td></tr></tbody></table>
+<p>代入后的完整句义：研究还表明，受教育程度低的中年人群中死亡率、心理健康问题与成瘾率上升的原因，是缺少高薪工作。</p>
+<h3>预判追问</h3>
+<ul><li><strong>compensation for 不也是“for 接坏情况”吗？</strong>：方向只对了一半——compensation 除了“for 接坏情况”，还要求“补偿者”是能改善局面的积极事物；本句的“补偿者” shortage 是坏情况自己，补不了坏情况。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（compensation）</strong>：记得“for 接坏情况”，没检查“补偿者”是否积极。</li></ul>
+<blockquote>记忆锚点：the explanation for A is B = B 是 A 的原因；辨 for 短语先问“for 后的成分与主语是什么关系”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

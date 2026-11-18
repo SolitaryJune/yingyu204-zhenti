@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 2 空 · 比较结构 hurt more than it __（动词）：A helps / B cares / C warns / D reduces</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 2 在「比较结构 hurt more than it __（动词）」位；考点：句内语义（比较结构 + 动词辨析）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">However, when done too often, this habit can sometimes hurt more than it <b>__2__</b>.</div><p>空 2 在比较结构 hurt more than it __ 的从句谓语位：hurt（有害）已经站在比较的一端，空格词站在另一端。more A than B 的用法是“A 多于 B”，A、B 必须是同一维度上方向相反的两面。</p>"
+ },
+ {
+  "title": "立机制 · more A than B：两端必须同维反向",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：more A than B：两端必须同维反向",
+  "body": "<p>与 hurt（害）同维度、方向相反的词只有“利（help）”。it 回指 this habit（称重这件事）：合理称重有利（①句 wonderful way 已定性），过度则弊大于利——hurt more than it helps 正是英语里现成的“弊大于利”。所以空格填一个“有益”义动词，且它是与 hurt 配对的那一端。</p>"
+ },
+ {
+  "title": "找证据 · ①句先给“利”定性，比较两端落成“害 VS 利”",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：①句先给“利”定性，比较两端落成“害 VS 利”",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Weighing yourself regularly is a wonderful way to stay aware of any significant weight fluctuations.</div><p>①句已给称重定了“利”的性（wonderful way）；②句转折之后，比较的两端自然落成“害 VS 利”。it 回指 this habit，比较双方谈的都是“称重的影响”。</p>"
+ },
+ {
+  "title": "逐项分析 · A helps（有益；帮助）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A helps（有益；帮助）✓ 当选",
+  "body": "<p><b>当选。</b>hurt more than it helps = 弊大于利：hurt 与 helps 同维反向，比较成立。</p>"
+ },
+ {
+  "title": "逐项分析 · B cares（关心；在乎）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B cares（关心；在乎）✗ 排除",
+  "body": "<p><b>排除。</b>cares 虽是“积极”词，但“关心”与“有害”不在同一比较维度——“弊大于关心”不成话；比较结构要求两端同维反向。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“积极词”就入围，不做“是否与 hurt 同维”的校验。</p>"
+ },
+ {
+  "title": "逐项分析 · C warns（警告）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C warns（警告）✗ 排除",
+  "body": "<p><b>排除。</b>同 B：警告与有害不在一个层面，无法与 hurt 构成“孰多孰少”的比较。</p>"
+ },
+ {
+  "title": "逐项分析 · D reduces（减少；降低）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D reduces（减少；降低）✗ 排除",
+  "body": "<p><b>排除。</b>利用“减重”义干扰：比较的另一端是 hurt（害），不是“增重”，“弊大于减少”语义不通；且 reduce 表“体重减至”时用于“某人 reduce to + 数字”结构，这里主语 it 指称重习惯，搭配不上。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 2 填 helps（有益；帮助）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">when done too often, this habit can sometimes hurt more than it <b>helps</b>.</div><p>一旦做得太频繁，这个习惯有时就会弊大于利。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "log": "答案 A（helps 有益；帮助）——见结论卡",
+  "body": "<p>答案选 <b>A（helps 有益；帮助）</b>。</p><p><b>记忆锚点</b>：more A than B 要求 A、B 同维反向：hurt ↔ helps；hurt more than it helps = 弊大于利（现成表达）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>D（reduces）</b>：被“称重、减重”的常识带跑，忘了比较的对象是“害（hurt）”不是“重”；“弊大于减少”不成话。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 2 空 · 比较结构 hurt more than it __（动词）：A helps / B cares / C warns / D reduces",
+  subtitle: "考点：句内语义（比较结构 + 动词辨析） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（helps 有益；帮助）", "html": "<b>A（helps 有益；帮助）</b>。<br>记忆锚点：more A than B 要求 A、B 同维反向：hurt ↔ helps；hurt more than it helps = 弊大于利（现成表达）。<br>最易误选：<b>D（reduces）</b>——被“称重、减重”的常识带跑，忘了比较的对象是“害（hurt）”不是“重”；“弊大于减少”不成话。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 2 空 · 比较结构 hurt more than it __（动词）</h2>
+<p>答案：<strong>A（helps 有益；帮助）</strong>。</p>
+<h3>第 0 步：先立机制——more A than B：两端必须同维反向</h3>
+<p>与 hurt（害）同维度、方向相反的词只有“利（help）”。it 回指 this habit（称重这件事）：合理称重有利（①句 wonderful way 已定性），过度则弊大于利——hurt more than it helps 正是英语里现成的“弊大于利”。所以空格填一个“有益”义动词，且它是与 hurt 配对的那一端。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>However, when done too often, this habit can sometimes hurt more than it <strong>__2__</strong>.</blockquote>
+<p>空 2 在比较结构 hurt more than it __ 的从句谓语位：hurt（有害）已经站在比较的一端，空格词站在另一端。more A than B 的用法是“A 多于 B”，A、B 必须是同一维度上方向相反的两面。</p>
+<h3>第 2 步：找证据——①句先给“利”定性，比较两端落成“害 VS 利”</h3>
+<blockquote>Weighing yourself regularly is a wonderful way to stay aware of any significant weight fluctuations.</blockquote>
+<p>①句已给称重定了“利”的性（wonderful way）；②句转折之后，比较的两端自然落成“害 VS 利”。it 回指 this habit，比较双方谈的都是“称重的影响”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A helps</td><td>有益；帮助</td><td>✓ 当选</td><td>hurt more than it helps = 弊大于利：hurt 与 helps 同维反向，比较成立。</td></tr><tr><td>B cares</td><td>关心；在乎</td><td>✗ 排除</td><td>cares 虽是“积极”词，但“关心”与“有害”不在同一比较维度——“弊大于关心”不成话；比较结构要求两端同维反向。（典型误解：见“积极词”就入围，不做“是否与 hurt 同维”的校验。）</td></tr><tr><td>C warns</td><td>警告</td><td>✗ 排除</td><td>同 B：警告与有害不在一个层面，无法与 hurt 构成“孰多孰少”的比较。</td></tr><tr><td>D reduces</td><td>减少；降低</td><td>✗ 排除</td><td>利用“减重”义干扰：比较的另一端是 hurt（害），不是“增重”，“弊大于减少”语义不通；且 reduce 表“体重减至”时用于“某人 reduce to + 数字”结构，这里主语 it 指称重习惯，搭配不上。</td></tr></tbody></table>
+<p>代入后的完整句义：when done too often, this habit can sometimes hurt more than it helps.（一旦做得太频繁，这个习惯有时就会弊大于利。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（reduces）</strong>：被“称重、减重”的常识带跑，忘了比较的对象是“害（hurt）”不是“重”；“弊大于减少”不成话。</li></ul>
+<blockquote>记忆锚点：more A than B 要求 A、B 同维反向：hurt ↔ helps；hurt more than it helps = 弊大于利（现成表达）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-29 · 2024 阅读第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 原因清单题先找总起句',
+    cls: 'key',
+    tag: '审题',
+    log: 'Which of the following causes the shortage of wood supply?——第三段 3、4 句给出三因清单',
+    count: 0,
+    body: '<p>第三段用 <code>The causes...range from A to B. It also encompasses C.</code> 列出<b>三个原因</b>：① 对生产性林业的认知过时；② 灰松鼠毁林；③ 农场主对长期种植项目投资犹豫。四个选项都收编了其中一个——注意每个选项都是“事物 + 评价”双槽位结构，两个槽都要对上。</p>'
+  },
+  { title: '定位原文 · 总起句与三因清单',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：The causes...range from outdated perceptions to the decimation by grey squirrels',
+    count: 0,
+    body: quote('The causes of the UK’s current position are complex and range from outdated perceptions of productive forestry to the decimation of trees by grey squirrels. It also encompasses significant hesitation on behalf of farmers and other landowners to invest in longer-term planting projects.') +
+      '<p>三因在手，回原文逐一核对选项的“事物”与“评价”。</p>'
+  },
+  { title: 'D 对号入座 · hesitation → unwillingness',
+    cls: 'good',
+    tag: '替换',
+    log: '替换链：hesitation...to invest in...planting projects → unwillingness to plant trees',
+    count: 0,
+    body: '<p><b>hesitation</b>（犹豫）→ unwillingness（不愿）；<b>on behalf of farmers</b> → Farmers’；<b>to invest in...planting projects</b> → to plant trees。主体、动作、评价三重对应，D 是第 4 句原因的同义改写。</p>'
+  },
+  { title: 'A：Excessive timber consumption —— 侧错了环节',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A 木材消耗过量 ✗——文中说的是生产侧不足，不是消费侧过量',
+    count: 1,
+    ribbon: { k: 1, ok: false },
+    body: '<p>第三段 1、2 句说“英国具备种树条件，但建房用国产木材比例低（英格兰仅 25%）”——评价落在<b>生产环节未能地尽其利</b>；文中对建筑业“消耗量是否过大”没有任何评价。</p><p style="color:#b91c1c">⚠ 典型误解：把“国产用得少”读成“用得太多”。</p>'
+  },
+  { title: 'B：Unfavourable conditions —— 评价反向',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 种植条件不佳 ✗——原文明说 ideal conditions',
+    count: 2,
+    ribbon: { k: 2, ok: false },
+    body: '<p>第三段第 1 句：<code>The UK has <b>ideal conditions</b> for growing wood</code>——条件是<b>理想</b>的，坏在认知、松鼠与投资意愿。B 把褒贬反过来。</p><p style="color:#b91c1c">⚠ 典型误解：见“条件”话题就套，不核对 ideal 的褒贬。</p>'
+  },
+  { title: 'C：Outdated technologies —— 槽位错换',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C 行业技术过时 ✗——outdated 修饰的是 perceptions（认知）',
+    count: 3,
+    ribbon: { k: 3, ok: false },
+    body: '<p>outdated 一词确实在原文，但它的宾语是 <code>outdated <b>perceptions</b> of productive forestry</code>——社会对生产性林业的<b>认知</b>过时；换成 technologies 后，“事物”槽位就错了。原因清单题里，一词对上不算对。</p><p style="color:#b91c1c">⚠ 典型误解：抓到原词就选，不核对修饰对象。</p>'
+  },
+  { title: 'D：Farmers’ unwillingness —— 双槽全对',
+    cls: 'good',
+    tag: '锁定 D',
+    log: 'D 农民不愿种树 ✓——hesitation + farmers + planting 全部对应',
+    count: 3,
+    ribbon: { k: 4, ok: true },
+    body: '<p>事物槽：farmers / landowners（农场主、土地所有者）✓；评价槽：hesitation to invest in longer-term planting projects（对长期种植项目投资犹豫）→ unwillingness to plant trees ✓。<b>D 正确概括第 4 句所述原因。</b></p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 D',
+    log: '答案 D（Farmers’ unwillingness to plant trees）——事物、评价双槽位核对',
+    count: 3,
+    body: '<p>答案选 <b>D（Farmers’ unwillingness to plant trees）</b>。</p><p><b>记忆锚点</b>：原因清单题背总起句 <code>The causes...range from...It also encompasses...</code>；选项“事物 + 评价”双槽全对才算对——outdated perceptions ≠ outdated technologies，ideal conditions ≠ unfavourable conditions。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 29 题 · 什么造成了英国木材供应短缺',
+  subtitle: 'Text 2 · 考点：因果细节（三因清单对号入座）· 事物 + 评价双槽位核对',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“定位清单 → 双槽核对 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（Farmers’ unwillingness）',
+    html: '三因清单：<b>outdated perceptions / grey squirrels / hesitation on behalf of farmers</b> → D 是第三因的改写。<br>记忆锚点：一词对上不算对——C 换了事物槽（perceptions→technologies）、B 反了评价槽（ideal→unfavourable）、A 换了环节（生产→消费）。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 29 题 · 什么造成了英国木材供应短缺</h2>
+<p>答案：<strong>D（Farmers' unwillingness to plant trees 农民不愿种植林木）</strong>。</p>
+<h3>第 0 步：先立机制——原因清单题先找“总起句”</h3>
+<p>Which of the following causes the shortage of wood supply...：第三段第 3、4 句用 The causes...range from A to B. It also encompasses C. 给出<strong>三因清单</strong>：① 对生产性林业的认知过时；② 灰松鼠毁林；③ 农场主等土地所有者对长期种植项目投资犹豫。选项只收其中一个 → 对号入座即可。同时注意每个选项都是“事物 + 评价”结构：事物、评价两个槽位都要与原文对上。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The causes of the UK’s current position are complex and range from outdated perceptions of productive forestry to the decimation of trees by grey squirrels. It also encompasses significant hesitation on behalf of farmers and other landowners to invest in longer-term planting projects.</blockquote>
+<h3>第 2 步：同义替换核对 D</h3>
+<p>hesitation（犹豫）+ on behalf of farmers and other landowners（农场主和土地所有者）+ to invest in longer-term planting projects（投资长期种植项目）→ <strong>Farmers' unwillingness to plant trees</strong>。hesitation to invest ≈ unwillingness，主体（farmers）与动作对象（planting）全部对上。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A Excessive timber consumption in construction</td><td>建筑业木材消耗过量</td><td>✗</td><td>无此评价：文中只说建房用国产木材比例低（生产环节），没说“消耗过量”</td></tr><tr><td>B Unfavourable conditions for growing wood</td><td>种植条件不佳</td><td>✗</td><td>与原文相反：第 1 句明说英国有 ideal conditions（理想条件）</td></tr><tr><td>C Outdated technologies of the wood industry</td><td>行业技术过时</td><td>✗</td><td>偷换：过时的是 perceptions（认知），不是 technologies（技术）</td></tr><tr><td>D Farmers' unwillingness to plant trees</td><td>农民不愿种树</td><td>✓</td><td>hesitation...to invest in...planting projects 的同义改写</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>B 为什么错得“反直觉”？第三段开头不是在讲条件吗？</strong>：第 1 句说的是“英国具备种植木材的理想条件（ideal conditions）”——条件是好的，坏的是利用条件的人与制度。B 恰好把评价反过来。</li><li><strong>C 的 outdated 对得上，为什么不能选？</strong>：outdated 的宾语是 perceptions of productive forestry——“对生产性林业的（社会）认知过时”；换成 technologies 后，“事物”槽位对不上。选项题的两个槽位必须同时正确。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：只认出 outdated 一词，没核对它修饰的是认知还是技术。</li><li><strong>误选 B</strong>：被第三段“条件”话题吸引，忽略 ideal 这个褒贬关键。</li><li><strong>误选 A</strong>：把“国产木材用得少（生产侧问题）”误读成“建筑业用材太多（消费侧问题）”。</li></ul>
+<blockquote>记忆锚点：原因清单题背总起句——The causes range from...It also encompasses...；选项“事物 + 评价”两个槽位都要对上：outdated perceptions ≠ outdated technologies，ideal conditions ≠ unfavourable conditions。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

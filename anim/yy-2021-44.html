@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-44 动画：新题型小标题【44】：保持冷静 → A</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：\"症状 → 危害 → 解法\"两头夹主旨", "body": "<p>题干：为段落【44】选小标题。</p><p>本段结构：①症状 <code>heart racing / face turning red</code>，但要 remain neutral in words and actions → ②危害：身体语言泄露紧张会 <code>undercut the message</code>、<code>send a mixed message</code> → ③解法：<code>Deep breaths</code>、speaking more slowly；慌了就又快又响，放慢语速帮双方 cool down。症状与解法两头夹出的主旨：<b>稳住情绪</b>。</p>", "log": "机制：症状段与解法段互相印证，主旨只有一个方向"}, {"cls": "", "ecs": "step", "tag": null, "count": 0, "title": "定位：第五段解法句", "body": "<div class=\"qq\"><b>段首：</b>You might feel your heart racing or your face turning red, but do whatever you can to <b>remain neutral</b> in both your words and actions. <span class=\"cn\">（译：你会心跳加速、脸发红——但要尽力做到言行中性。）</span></div><div class=\"qq\"><b>段尾：</b><b>Deep breaths</b> can help, as can speaking more slowly and deliberately. ... Simply <b>slowing the pace</b> and talking in an <b>even tone</b> helps the other person <b>cool down</b> and does the same for you. <span class=\"cn\">（译：深呼吸、放慢语速有帮助；慢下来、语气平稳能帮双方降温。）</span></div>", "log": "词群：remain neutral / deep breaths / slow the pace / cool down"}, {"cls": "good", "ecs": "ok", "tag": "锁定 A", "count": 1, "title": "锁定 A：Stay calm.", "body": "<p><b>A · Stay calm.（保持冷静）</b><span class=\"ok-dot\"> ✓</span></p><p><code>remain neutral</code> / <code>deep breaths</code> / <code>slow the pace</code> / <code>even tone</code> / <code>cool down</code>——词群全部指向\"稳住情绪\"。</p>", "log": "锁定 A：情绪词群一网打尽", "ribbon": {"k": 1, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 E", "count": 5, "title": "排除 E：Don't make judgements.", "body": "<p><b>E · Don't make judgements.（不要下评判）</b><span class=\"bad-dot\"> ✗</span></p><p>把 <code>remain neutral</code> 误读为\"不下判断\"。中立的只是<b>言行举止的情绪表现</b>（别手抖、别嗓门失控），异议照样要提——段落要你\"稳\"，不是要你\"不表态\"。</p>", "log": "排除 E：neutral 是情绪中性，不是不表态", "ribbon": {"k": 5, "ok": false}}, {"cls": "bad", "ecs": "miss", "tag": "排除 B", "count": 2, "title": "排除 B：Stay humble.", "body": "<p><b>B · Stay humble.（保持谦逊）</b><span class=\"bad-dot\"> ✗</span></p><p>那是【45】段的主线（only my opinion / understate your confidence）。本段管\"情绪稳\"，不管\"姿态低\"；小标题一一对应，B 已被 45 占用。</p>", "log": "排除 B：情绪稳与姿态低是两段的事", "ribbon": {"k": 2, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": null, "title": "结论：44 选 A", "body": "<p><b>【44】答案 A（Stay calm.）</b>。</p><p>记忆锚点：症状（心跳脸红）＋解法（深呼吸、放慢语速）→ Stay calm；remain neutral 是\"情绪表现中性\"，不是\"观点不表态\"。</p>", "log": "结论：症状＋解法夹出\"保持冷静\"——A"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-44 · 新题型小标题【44】：保持冷静 → A",
+  subtitle: "考点：新题型小标题 · 方法：症状-危害-解法 → 夹出主旨",
+  counterLabel: '已核验',
+  ribbonTitle: "候选小标题（✓ 中选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：抓段落主线 → 配小标题 → 辨干扰项。",
+  snaps: snaps,
+  result: {"big": "44 → A", "html": "<b>remain neutral / deep breaths / slow the pace ↔ Stay calm</b>。记忆锚点：症状＋解法指向稳情绪；remain neutral 是情绪中性，不是不下判断（E）。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：小标题【44】——身体别"抢戏"：保持冷静</h2>
+<p>答案：<strong>A（Stay calm.）</strong>。</p>
+<h3>第 0 步：先立机制——"症状 → 危害 → 解法"三段式，两头夹出主旨</h3>
+<p>本段结构是典型的"症状 → 危害 → 解法"：</p>
+<ol><li>症状：<code>You might feel your heart racing or your face turning red</code>（心跳加速、脸红）——但要做到 <code>remain neutral in both your words and actions</code>（言行尽量中性）；</li><li>危害：身体语言泄露紧张会 <code>undercuts the message</code>（削弱你想表达的信息）、<code>sends a mixed message</code>（信号混乱，对方爱怎么读就怎么读）；</li><li>解法：<code>Deep breaths can help</code>（深呼吸），<code>speaking more slowly and deliberately</code>（放慢、斟酌地讲）；人一慌就又快又响，<code>slowing the pace</code> 帮对方也帮自己 <code>cool down</code>，还显得自信。</li></ol>
+<p>症状段在说"别让情绪外露"，解法段在说"如何稳住"——两头夹出的主旨只有一个：<strong>保持冷静</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...do whatever you can to remain neutral in both your words and actions. Deep breaths can help, as can speaking more slowly and deliberately. ... Simply slowing the pace and talking in an even tone helps the other person cool down and does the same for you.</blockquote>
+<h3>第 2 步：对号入座与干扰项归因</h3>
+<ul><li><strong>A Stay calm ✓</strong>：remain neutral / deep breaths / slow the pace / even tone / cool down——词群全部指向"稳住情绪"。</li><li><strong>E Don't make judgements ✗</strong>：把 <code>remain neutral</code> 误读为"不下判断"。其实中立的只是<strong>言行举止的情绪表现</strong>（别手抖、别嗓门失控），异议照样要提——段落要你"稳"，不是要你"不表态"。</li><li><strong>B Stay humble ✗</strong>：那是【45】段的主线（only my opinion / understate your confidence）。本段管"情绪稳"，不管"姿态低"；小标题一一对应，B 已被 45 占用。</li></ul>
+<blockquote>记忆锚点：症状（心跳脸红）+ 解法（深呼吸、放慢语速）→ Stay calm；remain neutral 是"情绪表现中性"，不是"观点不表态"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

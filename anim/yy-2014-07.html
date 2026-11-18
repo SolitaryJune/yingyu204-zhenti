@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-07 · 2014 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 7 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 7 空所在句，考点：句内语义 + 动词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">BMI <b>__7__</b> body mass divided by the square of height.</div><p>空格两侧：<b>主语 BMI</b> 与表语 <b>body mass divided by the square of height</b>（体重除以身高的平方）。表语是一个完整算式——算出来是一个<b>数值</b>。BMI 是“指数”，指数的本质就是一个数。数值 = 算式，主语与表语之间天然是**等号关系**。</p>"
+ },
+ {
+  "title": "找证据 · 上句要“定义”，本句给公式，下句按值分级",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：上一句说要依据 BMI 定义肥胖，本句必须交代 BMI 是什么——给出的是公式",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It is often defined in terms of body mass index, or BMI.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">An adult with a BMI of 18 to 25 is often considered to be normal weight.</div><p>上一句刚说肥胖 defined in terms of BMI（依据 BMI 定义），逻辑上必须马上交代“BMI 是什么”；下一句就按 BMI 数值 18-25 / 25-30 / 30+ 分级。夹在中间的本句任务是<b>给出算法</b>——而算法的表述方式就是“左边 = 右边”。</p>"
+ },
+ {
+  "title": "逐项分析 · A measures（测量）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A measures（测量） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>measures 要求主语是测量工具或人；BMI 是算出来的<b>结果</b>，不是拿去测体重的仪器——“BMI 测量体重”主宾颠倒。</p><p style=\"color:#b91c1c\">⚠ 典型误解：中文“BMI 测肥胖”说顺了嘴，把中文语感直移英文。</p>"
+ },
+ {
+  "title": "逐项分析 · B determines（决定）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B determines（决定） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>决定关系方向反了——是“体重 ÷ 身高²”这个算式决定 BMI 的值，不是 BMI 决定算式；determine 需要原因做主语，此处主语是结果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：determine 显得“学术”，语感加分就选，没核对谁是因谁是果。</p>"
+ },
+ {
+  "title": "逐项分析 · D modifies（修改）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D modifies（修改） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>BMI 不修改算式，动宾关系完全不成立，纯属凑数项。</p><p style=\"color:#b91c1c\">⚠ 典型误解：四个动词里挑最生僻的，以为“不熟的才是答案”。</p>"
+ },
+ {
+  "title": "逐项分析 · C equals（等于）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C equals（等于） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>BMI equals body mass divided by the square of height——BMI 等于体重除以身高的平方，数值对数值的等号关系；下一句按数值分级，也只有在“等号成立”之后才讲得通。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（equals 等于）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>BMI 等于体重除以身高的平方。</b></p><p>答案选 <b>C（equals 等于）</b>。</p><p><b>记忆锚点</b>：主语是数值、表语是算式 → equals；measures 要工具做主语，determines 要原因做主语。</p><p style=\"color:#b91c1c\">最易误选：<b>A（measures）</b>——把中文语感“BMI 测肥胖”直移英文，主宾颠倒。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 7 空 · “BMI ______ 体重÷身高²”该填哪个动词",
+  subtitle: "考点：句内语义 + 动词方向辨析 · 认出算式 → 判主宾关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“认出算式 → 判主宾关系 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（equals）",
+ "html": "<b>C equals（等于）</b>。<br>记忆锚点：主语是数值、表语是算式 → equals；measures 要工具做主语，determines 要原因做主语。<br>最易误选：<b>A（measures）</b>——把中文语感“BMI 测肥胖”直移英文，主宾颠倒。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 7 空 · BMI ______ body mass divided by the square of height——主语与算式的关系</h2>
+<p>答案：<strong>C（equals 等于）</strong>。</p>
+<h3>第 0 步：先立机制——先认出表语是算式，主宾关系就只剩两种可能</h3>
+<p>表语 body mass divided by the square of height 是一个完整算式，其值是一个数值；主语 BMI 是一个指数——指数也是数值。<strong>数值对算式</strong>，谓语要么表达“等于”（等号关系），要么表达“算出/决定”（派生关系）。再看方向：算式（体重、身高）是原始量，BMI 是派生量——若选“决定”类动词，方向就反了；唯有等号两端对等，不区分先后。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>BMI __7__ body mass divided by the square of height.</blockquote>
+<p>本句在段落里的任务：上句宣布“依据 BMI 定义”，本句必须交代 BMI 是什么——交代一个指数，就是给出它的公式。</p>
+<h3>第 2 步：找证据——上下句夹逼出“本句 = 公式”</h3>
+<blockquote>It is often defined in terms of body mass index, or BMI.</blockquote>
+<blockquote>An adult with a BMI of 18 to 25 is often considered to be normal weight.</blockquote>
+<p>上句：肥胖依据 BMI 定义；下句：按 BMI 数值分级。中间这一句只能是对 BMI 本身的数学交代。公式语言里“定义”与“等于”同义：说 X is defined as ... 等价于 X equals ...。四个选项里唯一承担此职的是 equals。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A measures</td><td>测量</td><td>✗ 排除</td><td>measures 要求主语是测量工具或人；BMI 是算出来的结果，不是拿去测体重的仪器——“BMI 测量体重”主宾颠倒。（典型误解：中文“BMI 测肥胖”说顺了嘴，把中文语感直移英文。）</td></tr><tr><td>B determines</td><td>决定</td><td>✗ 排除</td><td>决定关系方向反了——是“体重 ÷ 身高²”这个算式决定 BMI 的值，不是 BMI 决定算式；determine 需要原因做主语，此处主语是结果。（典型误解：determine 显得“学术”，语感加分就选，没核对谁是因谁是果。）</td></tr><tr><td>C equals</td><td>等于</td><td>✓ 当选</td><td>BMI equals body mass divided by the square of height——BMI 等于体重除以身高的平方，数值对数值的等号关系。</td></tr><tr><td>D modifies</td><td>修改</td><td>✗ 排除</td><td>BMI 不修改算式，动宾关系完全不成立，纯属凑数项。（典型误解：四个动词里挑最生僻的，以为“不熟的才是答案”。）</td></tr></tbody></table>
+<p>代入后的完整句义：BMI 等于体重除以身高的平方。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>measures 与 equals 怎么一步分清？</strong>：看表语类型：表语是“名词性算式/数值”时用 equals；若表语是“属性”（如 BMI measures body fatness 检测体脂水平），才轮到 measures。本句表语是 divided by 引出的算式，等号关系一目了然。</li><li><strong>“谁决定谁”才对？</strong>：Body mass and height determine BMI（体重和身高决定 BMI）——原始量做主语。原句把 BMI 放主语位、算式放表语位，结构本身就排除了 determine。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（measures）</strong>：把中文语感“BMI 测肥胖”直移英文，主宾颠倒。</li><li><strong>误选 B（determines）</strong>：因果方向没核对，派生量当起了原因。</li><li><strong>误选 D（modifies）</strong>：动宾关系不通，纯属凑数项。</li></ul>
+<blockquote>记忆锚点：主语是数值、表语是算式 → equals；measures 要工具做主语，determines 要原因做主语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

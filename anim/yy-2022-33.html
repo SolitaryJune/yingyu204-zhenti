@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-33 · 2022 阅读 Text 3 第 33 题 · 应对“数字欺诈”，企业该做什么</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · digital deception 唯一复现处",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：题干关键词 digital deception 在原文仅出现一次——第四段",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>题干：To handle digital deception, businesses should ____.</p><p>关键词 <b>digital deception（数字欺诈）</b>在原文只出现一次——第四段末句 Any or all these teams can play a role in creating or avoiding “digital deception.”，因此命题句就是它前面的“建议句”。</p><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Businesses should engage in conversations with IT, compliance, risk, and legal teams to review their privacy policy, and include in the discussion the customer/user experience designers and coders… as well as the marketers and advertisers…</div>"
+  },
+  {
+   "title": "机制 · 主干动词定动作方向",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：细节题两步闭环——先定位，再同义替换比对",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>这段长难句的主干是 <b>Businesses should engage in conversations with … and include in the discussion …</b>——动作是「对话、纳入讨论」，后面一长串并列名词（IT、合规、风险、法律团队，设计师/编码员，营销/广告人员）全是「团队/人员」。</p><p>所以正确项必须同时满足两条：<b>动作 = 谈话</b>，<b>对象 = 相关团队</b>。细节题必须“名词 + 动作”双对齐。</p>"
+  },
+  {
+   "title": "证据 · 团队清单 ↔ relevant teams",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：engage in conversations ↔ talk；并列团队清单 ↔ relevant teams",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Any or all these teams can play a role in creating or avoiding “digital deception.”</div><p>末句点题：正是这些团队决定“数字欺诈”是否发生——与题干 To handle digital deception 完全对应。<b>engage in conversations ↔ talk</b>，<b>IT/合规/风险/法律团队 + 设计营销人员 ↔ relevant teams</b>。</p>"
+  },
+  {
+   "title": "逐项分析 · A listen to customer feedback",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A listen to customer feedback ✗ 排除——设计师≠客户",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>原文是让「客户/用户体验<b>设计师</b>」参与隐私政策讨论——是职业名称、是企业内部人员；不是「听取<b>客户</b>的反馈」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 customer/user experience 就联想“倾听客户”。</p>"
+  },
+  {
+   "title": "逐项分析 · B talk with relevant teams",
+   "cls": "good",
+   "tag": "选定 B",
+   "log": "B talk with relevant teams ✓ 当选——同义替换闭环",
+   "count": 1,
+   "ribbon": {
+    "k": "B",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>talk 复现 engage in conversations；relevant teams 概括 IT、合规、风险、法律团队加上设计、营销等一众人员。代入题干读作「为应对数字欺诈，企业应与相关团队谈话」——语义语法双合。</p>"
+  },
+  {
+   "title": "逐项分析 · C turn to independent agencies",
+   "cls": "bad",
+   "tag": "排除 C",
+   "log": "C turn to independent agencies ✗ 排除——无中生有",
+   "count": 2,
+   "ribbon": {
+    "k": "C",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>原文列的全是企业<b>内部</b>团队，“独立机构”没有原文依据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 compliance、legal 等词想象成外部机构。</p>"
+  },
+  {
+   "title": "逐项分析 · D rely on professional training",
+   "cls": "bad",
+   "tag": "排除 D",
+   "log": "D rely on professional training ✗ 排除——training 无对应动作",
+   "count": 3,
+   "ribbon": {
+    "k": "D",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>定位句的动作只有「对话/讨论」，training（培训）在原文没有对应。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“有专业团队参与”偷换成“依靠专业培训”。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 B",
+   "log": "答案 B（talk with relevant teams）——推理链见结论卡",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>digital deception 唯一复现 → 定位第四段建议句 → 主干动词 engage in conversations（对话）→ talk with relevant teams</b>。</p><p>答案选 <b>B（talk with relevant teams）</b>。</p><p><b>记忆锚点</b>：建议处细节题，先抓定位句主干动词；并列的团队清单 = relevant teams；名词对上、动作也要对上。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——设计师 ≠ 客户，参与讨论 ≠ 听取反馈。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 阅读 Text 3 第 33 题 · 应对“数字欺诈”，企业该做什么",
+  subtitle: "考点：建议处细节题 · 关键词定位 + 同义替换 + 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 B（talk with relevant teams）",
+  "html": "<b>B talk with relevant teams（与相关团队谈话）</b>。<br>engage in conversations with IT/compliance/risk/legal teams ↔ talk with relevant teams。<br>记忆锚点：题干关键词唯一复现处定位；主干动词定动作方向——名词对上、动作也要对上。<br>最易误选：<b>A</b>——把“客户/用户体验设计师”曲解成客户本人，把“参与讨论”曲解成“听取反馈”。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 阅读 Text 3 第 33 题 · 应对"数字欺诈"，企业该做什么</h2>
+<p>答案：<strong>B（talk with relevant teams 与相关团队谈话）</strong>。</p>
+<h3>第 0 步：先立机制——细节题 = 关键词定位 + 同义替换闭环</h3>
+<p>阅读细节题的解题机制是一条两步流水线：先用题干关键词在原文锁定出题句（定位），再把选项逐个与定位句比对——能被原文"无损改写"（同义替换）的是答案，原文无依据或被曲解的是干扰项。本题题干关键词 digital deception（数字欺诈）在原文只出现一次——第四段末句，因此真正的定位句是它前面的"建议句"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Businesses should engage in conversations with IT, compliance, risk, and legal teams to review their privacy policy, and include in the discussion the customer/user experience designers and coders... as well as the marketers and advertisers... Any or all these teams can play a role in creating or avoiding "digital deception."</blockquote>
+<p>第四段先问"合乎道德的说服性设计与黑暗模式的界线在哪"，随后给出企业侧的答案：与 IT、合规、风险、法律团队对话，并让设计师、编码员、营销广告人员参与讨论——正是这些团队共同决定"数字欺诈"是否发生。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>engage in conversations with ... teams ↔ talk with relevant teams：talk 复现 conversations，relevant teams 概括 IT/合规/风险/法律团队加上设计、营销等一众人员。语义无损改写，当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A listen to customer feedback</td><td>✗</td><td>原文是"让客户/用户体验<strong>设计师</strong>参与隐私政策讨论"，不是"听取<strong>客户</strong>的反馈"。（典型误解：看到 customer/user experience 就联想"倾听客户"。）</td></tr><tr><td>B talk with relevant teams</td><td>✓</td><td>talk ↔ engage in conversations；relevant teams 概括原文并列的多个团队。</td></tr><tr><td>C turn to independent agencies</td><td>✗</td><td>原文列的全是企业<strong>内部</strong>团队，"独立机构"无中生有。（典型误解：把 compliance、legal 等词想象成外部机构。）</td></tr><tr><td>D rely on professional training</td><td>✗</td><td>定位句的动作是"对话/讨论"，training 在原文没有对应动作。（典型误解：把"有专业团队参与"偷换成"依靠专业培训"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>长难句怎么读？</strong>：主干是 Businesses should engage in conversations with ... and include in the discussion ...，后面一长串并列名词短语全是"团队/人员"。先抓主干动词（对话、纳入讨论），再数并列对象，动作方向定了，B 自然浮出。</li><li><strong>为什么干扰项都拿"客户"和"专业"做文章？</strong>：定位句里并列对象多、信息杂，命题人就利用 customer/user experience、professional 等局部词制造"半真半假"的选项——名词对得上，动作却对不上。细节题必须"名词 + 动作"双对齐。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把 customer/user experience designers（设计师职业名）曲解成"客户本人"，又把"参与讨论"曲解成"听取反馈"。</li><li><strong>误选 C/D</strong>：分别对应"把内部团队当外部机构"和"把团队对话当专业培训"两种典型偷换。</li></ul>
+<blockquote>记忆锚点：建议处出细节题——先抓定位句主干动词：engage in conversations = talk；一长串并列团队 = relevant teams；名词对上、动作也要对上。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

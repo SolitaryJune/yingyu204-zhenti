@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-14 · 2015 考研英语（二）完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 14 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 14 所在句，考点：fellow 同位呼应 + 场景一致性", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">They had Chicago train commuters talk to their fellow __14__.</div><p>空格是 fellow 后的<b>复数名词</b>。fellow（同一境况的）作定语是“同类人”标签：fellow __ = “同样 __ 的人”。空格必须与句子的核心人物<b>同类</b>。</p>"}, {"title": "机制 · fellow 要同类，场景要同车", "cls": "key", "tag": "证据", "log": "机制：主语 train commuters + 交通工具 train——同类即“同车乘客”", "count": 0, "ribbon": null, "body": "<p>两个坐标锁定答案：</p><p>1. <b>同类坐标</b>：fellow 的宾语必须与主语 train commuters（坐火车通勤的人）同类；</p><p>2. <b>场景坐标</b>：实验发生在 train 上，车上的人 = passengers（乘客）。fellow passengers（同车乘客）正是英语固定表达。</p>"}, {"title": "逐项分析 · A trainees（实习生）", "cls": "bad", "tag": "排除 A", "log": "A trainees ✗ 排除——纯词形陷阱：trainee 与 train（火车）毫无关系", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>trainee（实习生、受训者）的 train 是“训练”词根（-ee 表受动者），与火车毫无词源关系；实习生也不满足“同车”条件。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看见 train 就联想 trainee——词根判断替代场景判断。</p>"}, {"title": "逐项分析 · B employees（员工）", "cls": "bad", "tag": "排除 B", "log": "B employees ✗ 排除——fellow employees = 同事，但实验对象是“陌生同行者”", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>fellow employees（同事）成立，但通勤者彼此并非同厂员工；本文实验强调的恰是与“陌生人”搭话，不是同事聚会。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“通勤（上班）”过度联想成“同事”。</p>"}, {"title": "逐项分析 · C researchers（研究者）", "cls": "bad", "tag": "排除 C", "log": "C researchers ✗ 排除——researchers 是实验设计方，不是被聊对象", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>前句 behavioral scientists 才是 researchers；实验让被试与“别的乘客”聊，若专跟研究者聊，实验关系就乱了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被上句 scientists 的残影干扰。</p>"}, {"title": "逐项分析 · D passengers（乘客）", "cls": "good", "tag": "选定 D", "log": "D passengers ✓ 当选——与 commuters 同类、与 train 场景吻合，fellow passengers 地道", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>passengers（乘客）：坐火车的通勤者正是乘客，fellow passengers = 同车乘客，与主语同类、与场景吻合、搭配地道，三合其一。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（passengers 乘客）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>他们让芝加哥的火车通勤者与同车乘客交谈。</b></p><p>答案选 <b>D（passengers）</b>。</p><p><b>记忆锚点</b>：fellow + 名词 = “同…的伙伴”→ 回主语找同类；train 词形 ≠ trainee（受训者）。</p><p style=\"color:#b91c1c\">最易误选：<b>A（trainees）</b>——train 词形陷阱。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 14 空 · fellow 要“同类”，场景要“同车”",
+  subtitle: "考点：fellow 同位呼应 + 词形陷阱识别 · 双坐标锁定 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（passengers 乘客）", "html": "<b>D passengers</b>——fellow passengers 同车乘客：与主语 commuters 同类、与 train 场景吻合。<br>记忆锚点：fellow + 名词 = “同…的伙伴”→ 回主语找同类；trainee 的 train 是“训练”，与火车无关。<br>最易误选：<b>A（trainees）</b>——纯词形陷阱。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 14 空 · fellow 要求“同类”，场景要求“同车”</h2>
+<p>答案：<strong>D（passengers）</strong>。</p>
+<h3>第 0 步：先立机制——fellow 是“同类人”标签</h3>
+<p><code>They had Chicago train commuters talk to their fellow __14__.</code>：fellow（同一境况的）作定语，空格必须与句子的核心人物<strong>同类</strong>——主语是 train commuters（坐火车通勤的人），那么 fellow __ 就得是“同样坐这趟车的人”。实验场景在 train 上，答案呼之欲出：passengers（乘客）。fellow passengers（同车乘客）也是英语固定表达。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>They had Chicago train commuters talk to their fellow __14__.</blockquote>
+<p>两个免费坐标：train（交通工具）定场景，commuters（主语）定同类。空格名词必须同时落在两个坐标圈内。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A trainees</td><td>实习生</td><td>✗ 排除</td><td>词形陷阱：trainee 的 train 是“训练”，与火车无关。（典型误解：见 train 就联想 trainee。）</td></tr><tr><td>B employees</td><td>员工</td><td>✗ 排除</td><td>fellow employees = 同事，但通勤者彼此并非同厂员工，实验强调“陌生人”。（典型误解：把通勤过度联想成同事。）</td></tr><tr><td>C researchers</td><td>研究者</td><td>✗ 排除</td><td>researchers 是实验设计方，不是被聊对象。（典型误解：被上句 scientists 的残影干扰。）</td></tr><tr><td>D passengers</td><td>乘客</td><td>✓ 当选</td><td>与主语同类、与场景吻合、搭配地道。</td></tr></tbody></table>
+<p>代入后的完整句义：他们让芝加哥的火车通勤者与同车乘客交谈。</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>trainee 和 train 真的没关系吗？</strong>：trainee = train（训练）+ -ee（受动者），指“受训者”；火车是 train 的另一义项。命题人利用同形制造“词族幻觉”，判断依据只能是场景不是词形。</li><li><strong>为什么 employees 落选而 passengers 当选？</strong>：两者都能与 fellow 连用，差别在“同类坐标”：实验人物是通勤乘客，不是同厂职员；且全文主线是“与陌生人聊”，fellow passengers（同车陌生人）正好承接。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（trainees）</strong>：词形陷阱——最常见错法。</li><li><strong>误选 C（researchers）</strong>：上句人物残影干扰。</li><li><strong>误选 B（employees）</strong>：通勤与同事的过度联想。</li></ul>
+<blockquote>记忆锚点：fellow + 名词 = “同…的伙伴”→ 回主语找同类；train 词形 ≠ trainee（受训者）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

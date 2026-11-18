@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-06 · 2023 完形第 6 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 6 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 6 所在句，考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The __6__ was that too many customers were using the basic, free version of their product.</div><p>段内因果链：good results until 2012 → growth plateaued（坏结果）→ 本句解释“为什么”。主系表句式 The ____ was that... 是标准“揭病因”接口。</p>"
+ },
+ {
+  "title": "找证据 · 上句已定性“增长停滞”，本句负责揭病因",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：增长停滞（果）→ The ____ was that...（揭病因）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This brought them good results until 2012, when their growth plateaued.</div><p>表语从句内容“太多客户赖在免费版上”是一个真实待解的毛病；下段 Things changed（问题解决后局面扭转）反向印证其真实性——不是谣言、不是虚构。</p>"
+ },
+ {
+  "title": "逐项分析 · A rumor（传闻；谣言）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A rumor（传闻；谣言） ✗ 排除——“谣言是太多客户用免费版”不通，且下文证明内容属实",
+  "body": "<p><b>排除。</b>rumor 指未经证实的传闻。但“客户都用免费版”是公司自己查明的事实（下文据此改进策略并成功），下段 Things changed 反证其真实——谣言的帽子扣不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“对停滞的一种解释”泛化成“未经证实的说法”</p>"
+ },
+ {
+  "title": "逐项分析 · B secret（秘诀；诀窍）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B secret（秘诀；诀窍） ✗ 排除——“增长停滞的秘诀”自相矛盾",
+  "body": "<p><b>排除。</b>考生若盯住上句 good results，容易接成“成效不错的秘诀在于……”。但上句的落点已被 until 2012, when their growth plateaued 拽到“停滞”上——停滞需要的是解释，不是诀窍。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看前半句 good results，漏读 until 2012 的转折落点</p>"
+ },
+ {
+  "title": "逐项分析 · C myth（荒诞的说法；虚构的事）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C myth（荒诞的说法；虚构的事） ✗ 排除——同 rumor 属“虚构”，与下文 Things changed 矛盾",
+  "body": "<p><b>排除。</b>myth 强调虚构、不真实。而这一“客户只用免费版”的情形在下文被证实且被解决——虚构之词承担不了“真实病因”的角色。</p><p style=\"color:#b91c1c\">⚠ 典型误解：未将下段 Things changed 纳入验证链，漏掉了“真实性”检验</p>"
+ },
+ {
+  "title": "逐项分析 · D problem（问题；难题）",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "log": "D problem（问题；难题） ✓ 当选",
+  "body": "<p><b>当选。</b>The problem was that too many customers were using the basic, free version：一句点破增长停滞的症结，与上句“停滞”构成“果→因”，与下段“解决后 Things changed”构成“问题→转机”，前后两个方向都咬合。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D（problem 问题；难题）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>问题在于：太多的客户一直在使用其产品的基础免费版本</b>（解释上句“增长停滞”的原因）。</p><p>答案选 <b>D（problem 问题；难题）</b>。</p><p><b>记忆锚点</b>：坏结果（plateaued）之后找病因：The problem was that... 固定句式；真实性问题用下文验证——Things changed 证明病因属实，排除 rumor/myth。</p><p style=\"color:#b91c1c\">最易误选：<b>B（secret）</b>——只看前半句 good results，漏读 until 2012 的转折落点</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 6 空 · “The ____ was that…”该填哪个名词",
+  subtitle: "考点：上下文语义 + 名词辨析 · 坏结果 → 揭病因",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（problem）", "html": "<b>D problem（问题；难题）</b>。<br>完整句义：问题在于：太多的客户一直在使用其产品的基础免费版本。<br>记忆锚点：坏结果（plateaued）之后找病因：The problem was that... 固定句式；真实性问题用下文验证——Things changed 证明病因属实，排除 rumor/myth。<br>最易误选：<b>B</b>——只看到上句 good results，没读出 until 2012 已把落点拽到“停滞”"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：上下文语义 + 名词辨析——“停滞”之后必然是“找问题”</h2>
+<p>答案：<strong>D（problem 问题；难题）</strong>。</p>
+<h3>第 0 步：先立框架——“坏结果之后接解释”的段内因果链</h3>
+<p>上句刚交代：This brought them good results <strong>until 2012</strong>, when their growth <strong>plateaued</strong>——好日子到 2012 年为止，增长停了。模型：完形段内因果链——先给“坏结果”，紧随其后的句子负责解释“为什么”。The __6__ was that... 这种“主系表 + 表语从句”句式，正是解释坏结果的标准接口，空格名词应指“毛病/问题所在”。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>The __6__ was that too many customers were using the basic, free version of their product.</blockquote>
+<p>表语从句给出的内容——too many customers were using the basic, free version——是一件亟待解决的麻烦事。再看下一段开头 Things changed（情况变了）：这个问题被解决后局面才扭转，反过来证明它是真实存在的问题，既不是谣言，也不是什么虚构故事。</p>
+<blockquote>This brought them good results until 2012, when their growth plateaued.（上一句）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A rumor</td><td>传闻；谣言</td><td>❌ 排除</td><td>“谣言是太多客户用免费版”不通，且下文证明内容属实</td></tr><tr><td>B secret</td><td>秘诀；诀窍</td><td>❌ 排除</td><td>“增长停滞的秘诀”自相矛盾</td></tr><tr><td>C myth</td><td>荒诞的说法；虚构的事</td><td>❌ 排除</td><td>同 rumor 属“虚构”，与下文 Things changed 矛盾</td></tr><tr><td>D problem</td><td>问题；难题</td><td>✅ 当选</td><td>The problem was that... 揭病因的标准句式</td></tr></tbody></table>
+<p>代入全句：<strong>问题在于：太多的客户一直在使用其产品的基础免费版本</strong>（解释上句“增长停滞”的原因）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（rumor 传闻；谣言）</strong>：把“对停滞的一种解释”泛化成“未经证实的说法”。rumor 指未经证实的传闻。但“客户都用免费版”是公司自己查明的事实（下文据此改进策略并成功），下段 Things changed 反证其真实——谣言的帽子扣不上。</li><li><strong>误选 B（secret 秘诀；诀窍）</strong>：只看前半句 good results，漏读 until 2012 的转折落点。考生若盯住上句 good results，容易接成“成效不错的秘诀在于……”。但上句的落点已被 until 2012, when their growth plateaued 拽到“停滞”上——停滞需要的是解释，不是诀窍。</li><li><strong>误选 C（myth 荒诞的说法；虚构的事）</strong>：未将下段 Things changed 纳入验证链，漏掉了“真实性”检验。myth 强调虚构、不真实。而这一“客户只用免费版”的情形在下文被证实且被解决——虚构之词承担不了“真实病因”的角色。</li></ul>
+<blockquote>记忆锚点：坏结果（plateaued）之后找病因：The problem was that... 固定句式；真实性问题用下文验证——Things changed 证明病因属实，排除 rumor/myth。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

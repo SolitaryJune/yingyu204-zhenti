@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-43 动画：匹配题——杰福德：未交件者要重估</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "shift",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：B 的主语是 Builders",
+  "body": "<p>43 题题干：<b>Marcus Jefford</b>。B 选项主语是 <b>Builders</b>（建筑商）。匹配题除了核对内容，还要核对<b>主语</b>：谁去做这件事。全篇观点里谈“建筑商要做什么”的只有一处——主体一错，内容再像也不能选。</p>",
+  "log": "审题：先核对 B 的主语 Builders 再找内容"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位：第九段杰福德的观点句",
+  "body": "<div class=\"qq\"><b>第九段：</b><b>Builders which have costed projects, but have not filed the paperwork, may need to go back and submit fresh estimates</b>, says Marcus Jefford of Build Aviator. <span class=\"cn\">（已核算项目成本、但尚未提交文件的建筑商，可能需要回头重新提交新的成本估算。）</span></div><p>三层限定：已核算（have costed）+ 未交件（not filed）+ may 重估。</p>",
+  "log": "杰福德：已核算未交件者 may 需重估"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 1,
+  "title": "锁定 B：情态动词都对齐",
+  "body": "<p><b>B · Builders possibly need to submit new estimates of their projects</b> <span class=\"ok-dot\">✓</span></p><p><b>may</b> ↔ <b>possibly</b>；<b>fresh</b> ↔ <b>new</b>；<b>Builders</b> 原词复现。连情态动词都对齐，当选。典型误解：把 may 弱化成“一定”——匹配题连语气都要对上。</p>",
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "log": "锁定 B：may = possibly、fresh = new、主语对齐"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "前因",
+  "count": 1,
+  "title": "前因验证：为什么未交件要重估",
+  "body": "<div class=\"qq\"><b>第八段：</b>As the rules came into effect last Wednesday, property developers were <b>rushing to file plans just before the deadline</b>. Any plans submitted before that date are considered to be <b>under the previous rules</b>... <span class=\"cn\">（新规生效，开发商赶在截止前抢交规划；此前提交的按旧规执行。）</span></div><p>没赶上交件的建筑商，成本估算自然要按新规重做——因果链闭合，杰福德的话严丝合缝。</p>",
+  "log": "前因闭合：抢交件按旧规、没交的按新规重估"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "登记",
+  "count": 1,
+  "title": "剩余干扰项归属",
+  "body": "<p>7 选 5 的两个“无人认领”选项：</p><table class=\"aw-mini\"><tr><th>选项</th><th>归属</th><th>原文出处</th></tr><tr><td>C（扩建限制防热流失）</td><td>Thomas Goodman</td><td>第七段引语</td></tr><tr><td>E（房价超出承受力）</td><td>Jonathan Rolande</td><td>第十段引语</td></tr></table>",
+  "log": "登记：C 归 Goodman、E 归 Rolande，均不在题干名单"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 1,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（Builders possibly need to submit new estimates of their projects）</b>。</p><p>记忆锚点：may = possibly、fresh = new；主语 Builders 对 Builders；“已核算未交件”是这道匹配的指纹。</p>",
+  "log": "结论：未交件建筑商需重估，答案选 B"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+ "title": "yy-2023-43 · 匹配题：Marcus Jefford → B",
+ "subtitle": "考点：新题型人物匹配 · 方法：主语核对 + 情态动词对齐 + 前因验证",
+ "counterLabel": "已核验",
+ "ribbonTitle": "选项 A–G（✓ 当选 / ✗ 排除）",
+ "intro": "点击「▶ 播放」逐步展开：定位人物段落 → 同义改写 → 前因验证。",
+ "snaps": snaps,
+ "result": {
+  "big": "答案 B",
+  "html": "<b>may need to... submit fresh estimates ↔ possibly need to submit new estimates</b>——连情态动词都对齐。记忆锚点：匹配题核对“内容 + 主语 + 语气”三层；“已核算未交件”是这个选项的指纹。"
+ }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2023 新题型第 43 题 · Marcus Jefford 的观点匹配</h2>
+<p>答案：<strong>B（Builders possibly need to submit new estimates of their projects 建筑商可能需要提交新的项目成本估算）</strong>。</p>
+<h3>第 0 步：先立机制——主体限定核对</h3>
+<p>B 选项的主语是 Builders（建筑商）。全篇观点里谈"建筑商要做什么"的只有一处——杰福德谈"已核算成本但未提交文件的建筑商要重新估算"。匹配题除了核对内容，还要核对主语：谁去做这件事。主体一错，内容再像也不能选。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Builders which have costed projects, but have not filed the paperwork, may need to go back and submit fresh estimates, says Marcus Jefford of Build Aviator.</blockquote>
+<p>限定条件三层：已核算项目成本（have costed projects）+ 尚未提交文件（have not filed the paperwork）+ 可能需要回头重交新的估算（may need to go back and submit fresh estimates）。</p>
+<h3>第 2 步：同义替换对上 B</h3>
+<p>may need to... submit fresh estimates ↔ possibly need to submit new estimates：may ↔ possibly，fresh ↔ new，Builders 原词复现。三处对齐，当选。</p>
+<h3>第 3 步：前因验证</h3>
+<p>为什么"未交件"要重估？上文交待了背景：新规于上周三生效，开发商赶在截止日前抢交规划（property developers were rushing to file plans just before the deadline）；此前提交的按旧规执行，来年 6 月 15 日前开工即可。没赶上交件的建筑商，其成本估算自然要按新规重做——杰福德的话在这个因果链里严丝合缝。</p>
+<h3>第 4 步：逐项排除（剩余选项登记）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归属</th></tr></thead><tbody><tr><td>B submit new estimates</td><td>✓</td><td>杰福德：may → possibly，fresh → new。</td></tr><tr><td>C specific limits on home extensions to prevent heat loss</td><td>✗</td><td>第七段 Thomas Goodman（扩建玻璃面积不超过地面面积 25% 以防热流失）。</td></tr><tr><td>E home prices already beyond what they can afford</td><td>✗</td><td>第十段 Jonathan Rolande（priced out of homeownership 买不起房）。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>把 B 的 may 弱化成"一定"</strong>：原文 may need、选项 possibly need，语气完全对齐——匹配题连情态动词都要对上。</li><li><strong>漏看限定条件</strong>：不是所有建筑商都要重估，只有"已核算、未交件"的这批——限定成分在，说明命题人考的就是这句。</li></ul>
+<blockquote>记忆锚点：may = possibly、fresh = new；主语 Builders 对 Builders；"已核算未交件"是这道匹配的指纹。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

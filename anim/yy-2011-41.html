@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-41 动画：配对题——Lansley 认为“企业该挑大梁”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：配对题 = 人名定位 + 原句对齐",
+  body:"<p>左栏：<b>Andrew Lansley held that ____</b>（卫生大臣兰斯利认为____）。右栏 7 个观点，2 个多余。</p><p>方法：把人物带回<b>他自己的段落</b>再逐字比对。Lansley 出现两次（第二段立场总述、第六段发言现场），两处都要看。右栏干扰项通常是<b>别人的观点</b>——先看它们各有其主。</p>",
+  log:"配对题：定位 Lansley 的两处发言"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：第二段立场 + 第六段原句",
+  body:"<div class=\"qq\"><b>第二段：</b>…Andrew Lansley, who insisted <b>the government could not force people</b> to make healthy choices and promised to <b>free businesses from public health regulations</b>. <span class=\"cn\">（译：政府不能强制人们做健康选择，并承诺让企业免受公共健康法规约束。）</span></div><div class=\"qq\"><b>第六段②：</b><b>He said that manufacturers of crisps and candies could play a central role in the Change4Life campaign</b>, the centrepiece of government efforts to boost healthy eating and fitness. <span class=\"cn\">（译：他说，薯片和糖果制造商能在“为健康而改变”运动中扮演核心角色。）</span></div><p>第二段给立场（政府松手、企业上），第六段给具体原句。</p>",
+  log:"定位第六段②：manufacturers of crisps and candies…play a central role"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:1, ribbon:{k:1, ok:false}, title:"排除 A：“fat taxes” on fast-food producers",
+  body:"<p><b>A（对麦当劳们征“脂肪税”）</b><span class=\"bad-dot\">✗</span>：这是<b>首段 leading doctors（名医集体）</b>向政府提出的要求。</p><p>它不属于任何具体个人，更不是 Lansley——他恰好站在医生们的对立面（主张政府别管、企业带头）。</p>",
+  log:"排除 A：脂肪税是首段名医集体的要求"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:2, ribbon:{k:2, ok:false}, title:"排除 B：ban fast-food outlets near schools",
+  body:"<p><b>B（禁止校园周边快餐店）</b><span class=\"bad-dot\">✗</span>：这是 <b>Dinesh Bhugra</b> 第十段的主张——impose “fast-food-free zones” around schools and hospitals（设立“无快餐区”）。</p><p>人名张冠李戴：校园禁店是 Bhugra 的（也是 44 题答案），不是 Lansley 的。</p>",
+  log:"排除 B：校园禁店是 Bhugra 的主张"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：“lecturing” was an effective way",
+  body:"<p><b>C（说教是有效办法）</b><span class=\"bad-dot\">✗</span>：第六段末句 Lansley <b>criticised</b> Jamie Oliver 的校餐尝试，说它正是“说教无效”的例子。</p><p>他<b>反对</b>说教 → C 立场与 Lansley 相反；C 还是 <b>43 题 Oliver</b> 的答案（从批评反推）。双重排除。</p>",
+  log:"排除 C：Lansley 批评说教，C 是 Oliver 的答案"},
+ {cls:"bad", ecs:"miss", tag:"排除 D / F", count:5, ribbon:{k:4, ok:false}, title:"排除 D（香烟式警告）与 F（父母榜样）",
+  body:"<p><b>D（香烟式警告告知儿童）</b><span class=\"bad-dot\">✗</span>：<b>Terence Stephenson</b> 的主张（42 题答案）；首段虽属名医集体要求，但与 Lansley 无关。</p><p><b>F（父母在家树立榜样）</b><span class=\"bad-dot\">✗</span>：全文<b>无人主张</b>父母应如何，无主选项。</p><p>注：G（政府应强化企业责任感）是卫生部发言人的（45 题答案），且与 Lansley“给企业松绑”方向不同，同样排除。</p>",
+  log:"排除 D（Stephenson）、F（无主）、G（发言人）"},
+ {cls:"good", ecs:"ok", tag:"锁定 E", count:6, ribbon:{k:5, ok:true}, title:"锁定 E：producers of crisps and candies…contribute significantly",
+  body:"<p><b>E（薯片糖果商能为 Change4Life 运动作重大贡献）</b><span class=\"ok-dot\">✓</span>：与第六段②逐字对齐——</p><p><b>manufacturers</b> of crisps and candies ↔ <b>the producers</b> of crisps and candies；could <b>play a central role</b> ↔ could <b>contribute significantly</b>；the Change4Life campaign 原词保真。</p><p>这就是 Lansley 的原话 → E。</p>",
+  log:"锁定 E：manufacturers↔producers，play a central role↔contribute significantly"},
+ {cls:"good", ecs:"done", tag:"结论", count:6, title:"结论：答案 E",
+  body:"<p><b>答案 E</b>——Lansley 让薯片糖果商在 Change4Life 运动中挑大梁。</p><p><table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr><tr><td class=\"mine\">A 脂肪税</td><td class=\"mine\">首段名医集体</td></tr><tr><td class=\"mine\">B 校园禁店</td><td class=\"mine\">Bhugra（44 题）</td></tr><tr><td class=\"mine\">C 说教有效</td><td class=\"mine\">Oliver（43 题）</td></tr><tr><td class=\"mine\">D 香烟式警告</td><td class=\"mine\">Stephenson（42 题）</td></tr><tr><td class=\"ans\">E 薯片糖果商</td><td class=\"ans\">Lansley ✓ 本题</td></tr><tr><td class=\"mine\">F 父母榜样</td><td class=\"mine\">无主</td></tr><tr><td class=\"mine\">G 强化企业责任</td><td class=\"mine\">卫生部发言人（45 题）</td></tr></table></p>",
+  log:"结论：Lansley 认为薯片糖果商能作重大贡献，答案选 E"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-41 · 新题型配对：Andrew Lansley 认为什么",
+  subtitle: "考点：Text B 人物观点配对 · 方法：人名定位 → 原句逐字比对 → 他人观点排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：人名定位 → 同义替换 → 逐项排查。",
+  snaps: snaps,
+  result: {
+    big: "答案 E",
+    html: "<b>manufacturers of crisps and candies could play a central role in the Change4Life campaign</b>＝ the producers…could contribute significantly。记忆锚点：配对题先认“主人”——A 名医集体、B Bhugra、C Oliver、D Stephenson、G 发言人，F 无主；Lansley 的原话只有 E。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——Andrew Lansley 认为"企业该挑大梁"</h2>
+<p>答案：<strong>E</strong>（the producers of crisps and candies could contribute significantly to the Change4Life campaign 薯片和糖果生产商能为"为健康而改变"运动作出重大贡献）。</p>
+<h3>第 0 步：先立机制——配对题 = 人名定位 + 原句对齐</h3>
+<p>本题左栏给人物（Andrew Lansley held that），右栏给七个观点，答对的关键是<strong>把人物带回他自己的段落</strong>，再逐字比对。两道保险：其一，Lansley 出现两次（第二段、第六段），两处都要看；其二，右栏七个选项里五个"各有其主"，配对题的干扰项通常是<strong>别人的观点</strong>——排除它们，剩下的自然落定。</p>
+<h3>第 1 步：定位两处 Lansley</h3>
+<blockquote>第二段：…the health secretary, Andrew Lansley, who insisted <strong>the government could not force people</strong> to make healthy choices and promised to <strong>free businesses from public health regulations</strong>.（政府不能强制人们做健康选择，并承诺让企业免受公共健康法规约束。）</blockquote>
+<p>第二段是他的立场总述（主张企业自主、政府松手），但右栏没有直接对应的原句——继续看第六段他的"发言现场"：</p>
+<blockquote>第六段②：<strong>He said that manufacturers of crisps and candies could play a central role in the Change4Life campaign</strong>, the centrepiece of government efforts to boost healthy eating and fitness.（他说，薯片和糖果制造商能在"为健康而改变"运动中扮演核心角色。）</blockquote>
+<p>替换链：manufacturers ↔ <strong>the producers</strong> of crisps and candies；could <strong>play a central role</strong> ↔ could <strong>contribute significantly</strong>。原词组 crisps and candies / the Change4Life campaign 原封不动 → 选 <strong>E</strong>。</p>
+<h3>第 2 步：干扰项归因——五个坑里四个"有主"</h3>
+<ul><li><strong>误选 B（禁止校园周边快餐店）</strong>：Dinesh Bhugra 第十段的主张（impose "fast-food-free zones"）。人名张冠李戴。</li><li><strong>误选 A（对麦当劳们征"脂肪税"）</strong>：<strong>首段 leading doctors（名医集体）</strong>的要求，不属于任何个人——Lansley 恰站在医生们的对立面。</li><li><strong>误选 C（说教是改善校餐的有效方法）</strong>：第六段末句 Lansley <strong>criticised</strong> Oliver 的校餐尝试是"说教无效"的例子——他反对说教；C 还是 43 题 Oliver 的答案。立场相反＋他人观点，双重排除。</li><li><strong>误选 D（香烟式警告）</strong>：Stephenson 的主张（42 题答案）。</li><li><strong>误选 F（父母在家树立榜样）</strong>：全文无人主张，无主选项。</li><li><strong>误选 G（政府应强化企业责任感）</strong>：卫生部发言人的表述（45 题答案）；且与 Lansley"free businesses from regulations（给企业松绑）"方向不同——他让企业<strong>自己挑大梁</strong>。</li></ul>
+<blockquote>记忆锚点：配对题 = 人名定位 + 原句逐字比对；Lansley 两处发言——第二段给立场（政府别管、企业上），第六段给原句（manufacturers…play a central role → producers…contribute significantly）→ E；A/B/C/D/G 各有其主，C 还是他的对立面。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

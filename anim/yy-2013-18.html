@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-18 · 2013 完形第 18 空 · 对付“这种欺诈”的什么并非易事</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 定位原文空 18",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 18 是主语中心词，this type of fraud 指代上句欺诈行为，and 后半句给出行动方向",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The __18__ of this type of fraud is no easy task, and a new field of computer science is developing to __19__ security issues.</div><p>空 18 是主语中心词：对“这种欺诈”的______不是件容易的事。两个抓手：① <b>this type of fraud 指代什么</b>？② and 并列的后半句说“一门新的计算机科学分支正在发展，以______安全问题（空 19）”——空 18 的名词要能接得住后半句的“行动”。</p>"
+ },
+ {
+  "title": "指代回溯 · this type of fraud 是什么",
+  "cls": "key",
+  "tag": "指代",
+  "log": "this type of fraud 回指上句“侵入账户、盗取资金”，即本段主题：电子支付的安全之忧",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">dishonest persons might be able to access bank accounts in electronic payments systems and steal from someone else’s accounts.</div><p>this type of fraud = 上一句刚说的“侵入账户、盗取资金”，也就是本段主题——电子支付的安全之忧。于是主语可读成：“<b>对付</b>这类欺诈的______并非易事”，空格该填一个表示“人们对付欺诈的行动”的名词。</p>"
+ },
+ {
+  "title": "and 后半句 · 行动方向已给出",
+  "cls": "key",
+  "tag": "印证",
+  "log": "新学科因“防欺诈难”而发展，目的指向应对安全问题——空 18 是“防范”性质的行动名词",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">a new field of computer science is developing to __19__ security issues.</div><p>一门新的计算机科学分支应运而生，其目的落在空 19“______安全问题”上。“防欺诈难 → 发展新学科来对付”是一条因果链：先有“防不易”，后有“新学科来应对”。空 18 的名词正是这条链的起点——<b>防范性质的行动</b>。</p>"
+ },
+ {
+  "title": "选项 B · prevention（预防）",
+  "cls": "good",
+  "tag": "当选 B",
+  "log": "B prevention（预防）✓ 当选——“预防欺诈不易 → 新学科来应对”因果链成立",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>prevention of this type of fraud（预防这类欺诈）并非易事——与 and 后半句“新学科发展以应对安全问题”严丝合缝：正因为“防不住”才需要新学科来“防”。语义、逻辑双合。</p>"
+ },
+ {
+  "title": "选项 A · consideration（考虑）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A consideration（考虑）✗ 排除——本段是“防不防得住”，不是“想不想得通”",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>“考虑这种欺诈并非易事”对不上叙事：本段讲的是防不防得住，不是想不想得明白；且“考虑”接不上后半句“新学科发展以应对”的行动逻辑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：consideration 词义中性百搭，就以为哪里都能放——名词要与前后句的动作逻辑对齐。</p>"
+ },
+ {
+  "title": "选项 C · manipulation（操纵）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C manipulation（操纵）✗ 排除——“操纵欺诈”方向荒谬：我们不是要操纵它",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>manipulation（操纵、摆布）的宾语通常是被操纵的事物或人；对欺诈“加以操纵”方向荒谬——我们不是要操纵欺诈，而是要阻止它。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背中文“控制”义项，没检查动作发出者与对象的关系。</p>"
+ },
+ {
+  "title": "选项 D · justification（辩护）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D justification（辩护）✗ 排除——给欺诈找正当理由，与全段负面基调相反",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>justification（正当理由、辩护）色彩完全相反：给欺诈“找正当理由”与本段从头到尾的安全忧虑、负面基调南辕北辙。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略全文感情色彩——本段一直在讲“威胁与担忧”。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（prevention 预防）——完整句义见结论卡",
+  "count": 3,
+  "body": "<p>完整句义：预防这类欺诈并非易事，一门新的计算机科学分支正在发展以应对安全问题。</p><p>答案选 <b>B（prevention 预防）</b>。</p><p><b>记忆锚点</b>：this type of fraud 回指上句盗取行为；and 并列句互为印证——“防不易 → 新学科来应对”；manipulation / justification 与负面语境色彩冲突。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 完形第 18 空 · 对付“这种欺诈”的什么并非易事",
+  "subtitle": "考点：上下文语义 + 名词辨析 · 指代回溯 → and 并列句印证 → 逐项排除",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（prevention 预防）",
+ "html": "<b>B prevention（预防）</b>：this type of fraud 回指上句“侵入账户盗取资金”；and 后半句“新学科应对安全问题”反向印证空格是“防范”类行动名词。<br>最易误选：<b>A（consideration）</b>——词义百搭，但接不上“防欺诈 → 新学科”的行动逻辑。<br>记忆锚点：防不易 → 新学科来应对；名词辨析也要核“色彩与方向”。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 完形第 18 空 · 对付“这种欺诈”的什么并非易事</h2>
+<p>答案：<strong>B（prevention 预防）</strong>。</p>
+<h3>第 0 步：先立机制——主语名词的两条约束</h3>
+<p>空 18 是主语中心词：对“这种欺诈（this type of fraud）”的______不是件容易的事。主语名词受两条约束：一是<strong>指代回溯</strong>——this type of fraud 指代什么；二是<strong>与并列句互证</strong>——and 后半句“一门新的计算机科学分支正在发展，以______安全问题（空 19）”说明了空 18 名词的性质：它必须是“人们对付欺诈的行动”，且后半句的行动（发展新学科来应对）正是这一行动的延续。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The __18__ of this type of fraud is no easy task, and a new field of computer science is developing to __19__ security issues.</blockquote>
+<h3>第 2 步：指代回溯 + 因果链</h3>
+<blockquote>dishonest persons might be able to access bank accounts in electronic payments systems and steal from someone else's accounts.</blockquote>
+<p>this type of fraud = 上一句刚说的“侵入账户、盗取资金”，也就是本段主题——电子支付的安全之忧。于是主语可读成“<strong>对付</strong>这类欺诈的______并非易事”。因果链随之成形：先有“防不住”（难），后有“新学科来防”（and 后半句）——空 18 填的正是链条的起点：<strong>防范性质的行动名词</strong>。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A consideration</td><td>考虑</td><td>✗ 排除</td><td>本段讲“防不防得住”，不是“想不想得通”；“考虑”也接不上“新学科发展以应对”的行动逻辑。（典型误解：consideration 词义中性百搭，就以为哪里都能放——名词要与前后句的动作逻辑对齐。）</td></tr><tr><td>B prevention</td><td>预防</td><td>✓ 当选</td><td>prevention of this type of fraud（预防欺诈）并非易事 → 新学科应运而生来应对，因果链严丝合缝。</td></tr><tr><td>C manipulation</td><td>操纵</td><td>✗ 排除</td><td>manipulation 的宾语是被摆布的事物或人；“操纵欺诈”方向荒谬——我们要的是阻止它。（典型误解：只背中文“控制”义，没核对动作发出者与对象。）</td></tr><tr><td>D justification</td><td>辩护；正当理由</td><td>✗ 排除</td><td>给欺诈“找正当理由”与全段负面基调南辕北辙。（典型误解：忽略全文感情色彩。）</td></tr></tbody></table>
+<p>代入后的完整句义：预防这类欺诈并非易事，一门新的计算机科学分支正在发展以应对安全问题。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么空 18 和空 19 要连着看？</strong>：两空在同一条因果链上。空 19（cope with）确定了“新学科是为了应对安全问题”，反推空 18 必须是“防范”类名词——两个空互为印证，先做哪个都能锁定另一个。</li><li><strong>no easy task 的对象是“行动”还是“问题”？</strong>：是行动——“……的任务并不容易”，task 指向 prevention / 控制这类主动性工作，进一步排除了 consideration 这类静态名词。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（consideration）</strong>：被“词义百搭”迷惑，没核对动作逻辑与 and 并列句的方向。</li><li><strong>误选 C（manipulation）</strong>：把“控制”义套在任何宾语上，忽略了“谁操纵谁”的方向。</li></ul>
+<blockquote>记忆锚点：this type of fraud 回指上句盗取行为；and 并列句互为印证——“防不易 → 新学科来应对”；名词辨析也要核色彩与方向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

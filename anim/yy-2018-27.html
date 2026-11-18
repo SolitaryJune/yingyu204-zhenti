@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-27 · 2018 Text2 第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第三段③④句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第三段“全球 → 美国”两分结构，考点：锁定段落的事实细节题",
+  "body": quote("③ While the rest of the world takes the lead, notably China and Europe, the United States is <b>also seeing a remarkable shift</b>.") + quote("④ In March, <b>for the first time</b>, wind and solar power accounted for <b>more than 10 percent</b> of the power generated in the US.") + "<p>题干自带定位（Paragraph 3）。铁律：正确项依据<b>必须全部来自定位段</b>——依据在其他段落的选项，再合理也按“答非所问”处理。</p>"
+ },
+ {
+  "title": "立机制 · ③④句是“观点 + 例证”",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：③句定性（remarkable shift）＋④句数据（for the first time >10%）→ 正在显著进步",
+  "body": "<p>③句定性：美国<b>也在</b>见证显著转变。</p><p>④句给数据：风能太阳能发电占比<b>首次</b>超 10%——对③句“显著转变”的具体说明。</p><p>两处证据同向：正在发生、幅度可观、破纪录——方向为“向好”。</p>"
+ },
+ {
+  "title": "逐项分析 · A is progressing notably",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A ✓ 当选——seeing a remarkable shift + for the first time 的合理概括",
+  "body": "<p><b>当选。</b>逐项对表：is progressing ↔ seeing a shift（正在发生的变化）；notably ↔ remarkable + for the first time（显著且破纪录）。</p><p>主语（美国）、时间（正在）、方向（向好）全对——正确项是概括，不搬原词。</p>"
+ },
+ {
+  "title": "逐项分析 · B is as extensive as in Europe",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B ✗ 排除——误读 also：两种不同的良性状况（中欧领先 vs 美国显著转变），不是程度相同",
+  "body": "<p><b>排除。</b>③句 While...also... 对比的是“等级不同”：中国、欧洲<b>遥遥领先</b>，美国<b>也在</b>见证显著转变。</p><p>苏格兰 95% 家庭 vs 美国首破 10%——差距本身就是反证：“一样广泛”原文没给。</p><p style='color:#b91c1c'>⚠ 典型误解：把 also 从“也在进步”偷换成“程度相当”。</p>"
+ },
+ {
+  "title": "逐项分析 · C faces many challenges",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C ✗ 排除——内容出自第四段（特朗普轻视风能），题干限定第三段，答非所问",
+  "body": "<p><b>排除。</b>“可再生能源面临挑战”的信息在<b>第四段</b>：特朗普把风能贬为不可靠能源。</p><p>真话不错，但题干限定 Paragraph 3——细节题的纪律：定位段之外的一切信息，正确也无用。</p><p style='color:#b91c1c'>⚠ 典型误解：被文章别处的“特朗普不支持”带偏，忘了锁段。</p>"
+ },
+ {
+  "title": "逐项分析 · D has proved to be impractical",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D ✗ 排除——同样捏造自第四段言论，且与第三段事实（首破 10%）方向相反",
+  "body": "<p><b>排除。</b>“已被证明不切实际”源于第四段特朗普“风能不靠谱”的<b>个人言论</b>——言论 ≠ 已被证明的事实。</p><p>且它与第三段的方向相反：首次占比超 10% 是突破信号，不是“不切实际”。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（is progressing notably）——锁段 + 概括③④句",
+  "body": "<p>完整逻辑：<b>中欧领先之际，美国也迎来显著转变——风能太阳能发电占比首破 10%，应用正在显著进步。</b></p><p>答案选 <b>A（is progressing notably）</b>。</p><p><b>记忆锚点</b>：带段落定位的细节题，答案必须<b>全在段内</b>；also = “也在”而非“同样多”；for the first time = 破纪录，属进步信号。</p><p style='color:#b91c1c'>⚠ 最易误选 C/D：第四段的真话，答第三段的题。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text2 第 27 题 · 第三段：美国可再生能源的应用____",
+  subtitle: "考点：锁定段落的事实细节题 · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 观点加例证机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（is progressing notably）", "html": "<b>A</b>：remarkable shift + for the first time >10% = 美国可再生能源应用正在显著进步。<br>记忆锚点：带段落定位的细节题，答案必须全在段内；also = “也在”而非“同样多”。<br>最易误选：<b>C/D</b>——第四段的真话，答不了第三段的题。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text2 第 27 题 · 第三段：美国可再生能源的应用状况</h2>
+<p>答案：<strong>A（is progressing notably）</strong>。</p>
+<h3>第 0 步：先立机制——已定位段的事实题，答案必须在段内</h3>
+<p>题干自带定位（According to Paragraph 3），这类题有一条铁律：<strong>正确项的依据必须全部来自定位段</strong>；依据在其他段落的选项，无论读起来多合理，都按"答非所问"处理。这条铁律的机制是：命题人设置 C、D 类干扰的惯用手法就是"用文章别处的真话造错位选项"——真话不错，但不是本题考点。所以第一步先在第三段内把"美国的状况"挖干净，再回选项处对号。第三段结构是"全球 → 美国"两分：①②句说世界许多地区（苏格兰风电供 95% 家庭），③④句才落到美国——③句定性（ remarkable shift，显著转变），④句给数据（for the first time，首次超 10%）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>③ While the rest of the world takes the lead, notably China and Europe, the United States is <strong>also seeing a remarkable shift</strong>.</blockquote>
+<p>&gt;</p>
+<blockquote>④ In March, <strong>for the first time</strong>, wind and solar power accounted for <strong>more than 10 percent</strong> of the power generated in the US.</blockquote>
+<ul><li>③④句是"观点 + 例证"关系：④句的"首次超 10%"是对③句"显著转变"的具体说明；</li><li>注意③句的让步结构：While 中欧领先，美国<strong>也在</strong>见证显著转变。</li></ul>
+<h3>第 2 步：同义替换——"显著转变 + 首次突破" = "显著进步"</h3>
+<p><code>seeing a remarkable shift</code>（见证显著转变）与 <code>for the first time...more than 10 percent</code>（首次占比超一成）合并，指向"美国可再生能源的应用<strong>正在取得明显进展</strong>"。A 项 <code>is progressing notably</code> 逐项对表：is progressing ↔ seeing a shift（正在发生的变化），notably ↔ remarkable + for the first time（显著且破纪录）。正确项是③④句的合理概括，不搬原词。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A is progressing notably</td><td>正在显著进步</td><td>✓ 当选</td><td>③句 remarkable shift + ④句 for the first time &gt;10% 的合理概括，主语（美国）、时间（正在）、方向（向好）全对。</td></tr><tr><td>B is as extensive as in Europe</td><td>与欧洲一样广泛</td><td>✗ 排除</td><td>误读③句 also：它对比的是"两种不同的良性状况"——中欧<strong>遥遥领先</strong>、美国<strong>也在显著转变</strong>，不是"程度相同"。苏格兰 95% 与美国 10% 的差距本身就是反证。</td></tr><tr><td>C faces many challenges</td><td>面临诸多挑战</td><td>✗ 排除</td><td>内容出自<strong>第四段</strong>（特朗普轻视风能、说它不可靠）——真话不错，但题干限定第三段，答非所问。</td></tr><tr><td>D has proved to be impractical</td><td>已被证明不切实际</td><td>✗ 排除</td><td>同样由第四段特朗普"风能不靠谱"的言论捏造；且与第三段事实（首次超 10%）方向相反。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>"首次才 10%"算显著进步吗？</strong>：算——remarkable 的强调点正是"在总统不待见新能源的背景下依然取得突破"（下文说特朗普 dismiss 风电，但爱荷华风电照样发展）；for the first time 是破纪录标记，属"向好"信号。</li><li><strong>C 为什么"看起来也对"？</strong>：因为它在文章其他地方<strong>确实发生过</strong>。细节题的纪律是：定位段之外的一切信息，正确也无用。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把 also 从"也在进步"偷换成"程度相当"——比较级信息原文没给。</li><li><strong>误选 C/D</strong>：被第四段的"特朗普不支持"带偏，忘了题干锁段。</li></ul>
+<blockquote>记忆锚点：带段落定位的细节题，<strong>答案必须全在段内</strong>；also = "也在"而非"同样多"；for the first time = 破纪录，属进步信号。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

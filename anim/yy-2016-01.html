@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-01 · 2016 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：首段末句，考点：句内语义 + 宾语从句引导词",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Happy people work differently. They’re more productive, more creative, and willing to take greater risks. And new research suggests that happiness might influence <b>__1__</b> firms work, too.</div><p>空 1 是 influence 后宾语从句（firms work）的<b>引导词</b>：从句本身主谓宾俱全，引导词由“上下文语义要表达什么”来定。全文首句就是现成的语义坐标。</p>"
+ },
+ {
+  "title": "找证据 · 首句早把答案的方向说死了",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：work differently（工作方式不同）与 how firms work 同义复现",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Happy people work <b>differently</b>.</div><p>首句说幸福的人“工作方式不一样”——differently 是<b>方式</b>。紧接着的 too 表并列：人如何工作（work differently）↔ 公司如何运作（firms work）。所以从句缺的是“方式”义：答案应与 differently 同族。</p>"
+ },
+ {
+  "title": "逐项分析 · A why（为何）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A why（为何）✗ 排除——表原因，从句要的是方式",
+  "body": "<p><b>排除。</b>why 表原因：填进去读成“幸福感影响公司<em>为何</em>运作”，语义不通。首句给出的是 work differently（方式不同），不是 work for a reason（出于某种原因）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 influence 就联想“研究因果”，没有回到首句 differently 的方式义。</p>"
+ },
+ {
+  "title": "逐项分析 · B how（如何）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B how（如何）✓ 当选——与 work differently 同义复现",
+  "body": "<p><b>当选。</b>how 表方式：happiness might influence <b>how</b> firms work——“幸福感可能影响公司运作的<em>方式</em>”，与首句 work differently 精准同义复现，too 的并列关系也顺理成章。</p>"
+ },
+ {
+  "title": "逐项分析 · C where（何地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C where（何地）✗ 排除——表地点，首句没谈地点",
+  "body": "<p><b>排除。</b>where 表地点。首句讲的是人工作的方式差异，地点是第二段才引入的研究变量（places with happier people），不参与本句的并列衔接。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被第二段的地域研究带偏，把地点线索前移到首段。</p>"
+ },
+ {
+  "title": "逐项分析 · D when（何时）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D when（何时）✗ 排除——表时间，全文无时间线索",
+  "body": "<p><b>排除。</b>when 表时间，首句和本句都没有任何时间维度（何时工作、何时运作），代入后无从照应。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（how 如何）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>新研究表明，幸福感可能也会影响公司的运作方式。</b></p><p>答案选 <b>B（how 如何）</b>。</p><p><b>记忆锚点</b>：引导词题先找照应——work differently ↔ how firms work 同义复现；too 表并列，前后同讲“方式”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 A（why）：把 influence 当成“探究原因”，忽略首句 differently 的方式义。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 1 空 · 幸福感会影响公司____运作：why/how/where/when 选哪个",
+  subtitle: "考点：句内语义 + 宾语从句引导词 · 定位 → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（how 如何）", "html": "<b>B how（如何）</b>。<br>记忆锚点：work differently ↔ how firms work 同义复现；too 表并列，前后同讲“方式”。<br>最易误选：<b>A（why）</b>——把 influence 当成“探究因果”，没回到首句 differently 的方式义。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 1 空 · 幸福感会影响公司____运作</h2>
+<p>答案：<strong>B（how 如何）</strong>。</p>
+<h3>第 0 步：先立机制——引导词由“上下文要表达什么”决定</h3>
+<p>空 1 位于 influence 的宾语从句里：happiness might influence __ firms work。从句 firms work 主谓俱全，不缺句子成分，所以四个引导词 why/how/where/when 之间的取舍不靠语法，靠语义照应：从句要表达“原因/方式/地点/时间”中的哪一种。全文首句就是现成的坐标。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Happy people work differently. ... And new research suggests that happiness might influence __1__ firms work, too.</blockquote>
+<h3>第 2 步：找证据——首句已把方向说死</h3>
+<blockquote>Happy people work differently.</blockquote>
+<p>differently 是<strong>方式</strong>状语：幸福的人“工作方式不一样”。too 表并列，把“人”和“公司”接在同一条论述上：人如何工作 ↔ 公司如何运作。所以从句缺的正是“方式”义，答案须与 differently 同族——只有 how 表方式。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A why</td><td>为何</td><td>✗ 排除</td><td>表原因，代入成“影响公司为何运作”，不通；首句给的是方式不是原因。（典型误解：见 influence 就联想“研究因果”。）</td></tr><tr><td>B how</td><td>如何</td><td>✓ 当选</td><td>与 work differently 同义复现，too 的并列成立。</td></tr><tr><td>C where</td><td>何地</td><td>✗ 排除</td><td>表地点；地点是第二段才引入的变量，管不到首段并列。（典型误解：被后文地域研究带偏。）</td></tr><tr><td>D when</td><td>何时</td><td>✗ 排除</td><td>表时间，本句与首句均无时间线索。</td></tr></tbody></table>
+<p>代入后的完整句义：新研究表明，幸福感可能也会影响公司的运作方式。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不能选 why？</strong>：若填 why，从句变成“幸福感影响公司为何运作”，语义断裂；而且首句的照应词是 differently（方式），不是“出于某种原因工作”。引导词题的答案必须在上下文里有落点。</li><li><strong>where 不也有“在哪些方面运作”的引申吗？</strong>：where 引导的从句义是“在……地方”，地点话题要到第二段才出现；首段的并列关系只围绕“方式”展开。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（why）</strong>：看到 influence 就想到“因果研究”，忽略首句 differently 已经锁定方式义。</li><li><strong>误选 C（where）</strong>：被第二段“幸福城市”带偏，把地点线索前移。</li></ul>
+<blockquote>记忆锚点：引导词题先找照应——work differently ↔ how firms work；too 表并列，前后同讲“方式”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

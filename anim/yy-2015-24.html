@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-24 · 2015 阅读第 24 题 · moola 是什么——对仗句式里的“同位换词” · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 词义题的答案不在词本身", "cls": "key", "tag": "审题", "log": "审题眼：moola 是俚语，考场上没人认识很正常——生词词义由上下文结构供给", "count": 0, "ribbon": null, "body": "<p>题干：The word “moola” most probably means ___. 词义题的机制：生词的意思不在词典里，而在<b>上下文的结构关系</b>里——先找到包含 moola 的句子，再找与它构成同义复述的句子。</p>"},
+ {"title": "定位原文 · 总述句与展开句成对出现", "cls": "key", "tag": "定位", "log": "定位原文：②句 draw an income（总述）→ ③句 draws out life-sustaining moola（展开）", "count": 0, "ribbon": null, "body": quote("At work, people pretty much know what they’re supposed to be doing: working, making money, doing the tasks they have to do in order to draw an income. The bargain is very pure: Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola.") + "<p>②句先总说“完成任务以换取收入”；③句冒号后把这笔交易写成一个<b>对仗句</b>。</p>"},
+ {"title": "找证据 · 逐位对齐：draw out moola ↔ draw an income", "cls": "key", "tag": "证据", "log": "找证据：总述↔展开逐位对应——put in labor ↔ doing the tasks；draw out moola ↔ draw an income", "count": 0, "ribbon": null, "body": "<p>两句是“总述 → 展开”的同义复述：投入端 <b>puts in…labor ↔ doing the tasks</b>，回报端 <b>draws out…moola ↔ draw an income</b>。同一个动词 draw，同一个“报酬”位置——moola ＝ income。</p>"},
+ {"title": "逐项分析 · C earnings（收入）", "cls": "good", "tag": "选定 C", "log": "C earnings（收入） ✓ 当选——维持生计的钱＝收入，与 draw an income 同位", "count": 0, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>draw out life-sustaining moola ＝ “取出维持生计的钱” ＝ draw an income。结构同位严丝合缝，moola 正是俚语“票子”。</p>"},
+ {"title": "逐项分析 · A skills（技能）", "cls": "bad", "tag": "排除 A", "log": "A skills（技能） ✗ 排除——交易里取出的是报酬，技能方向反了", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>语境是“劳动换报酬”的交易：员工<b>投入</b>的是劳动，<b>取出</b>（draw out）的是报酬。skills 既不是取出的东西，上下文也没谈“技能与生存”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“劳动”错听成“技能的交换”。</p>"},
+ {"title": "逐项分析 · B energy（能量）", "cls": "bad", "tag": "排除 B", "log": "B energy（能量） ✗ 排除——被 life-sustaining 字面义带偏，脱离交换结构", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>life-sustaining（维持生计）描述的是这笔钱<b>用途</b>——用它过日子，不是钱在身体里变成“能量”。交换结构的对手方始终是 income。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只做形容词层面的字面联想。</p>"},
+ {"title": "逐项分析 · D nutrition（营养）", "cls": "bad", "tag": "排除 D", "log": "D nutrition（营养） ✗ 排除——同 B，语境是劳资交易不是饮食营养", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>与 B 同源干扰：The bargain is very pure 点明这是一笔“投入 → 回报”的交易，员工取出的必然是报酬，与“营养”无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 life-sustaining 的字面义捕获。</p>"},
+ {"title": "结论 · 完整句义与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（earnings 收入）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>这笔交易很纯粹：员工投入数小时的体力脑力劳动，取出维持生计的报酬（moola）。</b></p><p>答案选 <b>C（earnings 收入）</b>。</p><p><b>记忆锚点</b>：词义题＝结构对应题——总述句 ↔ 展开句逐位对齐，draw an income ↔ draw out moola；moola＝俚语“票子”；life-sustaining 说的是钱的用途。</p><p style=\"color:#b91c1c\">最易误选：<b>B/D（energy/nutrition）</b>——被 life-sustaining 字面义带偏。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 24 题 · moola 是什么——对仗句式里的“同位换词”",
+  subtitle: "考点：词义猜测题 · 上下文结构对应（总述 ↔ 展开的同义复述）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 结构对齐 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（earnings）", "html": "<b>C earnings（收入）</b>：draw out moola 与 draw an income 结构同位——“维持生计的钱”＝收入。<br>记忆锚点：词义题＝结构对应题；moola＝俚语“票子”。<br>最易误选：<b>B/D（energy/nutrition）</b>——被 life-sustaining 的字面义带偏。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 24 题 · moola 是什么——对仗句式里的"同位换词"</h2>
+<p>答案：<strong>C（earnings 收入）</strong>。</p>
+<h3>第 0 步：先立机制——词义题的答案不在词本身，在"结构对应"</h3>
+<p>moola 是美国俚语，考场上没人认识很正常；词义题的机制是：<strong>生词的意思由上下文的结构关系供给</strong>。第四段②句先总说：人们清楚自己该做什么——干活、赚钱、完成任务以 <strong>draw an income</strong>（获得收入）；③句冒号后再把这笔"交易"写成一个对仗句：<strong>Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola.</strong>（员工投入体力脑力劳动，取出维持生计的 moola）。两句是"总述 → 展开"的同义复述关系，逐位对齐：put in labor ↔ doing the tasks，draw out moola ↔ draw an income。moola 的意思由此锁定为"收入"。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>At work, people pretty much know what they're supposed to be doing: working, making money, doing the tasks they have to do in order to draw an income. The bargain is very pure: Employee puts in hours of physical or mental labor and employee draws out life-sustaining moola.</blockquote>
+<ul><li>②句（总述）：完成任务 → draw an income（换取收入）；</li><li>③句（展开）：投入劳动 → draws out moola（换取 moola）。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A skills</td><td>技能</td><td>✗ 排除</td><td>上下文谈的是"劳动换报酬"的交易，没有涉及"技能与生存"的内容</td></tr><tr><td>B energy</td><td>能量</td><td>✗ 排除</td><td>利用 life-sustaining（维持生命）的字面联想设障；但交换的对手方是 income 不是能量</td></tr><tr><td>C earnings</td><td>收入</td><td>✓ 当选</td><td>draw out moola 与 draw an income 结构同位（都是 draw＋钱），"维持生计的钱"＝收入</td></tr><tr><td>D nutrition</td><td>营养</td><td>✗ 排除</td><td>同 B，被 life-sustaining 的字面义带偏；语境是劳资交易，不是饮食营养</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>life-sustaining 不是"维持生命"吗？怎么不该选能量/营养？</strong>：life-sustaining 修饰的是这笔钱<strong>用途</strong>——用来维持生计的钱（income 的功能性描述），不是钱在身体里转化成什么。词义题看的是交换结构（劳动 ↔ 钱），不是某个形容词的字面联想。</li><li><strong>bargain（交易）这个词给了什么线索？</strong>：The bargain is very pure 点明③句写的是一笔"投入 → 回报"的交易。交易里员工取出的东西必然是报酬，这从框架上就锁定了 money 义。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B/D（energy/nutrition）</strong>：被 life-sustaining 的字面义捕获，做了形容词层面的联想而没做句子层面的结构对应。</li><li><strong>误选 A（skills）</strong>：把"劳动"错听成"技能的交换"，脱离了"draw out（取出报酬）"的方向。</li></ul>
+<blockquote>记忆锚点：词义题＝结构对应题——②③句"总述 ↔ 展开"逐位对齐，draw an income ↔ draw out moola；moola 是俚语"票子"；life-sustaining 说的是钱的用途，不是营养。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

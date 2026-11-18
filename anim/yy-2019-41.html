@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-41 新题型匹配：Ryan Hooper——pose challenges to children</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：41 · Ryan Hooper（临床心理学家）',
+  'body':'<p>新题型：左栏 41-45 人名，右栏 A-G 观点，<b>两项多余</b>。机制：<b>人名是锚点</b>——锚点后的观点句与引语才是候选；匹配成立的标志是右栏与原文存在<b>系统的同义替换</b>，不是碰上几个相同的词。</p><p>Ryan Hooper 锚定第四、五段：第四段给总观点，第五段以引语补理由。</p>',
+  'log':'审题：人名锚点 Ryan Hooper → 第四、五段'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第四段观点 + 第五段引语',
+  'body':'<div class="qq"><b>第四段：</b>The idea of <b>involving children in a big decision</b> is a great idea because it can help them feel a sense of control and ownership..., said <b>Ryan Hooper</b>.<span class="cn">（让孩子参与重大决定是个好主意，能帮他们获得掌控感与所有权。）</span></div><div class="qq"><b>第五段：</b>"Children may <b>face serious difficulties in coping with significant moves</b>, especially if it removes them from their current school or support system," he said.<span class="cn">（"孩子在应对重大搬家时可能面临严重困难，尤其当搬家使他们离开现在的学校或支持系统。"）</span></div>',
+  'log':'定位：Hooper 主张真参与 + 理由"孩子应对重大搬家有严重困难"'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：pose challenges to children',
+  'body':'<table class="aw-mini"><tr><th>选项 A</th><th>原文</th></tr><tr><td><b>significant moves</b></td><td>significant moves（原词复现）</td></tr><tr><td><b>pose challenges to children</b></td><td>face serious difficulties（pose A to B = B face A，主被动反向表达）</td></tr></table><p>pose A to B 与 B face A 是同一件事的两种写法——<b>匹配成立</b>。</p>',
+  'log':'替换：pose challenges to ↔ face serious difficulties'},
+ {'cls':'good','ecs':'ok','tag':'锁定 A','count':1,'ribbon':{'k':1,'ok':true},
+  'title':'锁定 A：重大搬家可能给孩子带来挑战',
+  'body':'<p><b>A · remarks that significant moves may pose challenges to children.</b><span class="ok-dot"> ✓</span></p><p>原词复现 + 主被动反向替换，双重证据；这正是 Hooper 第五段引语的概括。</p>',
+  'log':'锁定 A：significant moves ↔ challenges，与 Hooper 引语吻合'},
+ {'cls':'bad','ecs':'miss','tag':'辨析 D','count':2,'ribbon':{'k':4,'ok':false},
+  'title':'辨析 D："参与感"陷阱（头号干扰项）',
+  'body':'<p><b>D · children should be given a sense of involvement in homebuying decisions</b><span class="bad-dot"> ✗</span></p><p>看似对应第四段 involving children...，但 a sense of involvement（参与的<b>感觉</b>）正是 <b>Adam Bailey</b> 的主张（"让孩子感觉在选房，但实际不给选择权"）；Hooper 主张的是<b>真参与</b>。"参与"与"参与感"一字之差、两人之别。</p>',
+  'log':'辨析 D：参与感是 Bailey 的，真参与才是 Hooper 的'},
+ {'cls':'bad','ecs':'miss','tag':'归因 B/E','count':3,'ribbon':{'k':2,'ok':false},
+  'title':'归因 B / E：无人认领的公共干扰项',
+  'body':'<p><b>B · leave kids in the dark about real estate decisions</b><span class="bad-dot"> ✗</span>——那是第三段<b>老一辈的做法</b>（an older-generation proclivity），且更多家庭正在摆脱它：背景陈述，无人认领。</p><p><b>E · 考虑孩子的朋友与社交活动</b><span class="bad-dot"> ✗</span>——属于文中<b>未被编号</b>的第六人 Greg Jaroszewski（房地产经纪人）：文中人物不设题，是常态。</p>',
+  'log':'归因：B 是老一辈做法，E 是未编号人物 Jaroszewski'},
+ {'cls':'good','ecs':'done','tag':'结论','count':3,
+  'title':'结论：41 选 A',
+  'body':'<p><b>41 → A</b>——Hooper 的引语"孩子在应对重大搬家时会面临严重困难"与 A 的 significant moves / pose challenges 系统对应。</p><p>记忆锚点：匹配题先锁人名再读引语；pose A to B = B face A；警惕"参与感"与"真参与"的分身陷阱。</p>',
+  'log':'结论：Ryan Hooper → A，答案 A'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-41 · 新题型匹配：Ryan Hooper 的观点",
+  subtitle: "考点：Text5（买房与孩子）观点匹配 · 方法：人名锚点 → 同义替换 → 干扰归因",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 A–G（✓ 匹配 / ✗ 落选）",
+  intro: "点击「▶ 播放」逐步展开：人名定位 → 引语与选项对照 → 干扰项归因。",
+  snaps: snaps,
+  result: {
+    big: "41 → A",
+    html: "<b>Hooper 引语</b>：Children may face serious difficulties in coping with significant moves ↔ <b>significant moves may pose challenges to children</b>（pose A to B = B face A）。“参与感”是 Bailey 的 D，别认错人。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——人名锚点 + 同义替换（Ryan Hooper）</h2>
+<p>答案：<strong>A（remarks that significant moves may pose challenges to children）</strong>。</p>
+<h3>第 0 步：先立机制——匹配题的人名锚点读法</h3>
+<p>新题型左栏 41-45 是人名，右栏 A-G 是观点，两项多余。机制：<strong>人名是锚点</strong>，锚点后的观点句与引语才是候选；匹配成立的标志是右栏与原文存在<strong>系统的同义替换</strong>，而不是碰上几个相同的词。Ryan Hooper 锚定第四、五段：第四段给总观点（让孩子参与重大决定是个好主意，能帮他们获得掌控感与所有权），第五段以引语补理由。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The idea of involving children in a big decision is a great idea because it can help them feel a sense of control and ownership..., said Ryan Hooper, clinical psychologist in Chicago.<br/>"Children may face serious difficulties in coping with significant moves, especially if it removes them from their current school or support system," he said.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 A</th><th>原文</th></tr></thead><tbody><tr><td>significant moves</td><td>significant moves（原词复现）</td></tr><tr><td>pose challenges to children</td><td>face serious difficulties（pose A to B = B face A，主被动反向表达）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>D（应给孩子购房决定中的参与感）</strong>：本题头号陷阱——a sense of involvement 正是 <strong>Adam Bailey</strong> 的主张（"让孩子<strong>感觉</strong>在选房，但实际不给选择权"）；Hooper 主张的是<strong>真参与</strong>（involving children in a big decision）。"参与"与"参与感"一字之差、两人之别。</li><li><strong>B（对孩子隐瞒购房决定是明智的）</strong>：那是第三段<strong>老一辈的做法</strong>（an older-generation proclivity to leave kids in the dark），且更多家庭正在摆脱它——背景陈述，无人认领。</li><li><strong>E（应考虑孩子的朋友与社交活动）</strong>：属于文中<strong>未被编号</strong>的第六人 Greg Jaroszewski——新题型常见"文中人物不设题"。</li></ul>
+<blockquote>记忆锚点：匹配题先锁人名再读引语；pose A to B = B face A；警惕"参与感"（Bailey）与"真参与"（Hooper）的分身陷阱。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-17 · 2018 完形第 17 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 末段实验句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：末段反转实验（In a final experiment），考点：实验结论 + 动词辨析",
+  "body": quote("In a final experiment, participants who were encouraged to <b>__16__</b> how they would feel after viewing an unpleasant picture were less likely to <b>__17__</b> to see such an image.") + "<p>空前是被试被鼓励去做的事：<b>预想看完难受图片后的感受</b>（16 空，predict）。空后挂着不定式 <b>to see such an image</b>——空格必须是能接不定式、表示“去做（看图）这件事”的行为动词。</p>"
+ },
+ {
+  "title": "立机制 · 这一空要收束“好奇心可被抑制”的结论",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：末段是反转实验——先预想感受，再看被试自主选择看不看图",
+  "body": "<p>全文骨架：现象（人渴求确定性）→ 四个实验 → 末段<b>反转实验</b>：好奇心可以被抑制。</p><p>所以本空是<b>实验结果收口</b>：were less likely to __17__ to see = 对参与者行为的<b>倾向性总结</b>。逻辑链：预想感受 → 看图意愿下降。空里必须填表示“当事人<b>自己决定做不做</b>”的动词——只有被试<b>自主选择</b>，才能测出“预想”这个干预有没有用。</p>"
+ },
+ {
+  "title": "逐项分析 · C choose（选择去做）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 0,
+  "ribbon": {"k": "C", "ok": true},
+  "log": "C choose ✓ 当选——were less likely to choose to see = 更少“选择”去看，自主抉择 + 意愿下降",
+  "body": "<p><b>当选。</b>choose to do sth = 选择去做。填入后：被鼓励预想感受的被试，<b>更不大会选择</b>去看那种图。</p><p>“看图”是满足好奇心的具象动作，意愿下降 = 更少选择去做——既保留<b>自主抉择</b>，又与“预想感受抑制好奇心”的结论严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · A remember（记得去做）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A remember ✗ 排除——记得与否是记忆力，与“抑制好奇心”无关",
+  "body": "<p><b>排除。</b>remember to do = 记得去做。“更不大会<b>记得</b>去看图”谈的是记忆力——实验没考“忘没忘事”，与好奇心被抑制的结论毫无关联。</p><p style='color:#b91c1c'>⚠ 典型误解：被 remember to do 的常见搭配带跑，忘了完形每空都要在主题链条上。</p>"
+ },
+ {
+  "title": "逐项分析 · B promise（承诺去做）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B promise ✗ 排除——暗含“实验方要求承诺”，偷换了自主抉择前提",
+  "body": "<p><b>排除。</b>“不大会<b>承诺</b>看图”结果上也是不看，但 promise 暗含“实验方<b>提前要求</b>他们承诺看图”的逻辑。</p><p>本实验测的是：人们在特定情形下会<b>自主做出何种行为</b>——一旦变成“事先承诺”，就不是测好奇心了。</p><p style='color:#b91c1c'>⚠ 典型误解：只看结果一致（都不看图），没发现主体错位。</p>"
+ },
+ {
+  "title": "逐项分析 · D pretend（假装去做）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D pretend ✗ 排除——“更少假装看图”＝更少作假，与好奇心无关",
+  "body": "<p><b>排除。</b>“更不大会<b>假装</b>去看图”的潜台词是“更少作假”——这与“好奇心被抑制”的结论无关，且在实验场景中语义不成立：被试本就无需假装。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（choose）——实验结论空：预想感受 → 更少自主选择去看",
+  "body": "<p>完整句义：<b>那些被鼓励预先设想看完令人不适的图片后自身感受的参与者，选择去看这类图片的可能性更低。</b></p><p>答案选 <b>C（choose）</b>。</p><p><b>记忆锚点</b>：实验结论空，先找实验<b>干预手段</b>（预想感受），再倒推被测的<b>自主行为</b>；choose to do = 当事人自己决定做不做。</p><p style='color:#b91c1c'>⚠ 最易误选 B（promise）：结果像，前提不像——promise 偷换了“自主抉择”。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 完形第 17 空 · 更不大会____去看那种图：remember / promise / choose / pretend 选哪个",
+  subtitle: "考点：实验结论 + 动词辨析 · 定位 → 立机制 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 实验机制 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 C（choose）", "html": "<b>C choose to see</b>：更不大会“选择”去看那种图——预想感受压低的是被试的自主选择意愿。<br>记忆锚点：实验结论空 = 干预手段倒推自主行为；choose to do = 自己决定做不做。<br>最易误选：<b>B（promise）</b>——结果像、前提不像，promise 把“自主抉择”偷换成“事先承诺”。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 完形第 17 空 · 被鼓励"预想感受"后，人们更不大会____去看那种图</h2>
+<p>答案：<strong>C（choose）</strong>。</p>
+<h3>第 0 步：先立机制——这一空是"实验结论"的收口处</h3>
+<p>本文的骨架是"提出现象（人对确定性有天然需求）→ 四个实验 → 一个反转实验（好奇心可以被抑制）"。空 17 位于末段：这是全文唯一一个"反着做"的实验——先让一部分参与者<strong>预想</strong>看完难受图片后的感受，再看他们还愿不愿意去看。整段的任务是<strong>用实验结果收束首句观点</strong>（Unhealthy curiosity is possible to <code>__15__</code>，病态的好奇心有可能被抑制）。所以空格句 <code>were less likely to __17__ to see such an image</code> 是一个<strong>倾向性总结</strong>：空里必须填一个表示"当事人自己决定/选择做不做"的行为动词——只有被试<strong>自由选择</strong>看不看，才能对比出"预想感受"这个干预手段有没有降低他们看图的意愿。这层"自主抉择"的要求立起来，四个选项谁在测"选择"、谁测的是别的动作，就分得开了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In a final experiment, participants who were encouraged to <code>__16__</code> how they would feel after viewing an unpleasant picture were less likely to <strong><code>__17__</code> to see such an image</strong>.</blockquote>
+<ul><li>空前：<code>were encouraged to __16__ how they would feel</code>——16 空处填的是"预想/预测"（predict），即实验干预；</li><li>空后：<code>to see such an image</code>——不定式挂在空格动词上，说明空格是<strong>能接不定式作宾语的动词</strong>，且表示"去做（看图）这件事"。</li></ul>
+<h3>第 2 步：同义替换——答案从"结论"倒推</h3>
+<p>实验的逻辑链是：预想感受 → <strong>看图的意愿下降</strong>。"看图"是"满足好奇心"这个动作的具象化；意愿下降，就是"更少地<strong>选择</strong>去做"。refAnalysis 明确指出：空格应表达"最终做出决定不看这种图"的语义——choose to do sth（选择去做）正是这个"决定"义。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A remember (to do)</td><td>记得去做</td><td>✗ 排除</td><td>"记得去看图"谈的是<strong>记忆力</strong>，与实验主题"好奇心的抑制"毫无关联；实验没有考察参与者忘没忘事。</td></tr><tr><td>B promise (to do)</td><td>承诺去做</td><td>✗ 排除</td><td>表面看"不大会承诺看图"结果也是不看，但 promise 暗含"实验方<strong>提前要求</strong>他们承诺"的逻辑——违背了本实验"测试人们在特定情形下<strong>自主做出何种行为</strong>"的初衷。</td></tr><tr><td>C choose (to do)</td><td>选择去做</td><td>✓ 当选</td><td>were less likely to <strong>choose</strong> to see = "更少倾向于选择去看"：既保留了当事人的<strong>自主抉择</strong>，又与"预想感受降低了看图意愿"的结论严丝合缝。</td></tr><tr><td>D pretend (to do)</td><td>假装去做</td><td>✗ 排除</td><td>"更少假装去看图"等于说"更少作假"——这与"好奇心被抑制"的结论无关，且语义在实验场景里不成立。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么是 were less likely to（不太会）而不是直接说"不看"？</strong>：文中是对<strong>许多参与者行为</strong>的统计总结，倾向性表述更严谨；这也提示空格动词要能自然套进"程度/倾向"框架，choose 合适。</li><li><strong>为什么 promise 这么像答案却错了？</strong>：它错在<strong>主体错位</strong>——promise 的发起者若是实验方（"承诺让你们看"），就不再是测好奇心；若是被试自发承诺，原文又没有"要求/契约"的痕迹。词义匹配只是第一关，实验逻辑是第二关。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（promise）</strong>：只看到"最终不看图"的结果一致，没看出 promise 偷换了"自主抉择"这个实验前提。</li><li><strong>误选 A（remember）</strong>：被 remember to do 的常见搭配带跑，忘了完形每一空都要在<strong>主题链条</strong>上。</li></ul>
+<blockquote>记忆锚点：实验结论空 = 先找实验<strong>干预手段</strong>（预想感受），再倒推被测的<strong>自主行为</strong>；choose to do = 当事人自己决定做不做。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

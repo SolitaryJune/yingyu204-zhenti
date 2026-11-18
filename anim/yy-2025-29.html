@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-29 · 2025 阅读第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 建议题找“应然缺口”",
+    "cls": "key",
+    "tag": "审题",
+    "log": "建议藏在 20% 数据与转折句里",
+    "count": 0,
+    "body": "<p>题干 <code>To maximise the nation&#39;s health, the author suggests ____</code>。段[5]①只提出问题；建议在论据里：段[5]② 医疗只解释约 <b>20%</b> 的健康结果；段[5]③ <b>更重要</b>的是居住、工作、社交的场所——<b>却没有</b>明确的跨政府战略去改善这些社会决定因素。“重要＋缺位”＝作者的建议落点。</p>"
+  },
+  {
+    "title": "定位原文 · 20% 数据与让步转折句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "much more important + yet no clear strategy",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It is estimated, for example, that healthcare accounts for only about 20% of health outcomes. Much more important are the places we live, work and socialise — yet there is no clear cross-government strategy for improving these social determinants of health.</div><p>much more important（重要得多）＋ yet there is no clear strategy（却无明确战略）——让步转折句把“被忽视的重要项”挑明。</p>"
+  },
+  {
+    "title": "同义替换锁定 B",
+    "cls": "good",
+    "tag": "替换",
+    "log": "social determinants 缺战略 ⇒ 关注社会因素",
+    "count": 0,
+    "body": "<p>social determinants of health（健康的社会决定因素）→ <b>social factors</b>；no clear strategy 反衬“应给予应有关注”→ <b>paying due attention to social factors</b>。</p>"
+  },
+  {
+    "title": "逐项分析 · A 推行税收政策",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A 税收政策 ✗——taxpayer 只是买单角色",
+    "count": 1,
+    "body": "<p><b>排除。</b>段[5]④ taxpayers 是“政策被废后为治病埋单”的角色描述，全文无“征税”这一政策工具——<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B 充分关注社会因素",
+    "cls": "good",
+    "tag": "复认 B",
+    "log": "B 关注社会因素 ✓——“重要却缺位”的合理推断",
+    "count": 1,
+    "body": "<p><b>复认。</b>much more important（很重要）＋ yet no clear strategy（却缺位）→ 应充分关注。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · C 重新评估健康结果",
+    "cls": "bad",
+    "tag": "排除 C",
+    "log": "C 重新评估健康结果 ✗——20% 是占比不是评估",
+    "count": 2,
+    "body": "<p><b>排除。</b>20% 说的是<b>医疗</b>在健康结果中的占比，用来淡化医疗的决定作用；“重新评估健康结果”无从谈起——<b>无中生有</b>。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · D 提高医疗质量",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D 提高医疗质量 ✗——数据恰恰给医疗降权",
+    "count": 3,
+    "body": "<p><b>排除。</b>就算提高医疗质量也只作用于那 20%；作者的重点恰在医疗<b>之外</b>的社会因素——方向偏离，答非所问。</p><p style=\"color:#b91c1c\">⚠ 典型误解：默认“提高医疗＝提升健康”的常识。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 记忆锚点",
+    "cls": "good",
+    "tag": "答案 B",
+    "log": "答案 B——建议题抓“重要却缺位”",
+    "count": 3,
+    "body": "<p>答案选 <b>B（paying due attention to social factors）</b>。</p><p><b>记忆锚点</b>：healthcare 只占 20%——数据给医疗降权、给社会因素加权；D 是常识陷阱；A 挪用 taxpayer 字眼。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 阅读第 29 题 · 提升国民健康水平，作者建议什么",
+  "subtitle": "Text 2 · 考点：细节理解（建议）· “重要却缺位”定位法",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“应然缺口 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 B（paying due attention to social factors）",
+    "html": "<b>B 充分关注社会因素</b>——医疗只占健康结果 20%，社会决定因素更重要却没有明确战略（much more important + yet no clear strategy）。<br>记忆锚点：建议题抓“重要却缺位”；D 被数据封死。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 阅读第 29 题 · 提升国民健康水平，作者建议什么</h2>
+<p>答案：<strong>B（paying due attention to social factors 充分关注社会因素）</strong>。</p>
+<h3>第 0 步：先立机制——建议题找“应然缺口”</h3>
+<p>题干 To maximise the nation's health, the author suggests ____。段[5]① This must begin with the question of how we maximise the health of the nation——只是提出问题；建议藏在论据里。段[5]②③给出关键数据与转折：医疗服务只解释约 <strong>20%</strong> 的健康结果；<strong>更重要</strong>的是我们居住、工作、社交的场所（the places we live, work and socialise）——然而<strong>没有</strong>明确的跨政府战略去改善这些 social determinants of health（健康的社会决定因素）。“很重要＋却没人管”正是作者的建议落点：该充分关注社会因素了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It is estimated, for example, that healthcare accounts for only about 20% of health outcomes. Much more important are the places we live, work and socialise — yet there is no clear cross-government strategy for improving these social determinants of health.</blockquote>
+<p>much more important（重要得多）＋ yet there is no clear strategy（却无明确战略）——让步转折句把“被忽视的重要项”挑明。</p>
+<h3>第 2 步：同义替换核对 B</h3>
+<p>social determinants of health（健康的社会决定因素）未获战略关注 → 作者建议 <strong>paying due attention to social factors（充分关注社会因素）</strong>。social determinants → social factors 直接替换；“no clear strategy”反衬“应给予应有关注（due attention）”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>定位与归因</th></tr></thead><tbody><tr><td>A introducing relevant taxation policies</td><td>推行相关税收政策</td><td>✗</td><td>段[5]④ taxpayers 只是“为疾病买单”的角色，无税收政策建议，无中生有</td></tr><tr><td>B paying due attention to social factors</td><td>充分关注社会因素</td><td>✓</td><td>段[5]③ social determinants of health 缺乏战略关注的合理推断</td></tr><tr><td>C reevaluating major health outcomes</td><td>重新评估主要健康结果</td><td>✗</td><td>20% 说的是医疗在健康结果中的<strong>占比</strong>，不是要“重新评估结果”，无中生有</td></tr><tr><td>D enhancing the quality of healthcare</td><td>提高医疗质量</td><td>✗</td><td>就算提高医疗质量也只作用于那 20%；作者的重点恰在医疗<strong>之外</strong>，方向偏离</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D 为什么不行？提高医疗质量不是好事吗</strong>：是好事，但答非所问。段[5]②的数据恰恰要“淡化”医疗的决定作用——健康结果约 80% 由医疗之外的因素决定；建议只有指向“更重要却没战略”的社会因素（段[5]③），才算回答了题干。</li><li><strong>A 的 taxpayer 是税，不就有税收政策吗</strong>：原文只说政策被废除后纳税人为治病埋单，是“花钱治已病”的现象描述；由此推不出“征税”这一政策工具。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：默认“提高医疗＝提升健康”的常识，没看到作者用 20% 的数据把医疗降权。</li><li><strong>误选 C</strong>：把“医疗占健康结果的比重”误读成“对健康结果的评估”待修正。</li></ul>
+<blockquote>记忆锚点：建议题抓“重要却缺位”：much more important + yet no clear strategy → 关注 social determinants（社会因素）；healthcare 只有 20%，D 被数据封死。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

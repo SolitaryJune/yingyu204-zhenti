@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-39 动画：推理题——法国方案里“钱往哪流”</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+.flow{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13.5px}
+.flow .node{padding:6px 12px;border-radius:10px;border:1.5px solid #cbd5e1;background:#f8fafc;color:#0f172a;font-weight:700}
+.flow .node.src{border-color:#93c5fd;background:#eff6ff;color:#1d4ed8}
+.flow .node.dst{border-color:#86efac;background:#f0fdf4;color:#15803d}
+.flow .arr{color:#d97706;font-weight:800}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类。英语题不含数学式，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, title:"审题眼：implies 推的是“方向”",
+  body:"<p>题干：<b>The French proposal of handling the crisis implies that ____.</b>（法国处理危机的提议暗示____。）</p><p>implies 题推的是字面背后<b>唯一说得通的推论</b>。法国方案的关键词是 redistribution（再分配）——再分配题只有一个方向问题：<b>钱从谁流向谁</b>。定位第五段。</p>",
+  log:"推理题：定位第五段，画资金流向"},
+ {cls:"", ecs:"step", tag:"定位", count:0, title:"定位：②句“再分配”一句话",
+  body:"<div class=\"qq\"><b>第五段②：</b>Translated, that means politicians intervening in monetary policy and <b>a system of redistribution from richer to poorer members</b>, via <b>cheaper borrowing</b> for governments through common Eurobonds or complete fiscal transfers. <span class=\"cn\">（译：即政治家干预货币政策，并建立从富国向穷国的再分配体系——通过共同欧元债券低息借贷或彻底的财政转移。）</span></div><div class=\"flow\"><span class=\"node src\">富国 richer</span><span class=\"arr\">── Eurobonds 低息借贷 / 财政转移 ──▶</span><span class=\"node dst\">穷国 poorer</span></div>",
+  log:"定位第五段②：redistribution from richer to poorer members"},
+ {cls:"good", ecs:"ok", tag:"锁定 A", count:1, ribbon:{k:1, ok:true}, title:"锁定 A：poor countries are more likely to get funds",
+  body:"<p><b>A（贫困国家更有可能得到资金）</b><span class=\"ok-dot\">✓</span>：替换链——poor countries ↔ <b>poorer members</b>；more likely to get funds ↔ redistribution <b>to</b> poorer members via <b>cheaper borrowing</b>（低息借贷让穷国政府更容易拿到钱）。</p><p>穷国是再分配的<b>受益方</b>——从“富→穷”的方向唯一说得通的推论 → A。</p>",
+  log:"锁定 A：再分配方向富→穷，穷国更易获得资金"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:2, ribbon:{k:2, ok:false}, title:"排除 B：strict monetary policy will be applied to poor countries",
+  body:"<p><b>B（穷国将被施加严格货币政策）</b><span class=\"bad-dot\">✗</span>：strict policy 是<b>德国</b>第四段的主张（更严格的规则+制裁）。</p><p>法国方案恰恰相反：politicians intervening in monetary policy（人为干预、可操纵）＋cheaper borrowing（更低息）——整体<b>宽松</b>，对穷国更有利。方案张冠李戴。</p>",
+  log:"排除 B：strict policy 是德国的，法国方案更宽松"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:3, ok:false}, title:"排除 C：loans will be readily available to rich countries",
+  body:"<p><b>C（富裕国家随时可获得借贷）</b><span class=\"bad-dot\">✗</span>：loans 确与 borrowing 对应，但 cheaper borrowing 是再分配的<b>实现手段</b>，受益者是穷国政府。</p><p>把受益人换成富国 = 把“富→穷”的流向画反。</p>",
+  log:"排除 C：cheaper borrowing 受益的是穷国，流向画反"},
+ {cls:"bad", ecs:"miss", tag:"排除 D", count:4, ribbon:{k:4, ok:false}, title:"排除 D：rich countries will basically control Eurobonds",
+  body:"<p><b>D（欧元债券基本由富国控制）</b><span class=\"bad-dot\">✗</span>：Eurobonds 在文中的角色是“实现富→穷转移的<b>共同债券工具</b>”。</p><p>原文没有任何“富国控制/主导”的表述；把工具的存在曲解为“控制权”，与再分配方向同样相悖。</p>",
+  log:"排除 D：Eurobonds 是转移工具，非富国控制权"},
+ {cls:"good", ecs:"done", tag:"结论", count:4, title:"结论：答案 A",
+  body:"<p><b>答案 A</b>——redistribution <b>from richer to poorer members</b>，穷国受益。</p><p>记忆锚点：implies 题 = 推唯一说得通的方向；法国方案一句话——富→穷、低息借贷；strict policy 是德国的（B 张冠李戴）。</p>",
+  log:"结论：法国方案暗示穷国更可能获得资金，答案选 A"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2011-39 · 推理题：法国方案里“钱往哪流”",
+  subtitle: "考点：Text4 第五段 implies 推理 · 方法：定位 → 画再分配流向 → 逐项排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 A",
+    html: "<b>a system of redistribution from richer to poorer members</b>（富→穷再分配）＝ poor countries are more likely to get funds。记忆锚点：cheaper borrowing/Eurobonds 是转移手段，受益方是穷国；strict policy 是德国的（B 张冠李戴），C/D 把流向画反。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：推理题——法国方案里"钱往哪流"</h2>
+<p>答案：<strong>A</strong>（poor countries are more likely to get funds 贫困国家更有可能得到资金）。</p>
+<h3>第 0 步：先立机制——implies 推的是"方向"</h3>
+<p>题干 The French proposal of handling the crisis implies that…，implies（暗示）题推的不是字面，而是字面背后<strong>唯一说得通的那个推论</strong>。法国方案的关键词是 redistribution（再分配）——再分配题只有一个方向问题：<strong>钱从谁流向谁</strong>。把流向画出来，答案自然浮出。定位第五段。</p>
+<h3>第 1 步：定位原文，画出资金流向</h3>
+<p>第五段②句（法国"欧洲经济政府"的真实含义）：</p>
+<blockquote>Translated, that means politicians intervening in monetary policy and <strong>a system of redistribution from richer to poorer members</strong>, via <strong>cheaper borrowing</strong> for governments through common Eurobonds or complete fiscal transfers.（这意味着政治家干预货币政策，并建立<strong>从富国向穷国的再分配体系</strong>——通过共同欧元债券让各国政府低息借贷，或进行彻底的财政转移。）</blockquote>
+<p>资金流向图：富国 richer →（Eurobonds 低息借贷 / 财政转移）→ 穷国 poorer。</p>
+<p>替换链：poor countries ↔ <strong>poorer members</strong>；more likely to get funds ↔ redistribution <strong>to</strong> poorer members via cheaper borrowing。穷国是再分配的<strong>受益方</strong> → 选 <strong>A</strong>。</p>
+<h3>第 2 步：干扰项归因——把流向画反或张冠李戴</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>失手类型</th></tr></thead><tbody><tr><td>A 穷国更可能得到资金</td><td>✓</td><td>再分配方向的正确推论</td></tr><tr><td>B 穷国将被施加严格货币政策</td><td>✗</td><td>张冠李戴</td></tr><tr><td>C 富国随时可获借贷</td><td>✗</td><td>流向画反</td></tr><tr><td>D 欧元债券基本由富国控制</td><td>✗</td><td>流向画反 + 无据</td></tr></tbody></table>
+<ul><li><strong>误选 B——把德国的政策安到法国头上</strong>：strict policy 是<strong>德国</strong>第四段的主张；法国方案恰恰相反——politicians intervening in monetary policy（人为干预）＋cheaper borrowing（更低息），整体<strong>宽松、可操纵</strong>，对穷国更有利。</li><li><strong>误选 C——受益方认错人</strong>：loans 确与 borrowing 对应，但 cheaper borrowing 是再分配的<strong>实现手段</strong>，受益者是穷国政府；C 把受益人换成富国，流向画反。</li><li><strong>误选 D——给 Eurobonds 加戏</strong>：Eurobonds 在文中的角色是"实现富→穷转移的共同债券工具"，原文没有"由富国控制"的表述；把工具曲解为"控制权"，同样与再分配方向相悖。</li></ul>
+<blockquote>记忆锚点：implies 题 = 从字面推唯一说得通的方向；法国方案一句话——redistribution <strong>from richer to poorer</strong> via cheaper borrowing / Eurobonds，穷国受益、富国出资 → A；strict policy 是德国的（B 张冠李戴）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

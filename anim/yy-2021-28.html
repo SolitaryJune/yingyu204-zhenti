@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-28 · 2021 阅读第 28 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：因果题先抓「冒号后的解释句」",
+  "body": "<p>题干：<b>Crop-growing in the UK is restricted due to ____</b>（英国的作物种植受限是由于 ____）。</p><p>问「受限的原因」。第五段结构是「论点：解释」——There is a good reason why the UK is dominated by animal husbandry 的冒号后面紧跟解释：土壤不对、气候不对。因果题的答案几乎总在解释句里。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：soil or climate 解释句",
+  "body": "<div class='qq'><b>原文：</b>There is a good reason why the UK is dominated by animal husbandry: most of its terrain doesn’t have the right soil or climate to grow crops on a commercial basis.</div><p>解释句：大部分地形<b>没有适合商业化种植的土壤或气候</b>——限制的根源是自然禀赋。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：25% 数字佐证",
+  "body": "<div class='qq'><b>原文：</b>Just 25 per cent of the country’s land is suitable for crop-growing, most of which is already occupied by arable fields.</div><p>数字佐证：全国只有 <b>25%</b> 的土地适合种庄稼——限制来自<b>自然条件</b>，不是人为选择。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：农业技术——全文未谈技术",
+  "body": "<p><b>A · its farming technology（其农业技术）</b> <span class='bad-dot'>✗</span></p><p>全文没谈技术，无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：饮食传统——杂糅让步段与原因段",
+  "body": "<p><b>B · its dietary tradition（其饮食传统）</b> <span class='bad-dot'>✗</span></p><p>switching to a mainly plant-based diet wouldn't help 说的是「改吃素也无济于事」——饮食选择不是限制原因，限制在土壤与气候。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": true
+  },
+  "title": "锁定 C：自然条件——三个自然要素合并替换",
+  "body": "<p><b>C · its natural conditions（其自然条件）</b> <span class='ok-dot'>✓</span></p><p>terrain（地形）、soil（土壤）、climate（气候）三个自然要素合并同义替换为 <b>natural conditions</b>；「只有 25% 的土地适合种庄稼」用数字佐证。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：商业利益——on a commercial basis 的字面干扰",
+  "body": "<p><b>D · its commercial interests（其商业利益）</b> <span class='bad-dot'>✗</span></p><p>on a commercial basis 意为「以商业规模」，限制的是「商业化种植不可行」，根源仍是土壤气候——干扰来自该短语的字面。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 C",
+  "body": "<p><b>答案 C（its natural conditions）</b>。</p><p>记忆锚点：terrain + soil + climate = natural conditions；on a commercial basis 是「规模」状语，不是「利益」。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 D（its commercial interests）——被 on a commercial basis 的字面带偏。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-28 · 阅读第 28 题：英国种庄稼受限的根源",
+  subtitle: "考点：Text2 第 5 段 · 因果细节题（冒号后的解释句）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C",
+ "html": "<b>C its natural conditions</b>：terrain / soil / climate 不适合商业化种植 → 限制来自<b>自然条件</b>；仅 25% 土地可种庄稼。<br>记忆锚点：因果题抓冒号后的解释句；on a commercial basis 是「规模」状语。<br>最易误选：D——被 commercial interests 的字面带偏。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 28 题——英国种庄稼受限的根源</h2>
+<p>答案：<strong>C</strong>（its natural conditions）。</p>
+<h3>第 0 步：先立机制——因果题先抓「冒号后的解释句」</h3>
+<p>题干问 restricted due to（受限的原因）。第五段的结构是「论点：解释」——There is a good reason why the UK is dominated by animal husbandry 冒号后面紧跟解释：土壤不对、气候不对。因果题的答案几乎总在解释句里。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>There is a good reason why the UK is dominated by animal husbandry: most of its terrain doesn't have the right soil or climate to grow crops on a commercial basis. Just 25 per cent of the country's land is suitable for crop-growing, most of which is already occupied by arable fields.</blockquote>
+<p>terrain（地形）、soil（土壤）、climate（气候）三个自然要素合并同义替换为 <strong>natural conditions</strong>；「只有 25% 的土地适合种庄稼」用数字佐证限制来自自然禀赋。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（its farming technology）</strong>：无中生有——全文没谈技术。</li><li><strong>B（its dietary tradition）</strong>：杂糅——switching to a mainly plant-based diet wouldn't help 说的是「改吃素也无济于事」，饮食选择不是限制原因。</li><li><strong>D（its commercial interests）</strong>：字面干扰——on a commercial basis 意为「以商业规模」，限制的是商业化种植不可行，根源仍是土壤气候。</li></ul>
+<blockquote>记忆锚点：terrain + soil + climate = natural conditions；on a commercial basis 是「规模」状语，不是「利益」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

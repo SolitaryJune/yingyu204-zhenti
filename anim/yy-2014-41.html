@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-41 动画：匹配题——Stone Circle 的身份在原文哪一句</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：匹配题 = 查户口，防张冠李戴",
+   "body": "<p>题干：<b>Stone Circle</b>（41 题）——从右栏 [A]–[G] 中选出它的准确描述（其中两项为多余选项）。</p><p>解法三步：<b>抓专名 → 回原文找它的句子 → 逐项比对</b>。每个作品在原文只有一处\u201c户口\u201d，答错多是拿别人的户口冒名顶替。</p>",
+   "log": "审题：匹配题先抓作品名 Stone Circle，回原文查户口"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：第四段首句",
+   "body": "<div class='qq'><b>第四段：</b>Long is Britain's best-known Land Artist and his <b>Stone Circle</b>, a perfect ring of purplish rocks from Portishead beach laid out on the gallery floor, <b>represents the elegant, rarefied side</b> of the form. <span class='cn'>（译：《石环》——Portishead 海滩紫色岩石在展厅地面摆成的完美圆环——代表这种艺术形式优雅、脱俗的一面。）</span></div><p>同句还埋着对照组：The Boyle Family, <b>on the other hand</b>, stand for its <b>dirty, urban</b> aspect——一雅一俗。</p>",
+   "log": "定位第四段：represents the elegant, rarefied side，一雅一俗对照组"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 D", "count": 1,
+   "title": "锁定 D：represents the elegance of the British land art",
+   "ribbon": {"k": 4, "ok": true},
+   "body": "<p><b>D · represents the elegance of the British land art</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文</th><th>选项 D</th><th>替换关系</th></tr><tr><td>represents</td><td>represents</td><td>原词复现</td></tr><tr><td>the elegant, rarefied side</td><td>the elegance</td><td>elegant 同根替换；rarefied（脱俗）与\u201c雅\u201d同极</td></tr></table><p>本题组替换幅度最小的一题：词组对词组直接对应。</p>",
+   "log": "锁定 D：represents the elegant, rarefied side = represents the elegance"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 A", "count": 2,
+   "title": "排除 A：originates from a long walk",
+   "ribbon": {"k": 1, "ok": false},
+   "body": "<p><b>A · originates from a long walk that the artist took</b><span class='bad-dot'>✗</span></p><p><b>张冠李戴</b>：long walk（原文 epic walk）属于<b>第七段</b> Hamish Fulton 的作品 <b>Seven Days</b>——一次长途跋涉拍下的照片，与 Stone Circle 无关。</p>",
+   "log": "排除 A：long walk 是第七段 Fulton 的 Seven Days，户口拿错了"},
+  {"cls": "bad", "ecs": "miss", "tag": "排除 F", "count": 3,
+   "title": "排除 F：embodies a romantic escape into the Scottish outdoors",
+   "ribbon": {"k": 6, "ok": false},
+   "body": "<p><b>F · embodies a romantic escape into the Scottish outdoors</b><span class='bad-dot'>✗</span></p><p><b>杂糅</b>：Stone Circle 的石头来自 <b>Portishead 海滩</b>、摆在<b>展厅地面</b>，与\u201c苏格兰户外\u201d无涉；a spirit of <b>romantic escapism</b> 是第六段对多数作品的整体评价，也非专指它。</p>",
+   "log": "排除 F：苏格兰户外与 Portishead 海滩石头无关，杂糅干扰"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 D",
+   "body": "<p><b>答案 D（represents the elegance of the British land art）</b>——Stone Circle 代表英国地景艺术优雅脱俗的一面。</p><p>记忆锚点：匹配题 = <b>专名定位 + 查户口</b>；Long 雅、Boyle 俗的对照组一次解决两题；多余选项 [B][F] 一个是整体风格描述、一个是异地杂糅。</p>",
+   "log": "结论：Stone Circle 代表优雅的一面，选 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-41 · 匹配题：Stone Circle 的\u201c身份\u201d",
+  subtitle: "考点：新题型左右匹配 · 方法：专名定位 → 同义替换 → 查户口防张冠李戴",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 排除干扰。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>第四段 his Stone Circle … represents the elegant, rarefied side of the form = [D] represents the elegance。</b>记忆锚点：匹配题先查户口——A 的 long walk 属于 Seven Days，F 的苏格兰户外是杂糅；Long 雅、Boyle 俗，一组对照解两题。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——Stone Circle 的"身份"在原文哪一句</h2>
+<p>答案：<strong>D</strong>。</p>
+<h3>第 0 步：先立方法——匹配题的本质是"验明正身"</h3>
+<p>本题组是左栏作品名、右栏描述的匹配题。解法固定三步：<strong>抓专名（作品名/人名）→ 回原文找它所在的句子 → 把那句话的意思与右栏逐项比对</strong>。左栏每个作品在原文只有一处"户口"，答错几乎都是因为把别人户口安到了它头上——所以匹配题的核心动作不是"找最像的"，而是"查户口、防张冠李戴"。</p>
+<h3>第 1 步：定位原文——Stone Circle 的句子</h3>
+<blockquote>Long is Britain's best-known Land Artist and his Stone Circle, a perfect ring of purplish rocks from Portishead beach laid out on the gallery floor, represents the elegant, rarefied side of the form.（译：Long 是英国最负盛名的地景艺术家，他的《石环》——用 Portishead 海滩的紫色岩石在展厅地面摆出的完美圆环——代表了这种艺术形式优雅、脱俗的一面。）</blockquote>
+<p><strong>represents the elegant, rarefied side</strong> 与 [D] 的 represents the elegance 几乎原词对应——这是本题组替换幅度最小的一题，锁定 D。</p>
+<h3>第 2 步：逐项排除（防张冠李戴）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A originates from a long walk</td><td>✗</td><td>张冠李戴：long walk（epic walk）属于第七段 Fulton 的作品 Seven Days，不是 Stone Circle</td></tr><tr><td>F embodies a romantic escape into the Scottish outdoors</td><td>✗</td><td>杂糅：Stone Circle 的石头来自 Portishead 海滩、摆在展厅地面，与"苏格兰户外"无涉；romantic escapism 是第六段对多数作品的整体评价，也非专指它</td></tr><tr><td>B illustrates ... light conceptual art</td><td>✗</td><td>整体风格描述：第七段说 British Land Art（整个展览）是 landscape-orientated light conceptual art，主语是"英国地景艺术"而非某一件作品</td></tr></tbody></table>
+<h3>第 3 步：对照结构再确认一次</h3>
+<p>第四段自带一个对照组：<strong>Long 的 Stone Circle = elegant, rarefied 的一面；The Boyle Family（on the other hand）= dirty, urban 的一面</strong>。记住这组对照，同组的另一题（Olaf Street Study 对应"平凡/世俗"一面）就顺手解掉了。</p>
+<h3>预判追问：elegant 和 rarefied 为什么都指向 D？</h3>
+<p>elegant（优雅）直接同根替换；rarefied（精纯脱俗）与 D 的 elegance 共同构成"雅"的一极，与 Boyle Family 的 dirty（脏）形成雅俗对照。同一句里的并列形容词会一起被收进正确项——同义替换常以"词组对词组"出现。</p>
+<blockquote>记忆锚点：匹配题 = 专名定位 + 查户口；represents the elegant, rarefied side = [D]；Long 雅、Boyle 俗，对照出双题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

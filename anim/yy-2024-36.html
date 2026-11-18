@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-36</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>The research findings are cited in Paragraph 1 to show ____</code>。写作目的题铁律：<b>论据服务于论点</b>——数字本身不是目的，数字托出的\"话题/现象\"才是。找首段三句的\"最大公约数\"。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "拆首段三句",
+    "body": "<p>①句 you have <b>at least one</b> (app) related to your health—<b>and probably several</b>；②句 <b>many of us</b> are taking advantage of this technology…；③句 research found <b>350,000</b> health apps… <b>90,000</b> of which launched in 2020 alone。三句共同话题：<b>health apps</b>；共同语气：<b>多、且越来越多</b>。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ A",
+    "body": "<p>A 项 <code>the prevalence of health apps</code>（健康类应用盛行）：prevalence 是对 at least one / several / many of us / 350,000 / 90,000 这一串数量表达的高度概括，对象正是 health apps。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 B：研究对象错位",
+    "body": "<p>B 项 public concern over health 由 many of us…keep better track of our health 推出\"公众关注健康\"。但全文讲的是\"健康 app 及其数据隐私\"，不是\"健康意识\"——话题对象错位，也没体现引用研究的目的。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C 与 D：话题词偷换 / 层面扩大",
+    "body": "<p>C 项 the popularity of smartphones 抓住首句 phone…at least one——原句关注的是\"手机上的应用\"，不是手机本身，断章取义。D 项 the advancement of technology 抓住 this technology——文中它特指\"健康 app、互联健康设备\"，扩大成\"科技进步\"就跑题了。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "锁定 A",
+    "body": "<p>数字论据最直观的功能就是把\"健康 app 盛行\"砸实（35 万款在市、一年 9 万款新上），为下文\"这么多 app 收集的数据谁来管\"做铺垫。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>A（the prevalence of health apps 健康类应用的盛行）</b>。口诀：先问\"这些数字证明什么\"，谁概括了数字背后的现象谁当选。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 2 · 第 36 题：第一段引用研究数据的目的",
+  "subtitle": "考点：写作目的题（论据作用）· 论据服务论点",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 A",
+    "html": "记忆锚点：<b>论据服务论点</b>：350,000 / 90,000 / at least one / many of us ⇒ prevalence of <b>health apps</b>。B 换对象（健康意识）、C 换载体（手机）、D 换层面（科技进步）——三个都是\"话题词错位\"。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 2 第 36 题 · 第一段引用研究数据的目的</h2>
+<p>答案：<strong>A（the prevalence of health apps 健康类应用的盛行）</strong>。</p>
+<h3>第 0 步：先立机制——论据服务于论点</h3>
+<p>写作目的题的铁律：作者摆数字不是为了数字本身，而是为了把某个<strong>现象</strong>砸实。所以解法不是盯着 350,000 发呆，而是找首段三句话的"最大公约数"——它们共同在谈论谁、共同传递什么语气。</p>
+<h3>第 1 步：拆首段三句</h3>
+<table><thead><tr><th>句</th><th>表述</th><th>传递的信息</th></tr></thead><tbody><tr><td>①</td><td>you have <strong>at least one</strong> (app) related to your health—and probably <strong>several</strong></td><td>人人手机里都有健康应用</td></tr><tr><td>②</td><td><strong>many of us</strong> are taking advantage of this technology</td><td>使用人群广</td></tr><tr><td>③</td><td>research found <strong>350,000</strong> health apps... <strong>90,000</strong> launched in 2020 alone</td><td>应用数量巨大、增速迅猛</td></tr></tbody></table>
+<p>三句的话题都是 <strong>health apps</strong>，语气都是"<strong>多、且越来越多</strong>"。</p>
+<h3>第 2 步：同义替换</h3>
+<p>prevalence（盛行）正是对 at least one / several / many of us / 350,000 / 90,000 这一串数量表达的高度概括——对象正是 health apps。A 项当选。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B the public concern over health</td><td>✗</td><td>由 many of us...keep better track of our health 推出"公众关注健康"；但全文研究对象是"健康应用与数据隐私"，不是健康意识。（典型误解：把"用健康 app"拔高成"重视健康"。）</td></tr><tr><td>C the popularity of smartphones</td><td>✗</td><td>抓住首句 phone...at least one；原句关注"手机上的应用"而非手机本身。（典型误解：话题词偷换——载体当主角。）</td></tr><tr><td>D the advancement of technology</td><td>✗</td><td>抓住 this technology；文中特指"健康应用、互联健康设备"，扩大成"科技进步"就跑题。（典型误解：把具体指代抽象化、扩大化。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么 B 不算"目的"？</strong>：B 谈的是用户的动机，而这段的研究数据只关于应用数量；且下文展开的是"应用收集的数据谁来管"，不是"健康意识"。</li><li><strong>数字论据的两大功能</strong>：证明存在（规模大）+ 证明趋势（增长快）——两者都指向 prevalence。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：被 keep better track of our health 的"健康"字面带偏，忘了选项必须概括论据。</li><li><strong>误选 C/D</strong>：都在"话题词错位"上出错——一个换了载体、一个换了层面。</li></ul>
+<blockquote>记忆锚点：论据服务论点——先问"这些数字证明什么"；350,000 / 90,000 / many of us ⇒ prevalence of health apps；B 换对象、C 换载体、D 换层面。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

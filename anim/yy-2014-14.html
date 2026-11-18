@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-14 · 2014 完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（完形填空推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 第 14 空所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第 14 空所在句，考点：上下文语义 + 名词辨析",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Today we have a(n) <b>__14__</b> to label obesity as a disgrace.</div><p>空格结构是 <b>have a(n) __ to do</b>：候选名词是选择权（option）、理由（reason）、机会（opportunity）、倾向（tendency）。它们各自预设不同的主语状态：能选择、有理由、有机会都要求“人**主动**行事”；倾向则是“不自觉、习惯性地”。哪种预设能被下文证据支撑，答案就是哪个。</p>"
+ },
+ {
+  "title": "找证据 · 下文四类现象：媒体、刻板印象、职业偏见、儿童",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：下文连举媒体遮脸、刻板印象、教师雇主偏见、小孩轻视——全社会的习惯性反应",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The overweight are sometimes <b>__15__</b> in the media with their faces covered.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Teachers, employers, and health professionals have been shown to harbor biases against the obese.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\"><b>__17__</b> very young children tend to look down on the overweight...</div><p>下文连举四类现象：超重者媒体出镜<b>要遮脸</b>（第 15 空）；与肥胖挂钩的<b>刻板印象</b>（第 16 空）；教师、雇主、健康专业人士<b>都怀有偏见</b>；<b>连很小的孩子</b>都看不起胖人。覆盖面从媒体到儿童——这不是某人的选择、理由或机会，而是<b>不约而同的社会惯性</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A option（选择权）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A option（选择权） ✗ 排除",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>偏见不是“我们可以选”的能力——下文现象是自发弥漫的，没有人开出选项清单。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭“have a(n) + 名词 + to do”的“有能力做”语感选词。</p>"
+ },
+ {
+  "title": "逐项分析 · B reason（理由）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B reason（理由） ✗ 排除",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>have reason to do = 有理由做某事，通常暗含“做得有依据”；作者显然不赞同羞辱肥胖者，不会为它背书“理由”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽视作者立场，只看结构成立就选。</p>"
+ },
+ {
+  "title": "逐项分析 · C opportunity（机会）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C opportunity（机会） ✗ 排除",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>羞辱不是“机会”，下文没有任何“时机出现”的线索；作者批判这一现象，更不会说它提供了机会。</p><p style=\"color:#b91c1c\">⚠ 典型误解：在三个“中性偏积极”名词里挑最顺口的。</p>"
+ },
+ {
+  "title": "逐项分析 · D tendency（倾向，趋势）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D tendency（倾向，趋势） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>have a tendency to do = 往往会、习惯性地做——精准概括下文全社会的习惯性偏见：媒体、刻板印象、职业群体、儿童，无一例外。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（tendency 倾向）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如今，我们往往倾向于把肥胖视作一件丢脸的事。</b></p><p>答案选 <b>D（tendency 倾向，趋势）</b>。</p><p><b>记忆锚点</b>：下文列举定名词：集体不自觉 → tendency；option/reason/opportunity 都预设“主动权”；a tendency to do = tend to do 的名词化。</p><p style=\"color:#b91c1c\">最易误选：<b>B（reason）</b>——没读出作者的批判立场，为偏见背书“理由”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2014 完形第 14 空 · “we have a(n) ______ to label obesity as a disgrace”",
+  subtitle: "考点：上下文语义 + 名词辨析 · 看下文列举 → 定名词性质 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“看下文列举了什么 → 定名词性质 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（tendency）",
+ "html": "<b>D tendency（倾向，趋势）</b>。<br>记忆锚点：下文列举定名词——集体不自觉 → tendency；option/reason/opportunity 都预设“主动权”；a tendency to do = tend to do 的名词化。<br>最易误选：<b>B（reason）</b>——没读出作者的批判立场。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 完形第 14 空 · we have a(n) ______ to label obesity as a disgrace——下文列举的是“什么”的表现</h2>
+<p>答案：<strong>D（tendency 倾向，趋势）</strong>。</p>
+<h3>第 0 步：先立机制——名词题看证据性质：是主动选择，还是不自觉的社会惯性</h3>
+<p>空格结构 have a(n) <code>__</code> to do 给出四个候选：option（选择权）、reason（理由）、opportunity（机会）、tendency（倾向）。前三者共享同一个预设——<strong>人主动行事</strong>：能选、有据、有机；第四个预设相反——<strong>不自觉、习惯性</strong>。判断依据是下文证据的性质：下文列举的现象是“谁在主动安排”，还是“全社会不约而同”？</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Today we have a(n) __14__ to label obesity as a disgrace.</blockquote>
+<p>本句是第四段的首句，也是全段的“总起”：空格名词决定读者用什么视角去读后面的例子。</p>
+<h3>第 2 步：找证据——四类现象层层加码，全是社会惯性的证据</h3>
+<blockquote>The overweight are sometimes __15__ in the media with their faces covered.</blockquote>
+<blockquote>Teachers, employers, and health professionals have been shown to harbor biases against the obese.</blockquote>
+<blockquote>__17__ very young children tend to look down on the overweight...</blockquote>
+<p>证据覆盖面从媒体呈现、大众刻板印象，到教师/雇主/健康专业人士的职业偏见，再到连儿童都轻视胖人——范围越广、年龄越小，越说明这是<strong>弥漫性的社会倾向</strong>，而非某个主体的选择、理由或机会。tendency 是唯一能收拢这组证据的名词。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A option</td><td>选择权</td><td>✗ 排除</td><td>偏见不是“我们可以选”的能力——下文现象是自发弥漫的，没有人开出选项清单。（典型误解：凭“have a(n) + 名词 + to do”的“有能力做”语感选词。）</td></tr><tr><td>B reason</td><td>理由</td><td>✗ 排除</td><td>have reason to do = 有理由做某事，通常暗含“做得有依据”；作者显然不赞同羞辱肥胖者，不会为它背书“理由”。（典型误解：忽视作者立场，只看结构成立就选。）</td></tr><tr><td>C opportunity</td><td>机会</td><td>✗ 排除</td><td>羞辱不是“机会”，下文没有任何“时机出现”的线索；作者批判这一现象，更不会说它提供了机会。（典型误解：在三个“中性偏积极”名词里挑最顺口的。）</td></tr><tr><td>D tendency</td><td>倾向，趋势</td><td>✓ 当选</td><td>have a tendency to do = 往往会、习惯性地做——精准概括下文全社会的习惯性偏见。</td></tr></tbody></table>
+<p>代入后的完整句义：如今，我们往往倾向于把肥胖视作一件丢脸的事。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>have a tendency to 和 tend to 有什么关系？</strong>：同源：tend to do 是动词表达，a tendency to do 是其名词化。原文第 5 段还出现 tend to look down on...（17 空句），同族词前后互相印证——完形里“复现”常是暗线索。</li><li><strong>为什么 reason/option/opportunity 一起错？</strong>：它们共享“主语有主动权”的预设：能选择、有理由、有机会都是“人主动行事”；而下文呈现的是社会惯性与偏见，是不由自主的集体倾向。结构同、语义场不同——这正是出题人设的三连坑。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（reason）</strong>：没读出作者的批判立场，为偏见背书“理由”。</li><li><strong>误选 A（option）</strong>：把社会惯性误读成个人选择。</li><li><strong>误选 C（opportunity）</strong>：用“顺口”代替语义场核对。</li></ul>
+<blockquote>记忆锚点：下文列举定名词：集体不自觉 → tendency；option/reason/opportunity 都预设“主动权”；a tendency to do = tend to do 的名词化。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

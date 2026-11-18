@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-17 · 2025 完形第 17 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+    "title": "审题眼 · 空格要填什么方向的词",
+    "cls": "key",
+    "tag": "审题",
+    "log": "双 how 从句由 and 并列：空格方向必须与“多么好”一致",
+    "count": 0,
+    "body": "<p>空格句是 <code>help-seekers generally underestimate how __17__ other people will be to help and how good it will make the help-giver feel</code>：<b>两个 how 引导的宾语从句由 and 并列</b>，共用谓语 underestimate（低估）。第二个从句说“帮忙会让施助者感觉多么好”——<b>正向</b>；并列结构决定第一个从句的空格也必须是正向态度词，且其真值“被低估”＝真相其实是“很正向”。</p>"
+  },
+  {
+    "title": "定位原文 · findings 结论句",
+    "cls": "key",
+    "tag": "定位",
+    "log": "定位至段[4]第 2 句：研究结论句",
+    "count": 0,
+    "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The findings showed that help-seekers generally underestimate how __17__ other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly __18__).</div><p>主语 findings（研究结果）提示本句在陈述普遍心理偏差；括号是对第二个 how 从句的解释——大多数人以帮人为乐。</p>"
+  },
+  {
+    "title": "证据 · underestimate 决定真值方向",
+    "cls": "key",
+    "tag": "证据",
+    "log": "underestimate + 正向从句 ⇒ 真相是“别人很愿意帮”",
+    "count": 0,
+    "body": "<p>underestimate how X ＝“把 X 的程度想低了”＝实际程度更高。与 and 后的 how good 并列后，空格真值为“<b>很愿意</b>”：人们其实低估了他人帮忙的意愿与快乐。四个选项里 brave／willing 正向、disapproving／hesitant 反向——方向先筛掉一半。</p>"
+  },
+  {
+    "title": "逐项分析 · A brave（勇敢的）",
+    "cls": "bad",
+    "tag": "排除 A",
+    "log": "A brave ✗ 排除——文中没有“帮忙需要勇气”的铺垫",
+    "count": 1,
+    "body": "<p><b>排除。</b>brave 意为“勇敢的”，代入即“低估他人帮忙的勇气”——全文通篇谈的是“帮人让施助者快乐、值得做”，从未把帮忙塑造成需要冒险之举，无语境支撑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“求助难”偷换成“帮人也难”。</p>",
+    "ribbon": {
+      "k": 1,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · B disapproving（不赞成的）",
+    "cls": "bad",
+    "tag": "排除 B",
+    "log": "B disapproving ✗ 排除——反向词，与 how good 正向并列冲突",
+    "count": 2,
+    "body": "<p><b>排除。</b>disapproving（不赞成的）是负向态度，与 and 后“多么好”的正向色彩直接冲突；且“低估别人多反对帮忙”无法被括号里“帮人很愉快”解释，前后失联。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只盯空格局部，不核对并列从句的方向。</p>",
+    "ribbon": {
+      "k": 2,
+      "ok": false
+    }
+  },
+  {
+    "title": "逐项分析 · C willing（愿意的）",
+    "cls": "good",
+    "tag": "选定 C",
+    "log": "C willing ✓ 当选——与 how good 同向并列，句义通顺",
+    "count": 2,
+    "body": "<p><b>当选。</b>be willing to help 为常用搭配；willing（愿意的）与 how good it will make the help-giver feel 同向并列，underestimate 二者＝“别人其实很愿意帮、帮了很开心”，全文“别怕求助”的劝导顺理成章。</p>",
+    "ribbon": {
+      "k": 3,
+      "ok": true
+    }
+  },
+  {
+    "title": "逐项分析 · D hesitant（犹豫的）",
+    "cls": "bad",
+    "tag": "排除 D",
+    "log": "D hesitant ✗ 排除——反向词，与 B 同病",
+    "count": 3,
+    "body": "<p><b>排除。</b>hesitant（犹豫的）同为反向词；“低估他人多犹豫”与括号补充“有机会帮人很值得”相互矛盾——被低估的应是正向程度，不是负向程度。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 underestimate 就以为填“负面”词，忘了被低估的也可以是“好感”。</p>",
+    "ribbon": {
+      "k": 4,
+      "ok": false
+    }
+  },
+  {
+    "title": "结论 · 完整句义与记忆锚点",
+    "cls": "good",
+    "tag": "答案 C",
+    "log": "答案 C（willing 愿意的）——并列同向定生死",
+    "count": 3,
+    "body": "<p>完整句义：<b>研究结果表明，求助者通常会低估他人帮忙的意愿，以及帮忙会给施助者带来的愉悦。</b></p><p>答案选 <b>C（willing 愿意的）</b>。</p><p><b>记忆锚点</b>：and 并列的两个 how 从句必须同向；underestimate + 正向从句＝真相更正向；brave 无铺垫、disapproving／hesitant 反向，全靠并列方向排除。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2025 完形第 17 空 · “低估他人有多____帮忙”填哪个形容词",
+  "subtitle": "考点：词义辨析（形容词）· and 并列同向 + underestimate 语义推导",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）",
+  "intro": "点击「▶ 播放」逐步展开“并列定方向 → 逐项排除”的推理链。",
+  "result": {
+    "big": "答案 C（willing 愿意的）",
+    "html": "<b>C willing（愿意的）</b>——与 and 后 how good it will make the help-giver feel 正向并列，underestimate 二者＝“别人其实很愿意帮、帮了很开心”。<br>记忆锚点：并列从句同向定方向；brave 无语境，disapproving / hesitant 是反向词。"
+  }
+,
+  snaps: snaps
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 17 空 · “低估他人有多____帮忙”填哪个形容词</h2>
+<p>答案：<strong>C（willing 愿意的）</strong>。</p>
+<h3>第 0 步：先立机制——并列结构决定词义方向</h3>
+<p>空格所在句是一个“双宾从并列”句：help-seekers generally underestimate <strong>how</strong> __17__ other people will be to help <strong>and how</strong> good it will make the help-giver feel。两个 how 引导的宾语从句由 and 并列，共用同一个谓语 underestimate（低估）——语义方向必须一致：第二个从句说“帮忙会让施助者感觉多么好”（正向），第一个从句的空格也必须填<strong>正向态度</strong>词。再叠加 underestimate 本身：被低估的是“程度”，其真值是“程度其实很高”。方向定死，答案只剩“愿意”一类。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The findings showed that help-seekers generally underestimate how __17__ other people will be to help and how good it will make the help-giver feel (for most people, having the chance to help someone is highly __18__).</blockquote>
+<p>主语 findings（研究结果）提示本句在陈述一条普遍心理偏差；括号是对第二个 how 从句的解释——大多数人以帮人为乐。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A brave</td><td>勇敢的</td><td>✗</td><td>帮忙“需要勇气”全无铺垫：全文谈的是帮忙令人愉快、值得做，从未把帮忙塑造成冒险行为</td></tr><tr><td>B disapproving</td><td>不赞成的</td><td>✗</td><td>反向词：与 and 后 how good 的正向色彩直接冲突；“低估别人多反对帮忙”也无法被括号里“帮人很愉快”解释</td></tr><tr><td>C willing</td><td>愿意的</td><td>✓</td><td>be willing to help 为常用搭配；与 how good 同向并列，underestimate 二者＝“别人其实很愿意帮、帮了很开心”</td></tr><tr><td>D hesitant</td><td>犹豫的</td><td>✗</td><td>反向词：与 B 同病；被低估的应是正向程度，不是负向程度</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>为什么空格必须与 how good 同向？</strong>：and 并列的两个从句同受 underestimate 支配，表达同一个心理偏差的两个侧面——“别人多愿意帮”与“帮忙让帮的人多开心”。若第一个从句反向（B/D），整句变成“低估别人的抗拒，却低估不了快乐”，逻辑自相矛盾。</li><li><strong>underestimate + 反向词不行吗？</strong>：可以成立（低估别人多不情愿），但那样与第二个从句、以及括号里“以帮人为乐”的补充说明全部脱节——本题的语境已经锁死了正向方向。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（hesitant）</strong>：只看空格局部“会不会有人不愿帮”，忽略 and 并列方向与 underestimate 的整体语义。</li><li><strong>误选 A（brave）</strong>：把“求助难”偷换成“帮人也难”；原文前三段讲的是求助者的心理障碍，本句转到施助者一侧，谈的是“帮人很愉快”。</li></ul>
+<blockquote>记忆锚点：and 并列的两个 how 从句必须同向；underestimate + 正向从句 = 真相更正向（很愿意／很快乐）；brave 无铺垫，disapproving / hesitant 反向。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

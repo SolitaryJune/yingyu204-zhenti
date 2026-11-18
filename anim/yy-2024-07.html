@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-07 · 2024 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2022-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 7 所在句，考点：句内语义 + 动词短语",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This might be especially true if, for example, you are working from home and you are __7__ on the usual social conversations that happen in an office.</div><p>空格为第 7 空，待填一词。考点：<b>句内语义 + 动词短语</b>；方法主线：场景推演 → 配短语，下面逐步展开。</p>"
+ },
+ {
+  "title": "机制 · 先推演场景，再配短语",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：先推演场景，再配短语",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>四个选项都是「动词 + on」结构，词形难分——先做<b>场景推演</b>：if 从句摆的场景是「你在家办公」，空格宾语 the usual social conversations 带着 that 定语从句——「那些发生在办公室里的惯常社交闲聊」。人在家、闲聊在办公室，两者不可能相遇：<b>那些对话根本不会发生在你身上</b>。所以空格短语必须表达「错失/未能享有」——不是「减少」（对话不是变少，而是整个缺席），更不是「打断」（对话都没发生，何谈打断）。</p>"
+ },
+ {
+  "title": "证据 · 定语从句把对话「锁」在办公室",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：定语从句把对话「锁」在办公室",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>the usual social conversations that happen in an office——惯常的、发生在办公室里的社交闲聊。居家办公者与这份闲聊的关系只有一种：够不着。这正是 miss out on sth（错失益事/乐事的机会）的标准用武之地。</p>"
+ },
+ {
+  "title": "逐项分析 · A cutting back（减少；削减）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A cutting back（减少；削减） ✗ 排除——常识「居家办公社交变少」直接套用",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>cut back on sth 多指削减经费或生意规模；办公室的惯常闲聊居家时是整个缺席，不是「减少」。</p><p style='color:#b91c1c'>⚠ 典型误解：常识「居家办公社交变少」直接套用——减少的前提是「原本发生的量变小」；而这些对话对你而言根本没有发生——缺席 ≠ 减少。</p>"
+ },
+ {
+  "title": "逐项分析 · B missing out（错失（机会））",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B missing out（错失（机会）） ✓ 当选",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>错失办公室社交闲聊的机会，契合居家办公场景，并让主从句构成「条件—结果」：错失社交 → 特别容易孤独。</p>"
+ },
+ {
+  "title": "逐项分析 · C breaking in（打断；搅扰）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C breaking in（打断；搅扰） ✗ 排除——背过搭配 break in on conversations 就往上套",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>搭配形式最像（break in on a conversation 是真实搭配）；但对话没有发生，无话可断、无门可入。</p><p style='color:#b91c1c'>⚠ 典型误解：背过搭配 break in on conversations 就往上套——形似搭配 ≠ 语义可行：打断的前提是「对话正在进行」，居家办公连参与的资格都没有。</p>"
+ },
+ {
+  "title": "逐项分析 · D looking down（看不起；轻视）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D looking down（看不起；轻视） ✗ 排除——把「客观缺失」误读成「主观嫌弃」",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>文中聚焦居家办公导致的客观结果（错失社交机会），不涉及对社交闲聊的主观态度。</p><p style='color:#b91c1c'>⚠ 典型误解：把「客观缺失」误读成「主观嫌弃」——look down on 需要态度主体真的「瞧不上」对象；文中没有任何态度描写。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（missing out 错失（机会））——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>如果你（比如）居家办公，错失了办公室里惯常开展的社交闲聊，这种感觉可能尤其明显。</b></p><p>答案选 <b>B（missing out 错失（机会））</b>。</p><p><b>记忆锚点</b>：短语动词题先场景推演：「人在家、闲聊在办公室」= 对话整个缺席 → miss out on（错失）；形似搭配（break in on）≠ 语义可行。</p><p style='color:#b91c1c'>最易误选：<b>A（cutting back）</b>——「社交变少」的常识脑补；对话缺席是「错失」，不是「减少」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2024 完形第 7 空 · you are ____ on the usual social conversations…",
+  subtitle: "考点：句内语义 + 动词短语 · 场景推演 → 配短语 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（missing out）",
+    html: "<b>B missing out（错失（机会））</b>。<br>完整句义：如果你（比如）居家办公，错失了办公室里惯常开展的社交闲聊，这种感觉可能尤其明显。<br>记忆锚点：短语动词题先场景推演：「人在家、闲聊在办公室」= 对话整个缺席 → miss out on（错失）；形似搭配（break in on）≠ 语义可行。<br>最易误选：<b>A（cutting back）</b>——「社交变少」的常识脑补；对话缺席是「错失」，不是「减少」。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 完形第 7 空 · 句内语义 + 动词短语</h2>
+<p>答案：<strong>B（missing out 错失（机会））</strong>。</p>
+<h3>第 0 步：先立机制——短语动词题：先推演场景，再配短语</h3>
+<p>四个选项都是「动词 + on」结构，词形难分——先做<strong>场景推演</strong>：if 从句摆的场景是「你在家办公」，空格宾语 the usual social conversations 带着 that 定语从句——「那些发生在办公室里的惯常社交闲聊」。人在家、闲聊在办公室，两者不可能相遇：<strong>那些对话根本不会发生在你身上</strong>。所以空格短语必须表达「错失/未能享有」——不是「减少」（对话不是变少，而是整个缺席），更不是「打断」（对话都没发生，何谈打断）。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>This might be especially true if, for example, you are working from home and you are __7__ on the usual social conversations that happen in an office.</blockquote>
+<p>the usual social conversations that happen in an office——惯常的、发生在办公室里的社交闲聊。居家办公者与这份闲聊的关系只有一种：够不着。这正是 miss out on sth（错失益事/乐事的机会）的标准用武之地。</p>
+<h3>第 2 步：语义对号：miss out on = 错失乐事</h3>
+<p>miss out (on sth) 意为「错失（益事或乐事）的机会」——miss out on the usual social conversations = 错失办公室社交闲聊，且让「居家办公 → 错失社交 → 特别容易孤独」的条件—结果链闭合。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A cutting back</td><td>减少；削减</td><td>✗ 排除</td><td>cut back on sth 多指削减经费或生意规模；办公室的惯常闲聊居家时是整个缺席，不是「减少」。</td></tr><tr><td>B missing out</td><td>错失（机会）</td><td>✓ 当选</td><td>错失办公室社交闲聊的机会，契合居家办公场景，并让主从句构成「条件—结果」：错失社交 → 特别容易孤独。</td></tr><tr><td>C breaking in</td><td>打断；搅扰</td><td>✗ 排除</td><td>搭配形式最像（break in on a conversation 是真实搭配）；但对话没有发生，无话可断、无门可入。</td></tr><tr><td>D looking down</td><td>看不起；轻视</td><td>✗ 排除</td><td>文中聚焦居家办公导致的客观结果（错失社交机会），不涉及对社交闲聊的主观态度。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>常识「居家办公社交变少」直接套用 → 误选 A（cutting back）</strong>：减少的前提是「原本发生的量变小」；而这些对话对你而言根本没有发生——缺席 ≠ 减少。</li><li><strong>背过搭配 break in on conversations 就往上套 → 误选 C（breaking in）</strong>：形似搭配 ≠ 语义可行：打断的前提是「对话正在进行」，居家办公连参与的资格都没有。</li><li><strong>把「客观缺失」误读成「主观嫌弃」 → 误选 D（looking down）</strong>：look down on 需要态度主体真的「瞧不上」对象；文中没有任何态度描写。</li></ul>
+<blockquote>记忆锚点：短语动词题先场景推演：「人在家、闲聊在办公室」= 对话整个缺席 → miss out on（错失）；形似搭配（break in on）≠ 语义可行。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

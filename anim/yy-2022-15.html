@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-15 · 2022 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 15 所在句，考点：句内语义 + 上下文语义",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("It's a __15__ learning curve and it won't always make you popular.") +
+    "<p>空格形容词修饰 learning curve（此处指「学习适应的过程」），与 and 后的分句「并不总能让你受欢迎」并列。</p>"
+ },
+ {
+  "title": "机制 · It 指代前文，曲线成色由上下文定调",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：It 概括“减量换写作时间”的全过程",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>It 承接上段：为挤出写作时间，你不得不 sacrifice、cut down、让社交媒体降频、减少社交——一整套不情愿的减量动作。</p>" +
+    "<p>这样一条「学习曲线」（学习/适应的过程）的成色只能往「<b>艰难</b>」定；后一分句「不总能让你受欢迎」进一步印证：过程苦，结果未必讨好。</p>"
+ },
+ {
+  "title": "证据 · 上文减量动作的集体定调",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：一连串 have to——沉重色彩贯穿",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("you'll have to __9__ some of your day-to-day activities... There'll probably have to be less socialising with your friends and less time with your family.") +
+    "<p>上文 have to sacrifice / have to cut down on / have to make / have to be less——一连串「不得不」，语义色彩沉重。适应期要吃苦，tough 与上文色彩一致。</p>"
+ },
+ {
+  "title": "逐项分析 · B gentle（温和的；平缓的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B gentle（温和的；平缓的） ✗ 排除——前后分句接不上",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "body": "<p><b>排除。</b>「学习过程平缓顺畅，且不总能让你受欢迎」前后分句接不上——平顺的过程为何不讨好？</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只顾给「不讨好」找搭配，忘了上文基调。</p>"
+ },
+ {
+  "title": "逐项分析 · A tough（艰难的）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A tough（艰难的） ✓ 当选",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": true},
+  "body": "<p><b>当选。</b>与上文「不得不减量」的沉重色彩一致，并与 won't always make you popular 顺接。代入读作「这是一条<b>艰难的</b>学习曲线，而且并不一定能让你大受欢迎」。</p>"
+ },
+ {
+  "title": "逐项分析 · C rapid（快速的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C rapid（快速的） ✗ 排除——色彩与“快”都不相干",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>色彩偏中性/正面，且「快」与上文反复的「不得不」艰苦奋斗不相干。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：联想「上手快是好事」，脱离文段基调。</p>"
+ },
+ {
+  "title": "逐项分析 · D funny（有趣的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D funny（有趣的） ✗ 排除——句内通顺仍须跨句检验",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>「有趣但不总受欢迎」表面可读，实则脱离文意：本段没有任何「有趣」的铺垫。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：被句内通顺度骗过，未做跨句色彩校验。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（tough 艰难的）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>这是一条艰难的学习曲线，而且并不一定能让你大受欢迎。</b></p>" +
+    "<p>答案选 <b>A（tough 艰难的）</b>。</p>" +
+    "<p><b>记忆锚点</b>：It 概括减量全程 → learning curve 定调「艰难」；tough 与 have to... / less... 同色；funny 句内通顺仍须跨句检验。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>D（funny）</b>——句内通顺但跨句色彩不符。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 15 空 · “不讨好”的学习曲线只能定调艰难",
+  subtitle: "考点：句内语义 + 上下文语义 · 色彩校验 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（tough）",
+    html: "<b>A tough（艰难的）</b>。<br>记忆锚点：It 概括减量全程 → learning curve 定调「艰难」；tough 与 have to... / less... 同色；funny 句内通顺仍须跨句检验。<br>最易误选：<b>D（funny）</b>——句内通顺但跨句色彩不符。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 15 空 · It's a ____ learning curve——"不讨好"的曲线只能定调艰难</h2>
+<p>答案：<strong>A（tough 艰难的）</strong>。</p>
+<h3>第 0 步：先立机制——It 指代前文，曲线的"成色"由上下文定调</h3>
+<p>空格句：It's a __15__ learning curve and it won't always make you popular.（这是一条____学习曲线，而且并不总能让你受欢迎。）It 承接上段：为挤出写作时间，你不得不 sacrifice、cut down、让社交媒体降频、减少社交——一整套不情愿的减量动作。这样一条"学习曲线"（此处指学习/适应的过程）的成色只能往"艰难"定。后一分句 it won't always make you popular 进一步印证：过程苦（要削减社交），结果未必讨好。空格词需带"艰难、辛苦"的负面色彩——tough。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>It's a __15__ learning curve and it won't always make you popular.</blockquote>
+<p>空格形容词修饰 learning curve（此处指"学习适应的过程"），与 and 后的分句并列。</p>
+<h3>第 2 步：找证据——上文减量动作的集体定调</h3>
+<blockquote>you'll have to __9__ some of your day-to-day activities... There'll probably have to be less socialising with your friends and less time with your family.</blockquote>
+<p>上文 have to sacrifice / have to cut down on / have to make / have to be less——一连串"不得不"，语义色彩沉重。learning curve 指这种自我改造的适应期；适应期要吃苦，tough 与上文色彩一致。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A tough</td><td>艰难的</td><td>✓</td><td>与上文"不得不减量"的沉重色彩一致，并与 won't always make you popular 顺接。</td></tr><tr><td>B gentle</td><td>温和的；平缓的</td><td>✗</td><td>"学习过程平缓顺畅，且不总能让你受欢迎"前后分句接不上——平顺的过程为何不讨好？</td></tr><tr><td>C rapid</td><td>快速的</td><td>✗</td><td>色彩偏中性/正面，且"快"与上文反复的"不得不"艰苦奋斗不相干。</td></tr><tr><td>D funny</td><td>有趣的</td><td>✗</td><td>"有趣但不总受欢迎"表面可读，实则脱离文意：本段没有任何"有趣"的铺垫。（B/C/D 共同病根：语义色彩与上文沉重基调不符。）</td></tr></tbody></table>
+<p>代入后的完整句义：这是一条艰难的学习曲线，而且并不一定能让你大受欢迎。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>learning curve 不是"快速掌握"的意思吗（a steep learning curve）？</strong>：learning curve 本义是"学习/适应的过程"；steep learning curve 强调"上手难"。本题不依赖固定搭配的方向，按语义逻辑解题：过程 + 不讨好 → 艰难。切勿死记"curve 必配 steep"。</li><li><strong>D（funny）为什么要单独说？</strong>：它是四个选项里唯一能与后半句拼成通顺句子"有趣但不总受欢迎"的干扰项——但通顺不等于正确：上文通篇是"减量、牺牲"的苦基调，"有趣"无处着落。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（gentle）</strong>：只顾给后半句"不讨好"找搭配，忘了上文基调。</li><li><strong>误选 D（funny）</strong>：被句内通顺度骗过，未做跨句色彩校验。</li></ul>
+<blockquote>记忆锚点：It 概括减量全程 → learning curve 定调"艰难"；tough 与 have to... / less... 同色；funny 句内通顺仍须跨句检验。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·18 完形 · not __ for sb 的建议句式</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：语法槽位', cls: 'key',
+    body: '<p>空格结构 = 被动 + <b>not __ for + 人群</b>。这是"建议/许可"句式：句子在回答"<b>这种鼻喷剂型能不能给这些人用</b>"。</p>',
+    log: '空格 = 表达官方对人群的使用态度' },
+  { title: '定位原文', cls: 'key',
+    body: src('“...most of those initial doses were of the FluMist nasal spray type, which is <b>not</b> __18__ <b>for</b> pregnant women, people over 50 or those with breathing difficulties, heart disease or several other problems.”') +
+      '<p>对"能不能用"的回答，只差一个态度动词。</p>',
+    log: '句式定型：not __ for sb' },
+  { title: 'But 让步句定语气', cls: 'key',
+    body: src('“But it was still possible to vaccinate people in other high-risk groups...”') +
+      '<p>下一句 But：不能用的只是<b>部分</b>高危人群，其他人仍可接种 → 前文是"有条件不推荐"，不是"全面禁止"。</p>',
+    log: '让步句提示：语气是"不推荐"不是"禁止"' },
+  { title: 'A presented：搭配不成立', cls: 'bad',
+    body: '<p>presented 提出、呈交——搭配是 present sth <b>to</b> sb，不接 for sb；也表达不出"能否使用"的态度。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 搭配方向是 to sb' },
+  { title: 'B restricted：语气与搭配双不合', cls: 'bad',
+    body: '<p>restricted 限制——"对孕妇限制使用"文中无据；受限应为 be restricted <b>to</b>；且句意是"建议慎用"，不是限量管制。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B restrict 管范围/数量，不管建议' },
+  { title: 'D introduced：环节错位', cls: 'bad',
+    body: '<p>introduced 引进、介绍——introduce A <b>to</b> B；疫苗已经 made available（投放市场），不存在"引进"环节，空格要的是<b>使用建议</b>。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D"上市"已有 made available 表达' },
+  { title: 'C recommended：态度动词入场', cls: 'good',
+    body: '<p>recommended 推荐、建议——<b>not recommended for pregnant women</b> = 不建议孕妇使用，官方口径自然、for sb 搭配地道，与 But 让步句的"部分不推荐"严丝合缝。<b>C 正确</b>。</p>',
+    ribbon: { k: 3, ok: true },
+    log: 'C = "不建议使用"的地道表达' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>C（recommended）</b>。记忆锚点：<b>be (not) recommended for sb =（不）建议某人使用</b>；让步 But 提示前文只是"部分不推荐"。</p>',
+    log: '锁定 C（recommended）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 18 · not __ for sb 的建议句式',
+  subtitle: '考点：上下文语义（建议/许可句式）＋ 让步逻辑 · 选项：presented / restricted / recommended / introduced',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（recommended）',
+    html: '记忆锚点：<b>not recommended for sb = 不建议某人使用</b>。B 的"限制"语气过重且搭配是 to；D 的"引进"已被 made available 表达；A 的 present 方向是 to sb。But 让步句证明前文只是"部分人群不推荐"。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：not __ for sb——"不推荐"的建议句式</h2>
+<p>答案：<strong>C（recommended）</strong>。</p>
+<h3>第一步：先立机制——空格的"语法槽位"</h3>
+<p>空格处在 which is not __18__ for pregnant women...：被动语态 + not + for + 人群。这是一个<strong>建议/许可类句式</strong>——句子在回答"这种鼻喷剂型能不能给这些人用"。空格动词要表达"官方对人群的使用态度"，且能自然接 for sb。</p>
+<h3>第二步：定位原文——But 让步给了态度提示</h3>
+<blockquote>...though most of those initial doses were of the FluMist nasal spray type, which is not __18__ for pregnant women, people over 50 or those with breathing difficulties, heart disease or several other problems.<br/>But it was still possible to vaccinate people in other high-risk groups: ...</blockquote>
+<p>下一句以 But 开头：<strong>不能用的只是部分高危人群，其他人仍可接种</strong>。这是"有条件不推荐"，而不是"全面禁止"——语气最贴合的是"建议"层面的词。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A presented</td><td>提出、呈交</td><td>搭配是 present sth to sb，不接 for sb；也表达不出"能否使用"</td></tr><tr><td>B restricted</td><td>限制</td><td>"对孕妇限制使用"文中无据；受限应为 be restricted to，且句意不是限量管制</td></tr><tr><td>C recommended</td><td>推荐、建议</td><td>not recommended for pregnant women = 不建议孕妇使用，官方口径自然、搭配地道</td></tr><tr><td>D introduced</td><td>引进、介绍</td><td>introduce A to B；疫苗已投放市场（made available），不存在"引进"环节</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 B（restricted）</strong>：看到"孕妇不宜"就联想"限制"。但 restrict 管的是范围与数量（restricted to），而 But 让步句说明作者在讲"划定适用人群的建议"，不是管制。</li><li><strong>选 D（introduced）</strong>：把"上市投放"与"针对人群"混为一谈——made available 已表达投放，空格表达的是<strong>使用建议</strong>。</li><li><strong>选 A（presented）</strong>：只抓"疫苗呈现给人群"的字面联系，忽略 present 的搭配方向是 to sb。</li></ul>
+<blockquote>记忆锚点：be (not) recommended for sb = （不）建议某人使用；让步 But 提示前文只是"部分不推荐"，语气最轻的 C 最贴合。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

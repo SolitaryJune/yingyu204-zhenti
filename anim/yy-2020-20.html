@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-20 · 完形第 20 空：emerge from——从压力时刻中走出来</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：and 并列的两半必须同向",
+  "body": "<p>空格句：...you and your children will <b>benefit</b> and <b>__20__</b> from stressful moments feeling better physically and emotionally。</p><p>and 把 benefit 与空格词并列，两半必须<b>同向</b>：都是积极结果。且空格词接 <b>from stressful moments</b>——既要能接 from，又要表达\"积极的脱离\"。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：目标达成的结果句",
+  "body": "<div class='qq'><b>原文：</b>As a result of working toward this goal, you and your children will benefit and <b>__20__</b> from stressful moments feeling better physically and emotionally.</div><p class='cn'>译：朝着这个目标努力，你和你的孩子都将从压力时刻中获益并 __，身心状态都更好。</p><p><b>emerge from sth</b> 取\"（从困境或苦难经历中）幸存下来、摆脱出来\"的义项：经历过压力、然后走出来——与 benefit 同向、与 feeling better 呼应。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：hide（躲藏）",
+  "body": "<p><b>A · hide</b> <span class='bad-dot'>✗</span></p><p>hide from stressful moments = 把自己藏起来躲开压力——是<b>消极回避</b>，谈不上\"最终结果积极、身心更好\"，与并列的 benefit 拧着劲。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：withdraw（撤退）",
+  "body": "<p><b>C · withdraw</b> <span class='bad-dot'>✗</span></p><p>withdraw from = 从中<b>退出、撤出</b>，同样含\"被击退而消极离开\"的意味——不是\"带着成长走出来\"。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：escape（逃避）",
+  "body": "<p><b>D · escape</b> <span class='bad-dot'>✗</span></p><p>escape from stressful moments 字面最像\"从压力中脱身\"，最具迷惑性——但 escape 强调<b>躲避</b>，隐含\"问题没解决，只是逃开\"，与\"获益（benefit）\"的积极方向不符。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 4,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：emerge（浮现/摆脱）",
+  "body": "<p><b>B · emerge</b> <span class='ok-dot'>✓</span></p><p><b>emerge from stressful moments</b> = 从压力时刻中走出（幸存、摆脱出来）：与 benefit 并列皆为积极结果，也与\"feeling better physically and emotionally\"的结果描写顺承。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（emerge）</b>。</p><p>记忆锚点：and 并列看同向——benefit and ___ from stressful moments 只有 emerge（走出来）接得住\"获益\"的积极方向；hide / withdraw / escape 都是\"逃避\"。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-20 · 完形第 20 空：emerge from——从压力时刻中走出来",
+  subtitle: "考点：动词辨析 + and 并列同向",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 搭配/语义核对 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 B", "html": "<b>and 并列看同向</b>：benefit（获益）+ emerge（从困境中走出）才是同一方向的两个积极结果。hide / withdraw / escape 都含\"被动逃避\"，与\"获益后身心更好\"矛盾——escape 字面最像，也最险。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 20 空——emerge from：从压力时刻中"走出来"</h2>
+<p>答案：<strong>B</strong>（emerge）。</p>
+<h3>第 0 步：先立机制——and 并列的两半必须"同向"</h3>
+<p>空格句：As a result of working toward this goal, you and your children will benefit and __20__ from stressful moments feeling better physically and emotionally（朝着这个目标努力，你和孩子的都将从压力时刻中获益并 __，身心更佳）。and 把 benefit 与空格词并列，两半必须<strong>同向</strong>：都是积极结果。同时空格词要接 from stressful moments——既能接 from，又能表达"积极的脱离"的，才是答案。</p>
+<h3>第 1 步：B 对号入座——emerge from sth</h3>
+<blockquote>...you and your children will benefit and <strong>emerge</strong> from stressful moments feeling better physically and emotionally.</blockquote>
+<p>emerge from sth 取"(从困境或苦难经历中)幸存下来、摆脱出来"的义项：经历过压力、然后走出来，与 benefit 并列皆为积极结果，也与"feeling better physically and emotionally"的结果描写顺承。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（hide）/ C（withdraw）/ D（escape）</strong>：三个都能勉强接 from，看似"从……中离开"，但共同问题是<strong>方向不对</strong>——它们都含"因无法解决问题 / 被击溃而被动消极地逃避"的意味；躲开、撤出、逃离压力，谈不上"最终结果积极、结局良好"，与并列的 benefit 拧着劲。</li><li>尤其 <strong>D（escape）</strong> 最具迷惑性：escape from stressful moments 字面像"从压力中脱身"，但 escape 强调的是"躲避"，不是"经历之后带着成长走出来"。</li></ul>
+<blockquote>记忆锚点：and 并列看同向——benefit and ___ from stressful moments 只有 emerge（走出来）接得住"获益"的积极方向；hide / withdraw / escape 都是"逃避"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

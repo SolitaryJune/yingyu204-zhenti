@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2016-48 大作文谋篇：旅游目的饼图的「解读→归因→评论」与 70% 双诉求</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2015-48 成品范式）：逐步展开结构框架卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 结构框架：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：饼图读构成，两指令定两件事',
+    cls: 'key',
+    body: '<p>1) <b>interpret the chart</b>（必答点 1：解读图表）+ 2) <b>give your comments</b>（必答点 2：发表评论），约 150 词。读图动作由题型决定：柱状/线图读<b>趋势</b>，饼图读<b>构成</b>——排序（谁最大）、归类（哪些同属一类）、合计（加起来到什么程度）。interpret 不等于逐块报数，comments 要有立论 + 做法。</p>' },
+  { title: '审数据：五块排序、归类、合计 → 70% 双诉求抓手',
+    cls: 'step',
+    body: '<p>图表主题：某高校学生旅游目的调查。五块占比：<b>欣赏风景 37%</b> ＞ <b>缓解压力 33%</b> ＞ 其他 15% ＞ 广交朋友 9% ＞ 培养独立 6%。</p><p>归类合计：前两大 <b>37% + 33% = 70%</b>——大学生旅游的两大诉求就是「看景」与「减压」，这是全文解读抓手；广交朋友 9%、培养独立 6% 两小块留给段 3 评论升华（旅行的更深意义恰是交友与独立）。</p>' },
+  { title: '谋篇：三段各司其职',
+    cls: 'key',
+    body: '<p><b>段 1</b> interpret：性质句 + 数据句（37%；next comes 33%, accounting for...）+ 其余占比并列收尾（9%/6%/15%）。<b>段 2</b> 归因：总起句（The survey reveals...）→ On the one hand 看景线 → On the other hand 减压线。<b>段 3</b> comments：让步肯定 → 转折立论（更深意义）→ 具体做法 → 收束。功能错位（第一段只报数、第三段空赞）是图表作文最大丢分源。</p>' },
+  { title: '段 1 性质句：simple yet illuminating 带态度起笔',
+    cls: 'good',
+    body: '<p><b>This pie chart, simple yet illuminating, illustrates the purposes of travel for students polled in a certain university.</b></p><p>双形容词插入 <b>simple yet illuminating</b>（简单却有启发性）让性质句自带观点，比干巴巴的 This chart shows... 高一档；<b>poll</b> 取「调查」义（students polled = 被调查的学生）。</p>' },
+  { title: '段 1 数据句：As is reflected by... + 倒装排序 + 分词挂占比',
+    cls: 'good',
+    body: '<p><b>As is reflected by the chart, 37 percent of college students travel to appreciate the beauty of the scenery; next comes the aim of relieving pressure, accounting for 33 percent. Students\' other objectives — making more friends, fostering greater independence, and other aims respectively account for 9%, 6% and 15%.</b></p><p><b>As is reflected by the chart</b>「正如图表所示」开数据句；<b>next comes</b> 倒装天然承接「从大到小」的排序，<b>accounting for</b> 现在分词把占比挂在句尾；其余三块用 <b>respectively account for</b> 一句打包，破折号同位列举不重复起句。</p>' },
+  { title: '段 2 总起句：survey reveals 承接数据下判断',
+    cls: 'key',
+    body: '<p><b>The survey reveals that most students go on a journey to enjoy the view as well as to unwind and recharge.</b></p><p>首句承上启下：把段 1 的 70% 双诉求翻译成真实用途——<b>enjoy the view</b>（看景）+ <b>unwind and recharge</b>（放松充电）。数据 → 现象的转换一步到位，归因段由此开篇。</p>' },
+  { title: '段 2 归因一（On the one hand）：看景线扣大学生身份',
+    cls: 'good',
+    body: '<p><b>On the one hand, with the prosperity of tourism, college students who have ample time, curiosity and energy to explore their individuality and see the outside world are lured to go out of campus and come into contact with grandeur and beauty.</b></p><p>归因链 = 旅游业繁荣 + 大学生<b>有充足时间、好奇心与精力</b>（who 定语从句扣身份）→ 走出校园、接触壮美。<b>ample</b>（充足的）、<b>be lured to</b>（被吸引）、<b>come into contact with</b>（接触到）三个词块撑起句子。</p>' },
+  { title: '段 2 归因二（On the other hand）：减压线一句完成「压力来源 + 对策」',
+    cls: 'good',
+    body: '<p><b>On the other hand, college students have their share of pressure coming from academic study, employment and interpersonal relationship, to which travelling is a wonderful antidote. One usually comes back from a trip feeling refreshed and revitalized.</b></p><p><b>coming from...</b> 分词后置定语压进三个压力源（学业、就业、人际），<b>to which travelling is a wonderful antidote</b> 介词 + which 定语从句把「旅行是良方」挂在 pressure 上——一句完成「压力来源 + 对策」，全篇最见功力；再以 <b>feeling refreshed and revitalized</b> 分词伴随状语把减压线收在身体感受上。</p>' },
+  { title: '段 3 评论：让步 → 转折立论 → 具体做法',
+    cls: 'key',
+    body: '<p><b>In my opinion, though it\'s natural for college students to seek fun and enjoyment, they should attach deeper meaning to travelling. In the journey one can try to interact with local people and experience their culture in-depth, make friends with people from different cultural backgrounds and feel a sense of independence and self-reliance from the bottom of heart. Travelling truly could benefit a lot.</b></p><p>评论三层：<b>though...</b> 让步肯定（寻乐很自然）→ <b>attach deeper meaning to</b> 转折立论 → 三个做法（深度体验文化 / 跨文化交友 / 独立自立感）正好接住段 1 里 9% + 6% 两小块——评论不是空赞，是把小数据升格成大意义。</p>' },
+  { title: '易错自检：五处失分源',
+    cls: 'bad',
+    body: '<p><b>逐块报数</b>：37、33、9、6、15 一路念，没有排序归类，70% 抓手丢失，段 2 无从归因。<b>只描述不评论</b>：漏必答点 2，或 Travel is good 式空赞。<b>归因不扣身份</b>：写成泛论「旅游有益身心健康」——大学生的有闲、好奇心、三重压力才是本题素材。<b>数据张冠李戴</b>：9%/6%/15% 对应错位，「其他 15%」是剩余项不是第四个具体目的。<b>词数失衡</b>：描述占掉大半，归因评论被挤瘪。</p>' },
+  { title: '结论：框架锚点与模板迁移',
+    cls: 'good',
+    body: '<p>框架锚点：<b>解读（排序 + 归类 + 合计 37%+33%=70%）→ 双向归因（看景 / 减压）→ 评论（更深意义）</b>；数据段三件套 = As is reflected by...、next comes..., accounting for...、respectively account for...；归因段亮点 = to which travelling is a wonderful antidote。</p><p>模板迁移：凡「图表体现某现象 + 解读评论」类题目（如手机功能使用、阅读方式调查），排序归类找最大块 → 双向归因 → 升格评论，框架不变。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2016-48 大作文谋篇演示：旅游目的饼图的「解读→归因→评论」',
+  subtitle: '考点：图表作文（饼图）· 方法：审数据（排序/归类/合计 37%+33%=70%）→ 定三段功能 → 逐段升格 → 成文自检',
+  counterLabel: '已推进',
+  intro: '点击「▶ 播放」逐步展开审题、谋篇与句型升格的推理链。',
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>This pie chart, simple yet illuminating, illustrates the purposes of travel for students polled in a certain university. As is reflected by the chart, 37 percent of college students travel to appreciate the beauty of the scenery; next comes the aim of relieving pressure, accounting for 33 percent. Students\' other objectives — making more friends, fostering greater independence, and other aims respectively account for 9%, 6% and 15%.</p>' +
+      '<p>The survey reveals that most students go on a journey to enjoy the view as well as to unwind and recharge. On the one hand, with the prosperity of tourism, college students who have ample time, curiosity and energy to explore their individuality and see the outside world are lured to go out of campus and come into contact with grandeur and beauty. On the other hand, college students have their share of pressure coming from academic study, employment and interpersonal relationship, to which travelling is a wonderful antidote. One usually comes back from a trip feeling refreshed and revitalized.</p>' +
+      '<p>In my opinion, though it\'s natural for college students to seek fun and enjoyment, they should attach deeper meaning to travelling. In the journey one can try to interact with local people and experience their culture in-depth, make friends with people from different cultural backgrounds and feel a sense of independence and self-reliance from the bottom of heart. Travelling truly could benefit a lot.</p>' +
+      '<p style="margin-top:8px">记忆锚点：饼图 = <b>排序 + 归类 + 合计（37% + 33% = 70%）</b>；三段 = 解读 → 双向归因（看景 / 减压）→ 评论（更深意义）；As is reflected by...、next comes..., accounting for...、to which travelling is a wonderful antidote 三句型是数据段/归因段标配。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 大作文——饼图「某高校学生旅游目的调查」：排序归类定抓手、双向归因、评论升华</h2>
+<p>答案（范文）：<strong>This pie chart, simple yet illuminating, illustrates the purposes of travel for students polled in a certain university. As is reflected by the chart, 37 percent of college students travel to appreciate the beauty of the scenery; next comes the aim of relieving pressure, accounting for 33 percent. Students' other objectives — making more friends, fostering greater independence, and other aims respectively account for 9%, 6% and 15%.</strong></p>
+<p><strong>The survey reveals that most students go on a journey to enjoy the view as well as to unwind and recharge. On the one hand, with the prosperity of tourism, college students who have ample time, curiosity and energy to explore their individuality and see the outside world are lured to go out of campus and come into contact with grandeur and beauty. On the other hand, college students have their share of pressure coming from academic study, employment and interpersonal relationship, to which travelling is a wonderful antidote. One usually comes back from a trip feeling refreshed and revitalized.</strong></p>
+<p><strong>In my opinion, though it's natural for college students to seek fun and enjoyment, they should attach deeper meaning to travelling. In the journey one can try to interact with local people and experience their culture in-depth, make friends with people from different cultural backgrounds and feel a sense of independence and self-reliance from the bottom of heart. Travelling truly could benefit a lot.</strong></p>
+<h3>第 0 步：先立机制——饼图作文的读图动作由题型决定</h3>
+<p>两条指令定两件事：1) <code>interpret the chart</code>（必答点 1：解读图表）+ 2) <code>give your comments</code>（必答点 2：发表评论），约 150 词。读图动作由题型决定：柱状图、线图读<strong>趋势</strong>，<strong>饼图读构成</strong>——排序（谁最大）、归类（哪些同属一类）、合计（加起来到什么程度）。interpret 不等于逐块报数：五块数据念一遍只是描述，排序归类后才有"现象"可归因、可评论。</p>
+<p>本题排序归类之后，全文的抓手自然浮出：<strong>欣赏风景 37% ＋ 缓解压力 33% = 70%</strong>——大学生旅游的两大诉求就是"看景"和"减压"，段 2 的双向归因（On the one hand 看景线 / On the other hand 减压线）正是从这两个数据里长出来的；广交朋友 9%、培养独立 6% 两小块则留给段 3 评论升华用（旅行的更深意义恰是交友与独立）。</p>
+<h3>第 1 步：审图表——细节 → 解析 → 寓意</h3>
+<table><thead><tr><th>细节信息</th><th>信息解析</th><th>推导寓意</th></tr></thead><tbody><tr><td>图表标题「某高校学生旅游目的调查」</td><td>对象 = 高校学生；内容 = 旅游目的</td><td>分析必须扣大学生身份：有闲、有好奇心、有学业就业压力</td></tr><tr><td>欣赏风景 37% ＞ 缓解压力 33%</td><td>两大主要诉求，合计 70%</td><td>全文解读抓手：看景 + 减压</td></tr><tr><td>广交朋友 9% / 培养独立 6% / 其他 15%</td><td>次要目的，合计 30%</td><td>段 3 评论的落点：赋予旅行更深意义（交友、独立）</td></tr></tbody></table>
+<h3>第 2 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1（interpret）</strong>：性质句（pie chart illustrates the purposes of travel...）→ 数据句（37% 看景；next comes 33% 减压, accounting for...）→ 其余占比并列收尾（9% / 6% / 15%）。数据呈现"从大到小 + 其余打包"，一段把图读完整。</li><li><strong>段 2（归因）</strong>：总起句（The survey reveals... 看景 + 放松）→ <strong>On the one hand 看景线</strong>：旅游业繁荣 + 大学生有充足时间、好奇心和精力去探索个性、看外面世界 → 走出校园接触壮美 → <strong>On the other hand 减压线</strong>：学业、就业、人际三重压力 → 旅行是良方 → 归来神清气爽。两条归因线各扣一个数据，互不重叠。</li><li><strong>段 3（comments）</strong>：让步肯定（寻求乐趣是自然的）→ 转折立论（should attach deeper meaning to travelling）→ 具体做法（与当地人交流、深度体验文化、跨文化交友、从心底生发独立自立感）→ 收束（旅行的确让人受益颇丰）。评论有立论、有做法，不是空喊"旅游真好"。</li></ul>
+<h3>第 3 步：句型升格——五条路径</h3>
+<ol><li><strong>性质句带态度</strong>：<code>This pie chart, simple yet illuminating, illustrates...</code>——双形容词插入（simple yet illuminating，简单却有启发性），比干巴巴的 This chart shows... 有观点。</li><li><strong>as 引导的非限制性定语从句</strong>：<code>As is reflected by the chart, 37 percent of college students travel to...</code>——"正如图表所示"的标准数据句开头。</li><li><strong>倒装承接排序 + 分词挂占比</strong>：<code>next comes the aim of relieving pressure, accounting for 33 percent</code>——next comes 倒装天然承接"从大到小"的排序；现在分词 accounting for（占）把占比挂在句尾，不必再起一句主语。</li><li><strong>分词后置定语 + 介词 + which 定语从句</strong>：<code>college students have their share of pressure coming from academic study, employment and interpersonal relationship, to which travelling is a wonderful antidote</code>——coming from... 把三个压力源压进定语；to which... 把"旅行是良方"挂在 pressure 上，一句完成"压力来源 + 对策"，是全篇最见功力的一句。</li><li><strong>分词伴随状语落感受</strong>：<code>One usually comes back from a trip feeling refreshed and revitalized</code>——refreshed and revitalized 两个分词把"减压线"收在身体感受上。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>逐块报数</strong>：interpret 写成流水账（37、33、9、6、15 一路念下来），没有排序与归类，70% 的抓手丢了，段 2 就没有归因对象。</li><li><strong>只描述不评论</strong>：漏必答点 2；comments 要有让步立论 + 具体做法，"Travel is good" 式空赞不给力。</li><li><strong>归因不扣身份</strong>：写成"旅游有益身心健康"的泛论——大学生的时间、好奇心、学业/就业/人际压力才是本题素材。</li><li><strong>数据张冠李戴</strong>：9%/6%/15% 三块对应错位；"其他 15%" 是剩余项，不能当成第四个具体目的。</li><li><strong>词数失衡</strong>：段 1 描述占掉大半篇幅，归因与评论被挤瘪——150 词三段，描述只留约三分之一。</li></ul>
+<blockquote>记忆锚点：饼图 = <strong>排序 + 归类 + 合计（37% + 33% = 70%）</strong>；三段 = <strong>解读 → 双向归因（On the one hand 看景 / On the other hand 减压）→ 评论（更深意义）</strong>；数据段三件套 = As is reflected by...、next comes..., accounting for...、respectively account for...；归因段亮点 = to which travelling is a wonderful antidote。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

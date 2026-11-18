@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-02 · 2016 完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在的两句话",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第二段前两句，考点：上下文逻辑 + 衔接短语",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">① Companies located in places with happier people invest more, according to a recent research paper. ② <b>__2__</b>, firms in happy places spend more on R&amp;D (research and development).</div><p>衔接短语题的第一动作不是看选项，而是<b>核对前后两句的主语和谓语</b>：谁对谁？同向还是反向？</p>"
+ },
+ {
+  "title": "找证据 · 三组词汇一一对应",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：companies/firms、places with happier people/happy places、invest more/spend more on R&D 三组对应",
+  "body": "<p>逐对核对：</p><p>① companies ↔ ② firms（同指：公司）<br>① in places with happier people ↔ ② in happy places（同指：幸福地区）<br>① invest more ↔ ② spend more on R&amp;D（同向：投入更多，且②缩小到“研发”这一个方面）</p><p>三组全对应、语义同向，且②把①的“投资更多”<b>具体化</b>到研发——这是“总说 → 尤其体现在”的递进聚焦关系。</p>"
+ },
+ {
+  "title": "逐项分析 · A In return（作为回报）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A In return（作为回报）✗ 排除——需要互动双方，这里只有一个主体",
+  "body": "<p><b>排除。</b>In return 表示“A 对 B 做了什么，B 作为回报对 A 做什么”，前提是存在<b>互动的双方</b>。两句的主语 companies/firms 同指一家类主体，只有一方行为，谈不上“回报”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“投资”和“研发投入”误当成两方在互相交换。</p>"
+ },
+ {
+  "title": "逐项分析 · B In particular（尤其）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B In particular（尤其）✓ 当选——总说之后的聚焦递进",
+  "body": "<p><b>当选。</b>In particular“特别地、尤其”：先总说幸福地区的公司投资更多，再聚焦到“尤其体现在研发投入上”，与三组对应词汇建立的递进关系严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · C In contrast（相反）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C In contrast（相反）✗ 排除——两句语义同向，无对比",
+  "body": "<p><b>排除。</b>In contrast 要求前后两部分论述内容形成差异或对立。两句说的是同一批公司的同一种行为（都“投入更多”），只有聚焦细化，没有任何反向内容。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“invest more”和“spend more on R&D”当成两件事来对比，没识别出后者是前者的细化。</p>"
+ },
+ {
+  "title": "逐项分析 · D In conclusion（总之）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D In conclusion（总之）✗ 排除——总结语用不到段落中段",
+  "body": "<p><b>排除。</b>In conclusion 用于收尾总结全文。这里位于第二段开头，后文还有大量论证，远没到下结论的位置。</p>"
+ },
+ {
+  "title": "结论 · 逻辑链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（In particular 尤其）——逻辑链见结论卡",
+  "body": "<p>逻辑链：<b>幸福地区公司投资更多（总说）→ 尤其体现在研发投入（具体化）。</b></p><p>答案选 <b>B（In particular 尤其、特别地）</b>。</p><p><b>记忆锚点</b>：衔接语题先列对应词汇——companies/firms、invest more/spend more on R&amp;D；前总后分 → In particular；无互动双方不用 In return，无反向内容不用 In contrast。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 2 空 · 两句之间是什么逻辑关系：In ____ 选哪个短语",
+  subtitle: "考点：上下文语义逻辑 + 衔接短语辨析 · 对应词汇定关系",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找对应 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 B（In particular）", "html": "<b>B In particular（尤其）</b>。<br>记忆锚点：companies/firms、invest more/spend more on R&amp;D 三组对应，前总后分 → In particular；In return 要互动双方，In contrast 要反向内容，In conclusion 只放结尾。<br>最易误选：<b>C（In contrast）</b>——把同一行为的总说与细化误判成对比。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 2 空 · 两句之间是什么逻辑关系</h2>
+<p>答案：<strong>B（In particular 尤其、特别地）</strong>。</p>
+<h3>第 0 步：先立机制——衔接语由“前后句关系”决定</h3>
+<p>逻辑衔接题的第一动作不是背短语词义，而是核对空格前后两句：主语是否同指、语义同向还是反向、是并列还是总说与细化的关系。关系定了，短语自动浮出。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>① Companies located in places with happier people invest more, according to a recent research paper. ② __2__, firms in happy places spend more on R&amp;D (research and development).</blockquote>
+<h3>第 2 步：找证据——三组词汇一一对应</h3>
+<p>companies ↔ firms（公司）、in places with happier people ↔ in happy places（幸福地区）、invest more ↔ spend more on R&amp;D（投入更多，且②缩小到“研发”方面）。三组对应、语义同向，②句是①句的<strong>具体化</strong>：明确公司在哪一方面投入更多——前总后分的聚焦递进。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A In return</td><td>作为回报</td><td>✗ 排除</td><td>前提是互动双方 A↔B 互换；两句只有“幸福地区的公司”一个主体。（典型误解：把投资与研发投入当成两方交换。）</td></tr><tr><td>B In particular</td><td>尤其</td><td>✓ 当选</td><td>总说之后聚焦“尤其体现在研发上”，与递进关系吻合。</td></tr><tr><td>C In contrast</td><td>相反</td><td>✗ 排除</td><td>要求内容对立；两句同向。（典型误解：把总说与细化误判成对比。）</td></tr><tr><td>D In conclusion</td><td>总之</td><td>✗ 排除</td><td>收尾总结语，用不到第二段开头。</td></tr></tbody></table>
+<p>代入后的句间关系：幸福地区的公司投资更多；尤其地，它们在研发上投入更多。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选表递进的 in addition 类词？</strong>：题目只给四个选项，其中唯一能表达“总说后进一步聚焦”的就是 In particular——它强调“在整体之中特别突出某一方面”，恰好落在“投资多 → 研发多”这个具体化落点上。</li><li><strong>怎么快速识别“同指”？</strong>：companies/firms、places with happier people/happy places 都是近义改写；改写型复现是递进关系最硬的证据。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（In contrast）</strong>：把“投资 more”与“研发上花 more”当成两件事对比，实际后者是前者的细化。</li><li><strong>误选 A（In return）</strong>：忽略 In return 必须有互动双方。</li></ul>
+<blockquote>记忆锚点：衔接语题先列对应词汇；同指 + 同向 + 具体化 = 递进聚焦 → In particular。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

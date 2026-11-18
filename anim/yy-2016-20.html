@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2016·20 完形 · lean towards 的方向锁定</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：先列证据链，再定态度方向', cls: 'key',
+    body: '<p>空格在末段研究者引语里，说的是幸福的人对 <b>R&D（研发）</b>的态度。句内语义题不能只看本句——先把全文“幸福 → 研发”的证据链摆出来，态度方向自动出现。</p>',
+    log: '语义题先列全文证据链' },
+  { title: '证据链三环', cls: 'step',
+    body: '<p>① 首段：幸福的人 <b>more productive、more creative、愿意冒险</b>；② 第二段：幸福地区公司在 R&D 上 <b>spend more</b>；③ 第四段：投资与研发力度和幸福指数<b>相关</b>。→ 结论先行：幸福的人<b>更愿意投入研发</b>。</p>',
+    log: '三环证据指向“更愿投入研发”' },
+  { title: '定位原文', cls: 'key',
+    body: src('“It surely seems plausible that happy people would be more forward-thinking and creative and ____ R&D more than the average,” said one researcher.') +
+      '<p>空格与 <b>forward-thinking、creative 并列</b>，三者共用 would be more... 的积极语境——填进去的词不能掉出“积极投入”的方向。</p>',
+    log: '并列语境锁定积极方向' },
+  { title: 'A pray for：祈求、企盼', cls: 'bad',
+    body: '<p>pray for 用于祈求外部愿望（祈求和平、盼好天气），<b>主观语气过重</b>；研发是自身行动，“祈求研发”错位，与客观转述研究发现的语气不符。<b>A 排除</b>。</p>',
+    ribbon: { k: 1, ok: false },
+    log: 'A 语义过重且主观化' },
+  { title: 'B lean towards：倾向于', cls: 'good',
+    body: '<p>对研发“<b>更愿意投入、偏向于</b>”——与第二段 spend more on R&D 方向严丝合缝，也接得住并列的积极语境。<b>B 正确</b>。</p>',
+    ribbon: { k: 2, ok: true },
+    log: 'B 倾向于 = 证据链同向，命中' },
+  { title: 'C send out：发出、派遣', cls: 'bad',
+    body: '<p>send out 的宾语必须是<b>可发出之物</b>（信号、邀请函、部队）——R&D 是抽象研发活动，不能被“发出”或“派遣”，动宾不搭。<b>C 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C 动宾搭配不成立' },
+  { title: 'D give away：分发；赠送；泄露', cls: 'bad',
+    body: '<p>无论“分发”还是“赠送/泄露”，都与“投入研发”的语境<b>背道而驰</b>，也接不上 more than the average 的比较。<b>D 排除</b>。</p>',
+    ribbon: { k: 4, ok: false },
+    log: 'D 方向与语境相反' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>B（lean towards）</b>。记忆锚点：全文“幸福 → 投入研发”方向一致，空格词 = <b>lean towards R&D</b>；并列语境（more forward-thinking and creative）里，动词方向只能向前不能向外。</p>',
+    log: '锁定 B（lean towards）' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.cls === 'good' && !last ? '✓ 正确' : (s.cls === 'bad' ? '✗ 排除' : (last ? '完成' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '完形 20 · lean towards——证据链决定动词方向',
+  subtitle: '考点：句内语义 + 全文方向一致性 · 选项 pray for / lean towards / send out / give away',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开证据链与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 B（lean towards）',
+    html: '记忆锚点：先摆全文证据链（creative / spend more on R&D / 投资相关）→ 结论“幸福的人<b>更愿意投入研发</b>”→ 空格 = <b>lean towards</b>。pray for 主观过重，send out 动宾不搭，give away 方向相反。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：lean towards——全文方向感决定动词方向</h2>
+<p>答案：<strong>B（lean towards）</strong>。</p>
+<h3>第一步：先立机制——句内语义题先列"证据链"，再选态度</h3>
+<p>空格在末段研究者的引语里，说的是幸福的人对 R&amp;D（研发）的态度。这类题不能只看空格所在句，要先把全文对"幸福 → 研发"的<strong>证据链</strong>摆出来，态度方向就自动出现了：</p>
+<ol><li>首段：幸福的人 more productive、more creative、更愿意冒险；</li><li>第二段：幸福地区的公司在 R&amp;D 上 <strong>spend more</strong>；</li><li>第四段：投资和研发力度与当地幸福指数相关。</li></ol>
+<p>结论先行：幸福的人<strong>更愿意投入研发</strong>。空格词必须是"倾向、偏爱"这一方向的动词。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>"It surely seems plausible that happy people would be more forward-thinking and creative and ____ R&amp;D more than the average."</blockquote>
+<p>空格与 forward-thinking、creative <strong>并列</strong>，三者共用一个 would be more... 的积极语境——填进去的词不能掉出这个"积极投入"的方向。</p>
+<h3>第三步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A pray for</td><td>祈求、企盼</td><td>语义过重且主观化，"祈求研发"不合常理，与客观介绍研究的语气不符</td></tr><tr><td>B lean towards</td><td>倾向于、偏向于</td><td>对研发"更愿意投入"，方向与 spend more on R&amp;D 严丝合缝</td></tr><tr><td>C send out</td><td>发出、派遣</td><td>R&amp;D 是抽象研发活动，不能被"发出"或"派遣"，动宾不搭</td></tr><tr><td>D give away</td><td>分发；赠送；泄露</td><td>"把研发送掉/泄露"与投入研发的语境背道而驰</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 A（pray for）</strong>：知道 pray for 表示"盼望好事发生"，觉得"盼着做研发"也通——但 pray for 用于祈求外部愿望（和平、好天气），研发是自身行动，"祈求"错位；本文是客观转述研究发现，容不下这种主观强语气。</li><li><strong>选 C（send out）</strong>：被 out 的方向感迷惑——send out 的宾语必须是可发出之物（信号、邀请函），抽象学科名词不接。</li><li><strong>选 D（give away）</strong>：give away 有"失去、错失"义项，读者若只记得"放弃"反而会犹豫——但无论"分发"还是"赠送"都和 more than the average 的比较语境接不上。</li></ul>
+<blockquote>记忆锚点：全文"幸福 → 投入研发"方向一致，空格词 = <strong>lean towards R&amp;D</strong>；并列语境（more forward-thinking and creative）里，动词方向只能向前不能向外。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

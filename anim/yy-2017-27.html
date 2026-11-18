@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-27 · 2017 Text 2 第 27 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：审题眼 → 分实验定位 → 数字翻译 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 实验题先“分实验”",
+  "cls": "key",
+  "tag": "审题",
+  "count": 0,
+  "ribbon": null,
+  "log": "审题眼：food-testing exercise shows that ____ → 只认食物测试实验，另一次观察是干扰",
+  "body": "<p>题干：Radesky&rsquo;s <b>food-testing exercise</b> shows that mothers&rsquo; use of devices ____.</p><p>第二段装了两件事：①②句 <b>food-testing exercise</b>（食物测试）与③④句 <b>a separate observation</b>（另一次观察）。题干点名前者——机制第一步：把两件事**分开**，③④句整段都是干扰区。</p>"
+ },
+ {
+  "title": "定位原文 · She found that 才是“发现”",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位：②句——使用设备的母亲 verbal 交流少 20%、nonverbal 交流少 39%",
+  "body": quote("Radesky has studied... by giving mother-child pairs <b>a food-testing exercise</b>. <b>She found that</b> mothers who used devices during the exercise started <b>20 per cent fewer verbal and 39 per cent fewer nonverbal interactions</b> with their children.") + "<p>found that 是“研究发现”的正式标志——答案的出处锁定在②句。</p>"
+ },
+ {
+  "title": "找证据 · 把数字翻译成结论",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "翻译：20%/39% fewer interactions → 母子交流减少（方向 = 减少，对象 = mother-child）",
+  "body": "<p>两组数字不必精算，读出两个要素即可：</p><p>方向：<b>fewer</b>（减少）；对象：<b>interactions with their children</b>（与孩子的交流）。</p><p>合并：<b>母亲使用设备 → 与孩子的交流变少</b>。reduces ← fewer；communication ← verbal and nonverbal interactions。</p>"
+ },
+ {
+  "title": "逐项分析 · D reduces mother-child communication",
+  "cls": "good",
+  "tag": "选定 D",
+  "count": 0,
+  "ribbon": {"k": "D", "ok": true},
+  "log": "D reduces mother-child communication ✓ 当选——fewer interactions 的概括替换",
+  "body": "<p><b>当选。</b>reduces（减少）对应 fewer；communication（交流）对应 verbal + nonverbal interactions；对象 mother-child 原词照应。方向与对象双吻合。</p>"
+ },
+ {
+  "title": "逐项分析 · A takes away babies’ appetite",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "log": "A takes away babies’ appetite ✗ 排除——food 字面陷阱，研究看的是交流不是食欲",
+  "body": "<p><b>排除。</b>mealtimes、food-testing 让人联想“吃饭”，但实验观察的是**进餐时段的交流**，从头到尾没量过孩子吃了多少。</p><p style='color:#b91c1c'>⚠ 典型误解：用“玩手机不吃饭”的生活常识替代文本。</p>"
+ },
+ {
+  "title": "逐项分析 · B distracts children’s attention",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B distracts children’s attention ✗ 排除——逻辑颠倒＋实验错位",
+  "body": "<p><b>排除。</b>④句画面是：父母看邮件、**孩子**急切求关注——被设备占住的是父母，不是孩子的注意力被分散；且④句属于 a separate observation，不在本题实验范围内。</p><p style='color:#b91c1c'>⚠ 典型误解：见“设备”就默认分散孩子的注意力。</p>"
+ },
+ {
+  "title": "逐项分析 · C slows down babies’ verbal development",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C slows down verbal development ✗ 排除——interactions（交流频次）≠ development（能力发展）",
+  "body": "<p><b>排除。</b>②句说的是 verbal <b>interactions</b> 的频次减少；交流变少是否会拖慢**语言发育**，文中没有任何论断——顺势推理越界。</p><p style='color:#b91c1c'>⚠ 典型误解：interactions 与 development 只差一词，对象从频次滑向能力。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 D——先分实验、再抓 found that：设备使用减少母子交流",
+  "body": "<p>答案选 <b>D（reduces mother-child communication）</b>。</p><p><b>记忆锚点</b>：实验题先分实验（food-testing vs separate observation）、再抓 She found that；fewer interactions = communication 减少。</p><p style='color:#b91c1c'>⚠ 最易误选 C（verbal development）：一字之差，频次变能力。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 Text 2 第 27 题 · 食物测试表明母亲用设备会：appetite / children's attention / verbal development / communication",
+  subtitle: "考点：实验细节题（分实验 + found that 定位） · 审题 → 定位 → 翻译 → 排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 分实验 → 数字翻译 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 D（reduces mother-child communication）", "html": "<b>D</b>：She found that——语言交流少 20%、非语言交流少 39% → 母子交流减少。<br>记忆锚点：先分实验再抓 found that；数字读方向（fewer）与对象（interactions with children）。<br>最易误选：<b>C（verbal development）</b>——interactions ≠ development。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 Text 2 第 27 题 · 食物测试实验发现了什么</h2>
+<p>答案：<strong>D（reduces mother-child communication）</strong>。</p>
+<h3>第 0 步：先立机制——实验题先"分实验"，再抓 She found that</h3>
+<p>题干问 Radesky's <strong>food-testing exercise</strong> shows that ____。第二段其实装了<strong>两件事</strong>：①②句的 food-testing exercise（食物测试任务）与③④句的 a separate observation（另一次观察）。机制第一步：<strong>对号入座</strong>——只认①②句；第二步：抓"发现句"标志 <strong>She found that</strong>——②句才是实验发现的正式出处。发现内容：使用设备的母亲，语言交流少 20%、非语言交流少 39%。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Radesky has studied the use of mobile phones and tablets at mealtimes by giving mother-child pairs <strong>a food-testing exercise</strong>. <strong>She found that</strong> mothers who used devices during the exercise started <strong>20 per cent fewer verbal and 39 per cent fewer nonverbal interactions</strong> with their children.</blockquote>
+<h3>第 2 步：找证据——把数字翻译成结论</h3>
+<ul><li><code>20% fewer verbal interactions</code>：语言交流减少两成；</li><li><code>39% fewer nonverbal interactions</code>：非语言交流（表情、动作）骤减近四成；</li><li>两组数字的公共指向：<strong>母亲使用设备 → 与孩子的交流变少</strong>。</li></ul>
+<p>→ reduces mother-child communication：reduces ← fewer，communication ← verbal and nonverbal interactions。同义替换干净利落。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D reduces mother-child communication</td><td>✓ 当选</td><td>fewer verbal/nonverbal interactions = 母子交流减少，对象（mother-child）、方向（减少）双吻合。</td></tr><tr><td>A takes away babies' appetite</td><td>✗ 排除</td><td>字面陷阱：mealtimes、food-testing 让人联想"吃饭/食欲"，但研究观察的是<strong>进餐时的交流</strong>，不是孩子吃了多少。（典型误解：用"玩手机不吃饭"的生活常识替代文本。）</td></tr><tr><td>B distracts children's attention</td><td>✗ 排除</td><td>逻辑颠倒＋实验错位：④句是"父母看邮件、<strong>孩子</strong>努力求关注"——被设备占住的是父母；且④句属于另一次观察。（典型误解：见"设备"就默认它分散孩子的注意力。）</td></tr><tr><td>C slows down babies' verbal development</td><td>✗ 排除</td><td>偷换概念：verbal <strong>interactions</strong>（语言交流的频次）≠ verbal <strong>development</strong>（语言能力的发展）；交流减少是否拖慢语言发育，文中未提。（典型误解：由"说话少了"顺势推"语言发育迟缓"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么要先分实验？</strong>：③④句 a separate observation 讲的是"手机成为家庭紧张的根源"——若不先分，B 项（孩子的注意力）就容易被④句的画面带跑。题干点名 food-testing exercise，③④句整段都是干扰。</li><li><strong>数字信息怎么用？</strong>：20% / 39% 不必精确换算，读出方向（fewer）与对象（interactions with their children）即可锁定 D——细节题的数字题干通常是"方向+对象"游戏。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（appetite）</strong>：被 food 字面勾走。</li><li><strong>误选 C（verbal development）</strong>：interactions 与 development 只差一个词，对象从"交流频次"滑向"能力发展"。</li></ul>
+<blockquote>记忆锚点：实验题先分实验、再抓 She found that；fewer interactions = communication 减少；food-testing 问交流，不问食欲。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

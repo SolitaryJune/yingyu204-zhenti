@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-30 · 2014 阅读第 30 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 题干 because ↔ 原文 therefore，因果两头对齐",
+  "cls": "key",
+  "tag": "审题",
+  "log": "推断题：题干已给“果”（天堂），therefore 路标前是“因”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>It can be inferred that Facebook is a self-enhancer's paradise because people can ____.</b></p><p>题干已给出“果”（Facebook 是自我拉抬者的天堂），问“因”。原文里的 <b>therefore</b> 就是路标：therefore 前的①句是<b>因</b>，therefore 后的②句是<b>果</b>。</p>"
+ },
+ {
+  "title": "定位原文 · 第五段①②句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：①讨厌真实照片（因）→ therefore → ②Facebook 只分享最上镜内容（果）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Knowing the results of Epley's study, it makes sense that many people <b>hate photographs of themselves</b> viscerally – on one level, they don't even recognise the person in the picture as themselves. <b>Facebook, therefore, is a self-enhancer's paradise</b>, where people can <b>share only the most flattering photos</b>, the cream of their wit, style, beauty, intellect and lifestyles.</div><p>①句（因）：真实相片是“不讨喜的一面”；②句（果）：Facebook 让人们<b>只分享</b>最精华的内容。</p>"
+ },
+ {
+  "title": "同义替换 · 把不好看的一面藏起来",
+  "cls": "key",
+  "tag": "替换",
+  "log": "hate real photos + share only the most flattering → withhold unflattering sides",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>“讨厌真实照片 + 只分享最上镜内容” → 把不好看的一面藏起来：<b>D withhold their unflattering sides</b>（withhold ↔ 只分享 the most flattering、扣下其余；unflattering sides ↔ 不被自己认出的真实照片）。</p>"
+ },
+ {
+  "title": "逐项分析 · A present their dishonest profiles",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 展示欺骗性形象 ✗ 排除——原文明确否认“不诚实”",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>末句明确否认：<b>It's not that people's profiles are dishonest... but they portray an idealised version</b> of themselves——是“理想化”，不是“欺骗”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“只发美照”道德化为“造假”。</p>"
+ },
+ {
+  "title": "逐项分析 · B define their traditional lifestyles",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 定义传统生活方式 ✗ 排除——lifestyles 是清单词，traditional 无出处",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>lifestyles 只是②句“精华清单”里的词，traditional 无出处。</p><p style=\"color:#b91c1c\">⚠ 典型误解：清单词 + 任意形容词的自由组合。</p>"
+ },
+ {
+  "title": "逐项分析 · C share their intellectual pursuits",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 分享知识追求 ✗ 排除——intellect 只是晒法之一，不是原因",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>intellect 只是“晒精华”清单中的一项，是<b>手段的例子</b>，不是“天堂”成立的原因；且无论晒什么，共同前提都是“可以不晒不好看的”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例举项当因果项。</p>"
+ },
+ {
+  "title": "逐项分析 · D withhold their unflattering sides",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D 掩藏不吸引人的一面 ✓ 当选——①②两句合并改写",
+  "count": 0,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>①句（回避真实照片）+ ②句（只分享精华）合并改写——“只晒最上镜的、扣下不讨喜的”。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（withhold their unflattering sides）——because ↔ therefore 两头对齐",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>D（withhold their unflattering sides）</b>。</p><p><b>记忆锚点</b>：because ↔ therefore 两头对齐；hate real photos + share only the most flattering → withhold unflattering sides；idealised ≠ dishonest。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 A——与末句 It's not that ... are dishonest 直接相撞。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 30 题 · Facebook 为什么是自我拉抬者的天堂——because ↔ therefore 因果对齐",
+  subtitle: "考点：推断题 · therefore 前因后果：hate real photos + share only the most flattering",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（withhold their unflattering sides）",
+ "html": "<b>D</b>：①本能讨厌真实照片（因）→ therefore → ②只分享 the most flattering（果）= 掩藏不吸引人的一面。<br>A“欺骗性”被 It's not that ... are dishonest 否决；B/C 是清单词碎片。<br>记忆锚点：because ↔ therefore 因果对齐；idealised ≠ dishonest。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 30 题 · Facebook 为什么是自我拉抬者的天堂——because ↔ therefore 因果对齐</h2>
+<p>答案：<strong>D（withhold their unflattering sides）</strong>。</p>
+<h3>第 0 步：先立机制——题干 because ↔ 原文 therefore，因果两头对齐</h3>
+<p>推断题的题干已给出"果"（Facebook is a self-enhancer's paradise），问"因"。原文里 therefore 就是这道因果题的路标：therefore 前的①句是因，therefore 后的②句是果。把①句读透，答案直接改写出来。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Knowing the results of Epley's study, it makes sense that many people hate photographs of themselves viscerally – on one level, they don't even recognise the person in the picture as themselves. Facebook, therefore, is a self-enhancer's paradise, where people can share only the most flattering photos, the cream of their wit, style, beauty, intellect and lifestyles.</blockquote>
+<p>①句（因）：人们本能地讨厌自己的真实照片，甚至在意识层面认不出那是自己——真实相片是"不讨喜的一面"；②句（果）：Facebook 让人们<strong>只分享</strong>最上镜的照片、最精华的才智、风格、美貌与生活方式。</p>
+<h3>第 2 步：同义替换</h3>
+<p>"讨厌真实照片 + 只分享最上镜内容" → 把不好看的一面藏起来：D withhold their unflattering sides（withhold ↔ 只分享 the most flattering、扣下其余；unflattering sides ↔ 不被自己认出的真实照片）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>D withhold their unflattering sides</td><td>掩藏不吸引人的一面</td><td>✓ 当选</td><td>①句（回避真实照片）+ ②句（只分享精华）合并改写。</td></tr><tr><td>A present their dishonest profiles</td><td>展示具有欺骗性的个人形象</td><td>✗ 排除</td><td>原文明确否认：末句 It's not that people's profiles are dishonest... but they portray an idealised version of themselves——是"理想化"，不是"欺骗"。（典型误解：把"只发美照"道德化为"造假"。）</td></tr><tr><td>B define their traditional lifestyles</td><td>定义传统生活方式</td><td>✗ 排除</td><td>杂糅：lifestyles 是②句"精华清单"里的词，traditional 无出处。（典型误解：清单词 + 任意形容词的自由组合。）</td></tr><tr><td>C share their intellectual pursuits</td><td>分享对知识的追求</td><td>✗ 排除</td><td>以偏概全：intellect 只是②句"晒精华"清单中的一项，是手段的例子，不是"天堂"成立的原因。（典型误解：把例举项当因果项。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>"只分享最上镜的照片"不就是 A 的"不诚实"吗？边界在哪？</strong>：Toma 的原话划了界——portray an idealised version：挑选、美化 = 理想化；编造不存在的东西 = 欺骗。Facebook 用户做的是前者，A 偷换成后者。</li><li><strong>晒才智不也是自我拉抬吗，为什么不是 C？</strong>：晒才智确实是表现之一，但题干问"天堂之所以成立"的<strong>共同前提</strong>——无论晒什么，前提都是"可以不晒不好看的"；C 只是其中一种晒法，撑不起因果。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把"理想化版本"升级成"欺骗性形象"，与末句 It's not that ... are dishonest 直接相撞。</li><li><strong>误选 C</strong>：清单词复现的好感效应；"分享 X"是行为实例，不是"成为天堂"的原因。</li></ul>
+<blockquote>记忆锚点：because ↔ therefore 两头对齐；hate real photos + share only the most flattering → withhold unflattering sides；idealised ≠ dishonest。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

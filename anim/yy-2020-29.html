@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2020-29 · 评价题：高薪的合理性落在「提升公司价值」</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "key",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：justified 问「凭什么说它有理」",
+  "body": "<p>题干：<b>High CEO pay can be justified by the fact that it helps ____</b>。justify = 证明……正当，考查「作者为高薪辩护的理由」。</p><p>末两段给出三个事实：①治理更严时期薪酬照涨；②最高薪付给<b>外部</b>候选人而非安逸的内部人选；③薪酬与股价挂钩时股市积极反应。第③条里的评价句 a sign that those practices <b>build up corporate value</b> 就是落点。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "机制",
+  "count": 0,
+  "title": "辩护逻辑链",
+  "body": "<table class='aw-mini'><tr><th>环节</th><th>内容</th></tr><tr><td>措施</td><td>companies tie CEO pay to stock prices（薪酬与股价挂钩）</td></tr><tr><td>反应</td><td>the stock market reacts positively（股市积极回应）</td></tr><tr><td>解读</td><td><b>a sign that those practices build up corporate value not just for the CEO</b></td></tr></table><p>激励措施 → CEO 提升业绩 → 股价上涨、公司升值——高薪「有利于公司」，故正当。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：第五段②句评价同位语",
+  "body": "<div class='qq'><b>原文：</b>And the stock market reacts positively when companies tie CEO pay to, say, stock prices, <b>a sign that those practices build up corporate value not just for the CEO</b>.</div><p class='cn'>译：当公司将 CEO 薪酬与股价挂钩时，股市会积极回应——这表明这些举措提升的是公司价值，而不仅限于 CEO 一人。</p><p>D 的 <b>increase corporate value</b> ↔ <b>build up corporate value</b>：increase ↔ build up（增加 / 提升）。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：无中生有",
+  "body": "<p><b>A · confirm the status of CEOs</b> <span class='bad-dot'>✗</span></p><p>「高薪巩固 CEO 地位」原文未提及；且这层逻辑反而<b>削弱</b>辩护——文章的落点始终是「高薪利于公司」，不是利于 CEO 的地位。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：与取舍结构正面相悖",
+  "body": "<p><b>B · motive inside candidates</b> <span class='bad-dot'>✗</span></p><p>第五段①句取舍结构：最高薪付给 <b>outside candidates（外部候选人）</b>，<b>not to</b> the cozy insider picks（而非安逸的内部人选）——B 说「激励内部候选人」，恰好把取舍搞反。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：臆断「提效」",
+  "body": "<p><b>C · boost the efficiency of CEOs</b> <span class='bad-dot'>✗</span></p><p>把①句「安逸的内部人选」曲解为「在任者低效」，再臆断「高薪可激励提效」；原文的落点是<b>公司价值</b>，不是 CEO 个人效率。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：build up 的同义改写",
+  "body": "<p><b>D · increase corporate value</b> <span class='ok-dot'>✓</span></p><p>build up corporate value ↔ increase corporate value——高薪激励措施最终让公司升值，这正是「合理性」的事实依据。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D",
+  "body": "<p><b>答案 D（increase corporate value）</b>。</p><p>记忆锚点：justify / 合理性 → 找 a sign that 引出的评价句；高薪之「理」= 激励 CEO → build up corporate value，不是巩固地位、不是激励内部人、不是提个人效率。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2020-29 · 评价题：高薪的合理性落在「提升公司价值」",
+  subtitle: "考点：Text2 第五段 · a sign that 评价句的同义改写",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 逐项排除。",
+  snaps: snaps,
+  result: {"big": "答案 D", "html": "<b>a sign that those practices build up corporate value ↔ increase corporate value</b>。A「巩固地位」无中生有、B 与「外聘而非内部人选」取舍相悖、C 把落点从公司价值偷换成个人效率。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 29 题——"高薪的合理性"落在"提升公司价值"</h2>
+<p>答案：<strong>D</strong>（increase corporate value）。</p>
+<h3>第 0 步：先立机制——justify 问的是"凭什么说它有理"</h3>
+<p>题干 High CEO pay can be justified（高薪是正当的）提示考"作者为高薪辩护的理由"，末两段给出三个事实：①治理更严的时期薪酬照涨（高薪符合公司广泛利益）；②最高薪付给<strong>外部</strong>候选人而非安逸的内部人选（不是掠夺）；③薪酬与股价挂钩时股市作积极反应。第③条里的评价句 a sign that those practices <strong>build up corporate value</strong> not just for the CEO——高薪激励措施会<strong>提升公司价值</strong>，这就是"合理性"的落点。</p>
+<h3>第 1 步：同义替换</h3>
+<blockquote>And the stock market reacts positively when companies tie CEO pay to, say, stock prices, <strong>a sign that those practices build up corporate value not just for the CEO.</strong></blockquote>
+<p>D 的 increase corporate value ↔ build up corporate value：increase ↔ build up（增加 / 提升）。薪酬激励 → CEO 提升业绩 → 股价上涨、公司升值——不只是为 CEO 一人。选 D。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（confirm the status of CEOs）</strong>："高薪巩固 CEO 地位"原文没有提及，且这反而削弱"高薪有利于公司"的辩护逻辑——无中生有。</li><li><strong>B（motive inside candidates）</strong>：与第五段①句的取舍结构正面相悖——最高薪付给 <strong>outside candidates（外部候选人）</strong>，not to the cozy <strong>insider</strong> picks（而非安逸的内部人选）。B 说"激励内部候选人"，恰好把取舍搞反。</li><li><strong>C（boost the efficiency of CEOs）</strong>：结合第三段技能信息把"安逸的内部人选"曲解为"在任者低效"，再臆断"高薪可激励提效"；原文的落点是公司价值，不是 CEO 个人效率。</li></ul>
+<blockquote>记忆锚点：justify / 合理性 → 找 a sign that / suggests 引出的评价句；高薪之"理"= 激励 CEO → build up corporate value（公司升值），不是巩固地位、不是激励内部人。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

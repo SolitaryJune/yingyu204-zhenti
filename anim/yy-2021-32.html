@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-32 · 2021 阅读第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：观点题认准说话人——critics say",
+  "body": "<p>题干：<b>Microsoft's critics believe that the big tech companies tend to ____</b>（微软的批评者认为，大科技公司往往 ____）。</p><p>证据必须出自「批评者之口」：critics say 句与投资人的抱怨（complained）。注意区分「作者描述的事实」（五巨头小额收购金额）与「批评者的指控」（买来杀死）——本题问的是后者。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：critics say 指控句",
+  "body": "<div class='qq'><b>原文：</b>However, critics say the big companies use such deals to buy their most threatening potential competitors before their businesses have a chance to gain momentum, in some cases as part of a “ buy and kill” tactic to simply close them down.</div><p>指控内容：趁潜在竞争者壮大之前<b>买下它们</b>，甚至「<b>买来就关掉（buy and kill）</b>」。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：投资人的抱怨同向佐证",
+  "body": "<div class='qq'><b>原文：</b>“They bought the seedlings and closed them down,” complained Paul Arnold, a partner at San Francisco-based Switch Ventures, putting an end to businesses that might one day turn into competitors.</div><p>「买下幼苗再关掉」——终结的是「有朝一日可能变成<b>竞争者</b>」的公司，与 critics say 句同向。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：夸大产品质量——无中生有",
+  "body": "<p><b>A · exaggerate their product quality（夸大其产品质量）</b> <span class='bad-dot'>✗</span></p><p>全文无产品质量表述，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": true
+  },
+  "title": "锁定 B：消灭潜在竞争者——buy and kill",
+  "body": "<p><b>B · eliminate their potential competitors（消灭其潜在竞争者）</b> <span class='ok-dot'>✓</span></p><p>buy and kill / close them down → <b>eliminate</b>；most threatening potential competitors → <b>potential competitors</b>。投资人的抱怨（买下幼苗再关掉）同向佐证。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：苛待新科技人才——靶心错位",
+  "body": "<p><b>C · treat new tech talent unfairly（不公平地对待新科技人才）</b> <span class='bad-dot'>✗</span></p><p>恰恰相反——工程师团队被留任（acqui-hires）；批评针对的是「扼杀竞争者」，不是亏待人才。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：无视公众意见——无中生有",
+  "body": "<p><b>D · ignore public opinions（无视公众意见）</b> <span class='bad-dot'>✗</span></p><p>全文没有公众意见层面的内容，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 B",
+  "body": "<p><b>答案 B（eliminate their potential competitors）</b>。</p><p>记忆锚点：buy and kill = 买来就关掉 = eliminate potential competitors；acqui-hire 留下的是人才，不是批评点。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（treat new tech talent unfairly）——把「留用人才」的 acqui-hire 与批评对象错位。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-32 · 阅读第 32 题：批评者眼中的大公司套路",
+  subtitle: "考点：Text3 第 3 段与末段 · 观点题（认准 critics say）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B",
+ "html": "<b>B eliminate their potential competitors</b>：buy and kill / close them down → 消灭潜在竞争者；投资人的「买幼苗再关掉」同向佐证。<br>记忆锚点：观点题认准 critics say；acqui-hire 留下的是人才，不是批评点。<br>最易误选：C——批评靶心是「扼杀竞争」，不是「苛待人才」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 32 题——批评者眼中的大公司套路</h2>
+<p>答案：<strong>B</strong>（eliminate their potential competitors）。</p>
+<h3>第 0 步：先立机制——观点题认准说话人：critics say</h3>
+<p>题干 Microsoft's critics believe——证据必须出自「批评者之口」，即 critics say 句与投资人的抱怨（complained）。注意区分「作者描述的事实」（五巨头小额收购的金额）与「批评者的指控」（买来杀死）——本题问的是后者。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>However, critics say the big companies use such deals to buy their most threatening potential competitors before their businesses have a chance to gain momentum, in some cases as part of a " buy and kill" tactic to simply close them down.</blockquote>
+<p>buy and kill / close them down → <strong>eliminate</strong>（消灭）；most threatening potential competitors → <strong>potential competitors</strong>。投资人 Paul Arnold 的抱怨同向佐证：「买下幼苗再关掉」，终结的是「有朝一日可能变成竞争者」的公司。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（exaggerate their product quality）</strong>：无中生有——全文无产品质量表述。</li><li><strong>C（treat new tech talent unfairly）</strong>：靶心错位——工程师团队恰恰被留任（acqui-hires）；批评针对的是「扼杀竞争者」，不是亏待人才。</li><li><strong>D（ignore public opinions）</strong>：无中生有——没有公众意见层面的内容。</li></ul>
+<blockquote>记忆锚点：buy and kill = 买来就关掉 = eliminate potential competitors；acqui-hire 留下的是人才，不是批评点。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

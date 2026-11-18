@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-20 · 2021 完形第 20 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：全文最后一句的收束职能",
+  "body": "<div class='qq'><b>原文：</b>The trick is not only to specify just one or even two dimensions of the objective, but also to understand how to help people better __20__ the objective.</div><p>这是全文<b>最后一句</b>，承担收束职能。全文主线：给员工设定目标（set targets for staff）→ 单一标准扭曲行为 → 好目标要多重标准。尾句的落脚点必然回到「人与目标」的关系——技巧的另一半是「帮助人们更好地 ____ 目标」。help people better __ 中 better 是副词修饰动词。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "找证据：第二段已预演过这个动作",
+  "body": "<div class='qq'><b>原文：</b>And drivers hit these targets.</div><p>司机「达成了（hit）这些指标」——hit 与 achieve 同义复现：全文里「达成」义动词的宾语始终是 targets / objectives 这类「目标」名词。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": false
+  },
+  "title": "排除 A：modify（修改）——方向错了",
+  "body": "<p><b>A · modify（修改）</b> <span class='bad-dot'>✗</span></p><p>modify the objective 字面通顺，但方向错了：全文不是教人「改目标」，而是「目标定得片面会出问题，要学会帮人<b>达成</b>目标」。</p><p style='color:#b91c1c'>⚠ 典型误解：被尾段 “not an argument against target-setting” 的粗读印象带偏。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：review（审查）——「评估」与「赋能」不搭",
+  "body": "<p><b>B · review（审查、复盘）</b> <span class='bad-dot'>✗</span></p><p>review 是「评估」义，与「帮助人们更好地 ____」的<b>赋能</b>语义不搭：帮助指向「让人做成」，不是「让人检查」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：present（呈现）——撑不起 better 的递进",
+  "body": "<p><b>C · present（呈现、展示）</b> <span class='bad-dot'>✗</span></p><p>present the objective 只覆盖「宣布目标」层面的动作，撑不起 better 的程度递进，也与 drivers hit these targets 的复现线索脱节。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": true
+  },
+  "title": "锁定 D：achieve（实现）——接住全文主线",
+  "body": "<p><b>D · achieve（实现、达成）</b> <span class='ok-dot'>✓</span></p><p>achieve the objective：帮助人们更好地<b>实现</b>目标——语义接住全文主线，语法上是 help sb do sth 的省 to 不定式，与第二段 drivers hit these targets 同义复现。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 D（achieve）",
+  "body": "<p><b>答案 D（achieve）</b>。</p><p>完整句义：诀窍不仅在于只明确目标的一两个维度，还在于懂得如何帮助人们更好地实现目标。</p><p>记忆锚点：尾句收束回全文主线——set targets → distort → multi-criteria → help people <b>achieve</b> the objective；hit these targets = achieve these targets。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 A（modify）——「修改目标」字面通顺，但全文要教的是「达成」，不是「改」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-20 · 完形第 20 空：尾句收束——帮人「抵达」目标",
+  subtitle: "考点：尾句收束全文主线 + 同义复现（hit = achieve）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 找证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 D（achieve）",
+ "html": "<b>D achieve（实现）</b>：help people better <b>achieve</b> the objective = 帮人更好地实现目标。<br>记忆锚点：尾句收束全文主线；hit these targets = achieve these targets 同义复现。<br>最易误选：A（modify）——「修改目标」方向反了，全文教的是「达成」。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：完形第 20 空——尾句收束：帮人「抵达」目标</h2>
+<p>答案：<strong>D</strong>（achieve）。</p>
+<h3>第 0 步：先立机制——尾句要接住全文主线</h3>
+<p>The trick is not only to specify just one or even two dimensions of the objective, but also to understand how to help people better __20__ the objective。这是全文<strong>最后一句</strong>，承担收束职能：全文讲「给员工设定目标（set targets for staff）→ 单一标准扭曲行为 → 好目标要多重标准」，尾句的落脚点必然回到「人与目标」的关系——技巧的另一半是「帮助人们更好地 <strong>实现</strong> 目标」。语法上，help people better __ 中 better 是副词修饰动词，空格填省略 to 的不定式。</p>
+<h3>第 1 步：D 对号入座——achieve the objective，与 hit these targets 同义复现</h3>
+<blockquote>And drivers hit these targets.</blockquote>
+<p>第二段早已预演过这个动作：司机「达成了（hit）这些指标」。hit 与 achieve 同义复现——全文里「达成」义动词的宾语始终是 targets / objectives 这类「目标」名词。语义（帮人实现目标）、语法（help sb do sth）双双成立。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>A（modify 修改）</strong>：字面通顺但方向反了——全文不是教人「改目标」，而是「目标定得片面会出问题，要学会帮人达成它」；误选源于对尾段 “not an argument against target-setting” 的粗读印象。</li><li><strong>B（review 审查）</strong>：「评估」义与「帮助人们更好地____」的<strong>赋能</strong>语义不搭——帮助指向「让人做成」，不是「让人检查」。</li><li><strong>C（present 呈现）</strong>：只覆盖「宣布目标」层面的动作，撑不起 better 的程度递进，也与 hit these targets 的复现线索脱节。</li></ul>
+<blockquote>记忆锚点：尾句收束回全文主线——set targets → distort → multi-criteria → help people <strong>achieve</strong> the objective；hit these targets = achieve these targets。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

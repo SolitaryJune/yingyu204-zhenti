@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-11 · 2023 完形第 11 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 11 所在句，考点：上下文语义 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…it became clear that the __11__ of upgrades wasn’t due to a quality issue.</div><p>诊断模型：命名病症（the ____ of upgrades）→ 排除病因（非质量）→ 指认真因（下句 unaware）。命名必须复现第二段症状：few people were making the upgrade。</p>"
+ },
+ {
+  "title": "找证据 · 第二段症状句：few people were making the upgrade",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：症状“升级的人很少” → 命名 the lack of upgrades",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And __7__ improvements to the premium, paid version, few people were making the upgrade.</div><p>闭环验证：few people 升级（症状）→ lack of upgrades（病名）→ unaware（真因）→ raise awareness（处方）。“缺认知→补认知”首尾相扣，病名只能是 lack。</p>"
+ },
+ {
+  "title": "逐项分析 · A end（结束；终结）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A end（结束；终结） ✗ 排除——few 是“很少”不是“归零”，升级没有“结束”",
+  "body": "<p><b>排除。</b>the end of upgrades 读作“升级行动终结了”。但 few people 只是“人数极少”，不是完全停止；文中也没有给出任何“结束的时点”或“从有到无”的动态。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 few 的“很少”夸张成“完全停止”</p>"
+ },
+ {
+  "title": "逐项分析 · B burden（重担；负担）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B burden（重担；负担） ✗ 排除——全文没有“升级操作负担”的话题",
+  "body": "<p><b>排除。</b>the burden of upgrades 需要上下文谈过“升级麻烦/成本高”。原文对升级的描述只有“人数少”和“原因是不了解”，没有任何负担、成本叙事。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用“软件升级很麻烦”的生活经验给文章加戏</p>"
+ },
+ {
+  "title": "逐项分析 · C lack（缺乏；不足）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C lack（缺乏；不足） ✓ 当选",
+  "body": "<p><b>当选。</b>the lack of upgrades（升级数量不足）一句话概括第二段的问题情形，与真因“不了解”、处方“提升认知”构成完整诊断链，wasn’t due to a quality issue 的排除句也顺理成章。</p>"
+ },
+ {
+  "title": "逐项分析 · D decrease（减少；降低）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D decrease（减少；降低） ✗ 排除——many customers 与 few people 是一题两面，不是“由多变少”",
+  "body": "<p><b>排除。</b>the decrease of upgrades 需要“过去多、现在少”的时间对比。原文中 many customers（用免费版的人多）与 few people（升级的人少）描述的是同一时刻的两面，不是动态下降曲线。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把并列信息读成趋势变化，脑补出“下降曲线”</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（lack 缺乏；不足）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>升级数量不足并非由于质量问题</b>（lack 概括第二段 few people were making the upgrade）。</p><p>答案选 <b>C（lack 缺乏；不足）</b>。</p><p><b>记忆锚点</b>：诊断链：症状（few people...）→ 病名（the lack of upgrades）→ 真因（unaware）→ 处方（raise awareness）；lack of 与 raise awareness 因果闭环，end/burden/decrease 都接不上处方。</p><p style=\"color:#b91c1c\">最易误选：<b>D（decrease）</b>——把并列信息读成趋势变化，脑补出“下降曲线”</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 11 空 · “the ____ of upgrades”该填哪个名词",
+  subtitle: "考点：上下文语义 + 名词辨析 · 病症命名 + few 复现",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（lack）", "html": "<b>C lack（缺乏；不足）</b>。<br>完整句义：升级数量不足并非由于质量问题。<br>记忆锚点：诊断链：症状（few people...）→ 病名（the lack of upgrades）→ 真因（unaware）→ 处方（raise awareness）；lack of 与 raise awareness 因果闭环，end/burden/decrease 都接不上处方。<br>最易误选：<b>D</b>——把“用免费版人多 / 升级人少”的并列读成了“下降趋势”"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：上下文语义 + 名词辨析——用一句话给“升级少”命名</h2>
+<p>答案：<strong>C（lack 缺乏；不足）</strong>。</p>
+<h3>第 0 步：先立框架——“诊断”三步：命名病症 → 排除病因 → 指认真因</h3>
+<p>第三段在做一场诊断：先把病症命名（the __11__ of upgrades），再排除一个病因（wasn’t due to a quality issue，不是质量问题），下句指认真因（Most customers were simply unaware...）。模型：<strong>命名必须与上一段写下的症状吻合</strong>——第二段的症状句是 few people were making the upgrade（升级的人很少）。“少”的名词化 = lack（缺乏、不足）。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>…it became clear that the __11__ of upgrades wasn’t due to a quality issue.</blockquote>
+<p>验证闭环：第二段症状 few people were making the upgrade → 本段命名 the lack of upgrades → 真因 Most customers were simply unaware（不了解）→ 第四段处方 raise awareness（提升认知）。<strong>缺认知 → 补认知</strong>，处方与病名对得上，lack 落位。</p>
+<blockquote>And __7__ improvements to the premium, paid version, few people were making the upgrade.</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A end</td><td>结束；终结</td><td>❌ 排除</td><td>few 是“很少”不是“归零”，升级没有“结束”</td></tr><tr><td>B burden</td><td>重担；负担</td><td>❌ 排除</td><td>全文没有“升级操作负担”的话题</td></tr><tr><td>C lack</td><td>缺乏；不足</td><td>✅ 当选</td><td>the lack of upgrades 复现 few people 的症状</td></tr><tr><td>D decrease</td><td>减少；降低</td><td>❌ 排除</td><td>many customers 与 few people 是一题两面，不是“由多变少”</td></tr></tbody></table>
+<p>代入全句：<strong>升级数量不足并非由于质量问题</strong>（lack 概括第二段 few people were making the upgrade）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（end 结束；终结）</strong>：把 few 的“很少”夸张成“完全停止”。the end of upgrades 读作“升级行动终结了”。但 few people 只是“人数极少”，不是完全停止；文中也没有给出任何“结束的时点”或“从有到无”的动态。</li><li><strong>误选 B（burden 重担；负担）</strong>：用“软件升级很麻烦”的生活经验给文章加戏。the burden of upgrades 需要上下文谈过“升级麻烦/成本高”。原文对升级的描述只有“人数少”和“原因是不了解”，没有任何负担、成本叙事。</li><li><strong>误选 D（decrease 减少；降低）</strong>：把并列信息读成趋势变化，脑补出“下降曲线”。the decrease of upgrades 需要“过去多、现在少”的时间对比。原文中 many customers（用免费版的人多）与 few people（升级的人少）描述的是同一时刻的两面，不是动态下降曲线。</li></ul>
+<blockquote>记忆锚点：诊断链：症状（few people...）→ 病名（the lack of upgrades）→ 真因（unaware）→ 处方（raise awareness）；lack of 与 raise awareness 因果闭环，end/burden/decrease 都接不上处方。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T2 · 36 · “find silver linings”习语还原 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {title:"审题眼 · 习语先给方向，含义由下句兑现", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：By saying “<b>to find silver linings</b>” the author suggests that the jobless try to ____。<b>A</b> 向政府求补助 / <b>B</b> 从糟糕经济中获利 / <b>C</b> 探索失业原因 / <b>D</b> 看到萧条好的一面。</p><p>silver lining 出自谚语 “Every cloud has a silver lining”（乌云镶银边）= 坏事中的积极面。机制：<b>定位句只给方向，紧随其后的例证句负责兑现</b>。</p>",
+  log:"审题：短语含义题——向下找兑现句"},
+ {title:"定位原文 · ①句只给方向", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:quote("No one tries harder than the jobless to find silver linings in this national economic disaster.")+"<p>失业者在这场全国性经济灾难中“<b>最努力</b>寻找 silver linings”。no one tries harder 强调失业者格外需要看到希望——方向是“努力找”，找什么还没说。</p>",
+  log:"定位第二段①句：the jobless try to find silver linings"},
+ {title:"读例证句 · 痛苦但进步", cls:"key", tag:"兑现", count:0, ribbon:null,
+  body:quote("Many said that unemployment, while extremely painful, had improved them in some ways: they had become less materialistic and more financially prudent; they were more aware of the struggles of others.")+"<p>句式逻辑：while extremely painful（让步：失业极痛苦）→ had improved them（转折：却让人进步），冒号后三例——物质欲下降、花钱更谨慎、更体察他人。<b>痛苦中看见进步 = 在坏事里找光明</b>，习语方向确认。</p>",
+  log:"②句兑现：painful but improved → silver linings = 坏事中的积极面"},
+ {title:"同义替换 · bright side ↔ silver linings", cls:"key", tag:"替换", count:0, ribbon:null,
+  body:"<p><b>look on the bright side ↔ find silver linings</b>：bright side（光明面）与乌云的银边直接对齐；<b>recession ↔ economic disaster</b> 同指这场萧条；题干 try to 呼应 tries harder 的“努力去”义。D 的对应是整条链最工整的。</p>",
+  log:"替换：bright side ↔ silver linings，recession ↔ disaster"},
+ {title:"逐项分析 · A seek subsidies from the government", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:"<p><b>排除。</b>失业者常申请补助是<b>生活常识</b>，但原文没有政府、补贴任何字眼——常识不能补原文的空白。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿常识代入，忘了阅读题只认原文。</p>",
+  log:"A seek subsidies ✗ 排除——常识设障，原文无据"},
+ {title:"逐项分析 · B make profits from the troubled economy", cls:"bad", tag:"排除 B", count:2, ribbon:{k:"B", ok:false},
+  body:"<p><b>排除。</b>例子里出现 materialistic、financially，就被抽离拼成“获利”——但例证说的是<b>心态进步</b>（更少物质欲、更谨慎），不是从经济中赚钱。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词抽离 + 主观生造含义。</p>",
+  log:"B make profits ✗ 排除——原词抽离生造"},
+ {title:"逐项分析 · C explore reasons for the unemployment", cls:"bad", tag:"排除 C", count:3, ribbon:{k:"C", ok:false},
+  body:"<p><b>排除。</b>原文只说失业者“变好了”，没有“反思失业原因”的动作——“从进步反推反思”是无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“结果变好”倒推成“过程反思”。</p>",
+  log:"C explore reasons ✗ 排除——无中生有"},
+ {title:"逐项分析 · D look on the bright side of the recession", cls:"good", tag:"选定 D", count:3, ribbon:{k:"D", ok:true},
+  body:"<p><b>当选。</b>与②句“痛苦但进步”的逻辑完全同向：在痛苦（disaster）中找进步（improved）= 看到萧条的 bright side；复数 silver linings 正对应冒号后的三个例子。</p>",
+  log:"D look on the bright side ✓ 与例证句同向，当选"},
+ {title:"结论 · 习语还原链与记忆锚点", cls:"good", tag:"答案 D", count:3, ribbon:null,
+  body:"<p>还原链：find silver linings → 下句 painful but improved（+三例）→ <b>look on the bright side of the recession</b>。</p><p>答案选 <b>D（看到萧条好的一面）</b>。</p><p><b>记忆锚点</b>：every cloud has a silver lining——乌云镶银边 = 坏事中的光；短语题别硬背，向下找兑现句；A 常识设障、B 原词生造、C 无中生有。</p>",
+  log:"结论：silver linings = 看到萧条积极面，答案 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text2 · 36 · “to find silver linings”是什么意思",
+  subtitle: "考点：短语/习语含义 · 定位 → 下句兑现 → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 兑现 → 替换 → 排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（look on the bright side of the recession）",
+    html: "<b>silver linings = 坏事中的积极面</b>：乌云镶银边，下句 painful but improved 兑现。<br>记忆锚点：短语题别硬背，向下找兑现句；A 常识设障、B 原词抽离生造、C 无中生有。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：“find silver linings”——从下句例证里读出习语方向</h2>
+<p>答案：<strong>D（look on the bright side of the recession 看到萧条好的一面）</strong>。</p>
+<h3>第 0 步：先立机制——习语词义由“下句”兑现</h3>
+<p>silver lining 出自谚语 “Every cloud has a silver lining”（乌云背后有光亮），指坏事的积极面。考场上不一定记得谚语——短语含义题的通用机制是：<strong>定位句只给方向，具体含义由紧随其后的例证句兑现</strong>。本题②句句首 Many（承上指失业者）正是①句的兑现句。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>No one tries harder than the jobless to find silver linings in this national economic disaster.</blockquote>
+<p>失业者在这场全国性经济灾难中“最努力寻找 silver linings”。比较级 no one tries harder 强调失业者“格外需要看到希望”。</p>
+<h3>第 2 步：读例证句——他们找到了什么</h3>
+<blockquote>Many said that unemployment, while extremely painful, had improved them in some ways: they had become less materialistic and more financially prudent; they were more aware of the struggles of others.</blockquote>
+<p>句式逻辑：while extremely painful（让步：失业本身极痛苦）→ had improved them in some ways（转折：却让人进步），冒号后三个例子（物质欲下降、花钱更谨慎、更体察他人）。痛苦中看见进步 = 在坏事里找光明，习语方向确认。</p>
+<h3>第 3 步：同义替换</h3>
+<p>look on the bright side ↔ find silver linings：bright side（光明面）与 silver lining（乌云的银边）直接对齐；recession ↔ economic disaster 同指这场萧条；题干里的 try to 也呼应了 tries harder 的“努力去”义。</p>
+<h3>第 4 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A seek subsidies from the government</td><td>✗ 排除</td><td>常识设障：失业者确实常申请补助，但原文没有政府、补贴任何字眼。（典型误解：拿生活常识补原文空白。）</td></tr><tr><td>B make profits from the troubled economy</td><td>✗ 排除</td><td>把例子里的 materialistic、financially 抽离生造“获利”；例证说的是心态进步，不是赚钱。（典型误解：原词抽离拼凑。）</td></tr><tr><td>C explore reasons for the unemployment</td><td>✗ 排除</td><td>无中生有：从“他们变好了”反推“他们在找失业原因”，原文无此动作。（典型误解：把“进步”倒推出“反思”。）</td></tr><tr><td>D look on the bright side of the recession</td><td>✓ 当选</td><td>与例证句“痛苦但进步”的逻辑完全同向</td></tr></tbody></table>
+<h3>第 5 步：预判追问</h3>
+<ul><li><strong>silver linings 为什么是复数？</strong>：对应下句冒号后的三个例子（消费观、金钱观、体察他人）——多个方面的积极面。</li><li><strong>只看习语字面（银衬里）会不会选错？</strong>：silver lining 的意象是“乌云边缘透出的银光”，本体是“坏事中的好消息”，字面直译“银色衬里”反而选不出来；所以短语题必须向下找兑现句，不能孤句直译。</li></ul>
+<blockquote>记忆锚点：every cloud has a silver lining——乌云镶银边 = 坏事中的光；短语题别硬背，向下找兑现句；“painful but improved” = bright side。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

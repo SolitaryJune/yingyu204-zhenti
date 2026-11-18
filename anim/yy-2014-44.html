@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-44 动画：匹配题——Towards Avebury 与风景画传统</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+  {"cls": "key", "ecs": "shift", "tag": "审题", "count": 0,
+   "title": "审题眼：干扰项从\u201c跨段拼贴\u201d来",
+   "body": "<p>题干：<b>Towards Avebury</b>（44 题）——从右栏 [A]–[G] 中选出它的准确描述（两项多余）。</p><p>本题组干扰项的套路：<b>从两段各取一块真材料，拼成一个假选项</b>。逐词看都是原文，拼起来张冠李戴——所以排除时既要验词，还要验<b>主语</b>。</p>",
+   "log": "审题：Towards Avebury 定位第六段，防跨段拼贴"},
+  {"cls": "", "ecs": "step", "tag": "定位", "count": 0,
+   "title": "定位原文：段尾句的 evokes",
+   "body": "<div class='qq'><b>第六段末句：</b>Derek Jarman's yellow-tinted film <b>Towards Avebury</b>, a collection of long, mostly still shots of the Wiltshire landscape, <b>evokes a tradition of English landscape painting</b> stretching from Samuel Palmer to Paul Nash. <span class='cn'>（译：Jarman 染黄的电影《朝向埃夫伯里》唤起了从 Samuel Palmer 到 Paul Nash 的英国风景画传统。）</span></div><p>句眼动词 <b>evokes（唤起）</b>+ 宾语 <b>a tradition of English landscape painting</b>。</p>",
+   "log": "定位第六段末句：evokes a tradition of English landscape painting"},
+  {"cls": "good", "ecs": "ok", "tag": "锁定 C", "count": 1,
+   "title": "锁定 C：reminds people of the English landscape painting tradition",
+   "ribbon": {"k": 3, "ok": true},
+   "body": "<p><b>C · reminds people of the English landscape painting tradition</b><span class='ok-dot'>✓</span></p><table class='aw-mini'><tr><th>原文</th><th>选项 C</th><th>替换关系</th></tr><tr><td>evokes</td><td>reminds people of</td><td>唤起 = 使人想起</td></tr><tr><td>a tradition of English landscape painting</td><td>the English landscape painting tradition</td><td>原词保留，语序重排</td></tr></table>",
+   "log": "锁定 C：evokes a tradition = reminds people of the tradition"},
+  {"cls": "bad", "ecs": "miss", "tag": "剖析 F（上）", "count": 2,
+   "title": "解剖干扰项 F：romantic escape 来自哪里",
+   "ribbon": {"k": 6, "ok": false},
+   "body": "<p><b>F · embodies a romantic escape into the Scottish outdoors</b>——本题的定制陷阱，由两块真材料拼成。先看第一块：</p><div class='qq'><b>第六段第二句：</b>…much of this work is permeated by <b>a spirit of romantic escapism</b> that the likes of Wordsworth would have readily understood. <span class='cn'>（译：多数作品弥漫着华兹华斯也懂的那种浪漫避世精神。）</span></div><p>romantic escapism 是<b>对作品群的整体评价</b>，不是专指 Towards Avebury。</p>",
+   "log": "F 拼块一：romantic escapism 出自第六段，但说的是多数作品整体"},
+  {"cls": "bad", "ecs": "miss", "tag": "剖析 F（下）", "count": 3,
+   "title": "解剖干扰项 F：Scottish outdoors 是嫁接",
+   "body": "<p>再看第二块：</p><div class='qq'><b>第七段首句：</b>In the case of Hamish Fulton, you can't help feeling that <b>the Scottish artist</b> has simply found a way of making his love of walking pay. <span class='cn'>（译：说到 Hamish Fulton，这位苏格兰艺术家……）</span></div><p>\u201c苏格兰\u201d只描述 <b>Fulton 的国籍</b>，与 Towards Avebury（威尔特郡风景）无关；第六段的\u201c优美风景\u201d也是英国本土的 the Lake District / Wiltshire Downs。</p><p><b>两块真材料拼出一个假选项——词是真的，户口是假的。</b></p>",
+   "log": "F 拼块二：Scottish 是第七段 Fulton 的国籍，被嫁接成地点"},
+  {"cls": "good", "ecs": "done", "tag": "结论", "count": 4,
+   "title": "结论：答案 C",
+   "body": "<p><b>答案 C（reminds people of the English landscape painting tradition）</b>——Towards Avebury 唤起英国风景画传统。</p><p>记忆锚点：<b>evokes = reminds of</b>；匹配题干扰项 = 跨段拼贴（F = 第六段精神 + 第七段国籍），验完词还要验主语。</p>",
+   "log": "结论：Towards Avebury 唤起风景画传统，选 C"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2014-44 · 匹配题：Towards Avebury 与\u201c风景画传统\u201d",
+  subtitle: "考点：新题型左右匹配 · 方法：段尾定位 → evokes 同义替换 → 拆解跨段拼贴",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 正确 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 同义替换 → 解剖干扰项 F。",
+  snaps: snaps,
+  result: {
+    big: "答案 C",
+    html: "<b>Towards Avebury … evokes a tradition of English landscape painting = [C] reminds people of the English landscape painting tradition。</b>记忆锚点：evokes = reminds of；F 的定制陷阱是跨段拼贴——romantic escapism（第六段整体评价）+ the Scottish artist（第七段 Fulton 国籍），词真户口假。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型匹配——Towards Avebury 与"风景画传统"</h2>
+<p>答案：<strong>C</strong>。</p>
+<h3>第 0 步：先立方法——匹配题的干扰项从"跨段拼贴"来</h3>
+<p>本题组的干扰项有个统一套路：<strong>从两个段落各取一块真材料，拼成一个假选项</strong>。单独看每块都对，拼起来张冠李戴。所以匹配题的排除不能只验证"这些词原文出现过"，还要验证"<strong>主语对不对得上</strong>"——词是真的，户口是假的。</p>
+<h3>第 1 步：定位原文——段尾句的 evokes</h3>
+<blockquote>Derek Jarman's yellow-tinted film Towards Avebury, a collection of long, mostly still shots of the Wiltshire landscape, evokes a tradition of English landscape painting stretching from Samuel Palmer to Paul Nash.（译：Derek Jarman 染着黄色的电影《朝向埃夫伯里》——一组以威尔特郡风景为主的长镜头、近乎静止的画面——唤起了从 Samuel Palmer 到 Paul Nash 的英国风景画传统。）</blockquote>
+<p><strong>evokes a tradition of English landscape painting</strong> 与 [C] 的 reminds people of the English landscape painting tradition 构成同义替换：evokes（唤起）= reminds of（使人想起），tradition 直通。</p>
+<h3>第 2 步：同义替换对号入座</h3>
+<table><thead><tr><th>原文</th><th>选项 C</th><th>替换关系</th></tr></thead><tbody><tr><td>evokes</td><td>reminds people of</td><td>唤起 = 使人想起</td></tr><tr><td>a tradition of English landscape painting</td><td>the English landscape painting tradition</td><td>原词保留，语序重排</td></tr></tbody></table>
+<h3>第 3 步：解剖最强干扰项 F</h3>
+<p>[F] embodies a romantic escape <strong>into the Scottish outdoors</strong> 是本题的定制陷阱，由两块真材料拼成：</p>
+<table><thead><tr><th>拼块</th><th>原文出处</th><th>真伪</th></tr></thead><tbody><tr><td>a spirit of romantic escapism</td><td>第六段第二句：much of this work is permeated by...（对多数作品的整体评价）</td><td>真词，但非专指 Towards Avebury</td></tr><tr><td>the Scottish outdoors</td><td>第七段：In the case of Hamish Fulton, ... the <strong>Scottish</strong> artist（说的是艺术家本人国籍）</td><td>真词，但地点被嫁接</td></tr></tbody></table>
+<p>第六段只有 romantic escapism 的"精神"，没有"苏格兰"；"苏格兰"只在第七段，且只描述 Fulton 是苏格兰人。F 把两段各抄一半——<strong>遇题先查主语：苏格兰户外的作品在原文不存在</strong>。</p>
+<h3>预判追问：为什么第六段首句"远离城镇去风景优美处"不能算 escape into outdoors？</h3>
+<p>因为那是英国本土的湖区与威尔特郡丘陵（the Lake District or the Wiltshire Downs），并非苏格兰；且"浪漫避世精神"是对作品群的整体氛围描写，不是某个作品的画面内容。F 的三处措辞都有出处，唯独拼在一起的对象错了。</p>
+<blockquote>记忆锚点：evokes = reminds of；匹配题干扰项 = 跨段拼贴——逐词验真伪之后，还要验主语。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

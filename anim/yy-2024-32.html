@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-32 · 2024 阅读第 32 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 先分层：建议 vs 外界反应',
+    cls: 'key',
+    tag: '审题',
+    log: 'The American Medical Association’s advice ____——要分清建议本身与各州的反应',
+    count: 0,
+    body: '<p>第二段第 1 句是 AMA 的<b>具体建议</b>（advises physicians that...），第 2 句的 Some states / others / a few 才是<b>外界对建议的回应</b>。关键一步：1 句里的 it is desirable and ethical 是引出建议的语气，不是任何人的事后评价。</p>'
+  },
+  { title: '定位原文 · 建议句内部的语气',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：advises physicians that “...it is desirable and ethical to notify the DMV”',
+    count: 0,
+    body: quote('The American Medical Association advises physicians that “in situations where clear evidence of substantial driving impairment... it is desirable and ethical to notify the Department of Motor Vehicles,”') +
+      '<p>这是建议的<b>说服性语气</b>（这样做可取且合乎伦理），用来引出建议，不是外界评价。</p>'
+  },
+  { title: '定位原文 · 各州的三种回应',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：Some states require / others allow but do not mandate / a few consider a breach',
+    count: 0,
+    body: quote('Some states require physicians to report, others allow but do not mandate reports, while a few consider a report a breach of confidentiality.') +
+      '<p>三分结构：① 一些州<b>强制</b>上报；② 另一些州<b>允许但不强制</b>；③ 少数州认为上报<b>违反保密规定</b>。</p>'
+  },
+  { title: '归纳 · 三种做法一个方向',
+    cls: 'key',
+    tag: '归纳',
+    log: '归纳：强制 → 不强制 → 视为违规，态度梯度明显 = different responses',
+    count: 0,
+    body: '<p>从“强制”到“留弹性”再到“视为违规”，各州对同一建议的态度梯度分明——<b>得到了不同的回应（has met with different responses）</b>。下句“不按州法办事可能有责任与处罚”进一步佐证规定不一。</p>'
+  },
+  { title: 'A：won support from drivers —— 对象错置',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A 赢得驾驶员支持 ✗——desirable 是建议语气，且驾驶员态度全文未提',
+    count: 1,
+    ribbon: { k: 1, ok: false },
+    body: '<p>利用建议句内部的 <code>it is desirable and ethical</code> 设障：那是 AMA 引出建议的语气（“应该这样做”），<b>主语不是驾驶员</b>；文中从头到尾没出现驾驶员对该建议的态度。</p><p style="color:#b91c1c">⚠ 典型误解：把建议内部的褒义词当成外部好评。</p>'
+  },
+  { title: 'B：generally considered unrealistic —— 范围夸大',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 普遍认为不切实际 ✗——只有 a few 州反对，撑不起 generally',
+    count: 2,
+    ribbon: { k: 2, ok: false },
+    body: '<p>“违反保密规定（a breach of confidentiality）”只是<b>a few（少数）州</b>的立场，选项用 <b>generally</b> 放大到“普遍”；且“违反保密”是合法合规层面的反对，不等于“不切实际”。</p><p style="color:#b91c1c">⚠ 典型误解：少数派观点被夸大成普遍共识。</p>'
+  },
+  { title: 'C：widely dismissed as unnecessary —— 范围与强度双夸大',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C 被广泛认为多此一举 ✗——“不强求”≠“认为没必要”',
+    count: 3,
+    ribbon: { k: 3, ok: false },
+    body: '<p>others（另一些州）的态度是 <code>allow but do not mandate</code>（允许但不强制）——留有弹性；dismissed as unnecessary（认为毫无必要而不屑一顾）态度强度更高；<b>widely</b> 又与 others 的范围不符。双重夸大。</p><p style="color:#b91c1c">⚠ 典型误解：“不强制”滑坡成“没必要”。</p>'
+  },
+  { title: 'D：met with different responses —— 替换闭环',
+    cls: 'good',
+    tag: '锁定 D',
+    log: 'D 得到不同回应 ✓——三种做法并存的中立概括',
+    count: 3,
+    ribbon: { k: 4, ok: true },
+    body: '<p>require / allow but do not mandate / consider a breach——强制、宽松、反对三种回应并存，<b>has met with different responses</b> 是不掺褒贬的准确归纳。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 D',
+    log: '答案 D（has met with different responses）——态度题先分层再核对范围词',
+    count: 3,
+    body: '<p>答案选 <b>D（has met with different responses）</b>。</p><p><b>记忆锚点</b>：态度题先分层——建议句内部语气 ≠ 外界反应；Some...others...a few 三分结构 = different responses；范围词（generally / widely vs a few / others）是证伪夸大选项的快刀。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 32 题 · 美国医学协会的建议遭遇了什么',
+  subtitle: 'Text 3 · 考点：外界态度归纳 · 建议分层 + Some...others...a few 三分结构',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“分层定位 → 归纳三种回应 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（different responses）',
+    html: '三种回应：<b>Some states require / others allow but do not mandate / a few consider a breach</b> → 不同回应。<br>记忆锚点：建议句内部的 it is desirable and ethical 是引出建议的语气，不是评价；B、C 的 generally / widely 被 a few / others 直接证伪。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 32 题 · 美国医学协会的建议遭遇了什么</h2>
+<p>答案：<strong>D（has met with different responses 得到了不同的回应）</strong>。</p>
+<h3>第 0 步：先立机制——分清“建议本身”与“外界对建议的反应”</h3>
+<p>The American Medical Association's advice ____：第二段第 1 句是 AMA 的<strong>具体建议</strong>（advises physicians that...），第 2 句的 Some states require / others allow / a few consider 才是<strong>外界对建议的不同回应</strong>。解法的关键一步是区分这两层：1 句里的 it is desirable and ethical 是引出建议的语气，不是谁对建议的评价；各州的三种做法才是答案来源。三种态度并存 → 不同回应。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Some states require physicians to report, others allow but do not mandate reports, while a few consider a report a breach of confidentiality.</blockquote>
+<h3>第 2 步：归纳——三种做法一个方向</h3>
+<ul><li>Some states <strong>require</strong>（一些州强制医生上报）；</li><li>others <strong>allow but do not mandate</strong>（另一些州允许但不强制）；</li><li>a few <strong>consider a report a breach of confidentiality</strong>（少数州认为上报违反保密规定）。</li></ul>
+<p>从强制、不强制到视为违规，态度梯度明显——这正是“不同的回应”，D 项的归纳。下句 There could be liability and penalties if a physician does not act in accordance with state laws 是配套提醒，进一步佐证各州规定不一。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A has won support from drivers</td><td>赢得驾驶员支持</td><td>✗</td><td>对象错置：desirable and ethical 是引出建议的语气词，且文中从未提及驾驶员的态度</td></tr><tr><td>B is generally considered unrealistic</td><td>被普遍认为不切实际</td><td>✗</td><td>程度夸大：只有 a few（少数州）视其为违反保密，撑不起 generally；且“违规”≠“不切实际”</td></tr><tr><td>C is widely dismissed as unnecessary</td><td>被广泛认为多此一举</td><td>✗</td><td>同为夸大：others（另一些州）只是“不强求”，不等于“认为没必要”；widely 与 others 表意不符</td></tr><tr><td>D has met with different responses</td><td>得到不同回应</td><td>✓</td><td>require / allow but not mandate / a breach 三种做法并存的中立概括</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>it is desirable and ethical 为什么不是“支持”的证据？</strong>：它出现在 AMA 自己的建议句里（advises physicians that...it is desirable and ethical to notify...），意思是“医生这样做是可取且合乎伦理的”——这是建议的说服性语气，主语不是驾驶员，也不是外界评价。</li><li><strong>“不强制”为什么不等于“认为没必要”？</strong>：allow but do not mandate 的语义是“允许、留有弹性”，与 dismiss（认为毫无价值而不屑一顾）态度强度不同；命题人常借“不强制→没必要”的滑坡设障。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把建议句内部的 desirable and ethical 误当成外界（驾驶员）的正面评价。</li><li><strong>误选 B／C</strong>：情感色彩站对了一半（消极），但 generally / widely 的范围词被 a few / others 直接证伪。</li></ul>
+<blockquote>记忆锚点：态度题先分层——建议句内部语气 ≠ 外界反应；Some...others...a few 三分结构对应 different responses；范围词（generally / widely / a few / others）是证伪夸大选项的快刀。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英语 2010·26 阅读 · first and foremost 就是题眼</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 原文关键句引用块
+function src(t){
+  return '<p style="margin:6px 0;padding:6px 10px;border-left:3px solid #b08d57;background:rgba(176,141,87,.10);font-size:13.5px;color:#5a4a33">' + t + '</p>';
+}
+
+var STEPS = [
+  { title: '审题眼：最高级题', cls: 'key',
+    body: '<p>题干问 <b>most wives’ main expectation</b>（最主要的期待）。机制：题干的"最"要在原文找<b>镜像词</b>——第四段的 <b>first and foremost</b> 就是它。</p>',
+    log: 'main ↔ first and foremost' },
+  { title: '定位原文：not on...否定区', cls: 'key',
+    body: src('“...complaints from women about their husbands most often focused <b>not on</b> tangible inequities such as <b>having given up the chance for a career</b>... or <b>doing far more than their share of</b> daily life-support work...”') +
+      '<p>① 句先否定：抱怨不来自"放弃事业支持丈夫"，也不来自"承担更多家务"。</p>',
+    log: '① 句：两个否定对象' },
+  { title: '定位原文：Instead 转到正题', cls: 'key',
+    body: src('“<b>Instead</b>, they focused on communication: “He doesn’t listen to me.” “He doesn’t talk to me.” ... most wives want their husbands to be, <b>first and foremost, conversational partners</b>...”') +
+      '<p>② 句转到正题：抱怨全在交流；③ 句给出最高级——丈夫首先是<b>交谈伙伴</b>。</p>',
+    log: '③ 句：first and foremost 出场' },
+  { title: '同义替换核对 A', cls: 'step',
+    body: '<p><b>first and foremost → main expectation</b>；<b>conversational partners → talking to them</b>；focused on communication 作佐证。替换链完整。</p>',
+    log: '原文 → A 的替换对上' },
+  { title: 'A：交谈即答案', cls: 'good',
+    body: '<p>"<b>Talking to them</b>（跟她们说话）"——正是 conversational partners 的口语化改写，"最主要的期待 = 与我交谈"。<b>A 正确</b>。</p>',
+    ribbon: { k: 1, ok: true },
+    log: 'A = 交谈伙伴的镜像' },
+  { title: 'B：无中生有', cls: 'bad',
+    body: '<p>"<b>Trusting them</b>（信任他们）"——全文讨论的是沟通缺失，"信任"从没出场，文本外概念。<b>B 排除</b>。</p>',
+    ribbon: { k: 2, ok: false },
+    log: 'B 信任：文中没有' },
+  { title: 'C/D：反向干扰', cls: 'bad',
+    body: '<p>"支持丈夫的事业 / 分担家务"——恰是 ① 句 focused <b>not on</b> 后面的列举：放弃事业、多做家务都被<b>否定</b>了，选项把否定改成肯定。<b>C、D 排除</b>。</p>',
+    ribbon: { k: 3, ok: false },
+    log: 'C/D = 原文否定的内容' },
+  { title: '结论', cls: 'good',
+    body: '<p>答案 <b>A（Talking to them）</b>。记忆锚点：<b>main ↔ first and foremost</b>；反向干扰 = 把原文 not on 后面的内容改成肯定——"事业、家务"都在否定区。</p>',
+    log: '锁定 A' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls || 'step'),
+    tag: s.tag || (s.cls === 'good' ? '✓ 锁定' : (s.cls === 'bad' ? '✗ 排除' : '推理')),
+    log: s.log || s.title,
+    count: i + 1,
+    ribbon: s.ribbon,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '阅读 26 · first and foremost 就是题眼',
+  subtitle: 'Text 2（夫妻交流模式）· 考点：细节题（最高级镜像 + not on 否定区）',
+  counterLabel: '推理步',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开定位与排除链。',
+  snaps: snaps,
+  result: {
+    big: '答案 A（Talking to them）',
+    html: '记忆锚点：<b>最高级设问找镜像词</b>——main expectation ↔ first and foremost, conversational partners → talking to them；C/D 是 focused not on 后被否定的"事业、家务"，B"信任"无中生有。',
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：most wives' main expectation——"first and foremost" 就是题眼</h2>
+<p>答案：<strong>A（Talking to them）</strong>。</p>
+<h3>第一步：先立机制——最高级设问对应最高级原文</h3>
+<p>题干问 main expectation（最主要的期待）。最高级题的机制：<strong>题干的"最"要在原文里找到它的镜像词</strong>。第四段 ③ 句的 first and foremost（首先且最重要的）正是 main 的镜像，此外段落里反复出现的 most 也同频共振。</p>
+<h3>第二步：定位原文</h3>
+<blockquote>In my own research, complaints from women about their husbands most often focused not on tangible inequities such as having given up the chance for a career to accompany a husband to his, or doing far more than their share of daily life-support work like cleaning, cooking and social arrangements. Instead, they focused on communication: "He doesn't listen to me." "He doesn't talk to me." I found... that most wives want their husbands to be, first and foremost, conversational partners, but few husbands share this expectation of their wives.</blockquote>
+<h3>第三步：同义替换确认 A</h3>
+<table><thead><tr><th>原文</th><th>选项 A</th></tr></thead><tbody><tr><td>first and foremost</td><td>main expectation</td></tr><tr><td>conversational partners</td><td>talking to them</td></tr><tr><td>they focused on communication（佐证）</td><td>—</td></tr></tbody></table>
+<h3>第四步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B 信任他们</td><td>✗</td><td>无中生有：全文没有讨论夫妻间的"信任"问题</td></tr><tr><td>C 支持丈夫的事业</td><td>✗</td><td>反向干扰：① 句 focused <strong>not</strong> on...having given up the chance for a career——原文明说抱怨不来自"为丈夫放弃事业"</td></tr><tr><td>D 分担家务</td><td>✗</td><td>反向干扰：① 句 doing far more than their share of...work 同被 not 否定</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>选 C/D</strong>：正向干扰。① 句列举的"放弃事业""承担更多家务"恰是 C、D 的内容——但它们紧跟在 focused <strong>not on</strong> 后面，是被否定的对象。否定词一丢，选项方向就反了。</li><li><strong>选 B</strong>：把"妻子抱怨丈夫不听/不说话"联想成"缺乏信任"。原文的落点始终是 communication，信任是文本外概念。</li></ul>
+<blockquote>记忆锚点：main ↔ first and foremost；反向干扰的特征是"把原文否定的改成肯定的"——not on tangible inequities such as... 后面列举的正是 C、D。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

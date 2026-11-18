@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2010-48 大作文框架：描图 → 析因 → 预测（手机用户量图表）</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两问对应三段',
+    cls: 'key',
+    body: '<p>指令两问：<b>1) interpret the chart</b>（描图）+ <b>2) give your comments</b>（析因 + 预测）。机制：图表作文 = <b>描图段 → 析因段 → 预测段</b>。只描图不析因 = 只答了第一问，comments 缺失即结构掉档。</p>' },
+  { title: '读图：先定坐标',
+    cls: 'key',
+    body: '<p>横轴 = 年份（2000 → 2008），纵轴 = 手机用户量（mobile-phone subscriptions，单位 billion）；两条曲线。先看坐标再提数，才不会抄错量级。</p>' },
+  { title: '提数据：一快一慢',
+    cls: 'key',
+    body: '<p>发展中国家 <b>0.5 → 4 billion</b>（约 8 倍，猛增）；发达国家 <b>0.7 → 1 billion</b>（缓慢增长）。</p><p><b>一快一慢</b>是全文的对比轴：第二段析因、第三段预测都从这组对比长出来。</p>' },
+  { title: '描图段：句型 + 对比词',
+    cls: 'good',
+    body: '<p><b>As is demonstrated in the diagram, from 2000 to 2008, the mobile-phone subscription number grew sharply from 0.5 billion to 4 billion in developing countries.</b></p><p>对比句：Contrastingly, ... only <b>a moderate increase</b> (from 0.7 billion to 1 billion) in developed countries. 数据两端（from...to...）都要给。</p>' },
+  { title: '承上启下：主题句',
+    cls: 'key',
+    body: '<p>析因段第一句把「数据差异」引向「原因」：</p><p><b>Different performance was due to different market environment.</b></p><p>不同的市场表现源于不同的市场环境——之后按国别展开两条因果链。</p>' },
+  { title: '析因·发展中国家：未饱和 + 人口',
+    cls: 'good',
+    body: '<p>原因 ①：市场未饱和、人口基数大 → 潜在用户巨大：</p><p>the mobile phone market <b>hadn\'t reached saturation</b>; the number of <b>potential customers</b> would be enormous.</p>' },
+  { title: '析因·发展中国家：经济腾飞',
+    cls: 'good',
+    body: '<p>原因 ②：经济腾飞推动入网（现在分词作结果状语）：</p><p><b>Thanks to the economic boom</b>, an increasing number of potential customers gradually joined the market, <b>resulting in the take-off</b> of mobile phone subscriptions.</p>' },
+  { title: '析因·发达国家：市场饱和',
+    cls: 'bad',
+    body: '<p>与前者对照：市场已饱和、增长空间见顶（现在分词表伴随/结果）：</p><p>in developed countries, there was <b>a saturated market, leaving little room for growth</b>.</p><p>同一条逻辑的两面：<b>市场是否饱和决定增长空间</b>。</p>' },
+  { title: '预测·发展中国家',
+    cls: 'good',
+    body: '<p>顺因推势：市场广阔 + 经济稳增 → 继续快增，但随饱和放缓：</p><p>will continue to <b>grow at a fast rate</b>; nevertheless, the growth will slow down <b>as the market reaches saturation</b>.</p>' },
+  { title: '预测·发达国家',
+    cls: 'bad',
+    body: '<p>已饱和 → 停滞，除非刺激新需求：</p><p>the growth is expected to <b>remain stagnant unless extra demand is stimulated</b>.</p><p>一条原因对应一条预测，预测与析因首尾相扣，不凭空展望。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>描图（对比词 + 两端数据）→ 析因（市场是否饱和）→ 预测（顺因推势）</b>。时态纪律：描图过去时、析因过去/完成时、预测将来时。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2010-48 大作文框架演示：描图 → 析因 → 预测',
+  subtitle: '考点：图表作文 · 方法：interpret the chart + give your comments（手机用户量：发展中国家 vs 发达国家）',
+  intro: '点击「▶ 播放」逐步展开读图、描图、析因与预测的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>As is demonstrated in the diagram, from 2000 to 2008, the mobile-phone subscription number grew sharply from 0.5 billion to 4 billion in developing countries. Contrastingly, during the same period, there was only a moderate increase (from 0.7 billion to 1 billion) in developed countries.</p>' +
+      '<p>Different performance was due to different market environment. In developing countries, the mobile phone market hadn\'t reached saturation. Considering the population size there, the number of potential customers would be enormous. Thanks to the economic boom, an increasing number of potential customers gradually joined the market, resulting in the take-off of mobile phone subscriptions. However, in developed countries, there was a saturated market, leaving little room for growth.</p>' +
+      '<p>Since the mobile phone market remains vast and the economy is still growing steadily in developing countries, the number of mobile phone subscribers there will continue to grow at a fast rate; nevertheless, the growth will slow down as the market reaches saturation. In comparison, the market has reached saturation in developed countries, so the growth of mobile phone subscription number is expected to remain stagnant unless extra demand is stimulated.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>一快一慢定对比轴</b>；市场是否饱和 = 因果链主轴；描图过去时、预测将来时。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：图表作文三段机制——描图 → 析因 → 预测（2010 大作文）</h2>
+<p>答案（参考范文口径）：<strong>As is demonstrated in the diagram, from 2000 to 2008, the mobile-phone subscription number grew sharply from 0.5 billion to 4 billion in developing countries. Contrastingly, during the same period, there was only a moderate increase (from 0.7 billion to 1 billion) in developed countries. Different performance was due to different market environment. In developing countries, the mobile phone market hadn't reached saturation. Considering the population size there, the number of potential customers would be enormous. Thanks to the economic boom, an increasing number of potential customers gradually joined the market, resulting in the take-off of mobile phone subscriptions. However, in developed countries, there was a saturated market, leaving little room for growth. Since the mobile phone market remains vast and the economy is still growing steadily in developing countries, the number of mobile phone subscribers there will continue to grow at a fast rate; nevertheless, the growth will slow down as the market reaches saturation. In comparison, the market has reached saturation in developed countries, so the growth of mobile phone subscription number is expected to remain stagnant unless extra demand is stimulated.</strong></p>
+<h3>第 0 步：先立机制——图表作文的分数从哪来</h3>
+<p>图表作文 = 两问换三段：<code>interpret the chart</code>（描图段）+ <code>give your comments</code>（析因段 + 预测段）。评分看三点：<strong>信息完整性</strong>（数据是否描述准确、两国对比是否点明）、<strong>分析深度</strong>（是否解释了数据差异背后的原因、并顺因推势）、<strong>语言质量</strong>（对比词、数据表达、时态纪律）。只描图不析因，等于只答了第一问——comments 缺失，结构掉档。机制立住了，下面的每一步都是在往这三段里填内容。</p>
+<h3>第 1 步：读图——先定坐标，再提数据</h3>
+<ul><li>横轴：年份（2000 → 2008）；纵轴：手机用户量（mobile-phone subscriptions，单位 billion）。</li><li>两条曲线一个对比轴：<strong>发展中国家 0.5 → 4 billion</strong>（约 8 倍，猛增）；<strong>发达国家 0.7 → 1 billion</strong>（增长缓慢）。</li><li>一快一慢不是两个孤立数据，而是全文的"矛盾"——第二段析因和第三段预测都从这组对比长出来。</li></ul>
+<h3>第 2 步：描图段——数据 + 对比词 + 图表句型</h3>
+<ul><li>图表句型：<strong>As is demonstrated in the diagram</strong>, from 2000 to 2008, the mobile-phone subscription number <strong>grew sharply from 0.5 billion to 4 billion</strong> in developing countries.（ As 引导的非限制性定语从句开图，数据两头都要给。）</li><li>对比句：<strong>Contrastingly</strong>, during the same period, there was <strong>only a moderate increase</strong> (from 0.7 billion to 1 billion) in developed countries.</li><li>注意 subscription 的语境义：由"订阅（服务）"衍义为"入网用户"，mobile-phone subscription number = 手机用户量；别写成数量级错误的表达。</li></ul>
+<h3>第 3 步：析因段——为什么一个猛增、一个停滞</h3>
+<p>因果链的起点是一句承上启下的主题句：<strong>Different performance was due to different market environment</strong>（不同的市场表现源于不同的市场环境）。之后按国别展开：</p>
+<table><thead><tr><th>对象</th><th>原因</th><th>落到句子上</th></tr></thead><tbody><tr><td>发展中国家 ①</td><td>市场未饱和 + 人口基数大</td><td>the market hadn't reached saturation; the number of potential customers would be enormous</td></tr><tr><td>发展中国家 ②</td><td>经济腾飞推动入网</td><td>Thanks to the economic boom, ... joined the market, <strong>resulting in the take-off</strong>（现在分词作结果状语）</td></tr><tr><td>发达国家</td><td>市场已饱和，空间见顶</td><td>a saturated market, <strong>leaving little room for growth</strong>（现在分词作伴随/结果）</td></tr></tbody></table>
+<p>注意机制：<strong>市场环境（是否饱和）决定增长空间</strong>——这正是发展中国家两条原因与发达国家一条原因背后的同一条逻辑，析因不是凑句子，是同一条因果链的两侧。</p>
+<h3>第 4 步：预测段——顺因推势，不凭空展望</h3>
+<p>预测必须从第二段的原因自然延伸：发展中国家市场仍广阔 + 经济稳增 → <strong>will continue to grow at a fast rate</strong>；但随着市场趋近饱和，增速会放缓（the growth will slow down as the market reaches saturation）。发达国家已饱和 → <strong>remain stagnant</strong> unless 刺激出额外需求。一条原因对应一条预测，预测与析因首尾相扣。</p>
+<h3>第 5 步：语言纪律——预判"怎么不丢冤枉分"</h3>
+<ul><li><strong>时态纪律</strong>：描图表已发生的事用过去时（grew / was），析因谈状态用过去/完成时（hadn't reached），预测谈将来用将来表达（will continue / is expected to remain）。全文一个时态走到底是典型扣分点。</li><li><strong>衔接词分工</strong>：Contrastingly（描图对比）、However（析因转折）、Thanks to（原因）、nevertheless / In comparison（预测对比）。</li><li><strong>数据表达</strong>：billion 不能漏；两端数据（from...to...）都要给，只写一头等于数据不完整。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>只描图不析因</strong>：把 interpret 理解成"翻译图表"，丢掉 give your comments——第二、三段全空，内容分结构性缺失。</li><li><strong>只写发展中国家</strong>：图表是两国对比，漏掉发达国家 = 信息不完整，且"对比轴"消失后析因无从谈起。</li><li><strong>数据抄错或漏单位</strong>：0.5→4 billion 写成 5→40 或漏 billion，信息准确性受损。</li><li><strong>预测与原因脱节</strong>：直接写"未来会更好"之类的套话，没有从市场饱和这一原因顺推——预测段沦为空喊。</li><li><strong>把 subscription 按第一义硬译</strong>：写成"订阅手机的数量"，未识别其"入网用户量"的衍义。</li><li><strong>时态混乱</strong>：描图用现在时、预测用过去时，全篇时间坐标错乱。</li></ul>
+<blockquote>记忆锚点：图表作文 = <strong>描图（对比词 + 两端数据）→ 析因（市场是否饱和决定增长空间）→ 预测（顺因推势）</strong>；一快一慢定对比轴；描图过去时、预测将来时。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

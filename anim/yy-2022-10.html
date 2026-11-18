@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-10 · 2022 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 10 所在句，考点：句内语义 + 上下文语义",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Depending on your __10__ and your lifestyle, that might mean spending less time watching television or listening to music, though some people can write __11__ they listen to music.") +
+    "<p>your ____ and your lifestyle 是「决定因素」，后半句 watching television / listening to music 是具体表现——「总称—例举」结构。</p>"
+ },
+ {
+  "title": "机制 · 总称词必须装得下例子",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：总称与例举是上下位关系",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>Depending on 的两个名词决定「要减少哪类时间」；例举的看电视、听音乐必须能被总称涵盖。</p>" +
+    "<p>看电视、听音乐属于「<b>兴趣爱好</b>」——总称词要装得下它们。</p>"
+ },
+ {
+  "title": "证据 · 上句的对应表达",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：things you really enjoy ↔ interests",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("you'll have to __9__ some of your day-to-day activities and some things you really enjoy.") +
+    "<p>上句把让位对象分为两类：日常活动（day-to-day activities）与喜欢做的事（some things you really enjoy）。</p>" +
+    "<p>本句 lifestyle 对应「日常活动」一侧，your ____ 对应「喜欢做的事」一侧——即 interests（兴趣爱好）。</p>"
+ },
+ {
+  "title": "逐项分析 · B interests（兴趣爱好）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B interests（兴趣爱好） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>看电视、听音乐是典型 interests；对应上句 some things you really enjoy。代入读作「取决于你的<b>兴趣爱好</b>和生活方式，这可能意味着要少看电视、少听音乐」。</p>"
+ },
+ {
+  "title": "逐项分析 · A relations（关系；亲属）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A relations（关系；亲属） ✗ 排除——装不下例举",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>「取决于你的亲属和生活方式」与少看电视听音乐无涵盖关系。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：只做「名词放得进去」的表层判断。</p>"
+ },
+ {
+  "title": "逐项分析 · C memories（记忆；回忆）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C memories（记忆；回忆） ✗ 排除——无涵盖关系",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>「取决于你的回忆」不决定减少哪类活动，与例举无涵盖关系。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：同上。</p>"
+ },
+ {
+  "title": "逐项分析 · D skills（技能）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D skills（技能） ✗ 排除——例举不属于技能",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>看电视、听音乐不是 skill 类活动；「取决于你的技能」与例举对不上。</p>" +
+    "<p style='color:#b91c1c'>⚠ 典型误解：把「听音乐」误当成技能类活动。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（interests 兴趣爱好）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>取决于你的兴趣爱好和生活方式，这可能意味着要减少花在看电视或听音乐上的时间。</b></p>" +
+    "<p>答案选 <b>B（interests 兴趣爱好）</b>。</p>" +
+    "<p><b>记忆锚点</b>：总称词要「装得下例子、对得上上文」；things you really enjoy ↔ interests；lifestyle ↔ day-to-day activities。</p>" +
+    "<p style='color:#b91c1c'>最易误选：<b>D（skills）</b>——忽略「取决因素」必须统摄全部例举。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 完形第 10 空 · your ____ and your lifestyle：总称要装得下例子",
+  subtitle: "考点：句内语义 + 上下文语义 · 总称—例举关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（interests）",
+    html: "<b>B interests（兴趣爱好）</b>。<br>记忆锚点：总称词要「装得下例子、对得上上文」；things you really enjoy ↔ interests；lifestyle ↔ day-to-day activities。<br>最易误选：<b>D（skills）</b>——忽略「取决因素」必须统摄全部例举。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 完形第 10 空 · your ____ and your lifestyle 是下文例子的"总称"</h2>
+<p>答案：<strong>B（interests 兴趣爱好）</strong>。</p>
+<h3>第 0 步：先立机制——"总称 + 例举"的上下位关系</h3>
+<p>空格句：Depending on your __10__ and your lifestyle, that might mean spending less time watching television or listening to music...（取决于你的____和生活方式，这可能意味着要少看电视、少听音乐。）Depending on 的两个名词是"决定因素"，而 watching television / listening to music 是它们的具体表现——总称与例举必须是上下位关系：看电视、听音乐属于"兴趣爱好"。同时 that 指代上一句的牺牲安排，上句刚说过 day-to-day activities and some things you really enjoy——"喜欢做的事"正是 interests 的对应表达。两条线索同指一个词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Depending on your __10__ and your lifestyle, that might mean spending less time watching television or listening to music, though some people can write __11__ they listen to music.</blockquote>
+<p>your ____ and your lifestyle 与后半句的具体活动构成"总称—例举"结构。</p>
+<h3>第 2 步：找证据——上句的对应表达</h3>
+<blockquote>you'll have to __9__ some of your day-to-day activities and some things you really enjoy.</blockquote>
+<p>上句把让位对象分为两类：日常活动（day-to-day activities）与喜欢做的事（some things you really enjoy）。本句的 lifestyle 对应日常活动一侧，your ____ 应对应"喜欢做的事"一侧——即 interests（兴趣爱好）。看电视、听音乐恰是典型兴趣。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A relations</td><td>关系；亲属</td><td>✗</td><td>"取决于你的亲属和生活方式"与少看电视听音乐无涵盖关系。</td></tr><tr><td>B interests</td><td>兴趣爱好</td><td>✓</td><td>看电视、听音乐是典型 interests；对应上句 some things you really enjoy。</td></tr><tr><td>C memories</td><td>记忆；回忆</td><td>✗</td><td>"取决于你的回忆"不决定减少哪类活动，无涵盖关系。</td></tr><tr><td>D skills</td><td>技能</td><td>✗</td><td>看电视、听音乐不是 skill 类活动；"取决于你的技能"与例举对不上。（A/C/D 共同病根：装不下例举、对不上上文。）</td></tr></tbody></table>
+<p>代入后的完整句义：取决于你的兴趣爱好和生活方式，这可能意味着要减少花在看电视或听音乐上的时间。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>怎么判断"总称词"该是什么？</strong>：两步检验——一看它装不装得下文例举（看电视、听音乐归不归它管）；二看它与上句哪个短语对应（things you really enjoy）。interests 两项全过。</li><li><strong>lifestyle 为什么不用选？</strong>：它对应上句 day-to-day activities（日常生活）一侧，是原词复现出的既定信息；空格考查的是另一侧的对应词。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（skills）</strong>：把"听音乐"误当成技能类活动，忽略了"取决因素"必须统摄全部例举。</li><li><strong>误选 A（relations）</strong>：只做"名词放得进去"的表层判断。</li></ul>
+<blockquote>记忆锚点：总称词要"装得下例子、对得上上文"；things you really enjoy ↔ interests；lifestyle ↔ day-to-day activities。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

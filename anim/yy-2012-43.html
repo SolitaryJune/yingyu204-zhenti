@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 新题型 · 43 · Samuel Smiles：《自助》写了谁 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+td.mine{background:#fff7ed;color:#b45309;font-weight:700}
+td.ans{background:#f0fdf4;color:#15803d;font-weight:700}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 序号带 1–7 对应选项 A–G。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {cls:"key", ecs:"shift", tag:"审题", count:0, ribbon:null, title:"审题眼：小心“同段邻句”的借词干扰",
+  body:"<p>题干：<b>Samuel Smiles</b> ____。右栏 7 个观点（A–G）。</p><p>机制：Smiles 与 The Romantics 同在第四段，B 选项的 public glory 也出自本段②句——<b>邻句原词</b>是配对题最典型的干扰形态。纪律只有一条：选项必须对上题干人物自己的出场句，词再眼熟也不认领。</p>",
+  log:"审题：Smiles —— 警惕同段邻句借词"},
+ {cls:"key", ecs:"shift", tag:"定位", count:0, ribbon:null, title:"定位：第四段③句《自助》",
+  body:"<div class=\"qq\"><b>第四段③：</b>By contrast, the Victorian author <b>Samuel Smiles</b> wrote Self-Help as <b>a catalogue of the worthy lives of engineers, industrialists and explorers</b>. <span style=\"color:#64748b;font-size:12.5px\">（斯迈尔斯写《自助》，如同一部描绘工程师、实业家、探险家有价值人生的目录。）</span></div><p>画像三要素：动作（wrote ... as a catalogue）、对象（engineers, industrialists and explorers）、性质（worthy lives 有价值的人生）。</p>",
+  log:"定位第四段③：catalogue of the worthy lives of engineers..."},
+ {cls:"good", ecs:"ok", tag:"锁定 G", count:0, ribbon:{k:"7", ok:true}, title:"锁定 G：depicted the worthy lives of engineers, industrialists and explorers",
+  body:"<p><b>G（描绘工程师、实业家与探险家的有价值人生）</b><span class=\"ok-dot\">✓</span>：逐字对齐——</p><p>wrote ... as <b>a catalogue of the worthy lives</b> ↔ <b>depicted the worthy lives</b>；<b>engineers, industrialists and explorers</b> 三个职业名词原词保真。本题是全卷对应最工整的一道。</p>",
+  log:"锁定 G：catalogue of worthy lives ↔ depicted worthy lives"},
+ {cls:"bad", ecs:"miss", tag:"排除 B", count:1, ribbon:{k:"2", ok:false}, title:"排除 B：highlighted the public glory of the leading artists",
+  body:"<p><b>B（突出杰出艺术家的公共荣耀）</b><span class=\"bad-dot\">✗</span>：public glory 出自<b>同段②句</b>，主人是 The Romantics——而且原文说浪漫派强调个人独特经历 <b>rather than public glory</b>，即公共荣耀是浪漫派<b>不要</b>的角度。</p><p style=\"color:#b91c1c\">⚠ By contrast 恰恰说明 Smiles 立在浪漫派对面——邻句借词不认领。</p>",
+  log:"排除 B：public glory 属浪漫派且是被弃角度"},
+ {cls:"bad", ecs:"miss", tag:"排除 A", count:2, ribbon:{k:"1", ok:false}, title:"排除 A：emphasized the virtue of classical heroes",
+  body:"<p><b>A（强调古典英雄的美德）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Petrarch</b>（41 题答案）。时代（文艺复兴 vs 维多利亚）与对象（古典英雄 vs 实干家）双双错位。</p><p style=\"color:#b91c1c\">⚠ A 的 virtue 眼熟但与《自助》的画像无关。</p>",
+  log:"排除 A：古典英雄美德属 Petrarch"},
+ {cls:"bad", ecs:"miss", tag:"排除 C", count:3, ribbon:{k:"3", ok:false}, title:"排除 C：focused on epochal figures whose lives were hard to imitate",
+  body:"<p><b>C（聚焦难以模仿的划时代人物）</b><span class=\"bad-dot\">✗</span>：主人是 <b>Thomas Carlyle</b>（44 题答案）——他正是嫌 Smiles 路数“太市民气（bourgeois）”的那位，两人画像一组对照，不能互换。</p><p style=\"color:#b91c1c\">⚠ 邻段对照人物也各有其主。</p>",
+  log:"排除 C：划时代人物属 Carlyle"},
+ {cls:"", ecs:"step", tag:"归主", count:3, ribbon:null, title:"其余选项归主：一张表看全篇",
+  body:"<table class=\"aw-mini\"><tr><th>选项</th><th>主人</th></tr>" +
+    "<tr><td class=\"mine\">A 古典英雄美德</td><td class=\"mine\">Petrarch（41 题）</td></tr>" +
+    "<tr><td class=\"mine\">B 艺术家公共荣耀</td><td class=\"mine\">The Romantics</td></tr>" +
+    "<tr><td class=\"mine\">C 难以模仿的划时代人物</td><td class=\"mine\">Thomas Carlyle（44 题）</td></tr>" +
+    "<tr><td class=\"mine\">D 理解历史的新领域</td><td class=\"mine\">“自下而上”史学（Hill 等）</td></tr>" +
+    "<tr><td class=\"mine\">E 大众的历史与斗争记录</td><td class=\"mine\">Marx & Engels（45 题）</td></tr>" +
+    "<tr><td class=\"mine\">F 领袖无须美德</td><td class=\"mine\">Machiavelli（42 题）</td></tr>" +
+    "<tr><td class=\"ans\">G 工程师们有价值的人生</td><td class=\"ans\">Samuel Smiles ✓ 本题</td></tr></table>",
+  log:"归主：7 项各归其位，G 属 Smiles"},
+ {cls:"good", ecs:"done", tag:"结论", count:3, ribbon:null, title:"结论：答案 G",
+  body:"<p><b>答案 G</b>——Smiles 的《自助》描绘了工程师、实业家与探险家们的有价值人生（catalogue of the worthy lives）。</p><p><b>记忆锚点</b>：同段出现两个人物时，认句不认段；wrote as a catalogue of the worthy lives ↔ depicted the worthy lives 原词全保真；B 的 public glory 是浪漫派“不要”的东西——借词干扰。</p>",
+  log:"结论：Smiles 描绘实干家的有价值人生，答案 G"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "2012 新题型 · 43 · Samuel Smiles 的画像",
+  subtitle: "考点：人物观点配对 · 方法：画像定位 → 逐字比对 → 邻句借词排除",
+  counterLabel: "已核验",
+  ribbonTitle: "选项 1–7 对应 A–G（✓ 认领 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开：定位 → 比对 → 归主。",
+  snaps: snaps,
+  result: {
+    big: "答案 G",
+    html: "<b>wrote Self-Help as a catalogue of the worthy lives of engineers, industrialists and explorers ＝ depicted the worthy lives of engineers, industrialists and explorers</b>。记忆锚点：同段认句不认段；B 的 public glory 是浪漫派“不要”的角度，属借词干扰。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：新题型配对——Smiles 的《自助》写了谁的一生</h2>
+<p>答案：<strong>G（depicted the worthy lives of engineers, industrialists and explorers 描绘工程师、实业家与探险家的有价值人生）</strong>。</p>
+<h3>第 0 步：先立机制——警惕“同段前一句”的近水楼台干扰</h3>
+<p>Smiles 与 The Romantics 同在第四段，B 选项的 public glory 也出自本段②句——<strong>邻句原词</strong>是配对题最典型的干扰形态。破它只靠一条纪律：选项对不上题干人物的出场句，就算每个词都眼熟，也不认领。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>By contrast, the Victorian author Samuel Smiles wrote Self-Help as a catalogue of the worthy lives of engineers, industrialists and explorers.</blockquote>
+<p>《自助》一书 = 工程师、实业家、探险家这些人的“有价值人生”的目录（catalogue of the worthy lives）。</p>
+<h3>第 2 步：逐字比对</h3>
+<p>wrote Self-Help as a <strong>catalogue of the worthy lives of engineers, industrialists and explorers</strong> ↔ <strong>depicted the worthy lives of engineers, industrialists and explorers</strong>：wrote ... as a catalogue ↔ depicted（描绘），三个职业名词与 worthy lives 全部原词保真——本题是全卷对应最工整的一道。</p>
+<h3>第 3 步：干扰项归主</h3>
+<table><thead><tr><th>选项</th><th>主人</th><th>排除理由</th></tr></thead><tbody><tr><td>B highlighted the public glory of the leading artists</td><td>The Romantics（同段②句）</td><td>②句说浪漫派强调个人经历 <strong>rather than</strong> public glory——B 连浪漫派自己都没配对上；且 By contrast 表明 Smiles 立在浪漫派对面</td></tr><tr><td>A emphasized the virtue of classical heroes</td><td>Petrarch（41 题答案）</td><td>时代与对象都不对：文艺复兴时期的古典英雄，非维多利亚时代的实干家</td></tr><tr><td>C focused on epochal figures whose lives were hard to imitate</td><td>Thomas Carlyle（44 题答案）</td><td>正是 Carlyle 嫌 Smiles 路数 bourgeois（市民气）的对照组——两人画像不同</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>后文 James Watt 等人名与长引文要不要读？</strong>：③句之后的引文与传记名单（Watt、Arkwright、Wedgwood）只是佐证“为劳动者树灯塔”，配对所需信息在③句已经齐了。</li><li><strong>By contrast 在这里有什么用？</strong>：它划开了浪漫派（重个人经历）与 Smiles（写值得效仿的实干人生），证明同段两个画像不能互相冒领——这正是 B 的设障点。</li></ul>
+<blockquote>记忆锚点：同段出现两个人物时，认句不认段；catalogue of the worthy lives ↔ depicted the worthy lives 原词全保真；public glory 是浪漫派“不要”的东西——B 是借词干扰。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

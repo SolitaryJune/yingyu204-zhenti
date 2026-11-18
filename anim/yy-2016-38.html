@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-38 · 2016 阅读第 38 题 · 定语从句的归属 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 先问「修饰谁」，再问「说什么」", "cls": "key", "tag": "审题", "log": "审题眼：The priorities and expectations defined by the young will ___——问的是 that 从句的内容", "count": 0, "ribbon": null, "body": "<p>题干主语 priorities and expectations defined by the young 在第四段末句里，但整句的信息重心在它后面的 <b>that 定语从句</b>——从句交代「这些事项与期望<b>将怎样</b>」，题干的 will ___ 问的正是这个空。第一步先确认归属。</p>"},
+ {"title": "定位原文 · that 从句修饰 priorities and expectations", "cls": "key", "tag": "定位", "log": "定位第四段：that 从句修饰 priorities and expectations，从句谓语就是答案母本", "count": 0, "ribbon": null, "body": quote("…those just starting out in life are defining priorities and expectations that will increasingly spread through virtually all aspects of American life, from consumer preferences to housing patterns to politics.") + "<p>归属确认：that 从句修饰 <b>priorities and expectations</b>，从句谓语 <b>will increasingly spread…</b> 就是答案母本。</p>"},
+ {"title": "同义替换 · 从句三块拆开", "cls": "key", "tag": "替换", "log": "同义替换：原文「蔓延到几乎方方面面」＝ 选项「触及几乎所有方面」——动词、程度、范围三要素对齐", "count": 0, "ribbon": null, "body": "<p>从句拆三块：①<b>increasingly</b>（越来越）修饰 spread；②<b>spread through virtually all aspects</b>（蔓延到几乎方方面面）＝正确项的直译层；③<b>from… to… to…</b>（消费者偏好、住房模式、政治）是「方方面面」的三例举——例证影响之广，不是影响的方向或条件。[D] 的动词、程度、范围三要素一一对应。</p>"},
+ {"title": "逐项分析 · A become increasingly clear", "cls": "bad", "tag": "排除 A", "log": "A 变得日益清晰 ✗ ——副词 increasingly 修饰的是「蔓延」，被挪给了「清晰」", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>increasingly 在原文修饰 <b>spread</b>（蔓延得越来越广），不是「变清晰」——把修饰别处的副词挪来给 clear 用，再杂糅主句的 defining，凑出「日益清晰」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：defining（主句）＋ increasingly（从句谓语），两个零件各有所属，拼起来就是无中生有。</p>"},
+ {"title": "逐项分析 · B focus on materialistic issues", "cls": "bad", "tag": "排除 B", "log": "B 聚焦物质问题 ✗ ——例举被升格成「聚焦」对象，materialistic 是臆断标签", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>consumer preferences、housing patterns 只是「方方面面」里的<b>两个例证</b>——例证被升格成「聚焦」对象，且 materialistic（物质的）是臆断的标签。原文的功能是「例证影响面广」，不是「锁定物质话题」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看见实物词就联想「物质」，误判例证的功能。</p>"},
+ {"title": "逐项分析 · C depend largely on political preferences", "cls": "bad", "tag": "排除 C", "log": "C 取决于政治偏好 ✗ ——politics 只是第三个例证，depend on 无出处", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>politics 同样只是例举链末端的<b>第三个例证</b>——「影响波及政治」被读成「取决于政治偏好」，depend on 的依赖关系全文无语法通道。</p><p style=\"color:#b91c1c\">⚠ 典型误解：politics / preferences 杂糅重组，把例举读成条件。</p>"},
+ {"title": "逐项分析 · D reach almost all aspects of American life", "cls": "good", "tag": "选定 D", "log": "D 几乎触及美国人生活的所有方面 ✓ ——原文「蔓延到几乎方方面面」的直译改写", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>spread through（蔓延到）＝ reach（触及），virtually ＝ almost，all aspects of American life 原词级保留——动词、程度、范围三要素一一对应，是从句的直译改写。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D：几乎触及美国人生活的所有方面——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>确认 that 从句修饰 priorities and expectations → 从句谓语 spread through virtually all aspects → 直译改写 reach almost all aspects → 选 D。</b></p><p>答案选 <b>D（reach almost all aspects of American life）</b>。</p><p><b>记忆锚点</b>：from…to…to… 是范围例举，只证「广」，不供「聚焦 / 取决 / 清晰」；谓语只认 spread through。</p><p style=\"color:#b91c1c\">A/B/C 的配方都是「拆零件再组装」——每个词都真，装错的是结构。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 38 题 · 定语从句的归属——that 从句说了什么",
+  subtitle: "考点：细节题 · that 从句修饰对象确认 + from…to…to… 例举功能识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“确认归属 → 拆从句 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（reach almost all aspects of American life）", "html": "<b>D 几乎触及美国人生活的所有方面</b>：spread through virtually all aspects 的直译改写。<br>记忆锚点：from…to…to… 是例举，只证「广」，不供「聚焦 / 取决 / 清晰」；谓语只认 spread through。<br>A/B/C 都是「拆零件再组装」——每个词都真，装错的是结构。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 38 题 · 定语从句的归属——that 从句说了什么</h2>
+<p>答案：<strong>D（reach almost all aspects of American life 几乎触及美国人生活的所有方面）</strong>。</p>
+<h3>第 0 步：先立机制——先问"修饰谁"，再问"说什么"</h3>
+<p>题干 The priorities and expectations defined by the young will ____——主语在第四段末句里，但整句的信息重心不在主语本身，而在它后面的 <strong>that 定语从句</strong>：...defining priorities and expectations <strong>that will increasingly spread through virtually all aspects of American life</strong>。定语从句交代的是"这些事项与期望将怎样"——题干的 will ____ 问的正是这个空。所以本题的第一个动作是确认归属：that 从句修饰的是 priorities and expectations，从句谓语 will increasingly spread... 就是答案的母本。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...those just starting out in life are defining priorities and expectations that will increasingly spread through virtually all aspects of American life, from consumer preferences to housing patterns to politics.</blockquote>
+<p>从句拆开三块：<strong>increasingly</strong>（越来越）修饰 spread（蔓延）；<strong>spread through virtually all aspects</strong>（蔓延到几乎方方面面）＝ 正确项的直译层；<strong>from... to... to...</strong>（消费者偏好、住房模式、政治）是"方方面面"的三例举——例证影响之广，不是影响的方向或条件。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[D] reach <strong>almost all aspects</strong> of American life——spread through（蔓延到）＝ reach（触及），virtually ＝ almost，all aspects of American life 原词级保留。动词、程度、范围三要素一一对应，是从句的直译改写。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A become increasingly clear</td><td>✗</td><td>状语挪用：increasingly 在原文修饰 <strong>spread</strong>（影响越来越广），不是"变清晰"——把修饰别处的副词挪来给 clear 用，再杂糅 defining 凑出"日益清晰"</td></tr><tr><td>B focus on materialistic issues</td><td>✗</td><td>例举升格：consumer preferences、housing patterns 只是"方方面面"里的<strong>两个例证</strong>——例证被升格成"聚焦"对象，且 materialistic（物质的）是臆断的标签</td></tr><tr><td>C depend largely on political preferences</td><td>✗</td><td>例举杂糅：politics 同样只是第三个例证——"影响波及政治"被读成"取决于政治偏好"，depend on 的依赖关系全文无出处</td></tr><tr><td>D reach almost all aspects of American life</td><td>✓</td><td>spread through virtually all aspects 的直译改写：reach＝spread through，almost＝virtually</td></tr></tbody></table>
+<h3>预判追问：为什么 A/B/C 用的词都能在原句里找到，却全是错的？</h3>
+<p>因为末句是一个"从句＋例举"的组合结构，干扰项的配方就是<strong>把例举和状语拆下来重新组装</strong>：A 拿走 increasingly，B 拿走 consumer preferences / housing patterns，C 拿走 politics / preferences——每个零件都真，装错的却是结构。识别这种题只需要记住一句话：<strong>from... to... to... 是范围例举，只说明"广"，不构成任何"聚焦/取决/清晰"的谓语关系</strong>。谓语只认 spread through。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把 defining（正在界定）与 increasingly（日益）拼成"日益清晰"——两个词一个属于主句、一个属于从句谓语，拼在一起就成了无中生有。</li><li><strong>误选 B</strong>：看见"消费者偏好、住房模式"这些实物词就联想"物质"——它们的功能是例证影响面，"聚焦物质"是对功能的误判。</li><li><strong>误选 C</strong>：politics 原词出现，但它躺在例举链的末端，与 depend on（取决于）没有任何语法通道。</li></ul>
+<blockquote>记忆锚点：先确认 that 从句修饰 priorities and expectations，谓语 spread through virtually all aspects ＝ D 的 reach almost all aspects；from...to...to... 是例举，只证"广"，不供"聚焦/取决"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

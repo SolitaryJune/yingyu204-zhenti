@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-34</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 概念/推理链模板（复制自 408 anim_concept_template），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var STEPS = [
+  {
+    "cls": "key",
+    "title": "审题眼",
+    "body": "<p>题干 <code>Some older drivers have trouble driving because they tend to ____</code>。因果细节题：题干自带 because，去原文找显性因果连词 <b>because</b>，答案必须出自原因从句内部。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "定位原文（第五段）",
+    "body": "<p style=\"border-left:3px solid #64748b;padding:5px 12px;margin:8px 0;background:#f8fafc;border-radius:0 10px 10px 0;color:#334155;font-size:13.5px;line-height:1.8\">原文 · …may not be able to follow through with patients who <b>have trouble driving because</b> they can't turn their heads <b>or</b> remember where they are going—or have gotten shorter and haven't changed their seat settings…</p><p>because 从句里 <b>or 并列三种原因</b>：转不了头 / 记不住要去哪 / 变矮了没调座椅。三个分支都是候选答案。</p>"
+  },
+  {
+    "cls": "key",
+    "title": "同义替换 ⇒ B",
+    "body": "<p>B 项 <code>have a weakened memory</code>（记忆力衰退）↔ can't <b>remember</b> where they are going——\"记不住自己要去哪\"就是\"记忆力衰退\"，正中 or 并列分支之一。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 A：意识问题 ≠ 习惯问题",
+    "body": "<p>A 项 stick with bad driving habits 挂靠 haven't changed their seat settings。原文语境是\"身体变矮了<b>没意识到</b>，所以没把座椅调到位\"——意识问题，不是\"养成坏习惯继续开\"的习惯问题，断章取义。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 C：碎片杂糅，无中生有",
+    "body": "<p>C 项 suffer from chronic pains 由碎片 patients + can't turn their heads 拼接而成。原文只说\"转不了头\"是困难之一，从未出现\"慢性疼痛\"——无中生有。</p>"
+  },
+  {
+    "cls": "bad",
+    "title": "排除 D：望文生义",
+    "body": "<p>D 项 neglect car maintenance 由 seat settings / car pedals 望文生义。\"没调座椅\"是驾驶员自身的适应问题，与\"忽视汽车保养（维护车辆）\"是两回事。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "锁定 B",
+    "body": "<p>原因从句三个并列分支逐一比对：转不了头（身体）、记不住路（记忆）、没调座椅（意识）。只有\"记不住路\"能同义对接 <code>weakened memory</code>。</p>"
+  },
+  {
+    "cls": "good",
+    "title": "结论",
+    "body": "<p>答案 <b>B（have a weakened memory 伴有记忆力衰退）</b>。口诀：因果题盯住 because 从句内部，or 是\"分尸刀\"——每个并列分支都可能被选项借用。</p>"
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    count: i + 1,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return '<div class="aw-stepcard ' + x.cls + '"><h4><span class="n">' + (j + 1) +
+             '</span>' + x.title + '</h4>' + x.body + '</div>';
+    }).join(''),
+    done: i === STEPS.length - 1,
+  };
+});
+
+AW.init({
+  "title": "2024 英语 Text 1 · 第 34 题：高龄司机开车困难的原因",
+  "subtitle": "考点：因果细节题 · because 从句内 or 并列三因",
+  "counterLabel": "进度",
+  "intro": "点击「▶ 播放」逐步展开「定位 → 同义替换 → 逐项排除」推理链，也可用上一步/下一步单步走。",
+  "snaps": snaps,
+  "result": {
+    "big": "答案 B",
+    "html": "记忆锚点：因果细节 = <b>because + or 并列结构逐分支替换</b>。can't remember where they are going ⇒ weakened memory。A/D 都在\"没调座椅\"上做文章（意识 ≠ 习惯、调座 ≠ 保养），C 纯杂糅捏造\"慢性疼痛\"。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读 Text 1 第 34 题 · 高龄司机开车困难的原因</h2>
+<p>答案：<strong>B（have a weakened memory 伴有记忆力衰退）</strong>。</p>
+<h3>第 0 步：先立机制——因果细节题在"原因从句内部"找答案</h3>
+<p>题干自带 because，等于把答案的位置提前圈定：原文的<strong>原因状语从句</strong>里。这句话的特别之处是原因不止一个——从句内用 <strong>or 并列了三个分支</strong>，每个分支都是一个候选答案，也各埋着一个干扰项。解题就是把三个分支逐一同义替换比对。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...may not be able to follow through with patients who have trouble driving <strong>because</strong> they can't turn their heads <strong>or</strong> remember where they are going—or have gotten shorter and haven't changed their seat settings sufficiently to reach car pedals easily.</blockquote>
+<p>三个并列原因：①转不了头（身体僵硬）；②<strong>记不住要去哪</strong>；③身体变矮了、没把座椅调到能轻松够到踏板的位置。</p>
+<h3>第 2 步：同义替换</h3>
+<p>can't remember where they are going（记不住自己要去哪）= 记忆功能衰退 ⇒ <strong>have a weakened memory</strong>。这是 or 分支②的正面命中。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A stick with bad driving habits</td><td>✗</td><td>挂靠"没调座椅"。但原文语境是"变矮了<strong>没意识到</strong>才没调"——意识问题，不是"习惯不好接着开"的习惯问题。（典型误解：把"没调整"自动脑补成"不改习惯"。）</td></tr><tr><td>C suffer from chronic pains</td><td>✗</td><td>由碎片 patients + can't turn their heads 杂糅捏造；"慢性疼痛"全文未提。（典型误解：见 patients 就联想生病疼痛。）</td></tr><tr><td>D neglect car maintenance</td><td>✗</td><td>由 seat settings / car pedals 望文生义出"忽视汽车保养"——"没调座椅"是驾驶者的适应问题，不是车辆维护问题。（典型误解：见 car 就配保养。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>can't turn their heads 不是"脖子疼"吗？</strong>：原文只陈述"转不了头"这一现象，没交代病因；C 项把现象升级成"慢性疼痛"属于无据推断。</li><li><strong>为什么不能选 A 的"没调座椅"？</strong>：同一段里"没调座椅"和"变矮"是绑定的——它说明的是<strong>自我察觉缺失</strong>，与"驾驶习惯好坏"无关。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>在 or 分支③上做文章的 A、D 双陷阱</strong>：同一处原文细节被两个选项从不同方向扭曲——一个说习惯、一个说保养。</li><li><strong>漏看 or 的并列功能</strong>：只盯第一个分支"转不了头"，就可能被 C 带跑。</li></ul>
+<blockquote>记忆锚点：因果题盯死 because 从句内部；or 是"分尸刀"，三个分支逐一替换；can't remember where they are going ⇒ weakened memory；"没调座椅"= 意识问题，不是习惯、更不是保养。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2020-48 大作文框架：描图（主对比）→ 析因（双因）→ 预测（手机阅读目的饼图）</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：两问对应三段',
+    cls: 'key',
+    body: '<p>指令两问：<b>1) interpret the chart</b>（描图）+ <b>2) give your comments</b>（评论）。评论 = <b>点破现象 → 析因 → 顺因预测</b>，全文落成三段：描图段 → 析因段 → 预测段。只描图不评论 = 只答了第一问，结构掉档。</p>' },
+  { title: '读图：标题定对象，数据找对比',
+    cls: 'key',
+    body: '<p>标题「某高校学生手机阅读目的调查」给出调查对象与内容——概述句的两个填空直接来自标题。</p><p>四类数据从高到低：<b>学习知识 59.5% &gt; 消磨时间 21.3% &gt; 获取信息 17.0% &gt; 其他 2.2%</b>。</p>' },
+  { title: '关键对比：求知压倒消遣',
+    cls: 'key',
+    body: '<p>关键运算：<b>学习知识 + 获取信息 = 76.5%，超过四分之三</b>；而「消磨时间」只占约五分之一。</p><p>这就是全文的「矛盾」：手机阅读的主流用途是<b>求知与获取信息</b>，娱乐只是次要功能——第二段的现象与第三段的预测都从这组对比长出来。</p>' },
+  { title: '描图段①：概述句交代来源',
+    cls: 'good',
+    body: '<p>第一句不碰数字，先交代数据来源（对象 + 内容）：</p><p><b>The figures in the pie chart are based on a survey on the purpose of mobile reading among students at a certain university.</b></p><p>句型：figures（数据）+ be based on a survey on...（基于一项……的调查），respondent（受访者）一族词先备好。</p>' },
+  { title: '描图段②：核心数据句一句装下主对比',
+    cls: 'good',
+    body: '<p><b>Over three quarters of respondents read on their cellphones for the sake of acquiring knowledge (59.5%) or obtaining information (17.0%), while roughly one fifth do so just for fun.</b></p><p>三个升格点：<b>分数替换</b>（over three quarters / roughly one fifth）；<b>while</b> 完成两类用途对比；<b>do so</b> 回指 read on their cellphones 避免重复。</p>' },
+  { title: '析因①：现象句点破今昔反差',
+    cls: 'key',
+    body: '<p>The chart indicates that <b>mobile reading, once regarded merely as a way to kill time, has become an approach to improving oneself or expanding one\'s horizons</b>.</p><p>插入语 once regarded merely as...（曾经仅被视为消遣）制造今昔反差；<b>现在完成时 has become</b> 点明转变已发生；improving oneself / expanding one\'s horizons 回应「学习知识 + 获取信息」两大用途。</p>' },
+  { title: '析因②：原因一（客观）——智能机普及',
+    cls: 'good',
+    body: '<p><b>It is actually a predictable phenomenon, given the popularization of smartphones.</b>（given 复合介词 = 考虑到——这其实是可预想的现象）</p><p><b>They provide us with easy online access, thereby catering to our need for a variety of information.</b>（thereby + 现在分词作结果；cater to = 满足需求）——设备随处可联网，满足各类信息需求。</p>' },
+  { title: '析因③：原因二（主观）——就业竞争倒逼',
+    cls: 'good',
+    body: '<p><b>The increasingly intense competition in the job market has also played a part.</b>（play a part 引出补充原因，also 标志第二条）</p><p><b>In order to gain nothing more than a slight edge over other job applicants, we college students have to keep learning something new, mastering practical skills and receiving real-time information.</b>——哪怕只略胜一筹，也要学新知、练技能、接资讯（三个动名词并列）。</p>' },
+  { title: '预测段：顺因推势，不凭空展望',
+    cls: 'good',
+    body: '<p><b>In conclusion, mobile reading is bound to rise in popularity.</b>——「必然」从析因顺延：智能机继续普及（客观）+ 竞争持续存在（主观）。</p><p><b>Richer content and a better reading experience will be the key to attracting users.</b>——一句趋势 + 一句关键因素，预测段立住。</p>' },
+  { title: '语言纪律：搭配 · 时态 · 衔接',
+    cls: 'key',
+    body: '<p><b>搭配红线</b>：gain / acquire knowledge（<s>learn knowledge</s> ✗）；obtain information；kill time。</p><p><b>时态</b>：描图一般现在时（read / are based on）；现象完成时（has become / has played a part）；预测 will / be bound to。</p><p><b>衔接</b>：while（描图对比）· given（原因）· also（补因）· thereby（结果）· In conclusion（总结）。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架记忆锚点：<b>描图 = 概述句 + 主对比句（分数替换 + while + do so）；析因 = 现象句 + 一客观一主观；预测 = be bound to + 关键因素；搭配红线 gain knowledge / obtain information</b>。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === 0 ? 'step' : (i === STEPS.length - 1 ? 'done' : 'step'),
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2020-48 大作文框架演示：描图（主对比）→ 析因（双因）→ 预测',
+  subtitle: '考点：图表作文（饼图） · 方法：读图提炼对比 → 描图 → 析因 → 顺因预测',
+  intro: '点击「▶ 播放」逐步展开读图、描图、析因与预测的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '范文全文（答案口径）',
+    html: '<p>The figures in the pie chart are based on a survey on the purpose of mobile reading among students at a certain university. Over three quarters of respondents read on their cellphones for the sake of acquiring knowledge (59.5%) or obtaining information (17.0%), while roughly one fifth do so just for fun.</p>' +
+      '<p>The chart indicates that mobile reading, once regarded merely as a way to kill time, has become an approach to improving oneself or expanding one\'s horizons. It is actually a predictable phenomenon, given the popularization of smartphones. They provide us with easy online access, thereby catering to our need for a variety of information. The increasingly intense competition in the job market has also played a part. In order to gain nothing more than a slight edge over other job applicants, we college students have to keep learning something new, mastering practical skills and receiving real-time information.</p>' +
+      '<p>In conclusion, mobile reading is bound to rise in popularity. Richer content and a better reading experience will be the key to attracting users.</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>描图 = 概述句 + 主对比句；析因 = 现象句 + 一客观一主观；预测 = be bound to + 关键因素</b>。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：饼状图作文——"功能对比"描图 + 客观主观双因析因（2020 大作文）</h2>
+<p>答案（参考范文口径）：<strong>The figures in the pie chart are based on a survey on the purpose of mobile reading among students at a certain university. Over three quarters of respondents read on their cellphones for the sake of acquiring knowledge (59.5%) or obtaining information (17.0%), while roughly one fifth do so just for fun. The chart indicates that mobile reading, once regarded merely as a way to kill time, has become an approach to improving oneself or expanding one's horizons. It is actually a predictable phenomenon, given the popularization of smartphones. They provide us with easy online access, thereby catering to our need for a variety of information. The increasingly intense competition in the job market has also played a part. In order to gain nothing more than a slight edge over other job applicants, we college students have to keep learning something new, mastering practical skills and receiving real-time information. In conclusion, mobile reading is bound to rise in popularity. Richer content and a better reading experience will be the key to attracting users.</strong></p>
+<h3>第 0 步：先立机制——两问换三段，饼图的重心在"主要对比"</h3>
+<p>指令两问：<code>interpret the chart</code>（描图）+ <code>give your comments</code>（评论）。评论不是空发感想，而是"<strong>点破现象 → 析因 → 顺因预测</strong>"，所以全文落成三段：描图段 → 析因段 → 预测段。饼图是比例分布图，四类数据<strong>不能平均用力地罗列</strong>——描图的任务是提炼出一组主要对比，让第二段有的放矢。机制立住了，每一段都是在往这组对比上长内容。</p>
+<h3>第 1 步：读图——先看标题定对象，再排数据找对比</h3>
+<ul><li>标题"某高校学生手机阅读目的调查"给出<strong>调查对象</strong>（某高校学生）与<strong>调查内容</strong>（手机阅读的目的）——概述句的两个填空直接来自标题。</li><li>四类数据从高到低：学习知识 <strong>59.5%</strong> &gt; 消磨时间 <strong>21.3%</strong> &gt; 获取信息 <strong>17.0%</strong> &gt; 其他 <strong>2.2%</strong>。</li><li>关键运算：学习知识 + 获取信息 = <strong>76.5%，超过四分之三</strong>，而"消磨时间"只占约五分之一。这组对比就是全文的"矛盾"：手机阅读的主流用途是<strong>求知与获取信息</strong>，娱乐只是次要功能。第二段的"现象"和第三段的"预测"都从这组长出来。</li></ul>
+<h3>第 2 步：描图段——概述句 + 核心数据句</h3>
+<ul><li><strong>概述句</strong>交代数据来源：The figures in the pie chart are based on a survey on the purpose of mobile reading among students at a certain university.（基于一项针对某高校学生手机阅读目的的调查）</li><li><strong>核心数据句</strong>一句装下主要对比：<strong>Over three quarters</strong> of <strong>respondents</strong> read on their cellphones <strong>for the sake of acquiring knowledge (59.5%) or obtaining information (17.0%)</strong>, <strong>while roughly one fifth do so just for fun</strong>.</li><li><strong>分数替换</strong>：over three quarters（超四分之三）替代 76.5%，roughly one fifth（约五分之一）替代 21.3%——分数比连续四个百分数更有美感，关键百分比括注保留精确性；</li><li><strong>while</strong> 一词完成两类用途的对比；<strong>do so</strong> 回指 read on their cellphones，避免重复；</li><li>respondent = 受访者、调查对象，调查图表作文的标配词。</li><li>只报 59.5% 一项、或把四个百分比从头念到尾，都是描图段不合格的写法：前者数据不完整，后者没有重心。</li></ul>
+<h3>第 3 步：析因段——先点破现象，再一客观一主观双因展开</h3>
+<ul><li><strong>现象句</strong>（承描图段）：The chart indicates that <strong>mobile reading, once regarded merely as a way to kill time, has become an approach to improving oneself or expanding one's horizons</strong>.——插入语 once regarded...（曾经仅被视为消遣）制造"今昔反差"；<strong>现在完成时 has become</strong> 点明转变已经发生；improving oneself / expanding one's horizons（提升自我、拓宽眼界）回应"学习知识 + 获取信息"两大用途。</li><li><strong>原因一（客观）</strong>：智能手机的普及。<strong>It is actually a predictable phenomenon, given the popularization of smartphones.</strong>（given 复合介词 = 考虑到）→ <strong>They provide us with easy online access, thereby catering to our need for a variety of information.</strong>（thereby + 现在分词作结果；cater to = 满足需求）——设备随处可联网，满足各类信息需求。</li><li><strong>原因二（主观）</strong>：就业竞争倒逼自我提升。<strong>The increasingly intense competition in the job market has also played a part.</strong>（play a part 引出补充原因，also 标志第二条）→ In order to gain <strong>nothing more than a slight edge over</strong> other job applicants（哪怕只比求职者略胜一筹）, we college students have to <strong>keep learning something new, mastering practical skills and receiving real-time information</strong>（三个动名词并列：学新知、练技能、接资讯）。</li><li>两条原因一外一内，共同指向"手机阅读功能升级"——析因不是凑句子，是同一现象的两个侧面。</li></ul>
+<h3>第 4 步：预测段——顺因推势，不凭空展望</h3>
+<p>In conclusion 收束：手机阅读<strong>必然</strong>继续流行（<strong>is bound to</strong> rise in popularity）——这个"必然"不是拍脑袋，它顺延析因段的两个原因：智能机继续普及（客观）+ 竞争持续存在（主观）。第二句点明发展的<strong>关键因素</strong>：更丰富的内容与更优质的阅读体验将决定谁能吸引用户（Richer content and a better reading experience will be the key to attracting users.）。一句趋势 + 一句关键，预测段就立住了。</p>
+<h3>第 5 步：语言纪律——预判"怎么不丢冤枉分"</h3>
+<ul><li><strong>时态纪律</strong>：饼图是调查的常态结果，描图用一般现在时（read / are based on）；现象已发生用现在完成时（has become / has played a part）；预测用 will / be bound to。一个时态走到底是典型扣分点。</li><li><strong>搭配红线</strong>：gain / acquire knowledge（<strong>learn knowledge 是错误搭配</strong>）；obtain information；kill time（消磨时间，比 play 有分量）。</li><li><strong>衔接词分工</strong>：while（描图对比）、given（让步原因）、also（补第二条原因）、thereby（结果）、In conclusion（总结）。</li><li><strong>百分数表达</strong>：分数（over three quarters / roughly one fifth）与括注百分比配合，避免通篇 59.5%、21.3% 的机械堆砌。</li></ul>
+<h3>易错点：每个失分点对应哪种误解</h3>
+<ul><li><strong>罗列四个百分比不提炼</strong>：把"其他 2.2%"当重点逐项报数——描图没有重心，第二段无处生长；正确是抓住"求知 + 信息 ≈ 76.5% vs 消遣 21.3%"这组主对比。</li><li><strong>只写 59.5% 一项</strong>：数据不完整，compare 的"另一侧"（消遣）丢失，对比无从谈起。</li><li><strong>learn knowledge</strong>：高频搭配错误；知识用 gain / acquire / get，information 才与 obtain / receive 搭。</li><li><strong>析因写成"手机危害论"</strong>：写沉迷、视力下降——偏离图表传达的积极趋势（手机阅读是提升自我的途径）；析因必须解释数据反映的现象。</li><li><strong>预测凭空抒情</strong>：I believe mobile reading will have a bright future 一句空话；要从原因顺延（普及持续 + 竞争持续 → 必然更流行），并落到一个具体关键（内容与体验）。</li><li><strong>图表类型写错</strong>：pie chart 写成 chart/graph 混用尚可，写成 diagram/table 则类型失实；描图第一句就把"饼图 + 调查 + 对象"交代清。</li></ul>
+<blockquote>记忆锚点：饼图描图 = <strong>概述句（来源 + 对象）+ 主对比句</strong>；分数替换 + while + do so；析因 = 现象句（once...has become）+ 一客观一主观；预测 = be bound to + 关键因素；搭配红线 <strong>gain knowledge / obtain information</strong>。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

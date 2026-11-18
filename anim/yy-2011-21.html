@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-21 · 2011 阅读第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 因果细节题：for 后面的才是原因",
+  "cls": "key",
+  "tag": "审题",
+  "log": "审题眼：题干 According to Paragraph 1, Ms. Simmons was criticized for ___",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干问 was criticized <b>for</b> 什么：批评的原因必须取自原文因果结构的对应位置。审题预判：答案不会重复“被批评”的字面，而是把批评的实质内容改写出来。</p>"
+ },
+ {
+  "title": "定位原文 · 分号后的反问句才是指控书",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：第一段 ③ 句 was under fire for…; how could she have let…",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("But by the end of 2009 Ms. Simmons was under fire for having sat on Goldman’s compensation committee; how could she have let those enormous bonus payouts pass unremarked?") + "<p>分号后是批评者的质问：<b>她怎么能让那些巨额奖金支出毫无察觉地通过？</b>作为薪酬委员会成员，职责就是审查奖金发放——“放任巨额奖金 unremarked 通过”＝没尽到审查职责。</p>"
+ },
+ {
+  "title": "同义替换 · unremarked ＝ 审查缺位 ＝ 失职",
+  "cls": "key",
+  "tag": "替换",
+  "log": "同义替换：how could she have let… pass unremarked → failing to fulfill her duty",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>薪酬委员的 duty ＝ 审查奖金发放；let enormous bonus payouts pass <b>unremarked</b>（未加察觉、未加过问地放行）＝ 该管没管 ＝ <b>failing to fulfill her duty</b>。时间线备忘：挨批在 2009 年底，离职在次年 2 月——离职是挨批的<b>结果</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · B failing to fulfill her duty",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B failing to fulfill her duty（未能履行其职责） ✓ 当选",
+  "count": 0,
+  "ribbon": {"k": "B", "ok": true},
+  "body": "<p><b>当选。</b>B 是反问句的概括：薪酬委员放行巨额奖金＝失职——同义改写，语义严丝合缝。</p>"
+ },
+ {
+  "title": "逐项分析 · A gaining excessive profits（获取超额收益）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A gaining excessive profits ✗ 排除——同词不同向：她放任的不是她获利",
+  "count": 1,
+  "ribbon": {"k": "A", "ok": false},
+  "body": "<p><b>排除。</b>excessive profits 与原文 enormous bonus 近义诱饵；但原文说的是她<b>放任别人的巨额奖金</b>溜过审查，是她失职，不是她本人获利——gaining 无文本支撑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被近义词捕获，不核对动作的发出者与方向。</p>"
+ },
+ {
+  "title": "逐项分析 · D leaving the board in tough times（困难时期离开董事会）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D leaving the board in tough times ✗ 排除——把结果当原因",
+  "count": 2,
+  "ribbon": {"k": "D", "ok": false},
+  "body": "<p><b>排除。</b>因果倒置＋时间错位：离开（次年 2 月）是挨批（2009 年底）之后的结果，不能倒装成原因。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认句子先后顺序，不核对时间与因果方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C refusing to make compromises（拒绝做出妥协）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C refusing to make compromises ✗ 排除——无中生有",
+  "count": 3,
+  "ribbon": {"k": "C", "ok": false},
+  "body": "<p><b>排除。</b>全文没有“要求她妥协、她拒绝”的任何情节——凭“董事会斗争”常识脑补的选项直接出局。</p><p style=\"color:#b91c1c\">⚠ 典型误解：用背景常识补白，不做原文核查。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（failing to fulfill her duty）——见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整逻辑：<b>2009 年底，西蒙斯因任职高盛薪酬委员会而挨批——批评者的质问是：她怎么能让巨额奖金支出毫无察觉地通过？放行巨额奖金＝审查失职。</b></p><p>答案选 <b>B（failing to fulfill her duty 未能履行其职责）</b>。</p><p><b>记忆锚点</b>：be criticized for 的答案在 for 的语义对应处；分号后的反问句 how could she… ＝ 指控书正文；unremarked ＝ 审查缺位。</p><p style=\"color:#b91c1c\">最易误选：<b>A（gaining excessive profits）</b>——enormous bonus 同词不同向。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 阅读第 21 题 · 西蒙斯女士因何挨批",
+  subtitle: "考点：第一段因果细节 · under fire for 的原因定位与同义替换",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 B（failing to fulfill her duty）",
+    html: "<b>B failing to fulfill her duty（未能履行其职责）</b>。<br>记忆锚点：分号后的反问句 how could she have let… pass unremarked ＝ 指控书正文＝审查失职。<br>最易误选：<b>A（gaining excessive profits）</b>——enormous bonus 同词不同向：她放任奖金通过，不是她自己获利。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 阅读第 21 题 · under fire 的原因藏在分号后的反问里</h2>
+<p>答案：<strong>B（failing to fulfill her duty 未能履行职责）</strong>。</p>
+<h3>第 0 步：先立机制——因果细节题，"for"后面的才是原因</h3>
+<p>题干问 was criticized <strong>for</strong> 什么：批评的原因必须取自原文因果结构的对应位置。第一段写批评用的是 <strong>be under fire for having sat on Goldman's compensation committee（因任职薪酬委员会而挨批）</strong>——但"任职"本身只是背景，真正的指控藏在分号后的反问句里。审题时就要预判：答案不重复"被批评"的字面，而是把反问句的意思改写出来。</p>
+<h3>第 1 步：定位原文——反问句才是指控书</h3>
+<blockquote>But by the end of 2009 Ms. Simmons was under fire for having sat on Goldman's compensation committee; how could she have let those enormous bonus payouts pass unremarked?</blockquote>
+<p>分号后是批评者的质问：<strong>她怎么能让那些巨额奖金支出毫无察觉地通过？</strong> 作为薪酬委员会成员，职责就是审查奖金发放；"让巨额奖金 unremarked（无人察觉地）通过"＝没尽到审查职责。B 的 failing to fulfill her duty 正是这个意思的同义改写。同时注意时间线：挨批在 2009 年底，离职在次年 2 月——离职是挨批的<strong>结果</strong>。</p>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A gaining excessive profits</td><td>获取超额收益</td><td>excessive profits 与原文 enormous bonus 近义诱饵；但原文说她"放任巨额奖金通过"，是她失职，不是她本人获利——gaining 无文本支撑</td></tr><tr><td>B failing to fulfill her duty</td><td>未能履行其职责</td><td>✓ how could she have let those enormous bonus payouts pass unremarked 的概括：薪酬委员放行巨额奖金＝失职</td></tr><tr><td>C refusing to make compromises</td><td>拒绝做出妥协</td><td>无中生有：全文没有"要求她妥协、她拒绝"的任何情节</td></tr><tr><td>D leaving the board in tough times</td><td>在困难时期离开董事会</td><td>因果倒置＋时间错位：离开（次年 2 月）是挨批（2009 年底）之后的结果，不能倒装成原因</td></tr></tbody></table>
+<h3>预判追问：为什么 A 不对？它不是也有 enormous 吗？</h3>
+<p>enormous bonus 确实出现了，但方向完全不同：原文说的是她<strong>放任别人的巨额奖金</strong>溜过审查（unremarked＝未加察觉、未加过问），说的是"该管没管"；A 说的是她<strong>自己获取</strong>超额收益。unremarked 这个词把整句的矛头指向"审查缺位"而非"私分利益"——同词不同向，正是细节题最常用的诱饵手法。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（gaining excessive profits）</strong>：被 enormous bonus 近义捕获；原文指向审查失职，不是获利。</li><li><strong>误选 D（leaving the board）</strong>：把第四句的"结果"读成第三句的"原因"；时间线（2009 底挨批 → 2010.2 离职）是现成的排序证据。</li><li><strong>误选 C（refusing to make compromises）</strong>：凭"董事会斗争"的常识脑补；原文零支撑的选项直接出局。</li></ul>
+<blockquote>记忆锚点：be criticized for 的答案在 for 的语义对应处；分号后的反问句 how could she… ＝ 指控书正文；unremarked ＝ 审查缺位 ＝ failing to fulfill her duty。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

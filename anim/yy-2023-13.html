@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2023-13 · 2023 完形第 13 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2010-01） -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [
+ {
+  "title": "定位原文 · 空 13 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 13 所在句，考点：句内语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">…the marketing and engineering teams joined forces to raise awareness by prominently __13__ the premium version to users of the free version.</div><p>四要素拆解：团队联手（行为）+ this insight（理念）+ raise awareness（目的）+ by prominently ____ the premium version to users（手段）。手段动词要过三关：搭配 / 达成目的 / 引出收益。</p>"
+ },
+ {
+  "title": "找证据 · 真因是“不了解”，处方只能是把高级版“宣传”出去",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：unaware（不了解）→ raise awareness → 宣传/推销高级版",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Most customers were simply unaware of the premium version and what it offered.</div><p>真因是“不了解高级版”（unaware），处方是“补认知”（raise awareness）——手段只能是把高级版**宣传**到用户眼前：promote...to...，prominently 也顺理成章。</p>"
+ },
+ {
+  "title": "逐项分析 · A contributing（捐献；捐赠；贡献）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A contributing（捐献；捐赠；贡献） ✗ 排除——contribute 是“捐赠”，与收益 +92% 矛盾",
+  "body": "<p><b>排除。</b>考生容易套用“商家免费赠送高级版以宣传”的商业直觉。但 contribute (sth) to sb 实义是“捐赠/贡献”，属非营利动作——东西白送出去，与下文 revenue increased by 92 percent 的收费升级收入直接冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：“免费赠送以达到宣传效果”的直觉误植，忘了核对商业结果</p>"
+ },
+ {
+  "title": "逐项分析 · B allocating（分配；把……拨给）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B allocating（分配；把……拨给） ✗ 排除——“分配高级版”不合逻辑，prominently 也搭不上",
+  "body": "<p><b>排除。</b>allocate 是资源分配用语：“把高级版分配给免费版用户”既不符合软件产品的售卖逻辑，也产生不了收益；“显眼地分配”更是搭配别扭。三关全挂。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿“资源分配”的管理学套路硬套产品语境</p>"
+ },
+ {
+  "title": "逐项分析 · C promoting（促进；推销；促销）",
+  "cls": "good",
+  "tag": "选定 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "log": "C promoting（促进；推销；促销） ✓ 当选",
+  "body": "<p><b>当选。</b>prominently promoting the premium version to users of the free version：显眼地向免费版用户推销高级版——补齐“不了解”的认知缺口（呼应 raise awareness），又为下文“升级暴涨、收益 +92%”铺好商业逻辑。</p>"
+ },
+ {
+  "title": "逐项分析 · D transferring（搬迁；转让）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D transferring（搬迁；转让） ✗ 排除——用户“拿到”高级版就无需付费升级，与结果矛盾",
+  "body": "<p><b>排除。</b>transfer 意为“转让/使迁移”，隐含“用户得到了高级版本”——既已得到，何须付费升级？与 upgrades skyrocketed（升级暴涨）正面冲突。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看“把 A 给 B”的表层结构，没推演结果的连锁反应</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 C（promoting 促进；推销；促销）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>营销和工程团队通过向免费版本的用户突出地宣传高级版本，合力提升了（客户对高级版本的）认知</b>（promote...to... = 宣传/推销手段，服务于 raise awareness）。</p><p>答案选 <b>C（promoting 促进；推销；促销）</b>。</p><p><b>记忆锚点</b>：手段动词三关：搭配（promote sth to sb）→ 目的（raise awareness 补认知）→ 结果（收益 +92% 排除送/分/转等不出钱的动作）；prominently 是宣传语境的信号副词。</p><p style=\"color:#b91c1c\">最易误选：<b>A（contributing）</b>——“免费赠送以达到宣传效果”的直觉误植，忘了核对商业结果</p>"
+ }
+];
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+AW.init({
+  title: "2023 完形第 13 空 · “prominently ____ the premium version to…”该填哪个动词",
+  subtitle: "考点：句内语义 + 动词辨析 · 目的→手段链 + 商业结果验证",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（promoting）", "html": "<b>C promoting（促进；推销；促销）</b>。<br>完整句义：营销和工程团队通过向免费版本的用户突出地宣传高级版本，合力提升了（客户对高级版本的）认知。<br>记忆锚点：手段动词三关：搭配（promote sth to sb）→ 目的（raise awareness 补认知）→ 结果（收益 +92% 排除送/分/转等不出钱的动作）；prominently 是宣传语境的信号副词。<br>最易误选：<b>A</b>——“免费赠送以宣传”的直觉，忘了用收益 +92% 反推动作必须收钱"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：句内语义 + 动词辨析——目的已定，手段必须为它打工</h2>
+<p>答案：<strong>C（promoting 促进；推销；促销）</strong>。</p>
+<h3>第 0 步：先立框架——一句话里的四要素：主语 / 理念 / 目的 / 手段</h3>
+<p>空格句信息密度很高，先拆出四要素：主语（营销 + 工程团队联手）、理念（this insight：客户不了解高级版）、目的（<strong>raise awareness</strong> 提升认知）、手段（by prominently __13__ the premium version to users of the free version）。模型：<strong>手段动词必须同时过三关</strong>——① 宾语是高级版、对象是免费版用户；② 能实现“提升认知”的目的；③ 能引出下文“升级暴涨、收益 +92%”的商业结果。</p>
+<h3>第 1 步：定位原文，找证据</h3>
+<blockquote>…the marketing and engineering teams joined forces to raise awareness by prominently __13__ the premium version to users of the free version.</blockquote>
+<p>目的 raise awareness（提升认知）→ 手段必然是“宣传/推广”：把用户不了解的高级版送到他们眼前。promote sth to sb（向某人推销/宣传某物）是标准搭配，prominently（显眼地）更是宣传语境的天然副词——三关全过。</p>
+<blockquote>Most customers were simply unaware of the premium version and what it offered.（上一段真因）</blockquote>
+<h3>第 2 步：四个选项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>一句话理由</th></tr></thead><tbody><tr><td>A contributing</td><td>捐献；捐赠；贡献</td><td>❌ 排除</td><td>contribute 是“捐赠”，与收益 +92% 矛盾</td></tr><tr><td>B allocating</td><td>分配；把……拨给</td><td>❌ 排除</td><td>“分配高级版”不合逻辑，prominently 也搭不上</td></tr><tr><td>C promoting</td><td>促进；推销；促销</td><td>✅ 当选</td><td>promote...to... 宣传/推销，三关全过</td></tr><tr><td>D transferring</td><td>搬迁；转让</td><td>❌ 排除</td><td>用户“拿到”高级版就无需付费升级，与结果矛盾</td></tr></tbody></table>
+<p>代入全句：<strong>营销和工程团队通过向免费版本的用户突出地宣传高级版本，合力提升了（客户对高级版本的）认知</strong>（promote...to... = 宣传/推销手段，服务于 raise awareness）。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>误选 A（contributing 捐献；捐赠；贡献）</strong>：“免费赠送以达到宣传效果”的直觉误植，忘了核对商业结果。考生容易套用“商家免费赠送高级版以宣传”的商业直觉。但 contribute (sth) to sb 实义是“捐赠/贡献”，属非营利动作——东西白送出去，与下文 revenue increased by 92 percent 的收费升级收入直接冲突。</li><li><strong>误选 B（allocating 分配；把……拨给）</strong>：拿“资源分配”的管理学套路硬套产品语境。allocate 是资源分配用语：“把高级版分配给免费版用户”既不符合软件产品的售卖逻辑，也产生不了收益；“显眼地分配”更是搭配别扭。三关全挂。</li><li><strong>误选 D（transferring 搬迁；转让）</strong>：只看“把 A 给 B”的表层结构，没推演结果的连锁反应。transfer 意为“转让/使迁移”，隐含“用户得到了高级版本”——既已得到，何须付费升级？与 upgrades skyrocketed（升级暴涨）正面冲突。</li></ul>
+<blockquote>记忆锚点：手段动词三关：搭配（promote sth to sb）→ 目的（raise awareness 补认知）→ 结果（收益 +92% 排除送/分/转等不出钱的动作）；prominently 是宣传语境的信号副词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

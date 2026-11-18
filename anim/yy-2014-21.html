@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-21 · 2014 阅读第 21 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · According to sb 锁死观点主人",
+  "cls": "key",
+  "tag": "审题",
+  "log": "细节题第一问：先分归属——第二段有两套声音",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>According to Dunn and Norton, which of the following is the most rewarding purchase?</b></p><p>第二段同时存在两套声音：“人们直觉认为的”（fantasies → fancy cars / extravagant homes）和“邓恩与诺顿认为的”（It is far better to...）。四个选项一半来自前者、一半来自后者——<b>先分归属，再谈对错</b>。</p>"
+ },
+ {
+  "title": "定位原文 · 第二段⑤句（点名发言者）",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：It is far better to spend money on experiences, say Ms Dunn and Mr Norton",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">These two academics use an array of behavioral research to show that the most rewarding ways to spend money can be counterintuitive.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It is far better to spend money on experiences, <b>say Ms Dunn and Mr Norton</b>, like interesting trips, unique meals or even going to the cinema.</div><p>the most rewarding ways ↔ 题干 the most rewarding purchase；<b>say Ms Dunn and Mr Norton</b> 点名发言者；far better to spend money on <b>experiences</b>（购买体验）——答案已和盘托出。</p>"
+ },
+ {
+  "title": "同义替换 · 购买体验的三个例子",
+  "cls": "key",
+  "tag": "替换",
+  "log": "interesting trips / unique meals / going to the cinema → B a special tour",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>“体验”的三个例子：<b>interesting trips（有趣的旅行）、unique meals（独特的就餐）、going to the cinema</b>。B 项 <b>a special tour ↔ interesting trips</b>——“特别的一次旅行”正是“体验型购买”。</p>"
+ },
+ {
+  "title": "逐项分析 · A A big house（一所大房子）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A A big house ✗ 排除——属于“财富幻想”清单，且满足感很快消退",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>extravagant homes 属于“人们的财富幻想”清单；且 Yet satisfaction with these material purchases <b>wears off fairly quickly</b> 已宣判其满足感很快消退。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭常识认为“买大件最值”，未分观点归属。</p>"
+ },
+ {
+  "title": "逐项分析 · B A special tour（一次特别的旅行）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B A special tour ✓ 当选——interesting trips 的同义替换，体验型购买",
+  "count": 0,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>a special tour ↔ interesting trips，属于 Dunn/Norton 推荐的“体验型购买”，会随时间变成故事与记忆、愈发珍贵。</p>"
+ },
+ {
+  "title": "逐项分析 · C A stylish car（一辆时髦汽车）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C A stylish car ✗ 排除——同为 fancy cars 幻想清单成员",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>fancy cars 正是幻想清单成员，属于被否定的“物质购买”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：未分清两套观点的归属，把直觉清单当学者结论。</p>"
+ },
+ {
+  "title": "逐项分析 · D A rich meal（一顿丰盛大餐）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D A rich meal ✗ 排除——unique 被偷换成 rich：体验变物质",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>最强干扰：源自 unique meals，但 <b>unique（独特、体验性）被偷换成 rich（丰盛、物质性）</b>——豪华大餐是消费物质，独特就餐才是留下记忆的体验。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 meal 就选，不核对形容词——形容词才是区分“体验/物质”的开关。</p>"
+ },
+ {
+  "title": "结论 · 替换链与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（A special tour）——experiences ↔ trips/cinema/unique meals",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>同义替换链：<b>a special tour ↔ interesting trips</b>；物质项（house / car / rich meal）全部来自“财富幻想 + 满足感快速消退”的否定清单。</p><p>答案选 <b>B（A special tour）</b>。</p><p><b>记忆锚点</b>：According to sb → 先分观点归属再排除；experiences ↔ 物质；unique ≠ rich——形容词定生死。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 D（最强干扰）——锁定 meals 却放走 unique。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 21 题 · “最值得的购买”——先分清观点归属",
+  subtitle: "考点：细节题 · 观点归属（Dunn/Norton 的“体验” vs 人们的“物质幻想”）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（A special tour）",
+ "html": "<b>B a special tour ↔ interesting trips</b>：Dunn/Norton 点名推荐“购买体验”（trips / unique meals / cinema），体验随时间愈发珍贵。<br>A/C 是财富幻想（满足感 wears off quickly）；D 把 unique 偷换成 rich——体验变物质。<br>最易误选：<b>D</b>。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 21 题 · "最值得的购买"——先分清观点归属</h2>
+<p>答案：<strong>B（A special tour）</strong>。</p>
+<h3>第 0 步：先立机制——According to sb 锁死观点主人，选项一半来自"别人"</h3>
+<p>细节题第一问不是找原词，而是分归属。题干 According to Dunn and Norton 锁定发言人；第二段同时存在两套声音："人们直觉认为的"（fantasies of great wealth → fancy cars and extravagant homes）和"邓恩与诺顿认为的"（It is far better to...）。四个选项一半来自前者、一半来自后者——先分归属，再谈对错。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>These two academics use an array of behavioral research to show that the most rewarding ways to spend money can be counterintuitive.<br/>It is far better to spend money on experiences, say Ms Dunn and Mr Norton, like interesting trips, unique meals or even going to the cinema.</blockquote>
+<p>the most rewarding ways to spend money 与题干 the most rewarding purchase 对应；say Ms Dunn and Mr Norton 点名发言人；far better to spend money on <strong>experiences</strong>（购买体验）——两位学者的答案已和盘托出。</p>
+<h3>第 2 步：同义替换</h3>
+<p>购买体验的三个例子：interesting trips（有趣的旅行）、unique meals（独特的就餐）、going to the cinema。B 项 a special tour ↔ interesting trips——"特别的一次旅行"正是"体验型购买"。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>B A special tour</td><td>一次特别的旅行</td><td>✓ 当选</td><td>= interesting trips，属于 Dunn/Norton 推荐的"体验型购买"。</td></tr><tr><td>A A big house</td><td>一所大房子</td><td>✗ 排除</td><td>张冠李戴：extravagant homes 属于"人们的财富幻想"清单，且 Yet satisfaction with these material purchases wears off fairly quickly 已宣判其满足感很快消退。（典型误解：凭常识认为"买大件最值"。）</td></tr><tr><td>C A stylish car</td><td>一辆时髦汽车</td><td>✗ 排除</td><td>同为 fancy cars 幻想清单成员，是被否定的"物质购买"。（典型误解：未分清两套观点的归属。）</td></tr><tr><td>D A rich meal</td><td>一顿丰盛大餐</td><td>✗ 排除</td><td>最强干扰：源自 unique meals，但 unique（独特、体验性）被偷换成 rich（丰盛、物质性）——豪华大餐是消费物质，独特就餐才是留下记忆的体验。（典型误解：见 meal 就选，不核对形容词。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D 和 unique meals 不都指吃饭吗？</strong>：方向不同。作者举例的重点是"体验带来长久满足"（These purchases often become more valuable with time – as stories or memories）；unique 强调"经历独特、可变成故事和记忆"，rich 强调"档次丰盛"，恰恰滑回被否定的物质享受。</li><li><strong>房子汽车也是花钱，为什么不能选？</strong>：题干问的是 Dunn/Norton 眼中最值得的买法；③④句已给出他们的判决——物质购买的满足感很快消退、由新变旧、徒留后悔。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（最强干扰）</strong>：锁定 meals 却放走 unique——形容词才是区分"体验 / 物质"的开关。</li><li><strong>误选 A/C</strong>：把"人们幻想中花钱 = 快乐"的直觉清单当成学者结论。</li></ul>
+<blockquote>记忆锚点：According to sb → 先分观点归属再排除；experiences（trips / cinema / unique meals）↔ 物质（cars / homes）；unique ≠ rich——形容词定生死。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

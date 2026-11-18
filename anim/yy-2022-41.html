@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2022-41 · 2022 新题型第 41 题 · 【41】段小标题——恢复锻炼第一课</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  {
+   "title": "定位原文 · 【41】段——首句祈使句先亮主旨",
+   "cls": "key",
+   "tag": "定位",
+   "log": "定位原文：小标题题一段对一题——【41】段首句就是观点句",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Don’t try to go back to what you were doing before your break.</div><p>小标题题机制是“一段对一题”。【41】段首句就是<b>祈使句</b>：别试图恢复中断前的运动量——段旨句提前亮明，段中细节都在展开它。</p>"
+  },
+  {
+   "title": "机制 · 段旨压缩 + 双向验证",
+   "cls": "key",
+   "tag": "机制",
+   "log": "机制：正向看标题关键词有无复现，反向查段内有无反例",
+   "count": 0,
+   "ribbon": null,
+   "body": "<p>小标题匹配的两步：<b>压缩段旨</b>（观点句/祈使句/段末总结），再<b>双向验证</b>候选标题——正向看标题关键词能否在段内找到同义复现，反向查段内细节会不会推翻标题。</p><p>只做单向匹配（见到某个词就选）必被“局部词干扰项”击中。</p>"
+  },
+  {
+   "title": "证据 · 减半示例 + 循序渐进收束",
+   "cls": "key",
+   "tag": "证据",
+   "log": "证据：reduce activity ↔ start low；Increase gradually ↔ go slow",
+   "count": 0,
+   "ribbon": null,
+   "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If you were walking 3 miles a day… reduce activity to half a mile every other day… Increase time, distance, and intensity gradually. “This isn’t something you can do overnight”…</div><p>段内三步走：①别恢复原量 → ②举例把运动量<b>减半</b>（3 英里→隔天半英里）→ ③总结：时间/距离/强度都要<b>循序渐进</b>，“不可能一蹴而就”。降起点 + 慢增速，两条线索齐了。</p>"
+  },
+  {
+   "title": "逐项分析 · A Make It a Habit",
+   "cls": "bad",
+   "tag": "排除 A",
+   "log": "A Make It a Habit ✗ 排除——【43】段的主旨，隔段串门",
+   "count": 1,
+   "ribbon": {
+    "k": "A",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>“坚持/习惯”是【43】段（Consistency is the key）的主旨。</p><p style=\"color:#b91c1c\">⚠ 典型误解：段里“隔天/每周”的频率安排像在讲坚持——其实那些是“减量方案”的细节，服务“降低起点”。</p>"
+  },
+  {
+   "title": "逐项分析 · C Start Low, Go Slow",
+   "cls": "good",
+   "tag": "选定 C",
+   "log": "C Start Low, Go Slow ✓ 当选——两半标题都有落点",
+   "count": 1,
+   "ribbon": {
+    "k": "C",
+    "ok": true
+   },
+   "body": "<p><b>当选。</b>Start Low ↔ <b>reduce activity</b>（把量先降下来）；Go Slow ↔ <b>Increase … gradually</b>（逐渐加量、别图快）。两半标题在段内都有落点，覆盖“降起点 + 慢增速”全段，无反例。</p>"
+  },
+  {
+   "title": "逐项分析 · D Talk With Your Doctor",
+   "cls": "bad",
+   "tag": "排除 D",
+   "log": "D Talk With Your Doctor ✗ 排除——全段无医生出场",
+   "count": 2,
+   "ribbon": {
+    "k": "D",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>【41】段没有任何“咨询医生”的语义。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“运动安全”泛化成“问医生”。</p>"
+  },
+  {
+   "title": "逐项分析 · G Round Out Your Routine",
+   "cls": "bad",
+   "tag": "排除 G",
+   "log": "G Round Out Your Routine ✗ 排除——列举是减量示例不是完善组合",
+   "count": 3,
+   "ribbon": {
+    "k": "G",
+    "ok": false
+   },
+   "body": "<p><b>排除。</b>段中列举步行/高尔夫/哑铃多种运动，但它们是“减量示例”，不是“完善锻炼组合”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被项目列举的丰富感带偏。</p>"
+  },
+  {
+   "title": "结论 · 完整推理链与记忆锚点",
+   "cls": "good",
+   "tag": "答案 C",
+   "log": "答案 C（Start Low, Go Slow）",
+   "count": 3,
+   "ribbon": null,
+   "body": "<p>完整推理链：<b>首句祈使句（别恢复原量）→ 减半示例 → gradually 收束 → reduce + gradually = Start Low, Go Slow</b>。</p><p>答案选 <b>C（Start Low, Go Slow）</b>。</p><p><b>记忆锚点</b>：小标题 = 段旨压缩；首句祈使句 + 段末 gradually 双向锁定；“低起步”的证据是“减半、别过夜”。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——习惯论是隔壁段的事。</p>"
+  }
+ ];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2022 新题型第 41 题 · 【41】段小标题——恢复锻炼第一课",
+  subtitle: "考点：小标题题 · 段旨压缩（祈使句先行）+ 双向验证",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+  "big": "答案 C（Start Low, Go Slow）",
+  "html": "<b>C Start Low, Go Slow（低起步，慢慢来）</b>。<br>reduce activity ↔ start low；Increase … gradually ↔ go slow。<br>记忆锚点：小标题=段旨压缩——“减半、别过夜”都是“低起步”的证据；习惯论（A Make It a Habit）是【43】段的事。<br>最易误选：<b>A</b>——隔段串门。"
+ },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2022 新题型第 41 题 · 【41】段小标题——恢复锻炼第一课：低起步</h2>
+<p>答案：<strong>C（Start Low, Go Slow 低起步，慢慢来）</strong>。</p>
+<h3>第 0 步：先立机制——小标题题 = 段旨概括 + 双向验证</h3>
+<p>小标题匹配的机制是"一段对一题"：先把段落压缩成一句话主旨（通常在观点句/祈使句），再拿候选标题双向验证——正向看标题关键词能否在段内找到同义复现，反向看段内反例是否会推翻标题。只单向匹配（见到某个词就选）必被"局部词干扰项"击中。本题【41】段首句就是祈使句 Don't try to go back...，段旨句提前亮明。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Don't try to go back to what you were doing before your break. If you were walking 3 miles a day... reduce activity to half a mile every other day... Increase time, distance, and intensity gradually. "This isn't something you can do overnight"...</blockquote>
+<p>段内三步走：①不要试图恢复中断前的运动量；②举例——把运动量减半（3 英里→隔天半英里、10 磅哑铃→5 磅）；③总结——时间、距离、强度都要<strong>循序渐进</strong>（gradually），"这不可能一蹴而就"。</p>
+<h3>第 2 步：正向验证 C</h3>
+<p>Start Low ↔ reduce activity（把量先降下来）；Go Slow ↔ Increase ... gradually（逐渐加量，别图快）。两半标题在段内都有落点，且覆盖"降起点 + 慢增速"全段，无反例。当选。</p>
+<h3>第 3 步：逐项排除（主要干扰项）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C Start Low, Go Slow</td><td>✓</td><td>reduce activity ↔ start low；increase gradually ↔ go slow。</td></tr><tr><td>A Make It a Habit</td><td>✗</td><td>"坚持/习惯"是【43】段（Consistency is the key）的主旨——张冠李戴。（典型误解：见"每天坚持"字样就近似联想。）</td></tr><tr><td>G Round Out Your Routine</td><td>✗</td><td>段中虽出现多种运动项目，但它们是"减量示例"，不是"完善锻炼组合"。（典型误解：被项目列举的丰富感带偏。）</td></tr><tr><td>D Talk With Your Doctor</td><td>✗</td><td>全段无医生出场。（典型误解：把"运动安全"泛化成"问医生"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选 A？段里不也说了"隔天/每周"的安排吗？</strong>：那些频率是"减量方案"的细节，服务于"降低起点"；段的落点是 gradually 与 not overnight——节奏与起点，不是习惯养成。</li><li><strong>标题题要不要读完全段？</strong>：观点句（首句祈使 + 段末总结）定主旨，例子只做验证。本题首句 Don't try to go back 与末句 gradually 双向锁定，举例部分扫一眼即可。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：与【43】段主旨串门——两段都讲"该怎么练"，但一段讲"量要低、进度要慢"，一段讲"贵在坚持"。</li><li><strong>误选 G</strong>：只见列举的运动种类，没见"组合、完善"义。</li></ul>
+<blockquote>记忆锚点：小标题 = 段旨压缩；reduce + gradually = Start Low, Go Slow；"减半、别过夜"都是"低起步"的证据，习惯论是隔壁段的事。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

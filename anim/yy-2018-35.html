@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-35 · 2018 阅读第 35 题 · 蚂蚁类比回本体 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 类比的目的题", "cls": "key", "tag": "审题", "log": "审题眼：The ants analogy is used to illustrate ___ —— 喻体是药引，答案必须回本体", "count": 0, "ribbon": null, "body": "<p>题干：The <b>ants analogy</b> is used to <b>illustrate</b> ___. 类比题铁律：<b>Just as 喻体（蚂蚁/蚜虫），so 本体（Google/我们）</b>——喻体是药引，作者真正要谈的是本体；且修辞必然服务作者态度，末句态度句也要纳入定位区。</p>"},
+ {"title": "定位原文 · Just as…so… 的双向结构", "cls": "key", "tag": "定位", "log": "定位末段②句＋末句：蚂蚁农蚜虫取蜜露 ↔ Google 农我们取数据；末句讽刺这种关系", "count": 0, "ribbon": null, "body": quote("<b>Just as</b> some ants <b>farm</b> the bugs called aphids for the honeydew they produce…, <b>so</b> Google <b>farms us</b> for the data that our digital lives yield. … <b>It doesn't feel like a human or democratic relationship</b>, even if both sides benefit.") + "<p>双向结构：蚂蚁从蚜虫身上取蜜露（收益归蚂蚁），替蚜虫赶走天敌（保护归蚜虫）——这是“<b>一方养殖另一方以取利</b>”的关系图。本体端 = <b>Google ↔ 我们</b>；末句态度：不像人类间、民主的关系，even if 让步不改变讽刺基调。</p>"},
+ {"title": "同义替换 · farm us for data = 巨头与用户的关系", "cls": "key", "tag": "替换", "log": "同义替换：D 直接点名本体——digital giants ↔ Google，users ↔ us", "count": 0, "ribbon": null, "body": "<p>[D] <b>the relationship between digital giants and their users</b> ↔ so Google <b>farms us</b> for the data ＋ doesn't feel like a human or democratic <b>relationship</b>：digital giants ↔ Google；their users ↔ us；relationship ↔ 养殖取利的相互关系。选项把两句合说的“这种关系”直接点名。</p>"},
+ {"title": "逐项分析 · D the relationship between digital giants and their users", "cls": "good", "tag": "选定 D", "log": "D 数字巨头与其用户间的关系 ✓ ——本体关系的直接点名", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>类比两端是 giants ↔ users，关系性质是 farm（养殖利用）＋不像人类民主关系——[D] 把本体两端（数字巨头、用户）和关系层面（relationship）全部对齐。</p>"},
+ {"title": "逐项分析 · A a win-win business model between digital giants", "cls": "bad", "tag": "排除 A", "log": "A 巨头间双赢模式 ✗ ——范围错（巨头之间）＋态度错（让步讽刺被当歌颂）", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>①范围错：between digital giants 是“巨头之间”，类比本体是“巨头<b>与用户</b>之间”；②态度错：<b>even if</b> both sides benefit 是让步——“先把最有利情形摆出来再压下去”，作者批的正是这种“看似双赢”的关系，不是歌颂双赢模式。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把让步从句里被承认的表面互利，升格为作者要阐明的论点。</p>"},
+ {"title": "逐项分析 · B a typical competition pattern among digital giants", "cls": "bad", "tag": "排除 B", "log": "B 巨头间典型竞争模式 ✗ ——farm 是利用不是竞争，且丢了用户这一端", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b><b>farm</b>（养殖、利用）是“利用关系”，蚂蚁与蚜虫之间毫无竞争关系；同样只提 giants，把类比真正的另一端 <b>us（用户）</b>弄丢了——本体两端缺了一端，illustrate 就落空。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“为取利而养”读成“同行竞争”。</p>"},
+ {"title": "逐项分析 · C the benefits provided for digital giants' customers", "cls": "bad", "tag": "排除 C", "log": "C 用户享受的实惠 ✗ ——态度反向＋身份错位：users ≠ customers", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>从“蚜虫被养被护”臆测“用户享受实惠”，积极导向背离末句的讽刺基调；且第三段已明说用户<b>不是</b> customers（customers 是买广告的广告主）——受益对象的名字本身就安错了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看“被照顾”的画面，不看作者的态度与用户身份。</p>"},
+ {"title": "结论 · Just as 喻体、so 本体", "cls": "good", "tag": "答案 D", "log": "答案 D（the relationship between digital giants and their users）—— 见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>蚂蚁农蚜虫取蜜露（喻体）→ Google 农我们取数据（本体）→ 不像人类民主的关系（态度）→ [D]。</b></p><p>答案选 <b>D（the relationship between digital giants and their users）</b>。</p><p><b>记忆锚点</b>：Just as 喻体、so 本体，答案必须回本体；even if 让步不是立场；farm = 养殖利用（关系）不是竞争；本文关系两端永远是 giants ↔ users。</p><p style=\"color:#b91c1c\">最易误选：<b>A（win-win）</b>——被 both sides benefit 吸住，让步内容永远不是论点本体。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2018 阅读第 35 题 · 修辞目的题——蚂蚁类比说的是谁和谁的关系",
+  subtitle: "考点：类比目的题 · Just as 喻体 / so 本体 + even if 让步识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位类比结构 → 回到本体 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（the relationship between digital giants and their users）", "html": "<b>D 数字巨头与其用户的关系</b>：Just as 蚂蚁农蚜虫（喻体）→ so Google 农我们取数据（本体）→ 不像人类民主的关系（态度）。<br>记忆锚点：Just as 喻体、so 本体，答案必须回本体；even if 让步不是立场；farm = 利用不是竞争。<br>最易误选：<b>A（win-win）</b>——让步从句里的“双赢”是靶子。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 阅读第 35 题 · 修辞目的题——蚂蚁类比说的是谁和谁的关系</h2>
+<p>答案：<strong>D（the relationship between digital giants and their users 数字巨头及其用户之间的关系）</strong>。</p>
+<h3>第 0 步：先立机制——类比的功能是"把本体讲清楚"，答案必须回到本体</h3>
+<p>Just as A..., so B... 是英语类比的标准骨架：<strong>A（喻体：蚂蚁/蚜虫）是药引，B（本体：Google/我们）才是作者真正要谈的东西</strong>。因此修辞目的题的答案永远指向本体层面的内容，而不能落在喻体上。同时，类比是修辞性论证——它一定服务于作者的态度，所以还要把<strong>末句的态度句</strong>纳入定位区：两者一起决定"这个类比想说明什么"。第一段先看懂"农蚜虫取蜜露"的双向结构：蚂蚁从蚜虫身上取得蜜露（收益归蚂蚁），同时替蚜虫赶走天敌（保护归蚜虫）——这是"一方养殖另一方以取利"的关系图，不是竞争，也不是谁对谁的恩惠。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Just as some ants farm the bugs called aphids for the honeydew they produce when they feed, so Google farms us for the data that our digital lives yield. ... It doesn't feel like a human or democratic relationship, even if both sides benefit.</blockquote>
+<p>结构：②句 Just as...so... 把蚂蚁农蚜虫与 Google 农用户对接——喻体（蚂蚁→蚜虫）服务本体（<strong>Google→我们</strong>）；末句态度句：这<strong>不像一种人类的、民主的关系</strong>（doesn't feel like a human or democratic relationship），"就算双方都受益"（even if both sides benefit）是让步，不改变讽刺基调。类比要说明的，正是 Google（数字巨头）与用户之间这种"养殖取利"的关系。</p>
+<h3>第 2 步：同义替换——"farm us for data"＝巨头与用户的关系</h3>
+<p>[D] the relationship between digital giants and their users 概括的正是 so Google <strong>farms us</strong> for the data 这半句：<strong>digital giants</strong> ↔ Google；<strong>their users</strong> ↔ us；<strong>relationship</strong> ↔ farms...（养殖利用的相互关系），再加上末句 doesn't feel like a human or democratic relationship——选项把两句合起来说的"这种关系"直接点名为"巨头与用户的关系"。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A a win-win business model between digital giants</td><td>✗</td><td>双重错位：①范围错——between digital giants 说的是"巨头之间"，而类比的本体是"巨头<strong>与用户</strong>之间"；②态度错——even if both sides benefit 是让步讽刺（"就算双赢"），作者批的正是这种"看似双赢"的关系，不是在歌颂双赢模式</td></tr><tr><td>B a typical competition pattern among digital giants</td><td>✗</td><td>关系性质偷换：farm（养殖、利用）是"<strong>利用</strong>关系"，不是"竞争关系"；同样只提 giants，丢掉了类比真正的另一端 us（用户）</td></tr><tr><td>C the benefits provided for digital giants' customers</td><td>✗</td><td>态度反向＋身份错位：从"蚜虫被养被护"臆测"用户享受实惠"，积极导向背离末句的讽刺；且本文已明说用户<strong>不是</strong> customers（ customers 是买广告的广告主）——受益对象本身就安错了名字</td></tr><tr><td>D the relationship between digital giants and their users</td><td>✓</td><td>本体关系的直接点名：Google farms us for the data + doesn't feel like a human or democratic relationship</td></tr></tbody></table>
+<h3>预判追问：both sides benefit 都写明了，为什么 A（双赢）不能算对？</h3>
+<p>even if 引导的让步从句功能是"先把对方可能说的最有利情形摆出来，再压下去"——它的修辞重心在主句 doesn't feel like a human or democratic relationship（一点也不像人与人之间的、民主的关系）。作者承认表面互利，恰恰是为了反衬"这种关系本质上是养殖与被养殖"。类比作为修辞<strong>必然服务全文批驳立场</strong>：后三段都在说巨头借垄断地位渔利用户、希望法律管一管。把"被承认的让步"升格为"作者要阐明的模式"，是修辞题最常见的坑——<strong>让步内容永远不是论点本体</strong>。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：被 both sides benefit 吸住——让步从句里的"双赢"是靶子，不是结论。</li><li><strong>误选 B</strong>：farm 读成"竞争"——蚂蚁与蚜虫之间是养殖利用，毫无竞争关系；且 giants among themselves 从未出现。</li><li><strong>误选 C</strong>：从"蚜虫有人养有人护"联想"用户被照顾得很好"——积极导向与全文批驳态度相反，且 users ≠ customers。</li></ul>
+<blockquote>记忆锚点：类比题口诀 <strong>"Just as 喻体、so 本体，答案必须回本体"</strong>；even if 后的让步不是立场；farm = 养殖利用（关系），不是竞争；本文的关系两端永远是 giants ↔ users。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

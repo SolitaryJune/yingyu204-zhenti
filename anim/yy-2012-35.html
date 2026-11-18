@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 阅读 T1 · 35 · 作者对基因专利的态度 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 英语题不含数学式，普通文本即可。 */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+function tbl(rows){
+  var h = '<table style="border-collapse:collapse;margin:4px 0;font-size:12.5px;width:100%">';
+  rows.forEach(function(r, i){
+    h += '<tr>';
+    r.forEach(function(c, j){
+      var bg = i === 0 ? '#f8fafc' : (c.indexOf('✓') === 0 ? '#f0fdf4' : 'transparent');
+      var st = 'border:1px solid #e2e8f0;padding:4px 8px;text-align:left;line-height:1.55;color:#334155';
+      if(i === 0) st += ';font-weight:700;color:#0f172a;background:#f8fafc';
+      h += '<td style="' + st + (bg !== '#f8fafc' && i > 0 && bg !== 'transparent' ? ';background:#f0fdf4' : '') + '">' + c + '</td>';
+    });
+    h += '</tr>';
+  });
+  return h + '</table>';
+}
+
+var STEPS = [
+ {title:"审题眼 · generally speaking = 看全文", cls:"key", tag:"审题", count:0, ribbon:null,
+  body:"<p>题干：Generally speaking, the author’s attitude toward gene patenting is ____。<b>A</b> critical 批判的 / <b>B</b> supportive 支持的 / <b>C</b> scornful 轻蔑的 / <b>D</b> objective 客观的。</p><p>机制：把全文句子分三类——<b>事实叙述 / 他人观点 / 作者评价</b>。态度只能从第三类读出来；本文若第三类几乎缺席，“缺席”本身就是答案。</p>",
+  log:"审题：全文态度题——先清点“作者自己的话”"},
+ {title:"清点全文的声音 · 一张表看清谁在说话", cls:"key", tag:"清点", count:0, ribbon:null,
+  body:tbl([["段落","内容","声音归属"],
+    ["①②","3 月判基因不可专利 → 7 月上诉法院翻转；行业激动、暂得缓解","事件 + 行业反应"],
+    ["③","三大反方论据：自然产物 / 压制创新 / 垄断限制检测","critics 批评者"],
+    ["③","分离的 DNA“与棉纤维同为自然产物”","司法部"],
+    ["⑤","公司急着就“连点”申请专利","BIO 律师 Sauer"],
+    ["⑥","Mayo 案待审、律师培训会议爆满","事实"]])+"<p>连“支持专利”的声音（a blessing to firms and patients alike）也是 <b>Myriad CEO</b> 说的——没有一句是作者自己评的。</p>",
+  log:"清点：全文全是事实与他方观点，作者零评价"},
+ {title:"作者的位置 · 只搭舞台，不唱戏", cls:"key", tag:"定位", count:0, ribbon:null,
+  body:"<p>作者通篇只做三件事：<b>报告裁决</b>（3 月判、7 月翻）、<b>摆双方论据</b>（critics 三条 vs 行业欢呼）、<b>提示悬念未决</b>（probably not over / big questions remain unanswered / may yet reach the Supreme Court）。</p><p>没有任何一处“我认为基因应该/不应该被专利化”。报道双方 + 悬念保留 = 客观陈述。</p>",
+  log:"作者：只转述不站队，悬念保留到最后一段"},
+ {title:"逐项分析 · A critical（批判的）", cls:"bad", tag:"排除 A", count:1, ribbon:{k:"A", ok:false},
+  body:quote("Critics make three main arguments against gene patents: a gene is a product of nature, so it may not be patented; gene patents suppress innovation rather than reward it; and patents’ monopolies restrict access to genetic tests such as Myriad’s.")+"<p><b>排除。</b>批判是 <b>critics 的声音</b>：作者转述 ≠ 认同。全段还有司法部发声，作者两边都摆。</p><p style=\"color:#b91c1c\">⚠ 典型误解：文中有批评内容就等于作者在批评。</p>",
+  log:"A critical ✗ 排除——批评属 critics，非作者"},
+ {title:"逐项分析 · B supportive（支持的）", cls:"bad", tag:"排除 B", count:2, ribbon:{k:"B", ok:false},
+  body:quote("The chief executive of Myriad... said the ruling was a blessing to firms and patients alike.")+"<p><b>排除。</b>“这是福音”出自 <b>Myriad CEO</b> 之口；同时司法部、批评者的声音也被原文摆出——作者没有站行业一边。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把行业的欢呼误当成作者的立场。</p>",
+  log:"B supportive ✗ 排除——支持属行业 CEO，非作者"},
+ {title:"逐项分析 · C scornful（轻蔑的）", cls:"bad", tag:"排除 C", count:3, ribbon:{k:"C", ok:false},
+  body:"<p><b>排除。</b>全文没有嘲弄、讽刺的语气词；负面表达全部出自反对方论据的内容本身，不携带作者情绪。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见“专利被质疑”就联想到轻蔑——强态度词必须由作者自己的褒贬词汇支撑。</p>",
+  log:"C scornful ✗ 排除——无任何作者情绪词"},
+ {title:"逐项分析 · D objective（客观的）", cls:"good", tag:"选定 D", count:3, ribbon:{k:"D", ok:true},
+  body:"<p><b>当选。</b>双方论据都摆（支持方欢呼 vs 反对方三条论据 + 司法部）+ 悬念保留（big questions remain unanswered / may yet reach the Supreme Court）= 不偏不倚的客观呈现，作者零表态。</p>",
+  log:"D objective ✓ 双方并陈+悬念保留，当选"},
+ {title:"结论 · 声音清单与记忆锚点", cls:"good", tag:"答案 D", count:3, ribbon:null,
+  body:"<p>声音清单：行业（BIO/CEO）、反对方（critics）、官方（司法部/法院）轮番上场，<b>作者只转述</b>。</p><p>答案选 <b>D（objective 客观的）</b>。</p><p><b>记忆锚点</b>：generally speaking → 扫全文找“作者自己的评价句”；转述他人 ≠ 作者立场；双方论据都摆 + 悬念保留 = objective。A/B 各抓住“半边他人声音”，C 无情绪支撑，全部落空。</p>",
+  log:"结论：作者只转述不站队，态度客观，答案 D"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 阅读 Text1 · 35 · 作者对基因专利的整体态度",
+  subtitle: "考点：全文态度题 · 清点声音 → 找作者自己的话 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“清点声音 → 作者位置 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（objective 客观的）",
+    html: "<b>作者通篇转述、零表态：支持方（行业欢呼）、反对方（critics 三条 + 司法部）并陈，悬念保留到最后。</b><br>记忆锚点：generally speaking → 扫全文找“作者自己的评价句”；转述他人 ≠ 作者立场。A/B 各抢半边他人声音，C 无情绪词支撑。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：全文态度题——作者通篇“转述”却没有一句站队</h2>
+<p>答案：<strong>D（objective 客观的）</strong>。</p>
+<h3>第 0 步：先立机制——态度题先清点“作者自己的话”</h3>
+<p>作者态度题（generally speaking 提示看全文）的机制：把全文句子分成三类——<strong>事实叙述</strong>（何时何地发生了什么裁决）、<strong>他人观点</strong>（谁支持谁反对）、<strong>作者评价</strong>（作者自己怎么说）。态度只能从第三类读出来。本文前两类占满篇幅，第三类几乎缺席——缺席本身就是答案。</p>
+<h3>第 1 步：清点全文的“声音”</h3>
+<table><thead><tr><th>段落</th><th>内容</th><th>声音归属</th></tr></thead><tbody><tr><td>①②</td><td>3 月裁决基因不可专利 → 7 月上诉法院翻转；行业激动、暂得缓解</td><td>事件 + 行业反应（agitated/relieved 是执行官们的话）</td></tr><tr><td>③</td><td>反对方三大论据：基因是自然产物；专利压制创新；垄断限制检测</td><td>critics（批评者）</td></tr><tr><td>③</td><td>司法部：分离的 DNA 分子“与棉纤维同样是自然产物”</td><td>Department of Justice</td></tr><tr><td>⑤</td><td>公司急着就“连点”申请专利</td><td>Hans Sauer（BIO 律师）</td></tr><tr><td>⑥</td><td>Mayo 案、最高法院听审、律师培训会议爆满</td><td>事实</td></tr></tbody></table>
+<p>注意：连“支持专利”的声音（a blessing to firms and patients alike）也是 Myriad 首席执行官说的，不是作者说的。</p>
+<h3>第 2 步：作者的位置——只搭舞台，不唱戏</h3>
+<p>作者通篇只做三件事：报告裁决（3 月判、7 月翻）、摆双方论据（critics 三条 vs 行业欢呼）、提示悬念未决（The Myriad case itself is probably not over / big questions remain unanswered / The case may yet reach the Supreme Court）。全文没有一处“我认为基因应该/不应该被专利化”。报道双方 + 悬而未决 = 客观陈述。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A critical</td><td>✗ 排除</td><td>借第三段 Critics make three main arguments 设障——那是 critics 的批判，作者转述 ≠ 认同。（典型误解：文中有批评内容就等于作者批评。）</td></tr><tr><td>B supportive</td><td>✗ 排除</td><td>借第二段行业欢呼设障——a blessing... 出自 Myriad CEO 之口；且司法部、批评者的声音同样被摆出，作者没站行业一边。（典型误解：把行业观点误当成作者观点。）</td></tr><tr><td>C scornful</td><td>✗ 排除</td><td>全文没有嘲弄、讽刺语气词；负面表达全出自反对方论据本身。（典型误解：见“专利被质疑”就联想到轻蔑。）</td></tr><tr><td>D objective</td><td>✓ 当选</td><td>不偏不倚呈现“支持方—反对方—未决悬念”，作者零表态</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>“But the courts will remain rather busy” 不算表态？</strong>：这是对诉讼数量的事实预判，不是价值判断；态度题要找的是“好/坏”评价词，本文作者一个都没给。</li><li><strong>态度题的通用排除法</strong>：scornful/critical/supportive 这类强态度词需要作者本人的褒贬词汇支撑；作者只转述时，objective/neutral 一类是默认正确项。</li></ul>
+<blockquote>记忆锚点：generally speaking → 扫全文找“作者自己的评价句”；转述他人 ≠ 作者立场；双方论据都摆 + 悬念保留 = objective。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

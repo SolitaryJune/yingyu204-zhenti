@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2021-29 · 2021 阅读第 29 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "审题",
+  "count": 0,
+  "title": "审题眼：数字题做「百分数的补集换算」",
+  "body": "<p>题干：<b>It can be learned from the last paragraph that British people ____</b>（从末段可知，英国人 ____）。</p><p>末段的数字只有一组：消费的果蔬只有 <b>23% 自产</b>；极限努力也只能满足 <b>30%</b> 的生鲜需求。百分数推断的经典套路是<b>补集换算</b>：23% 自产 → 约 77% 不自产 → 主要靠外部供给。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "定位",
+  "count": 0,
+  "title": "定位原文：23% / 30% 两个数字",
+  "body": "<div class='qq'><b>原文：</b>Just 23 per cent of the fruit and vegetables consumed in the UK are currently home-grown, so even with the most extreme measures we could meet only 30 per cent of our fresh produce needs.</div><p>两个数字同向：自产比例低（23%），极限满足度也低（30%）——<b>大头都来自英国之外</b>。</p>"
+ },
+ {
+  "cls": "",
+  "ecs": "step",
+  "tag": "证据",
+  "count": 0,
+  "title": "合并证据：第二段的「进口趋势」背书",
+  "body": "<div class='qq'><b>原文：</b>The country produces only about 60 per cent of the food it eats, down from almost three-quarters in the late 1980s.</div><p>第二段补充背景：自产率整体只有约 60% 且还在下滑，英国的既有趋势就是<b>依赖进口</b>（the UK importing food）。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "ok",
+  "tag": "锁定 A",
+  "count": 1,
+  "ribbon": {
+   "k": 1,
+   "ok": true
+  },
+  "title": "锁定 A：生鲜主要依赖进口——补集换算",
+  "body": "<p><b>A · rely largely on imports for fresh produce（生鲜主要依赖进口）</b> <span class='ok-dot'>✓</span></p><p>只有 23% home-grown → 其余约 77% 来自别处 → <b>生鲜主要靠进口</b>：home-grown 的反面正是 imports，largely 对应「约 77%」的大头。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 B",
+  "count": 2,
+  "ribbon": {
+   "k": 2,
+   "ok": false
+  },
+  "title": "排除 B：水果消费稳步增长——无消费数据",
+  "body": "<p><b>B · enjoy a steady rise in fruit consumption（享受水果消费的稳步增长）</b> <span class='bad-dot'>✗</span></p><p>全文没有消费增长的数据，无中生有。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 C",
+  "count": 3,
+  "ribbon": {
+   "k": 3,
+   "ok": false
+  },
+  "title": "排除 C：设法减少热量摄入——calorie 字面干扰",
+  "body": "<p><b>C · are seeking effective ways to cut calorie intake（在寻找减少热量摄入的有效办法）</b> <span class='bad-dot'>✗</span></p><p>calorie 出现在「还要给谷物糖油找地」一句里，说的是卡路里<b>来源的土地需求</b>，不是「英国人想少摄入」。</p>"
+ },
+ {
+  "cls": "bad",
+  "ecs": "miss",
+  "tag": "排除 D",
+  "count": 4,
+  "ribbon": {
+   "k": 4,
+   "ok": false
+  },
+  "title": "排除 D：种植谷物新品种——无中生有",
+  "body": "<p><b>D · are trying to grow new varieties of grains（正尝试种植谷物新品种）</b> <span class='bad-dot'>✗</span></p><p>全文无「新品种」信息，无中生有。</p>"
+ },
+ {
+  "cls": "good",
+  "ecs": "done",
+  "tag": "结论",
+  "count": 4,
+  "title": "结论：答案 A",
+  "body": "<p><b>答案 A（rely largely on imports for fresh produce）</b>。</p><p>记忆锚点：home-grown 23% → imports 约 77%；百分数题先想补集。</p><p style='color:#b91c1c'>⚠ 典型误解：最易误选 C（cut calorie intake）——calorie 只是「土地需求」语境的字面干扰。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2021-29 · 阅读第 29 题：末段读出的英国人现状",
+  subtitle: "考点：Text2 末段 · 数字推断题（百分数的补集换算）",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：审题 → 定位 → 证据 → 逐项排除。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A",
+ "html": "<b>A rely largely on imports for fresh produce</b>：果蔬仅 23% 自产 → 约 77% 靠进口；第二段 importing food 趋势背书。<br>记忆锚点：home-grown 23% → imports 约 77%；百分数题先想补集。<br>最易误选：C——calorie 是「土地需求」语境的字面干扰。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 29 题——末段读出的英国人现状</h2>
+<p>答案：<strong>A</strong>（rely largely on imports for fresh produce）。</p>
+<h3>第 0 步：先立机制——数字题做「百分数的补集换算」</h3>
+<p>末段的数字只有一组：消费的果蔬只有 23% 自产（home-grown），极限努力也只能满足 30% 的生鲜需求。百分数推断的经典套路是<strong>补集换算</strong>：23% 自产 → 约 77% 不自产 → 主要靠外部供给。</p>
+<h3>第 1 步：定位原文 + 同义替换</h3>
+<blockquote>Just 23 per cent of the fruit and vegetables consumed in the UK are currently home-grown, so even with the most extreme measures we could meet only 30 per cent of our fresh produce needs.</blockquote>
+<p>只有 23% home-grown → 其余约 77% 来自别处 → <strong>生鲜主要靠进口</strong>（rely largely on imports for fresh produce）：home-grown 的反面正是 imports，largely 对应「约 77%」这个大头；第二段「自产约 60% 且在下滑、趋势是 importing food」进一步背书。</p>
+<h3>第 2 步：干扰项归因</h3>
+<ul><li><strong>B（enjoy a steady rise in fruit consumption）</strong>：无中生有——全文没有消费增长数据。</li><li><strong>C（are seeking effective ways to cut calorie intake）</strong>：字面干扰——calorie 出现在「还要给谷物糖油找地」一句，说的是卡路里来源的土地需求，不是「英国人想少摄入」。</li><li><strong>D（are trying to grow new varieties of grains）</strong>：无中生有——没有「新品种」信息。</li></ul>
+<blockquote>记忆锚点：home-grown 23% → imports 约 77%；百分数题先想补集。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

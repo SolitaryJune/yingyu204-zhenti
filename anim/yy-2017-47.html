@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2017-47 小作文谋篇：接受邀请信的「两必答点」与给教授的正式语域</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2016-47 成品范式）：逐步展开结构框架卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致），无任何外部请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 结构框架：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：回信 = 接住邀请 + 交出「货单」',
+    cls: 'key',
+    body: '<p>教授来函<b>邀请</b>你给留学生做中国文化讲座，回信的交际逻辑就是：1) <b>accept the invitation</b>（接受邀请）+ 2) <b>introduce the key points of your presentation</b>（介绍讲座要点）——两条指令就是两个必答点，缺一即掉档。分量不对称：<b>接受一句带过，讲座要点是主体</b>——应了邀却拿不出「讲什么」，必答点 2 缺失。约 100 词。</p>' },
+  { title: '语域定音：写给教授 → 正式语体，热情不失分寸',
+    cls: 'step',
+    body: '<p>写给<b>教授</b>、听众是<b>国际学生</b>，属公务信函：正式语体，热情（被邀请是荣誉）但不失分寸。<b>I am honored / I am pleased</b> 这类庄重表达是语域的「体温计」——不写成 Hi Williams 式聊天体，也别公文腔到没有温度。</p>' },
+  { title: '格式红线：称呼、落款、词数',
+    cls: 'key',
+    body: '<p>称呼 <b>Dear Professor Williams,</b>——头衔 + 姓，不直呼 William。落款 <b>Sincerely yours, + Li Ming</b>——Do not use your own name / Do not write your address 两条硬指令：署真名、写地址一碰即扣。约 100 词三段：接受两句、要点五句上下、收尾两句。</p>' },
+  { title: '谋篇三段：接受 → 要点（主体）→ 礼数闭环',
+    cls: 'key',
+    body: '<p><b>段 1</b> 表荣幸并正面接受邀请，顺势说明乐于借此机会交流文化（过渡钩子）。<b>段 2</b> 讲座要点（主体）：主题句把大话题收拢成切口 + 三级衔接挂三条要点 + 比较句收口。<b>段 3</b> 感谢邀请 + 期待见面——回函礼数两句收齐。</p>' },
+  { title: '段 1 句型：荣幸接受 + 乐于交流',
+    cls: 'good',
+    body: '<p><b>I am honored to give a presentation about Chinese culture to international students at your invitation. I am pleased to take this opportunity to communicate with foreign friends about cultures.</b></p><p><b>be honored to do</b> 庄重表态、<b>at your invitation</b> 点明由头；<b>take this opportunity to do</b>（借此机会）把「接受」落到「愿意」——第二句同时是段 2 的过渡钩子。</p>' },
+  { title: '段 2 方法论：大话题切小口',
+    cls: 'key',
+    body: '<p><b>My presentation will be focused on Chinese martial arts, which is an important component of Chinese culture.</b></p><p>中国文化太大，一场讲座讲不完：先收拢到一个<b>具体切口</b>（武术/书法/茶艺/剪纸皆可），再为它设计「总-分」要点。<b>be focused on</b> 点主题，<b>which 非限制性定语从句</b>把主题挂到「中国文化重要组成」上——立意一抬，段 2 就有了纲。考场替换主题时框架不变，换关键词即可。</p>' },
+  { title: '段 2 要点一（To begin with）：沿革介绍',
+    cls: 'good',
+    body: '<p><b>To begin with, I will briefly introduce it and its development over millennia.</b></p><p>第一条：主题及其<b>千年发展沿革</b>——先总后分的「总」。<b>To begin with</b> 引出第一点（可替换 first of all / firstly，增加表达灵活性）；briefly 交代「简述」，为后面两条留足篇幅。</p>' },
+  { title: '段 2 要点二（Then）：each of which 合并两句',
+    cls: 'key',
+    body: '<p><b>Then, I will focus on some common styles of Chinese martial arts, each of which has its own set of techniques and ideas.</b></p><p><b>each of which 非限制性定语从句</b>把「各派各有一套技术与思想」压进从句，避免再起一句——成形法：先写 I will introduce some styles... + All of them have their own techniques and ideas，再用 each of which 合并升级。</p>' },
+  { title: '段 2 要点三（Furthermore）+ 比较句收口',
+    cls: 'good',
+    body: '<p><b>Furthermore, I will show some photos of relevant historical locations and figures. I believe graphic visual depiction will be more impressive than boring language.</b></p><p>第三条用<b>照片呈现</b>相关历史遗迹与人物；末句 <b>more impressive than</b> 比较结构交代「为什么用照片」——要点串不止是罗列，还有取舍逻辑；graphic（形象生动的）、impressive 是可迁移的高分词。</p>' },
+  { title: '段 3 收尾：感谢 + 期待两连',
+    cls: 'good',
+    body: '<p><b>Thank you for your invitation. I am looking forward to seeing you.</b></p><p>感谢邀请 + 期待见面——回函礼数两句收齐；<b>look forward to + doing</b>（to 是介词）是书信收尾的标准件。</p>' },
+  { title: '易错自检：六处失分源',
+    cls: 'bad',
+    body: '<p><b>只接受不介绍要点</b>：必答点 2 缺失直接掉档。<b>要点不「分点」</b>：一句「我会介绍中国文化」糊过去——key points 要拆成主题句 + 三条要点。<b>主题飘忽</b>：「历史悠久、博大精深」空话连篇——必须收拢到具体切口。<b>语域错位</b>：Hi Williams 式随意或公函腔无温度。<b>格式漏项</b>：漏 Sincerely yours、署真名、写地址。<b>词数失衡</b>：段 2 被挤瘪、寒暄占大半。</p>' },
+  { title: '结论：框架锚点与模板迁移',
+    cls: 'good',
+    body: '<p>框架锚点：<b>接住邀请（接受一句 + 要点是主体）→ 大话题切小口 + 三级衔接挂三条 → 礼数两连收尾</b>；句型三件套 = be honored to... at your invitation、each of which has its own set of...、more impressive than...。</p><p>模板迁移：凡「接受邀请 + 介绍安排」类回信（受邀做讲座/主持活动/参展交流），段 2 换成对应主题的主题句 + 三条要点即可，框架与语域不变。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2017-47 小作文谋篇演示：接受邀请信的「两必答点」',
+  subtitle: '考点：应用文（回信·接受邀请）· 方法：审必答点 → 定语域 → 三段谋篇 → 逐句升格 → 成文自检',
+  counterLabel: '已推进',
+  intro: '点击「▶ 播放」逐步展开审题、谋篇与句型升格的推理链。',
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>Dear Professor Williams,</p>' +
+      '<p>I am honored to give a presentation about Chinese culture to international students at your invitation. I am pleased to take this opportunity to communicate with foreign friends about cultures.</p>' +
+      '<p>My presentation will be focused on Chinese martial arts, which is an important component of Chinese culture. To begin with, I will briefly introduce it and its development over millennia. Then, I will focus on some common styles of Chinese martial arts, each of which has its own set of techniques and ideas. Furthermore, I will show some photos of relevant historical locations and figures. I believe graphic visual depiction will be more impressive than boring language.</p>' +
+      '<p>Thank you for your invitation. I am looking forward to seeing you.</p>' +
+      '<p>Sincerely yours,<br>Li Ming</p>' +
+      '<p style="margin-top:8px">记忆锚点：回信 = <b>接住邀请（接受一句 + 要点是主体）</b>；段 2 = <b>大话题切小口（主题句 + which 从句拔高）→ To begin with / Then / Furthermore 三级衔接挂三条 → 比较句收口</b>；be honored to... at your invitation、each of which has its own set of...、more impressive than...；落款 Sincerely yours, Li Ming。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 小作文——接受邀请信：「接受 + 介绍讲座要点」两必答点与给教授的正式语域</h2>
+<p>答案（范文）：<strong>Dear Professor Williams,</strong></p>
+<p><strong>I am honored to give a presentation about Chinese culture to international students at your invitation. I am pleased to take this opportunity to communicate with foreign friends about cultures.</strong></p>
+<p><strong>My presentation will be focused on Chinese martial arts, which is an important component of Chinese culture. To begin with, I will briefly introduce it and its development over millennia. Then, I will focus on some common styles of Chinese martial arts, each of which has its own set of techniques and ideas. Furthermore, I will show some photos of relevant historical locations and figures. I believe graphic visual depiction will be more impressive than boring language.</strong></p>
+<p><strong>Thank you for your invitation. I am looking forward to seeing you.</strong></p>
+<p><strong>Sincerely yours, Li Ming</strong></p>
+<h3>第 0 步：先立机制——应用文评分三道关：格式 × 必答点 × 语域</h3>
+<p>应用文不管什么题型，评分都压在<strong>格式、必答点、语域</strong>三道关上。本题的文体是<strong>回信（reply）</strong>：威廉姆斯教授来函邀请你给留学生做一场中国文化讲座，回信的交际逻辑就是<strong>接住这次邀请并交出"货单"</strong>——指令 1) accept the invitation（接受邀请）+ 2) introduce the key points of your presentation（介绍讲座要点）正是两件必答的事。两件事的分量不对称：<strong>接受一句带过，讲座要点是主体</strong>——要点光"接受"而不"介绍"，等于应了邀却拿不出讲什么，必答点 2 缺失直接掉档。</p>
+<p>语域由来函对象定音：写给<strong>教授</strong>、听众是<strong>国际学生</strong>，属公务信函，用正式语体——热情（被邀请是荣誉）但不失分寸，不写成聊天体；I am honored / I am pleased 这类庄重表达是语域的"体温计"。</p>
+<h3>第 1 步：审题——指令逐条拆</h3>
+<table><thead><tr><th>指令</th><th>信息解读</th><th>落点</th></tr></thead><tbody><tr><td>invited by Professor Williams</td><td>写信人身份：大学生；写作对象：威廉姆斯教授</td><td>段 1 称呼与语域</td></tr><tr><td>give a presentation about Chinese culture to international students</td><td>话题：中国文化讲座；听众：留学生</td><td>段 2 选材范围</td></tr><tr><td>1) accept the invitation</td><td>必答点 1：接受邀请</td><td>段 1</td></tr><tr><td>2) introduce the key points of your presentation</td><td>必答点 2（主体）：介绍讲座要点</td><td>段 2</td></tr><tr><td>Write a reply / about 100 words</td><td>文体：回信；篇幅：约 100 词</td><td>全篇</td></tr><tr><td>Do not use your own name... "Li Ming" / no address</td><td>署 Li Ming、不写地址</td><td>格式</td></tr></tbody></table>
+<p>关键的一步是"落点"：introduce the <strong>key points</strong> 要求把讲座内容拆成几条要点呈现，不是一句"我会讲中国文化"敷衍——这决定了段 2 必须是"主题句 + 三级衔接的要点串"。</p>
+<h3>第 2 步：格式红线</h3>
+<ul><li>称呼 <code>Dear Professor Williams,</code>——写给教授用头衔 + 姓，不直呼 William，也不错拼成 Mr. Williams。</li><li>落款 <code>Sincerely yours,</code> + <code>Li Ming</code>——署真名、写地址都是硬指令违反。</li><li>约 100 词三段：接受两句、要点五句上下、收尾两句，每句都要干活——讲座要点段的篇幅必须压过其余两段之和的观感。</li></ul>
+<h3>第 3 步：谋篇——三段各司其职</h3>
+<ul><li><strong>段 1（接受邀请）</strong>：一句表荣幸并正面接受（I am honored to... at your invitation），一句顺势说明乐于借此机会与外国朋友交流文化——接受之外还交代了"为什么愿意去"，姿态自然；第二句同时是段 2 的过渡钩子。</li><li><strong>段 2（讲座要点，主体）</strong>：先立主题句——把大话题"中国文化"收拢成一个可讲的具体切口"中国武术"（并从句点明 it is an important component of Chinese culture 拔高立意）；再按 To begin with / Then / Furthermore 三级衔接展开三条要点：武术及其千年发展沿革 → 常见门派（各派技术与思想体系）→ 相关历史遗迹与人物照片；末句用比较句点出用照片呈现的理由，给要点串收口。</li><li><strong>段 3（礼数闭环）</strong>：感谢邀请 + 期待见面——回函礼数两句收齐。</li></ul>
+<p>"大话题切小口"是本段 2 的方法论：中国文化太大，无法在一场讲座讲完；选一个代表性强、自己能展开的侧面（武术/书法/茶艺/剪纸皆可），再为它设计"总-分"三条要点。考场替换主题时，框架不变，换掉关键词即可。</p>
+<h3>第 4 步：句型升格——五条路径</h3>
+<ol><li><strong>荣幸接受句</strong>：<code>I am honored to give... at your invitation</code>——be honored to do 庄重表态，at your invitation 点明由头；并列的 <code>I am pleased to take this opportunity to communicate with...</code> 用 take this opportunity to do（借此机会）把"接受"落到"愿意"。</li><li><strong>主题句 + 非限制性定语从句拔高</strong>：<code>My presentation will be focused on Chinese martial arts, which is an important component of Chinese culture.</code>——be focused on 点主题，which 从句把主题挂到"中国文化重要组成"上，立意一抬，段 2 就有了纲。</li><li><strong>三级衔接词挂要点</strong>：<code>To begin with... Then... Furthermore...</code>——比裸排三点清晰，To begin with 还可替换 first of all / firstly，增加表达灵活性。</li><li><strong>each of which 非限制性定语从句</strong>：<code>I will focus on some common styles of Chinese martial arts, each of which has its own set of techniques and ideas.</code>——把"各派各有一套技术与思想"压进从句，避免再起一句；这一步成形法是：先写简单句 I will introduce some styles... + All of them have their own techniques and ideas，再用 each of which 合并。</li><li><strong>比较句为手段背书</strong>：<code>I believe graphic visual depiction will be more impressive than boring language.</code>——more A than B 的比较结构交代"为什么用照片"，使要点串不止是罗列，还有取舍逻辑；graphic（形象生动的）、impressive 是可迁移的高分词。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>只接受不介绍要点</strong>：必答点 2 缺失直接掉档——回信的交际重心在"讲什么"，接受只是开场。</li><li><strong>要点不"分点"</strong>：一句"我会介绍中国文化"糊过去——key points 要拆成主题句 + 三条要点，三级衔接词挂串。</li><li><strong>主题飘忽</strong>：中国文化泛泛而谈，条条都是"历史悠久、博大精深"的空话——必须收拢到一个具体切口并展开。</li><li><strong>语域错位</strong>：Hi Williams / 口语缩略满篇——给教授的信守正式语体；同时也别公文腔到没有温度，I am honored / I am pleased 的"荣幸感"要有。</li><li><strong>格式漏项</strong>：漏 Sincerely yours、署真名、写地址——硬指令一碰即扣。</li><li><strong>词数失衡</strong>：段 2 要点被挤成一句，段 1 寒暄反占大半——约 100 词，主体在段 2。</li></ul>
+<blockquote>记忆锚点：回信 = <strong>接住邀请（接受一句 + 要点是主体）</strong>；段 2 = <strong>大话题切小口（主题句 + which 从句拔高）→ To begin with / Then / Furthermore 三级衔接挂三条 → 比较句收口</strong>；句型三件套 = be honored to... at your invitation、each of which has its own set of...、more impressive than...；落款 Sincerely yours, Li Ming。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

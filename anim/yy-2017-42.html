@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-42 · 2017 新题型 · 42 · Jason Stenquist 的观点</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片）
+     形态：定位 → 找证据 → 同义替换/逐项排除 → 结论
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "先立机制 · 人物—观点匹配怎么破", "cls": "key", "tag": "机制", "count": 0, "ribbon": null, "log": "机制：人名回文定位 → 抓观点标记词（says/points to/双引号）锁定观点 → 与选项同义替换比对", "body": "<p>本篇新题型是<b>人物—观点匹配</b>：左列 5 个人物，右列 7 个观点（2 个多余）。解法三步：<b>① 人名回文定位</b>——人物名字只在某一段出现，直接跳到那一段；<b>② 抓观点标记词</b>——says / points to / says + 双引号，标记词管到哪儿，观点就到哪儿；<b>③ 同义替换比对</b>——选项几乎都是原文观点的改写，比关键词复现与语义等值。</p>"}, {"title": "定位第七段 · Stenquist 说了什么", "cls": "key", "tag": "定位", "count": 0, "ribbon": null, "log": "定位第七段：年轻工人 Stenquist 谈职业选择——由医学转向电气工程，理由是爱工具、爱创造", "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Asked about his <b>choice of career</b>, he says at high school he considered medical school before <b>switching to electrical engineering</b>. “<b>I love working with tools. I love creating</b>,” he says.</div><p style=\"margin:6px 0 0;font-size:12.5px;color:#64748b\">第七段④⑤句</p><p>题干问的是 Jason Stenquist。本段前三句写他“上手第一周、见访客发怵”，观点本体在 <b>says + 双引号</b>处：高中时本想学医，<b>后改学电气工程</b>，理由——<b>爱摆弄工具、爱创造</b>。</p>"}, {"title": "同义比对 · A 当选", "cls": "good", "tag": "选定 A", "count": 1, "ribbon": {"k": "A", "ok": true}, "log": "A ✓ 当选——switched to electrical engineering / loves working with tools 直接复现", "body": "<p><b>当选 A。</b>“says that <b>he switched to electrical engineering</b> because <b>he loves working with tools</b>.”——两处几乎原词复现：switched to electrical engineering ↔ 原文 switching to electrical engineering；loves working with tools ↔ “I love working with tools”。</p>"}, {"title": "逐项归位 · C 的主人是Donald Trump", "cls": "bad", "tag": "C→Donald", "count": 0, "ribbon": {"k": "C", "ok": false}, "log": "C ✗ 排除——该选项属于Donald Trump（第一段）", "body": "<p><b>排除 C。</b>points out that the US doesn't manufacture anything anymore.</p><p>依据（第一段）：“We don't make anything anymore,” he told Fox News</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · D 的主人是Robert Roth", "cls": "bad", "tag": "D→Robert", "count": 0, "ribbon": {"k": "D", "ok": false}, "log": "D ✗ 排除——该选项属于Robert Roth（第六段）", "body": "<p><b>排除 D。</b>believes that it is important to keep a close eye on the age of his workers.</p><p>依据（第六段）：Robert Roth keeps a close eye on the age of his nearly 200 workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · E 的主人是Jay Dunwell", "cls": "bad", "tag": "E→Jay Du", "count": 0, "ribbon": {"k": "E", "ok": false}, "log": "E ✗ 排除——该选项属于Jay Dunwell（第五段）", "body": "<p><b>排除 E。</b>says that for factory owners, workers are harder to find because of stiff competition.</p><p>依据（第五段）：“They're harder to find and they have job offers” + ①句 stiff competition for workers</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · G 的主人是Birgit Klohs", "cls": "bad", "tag": "G→Birgit", "count": 0, "ribbon": {"k": "G", "ok": false}, "log": "G ✗ 排除——该选项属于Birgit Klohs（第八段）", "body": "<p><b>排除 G。</b>says that the manufacturing recession is to blame for the lay-off of the young people's parents.</p><p>依据（第八段）：“remember their father and mother both were laid off. They blame it on the manufacturing recession,” says Birgit Klohs</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · B 的主人是Rob Spohr", "cls": "bad", "tag": "B→Rob Sp", "count": 0, "ribbon": {"k": "B", "ok": false}, "log": "B ✗ 排除——该选项属于Rob Spohr（第十段）", "body": "<p><b>排除 B。</b>points out that there are enough people to fill the jobs that don't need much skill.</p><p>依据（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "逐项归位 · F 的主人是Julie Parks", "cls": "bad", "tag": "F→Julie ", "count": 0, "ribbon": {"k": "F", "ok": false}, "log": "F ✗ 排除——该选项属于Julie Parks（第十一段）", "body": "<p><b>排除 F。</b>points out that a work/life balance can attract young people into manufacturing.</p><p>依据（第十一段）：points to another key to luring Millennials into manufacturing: a work/life balance</p><p>与本题题干人物无关——人物—观点匹配是“一人一选项”的一一对应，他人的观点再眼熟也不能挪用。</p>"}, {"title": "结论 · 匹配链与记忆锚点", "cls": "good", "tag": "答案 A", "count": 7, "ribbon": null, "log": "42 = A——观点本体永远落在 says/引号处，别把背景描写当观点", "body": "<p>匹配链：<b>人名 Jason Stenquist → 第七段 → says + 双引号 → 改学电气工程因为爱工具 → A。</b></p><p>注意陷阱：本段前三句的 flustered（发怵）是场景描写，不是观点——<b>答案选 A</b>。</p>"}];
+
+AW.init({
+  title: "2017 新题型 · 42 · Jason Stenquist 的观点",
+  subtitle: "考点：人物—观点匹配——定位 + 观点标记词 + 同义替换",
+  counterLabel: "已比对",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 归属他人）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 比对 → 逐项归位”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "42 → A（Jason Stenquist）", "html": "Stenquist：<b>由医学改学电气工程，因为爱摆弄工具、爱创造</b>（I love working with tools）。<br>记忆锚点：观点本体在 <b>says + 双引号</b>处；场景描写（flustered、first week）不是观点。<br>最易误选：<b>D</b>——同段语境的“工厂”氛围容易让人联想到“关注员工年龄”，但那是第六段 Robert Roth 的做法。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 新题型第 42 题 · Jason Stenquist 的观点</h2>
+<p>答案：<strong>A（says that he switched to electrical engineering because he loves working with tools.）</strong>。</p>
+<h3>第 0 步：先立机制——观点本体在 says + 引号处，场景描写不算观点</h3>
+<p>（三步法同第 41 题：人名定位 → 观点标记词 → 同义替换。）本题的额外提醒：人物段落常先给<strong>场景描写</strong>（Stenquist 上手第一周、见访客发怵），那不是观点；观点本体永远落在 says + 双引号处。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Asked about his <strong>choice of career</strong>, he says at high school he considered medical school before <strong>switching to electrical engineering</strong>. “<strong>I love working with tools. I love creating</strong>,” he says.（第七段④⑤句）</blockquote>
+<h3>第 2 步：找证据——职业选择 + 理由</h3>
+<p>says 管两处：转述他“由医学转向电气工程”，直引他“爱摆弄工具、爱创造”。与 A 项比对：switched to electrical engineering、loves working with tools 几乎原词复现，because 恰好承载“理由”关系。</p>
+<h3>第 3 步：逐项排除（归位到主人）</h3>
+<table><thead><tr><th>选项</th><th>观点内容</th><th>判定</th><th>主人与依据</th></tr></thead><tbody><tr><td>A</td><td>says that he switched to electrical engineering because he loves working with tools.</td><td>✓ 当选（本题）</td><td>Jason Stenquist（第七段）：considered medical school before switching to electrical engineering；“I love working with tools. I love creating.”</td></tr><tr><td>B</td><td>points out that there are enough people to fill the jobs that don’t need much skill.</td><td>✗ 排除</td><td>Rob Spohr（第十段）：“There're enough people to fill the jobs at McDonalds and other places where you don't need to have much skill.”</td></tr><tr><td>C</td><td>points out that the US doesn’t manufacture anything anymore.</td><td>✗ 排除</td><td>Donald Trump（第一段）：“We don't make anything anymore,” he told Fox News</td></tr><tr><td>D</td><td>believes that it is important to keep a close eye on the age of his workers.</td><td>✗ 排除</td><td>Robert Roth（第六段）：keeps a close eye on the age of his nearly 200 workers</td></tr><tr><td>E</td><td>says that for factory owners, workers are harder to find because of stiff competition.</td><td>✗ 排除</td><td>Jay Dunwell（第五段）：“They're harder to find and they have job offers” + For factory owners, it all adds up to stiff competition for workers</td></tr><tr><td>F</td><td>points out that a work/life balance can attract young people into manufacturing.</td><td>✗ 排除</td><td>Julie Parks（第十一段）：points to another key to luring Millennials into manufacturing: a work/life balance</td></tr><tr><td>G</td><td>says that the manufacturing recession is to blame for the lay-off of the young people’s parents.</td><td>✗ 排除</td><td>Birgit Klohs（第八段）：“remember their father and mother both were laid off. They blame it on the manufacturing recession”</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>D（关注员工年龄）为什么有人误选？</strong>：同是“工厂里的年轻人”语境；但 keep a close eye on the age 是第六段 Roth（管理者）的动作，与 Stenquist（一线新工人）身份不合——人物身份也是比对的辅助信号。</li><li><strong>flustered（发怵）是他的观点吗？</strong>：不是，是作者对他的神态描写，没有观点价值。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（believes that it is important to keep a close eye on the age of his workers.）</strong>：被“工厂”语境带跑，忘查主人。</li><li><strong>把场景描写当观点</strong>：前三句是画面，④⑤句才是话。</li></ul>
+<blockquote>记忆锚点：场景描写 ≠ 观点；<strong>says + 双引号才是观点本体</strong>；人物身份（一线工人 vs 老板/教授）辅助排除。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

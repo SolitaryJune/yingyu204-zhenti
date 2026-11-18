@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-29 · 2015 阅读第 29 题 · “not in potential but in practical knowledge”——取舍结构锁定缺什么 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · 观点题先找观点句", "cls": "key", "tag": "审题", "log": "审题眼：The authors of the paper believe that first-generation students ___——去第四段找“作者认为”", "count": 0, "ribbon": null, "body": "<p>题干问论文作者对第一代大学生的看法。观点题的第一步：找到作者陈述观点的句子——第四段①句 was based on the view that…。</p>"},
+ {"title": "定位原文 · not…but… 取舍结构", "cls": "key", "tag": "定位", "log": "定位原文：most lacking not in potential but in practical knowledge about how to deal with the issues…", "count": 0, "ribbon": null, "body": quote("Their thesis – that a relatively modest intervention could have a big impact – was based on the view that first-generation students may be most lacking not in potential but in practical knowledge about how to deal with the issues that face most college students.") + "<p>核心是 <b>not…but…</b>（不是…而是…）：不缺 potential（潜力），缺的是 practical knowledge（处理在校问题的实用知识）。</p>"},
+ {"title": "同义替换 · 缺实用知识＝处理问题没经验", "cls": "key", "tag": "替换", "log": "同义替换：lacking practical knowledge about how to deal with the issues → inexperienced in handling their issues", "count": 0, "ribbon": null, "body": "<p>“关于如何应对的知识”落到行为层面就是“会不会处理、熟不熟练”：缺乏这类知识＝处理起来生疏＝<b>inexperienced</b>。这是“知识 → 经验”的同层改写。</p>"},
+ {"title": "逐项分析 · B are inexperienced in handling their issues at college", "cls": "good", "tag": "选定 B", "log": "B 在处理在校问题时缺乏经验 ✓ 当选——not…but… 重心（but 后）的同义概括", "count": 0, "ribbon": {"k": "B", "ok": true}, "body": "<p><b>当选。</b>not…but… 的语义重心在 but 之后：缺的是处理在校问题的实用知识——正是 B 的“处理在校问题缺乏经验”。</p>"},
+ {"title": "逐项分析 · C can have a potential influence on other students", "cls": "bad", "tag": "排除 C", "log": "C 对其他学生有潜在影响 ✗ 排除——potential 被挪用：原文是“不缺潜力”", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>原文搭配是 lacking <b>not in potential</b>（不缺潜力）。C 把 potential 从“学生自身的潜力”偷换成“对他人的潜在影响”——词在，搭配位置整个换了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：认识关键词就往选项上靠，不核对搭配。</p>"},
+ {"title": "逐项分析 · A may lack opportunities to apply for research projects", "cls": "bad", "tag": "排除 A", "log": "A 缺少申请研究项目的机会 ✗ 排除——“研究项目”无中生有", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>lacking 与 past research 两个原文词被糅在一起，但“申请研究项目的机会”在原文无处安放——零支撑选项。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见词拼句，不做原文核查。</p>"},
+ {"title": "逐项分析 · D are actually indifferent to the achievement gap", "cls": "bad", "tag": "排除 D", "log": "D 对成就差距漠不关心 ✗ 排除——末段暗示他们渴望进步，indifferent 无支撑", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>achievement gap 被挪用为“个人态度”。末段“不明白自己为何挣扎、不知道如何进步”恰恰说明他们<b>渴望改变而不得</b>，谈不上“漠不关心”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把问题描述曲解成主观态度。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 B", "log": "答案 B（are inexperienced in handling their issues at college）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>作者认为：第一代学生缺的不是潜力，而是处理大多数大学生都会面对的问题的实用知识——即处理在校问题缺乏经验。</b></p><p>答案选 <b>B（are inexperienced in handling their issues at college）</b>。</p><p><b>记忆锚点</b>：not…but… 重心在 but 之后；practical knowledge about how to deal with…＝inexperienced；警惕“词在搭配换”的干扰（potential / achievement gap）。</p><p style=\"color:#b91c1c\">最易误选：<b>C（potential influence）</b>——potential 的搭配被偷换。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 29 题 · “not in potential but in practical knowledge”——取舍结构锁定缺什么",
+  subtitle: "考点：观点题 · not…but… 取舍结构 + 关键词搭配核查",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 B（are inexperienced in handling their issues at college）", "html": "<b>B 处理在校问题缺乏经验</b>：not…but… 重心在 but 后——缺的是 practical knowledge。<br>记忆锚点：缺“如何应对的知识”＝没经验；警惕词在搭配换。<br>最易误选：<b>C（potential influence）</b>——原文说的是“不缺潜力”。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 29 题 · "not in potential but in practical knowledge"——not...but... 取舍结构锁定缺什么</h2>
+<p>答案：<strong>B（are inexperienced in handling their issues at college 在处理在校问题时缺乏经验）</strong>。</p>
+<h3>第 0 步：先立机制——观点题先找观点句，再看取舍结构的重心</h3>
+<p>题干问论文作者 believe first-generation students 怎么样。观点句在第四段①句，其核心是一个 <strong>not...but...</strong>（不是……而是……）的取舍结构：第一代学生最缺乏的，<strong>不是潜力（potential）</strong>，<strong>而是处理大多数大学生都会面对的问题的实用知识（practical knowledge about how to deal with the issues that face most college students）</strong>。not...but... 的语义重心永远落在 but 之后——"缺什么"的答案就是 practical knowledge 那半句。把它翻译成选项语言：缺乏处理在校问题的"实用知识"＝在处理在校问题方面<strong>缺乏经验</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Their thesis – that a relatively modest intervention could have a big impact – was based on the view that first-generation students may be most lacking not in potential but in practical knowledge about how to deal with the issues that face most college students.</blockquote>
+<ul><li>缺什么（not）：potential 潜力——原文明确说<strong>不缺</strong>这个；</li><li>缺什么（but）：practical knowledge about how to deal with the issues——处理在校实际问题的知识。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A may lack opportunities to apply for research projects</td><td>缺少申请研究项目的机会</td><td>✗ 排除</td><td>lacking 与 past research 两个词被糅在一起；"研究项目"在原文无处安放，无中生有</td></tr><tr><td>B are inexperienced in handling their issues at college</td><td>在处理在校问题时缺乏经验</td><td>✓ 当选</td><td>lacking practical knowledge about how to deal with the issues ＝ 处理在校问题没经验——同义概括</td></tr><tr><td>C can have a potential influence on other students</td><td>对其他学生有潜在影响</td><td>✗ 排除</td><td>potential 一词被挪用：原文说"不缺潜力"，不是"对他人有潜在影响"——词义偷换</td></tr><tr><td>D are actually indifferent to the achievement gap</td><td>对成就差距漠不关心</td><td>✗ 排除</td><td>achievement gap 被挪用；末段反而暗示他们渴望进步，indifferent 无文本支撑</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>practical knowledge 怎么变成 inexperience？</strong>：knowledge about how to deal with...（关于"如何应对"的知识）落在行为层面就是"会不会处理、熟不熟练"。缺乏这类知识＝处理起来生疏＝inexperienced——这是"知识"到"经验"的同层改写，不是越级推断。</li><li><strong>为什么 C 只错在一个词也要排除？</strong>：potential 在原文的搭配是 lacking not in potential（不缺潜力）。C 把这个词从"学生自身的潜力"偷换成"对他人的潜在影响"，搭配对象整个换了——观点题里关键词的<strong>搭配位置</strong>与词义同等重要。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（research projects）</strong>：被 lacking 和 past research 的字面捕获，"申请研究项目"原文零支撑。</li><li><strong>误选 C（potential influence）</strong>：认识 potential 这个词就往选项上靠，没核对它在原文的搭配（不缺潜力）。</li><li><strong>误选 D（indifferent）</strong>：被末段 achievement gap 捕获；文章基调是他们渴求方法而不得，谈不上"漠不关心"。</li></ul>
+<blockquote>记忆锚点：not...but... 的重心在 but 之后——缺的是 practical knowledge（处理在校问题的实用知识）＝inexperienced；干扰项常拿原文词汇换搭配：potential（不缺潜力→对他人影响）、achievement gap（问题描述→个人态度）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

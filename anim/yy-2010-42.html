@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2010-42 动画：上洗流的双收益</title>
+<link rel="stylesheet" href="../assets/anim.css">
+<style>
+/* 页内补充样式：原文引用块与迷你对照表（自包含，无外部资源） */
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ==================
+ * 模板：概念/推理链类（复制自 anim_math_concept_template.html）。
+ * 英语题不含数学式，按站点约定已移除公式渲染引用，普通文本即可。 */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [{"cls": "key", "ecs": "shift", "tag": "审题", "count": 0, "title": "审题眼：拆出两个断言", "body": "<p>陈述：<b>The upwash experience may save propelling energy as well as reducing resistance.</b>（在上洗流中飞行既省推进能量，也减阻力。）</p><p>双断言：① save propelling energy；② reducing resistance。机制：<b>逐点核销</b>，全对才 T。</p>", "log": "陈述含两个断言，逐点核销"}, {"cls": "", "ecs": "step", "tag": "定位", "count": 0, "title": "定位：第二段原理句", "body": "<div class=\"qq\"><b>第二段③④句：</b>The air flowing over a bird's wings curls upwards behind the wingtips, a phenomenon known as upwash. Other birds flying in the upwash experience reduced drag, and spend less energy propelling themselves. <span class=\"cn\">（译：翼尖后方气流上卷形成上洗流；在其中飞行的其他鸟阻力减小、推进耗能更少。）</span></div>", "log": "upwash 定义 + 双收益原句都在第二段"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 1, "title": "断言①：reducing resistance 对上 reduced drag", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>reducing resistance 减阻力</td><td>experience reduced drag 阻力减小</td><td><span class=\"ok-dot\">✓ 同义</span></td></tr></table><p>drag（拖曳阻力）= resistance（阻力），同义替换成立。</p>", "log": "断言①核销：drag = resistance"}, {"cls": "", "ecs": "step", "tag": "比对", "count": 2, "title": "断言②：save propelling energy 对上 spend less energy", "body": "<table class=\"aw-mini\"><tr><th>陈述</th><th>原文</th><th>判定</th></tr><tr><td>save propelling energy 省推进能</td><td>spend less energy propelling themselves 推进耗能更少</td><td><span class=\"ok-dot\">✓ 同义</span></td></tr></table><p>The upwash experience ≈ flying in the upwash；may 的语气也与原文相容。</p>", "log": "断言②核销：省推进能对上"}, {"cls": "good", "ecs": "ok", "tag": "判定 T", "title": "判定 T：True · 陈述为真", "body": "<p><b>选项 T（True · 陈述为真）</b><span class=\"ok-dot\">✓</span></p><p>两个断言<b>全部核销通过</b>——判 T 成立。</p>", "log": "判定 T：True · 陈述为真", "count": 2, "ribbon": {"k": 1, "ok": true}}, {"cls": "bad", "ecs": "miss", "tag": "排除 F", "title": "排除 F：False · 陈述为假", "body": "<p><b>选项 F（False · 陈述为假）</b><span class=\"bad-dot\">✗</span></p><p>陈述与原文逐点一致，没有任何偷换——F 不成立。</p>", "log": "排除 F：False · 陈述为假", "count": 2, "ribbon": {"k": 2, "ok": false}}, {"cls": "good", "ecs": "done", "tag": "结论", "count": 2, "title": "结论：答案 T", "body": "<p><b>答案 T</b>——双断言逐点核销全部通过。</p><p>记忆锚点：drag = resistance；上洗流双收益 = 减阻力 + 省推进能。</p>", "log": "结论：双断言全对，答案选 T"}];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2010-42 · 判断题：上洗流的双收益",
+  subtitle: "考点：新题型判断正误 · 方法：双断言逐点核销",
+  counterLabel: "比对点",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位原文 → 逐点比对 → 口径核查。",
+  snaps: snaps,
+  result: {
+    big: "答案 T",
+    html: "<b>\"experience reduced drag, and spend less energy propelling themselves\" 两个断言逐点核销通过</b>：drag = resistance（阻力），spend less energy propelling = save propelling energy。多断言陈述必须逐点核销，一处不中即 F。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：判断题——双断言逐点核销</h2>
+<p>答案：<strong>T</strong>（陈述正确）。</p>
+<h3>第 0 步：先立机制——双断言要逐点核销</h3>
+<p>陈述 The upwash experience may <strong>save propelling energy</strong> as well as <strong>reducing resistance</strong> 里有两个断言：省推进能量、减阻力。判断题机制：含两个以上断言的陈述，<strong>必须逐点核销</strong>——全部对上才判 T，一处对不上就判 F。</p>
+<h3>第 1 步：定位与逐点核对</h3>
+<blockquote>The air flowing over a bird's wings curls upwards behind the wingtips, a phenomenon known as <strong>upwash</strong>. Other birds <strong>flying in the upwash</strong> experience <strong>reduced drag</strong>, and <strong>spend less energy propelling themselves</strong>.（气流流过鸟翼后在翼尖后方卷曲上行，即上洗流。在<strong>上洗流中飞行</strong>的其他鸟<strong>阻力减小</strong>，<strong>推进自身耗能更少</strong>。）</blockquote>
+<table><thead><tr><th>陈述断言</th><th>原文对应</th><th>判定</th></tr></thead><tbody><tr><td>reducing resistance</td><td>experience reduced drag（drag 拖曳阻力 = resistance 阻力，同义替换）</td><td>✓</td></tr><tr><td>save propelling energy</td><td>spend less energy propelling themselves（同义改写）</td><td>✓</td></tr></tbody></table>
+<p>flying in the upwash 对应陈述的 The upwash experience；may 的不确定语气也与原文的一般性陈述相容。</p>
+<h3>第 2 步：判定</h3>
+<p>两个断言全部核销通过 → 选 <strong>T</strong>。</p>
+<blockquote>记忆锚点：drag = resistance（阻力）；上洗流双收益 = 减阻力 + 省推进能；多断言陈述逐点核销，一处不中即 F。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

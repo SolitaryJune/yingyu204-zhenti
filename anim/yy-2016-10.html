@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-10 · 2016 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第四段③句，考点：中心词与例证的上义关系",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">To find out, the researchers controlled for various <b>__10__</b> that might make firms more likely to invest – <b>like size, industry, and sales</b> – and for indicators that a place was __11__ to live in...</div><p>空 10 是 various __ that might make firms more likely to invest 的<b>中心词</b>，破折号后 like size, industry, and sales 是<b>例证</b>。中心词题的机制：先看例子是什么类别的名词，再找能涵盖它们的上义词。</p>"
+ },
+ {
+  "title": "找证据 · 三个例子：规模 / 行业 / 销售额",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：size、industry、sales 都是影响投资的“变量/因素”",
+  "body": "<p>size（公司规模）、industry（所处行业）、sales（销售额）——它们是公司的不同<b>属性变量</b>，共同点是：都可能<b>促使公司更愿意投资</b>。研究要 control for（控制）它们，正是统计里“控制变量”的做法。</p>"
+ },
+ {
+  "title": "逐项分析 · A factors（因素）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A factors（因素）✓ 当选——三个例子都是“影响因素”的下位例",
+  "body": "<p><b>当选。</b>various factors that might make firms more likely to invest——“可能促使公司更愿意投资的多种因素”。factors 是 size/industry/sales 的上义词，例证全部落入其外延。</p>"
+ },
+ {
+  "title": "逐项分析 · B stages（阶段）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B stages（阶段）✗ 排除——“促使投资的阶段”搭配不当",
+  "body": "<p><b>排除。</b>“促使企业投资的阶段”语义扭曲；且 size、industry、sales 是属性，不是任何“阶段”的下位例。</p>"
+ },
+ {
+  "title": "逐项分析 · C levels（水平）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C levels（水平）✗ 排除——“促使投资的水平”搭配不当",
+  "body": "<p><b>排除。</b>“促使企业投资的水平”同样搭配不当；规模、行业、销售额也不是“水平”的下位例。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 levels 与 sales“销售额水平”强行挂钩——例证三个词要整体覆盖，不是逐一硬贴。</p>"
+ },
+ {
+  "title": "逐项分析 · D methods（方法）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D methods（方法）✗ 排除——“促使投资的方法”勉强可说，但例子不是方法",
+  "body": "<p><b>排除。</b>methods 与 that might make firms more likely to invest 勉强能搭（“促使投资的方法”），但破折号例证 size、industry、sales 是公司属性，明显不属于“方法”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看 that 从句的搭配，丢掉破折号举例这个最硬的证据。</p>"
+ },
+ {
+  "title": "结论 · 上义词与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（factors 因素）——上义关系见结论卡",
+  "body": "<p>上义关系：<b>size / industry / sales ⇒ factors（因素）。</b></p><p>答案选 <b>A（factors 因素）</b>。</p><p><b>记忆锚点</b>：中心词题先看例子——破折号/like 之后的内容是最硬证据；控制变量 control for various factors 是统计常识搭配。</p>"
+ }
+];
+
+AW.init({
+  title: "2016 完形第 10 空 · 控制 various ____：规模、行业、销售额是什么",
+  subtitle: "考点：句内语义 + 中心词与例证的上义关系",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 看例证定上义词 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（factors）", "html": "<b>A factors（因素）</b>——size/industry/sales 的上义词。<br>记忆锚点：中心词题先看破折号例证；control for various factors = 控制变量；stages/levels 搭配扭曲，methods 被例证否决。<br>最易误选：<b>D（methods）</b>——只看 that 从句搭配，丢掉例证证据。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 完形第 10 空 · 控制 various ____：规模、行业、销售额是什么</h2>
+<p>答案：<strong>A（factors 因素）</strong>。</p>
+<h3>第 0 步：先立机制——中心词由“例证”决定外延</h3>
+<p>空 10 是 various __ that might make firms more likely to invest 的中心词，破折号后 like size, industry, and sales 是例证。中心词题的机制：<strong>例子是中心词的下位例</strong>——先判断三个例子的共同类别，再找覆盖它们的上义词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>To find out, the researchers controlled for various __10__ that might make firms more likely to invest – like size, industry, and sales – and for indicators that a place was desirable to live in, like growth in wages or population.</blockquote>
+<h3>第 2 步：看例证——三个词的共同类别</h3>
+<p>size（规模）、industry（行业）、sales（销售额）：都是公司的<strong>属性变量</strong>，都可能促使公司更愿意投资；control for 它们 = 统计上的“控制变量”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A factors</td><td>因素</td><td>✓ 当选</td><td>三个例子的上义词，外延全覆盖。</td></tr><tr><td>B stages</td><td>阶段</td><td>✗ 排除</td><td>“促使投资的阶段”搭配扭曲；例子不是阶段。</td></tr><tr><td>C levels</td><td>水平</td><td>✗ 排除</td><td>同样搭配不当。（典型误解：拿 levels 硬贴 sales 的“销售额水平”，忽略例证须整体覆盖。）</td></tr><tr><td>D methods</td><td>方法</td><td>✗ 排除</td><td>与 that 从句勉强可搭，但 size/industry/sales 不是“方法”。（典型误解：只看从句搭配，丢掉例证。）</td></tr></tbody></table>
+<p>代入后的完整句义：为查明真相，研究者控制了可能促使公司更愿意投资的多种因素——比如规模、行业和销售额。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>methods 与从句也搭，为什么输？</strong>：中心词题的裁决顺序是“先例证、后搭配”——that might make firms more likely to invest 能容纳多种中心词，真正唯一化的证据是破折号里的三个例子；例证不在 methods 的外延内。</li><li><strong>control for 是什么意思？</strong>：统计术语“把某因素的影响控制住/排除掉”，与 various factors 是高频学术搭配，也可反向印证 A。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（methods）</strong>：只验证从句搭配，丢掉例证这个最硬的证据。</li><li><strong>误选 C（levels）</strong>：把“销售额水平”当个例硬贴，忽略三个例子要整体被涵盖。</li></ul>
+<blockquote>记忆锚点：中心词题先看例子——size/industry/sales ⇒ factors；control for various factors = 控制变量。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

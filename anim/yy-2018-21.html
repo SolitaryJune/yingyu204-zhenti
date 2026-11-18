@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2018-21 · 2018 Text1 第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(en){
+  return '<div style=\'margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\'>' + en + '</div>';
+}
+
+var STEPS = [
+ {
+  "title": "定位原文 · 第二段例证句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：第二段③句反问，考点：例子写作目的（例子服务于观点）",
+  "body": quote("When did it become accepted wisdom that students should be able to name the 13th president of the United States <b>but</b> be utterly overwhelmed by a broken bike chain?") + "<p>例子目的题的解法不是精读例子，而是<b>向上找观点句</b>。反问句结构：“背得出第 13 任总统”（当前教育擅长的）<b>but</b>“被一条断链彻底难倒”（教育缺失的）。</p>"
+ },
+ {
+  "title": "立机制 · 例子头顶的观点：not...but practical",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制：②句 not books/tests/memorization but practical——“断链”坐实学生动手能力欠缺",
+  "body": quote("He is a teacher at a New Hampshire high school where learning is not something of books and tests and mechanical memorization, <b>but practical</b>.") + "<p>反问句的“头顶”是①②句：not...but... 给学校定性——学习<b>不是</b>书本、考试、机械记忆，<b>而是</b> practical（动手实践）。</p><p>but 后的 <b>practical</b> 就是本例的观点锚：举“断掉的自行车链”是用具体场景坐实“学生<b>动手能力</b>的欠缺”。</p>"
+ },
+ {
+  "title": "逐项分析 · A practical ability（实践能力）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {"k": "A", "ok": true},
+  "log": "A practical ability ✓ 当选——“被断链彻底难倒”的抽象化 = 缺乏实践能力",
+  "body": "<p><b>当选。</b>be utterly overwhelmed by a broken bike chain（被一条断链束手无策）是<b>现象</b>，抽象化 = “缺乏____”；修自行车链属于<b>动手实践</b>范畴。</p><p>practical ability（实践能力）同时概括了②句 but practical 与③句反问——方向、主体全对。</p>"
+ },
+ {
+  "title": "逐项分析 · B academic training（学术培训）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {"k": "B", "ok": false},
+  "log": "B academic training ✗ 排除——是当前教育“强调”的内容，方向与“欠缺”相反",
+  "body": "<p><b>排除。</b>academic training 对应 not 后的 books and tests——这是当前教育<b>强调</b>、学生背得出总统名字的原因。</p><p>题干问的是“学生<b>缺乏</b>____”，B 的方向恰好相反：不缺学术，缺实践。</p>"
+ },
+ {
+  "title": "逐项分析 · C pioneering spirit（开创精神）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {"k": "C", "ok": false},
+  "log": "C pioneering spirit ✗ 排除——pioneering 是“学校”的开创性，不是“学生”的能力",
+  "body": "<p><b>排除。</b>pioneering 来自首段 Mr. Koziatek is part of something pioneering——说的是<b>学校</b>教学模式的开创性。</p><p>题目问的是<b>学生</b>欠缺什么——把学校的属性错挂到学生身上，主体被偷换。</p><p style='color:#b91c1c'>⚠ 典型误解：见到原文出现过的褒义词就往上放，不看主体。</p>"
+ },
+ {
+  "title": "逐项分析 · D mechanical memorization（机械记忆）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {"k": "D", "ok": false},
+  "log": "D mechanical memorization ✗ 排除——not 后的“旧教育强项”，原词复现恰是陷阱",
+  "body": "<p><b>排除。</b>mechanical memorization 是②句的<b>原词复现</b>——但它处在 not 之后，是被作者<b>否定</b>的旧教育内容。</p><p>若学生真欠缺“机械记忆”，例子就不会用“背得出总统名字”当<b>正方</b>了——方向颠倒。</p><p style='color:#b91c1c'>⚠ 典型误解：原词复现的选项先怀疑再验证——not...but... 里“取 B 舍 A”。</p>"
+ },
+ {
+  "title": "结论 · 完整逻辑与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 A（practical ability）——例子服务于头顶观点：not...but practical",
+  "body": "<p>完整逻辑：<b>一所让学生“背得出总统却修不好车链”的学校，恰恰在用实践证明：学生缺的不是学术训练，是动手能力。</b></p><p>答案选 <b>A（practical ability）</b>。</p><p><b>记忆锚点</b>：例子目的题 = 例子<b>头顶的观点</b>；not A but B 里，but 后才是作者要的；“原词复现的选项”先怀疑再验证。</p><p style='color:#b91c1c'>⚠ 最易误选 D（mechanical memorization）：被 not 后的原词吸引，方向弄反。</p>"
+ }
+];
+
+AW.init({
+  title: "2018 Text1 第 21 题 · 提“断掉的自行车链”是为了说明学生缺乏____",
+  subtitle: "考点：例子写作目的 · 定位 → 立机制（not...but practical） → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 观点锚 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（practical ability）", "html": "<b>A practical ability</b>：“被一条断链彻底难倒”= 学生实践能力欠缺，与②句 but practical 同向同主。<br>记忆锚点：例子目的题找<b>头顶的观点</b>；not A but B 取 B 舍 A；原词复现先怀疑。<br>最易误选：<b>D mechanical memorization</b>——它是 not 后被否定的旧教育强项。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2018 Text1 第 21 题 · 提"断掉的自行车链"是为了说明学生缺乏____</h2>
+<p>答案：<strong>A（practical ability）</strong>。</p>
+<h3>第 0 步：先立机制——例子服务于它头顶上的观点</h3>
+<p>例子目的题的底层机制只有一条：<strong>例子本身不是目的，例子头顶的观点才是</strong>。命题人考"为什么提自行车链"，实际考的是"这句话在证明什么"。所以解这类题的动作不是精读例子，而是<strong>向上找观点句、向旁找同向表述</strong>，再把选项与观点比对。本题的例子是第二段③句的反问句，它的"头顶"是①②句——两句用 not...but... 结构给 Koziatek 所在的学校定性：学习的样子<strong>不是</strong>书本、考试、机械记忆，<strong>而是</strong> practical（实际的、动手的）。这个 but 后的 practical 就是本例的"观点锚"：反问句举"断掉的自行车链"，是用一个具体场景坐实"学生<strong>动手能力</strong>的欠缺"。锚点立起来，四个选项谁在"缺的东西"这个方向上，就分得开了。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>He is a teacher at a New Hampshire high school where learning is not something of books and tests and mechanical memorization, <strong>but practical</strong>.</blockquote>
+<p>&gt;</p>
+<blockquote>When did it become accepted wisdom that students should be able to name the 13th president of the United States <strong>but be utterly overwhelmed by a broken bike chain</strong>?</blockquote>
+<ul><li>反问句结构：<code>should be able to name the 13th president</code> <strong>but</strong> <code>be utterly overwhelmed by a broken bike chain</code>——"背得出第 13 任总统"是当前教育<strong>擅长</strong>教的，"面对断链束手无策"是它<strong>不教</strong>的；</li><li>欠缺的正是与 <code>practical</code> 同一方向的能力。</li></ul>
+<h3>第 2 步：同义替换——"被一条断链彻底难倒" = "缺乏实践能力"</h3>
+<p><code>be utterly overwhelmed by</code>（被彻底压倒、束手无策）是<strong>现象</strong>，把它抽象化就是"缺乏____"；一条自行车链的修理属于<strong>动手、实践</strong>范畴——对应 A 的 practical ability（实践能力）。B、D 里的 academic training、mechanical memorization 则来自 but <strong>前</strong>的旧教育（书本、考试、机械记忆）——它们是"当前教育<strong>强调</strong>的内容"，方向恰好与"欠缺"相反；C 的 pioneering 来自对 Koziatek 学校的定性（part of something pioneering），属于"学校"的属性，不是"学生"的能力。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A practical ability</td><td>实践能力</td><td>✓ 当选</td><td>是③句 be utterly overwhelmed by a broken bike chain + ②句 but practical 的共同概括：反问举"断链"正是坐实学生动手能力欠缺。</td></tr><tr><td>B academic training</td><td>学术培训</td><td>✗ 排除</td><td>方向反了：这是当前教育<strong>强调</strong>的内容（books and tests），不是题目所问"学生欠缺的能力"。</td></tr><tr><td>C pioneering spirit</td><td>开创精神</td><td>✗ 偷换概念</td><td>pioneering 说的是 <strong>Koziatek 所在学校</strong>的开创性（part of something pioneering），不是<strong>学生</strong>的品质——主体被偷换了。</td></tr><tr><td>D mechanical memorization</td><td>机械记忆</td><td>✗ 排除</td><td>与 B 同型：它来自 but 前"旧教育的强项"，若说欠缺恰恰欠缺的不是它——方向颠倒。</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不能选 D？</strong>：有的考生看到②句原词 mechanical memorization 出现过就选它——但那是 not 后的"被否定的旧教育"，例子问的是"学生缺乏什么"，两者方向相反；<strong>原词复现恰是陷阱标志</strong>。</li><li><strong>例子目的题要不要看例子后有没有结论句？</strong>：第三段（There is learning in just about everything / learn geometry by assembling a bicycle）同样指向"实践中的学习"，与②句 practical 同向——结论句只是加固锚点，不改变判断。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（mechanical memorization）</strong>：被②句原词吸引，忽略了 not...but... 中"取 B 舍 A"的方向。</li><li><strong>误选 C（pioneering spirit）</strong>：把"学校的开创性"错挂到"学生的欠缺"上，主体错位。</li></ul>
+<blockquote>记忆锚点：例子目的题 = 例子<strong>头顶的观点</strong>；not A but B 里，but 后才是作者要的；"原词复现的选项"先怀疑再验证。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2019 完形第 10 空 · 句末替代副词：A instead / B though / C again / D indeed</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 代入 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 10 在「句末替代副词」位；考点：句内逻辑（副词：替代关系）",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">For these reasons, I stopped weighing myself every day and switched to a bimonthly weighing schedule <b>__10__</b>.</div><p>空 10 是句末副词。句内有两个元素：旧方式（每日称重，被 stop）与新方式（每月称两次，由 switched to 引出）。句末副词负责标明二者的关系。</p>"
+ },
+ {
+  "title": "立机制 · stop A + switch to B：替代关系",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制先行：stop A + switch to B：替代关系",
+  "body": "<p>stop A + switch to B：新方式取代旧方式，是“取舍/替代”关系。instead 表替代的句末用法：sb doesn't do sth but does sth else instead（不做 A，而做 B 代替）。三个信号——stopped、switched to、句末空位——同指替代。</p>"
+ },
+ {
+  "title": "找证据 · 一弃一取，替代关系已写明",
+  "cls": "key",
+  "tag": "证据",
+  "log": "找证据：一弃一取，替代关系已写明",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I stopped weighing myself every day and switched to a bimonthly weighing schedule.</div><p>stopped（弃）+ switched to（取）：一弃一取已经写明，句末副词只需给这层替代关系“盖章”。</p>"
+ },
+ {
+  "title": "逐项分析 · A instead（代替；反而）",
+  "cls": "good",
+  "tag": "选定 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "log": "A instead（代替；反而）✓ 当选",
+  "body": "<p><b>当选。</b>switched to a bimonthly weighing schedule instead = 而是改为每月称两次：替代关系成立。</p>"
+ },
+ {
+  "title": "逐项分析 · B though（虽然；不过）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "log": "B though（虽然；不过）✗ 排除",
+  "body": "<p><b>排除。</b>句末 though = “不过”，用于补充弱化前句（如 I'd love to, though.）；本句是“弃 A 改 B”的过程陈述，与上文也没有“转折弱化”关系。</p>"
+ },
+ {
+  "title": "逐项分析 · C again（又，再一次）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C again（又，再一次）✗ 排除",
+  "body": "<p><b>排除。</b>again 表动作重复；由上文可知这是作者第一次调整称重频率，谈不上“又”。</p>"
+ },
+ {
+  "title": "逐项分析 · D indeed（的确）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D indeed（的确）✗ 排除",
+  "body": "<p><b>排除。</b>indeed 强调本句陈述的真实性或补强前文，与“替代”无关。</p>"
+ },
+ {
+  "title": "代入校验 · 把答案放回原句",
+  "cls": "key",
+  "tag": "代入",
+  "log": "代入校验：空 10 填 instead（代替；反而）后句义通顺",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">I stopped weighing myself every day and switched to a bimonthly weighing schedule <b>instead</b>.</div><p>我不再每天称重，而是改为每月称两次。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "count": 3,
+  "log": "答案 A（instead 代替；反而）——见结论卡",
+  "body": "<p>答案选 <b>A（instead 代替；反而）</b>。</p><p><b>记忆锚点</b>：stop A + switch to B + 句末 instead：三个信号同指“替代”；句末 though ≠ however，只是“不过”的弱补充。</p><p style=\"color:#b91c1c\">⚠ 最易误选 <b>B（though）</b>：见句末副词就想到“不过/然而”；句末 though 管的是“弱化补充前句”，管不了“弃 A 取 B”的替代。</p>"
+ }
+];
+
+AW.init({
+  title: "2019 完形第 10 空 · 句末替代副词：A instead / B though / C again / D indeed",
+  subtitle: "考点：句内逻辑（副词：替代关系） · 定位 → 立机制 → 找证据 → 逐项排除 → 代入校验",
+  counterLabel: "已排除",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开「定位 → 立机制 → 找证据 → 逐项排除 → 代入校验」的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {"big": "答案 A（instead 代替；反而）", "html": "<b>A（instead 代替；反而）</b>。<br>记忆锚点：stop A + switch to B + 句末 instead：三个信号同指“替代”；句末 though ≠ however，只是“不过”的弱补充。<br>最易误选：<b>B（though）</b>——见句末副词就想到“不过/然而”；句末 though 管的是“弱化补充前句”，管不了“弃 A 取 B”的替代。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2019 完形第 10 空 · 句末替代副词</h2>
+<p>答案：<strong>A（instead 代替；反而）</strong>。</p>
+<h3>第 0 步：先立机制——stop A + switch to B：替代关系</h3>
+<p>stop A + switch to B：新方式取代旧方式，是“取舍/替代”关系。instead 表替代的句末用法：sb doesn't do sth but does sth else instead（不做 A，而做 B 代替）。三个信号——stopped、switched to、句末空位——同指替代。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>For these reasons, I stopped weighing myself every day and switched to a bimonthly weighing schedule <strong>__10__</strong>.</blockquote>
+<p>空 10 是句末副词。句内有两个元素：旧方式（每日称重，被 stop）与新方式（每月称两次，由 switched to 引出）。句末副词负责标明二者的关系。</p>
+<h3>第 2 步：找证据——一弃一取，替代关系已写明</h3>
+<blockquote>I stopped weighing myself every day and switched to a bimonthly weighing schedule.</blockquote>
+<p>stopped（弃）+ switched to（取）：一弃一取已经写明，句末副词只需给这层替代关系“盖章”。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A instead</td><td>代替；反而</td><td>✓ 当选</td><td>switched to a bimonthly weighing schedule instead = 而是改为每月称两次：替代关系成立。</td></tr><tr><td>B though</td><td>虽然；不过</td><td>✗ 排除</td><td>句末 though = “不过”，用于补充弱化前句（如 I'd love to, though.）；本句是“弃 A 改 B”的过程陈述，与上文也没有“转折弱化”关系。</td></tr><tr><td>C again</td><td>又，再一次</td><td>✗ 排除</td><td>again 表动作重复；由上文可知这是作者第一次调整称重频率，谈不上“又”。</td></tr><tr><td>D indeed</td><td>的确</td><td>✗ 排除</td><td>indeed 强调本句陈述的真实性或补强前文，与“替代”无关。</td></tr></tbody></table>
+<p>代入后的完整句义：I stopped weighing myself every day and switched to a bimonthly weighing schedule instead.（我不再每天称重，而是改为每月称两次。）</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（though）</strong>：见句末副词就想到“不过/然而”；句末 though 管的是“弱化补充前句”，管不了“弃 A 取 B”的替代。</li></ul>
+<blockquote>记忆锚点：stop A + switch to B + 句末 instead：三个信号同指“替代”；句末 though ≠ however，只是“不过”的弱补充。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

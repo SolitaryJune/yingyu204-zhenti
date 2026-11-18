@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-38 推理题："citizens" 一词暗示什么——ignoring 取反 + rather than 取舍</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+<style>
+.qq{margin:6px 0;padding:7px 11px;border-left:3px solid #d97706;background:#fffbeb;
+  border-radius:0 8px 8px 0;font-size:13px;color:#334155;line-height:1.75}
+.qq b{color:#b45309}
+.qq .cn{color:#64748b;font-size:12.5px}
+table.aw-mini{border-collapse:collapse;margin:6px 0;font-size:13px;width:100%}
+table.aw-mini th,table.aw-mini td{border:1px solid #e2e8f0;padding:4px 9px;text-align:left;line-height:1.6}
+table.aw-mini th{background:#f8fafc;color:#0f172a}
+.ok-dot{color:#15803d;font-weight:800}
+.bad-dot{color:#b91c1c;font-weight:800}
+</style>
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+var STEPS = [
+ {'cls':'key','ecs':'shift','tag':'审题','count':0,
+  'title':'审题眼：By pointing out our identity "citizens"',
+  'body':'<p>题干：<b>By pointing out our identity "citizens", the author indicates that ____.</b>（作者通过指出"公民"这一身份，暗示了什么？）</p><p>indicate 是<b>推理引申</b>标志词。定位暗号："citizens"（带引号的身份词）→ 第四段整段就一句话，需要拆结构。</p>',
+  'log':'审题：indicate 推理题，定位第四段单句长难句'},
+ {'cls':'','ecs':'step','tag':'定位','count':0,
+  'title':'定位：第四段长难句',
+  'body':'<div class="qq"><b>第四段：</b>While the conversation around our environment and our responsibility toward it remains centered on shopping bags and straws, we\'re <b>ignoring</b> the balance of power that implies that as "consumers" we must shop sustainably, <b>rather than</b> as "citizens" <b>hold our governments and industries to account</b> to push for real systemic change.<span class="cn">（当环境讨论仍围着购物袋和吸管打转，我们正忽视一股力量：它暗示作为"消费者"我们必须可持续消费，而<b>不是</b>以"公民"身份问责政府与产业、推动真正的系统性变革。）</span></div>',
+  'log':'定位第四段：While 现状 → ignoring 问题 → rather than 取舍'},
+ {'cls':'','ecs':'step','tag':'拆句','count':0,
+  'title':'拆句：两个信号词决定推理方向',
+  'body':'<table class="aw-mini"><tr><th>成分</th><th>内容</th><th>信号</th></tr><tr><td>While 从句</td><td>讨论仍围着购物袋、吸管</td><td>陈述现状</td></tr><tr><td>主句</td><td>we\'re ignoring the balance of power</td><td><b>现状是错的 → 取反</b></td></tr><tr><td>that 从句 + rather than</td><td>作为"公民"问责政府与产业（被放弃的那一端）</td><td><b>rather than 后才是作者主张</b></td></tr></table><p>ignoring 说明"没做的才是该做的"；rather than 表取舍，作者取被放弃的一端——以公民身份<b>问责政府与产业</b>。</p>',
+  'log':'拆句：ignoring 取反 + rather than 取舍 → 应问责政府与产业'},
+ {'cls':'','ecs':'step','tag':'替换','count':0,
+  'title':'同义替换：press our government to lead the combat',
+  'body':'<table class="aw-mini"><tr><th>选项 D</th><th>原文</th></tr><tr><td><b>press our government</b></td><td>hold our governments and industries to account（问责政府与产业）</td></tr><tr><td><b>to lead the combat</b></td><td>to push for real systemic change（推动真正的系统性变革）</td></tr></table>',
+  'log':'替换：press ↔ hold... to account；lead the combat ↔ push for systemic change'},
+ {'cls':'bad','ecs':'miss','tag':'排除 A','count':1,'ribbon':{'k':1,'ok':false},
+  'title':'排除 A：应把重心转向社区福利',
+  'body':'<p><b>A · our focus should be shifted to community welfare</b><span class="bad-dot"> ✗</span></p><p>从"公民身份"臆断出"社区福利"——文中只谈问责政府与产业，<b>无中生有</b>。</p>',
+  'log':'排除 A：社区福利文中未提及，无中生有'},
+ {'cls':'bad','ecs':'miss','tag':'排除 B','count':2,'ribbon':{'k':2,'ok':false},
+  'title':'排除 B：我们与地方产业的关系正在改善',
+  'body':'<p><b>B · our relationship with local industries is improving</b><span class="bad-dot"> ✗</span></p><p>把"<b>敦促</b>产业担责"曲解成"<b>修缮</b>与产业的关系"——是施压，不是示好。</p>',
+  'log':'排除 B：是敦促产业担责，不是"关系改善"'},
+ {'cls':'bad','ecs':'miss','tag':'排除 C','count':3,'ribbon':{'k':3,'ok':false},
+  'title':'排除 C：我们一直在积极行使公民权利',
+  'body':'<p><b>C · we have been actively exercising our civil rights</b><span class="bad-dot"> ✗</span></p><p>与 we\'re ignoring <b>正面相悖</b>——恰因公民权利没被行使，作者才提出批评。</p>',
+  'log':'排除 C：与 ignoring 正面相悖'},
+ {'cls':'good','ecs':'ok','tag':'锁定 D','count':4,'ribbon':{'k':4,'ok':true},
+  'title':'锁定 D：应敦促政府主导这场战斗',
+  'body':'<p><b>D · we should press our government to lead the combat</b><span class="ok-dot"> ✓</span></p><p>取反 + 取舍汇于一点：以公民身份问责政府与产业、推动系统性变革 → 让政府发挥作用、承担责任。</p>',
+  'log':'锁定 D：公民身份 = 问责政府，让政府主导'},
+ {'cls':'good','ecs':'done','tag':'结论','count':4,
+  'title':'结论：答案 D',
+  'body':'<p><b>答案 D（we should press our government to lead the combat）</b>——ignoring 取反 + rather than 取被放弃的一端：以公民身份问责政府与产业。</p><p>记忆锚点：indicate 题 + ignoring = 取反；rather than 后才是作者要的那一端。</p>',
+  'log':'结论：作者暗示我们应敦促政府主导环保战斗，答案选 D'}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var sn = {
+    cls: s.ecs || 'step',
+    tag: s.tag || ('第 ' + (i + 1) + ' 步'),
+    log: s.log || s.title,
+    count: (s.count != null ? s.count : i),
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+  if(s.ribbon) sn.ribbon = s.ribbon;
+  return sn;
+});
+
+AW.init({
+  title: "yy-2019-38 · 推理题：“公民”身份暗示了什么",
+  subtitle: "考点：Text4 推理引申 · 方法：拆长难句 → ignoring 取反 → rather than 取舍",
+  counterLabel: "已核验",
+  ribbonTitle: "选项（✓ 对 / ✗ 错）",
+  intro: "点击「▶ 播放」逐步展开：定位第四段单句 → 拆结构 → 取反推理 → 逐项排除。",
+  snaps: snaps,
+  result: {
+    big: "答案 D",
+    html: "<b>ignoring 取反 + rather than 取舍</b>：作者主张以“公民”身份<b>问责政府与产业</b>（hold our governments and industries to account）→ <b>press our government to lead the combat</b>。A 无中生有，B 曲解关系，C 与 ignoring 相悖。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：推理题——ignoring 要取反，rather than 后才是作者主张</h2>
+<p>答案：<strong>D（we should press our government to lead the combat 我们应敦促政府主导这场战斗）</strong>。</p>
+<h3>第 0 步：先立机制——"指出不足"类推理的取反规则</h3>
+<p>题干 By pointing out our identity "citizens", the author indicates that ____：indicate 是推理引申的标志词。第四段整段就一句话，结构三层：<strong>While 从句</strong>陈述现状（讨论仍围着购物袋和吸管打转）；<strong>主句</strong>亮明问题 we're ignoring the balance of power（我们忽视了力量平衡）；<strong>that 从句</strong>展开这股力量暗示什么——作为 "consumers" 我们必须可持续消费，<strong>rather than</strong> as "citizens" <strong>hold our governments and industries to account</strong> to push for real systemic change（以"公民"身份问责政府与产业、推动真正的系统性变革）。</p>
+<p>两个信号词决定答案：<strong>we're ignoring 说明现状错了，作者主张取其反面</strong>；<strong>rather than 表取舍，作者取的是被放弃的那一端</strong>——以公民身份问责政府与产业。二者汇于一点：该让政府和产业担责、牵头变革 → D。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...we're ignoring the balance of power that implies that as "consumers" we must shop sustainably, rather than as "citizens" hold our governments and industries to account to push for real systemic change.</blockquote>
+<h3>第 2 步：同义替换对照</h3>
+<table><thead><tr><th>选项 D</th><th>原文</th></tr></thead><tbody><tr><td>press our government</td><td>hold our governments and industries to account（问责政府与产业）</td></tr><tr><td>to lead the combat</td><td>to push for real systemic change（推动真正的系统性变革）</td></tr></tbody></table>
+<h3>第 3 步：干扰项归因</h3>
+<ul><li><strong>A（应把重心转向社区福利）</strong>：从"公民身份"臆断出"社区福利"——文中只谈问责政府与产业，无中生有。</li><li><strong>B（我们与地方产业的关系正在改善）</strong>：把"<strong>敦促</strong>产业担责"曲解成"<strong>修缮</strong>与产业的关系"——是施压，不是示好。</li><li><strong>C（我们一直在积极行使公民权利）</strong>：与 we're ignoring <strong>正面相悖</strong>——恰因公民权利没被行使，作者才提出批评。</li></ul>
+<blockquote>记忆锚点：indicate 题 + ignoring = 取反；rather than 后是被放弃的那一端，才是作者要的——公民问责政府与产业。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

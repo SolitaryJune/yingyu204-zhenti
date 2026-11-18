@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2011-09 · 2011 完形第 9 空 · 用户______加入哪个系统——联合体里才有得选</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （完形填空：定位原文 → 找证据 → 逐项排除的推理链卡片）
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 9 所在句", "cls": "key", "tag": "定位", "log": "定位原文：Users could __9__ which system to join —— 动作对象是“多选项之一”", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Users could <b>__9__</b> which system to join, and only registered users whose identities have been authenticated could navigate those systems.</div><p>空格动词后接 which system to join（疑问词+不定式）：动作对象是<b>一组选项中的某一个</b>；动作发出者是普通用户。考点：上下文语义 + 疑问词宾语。</p>"}, {"title": "找证据 · 上一句刚“创建”了联合体", "cls": "key", "tag": "证据", "log": "找证据：create a federation —— 系统不止一个，用户才有得选", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The idea is to create a federation of private online identity systems.</div><p>第 8 空刚说要<b>创建联合体</b>——联合体由多个私营系统组成：上句“建多系统”、本句“挑一个加入”，衔接紧密 → 核心动作是“挑选”。</p>"}, {"title": "逐项分析 · C select（选择，挑选）", "cls": "good", "tag": "选定 C", "log": "C select（选择） ✓ 当选——从联合体多个系统中挑一个", "count": 1, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>select which system to join：“选择加入哪个系统”。动作、句法（接 wh-结构）、上下文（多系统联合体）三点全合。</p>"}, {"title": "逐项分析 · A recall（回忆，记起）", "cls": "bad", "tag": "排除 A", "log": "A recall ✗ 排除——用户面对眼前选项，不是回忆", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>recall + wh-从句是“回想起……”：用户面对的是眼前一组候选系统，不是记忆里的旧信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：recall 语法上能接 wh-结构，就用语法硬套。</p>"}, {"title": "逐项分析 · B suggest（提议，建议）", "cls": "bad", "tag": "排除 B", "log": "B suggest ✗ 排除——用户是使用者，不是提案人", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>suggest which system to join 是“提议加入哪个”：用户的角色是体系的使用者，不是提案人，与“自愿加入”语境不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：suggest 能接 wh-结构就顺手选。</p>"}, {"title": "逐项分析 · D realize（意识到）", "cls": "bad", "tag": "排除 D", "log": "D realize ✗ 排除——“领悟”没有“挑选”的核心义", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>realize 强调“恍然领悟”的心理过程；联合体语境的重心恰恰是“有多个可选”，核心动作是<b>挑</b>，不是“想通”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：整句意译“意识到该加哪个”觉得通顺，忘了 realize 无挑选义。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（select 选择）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>用户可以选择加入哪个系统，只有身份认证过的注册用户才能在这些系统中畅行。</b></p><p>答案选 <b>C（select 选择，挑选）</b>。</p><p><b>记忆锚点</b>：动词 + which...to join → 动作对象是“多选项之一”；上句 create a federation → 用户才有得选 → select；recall/suggest/realize 语法通、语境不匹配。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2011 完形第 9 空 · 用户______加入哪个系统——联合体里才有得选",
+  subtitle: "考点：上下文语义（动词）+ 疑问词宾语从句 · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（select）", "html": "<b>C select（选择，挑选）</b>：联合体里系统不止一个，用户“挑选”加入哪个——语法（接 wh-从句）与语境双合。<br>记忆锚点：四个词都接得动 which...to join → 真筛子是语境。<br>最易误选：<b>A（recall）</b>——只查语法不核语境。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2011 完形第 9 空 · 用户______加入哪个系统——联合体里才有得选</h2>
+<p>答案：<strong>C（select 选择，挑选）</strong>。</p>
+<h3>第 0 步：先立机制——疑问词从句暴露了动作类型</h3>
+<p>空格动词后面跟的是 which system to join（加入哪个系统）这个“疑问词 + 不定式”结构：动作的对象是<strong>一组选项中的某一个</strong>。发出动作的是普通用户（Users）。所以空格要填的动词必须同时满足：① 能接 which...to... 结构；② 是“用户面对多个候选系统时”会做的动作。这一步先把 A、B、D 里“接得动 wh-结构但意思不对”的项也一并暴露出来。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Users could __9__ which system to join, and only registered users whose identities have been authenticated could navigate those systems.</blockquote>
+<p>用户可以______加入哪个系统；后半句补充：只有通过身份认证的注册用户才能在那些系统里畅行。</p>
+<h3>第 2 步：找证据——上一句刚“创建”了联合体</h3>
+<blockquote>The idea is to create a federation of private online identity systems.</blockquote>
+<p>第 8 空刚说完要<strong>创建一个联合体</strong>——联合体由多个私营系统组成，系统不止一个，用户才会面临“选哪个”的问题。上下句是“先建联合体（多系统）→ 用户在其中挑一个加入”的紧密衔接。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>C select</td><td>选择，挑选</td><td>✓ 当选</td><td>select which system to join “选择加入哪个系统”：从联合体的多个系统中挑一个，动作、句法、上下文三点全合。</td></tr><tr><td>A recall</td><td>回忆，记起</td><td>✗ 排除</td><td>recall which system to join 是“回想起该加入哪个”——用户面对的是眼前的选项清单，不是记忆里的东西。（典型误解：recall 语法上能接 wh-结构，就用语法硬套。）</td></tr><tr><td>B suggest</td><td>提议，建议</td><td>✗ 排除</td><td>suggest which system to join 是“提议加入哪个”——用户是体系的使用者，不是提案人；且“自愿加入”语境不需要建议动作。（典型误解：suggest 能接 wh-结构就顺手选。）</td></tr><tr><td>D realize</td><td>意识到</td><td>✗ 排除</td><td>realize which system to join 强调“恍然领悟”的心理过程，没有“从多个里挑一个”的核心义；联合体语境的重心恰恰是“有多个可选”。（典型误解：把中文“明白该选哪个”整句硬译回去。）</td></tr></tbody></table>
+<p>代入后的完整句义：用户可以选择加入哪个系统，而只有身份通过认证的注册用户才能在这些系统中畅行。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>四个人选语法上谁“接得动” which...to join？</strong>：recall / suggest / realize / select 都能接疑问词从句——这正是命题人设的语法烟雾弹；真正的筛子是上下文：联合体给了“多个候选”，用户做的动作是“挑”。</li><li><strong>为什么不选 D？用户不也得“想清楚”再选吗？</strong>：“想清楚”是心理铺垫，句子的谓语动词写的是<strong>核心动作</strong>；完形选词以句子的核心行为为准，“领悟”没有表达“挑选”义。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（recall）</strong>：只检查了“能接 which 从句”的语法面，没核对动作与语境（眼前多选项）的匹配。</li><li><strong>误选 B（suggest）</strong>：把 suggest 的“提议”义硬安给用户，忘了用户的角色是使用者。</li><li><strong>误选 D（realize）</strong>：整句中文意译“意识到该加入哪个”觉得通顺，忽略了 realize 没有“挑选”义。</li></ul>
+<blockquote>记忆锚点：动词 + which...to join → 动作对象是“多选项之一”；上句 create a federation（多系统）→ 用户才有得选 → select；recall/suggest/realize 语法通但语境不匹配。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

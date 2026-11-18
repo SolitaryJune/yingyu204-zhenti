@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-21 · 2024 阅读第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 主张题的解题机制',
+    cls: 'key',
+    tag: '审题',
+    log: 'Coyle argues ... economic growth should ____——should 是主张标志词',
+    count: 0,
+    body: '<p>题干 <code>Coyle argues in her new book that economic growth should ____</code>：问人物<b>主张</b>，不是事实。定位靠题文同序 + 关键词 Coyle / her new book → <b>首段</b>。解法两步：先锁定“主张落点句”，再做同义替换。</p>'
+  },
+  { title: '定位原文 · 首段第 2 句是主张落点',
+    cls: 'key',
+    tag: '定位',
+    log: '定位原文：首段全是他/她的观点，主张落点在 the gains will have to be more evenly shared',
+    count: 0,
+    body: quote('In her new book Cogs and Monsters..., Diane Coyle... argues that the digital economy requires new ways of thinking about progress.') +
+      quote('“Whatever we mean by the economy growing, by things getting better, the gains will have to be more evenly shared than in the recent past,” she writes.') +
+      '<p>第 1 句主张“重新定义进步”；第 2 句更具体：<b>增长的收益必须得到更公平的分配</b>。题干问“经济增长应该____”，直接接得上的是第 2 句。</p>'
+  },
+  { title: '找证据 · 第 3 句反面例证坐实方向',
+    cls: 'key',
+    tag: '证据',
+    log: '找证据：科技富翁 vs 零工、中产被侵蚀——“分配不均”的反面教材',
+    count: 0,
+    body: quote('“An economy of tech millionaires or billionaires and gig workers, with middle-income jobs undercut by automation, will not be politically sustainable.”') +
+      '<p>富翁 vs 零工、中产萎缩——这是“分配不均”的具体画像；said 句式表明它服务于第 2 句的主张：增长成果要<b>惠及所有人</b>。</p>'
+  },
+  { title: '同义替换核对 C',
+    cls: 'good',
+    tag: '替换',
+    log: '替换链闭合：more evenly shared → benefit people equally',
+    count: 0,
+    body: '<p>more evenly shared（更公平地共享）→ <b>benefit people equally（平等受益）</b>。evenly/equally 同根同义，gains 与 benefit 对应。C 初判正确，接下来逐项排除验证。</p>'
+  },
+  { title: 'A：give rise to innovations —— 杂糅字眼',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A 引发创新 ✗——把“重新定义进步”泛化成“创新”，偷换焦点',
+    count: 1,
+    ribbon: { k: 1, ok: false },
+    body: '<p>杂糅首段 digital / tech 字眼与后文“变革性技术”捏造。但 <code>new ways of thinking about progress</code> 特指<b>重新衡量“进步”</b>；原文逻辑是“（数字技术）创新带来增长、但加剧不平等”，不是“增长应当带来创新”——问题的焦点是<b>分配</b>，不是创新不足。</p><p style="color:#b91c1c">⚠ 典型误解：见 new 就联想到“创新”。</p>'
+  },
+  { title: 'B：diversify career choices —— 偷换问题',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 职业多样化 ✗——“岗位减少”的证据被拔高成“多样性”问题',
+    count: 2,
+    ribbon: { k: 2, ok: false },
+    body: '<p>由“中产岗位被自动化侵蚀”“好工作被毁”捏造出“岗位太单一”。原文说的是<b>分配不均</b>：两极分化、中产萎缩——讨论的是“谁受益”，不是“工作种类多不多”。</p><p style="color:#b91c1c">⚠ 典型误解：把局部信息（岗位减少）拔高成另一个问题（多样性）。</p>'
+  },
+  { title: 'C：benefit people equally —— 替换闭环',
+    cls: 'good',
+    tag: '锁定 C',
+    log: 'C 平等受益 ✓——more evenly shared 的精准同义替换',
+    count: 2,
+    ribbon: { k: 3, ok: true },
+    body: '<p>首段第 2 句主张“收益更公平地共享”，第 3 句反例强化；C 项 <b>benefit people equally</b> 完整承接主张：增长的成果应惠及所有人，而非少数科技精英。</p>'
+  },
+  { title: 'D：be promoted forcefully —— 主体错位',
+    cls: 'bad',
+    tag: '排除 D',
+    log: 'D 大力推进 ✗——该推进的是数字技术应用，不是经济增长本身',
+    count: 3,
+    ribbon: { k: 4, ok: false },
+    body: '<p>第二段 <code>will require greater use of digital technologies to boost productivity</code> 强调的是<b>推广数字技术的应用</b>；把必要性安到“经济增长”头上属于主体错位，且首段的担忧恰是“增长方式出了问题”（分配不均）。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 C',
+    log: '答案 C（benefit people equally）——主张题先锁落点句再替换',
+    count: 3,
+    body: '<p>答案选 <b>C（benefit people equally 使人们平等受益）</b>。</p><p><b>记忆锚点</b>：主张题（should）先锁定 argues / 主张落点句；more evenly shared = benefit people equally；首段“富翁 vs 零工”反例提示主题是<b>分配</b>——A 泛化为创新、B 拔高为多样性、D 错置主体，全是脱离落点句的想象。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 21 题 · 科伊尔主张“经济增长应该怎样”',
+  subtitle: 'Text 1（Cogs and Monsters / AI 不平等）· 考点：人物主张 + 同义替换',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+    big: '答案 C（benefit people equally）',
+    html: '主张落点句：<b>the gains will have to be more evenly shared</b> → C benefit people equally。<br>记忆锚点：should 是主张标志词；A 泛化“创新”、B 偷换“多样性”、D 错置“推进”主体——全是脱离落点句的想象。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 21 题 · 科伊尔主张“经济增长应该怎样”</h2>
+<p>答案：<strong>C（benefit people equally 使人们平等受益）</strong>。</p>
+<h3>第 0 步：先立机制——主张题的解法</h3>
+<p>题干 Coyle argues ... economic growth should ____ 中的 should 是主张标志词：问的不是事实，而是人物认为“应当怎样”。定位靠题文同序 + 关键词 Coyle / her new book → 首段。首段三句全是她的观点（argues that...；两处直接引语），解法是分两步：先锁定“主张”的句子，再把主张内容与选项做同义替换。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>In her new book Cogs and Monsters..., Diane Coyle... argues that the digital economy requires new ways of thinking about progress.<br/>“Whatever we mean by the economy growing, by things getting better, the gains will have to be more evenly shared than in the recent past,” she writes.</blockquote>
+<p>第 1 句的主张是“数字经济需要重新定义进步”；第 2 句的主张更具体：“增长的收益将必须得到更公平的分配”。题干问“经济增长应该____”，两句里能直接接上的是第 2 句。</p>
+<h3>第 2 步：同义替换核对</h3>
+<p>more evenly shared（更公平地共享）→ <strong>benefit people equally（平等受益）</strong>；第 3 句“科技富翁 vs 零工、中产岗位被自动化侵蚀”正是“分配不均”的反面例证，进一步坐实主张方向：增长成果要惠及所有人，而非少数富人。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A give rise to innovations</td><td>引发创新</td><td>✗</td><td>杂糅字眼：new ways of thinking 特指重新定义“进步”，不是泛泛“创新”；文中逻辑是“创新带来增长（但加剧不平等）”，不是“增长应当带来创新”</td></tr><tr><td>B diversify career choices</td><td>使职业选择多样化</td><td>✗</td><td>由“中产岗位减少”捏造出“岗位单一”问题；原文说的是分配不均（贫富两极、中产萎缩），与岗位多样性无关</td></tr><tr><td>C benefit people equally</td><td>使人们平等受益</td><td>✓</td><td>= the gains will have to be more evenly shared 的同义替换</td></tr><tr><td>D be promoted forcefully</td><td>被大力推进</td><td>✗</td><td>第二段的重点是“推广数字技术的应用”而非“大力推进经济增长”；且首段的担忧恰恰是增长方式出了问题</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>为什么不选 A？new ways of thinking 不就是创新吗？</strong>：它是“重新衡量进步”这一特定主张，且命题重心在第 2 句的“分配”；把“创新不足”当成问题，偷换了原文“分配不均”这个焦点。</li><li><strong>B 为什么错？文中确实提到工作被自动化取代</strong>：那是“中产萎缩、贫富分化”的证据，服务于“不平等”主题；“工作种类不多样”从未被讨论。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：被首段 digital / tech / new 字眼吸引，把“重新定义进步”泛化成“创新”。</li><li><strong>误选 B</strong>：把“好工作被毁”的局部信息拔高成“职业选择需要多样化”。</li><li><strong>误选 D</strong>：把第二段“提高生产力”的必要性错误安在“经济增长”头上。</li></ul>
+<blockquote>记忆锚点：主张题先锁定 argues / should 的落点句；more evenly shared = benefit people equally；首段反例（富翁 vs 零工）提示主题是“分配”，不是“创新／多样性”。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

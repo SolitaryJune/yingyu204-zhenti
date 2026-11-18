@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-29 · 2014 阅读第 29 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 词义题不背词典，抄上下文的双向线索",
+  "cls": "key",
+  "tag": "审题",
+  "log": "viscerally 修饰 hate photographs：线索向上找 + 向下找",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：第五段的 <b>viscerally</b> 一词最接近的含义是____。</p><p>viscerally 修饰 hate photographs of themselves——“人们以____的方式讨厌自己的照片”。线索两个方向：<b>向上一句</b>（Knowing the results of Epley's study 承接什么结论）与<b>向下一句</b>（破折号后补什么细节）。</p>"
+ },
+ {
+  "title": "定位原文 · 第五段①句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：...many people hate photographs of themselves viscerally – they don't even recognise the person in the picture as themselves",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Knowing the results of Epley's study, it makes sense that many people hate photographs of themselves <b>viscerally</b> – on one level, they don't even <b>recognise</b> the person in the picture as <b>themselves</b>.</div>"
+ },
+ {
+  "title": "两路合围 · 承上 + 启下",
+  "cls": "key",
+  "tag": "合围",
+  "log": "承上：视觉识别是无意识本能过程；启下：意识层面认不出是自己 → 本能地",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>承上</b>：Epley 的结论是“视觉识别是自动的、直觉的、无刻意思考的心理过程”——既然“认照片”发生在无意识层面，“讨厌照片”也在同一层面发生。</p><p><b>启下</b>：破折号后“意识层面根本<b>没认出</b>那是自己”——“无意识、本能”层面的注脚。</p><p>两路同指“本能地、发自内心地”→ <b>A instinctively</b>。visceral ↔ viscera（内脏），“内脏的” = 不经大脑的。</p>"
+ },
+ {
+  "title": "逐项分析 · A instinctively（本能地）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A instinctively（本能地） ✓ 当选——两条线索同频",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>与承上（无意识本能过程）、启下（认不出是自己）两条线索同频；“内脏的”引申义 = 不受意识控制。</p>"
+ },
+ {
+  "title": "逐项分析 · B occasionally（偶尔地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 偶尔地 ✗ 排除——many people hate... 是普遍倾向，不是频率",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>频率错位：many people hate... 说的是<b>普遍倾向</b>，不是“偶尔讨厌”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把词义题当语气题，选弱化词求稳。</p>"
+ },
+ {
+  "title": "逐项分析 · C particularly（特别地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 特别地 ✗ 排除——只表达程度，丢掉“无意识”核心线索",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>只表达程度加深，丢掉了“<b>无意识</b>”这一核心线索——“甚至认不出是自己”的注释对不上号。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 hate 前的修饰词一律当程度词处理。</p>"
+ },
+ {
+  "title": "逐项分析 · D aggressively（极力地，攻击性地）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 攻击性地 ✗ 排除——同为程度词且带攻击色彩，语境不容",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>同为程度词且带攻击色彩：厌恶自己的照片谈不上“攻击”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭 visceral 的“内脏血腥”联想“凶狠”。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（instinctively）——承上 + 启下双路合围",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>A（instinctively 本能地）</b>。</p><p><b>记忆锚点</b>：词义题双向抄线索——承上（Epley：无意识本能过程）+ 启下（认不出是自己）→ viscerally = instinctively；visceral = 内脏的 = 不经大脑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 C/D——把词义题做成“程度排序题”。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 29 题 · viscerally 词义题——“承上”与“启下”两路合围",
+  subtitle: "考点：词义题 · 承上（Epley 无意识本能）+ 启下（认不出是自己）→ instinctively",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（instinctively）",
+ "html": "<b>A instinctively</b>：承上（Epley——视觉识别是无意识本能过程）+ 启下（意识层面认不出照片里的人是自己）双路合围 → 本能地、不经大脑。<br>B 频率错位；C/D 只剩程度、丢掉“无意识”。<br>记忆锚点：visceral = 内脏的 = 不经大脑。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 29 题 · viscerally 词义题——"承上"与"启下"两路合围</h2>
+<p>答案：<strong>A（instinctively）</strong>。</p>
+<h3>第 0 步：先立机制——词义题不背词典，抄上下文的双向线索</h3>
+<p>猜词题的规则：被猜词在句中必有替代线索。viscerally 修饰 hate photographs of themselves——"人们以____的方式讨厌自己的照片"。线索有两个方向：向上一句（Knowing the results of Epley's study 承接什么结论）与向下一句（破折号后补什么细节）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Knowing the results of Epley's study, it makes sense that many people hate photographs of themselves viscerally – on one level, they don't even recognise the person in the picture as themselves.</blockquote>
+<h3>第 2 步：双向线索合围</h3>
+<ul><li><strong>承上</strong>：Epley 的结论是"视觉识别是自动的、直觉的、无刻意思考的心理过程"——既然"认照片"发生在无意识层面，那么"讨厌照片"也在同一层面发生；</li><li><strong>启下</strong>：破折号后 on one level, they don't even recognise the person in the picture as themselves——他们<strong>意识层面根本没认出</strong>那是自己，这是"无意识、本能"层面的注脚。</li></ul>
+<p>两路线索同指"本能地、发自内心地"→ A instinctively。viscerally 本义"发自内脏地"（visceral ↔ viscera 内脏），英语里正表"本能的、不经大脑的"。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A instinctively</td><td>本能地</td><td>✓ 当选</td><td>与承上（无意识本能过程）、启下（认不出是自己）两条线索同频。</td></tr><tr><td>B occasionally</td><td>偶尔地</td><td>✗ 排除</td><td>频率错位：many people hate... 说的是普遍倾向，不是"偶尔讨厌"。（典型误解：把词义题当语气题，选弱化词求稳。）</td></tr><tr><td>C particularly</td><td>特别地</td><td>✗ 排除</td><td>只表达程度加深，丢掉了"无意识"这一核心线索。（典型误解：把 hate 前的修饰词一律当程度词。）</td></tr><tr><td>D aggressively</td><td>极力地，攻击性地</td><td>✗ 排除</td><td>同为程度词且带攻击色彩：厌恶自己的照片谈不上"攻击"。（典型误解：凭 visceral 的"内脏血腥"联想"凶狠"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>viscerally 不是"强烈地"吗？C/D 不是更贴近"强烈厌恶"？</strong>：visceral 的重点不在"强烈"而在"不经大脑"——内脏反应先于思考。若是纯程度词，破折号后"甚至认不出是自己"的注释就对不上号：认不出，恰说明反应发生在意识之下。</li><li><strong>词义题什么时候用构词法？</strong>：辅助手段。visceral ↔ viscera（内脏），"内脏的" = 不受意识控制的，与上下文线索互相印证，比单靠语感稳。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C/D</strong>：把词义题做成"程度排序题"，忽略 Knowing the results of Epley's study 这个承上启下的路标。</li><li><strong>误选 B</strong>：被 many people 的模糊印象干扰，未核对原文的普遍性表述。</li></ul>
+<blockquote>记忆锚点：词义题双向抄线索——承上（Epley：无意识本能过程）+ 启下（认不出是自己）→ viscerally = instinctively；visceral = 内脏的 = 不经大脑。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

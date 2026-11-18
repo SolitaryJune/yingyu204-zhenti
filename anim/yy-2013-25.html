@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2013-25 · 2013 阅读第 25 题 · 全文最恰当的标题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：概念 / 分析推理类题目动画（与站点既有英语动画同款外壳）。
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard；原文关键句用引用块。
+     只改下方 AW.init 区域。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 标题题的三条标准",
+  "cls": "shift",
+  "tag": "审题",
+  "log": "标题题=主旨题：覆盖全文、合作者态度、最好有文眼支撑——先找全文高频词",
+  "count": 0,
+  "body": "<p>标题题 = 主旨题。三条标准：① <b>覆盖全文</b>而非局部；② 与<b>作者态度</b>一致；③ 最好有“文眼”支撑。通读可见高频词是 average（平庸的）——第一、三、五、六段反复出现，第三段还有一句宣言式的话。</p>"
+ },
+ {
+  "title": "抓文眼 · average is officially over",
+  "cls": "key",
+  "tag": "文眼",
+  "log": "第三段 But 转折给出文眼：“平庸时代正式结束”——统领全文的宣言",
+  "count": 0,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In the past, workers with average skills, doing an average job, could earn an average lifestyle. But, today, average is officially over.</div><p>第三段：过去“平庸”可以换来普通生活，<b>But 转折</b>——“平庸时代正式结束了”。随后全文围绕它展开：平庸不再有回报 → 要找到独特价值（第三段）→ 岗位加速消失（第四段）→ 好工作要求更高教育（第五段）→ 末段呼吁普及高中后教育（让每个人 above average）。</p>"
+ },
+ {
+  "title": "选项 C · Average Is Over",
+  "cls": "good",
+  "tag": "当选 C",
+  "log": "C Average Is Over ✓ 当选——文眼句原文照应，average 贯穿全文",
+  "count": 0,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>文眼句原文照应 + average 贯穿全文（average skills / average job / average lifestyle / above average）+ 与作者“必须超越平庸”的态度一致——三条标准全过。</p>"
+ },
+ {
+  "title": "选项 A · 新法律生效",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A New Law Takes Effect ✗ 排除——法案只是末段“建议”，并未生效，覆盖不了全文",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>末段只是“<b>建议</b>”通过一部类似 G.I. Bill 的法案（passing some kind of...），并未生效；且法案只覆盖末段的对策，撑不起全文。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿末段局部信息当全文标题。</p>"
+ },
+ {
+  "title": "选项 B · 技术变得廉价",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Technology Goes Cheap ✗ 排除——cheap 只是第三段排比的局部细节",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>cheap 只在第三段排比里出现（cheap software / robotics / automation...），是局部细节；文章重点不是技术的价格，而是它对劳动者的冲击。</p><p style=\"color:#b91c1c\">⚠ 典型误解：原词重现的选项反而要警惕。</p>"
+ },
+ {
+  "title": "选项 D · 衰退很糟糕",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Recession Is Bad ✗ 排除——大衰退只是第二段列举的失业原因之一",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>大衰退（Great Recession）只是第二段列出的失业原因之一，非全文主旨；全文重心是“平庸时代结束，人人要超越平庸”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“原因之一”放大成“主题”。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（Average Is Over）——文眼句 + 高频词 + 态度三重印证",
+  "count": 3,
+  "body": "<p>答案选 <b>C（Average Is Over 平庸时代结束）</b>。</p><p><b>记忆锚点</b>：标题题找“文眼句 + 全文高频词”；But 转折后的宣言（average is officially over）统领全文；正确标题须能罩住所有段落——只罩住一段的不是标题。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  "title": "2013 阅读第 25 题 · 全文最恰当的标题",
+  "subtitle": "考点：主旨题（标题）· 文眼句 + 全文高频词 · 正确项须覆盖全文且合作者态度",
+  "counterLabel": "已排除",
+  "ribbonTitle": "选项判定（✓ 当选 / ✗ 排除）",
+  "intro": "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 C（Average Is Over）",
+ "html": "<b>C Average Is Over（平庸时代结束）</b>：文眼句“But, today, average is officially over” + average 贯穿全文 + 合作者的“超越平庸”态度。<br>最易误选：<b>A</b>——法案只是末段建议且未生效，罩不住全文。<br>记忆锚点：标题 = 文眼 + 高频词 + 态度；原词重现的干扰项（cheap）要警惕。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2013 阅读第 25 题 · 全文最恰当的标题</h2>
+<p>答案：<strong>C（Average Is Over 平庸时代结束）</strong>。</p>
+<h3>第 0 步：先立机制——标题题的三条标准</h3>
+<p>标题题 = 主旨题，判断标准有三条：① <strong>覆盖全文</strong>而非局部（只罩住一段的不是标题）；② 与<strong>作者态度</strong>一致；③ 最好有“文眼”支撑。本文的高频词是 average（平庸的）——第三段有一句宣言式的话统摄全文，这就是文眼。</p>
+<h3>第 1 步：抓文眼</h3>
+<blockquote>In the past, workers with average skills, doing an average job, could earn an average lifestyle. But, today, average is officially over.</blockquote>
+<p>第三段：过去“平庸”能换来普通生活，But 转折——“<strong>平庸时代正式结束了</strong>”。这句话之后，全文每一部分都在为它服务：平庸不再有回报、要找到独特价值（第三段）→ 岗位加速消失（第四段）→ 好工作要求更高教育（第五段）→ 末段呼吁普及高中后教育，让每个人 above average。average 一词贯穿第一、三、五、六段（average skills / average job / average lifestyle / above average）。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A New Law Takes Effect</td><td>✗ 排除</td><td>末段只是“建议”通过一部类似 G.I. Bill 的法案（passing some kind of...），并未生效；且法案只覆盖末段对策，撑不起全文。（典型误解：拿末段局部信息当全文标题。）</td></tr><tr><td>B Technology Goes Cheap</td><td>✗ 排除</td><td>cheap 只在第三段排比里出现（cheap software / robotics / automation...），是局部细节；文章重点不是技术的价格，而是它对劳动者的冲击。（典型误解：原词重现的选项反而要警惕。）</td></tr><tr><td>C Average Is Over</td><td>✓ 当选</td><td>文眼句原文照应 + average 贯穿全文 + 与作者“必须超越平庸”的态度一致——三条标准全过。</td></tr><tr><td>D Recession Is Bad</td><td>✗ 排除</td><td>大衰退（Great Recession）只是第二段列出的失业原因之一，非全文主旨。（典型误解：把“原因之一”放大成“主题”。）</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>标题题和主旨题的做法一样吗？</strong>：内核一样（概括全文），但标题还要求<strong>有文采的浓缩</strong>——Average Is Over 恰好把文眼句直接提为标题，既覆盖全文（“平庸时代结束”意味着人人要超越平庸、要更多教育）又点明态度。</li><li><strong>为什么“覆盖全文”这么重要？</strong>：四个干扰项各自都能在原文里找到出处，但 A 只覆盖末段、B 只覆盖第三段的排比、D 只覆盖第二段的一个原因——它们是“段落标题”而非“文章标题”。逐项自问“这个标题罩得住第几段？”就能快速排除。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把末段对策（而且是“建议”而非事实）当成全文主题。</li><li><strong>误选 B</strong>：被原词 cheap 吸引——正确项反而常常不含干扰项那样的“表面原词”，而是抓文眼。</li></ul>
+<blockquote>记忆锚点：标题 = 文眼 + 高频词 + 态度；But 转折后的宣言（average is officially over）统领全文；逐项问“罩得住几段？”——只罩一段的不是标题。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015-47 小作文谋篇：招募启事「文体换轨 + 活动/职责/要求/联系」四要素</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类模板（同 2014-47 成品范式）：逐步展开推理链卡片，每步一张 .aw-stepcard。
+     英语内容无需 KaTeX，普通文本即可；外壳仅引用 ../assets/ 下两件资源（与站点布局一致，勿改 ../../）。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 推理链：每一步的完整内容（引擎按步数截取显示） */
+var STEPS = [
+  { title: '审题眼：先换轨文体，再数必答点',
+    cls: 'key',
+    body: '<p><b>Write a notice</b>——文体是<b>告示</b>，不是书信！书信 = 称呼 + 正文 + 落款；告示 = <b>标题 + 正文 + 落款（无称呼）</b>，面向不特定多数人，语言客观。两条指令：1) <b>briefly introduce the camp activities</b>（必答点 1：介绍活动）+ 2) <b>call for volunteers</b>（必答点 2：招募志愿者）。背景 <code>host a summer camp for high school students</code> 定了主办方（大学）、对象（高中生）、场景（夏令营）。缺任何一条必答点，档次直接掉。</p>' },
+  { title: '格式红线（先立规矩）',
+    cls: 'bad',
+    body: '<p>标题居中：<b>Recruitment Announcement</b>（或 Volunteers Wanted / Notice）。<b>无称呼</b>——不写 Dear...。两条硬约束：<b>Do not use your name or the name of your university</b> → 落款署 <b>Students\u2019 Union</b>（学生会），不署个人名、不写校名；<b>Do not write your address</b> → 不写地址。100 词左右，标题 + 两段正文。</p>' },
+  { title: '谋篇：两段正文四要素',
+    cls: 'key',
+    body: '<p><b>段 1</b> 开门见山：招什么人、为什么活动（启事不需要寒暄）。<b>段 2 前半</b> = 必答点 1：活动目的（促进学业 + 更重要：培养合作能力与实践技能）→ 代表活动（读书沙龙、创业大赛）。<b>段 2 后半</b> = 必答点 2：志愿者职责（组织活动 + 处理日常事务）→ 人选要求（四项品质 + 有经验者优先）。<b>段 3</b> 联系方式收尾——没有联系方式的招募启事 = 无效启事。</p>' },
+  { title: '段 1 开门见山：一句定招募事项',
+    cls: 'good',
+    body: '<p><b>We are looking for some volunteers for the summer camp for high school students.</b></p><p>「找谁」（volunteers）+「为了什么」（the summer camp for high school students）一句话全交代。招募启事开门即报事项，不寒暄、不铺陈——这是它与书信的第一处语域差异。</p>' },
+  { title: '段 2 活动介绍句升格①：被动 + 目的不定式并列',
+    cls: 'key',
+    body: '<p>升格路径：① 简单句 <i>We will organize the summer camp. The camp aims to improve learning.</i> → ② 合并 <i>The summer camp is organized to improve learning and develop abilities.</i> → ③ <b>告示腔升格</b> <i>The summer camp is <b>organized to</b> facilitate high school students\u2019 academic learning and <b>more importantly</b> cultivate their cooperation ability and practical skills.</i></p><p>主语换成事情本身（the summer camp）+ 被动式 + 两个目的不定式并列，more importantly 标出「促进学业是基础，培养能力才更重要」的层次——客观语域就是这么造出来的。</p>' },
+  { title: '段 2 列举留余地：including but not limited to',
+    cls: 'good',
+    body: '<p><b>...through activities including but not limited to reading salon and business-starting competition.</b></p><p><b>including but not limited to</b>（包括但不限于）是公告/法律语体的标准列举法：给出读书沙龙、创业大赛两个<b>具体</b>代表活动让读者有画面，又用 not limited to 留出余地不锁死——比 and so on 正式得多。briefly introduce 的分寸感就在这里：目的 + 1–2 个代表活动，不排课表。</p>' },
+  { title: '段 2 志愿者职责：are required to 客观告知',
+    cls: 'good',
+    body: '<p><b>Volunteers are required to help organize activities and cope with daily affairs during the summer camp.</b></p><p>职责两条：<b>help organize activities</b>（帮着组织活动）+ <b>cope with daily affairs</b>（处理日常事务）。用 are required to 的被动句式「志愿者须……」——不是 I need you to 的对话腔，而是启事对公众的要求体。</p>' },
+  { title: '段 2 人选要求：四品质 + 动名词主语',
+    cls: 'key',
+    body: '<p><b>Ideal candidates should be patient, active, warm-hearted and responsible. Having relevant experience is preferred.</b></p><p>四个形容词一口报出（patient 有耐心 · active 积极 · warm-hearted 热心 · responsible 负责）。「有经验者优先」用<b>动名词作主语</b>：<i>Having relevant experience <b>is preferred</b></i>——无施动者的告知句，比 We prefer those who have experience 简洁且更公事公办。</p>' },
+  { title: '段 3 联系方式：后置定语 + 召集收尾',
+    cls: 'good',
+    body: '<p><b>Anyone interested please contact us by students\u2019 union@abcuniversity.edu.cn or reach us at 12345678.</b></p><p><b>interested 后置</b>修饰 anyone（= anyone who is interested），一句完成「召集 + 邮箱 + 电话」。邮箱与电话双通道，招募启事才算闭环。</p>' },
+  { title: '必备表达清单',
+    cls: 'key',
+    body: '<p>recruitment announcement 招募启事 · call for volunteers 招募志愿者 · facilitate academic learning 促进学业 · cultivate cooperation ability and practical skills 培养合作能力与实践技能 · including but not limited to 包括但不限于 · reading salon 读书沙龙 · business-starting competition 创业大赛 · cope with daily affairs 处理日常事务 · ideal candidate 理想人选 · Having relevant experience is preferred 有相关经验者优先</p>' },
+  { title: '模板迁移（招募/招聘类启事通用）',
+    cls: 'key',
+    body: '<p>「开门报事项 → 活动目的 + 代表活动（including but not limited to）→ 职责 + 要求（are required to / Ideal candidates should be / is preferred）→ Anyone interested... 联系方式」适用于<b>一切招募、招聘、征稿、纳新类告示</b>：换题只换「事项名称」「活动清单」「要求槽位」三个槽；被动句 + 动名词主语的客观语域整体复用。</p>' },
+  { title: '结论',
+    cls: 'good',
+    body: '<p>答案 = 参考范文（全文见结论卡）。框架锚点：<b>文体换轨到告示（标题 + 正文 + 落款，无称呼）→ 开门报事项 → 活动（目的 + 代表活动）→ 志愿者（职责 + 要求）→ 联系方式收尾</b>；两个必答点（introduce activities / call for volunteers）缺一掉档；落款 Students\u2019 Union、不署真名校名地址。</p>' }
+];
+
+var snaps = STEPS.map(function(s, i){
+  return {
+    cls: i === STEPS.length - 1 ? 'done' : 'step',
+    tag: '第 ' + (i + 1) + ' 步',
+    log: s.title,
+    html: STEPS.slice(0, i + 1).map(function(x, j){
+      return card(j + 1, x.cls, x.title, x.body);
+    }).join(''),
+    done: i === STEPS.length - 1
+  };
+});
+
+AW.init({
+  title: '2015-47 小作文谋篇演示：招募启事的「文体换轨 + 四要素」',
+  subtitle: '考点：应用文写作（告示/招募启事）· 方法：认文体 → 定格式 → 拆指令 → 两段四要素 → 句型升格 → 成文自检',
+  intro: '点击「▶ 播放」逐步展开谋篇与升格的推理链。',
+  render: function(stage, sn){
+    if(sn.html != null) stage.innerHTML = sn.html;
+  },
+  snaps: snaps,
+  result: {
+    big: '参考范文（答案口径）',
+    html: '<p>Recruitment Announcement</p>' +
+      '<p>We are looking for some volunteers for the summer camp for high school students. The summer camp is organized to facilitate high school students\u2019 academic learning and more importantly cultivate their cooperation ability and practical skills through activities including but not limited to reading salon and business-starting competition.</p>' +
+      '<p>Volunteers are required to help organize activities and cope with daily affairs during the summer camp. Ideal candidates should be patient, active, warm-hearted and responsible. Having relevant experience is preferred. Anyone interested please contact us by students\u2019 union@abcuniversity.edu.cn or reach us at 12345678.</p>' +
+      '<p>Students\u2019 Union</p>' +
+      '<p style="margin-top:8px">记忆锚点：<b>告示 = 标题 + 正文 + 落款，无称呼</b>；开门报事项 → 活动（目的 + 代表活动）→ 志愿者（职责 + 要求）→ 联系方式；语域走客观（被动句、动名词主语）；落款 Students\u2019 Union、不署真名校名地址。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 小作文——招募启事：文体换轨到"告示" + 活动/职责/要求/联系四要素</h2>
+<p>答案（范文）：<strong>Recruitment Announcement</strong></p>
+<p><strong>We are looking for some volunteers for the summer camp for high school students. The summer camp is organized to facilitate high school students' academic learning and more importantly cultivate their cooperation ability and practical skills through activities including but not limited to reading salon and business-starting competition.</strong></p>
+<p><strong>Volunteers are required to help organize activities and cope with daily affairs during the summer camp. Ideal candidates should be patient, active, warm-hearted and responsible. Having relevant experience is preferred. Anyone interested please contact us by students' union@abcuniversity.edu.cn or reach us at 12345678.</strong></p>
+<h3>第 0 步：先立机制——本题第一道关是"文体换轨"：告示 ≠ 书信</h3>
+<p>应用文评分三道关：<strong>格式 × 必答点 × 语域</strong>。近年真题多是书信，本题明确 <code>Write a notice</code>——<strong>告示体</strong>，格式与语域都要换轨。书信是"我与你"的交流：有称呼（Dear...）、落款署个人；告示是"面向不特定多数人的告知"：<strong>没有称呼，代之以标题</strong>，语言客观、以事情为主语、多用被动与第三人称视角。格式错轨（写成书信、加上 Dear Sir or Madam）比任何语言瑕疵都致命。</p>
+<p>指令两条：1) <code>briefly introduce the camp activities</code>（必答点 1：介绍活动）；2) <code>call for volunteers</code>（必答点 2：招募志愿者）。背景 <code>your university is going to host a summer camp for high school students</code> 定了三件事：主办方是大学（落款可署学生会）、对象是高中生、场景是夏令营。招募启事要让读者"看完想报名"——活动要写出吸引力，要求要写清门槛，联系方式必须落地。</p>
+<h3>第 1 步：审题——指令动词逐条拆内容</h3>
+<table><thead><tr><th>指令</th><th>拆出的内容</th><th>落点</th></tr></thead><tbody><tr><td>Write a notice</td><td>文体 = 告示：标题 + 正文 + 落款，无称呼</td><td>格式</td></tr><tr><td>briefly introduce the camp activities</td><td>活动目的 + 代表性活动 1–2 项</td><td>段 2 前半</td></tr><tr><td>call for volunteers</td><td>志愿者职责 + 人选要求 + 联系方式</td><td>段 2 后半 + 段 3</td></tr><tr><td>host a summer camp for high school students</td><td>限定口径：一切内容围绕高中生夏令营</td><td>全篇</td></tr></tbody></table>
+<p>briefly 是关键词：介绍活动不等于排课表——"目的 + 1–2 个代表活动"即可，篇幅留给招募本身。</p>
+<h3>第 2 步：格式红线</h3>
+<ul><li>标题居中：<code>Recruitment Announcement</code>（或 Volunteers Wanted / Notice）。</li><li>无称呼：不写 Dear...，告示面对公众。</li><li><code>Do not use your name or the name of your university</code> → 落款署 <strong>Students' Union</strong>（学生会），不署个人名、不写校名；日期可加可不加。</li><li><code>Do not write your address</code> → 不写地址。</li><li>100 词左右：标题 + 两段正文即可，每句都要干活。</li></ul>
+<h3>第 3 步：谋篇——两段正文四要素</h3>
+<ul><li><strong>段 1 开门见山</strong>：一句话交代"招什么人、为了什么活动"——招募启事不需要寒暄。</li><li><strong>段 2 前半（必答点 1）</strong>：活动目的（促进学业 + 更重要的是培养合作能力与实践技能）→ 代表活动（读书沙龙、创业大赛，列举留余地）。</li><li><strong>段 2 后半（必答点 2）</strong>：志愿者做什么（帮助组织活动 + 处理日常事务）→ 什么样的人理想（有耐心、积极、热心、负责；有经验者优先）。</li><li><strong>段 3 收尾</strong>：联系方式（邮箱 + 电话）。招募启事没有联系方式 = 无效启事。</li></ul>
+<h3>第 4 步：句型升格——从简单句到告示体的四条路径</h3>
+<ol><li><strong>被动 + 目的不定式并列定调</strong>：简单句 We will organize the summer camp. / The camp aims to improve learning. → 升格为 <code>The summer camp is organized to facilitate... and more importantly cultivate...</code>——主语换成事情本身，is organized to do 被动式，两个目的不定式并列，more importantly 标出重点层次：告示的客观腔就是这么来的。</li><li><strong>including but not limited to 列举留余地</strong>：比 and so on 正式，公告语体标配；reading salon、business-starting competition 两个代表活动既具体又不锁死。</li><li><strong>动名词主语 + is preferred</strong>：<code>Having relevant experience is preferred</code>——"有经验者优先"这类无施动者的告知句，用动名词作主语，比 We prefer those who... 简洁且更公事公办。</li><li><strong>后置定语 + 召集收尾</strong>：<code>Anyone interested please contact us by... or reach us at...</code>——interested 后置修饰 anyone（= anyone who is interested），一句完成"召集 + 联系方式"。</li></ol>
+<h3>易错点</h3>
+<ul><li><strong>告示写成书信</strong>：加 Dear Sir or Madam、落款 Li Ming——文体错轨，格式分全丢；本题落款应是学生会，不是个人。</li><li><strong>只介绍活动不招募（或反之）</strong>：两个必答点缺一即掉档；介绍活动是为招募服务的，职责与要求不能省。</li><li><strong>活动排成课表</strong>：briefly introduce 不是罗列日程；目的 + 1–2 个代表活动足够。</li><li><strong>语气错位</strong>：对公众喊话用命令腔（You must join!）或过于随意（Hey guys!）都失当；are required to / ideal candidates should be 的客观陈述才是告示语域。</li><li><strong>漏联系方式</strong>：没有邮箱/电话的招募启事不成立。</li><li><strong>违反硬指令</strong>：署真名/校名、写地址——两条红线一碰即扣。</li></ul>
+<blockquote>记忆锚点：先认文体再动笔——<strong>告示 = 标题 + 正文 + 落款，无称呼</strong>；两个必答点 = 介绍活动 + 招募志愿者；语域走客观（被动句、动名词主语）；including but not limited to 留余地；Anyone interested... + 联系方式收尾；落款 Students' Union。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

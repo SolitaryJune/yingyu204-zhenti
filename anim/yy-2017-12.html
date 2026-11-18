@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2017-12 · 消极想象基于失业的____：A chances / B downsides / C benefits / D principles</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 12 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：are based on 的宾语中心名词；考点：指代还原 + 名词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Such visions are based on the <b>__12__</b> of being unemployed in a society built on the concept of employment.</div><p>空 12 是 the __ of being unemployed 的中心名词，作 are based on 的宾语。</p>"
+ },
+ {
+  "title": "立机制 · such visions 的指代决定了出发点",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：先还原 such visions 指代 → 负面推测的依据必须同为负面",
+  "body": "<p>such visions 回指前文“无工作的未来充满不安”的种种<b>消极想象</b>。想象“基于”什么？基于它所依据的判断。上文列举的全是失业的<b>坏处</b>（空虚、抑郁、死亡率、成瘾）→ 出发点是失业的<b>不利面</b>。in a society built on the concept of employment 补充原因：社会建立在“就业”概念上，失业天然被视作坏事。</p>"
+ },
+ {
+  "title": "找证据 · “负面推测 ↔ 负面依据”同向",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "找证据：推测负面 → 依据负面 → the downsides of being unemployed",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Such visions are based on the __12__ of being unemployed in a society built on the concept of employment.</div><p>方向校验：推测的内容（不安、荒地）是负面的，其依据也必须是负面的——<b>the downsides of being unemployed</b>（失业的不利面）正好把上一段的 depression / mortality / addiction 打包概括。</p>"
+ },
+ {
+  "title": "逐项分析 · A chances（机会；可能性）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A chances（机会；可能性）✗ 排除",
+  "body": "<p><b>排除。</b>上文不论述“失业的概率”，想象也不是基于“可能性”。</p>"
+ },
+ {
+  "title": "逐项分析 · B downsides（不利面）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B downsides（不利面）✓ 当选",
+  "body": "<p><b>当选。</b>概括失业的种种坏处，与消极想象同向。</p>"
+ },
+ {
+  "title": "逐项分析 · C benefits（好处）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C benefits（好处）✗ 排除",
+  "body": "<p><b>排除。</b>反向干扰：基于“失业的好处”推出的应是美好未来，与 visions 的消极内容相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：没查 such visions 的指代方向，只看空格局部。</p>"
+ },
+ {
+  "title": "逐项分析 · D principles（原则）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D principles（原则）✗ 排除",
+  "body": "<p><b>排除。</b>指“某做法/体系所依据的基本理念”，“失业的原则”搭配不通。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（downsides 不利面）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>这些想象基于“在以就业为本的社会里失业的不利面”。</b></p><p>答案选 <b>B（downsides 不利面）</b>。</p><p><b>记忆锚点</b>：such/this + 名词 = 指代题，先还原指代再选词；负面推测 → 负面依据（downsides）。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（benefits）：忘了顺藤摸瓜找 such visions 的指代——推测负面，依据不可能正面。</p>"
+ }
+];
+
+AW.init({
+  title: "2017 完形第 12 空 · 消极想象基于失业的____：A chances / B downsides / C benefits / D principles",
+  subtitle: "考点：上下文语义 + 名词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+}),
+  result: {
+ "big": "答案 B（downsides 不利面）",
+ "html": "<b>B downsides（不利面）</b>。<br>记忆锚点：such/this + 名词 = 指代题，先还原指代再选词；负面推测 → 负面依据（downsides）。<br>最易误选：<b>C（benefits）</b>——忘了顺藤摸瓜找 such visions 的指代——推测负面，依据不可能正面。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2017 完形第 12 空 · 消极推测基于失业的“____”</h2>
+<p>答案：<strong>B（downsides 不利面）</strong>。</p>
+<h3>第 0 步：先立机制——such visions 的指代决定了出发点</h3>
+<p>Such visions are based on the __12__ of being unemployed...：such visions 回指前文“无工作的未来充满不安”的种种<strong>消极想象</strong>。一种想象“基于”什么？基于它所依据的判断。上文列举的全是失业的<strong>坏处</strong>（空虚、抑郁、死亡率、成瘾），所以想象的出发点是失业的<strong>不利面</strong>——downside（不利的一面）。in a society built on the concept of employment 补充说明为什么只看得到不利面：这个社会本就建立在“就业”概念上，失业天然被视作坏事。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Such visions are based on the __12__ of being unemployed in a society built on the concept of employment.</blockquote>
+<h3>第 2 步：找证据——“负面推测 ↔ 负面依据”同向</h3>
+<p>推测的内容（不安、荒地）是负面的，其依据也必须是负面的：the downsides of being unemployed（失业的不利面）正好把上一段的 depression / mortality / addiction 打包概括，方向一致。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A chances</td><td>机会；可能性</td><td>✗ 排除</td><td>上文不论述“失业的概率”，想象也不是基于“可能性”。</td></tr><tr><td>B downsides</td><td>不利面</td><td>✓ 当选</td><td>概括失业的种种坏处，与消极想象同向。</td></tr><tr><td>C benefits</td><td>好处</td><td>✗ 排除</td><td>反向干扰：基于“失业的好处”推出的应是美好未来，与 visions 的消极内容相反。（典型误解：没查 such visions 的指代方向。）</td></tr><tr><td>D principles</td><td>原则</td><td>✗ 排除</td><td>指“某做法/体系所依据的基本理念”，“失业的原则”搭配不通。</td></tr></tbody></table>
+<p>代入后的完整句义：这些想象基于“在以就业为本的社会里失业的不利面”。</p>
+<h3>预判追问</h3>
+<ul><li><strong>指代题怎么还原？</strong>：such/this + 抽象名词 = 指代题。先把 visions 换成上文的具体内容（“无工作的未来满是抑郁、死亡、成瘾”），再问“这种想象是从哪来的”——答案的方向就被锁死在“负面”一侧。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（benefits）</strong>：只看空格局部，忘了顺藤摸瓜找 such visions 的指代——推测负面，依据不可能正面。</li></ul>
+<blockquote>记忆锚点：such/this + 名词 = 指代题，先还原指代再选词；负面推测 → 负面依据（downsides）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

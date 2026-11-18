@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2023 阅读第 31 题 · 研究结论题：「总—分—总」抓两头——变的是记忆内容，不变的是记忆能力</title>
+<link rel="stylesheet" href="../assets/anim.css">
+</head>
+<body>
+<!-- 概念/推理链类动画：审题 → 定位原文 → 同义替换 → 逐项排除 → 结论。
+     外壳仅引用 ../assets/anim.css 与 ../assets/anim-engine.js（与站点 anim/ 布局一致）；
+     全中文（题目原文/选项保留英文），无任何外部网络请求。 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var D = {"title":"2023 阅读第 31 题 · 研究结论题：「总—分—总」抓两头——变的是记忆内容，不变的是记忆能力","subtitle":"考点：研究结论细节 · 方法：首段总起句 + 分实验证据 + 末句总结三线合一（琥珀=原文定位 · 绿=当选 · 红=排除）","intro":"点击「▶ 播放」逐步展开“审题 → 定位首段三线 → 归纳结论 → 逐项排除”的推理链。","stemEn":"Sparrow’s study shows that with the Internet, the human brain will <b>____</b>.","stemZh":"斯帕罗的研究表明，互联网使人类大脑能够____。（定位首段：研究过程 + 结论都在这一段）","quotes":[{"tag":"定位① · 首段①句（总起：核心观点）","en":"The Internet may be <b>changing merely what we remember, not our capacity to do so</b>, suggests Columbia University psychology professor Betsy Sparrow.","zh":"总起句直接抛出核心：互联网改变的只是「我们记<b>什么</b>」（内容），而不是「我们的记忆能力」。"},{"tag":"定位② · 首段实验证据（分）","en":"The latter group made <b>no effort to recall</b> the information… because they knew they could find it on their computers… They didn’t remember the information, but they remembered <b>how to find the folders</b>.","zh":"两组实验：知道信息存得住的，就不再费力去记；记不住信息本身，却记住了文件夹路径——大脑在给「记什么」重新分工。"},{"tag":"定位③ · 首段末句（总结重申）","en":"In other words, human memory is <b>not deteriorating but “adapting to new communications technology”</b>, Sparrow says.","zh":"not… but… 结构：记忆没退化，而是在「适应新的通信技术」——重心落在 but 后：记忆的内容与焦点在变。"}],"opts":[{"k":"A","en":"analyze information in detail","zh":"详细分析信息","why":"捏造——「在电脑上记录 40 条趣味信息」只是实验的操作步骤，尚未上升到研究发现，更没有任何「详细分析」。"},{"k":"B","en":"collect information efficiently","zh":"高效收集信息","why":"断章取义——made no effort to recall 指「根本不费劲去记」（因为知道电脑里存着），不是「收集效率变高」；这些细节说的都是「记什么」的取舍。"},{"k":"D","en":"extend its memory duration","zh":"延长记忆时间","why":"曲解——not deteriorating 说的是「记忆（能力）并未衰退」，推不出「记忆时长变长」；且 not… but… 的重心在「适应新技术」，与「时长」无关。"},{"k":"C","en":"switch its focus of memory","zh":"转变记忆焦点","why":"","good":"changing merely <b>what</b> we remember ↔ switch its <b>focus</b> of memory：大脑自主选择「记什么、不记什么」——记忆的内容焦点在转移。"}],"spec":[{"show":[],"state":{}},{"show":[0],"state":{}},{"show":[0,1],"state":{}},{"show":[0,1,2],"state":{}},{"show":[0,1,2],"state":{"A":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"good"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}},{"show":[0,1,2],"state":{"A":"bad","B":"bad","C":"good","D":"bad"}}],"snaps":[{"cls":"step","tag":"审题","log":"问 Sparrow 研究的结论——首段是「总—分—总」：总起句 + 实验证据 + 末句总结，两个「总」是关键","count":0},{"cls":"shift","tag":"定位①总起句","log":"changing merely what we remember, not our capacity to do so——变的是「记什么」，不变的是「记忆能力」","count":0},{"cls":"shift","tag":"定位②实验证据","log":"知道信息存得住就不费力记；记不住信息本身，却记住了 how to find the folders——大脑在重新分工「记什么」","count":0},{"cls":"shift","tag":"定位③总结句","log":"not deteriorating but “adapting to new communications technology”——not… but… 重心在 but 后：记忆在适应新技术","count":0},{"cls":"miss","tag":"排除 A","log":"A analyze in detail ✗：「记录 40 条信息」只是实验步骤——无「详细分析」，无中生有","count":1,"ribbon":{"k":"A","ok":false}},{"cls":"miss","tag":"排除 B","log":"B collect efficiently ✗：made no effort to recall = 「不费劲去记」不是「高效收集」——断章取义","count":2,"ribbon":{"k":"B","ok":false}},{"cls":"ok","tag":"选定 C","log":"C switch its focus of memory ✓：changing what we remember 的同义改写——记忆焦点随互联网转移","count":2,"ribbon":{"k":"C","ok":true}},{"cls":"miss","tag":"排除 D","log":"D extend duration ✗：「没衰退」≠「时长变长」——not… but… 重心在「适应变化」，与时长无关","count":2,"ribbon":{"k":"D","ok":false}},{"cls":"done","tag":"结论","log":"答案 C：总起 + 总结两头夹出结论——变的只是记忆内容焦点，能力原封未动","count":2,"done":true}],"result":{"big":"答案 C（switch its focus of memory）","html":"<b>C</b>：互联网改变的只是 <b>what we remember</b>（记什么），不是记忆能力——大脑的记忆<b>焦点在转移</b>：能存的就交给电脑，只记「怎么找到它」。<br>A 「详细分析」无中生有；B 「不费劲去记」≠「高效收集」；D 「没衰退」≠「时长变长」。<br>记忆锚点：<b>研究结论看「总—分—总」的两个总</b>；not A but B 重心在 but 后。"}};
+
+AW.init({
+  title: D.title,
+  subtitle: D.subtitle,
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: D.intro,
+  build: function(stage){
+    stage.innerHTML = '';
+    var root = AW.el('div', 'aw-scroll');
+    var q = AW.el('div', 'aw-stepcard key');
+    q.innerHTML = '<h4><span class="n">?</span>题干</h4>' +
+      '<p style="font-size:14px;line-height:1.8;color:#1b3a4b"><b>' + D.stemEn + '</b></p>' +
+      '<p style="font-size:12.5px;color:#64748b;margin-top:2px">' + D.stemZh + '</p>';
+    root.appendChild(q);
+    this._q = [];
+    for (var i = 0; i < D.quotes.length; i++) {
+      var t = D.quotes[i];
+      var el = AW.el('div', 'aw-stepcard key');
+      el.style.display = 'none';
+      el.innerHTML = '<h4><span class="n">' + (i + 1) + '</span>' + t.tag + '</h4>' +
+        '<div style="margin:2px 0 6px;padding:7px 12px;border-left:3px solid var(--amber);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.8;color:#475569">' + t.en + '</div>' +
+        '<p style="font-size:12.5px;color:#64748b">' + t.zh + '</p>';
+      this._q.push(el);
+      root.appendChild(el);
+    }
+    this._o = {}; this._v = {};
+    for (var j = 0; j < D.opts.length; j++) {
+      var o = D.opts[j];
+      var card = AW.el('div', 'aw-stepcard');
+      card.innerHTML = '<h4><span class="n">' + o.k + '</span>' + o.en +
+        ' <span style="color:#64748b;font-weight:600;font-size:12.5px">' + o.zh + '</span></h4>' +
+        '<p style="display:none;font-size:13px;line-height:1.7;margin-top:4px"></p>';
+      this._o[o.k] = card;
+      this._v[o.k] = card.querySelector('p');
+      root.appendChild(card);
+    }
+    stage.appendChild(root);
+  },
+  render: function(stage, sn, i){
+    var spec = (D.spec && D.spec[i]) || {};
+    var show = spec.show || [];
+    for (var a = 0; a < this._q.length; a++) {
+      this._q[a].style.display = (show.indexOf(a) >= 0) ? 'block' : 'none';
+    }
+    for (var k in this._o) {
+      var st = (spec.state && spec.state[k]) || null;
+      var card = this._o[k], v = this._v[k];
+      card.className = 'aw-stepcard' + (st ? ' ' + st : '');
+      if (st === 'bad') { v.style.display = 'block'; v.innerHTML = '<b style="color:#b91c1c">✗ 排除</b> · ' + D.opts[k].why; }
+      else if (st === 'good') { v.style.display = 'block'; v.innerHTML = '<b style="color:#15803d">✓ 当选</b> · ' + D.opts[k].good; }
+      else { v.style.display = 'none'; v.innerHTML = ''; }
+    }
+  },
+  snaps: D.snaps,
+  result: D.result
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：阅读第 31 题——「总—分—总」抓两头：变的是记忆内容，不变的是能力</h2>
+<p>答案：<strong>C（switch its focus of memory）</strong>。</p>
+<h3>第一步：先立机制——研究结论看两个「总」</h3>
+<p>问 Sparrow 研究表明什么：首段是「总—分—总」结构——①句总起抛观点，②至⑦句实验证据，⑧句总结重申。两个「总」夹出结论，中间的实验是证据链。</p>
+<h3>第二步：定位原文——两总夹一分</h3>
+<blockquote>The Internet may be changing merely what we remember, not our capacity to do so...</blockquote>
+<blockquote>They didn't remember the information, but they remembered how to find the folders.</blockquote>
+<blockquote>...human memory is not deteriorating but "adapting to new communications technology," Sparrow says.</blockquote>
+<ul><li>总起：变的只是「记什么」（内容），不是「记忆能力」；</li><li>实验：知道信息存得住的，就不再费力去记；记不住信息本身，却记住了文件夹路径——大脑在给「记什么」重新分工；</li><li>总结：not deteriorating but adapting——not A but B 结构的重心在 but 后。</li></ul>
+<h3>第三步：逐项排除（对号入座）</h3>
+<ul><li><strong>A analyze information in detail ✗</strong>：捏造——「在电脑上记录 40 条趣味信息」只是实验的操作步骤，尚未上升到研究发现，更没有「详细分析」。</li><li><strong>B collect information efficiently ✗</strong>：断章取义——made no effort to recall 指「根本不费劲去记」（因为知道电脑里存着），不是「收集效率变高」；这些细节说的是记忆内容的取舍。</li><li><strong>D extend its memory duration ✗</strong>：曲解——not deteriorating 说的是「记忆（能力）并未衰退」，推不出「记忆时长变长」。</li><li><strong>C switch its focus of memory ✓</strong>：changing merely what we remember 的同义改写——大脑自主选择记什么，记忆焦点在转移。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B（最强干扰）</strong>：把「不费劲记」读成「效率高」——原文语义是「根本不去记」（外包给电脑），方向是记忆内容的重新分配。</li><li><strong>误选 D</strong>：deteriorating 的否定句只在说「能力没坏」，与「时长」无关。</li></ul>
+<blockquote>记忆锚点：研究结论 = 总起句 + 总结句两头夹击；not A but B 重心在 but 后；「记什么」变了，「能力」没变。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

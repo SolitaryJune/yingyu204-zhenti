@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-30 · 2015 阅读第 30 题 · 末段推理题——高校“避而不谈”的行为链指向责任归属 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · infer 题＝串行为链，不抄句子", "cls": "key", "tag": "审题", "log": "审题眼：We may infer from the last paragraph that ___——答案不会照抄原文，要推", "count": 0, "ribbon": null, "body": "<p>题干动词是 <b>infer</b>（推知）：末段的“行为 → 后果”链条串起来之后，才能得到选项级别的结论。先在末段里找：谁的什么行为，导致了什么后果。</p>"},
+ {"title": "定位原文 · 两个“不作为”＋两个后果", "cls": "key", "tag": "定位", "log": "定位原文：colleges don’t talk about… / seldom acknowledge… → becomes more of a problem / lack insight", "count": 0, "ribbon": null, "body": quote("And this becomes more of a problem when colleges don’t talk about the class advantages and disadvantages of different groups of students. “Because US colleges and universities seldom acknowledge how social class can affect students’ educational experiences, many first-generation students lack insight about why they are struggling and do not understand how students ‘like them’ can improve.”") + "<p>行为一：高校对阶层优劣势<b>避而不谈</b>；行为二：很少<b>承认</b>阶层会影响教育体验。后果：问题加剧＋学生迷茫。</p>"},
+ {"title": "推理 · 行为（避而不谈）→ 后果（问题加剧）＝有责任", "cls": "key", "tag": "推理", "log": "推理：高校的“不作为”作为原因出现，后果压在学生身上 → 高校对该问题负有责任", "count": 0, "ribbon": null, "body": "<p>when colleges don’t talk…（问题加剧）与 Because…seldom acknowledge…（学生迷茫）里，高校的不作为都被摆在<b>原因位</b>。行为 → 后果的自然落点：高校对第一代大学生面临的问题负有责任。</p>"},
+ {"title": "逐项分析 · D colleges are partly responsible for the problem", "cls": "good", "tag": "选定 D", "log": "D 高校对该问题负有部分责任 ✓ 当选——行为链的自然落点", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>两处“避而不谈/不承认”作为原因直接引出“问题加剧＋学生迷茫”——由文本行为链到唯一合理结论：高校有责任。partly（部分责任）的力度也恰当。</p>"},
+ {"title": "逐项分析 · C social class greatly helps enrich educational experiences", "cls": "bad", "tag": "排除 C", "log": "C 社会阶层极大丰富教育体验 ✗ 排除——affect（中性偏负面）被改成“丰富”（褒义）", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>原文 how social class can <b>affect</b> students’ educational experiences 是中性的“影响”，且本文语境是负面影响（加剧困境）。C 把它改写成褒义的“丰富体验”——色彩偷换。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只认词形，不辨词义色彩。</p>"},
+ {"title": "逐项分析 · A universities often reject the culture of the middle-class", "cls": "bad", "tag": "排除 A", "log": "A 大学拒绝中产阶级文化 ✗ 排除——方向反了：高等教育本身就是中产文化", "count": 2, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>①句说学生“挣扎于应付高等教育中的<b>中产阶级文化</b>”——难融入的是学生，高校并非“拒绝”这种文化。主宾颠倒。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“难以融入”读成“主动拒绝”。</p>"},
+ {"title": "逐项分析 · B students are usually to blame", "cls": "bad", "tag": "排除 B", "log": "B 学生应为缺少资源负责 ✗ 排除——责任方向反了：原文批评的是高校不作为", "count": 3, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>原文把成因归到阶层差异与高校回避，正是为学生的处境<b>开脱</b>；to blame 的主体在文本里指向高校一侧，不是学生。</p><p style=\"color:#b91c1c\">⚠ 典型误解：因果方向读反。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（colleges are partly responsible for the problem in question）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>高校避而不谈阶层差异、不承认阶层影响 → 问题加剧、学生迷茫不知所措 → 高校对第一代大学生面临的问题负有部分责任。</b></p><p>答案选 <b>D（colleges are partly responsible for the problem in question）</b>。</p><p><b>记忆锚点</b>：infer 题找“行为链”——don’t talk about / seldom acknowledge ＋ becomes more of a problem / lack insight → 高校有责任；affect ≠ enrich。</p><p style=\"color:#b91c1c\">最易误选：<b>C（helps enrich）</b>——中性词被染成褒义。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读第 30 题 · 末段推理题——高校“避而不谈”的行为链指向责任归属",
+  subtitle: "考点：推理引申题 · 行为→后果链条 + 词义色彩核查",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 行为链推理 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（colleges are partly responsible）", "html": "<b>D 高校对所提问题负有部分责任</b>：避而不谈（行为）→ 问题加剧、学生迷茫（后果）。<br>记忆锚点：infer 题串行为链；affect ≠ enrich，色彩偷换即错。<br>最易误选：<b>C（helps enrich）</b>——中性影响被染成褒义。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 阅读第 30 题 · 末段推理题——高校"避而不谈"的行为链指向责任归属</h2>
+<p>答案：<strong>D（colleges are partly responsible for the problem in question 高校对于所提及的问题负有部分责任）</strong>。</p>
+<h3>第 0 步：先立机制——推理题不抄句子，抄"行为与后果的链条"</h3>
+<p>题干说 infer（推知），意味着答案不会是原文某一句的照抄，而是把末段的行为链串起来推：①句摆出第一代学生的困境（难融入中产阶级文化、学不会"游戏规则"、用不上学校资源）；②句给第一个行为——当高校<strong>对学生群体的阶层优劣势避而不谈</strong>（colleges don't talk about the class advantages and disadvantages）时，上述问题"愈发成为问题"（becomes more of a problem）；③句给第二个行为——因为高校<strong>很少承认社会阶层会影响学生的教育体验</strong>（seldom acknowledge how social class can affect…），许多学生"不明白自己为何挣扎、不知道如何进步"。行为（避而不谈）→ 后果（问题加剧、学生迷茫）：把链条连起来，自然推出<strong>高校对该问题负有责任</strong>。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And this becomes more of a problem when colleges don't talk about the class advantages and disadvantages of different groups of students. "Because US colleges and universities seldom acknowledge how social class can affect students' educational experiences, many first-generation students lack insight about why they are struggling and do not understand how students 'like them' can improve."</blockquote>
+<ul><li>行为一：colleges don't talk about the class advantages and disadvantages；</li><li>行为二：seldom acknowledge how social class can affect students' educational experiences；</li><li>后果：问题加剧＋学生不了解自己为何挣扎、如何改进。</li></ul>
+<h3>第 2 步：对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A universities often reject the culture of the middle-class</td><td>大学经常拒绝中产阶级文化</td><td>✗ 排除</td><td>方向反了：原文说高等教育<strong>本身就是</strong>一种中产阶级文化，学生难融入，而非大学拒绝它</td></tr><tr><td>B students are usually to blame for their lack of resources</td><td>学生应为缺少资源负责</td><td>✗ 排除</td><td>责任归属反了：原因在所处阶层与高校的回避，④句没有任何批评学生的表述</td></tr><tr><td>C social class greatly helps enrich educational experiences</td><td>社会阶层极大丰富了教育体验</td><td>✗ 排除</td><td>affect（影响，中性且本文偏负面）被改写成"丰富"（褒义）——词义色彩偷换</td></tr><tr><td>D colleges are partly responsible for the problem in question</td><td>高校对所提及的问题负有部分责任</td><td>✓ 当选</td><td>两处"避而不谈"的行为 + "问题加剧/学生迷茫"的后果，推出高校有责任</td></tr></tbody></table>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>"负有责任"是我推的，原文没直接说，这算不算过度推断？</strong>：推理题允许的边界是"由文本行为链到合乎逻辑的唯一结论"——高校的两个"不作为"明确地作为原因出现（when…don't talk / Because…seldom acknowledge），后果直接压在学生头上，责任归属是这条因果链的自然落点，不是脑补。</li><li><strong>为什么 B 不是答案？</strong>：B 与文本的责任方向正好相反——原文把成因归到阶层差异和高校回避，恰恰在为学生"开脱"；to blame 的主体只能是高校那一侧。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（reject the middle-class culture）</strong>：把"学生难以融入中产阶级文化"读成"大学拒绝中产文化"——主宾颠倒。</li><li><strong>误选 C（helps enrich）</strong>：affect 是中性词且本文语境是负面影响（加剧困境），被"丰富"的褒义色彩捕获。</li><li><strong>误选 B（students are to blame）</strong>：因果方向读反——原文批评的是高校的不作为，不是学生。</li></ul>
+<blockquote>记忆锚点：infer 题找"行为链"——don't talk about / seldom acknowledge ＋ becomes more of a problem / lack insight → 高校有责任；affect ≠ enrich，色彩偷换即错；责任题先核对"谁的行为、谁的后果"。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

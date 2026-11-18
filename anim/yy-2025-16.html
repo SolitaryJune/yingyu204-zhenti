@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2025-16 · 2025 完形第 16 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 16 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 16 所在句，考点：词义辨析 · and 并列的两类研究材料",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Perhaps most encouraging of all is a paper from 2022 by researchers at Stanford University, in California, that involved a mix of contrived help-seeking interactions and asking people to __16__ times they'd sought help in the past.</div><p>空格待填正确答案；本题考点：<b>词义辨析 · and 并列的两类研究材料</b>。方法主线：and 并列对照 → contrived 的对面是「回忆」 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · contrived 的对面，是「真实回忆」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：contrived 的对面，是「真实回忆」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>研究包含两类材料，由 and 并列：contrived help-seeking interactions（人为设计的求助互动）+ asking people to ____ times they'd sought help in the past（让人们____过去求助的经历）。与「人为设计」相对的是<b>真实经历</b>——它存在于参与者的记忆里，要拿到它就得让人<b>回忆</b>。recall（回忆起）✓。</p>"
+ },
+ {
+  "title": "证据 · times they’d sought help in the past 锁定过去经历",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：times they’d sought help in the past 锁定过去经历",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格的宾语是 times（……的时候/经历）+ 定语从句 they'd sought help in the past（他们过去求助的）。「过去 + 曾经发生」的宾语，配「回忆」类动词最顺；且下文 findings（求助者会低估对方的乐意程度）需要的是真实经历样本，而非被加工的分析对象。</p>"
+ },
+ {
+  "title": "逐项分析 · A recall（回忆起；记起）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A recall（回忆起；记起） ✓ 当选",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>recall times they’d sought help = 回忆起过去求助的经历；与 contrived（人为）形成「设计情景 + 真实回忆」的互补，正合研究设计。</p>"
+ },
+ {
+  "title": "逐项分析 · B classify（分类；归类）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B classify（分类；归类） ✗ 排除——研究要的是经历样本本身，不是分类",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「把过去求助的经历分类」不是收集材料的第一步；研究要的是经历样本本身。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「整理经历」脑补成研究流程。</p>"
+ },
+ {
+  "title": "逐项分析 · C analyse（分析，剖析）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C analyse（分析，剖析） ✗ 排除——「分析经历」看似通顺，但空格处要的是「获取」材料",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「分析过去的求助经历」看似通顺，但 findings 的结论来自经历样本的呈现，回忆起经历是前提；空格处要的动作是「获取」材料，不是「加工」材料。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「研究 = 分析」的惯性带进空格。</p>"
+ },
+ {
+  "title": "逐项分析 · D compare（比较；对比）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D compare（比较；对比） ✗ 排除——没有给出比较对象，比较无从谈起",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>比较需要两个以上的对象或维度，文中没有给出比较项；「比较过去求助的各次经历」无来源。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 a mix（混合两类）就联想到「比较」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（recall 回忆起；记起）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>这项研究既包含人为设计的求助互动情景，也让参与者回忆自己过去求助的经历。</b></p><p>答案选 <b>A（recall 回忆起；记起）</b>。</p><p><b>记忆锚点</b>：and 并列的两类材料互为参照：contrived（人为设计）↔ 真实经历 → 让人 recall（回忆）；analyse/classify/compare 都是对材料的「加工」，不是「获取」。</p><p style=\"color:#b91c1c\">最易误选：<b>C（analyse）</b>——把「研究 = 分析」的惯性带进空格。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2025 完形第 16 空 · asking people to ____ times they’d sought help in the past",
+  subtitle: "考点：词义辨析（研究材料动词）· contrived 的对面 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 A（recall）",
+ "html": "<b>A recall（回忆起；记起）</b>。<br>完整句义：这项研究既包含人为设计的求助互动情景，也让参与者回忆自己过去求助的经历。<br>记忆锚点：and 并列的两类材料互为参照：contrived（人为设计）↔ 真实经历 → 让人 recall（回忆）；analyse/classify/compare 都是对材料的「加工」，不是「获取」。<br>最易误选：<b>C（analyse）</b>——把「研究 = 分析」的惯性带进空格。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2025 完形第 16 空 · 词义辨析 · and 并列的两类研究材料</h2>
+<p>答案：<strong>A（recall 回忆起；记起）</strong>。</p>
+<h3>第 0 步：先立机制——contrived 的对面，是「真实回忆」</h3>
+<p>研究包含两类材料，由 and 并列：contrived help-seeking interactions（人为设计的求助互动）+ asking people to ____ times they'd sought help in the past（让人们____过去求助的经历）。与「人为设计」相对的是<strong>真实经历</strong>——它存在于参与者的记忆里，要拿到它就得让人<strong>回忆</strong>。recall（回忆起）✓。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Perhaps most encouraging of all is a paper from 2022 by researchers at Stanford University, in California, that involved a mix of contrived help-seeking interactions and asking people to __16__ times they'd sought help in the past.</blockquote>
+<p>空格的宾语是 times（……的时候/经历）+ 定语从句 they'd sought help in the past（他们过去求助的）。「过去 + 曾经发生」的宾语，配「回忆」类动词最顺；且下文 findings（求助者会低估对方的乐意程度）需要的是真实经历样本，而非被加工的分析对象。</p>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A recall</td><td>回忆起；记起</td><td>✓ 当选</td><td>recall times they’d sought help = 回忆起过去求助的经历；与 contrived（人为）形成「设计情景 + 真实回忆」的互补，正合研究设计。</td></tr><tr><td>B classify</td><td>分类；归类</td><td>✗ 排除</td><td>「把过去求助的经历分类」不是收集材料的第一步；研究要的是经历样本本身。</td></tr><tr><td>C analyse</td><td>分析，剖析</td><td>✗ 排除</td><td>「分析过去的求助经历」看似通顺，但 findings 的结论来自经历样本的呈现，回忆起经历是前提；空格处要的动作是「获取」材料，不是「加工」材料。</td></tr><tr><td>D compare</td><td>比较；对比</td><td>✗ 排除</td><td>比较需要两个以上的对象或维度，文中没有给出比较项；「比较过去求助的各次经历」无来源。</td></tr></tbody></table>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「整理经历」脑补成研究流程 → 误选 B（classify）</strong>：「把过去求助的经历分类」不是收集材料的第一步；研究要的是经历样本本身。</li><li><strong>把「研究 = 分析」的惯性带进空格 → 误选 C（analyse）</strong>：「分析过去的求助经历」看似通顺，但 findings 的结论来自经历样本的呈现，回忆起经历是前提；空格处要的动作是「获取」材料，不是「加工」材料。</li><li><strong>看到 a mix（混合两类）就联想到「比较」 → 误选 D（compare）</strong>：比较需要两个以上的对象或维度，文中没有给出比较项；「比较过去求助的各次经历」无来源。</li></ul>
+<blockquote>记忆锚点：and 并列的两类材料互为参照：contrived（人为设计）↔ 真实经历 → 让人 recall（回忆）；analyse/classify/compare 都是对材料的「加工」，不是「获取」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

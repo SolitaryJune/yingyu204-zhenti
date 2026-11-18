@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2014-26 · 2014 阅读第 26 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片逐步揭示）
+     形态：定位原文 → 找证据 → 逐项排除 → 结论，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题眼 · 题干问“发现”，答案在 shown that 的宾语从句里",
+  "cls": "key",
+  "tag": "审题",
+  "log": "social psychologists have found that...：宾语从句是答案区",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干：<b>According to the first paragraph, social psychologists have found that ____.</b></p><p>问的是心理学家的<b>研究结论</b>。首段里 and shown that 引出的宾语从句才是答案区：三个百分比是论据，破折号后的评语是点睛。</p>"
+ },
+ {
+  "title": "定位原文 · 首段③句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：70% / 93% / 85% 自评高于平均 – all obviously statistical impossibilities",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Social psychologists have amassed oceans of research into what they call the \"above average effect\", or \"illusory superiority\", and shown that, for example, <b>70% of us rate ourselves as above average in leadership, 93% in driving and 85% at getting on well with others – all obviously statistical impossibilities</b>.</div><p>破折号后作者盖章：<b>全是统计上不可能的事</b>——不可能七成人都在“前一半”里。</p>"
+ },
+ {
+  "title": "推理链 · 自评高于平均 → 必然虚高",
+  "cls": "key",
+  "tag": "推理",
+  "log": "rate ourselves as above average → 高于平均者不可能超过一半 → 自评虚高 → A",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>①自评“高于平均”（rate ourselves as above average）；②高于平均的人<b>不可能超过一半</b>；③这些自评必然<b>高得不真实</b>（unrealistically high）→ A。</p>"
+ },
+ {
+  "title": "逐项分析 · A our self-ratings are unrealistically high",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 自我评价高得不切实际 ✓ 当选——宾语从句的同义概括",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>self-ratings ↔ rate ourselves；unrealistically high ↔ above average + statistical impossibilities——宾语从句的同义概括。</p>"
+ },
+ {
+  "title": "逐项分析 · B illusory superiority is a baseless effect",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 虚幻优越感是无根据的效应 ✗ 排除——术语≠结论，baseless 系臆造",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>illusory superiority 是 above average effect 的<b>别称</b>（文中 or 连接），是“效应的名字”，不是“发现的内容”；baseless 更是从 illusory 臆造——效应名叫“虚幻”，但现象本身被海量研究证实（amassed oceans of research）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：拿术语里的词当结论——术语是“名字”，不是“发现”。</p>"
+ },
+ {
+  "title": "逐项分析 · C our need for leadership is unnatural",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 对领导力的需求不正常 ✗ 排除——leadership 只是例子之一",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>leadership 只是三个例子之一，原文说“自评<b>领导力水平</b>高于平均”，没说“需要领导力”，更没给“需求”定性。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把例子的领域词当成论述对象。</p>"
+ },
+ {
+  "title": "逐项分析 · D self-enhancing strategies are ineffective",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 自我拉抬策略无效 ✗ 排除——与文意相反，策略正“见效”",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>②句说人们“自然使用”这些策略（naturally employ），③句数据证明它们很“见效”——正因为见效，自评才虚高。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“评价失真”误读成“策略失灵”，方向反了。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（our self-ratings are unrealistically high）——宾语从句的改写",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>答案选 <b>A（our self-ratings are unrealistically high）</b>。</p><p><b>记忆锚点</b>：have found that → 找宾语从句；above average + statistical impossibility → 自评虚高；术语（illusory superiority）≠ 结论。</p><p style=\"color:#b91c1c\">⚠ 典型误解：误选 B——被术语迷惑。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2014 阅读第 26 题 · 三个“统计上不可能”的百分比——have found that 的宾语才是发现",
+  subtitle: "考点：首段细节题 · above average + statistical impossibility → 自评虚高",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 A（our self-ratings are unrealistically high）",
+ "html": "<b>A</b>：70% / 93% / 85% 自评“高于平均” – <b>all obviously statistical impossibilities</b> → 自评必然虚高。<br>B 术语≠结论且 baseless 系臆造；C 把例子的领域词当论述对象；D“策略无效”与文意相反。<br>记忆锚点：have found that → 宾语从句；统计不可能 → 自评虚高。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2014 阅读第 26 题 · 三个"统计上不可能"的百分比——have found that 的宾语才是发现</h2>
+<p>答案：<strong>A（our self-ratings are unrealistically high）</strong>。</p>
+<h3>第 0 步：先立机制——题干问"发现"，答案就在 shown that 的宾语从句里</h3>
+<p>According to the first paragraph, social psychologists have found that... 问的是心理学家的<strong>研究结论</strong>。首段里 and shown that 引出的宾语从句才是答案区：三个百分比是论据，破折号后的评语是点睛之笔。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Social psychologists have amassed oceans of research into what they call the "above average effect", or "illusory superiority", and shown that, for example, 70% of us rate ourselves as above average in leadership, 93% in driving and 85% at getting on well with others – all obviously statistical impossibilities.</blockquote>
+<p>70% 自评领导力高于平均、93% 自评驾驶技术高于平均、85% 自评与人相处高于平均——破折号后作者盖章：all obviously statistical impossibilities（全是统计上不可能的事——不可能七成人都在"前一半"里）。</p>
+<h3>第 2 步：推理链</h3>
+<p>自评"高于平均"（rate ourselves as above average）→ 高于平均的人不可能超过一半 → 这些自评必然<strong>高得不真实</strong>（unrealistically high）→ A。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A our self-ratings are unrealistically high</td><td>我们的自我评价高得不切实际</td><td>✓ 当选</td><td>self-ratings ↔ rate ourselves；unrealistically high ↔ above average + statistical impossibilities。</td></tr><tr><td>B illusory superiority is a baseless effect</td><td>虚幻优越感是无根据的效应</td><td>✗ 排除</td><td>杂糅：illusory superiority 是 above average effect 的别称（文中 or 连接），是"效应的名字"，不是"发现的内容"；baseless 更是从 illusory 臆造——效应名叫"虚幻"，但现象本身被海量研究证实（amassed oceans of research）。（典型误解：拿术语里的词当结论。）</td></tr><tr><td>C our need for leadership is unnatural</td><td>我们对领导力的需求不正常</td><td>✗ 排除</td><td>杂糅：leadership 只是三个例子之一，原文说"自评领导力高于平均"，没说"需要领导力"，更没给"需求"定性。（典型误解：把例子的领域词当成论述对象。）</td></tr><tr><td>D self-enhancing strategies are ineffective</td><td>自我拉抬策略无效</td><td>✗ 排除</td><td>与文意相反：②句说人们"自然使用"这些策略（naturally employ），③句数据证明它们很"见效"——正因为见效，自评才虚高。（典型误解：把"评价失真"误读成"策略失灵"。）</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>"统计上不可能"为什么等于"自评虚高"？</strong>：逻辑是硬的——高于平均者最多占 50%，70% 都自称高于平均，多出的那 20% 以上必然是自我拔高；这是首段最硬的证据，也是 A 最准的改写。</li><li><strong>illusory superiority 不就是"虚假优越"吗，B 何错？</strong>：B 错在 baseless（无根据）。"虚幻"说的是<strong>评价偏离真实</strong>，不指<strong>现象本身不存在</strong>——心理学家正是用大量研究证实了这个效应。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：被术语迷惑——术语是效应的"名字"，不是研究发现的那句话。</li><li><strong>误选 D</strong>：把作者描述现象（自评虚高）当成否定策略（策略无效），方向反了。</li></ul>
+<blockquote>记忆锚点：have found that → 找宾语从句；above average + statistical impossibility → 自评虚高；术语（illusory superiority）≠ 结论。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

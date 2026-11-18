@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-41 · 2016 新题型第 41 题 · 「表达情绪」段 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 小标题＝对象＋作者建议", "cls": "key", "tag": "方法", "log": "找讨论对象 + 建议句（最后落点）；本文套路：孩子怎么做 → 成人怎么做 → 一句建议", "count": 0, "ribbon": null, "body": "<p>给段落选小标题，动作只有两个：找<b>讨论对象</b>（本段反复围绕的名词）和找<b>作者的建议</b>（最后落点句）。本文行文套路固定：先讲孩子怎么做，再讲成年人怎么做、错在哪，最后给一句建议——<b>建议句就是标题的母本</b>。全篇暗规则：七个选项里两个是多余项，专门盯字面词汇做诱饵。</p>"},
+ {"title": "定位段落 ·【41】孩子→成人→建议的推进链", "cls": "key", "tag": "定位", "log": "定位【41】段：孩子直白外露 → 成人压抑有害 → 建议承认并表达", "count": 0, "ribbon": null, "body": quote("What does a child do when he&rsquo;s sad? He cries. When he&rsquo;s angry? He shouts. … But too often we take this process too far and end up <b>suppressing emotions</b>, especially negative ones. That&rsquo;s about as effective as brushing dirt under a carpet and can even make us ill. What we need to do is find a way to <b>acknowledge and express what we feel</b> appropriately, and then &ndash; again, like children &ndash; move on.") + "<p>推进链三层：①孩子喜怒哀乐<b>直白外露</b>（哭、喊、怕）；②成人控制情绪本是好事，但「常常做过头」变成<b>压抑情绪</b>——比喻「把尘土扫进地毯下」，甚至致病；③建议句收尾：要<b>承认并表达</b>感受，然后像孩子一样翻篇。核心词 emotions 三次出场，重心落在③。</p>"},
+ {"title": "提炼段旨 · 对象 emotions，建议 express", "cls": "key", "tag": "提炼", "log": "提炼段旨：对象 = emotions（三次复现），建议 = acknowledge and express", "count": 0, "ribbon": null, "body": "<p>讨论对象 = <b>emotions / what we feel</b>（emotions、suppressing emotions、what we feel 三次复现）；作者建议 = <b>acknowledge and express</b>（承认并表达）。孩子与成人两层都是铺垫，建议句才是标题的母本。</p>"},
+ {"title": "逐项分析 · D Express your emotions（表达你的情绪）", "cls": "good", "tag": "选定 D", "log": "D 表达你的情绪 ✓ ——建议句 acknowledge and express what we feel 的压缩", "count": 0, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>[D] Express your emotions：对象（emotions / feelings）＋动作（express）与建议句 acknowledge and <b>express</b> what we feel 双双对齐。孩子的「直白外露」和成人的「压抑有害」都是从反面托住这一建议的铺垫。</p>"},
+ {"title": "逐项分析 · C Ask for help（寻求帮助）", "cls": "bad", "tag": "排除 C", "log": "C 寻求帮助 ✗ ——多余项：「压抑致病」不等于医疗求助", "count": 1, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>段中「压抑致病」（can even make us ill）容易被读成「生病该求助」，但求助话题全篇无涉——C 是为后文某段字面定制的诱饵，本段接不住。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把比喻性危害读成医疗建议。</p>"},
+ {"title": "逐项分析 · G Notice things（留意事物）", "cls": "bad", "tag": "排除 G", "log": "G 留意事物 ✗ ——多余项：三连问的落点在「表达」，不在「观察」", "count": 2, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>首句连设三问（孩子难过/生气/害怕时做什么）容易被读成「要留心自己的情绪」，但问句引出的是孩子的<b>行为示范</b>，段意重点不在「观察」（notice），而在「表达」（express）——notice 是盯字面的钩子。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「孩子情绪直白」的引子误读成「教你要留意」。</p>"},
+ {"title": "结论 · 其余选项各有归宿", "cls": "good", "tag": "答案 D", "log": "答案 D（Express your emotions）——A/B/E/F 分别对应【43】【44】【45】【42】段", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>孩子直白外露 → 成人压抑有害（brushing dirt under a carpet）→ 建议承认并表达 → [D]。</b></p><p>其余选项归宿：A Be silly（【43】傻气傻笑）、B Have fun（【44】安排享乐）、E Don't overthink it（【45】别太刻意追求幸福）、F Be easily pleased（【42】容易满足）——本段内容与之无涉。</p><p><b>记忆锚点</b>：小标题＝对象＋建议句；emotions 三次复现、建议 express；孩子是参照物，suppressing 是反面教材。</p><p style=\"color:#b91c1c\">前六句的「孩子」只是参照物——标题概括的是作者建议的方向，不是举例用的对照面。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 新题型第 41 题 ·「孩子式情绪」段的中心落在建议句",
+  subtitle: "考点：小标题题 · 对象＋建议句压缩 + 多余项字面钩子识别",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位段落 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（Express your emotions）", "html": "<b>D 表达你的情绪</b>：建议句 acknowledge and express what we feel 的压缩。<br>记忆锚点：小标题＝对象＋建议句；孩子是参照物，suppressing 是反面教材。<br>多余项 C / G 都是字面钩子：notice ≠ express，「压抑致病」≠ 求助。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 新题型第 41 题——"孩子式情绪"段的中心落在建议句</h2>
+<p>答案：<strong>D（Express your emotions 表达你的情绪）</strong>。</p>
+<h3>第 0 步：先立方法——小标题＝段落主旨的一句话压缩，抓"对象＋作者建议"</h3>
+<p>给段落选小标题，动作只有两个：找<strong>讨论对象</strong>（本段反复围绕的名词）和找<strong>作者的建议</strong>（尤其是最后落点句）。本文的行文套路固定：先讲孩子怎么做，再讲成年人怎么做、错在哪，最后给一句建议——<strong>建议句就是标题的母本</strong>。另外记住全篇的暗规则：七个选项里有两个是多余项，它们专门盯各段的字面词汇做诱饵——谁的词眼熟就冒充谁的标题。</p>
+<h3>第 1 步：定位段落，抓"孩子→成人→建议"的推进链</h3>
+<blockquote>What does a child do when he's sad? He cries. When he's angry? He shouts. ... But too often we take this process too far and end up <strong>suppressing emotions</strong>, especially negative ones. That's about as effective as brushing dirt under a carpet and can even make us ill. What we need to do is find a way to <strong>acknowledge and express what we feel</strong> appropriately, and then – again, like children – move on.</blockquote>
+<p>推进链三层：①孩子喜怒哀乐<strong>直白外露</strong>（哭、喊、怕）；②成年人学会控制情绪本是好事，但"常常做过头"变成<strong>压抑情绪</strong>（suppressing emotions）——比喻"把尘土扫进地毯下"，甚至致病；③建议句收尾：要找到方式<strong>承认并表达</strong>感受，然后像孩子一样翻篇。全段核心词 emotions 三次出场（emotions / suppressing emotions / what we feel），重心落在③的建议上。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[D] <strong>Express your emotions</strong>——建议句 acknowledge and <strong>express</strong> what we feel 的压缩：对象（emotions/feelings）＋动作（express）双双对齐。孩子的"直白外露"和成人的"压抑有害"都是从反面托住这一建议的铺垫。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>C Ask for help</td><td>✗</td><td>多余项：段中"压抑致病"（can even make us ill）容易被读成"生病该求助"，但求助话题全篇无涉——C 的真身是为后文某段字面定制的诱饵，本段接不住</td></tr><tr><td>G Notice things</td><td>✗</td><td>多余项：首句连设三问（孩子难过/生气/害怕时做什么）容易被读成"要留心（notice）自己的情绪"，但段意重点不在"观察"，而在"表达"——notice 是盯字面的钩子</td></tr></tbody></table>
+<p>其余 A Be silly（对应【43】段"傻气傻笑"）、B Have fun（对应【44】段"安排时间享乐"）、E Don't overthink it（对应【45】段"别太刻意追求幸福"）、F Be easily pleased（对应【42】段"容易满足"）各有归宿，本段内容与之无涉。</p>
+<h3>预判追问：前六句都在讲"孩子情绪直白"，标题为什么不落在孩子身上？</h3>
+<p>因为孩子在本段只当<strong>参照物</strong>：开头用孩子的直白引出成人的压抑，结尾"again, like children"又把坐标交还给孩子——两处孩子都服务于中间的成人问题与最后一句建议。小标题概括的是<strong>作者建议的方向</strong>，不是他举例时用的对照面。这与阅读题"让步与反衬不进标题"是同一机制。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 G</strong>：把"孩子难过时做什么"的三连问误读成"教你要留意情绪"——问句引出的是孩子的行为示范，落点在表达。</li><li><strong>误选 C</strong>：被"can even make us ill"（压抑甚至致病）带出"求助"联想——生病是比喻压抑的危害，不是医疗建议。</li><li><strong>只盯前半段</strong>：看到孩子哭喊就往"天真/玩乐"方向想，漏掉全段的落点句 What we need to do is...。</li></ul>
+<blockquote>记忆锚点：小标题＝对象＋建议句；本段对象 emotions、建议 express——孩子是参照物，suppressing 是反面教材；notice/ask for help 都是字面钩子。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

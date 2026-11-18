@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-36 · 2015 阅读第 36 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "先立方法 · 分清「被关注」与「被忽视」的半边",
+  "cls": "key",
+  "tag": "方法",
+  "log": "问 neglected → 答案必取 However 之后的句子",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>第一段摆的是「好消息」：新增 28.8 万个岗位、失业率降到 6.1%—— Many people talked of = <b>被关注</b>的半边。第二段开头 However + another important part + <b>largely overlooked</b> = <b>被忽视</b>的半边。题干问 neglected（被忽视的是哪部分），答案必须取自 However 之后的句子——凡是长在第一段里的信息，写得再像「就业图景」也文不对题。</p>"
+ },
+ {
+  "title": "定位原文 · 第二段：自愿兼职大涨",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位第二段：a big jump in the number of people who report voluntarily working part-time",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">However, there is another important part of the jobs picture that was largely overlooked. There was a big jump in the number of people who report voluntarily working part-time.</div><p><b>a big jump</b>（大涨）= increase；<b>voluntarily working part-time</b> = voluntary part-time jobs（自愿兼职）。①句的 overlooked 直接对应题干的 neglected。</p>"
+ },
+ {
+  "title": "逐项分析 · A The prospect of a thriving job market（欣欣向荣的市场前景）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 市场前景 ✗ ——取自第一段的「被关注」部分",
+  "count": 1,
+  "ribbon": "<p><b>排除。</b>288,000 new jobs + 失业率下降都在<b>第一段</b>——那是 Many people talked of 的「被关注」部分，不是 overlooked 的部分。</p>",
+  "body": {
+   "k": "A",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · C The possibility of full employment（充分就业的可能性）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 充分就业的可能性 ✗ ——仍取自第一段",
+  "count": 2,
+  "ribbon": "<p><b>排除。</b>a long way to go to get back to <b>full employment</b> 在第一段末句——同样在被讨论、被关注的半边。</p>",
+  "body": {
+   "k": "C",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · D The acceleration of job creation（就业机会加速生成）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 岗位加速生成 ✗ ——creating jobs at a decent pace 在第一段",
+  "count": 3,
+  "ribbon": "<p><b>排除。</b>the economy is creating jobs at a decent pace（以可观速度创造岗位）在第一段③句——仍是「好消息」半边；「可观速度」也 ≠「加速」。</p><p style=\"color:#b91c1c\">三个干扰项的共同归因：全部长在第一段——半边找反，细节再准也是错。</p>",
+  "body": {
+   "k": "D",
+   "ok": false
+  }
+ },
+ {
+  "title": "逐项分析 · B The increase of voluntary part-time jobs（自愿兼职的增加）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B 自愿兼职的增加 ✓ ——第二段②句的整句改写",
+  "count": 3,
+  "ribbon": "<p><b>当选。</b>a big jump = increase；voluntarily working part-time = voluntary part-time jobs——[B] 是②句的整句改写，且①句 overlooked 与题干 neglected 直接对应。</p>",
+  "body": {
+   "k": "B",
+   "ok": true
+  }
+ },
+ {
+  "title": "结论 · 半边意识与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（The increase of voluntary part-time jobs）——neglected 藏在 However 之后",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>B（The increase of voluntary part-time jobs）</b>。</p><p><b>记忆锚点</b>：neglected / overlooked 的答案藏在 However 之后；a big jump = increase。</p><p style=\"color:#b91c1c\">预警：voluntary ≠ involuntary，一词之差两篇讨论——37、38 题连用这组反义词，混了会连环出错。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2015 阅读 T4 第 36 题 · 被忽视的就业图景是哪一块",
+  subtitle: "考点：事实细节 · However 之后取答案 · 被关注/被忽视的半边",
+  counterLabel: "已判定",
+  ribbonTitle: "选项判定（✓ 当选 / ✗ 排除）",
+  intro: "点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+ "big": "答案 B（The increase of voluntary part-time jobs）",
+ "html": "<b>B The increase of voluntary part-time jobs（自愿兼职工作的增加）</b>。<br>neglected / overlooked 的答案藏在 However 之后；三个干扰项全部取自第一段「被关注」半边。<br>预警：<b>voluntary ≠ involuntary</b>，37、38 题连用。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：细节题——先分清"被关注的一半"和"被忽视的一半"</h2>
+<p>答案：<strong>B（The increase of voluntary part-time jobs）</strong>。</p>
+<h3>第 0 步：先立方法——However 之后才是题目要的半边</h3>
+<p>第一段摆的是"好消息"：新增 28.8 万个岗位、失业率降到 6.1%。第二段一开头就是 However + another important part + <strong>largely overlooked</strong>（被大大忽视）：作者要谈的正是被这批好新闻淹没的另一面。题干问 neglected（被忽视的是哪部分），答案必须取自 However 之后的句子——凡是长在第一段里的信息，写得再像"就业图景"，也属于"被关注的那半边"，文不对题。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>However, there is another important part of the jobs picture that was largely overlooked. There was a big jump in the number of people who report voluntarily working part-time.（译：然而，就业图景中还有一个重要部分被大大忽视：自称自愿从事兼职工作的人数大幅上涨。）</blockquote>
+<p>a big jump（大涨）= increase；voluntarily working part-time = voluntary part-time jobs。[B] 是②句的整句改写，①句的 overlooked 则直接对应题干的 neglected。</p>
+<h3>第 2 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A The prospect of a thriving job market</td><td>✗</td><td>取自第一段：288,000 new jobs + 失业率下降——这是 Many people talked of 的"被关注"部分</td></tr><tr><td>C The possibility of full employment</td><td>✗</td><td>取自第一段：a long way to go to get back to full employment——同样在被讨论、被关注的那半边</td></tr><tr><td>D The acceleration of job creation</td><td>✗</td><td>取自第一段：creating jobs at a decent pace——"以可观速度创造岗位"，仍属第一段的好消息</td></tr></tbody></table>
+<p>三个干扰项的共同归因：<strong>全部长在第一段</strong>，而题目问的是第二段 overlooked 的部分——半边找反，细节再准也是错。</p>
+<h3>预判追问：voluntary 和 involuntary 为什么不能混？</h3>
+<p>这组反义词是全文的骨架：voluntary（自愿）兼职大涨是第二段的现象（本题）；involuntary（非自愿）兼职的定义与下降趋势在第三、四段（37、38 题）。把两个词看混，后面三道题会连环出错——细节题的"准"，先从名词的定语开始。</p>
+<blockquote>记忆锚点：neglected / overlooked 的答案藏在 However 之后；a big jump = increase；voluntary ≠ involuntary，一词之差，两篇讨论。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

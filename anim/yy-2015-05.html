@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2015-05 · 2015 考研英语（二）完形第 5 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     概念 / 推理链类动画：定位 → 机制证据 → 逐项排除 → 结论
+     每步一张 .aw-stepcard，原文关键句用琥珀色引用块。
+     只改下方 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+var STEPS = [{"title": "定位原文 · 空 5 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 5 所在句，考点：介词的空间关系 + hide 搭配", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">What is it that makes us feel we need to hide __5__ our screens?</div><p>空格是介词，与 hide + our screens 连用，决定“躲到屏幕的<b>哪个方位</b>”。介词题先画空间关系图：hide 的主体是人，screen（屏幕）是掩体。</p>"}, {"title": "机制 · 全文的屏障隐喻定死了方位", "cls": "key", "tag": "证据", "log": "机制：protection / security blanket / band-aid——手机是屏障，人在屏障后", "count": 0, "ribbon": null, "body": "<p>全文给手机的隐喻一以贯之：protection（护身装束）、security blanket（安全毯）、band-aid（创可贴）——全是<b>挡在人与外界之间的屏障</b>。屏障的几何关系：人躲在它<b>后面</b>。答案方向由此锁定 hide behind our screens（躲在屏幕后）。</p>"}, {"title": "逐项分析 · A under（在……下方）", "cls": "bad", "tag": "排除 A", "log": "A under ✗ 排除——屏幕竖持，“躲到屏幕下面”几何关系不成立", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>under 表“在……正下方”：屏幕是竖着拿的，人不可能躲到“屏幕下面”；“下方”也与“屏障挡在身前”的隐喻不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把“躲”默认成“躲在桌下”的具象场景，忽略屏幕的持握方式。</p>"}, {"title": "逐项分析 · B beyond（在……之外，超出）", "cls": "bad", "tag": "排除 B", "log": "B beyond ✗ 排除——beyond 不与 hide 搭配表藏身处", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>beyond 表“在……之外、超出”（beyond the hill / beyond description），不与 hide 连用表藏身位置；填入后 hide beyond our screens 句子不通。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只背“超出”义项，未检验介词与 hide 的搭配合法性。</p>"}, {"title": "逐项分析 · C behind（在……后面）", "cls": "good", "tag": "选定 C", "log": "C behind ✓ 当选——hide behind our screens，与屏障隐喻全文呼应", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>hide behind our screens = 藏在屏幕后面：屏幕竖在人与世界之间，正是“屏障”的方位；与 plugged into your phone、universal protection 前后呼应。</p>"}, {"title": "逐项分析 · D from（从；免于）", "cls": "bad", "tag": "排除 D", "log": "D from ✗ 排除——hide from 的宾语是“要避开的对象”，不是掩体", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>hide from sb = 躲避某人以免被发现；hide sth from sb = 瞒着某人。from 的宾语都是“<b>要避开的对象</b>”，填 screens 变成“躲避屏幕”——可人明明是主动扎进屏幕（plugged into），方向反了。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只记得 hide from 高频，没核对 from 宾语的角色（躲避对象 vs 掩体）。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（behind 在后面）——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>究竟是什么让我们觉得需要躲到屏幕后面？</b></p><p>答案选 <b>C（behind）</b>。</p><p><b>记忆锚点</b>：屏幕 = 屏障 → 躲在屏障后面 hide behind；hide from 的宾语是“要避开的人/物”，不是掩体。</p><p style=\"color:#b91c1c\">最易误选：<b>D（from）</b>——hide from 搭配熟，但方向（躲避对象）与文意相反。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2015 完形第 5 空 · 躲到屏幕的哪个方位——介词的空间关系图",
+  subtitle: "考点：介词辨析 + 屏障隐喻 · 方位作图 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 C（behind 在后面）", "html": "<b>C behind</b>——手机是屏障（protection / security blanket / band-aid），人躲在屏障后面。<br>记忆锚点：屏幕 = 屏障 → hide behind；hide from 的宾语是“要避开的对象”，不是掩体。<br>最易误选：<b>D（from）</b>——搭配熟但方向反：人是扎进屏幕，不是躲避屏幕。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2015 完形第 5 空 · 屏幕是“屏障”，人在屏障后面</h2>
+<p>答案：<strong>C（behind）</strong>。</p>
+<h3>第 0 步：先立机制——介词题先画“空间关系图”</h3>
+<p><code>What is it that makes us feel we need to hide __5__ our screens?</code>：hide 是“躲”，介词决定“躲到屏幕的哪个方位”。全文给手机的隐喻一以贯之：protection（护身装束）、security blanket（安全毯）、band-aid（创可贴）——全是<strong>挡在人与外界之间的屏障</strong>。屏障的几何关系：人躲在它<strong>后面</strong>。答案方向由此锁定 hide behind。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>What is it that makes us feel we need to hide __5__ our screens?</blockquote>
+<p>此句单句成段承上启下：上文写“扎进手机、发出‘别靠近我’的信息”，本句把行为抽象成“躲”——掩体（screen）与躲的方向就是全部考点。</p>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A under</td><td>在……下方</td><td>✗ 排除</td><td>屏幕竖持，“躲到屏幕下面”几何关系不成立。（典型误解：默认“躲在桌下”的具象场景。）</td></tr><tr><td>B beyond</td><td>在……之外，超出</td><td>✗ 排除</td><td>beyond 不与 hide 搭配表藏身处，填入句子不通。（典型误解：只背“超出”义项。）</td></tr><tr><td>C behind</td><td>在……后面</td><td>✓ 当选</td><td>hide behind our screens，与全文屏障隐喻呼应。</td></tr><tr><td>D from</td><td>从；免于</td><td>✗ 排除</td><td>hide from 的宾语是“要避开的对象”，填 screens 变成“躲避屏幕”，与主动扎进屏幕相反。（典型误解：搭配熟就选，方向没核。）</td></tr></tbody></table>
+<p>代入后的完整句义：究竟是什么让我们觉得需要躲到屏幕后面？</p>
+<h3>第 3 步：预判追问</h3>
+<ul><li><strong>hide from 不是最熟的搭配吗，为什么错？</strong>：把 hide from 拆开看，两个句式的 from 宾语都是“要避开的对象”：hide (oneself) from sb（躲开人）、hide sth from sb（瞒着人）。文中人对屏幕是主动投入（plugged into your phone），屏幕是掩体不是躲避对象，方向相反。</li><li><strong>under 有“在……庇护下”的引申吗？</strong>：under 有 under the protection of（在……庇护下），但那要求宾语是保护者（组织、人）；screens 是工具不是庇护者，且本句是物理方位的“躲”，under 义不搭。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（from）</strong>：搭配熟但不辨方向——最常见错法。</li><li><strong>误选 A（under）</strong>：具象场景替代文中空间关系。</li><li><strong>误选 B（beyond）</strong>：义项背了，搭配合法性没验。</li></ul>
+<blockquote>记忆锚点：屏幕 = 屏障 → 躲在屏障后面 hide behind；hide from 的宾语是“要避开的人/物”，不是掩体。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

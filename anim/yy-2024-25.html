@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2024-25 · 2024 阅读第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- 模板：anim_math_concept_template.html（英语站无 KaTeX，纯文本推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+  { title: '审题眼 · 建议题先问“针对什么问题”',
+    cls: 'key',
+    tag: '审题',
+    log: 'With regard to Coyle’s concern, the author suggests——建议出现在文末两段',
+    count: 0,
+    body: '<p>文末两段有建议信号词：<code>the solution</code>（第七段）、<code>A more immediate response</code>（第八段）。先回溯问题：科伊尔担忧<b>公众因不平等而抵触 AI</b>，应用受阻。对策必须能化解“抵触”。</p>'
+  },
+  { title: '定位原文 · 第七段的对策一',
+    cls: 'key',
+    tag: '定位',
+    log: '第七段：松动 Big Tech 对 AI 议程的垄断 + 资助独立研究',
+    count: 0,
+    body: quote('Part of the solution could lie in somehow loosening the stranglehold that Big Tech has on defining the AI agenda. That will likely take increased federal funding for research independent of the tech giants.') +
+      '<p>对策一的关键限定：资助的是 <b>independent of the tech giants</b>（独立于科技巨头）的研究，目的是<b>打破垄断（stranglehold）</b>。</p>'
+  },
+  { title: '定位原文 · 第八段的对策二（更立竿见影）',
+    cls: 'key',
+    tag: '定位',
+    log: '第八段：拓宽数字想象——AI 不只取代工作，还能扩展机会',
+    count: 0,
+    body: quote('A more immediate response is to broaden our digital imaginations to conceive of AI technologies that don’t simply replace jobs but expand opportunities in the sectors that different parts of the country care most about...') +
+      '<p>让步结构 <code>don’t simply replace jobs <b>but</b> expand opportunities</code>：重心在 but 之后——<b>重新想象 AI 的角色</b>。</p>'
+  },
+  { title: '同义替换核对 D',
+    cls: 'good',
+    tag: '替换',
+    log: '替换链闭合：broaden imaginations + not replace but expand → redefining the role',
+    count: 0,
+    body: '<p><b>broaden our digital imaginations</b>（拓宽数字想象）＋ <b>don’t simply replace jobs but expand opportunities</b>（不只取代工作，更扩展机会）＝ 对“AI 是什么、该干什么”的<b>重新定义</b> → D redefining the role of AI technologies。</p>'
+  },
+  { title: 'A：raising funds to start new AI projects —— 丢了限定',
+    cls: 'bad',
+    tag: '排除 A',
+    log: 'A 筹资启动新项目 ✗——资助对象是“独立于巨头的研究”，不是“新项目”',
+    count: 1,
+    ribbon: { k: 1, ok: false },
+    body: '<p>第七段确实有 federal funding，但资助对象的核心限定是 <code>research <b>independent of</b> the tech giants</code>，目的是制衡巨头垄断。抽掉限定，换成毫无针对性的“新 AI 项目”即错。</p><p style="color:#b91c1c">⚠ 典型误解：见 funding 就选，不核对资助对象。</p>'
+  },
+  { title: 'B：encouraging collaboration in AI research —— 方向反捏',
+    cls: 'bad',
+    tag: '排除 B',
+    log: 'B 鼓励研究合作 ✗——原文强调“独立”，被反捏成“合作”',
+    count: 2,
+    ribbon: { k: 2, ok: false },
+    body: '<p>与 A 同源：第七段强调 <b>independent of the tech giants</b>（独立于巨头），选项捏造成“在 AI 研究方面进行<b>合作</b>”——方向正相反，也完全没触及“打破垄断”的核心。</p><p style="color:#b91c1c">⚠ 典型误解：research 字眼对上就算，不辨 independent 的方向。</p>'
+  },
+  { title: 'C：guarding against the side effects —— 重心错位',
+    cls: 'bad',
+    tag: '排除 C',
+    log: 'C 防范副作用 ✗——重心在 but 之后的“拓展机会”',
+    count: 3,
+    ribbon: { k: 3, ok: false },
+    body: '<p><code>don’t simply replace jobs</code> 只是让步成分里承认的旧问题；but 之后的 <b>expand opportunities</b> 才是建议重心——作者鼓励“转换思维、拥抱机遇”，不是“防副产物”。</p><p style="color:#b91c1c">⚠ 典型误解：don’t...but... 结构里只读前半句。</p>'
+  },
+  { title: 'D：redefining the role —— 替换闭环',
+    cls: 'good',
+    tag: '锁定 D',
+    log: 'D 重新定义 AI 的作用 ✓——从“取代者”到“机会拓展者”',
+    count: 3,
+    ribbon: { k: 4, ok: true },
+    body: '<p>第八段呼吁各界转变对 AI 的狭隘看法：AI 不只是取代人工的技术，更可以全面造福各方各业——这正是对 <b>AI 技术角色的重新定义</b>，也正面回应了“公众抵触”的担忧。</p>'
+  },
+  { title: '结论 · 记忆锚点',
+    cls: 'good',
+    tag: '答案 D',
+    log: '答案 D（redefining the role of AI technologies）——建议的重心在 but 之后',
+    count: 3,
+    body: '<p>答案选 <b>D（redefining the role of AI technologies）</b>。</p><p><b>记忆锚点</b>：文末建议题先回溯“针对什么问题”（公众抵触源于分配不均）；<code>don’t...but...</code> 重心永远在 but 之后；A、B 丢了“独立于巨头、反垄断”的核心限定。</p>'
+  }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: '2024 阅读第 25 题 · 作者针对科伊尔的担忧给出什么建议',
+  subtitle: 'Text 1 · 考点：作者建议 + 让步转折重心（don’t...but...）',
+  counterLabel: '已排除',
+  ribbonTitle: '选项对号（1=A · 2=B · 3=C · 4=D；✓ 对 / ✗ 错）',
+  intro: '点击「▶ 播放」逐步展开“回溯问题 → 定位建议 → 逐项排除”的过程。',
+  snaps: snaps,
+  result: {
+    big: '答案 D（redefining the role）',
+    html: '建议句：<b>broaden our digital imaginations... not simply replace jobs but expand opportunities</b> → 重新定义 AI 的角色。<br>记忆锚点：don’t...but... 重心在 but 后；A/B 丢“独立于巨头”限定，C 把让步成分当重心。'
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2024 阅读第 25 题 · 作者针对科伊尔的担忧给出什么建议</h2>
+<p>答案：<strong>D（redefining the role of AI technologies 重新定义 AI 技术的作用）</strong>。</p>
+<h3>第 0 步：先立机制——建议题先问“建议针对什么问题”</h3>
+<p>With regard to Coyle's concern, the author suggests ____：作者建议出现在文末两段（the solution / A more immediate response 两个信号词），但建议的价值要回到它针对的问题上——科伊尔的担忧“公众因不平等而抵触 AI，应用受阻”。对策必须能化解“抵触”：要么打破垄断让大众受益，要么转变对 AI 的定位。第七段给了两个方向的雏形，第八段才是“更立竿见影”的那一招。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Part of the solution could lie in somehow loosening the stranglehold that Big Tech has on defining the AI agenda. That will likely take increased federal funding for research independent of the tech giants.<br/>A more immediate response is to broaden our digital imaginations to conceive of AI technologies that don’t simply replace jobs but expand opportunities in the sectors that different parts of the country care most about...</blockquote>
+<h3>第 2 步：同义替换核对</h3>
+<p>第八段的三个关键词：<strong>broaden our digital imaginations</strong>（拓宽数字想象）→ conceive of AI that <strong>don't simply replace jobs but expand opportunities</strong>（不只取代工作，还能扩展机会）→ 这正是对“AI 是什么、该干什么”的<strong>重新定义</strong>，与 D 的 redefining the role of AI technologies 替换闭环。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A raising funds to start new AI projects</td><td>筹资启动新 AI 项目</td><td>✗</td><td>偷换对象：第七段说资助“独立于科技巨头的研究”，不是泛泛的“新项目”</td></tr><tr><td>B encouraging collaboration in AI research</td><td>鼓励 AI 研究合作</td><td>✗</td><td>同源偷换：原文强调“独立（independent of the tech giants）”，反着捏成“合作”</td></tr><tr><td>C guarding against the side effects of AI</td><td>防范 AI 副作用</td><td>✗</td><td>重心错位：replace jobs 只是让步成分里的旧问题，建议的重心是“拓展机会”</td></tr><tr><td>D redefining the role of AI technologies</td><td>重新定义 AI 的作用</td><td>✓</td><td>broaden imaginations + not replace but expand = 重估 AI 的角色</td></tr></tbody></table>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>A、B 错在哪？第七段不是真有 funding 和 research 吗？</strong>：有，但核心限定被抽掉了——资助的是 <strong>independent of the tech giants</strong> 的研究，目的是<strong>打破 Big Tech 对 AI 议程的垄断（stranglehold）</strong>；“筹资上新项目”“鼓励合作”都没有触及“反垄断”这个核心。</li><li><strong>C 为什么不算？</strong>：让步结构 don't <strong>simply replace jobs</strong> but expand opportunities 中，but 之后才是语义重心；作者在鼓励“转向机遇”，不是“防副产物”。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 A／B</strong>：抓到 funding / research 字眼就选，丢了“独立于巨头、打破垄断”的核心限定。</li><li><strong>误选 C</strong>：只看 replace jobs 的负面字眼，没注意到 but 转折后的建议重心。</li></ul>
+<blockquote>记忆锚点：文末建议题先回溯“针对什么问题”（公众抵触源于分配不均）→ 再提建议重心（not replace but expand）；don't...but... 结构重心永远在 but 之后。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

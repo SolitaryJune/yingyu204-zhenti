@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2021 完形第 5 空 · And people who run for the bus? They are __5__.：A threatened / B ignored / C mocked / D blamed</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     （推理链卡片：定位 → 立机制 → 找证据 → 逐项排除 → 结论）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 5 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "count": 0,
+  "ribbon": null,
+  "log": "定位原文：空 5 在「And people who run for the bus? They are __5__.」；考点：上下文语义 + 动词辨析",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">And people who run for the bus? They are <b>__5__</b>.</div><p>空 5 是被动语态的表语，动作发出者是司机 / 公交系统；主语是追赶公交的乘客。</p>"
+ },
+ {
+  "title": "立机制 · 一连串问—答共享同一条语境线",
+  "cls": "key",
+  "tag": "机制",
+  "count": 0,
+  "ribbon": null,
+  "log": "机制先行：一连串问—答共享同一条语境线",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Are they carefully inspected? Never. Do people get on without paying? Of course! ... And people who run for the bus? They are <b>__5__</b>.</div><p>本段用一连串“问—答”展示公交的“无人管”：查票吗？从不；逃票吗？当然；检票员？极少。这一问延续同一条线：追赶公交的人呢？他们被____。</p><p>语境需要的是“司机 / 公交系统对他们<b>视而不见</b>”这一态度——ignored（佯装未见、不予理睬）。答案必须顺着问答链的既有走向走，而不是另起一条“人际冲突”的线。</p>"
+ },
+ {
+  "title": "找证据 · 第四段“抱怨晚点”佐证：司机赶时间，顾不上等追赶的人",
+  "cls": "key",
+  "tag": "证据",
+  "count": 0,
+  "ribbon": null,
+  "log": "证据：第四段“抱怨晚点”佐证：司机赶时间，顾不上等追赶的人",
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">People complained that buses were late and infrequent.</div><p>后文交代背景：人们抱怨公交车晚点、班次少，司机按行程时间受奖惩——为抢准点，司机自然不管还在跑着追车的人。ignored 与这条因果线完全一致。</p>"
+ },
+ {
+  "title": "逐项分析 · A threatened（被威胁）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "log": "A threatened（被威胁）✗ 排除",
+  "body": "<p><b>排除。</b>threatened（被威胁）利用“赶车的人会遇到麻烦”的常规思维设障；全段没有任何“谁威胁谁”的人际冲突描写。</p>"
+ },
+ {
+  "title": "逐项分析 · B ignored（被忽视）",
+  "cls": "good",
+  "tag": "选定 B",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "log": "B ignored（被忽视）✓ 当选",
+  "body": "<p><b>当选。</b>ignored（被忽视）与“不查票、无人管”的语境同频，也与司机只顾准点的行为逻辑一致。</p>"
+ },
+ {
+  "title": "逐项分析 · C mocked（被嘲笑）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "count": 1,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "log": "C mocked（被嘲笑）✗ 排除",
+  "body": "<p><b>排除。</b>mocked（被嘲笑）同样需要“旁观者”存在，原文没有；主题是“忽视”，不是“嘲弄”。</p><p style=\"color:#b91c1c\">⚠ 典型误解：脑补了“其他乘客嘲笑追赶者”的画面，原文并无旁观者视角。</p>"
+ },
+ {
+  "title": "逐项分析 · D blamed（被责怪）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "count": 2,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "log": "D blamed（被责怪）✗ 排除",
+  "body": "<p><b>排除。</b>blamed（被责怪）需要归因逻辑（谁的错）；文中不存在这一关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：脑补了“迟到怪乘客”的归因，而上下文只谈司机赶点、无人维持秩序。</p>"
+ },
+ {
+  "title": "结论 · 完整句义与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "count": 3,
+  "ribbon": null,
+  "log": "答案 B（ignored 被忽视）——完整句义见结论卡",
+  "body": "<p>完整句义：<b>And people who run for the bus? They are ignored.（那些跑着追赶公交的人呢？没人理会。）</b></p><p>答案选 <b>B（ignored 被忽视）</b>。</p><p><b>记忆锚点</b>：问—答链定语境：Never / Of course / very few ⇒ 态度词 = ignored；司机赶点 ⇒ 赶车人被无视。</p><p style=\"color:#b91c1c\">⚠ 最易误选 C（mocked）：脑补了“其他乘客嘲笑追赶者”的画面，原文并无旁观者视角。</p>"
+ }
+];
+
+AW.init({
+  title: "2021 完形第 5 空 · And people who run for the bus? They are __5__.：A threatened / B ignored / C mocked / D blamed",
+  subtitle: "考点：上下文语义 + 动词辨析 · 定位 → 立机制 → 找证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 立机制 → 找证据 → 逐项排除”的推理链。",
+  snaps: STEPS.map(function(s, i){
+    var last = i === STEPS.length - 1;
+    return {
+      cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+      tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+      html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+      done: last,
+    };
+  }),
+  result: {
+ "big": "答案 B（ignored 被忽视）",
+ "html": "<b>B ignored（被忽视）</b>。<br>完整句：And people who run for the bus? They are ignored.（那些跑着追赶公交的人呢？没人理会。）<br>记忆锚点：问—答链定语境：Never / Of course / very few ⇒ 态度词 = ignored；司机赶点 ⇒ 赶车人被无视。<br>最易误选：<b>C mocked（被嘲笑）</b>——脑补了“其他乘客嘲笑追赶者”的画面，原文并无旁观者视角。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2021 完形第 5 空 · 问答链定语境：这条线是“无人管”，不是“人际冲突”</h2>
+<p>答案：<strong>B（ignored 被忽视）</strong>。</p>
+<h3>第 0 步：先立机制——一连串问—答共享同一条语境线</h3>
+<blockquote>Are they carefully inspected? Never. Do people get on without paying? Of course! ... And people who run for the bus? They are <strong>__5__</strong>.</blockquote>
+<p>本段用一连串“问—答”展示公交的“无人管”：查票吗？从不；逃票吗？当然；检票员？极少。这一问延续同一条线：追赶公交的人呢？他们被____。</p>
+<p>语境需要的是“司机 / 公交系统对他们<strong>视而不见</strong>”这一态度——ignored（佯装未见、不予理睬）。答案必须顺着问答链的既有走向走，而不是另起一条“人际冲突”的线。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>And people who run for the bus? They are <strong>__5__</strong>.</blockquote>
+<p>空 5 是被动语态的表语，动作发出者是司机 / 公交系统；主语是追赶公交的乘客。</p>
+<h3>第 2 步：找证据——第四段“抱怨晚点”佐证：司机赶时间，顾不上等追赶的人</h3>
+<blockquote>People complained that buses were late and infrequent.</blockquote>
+<p>后文交代背景：人们抱怨公交车晚点、班次少，司机按行程时间受奖惩——为抢准点，司机自然不管还在跑着追车的人。ignored 与这条因果线完全一致。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A threatened</td><td>被威胁</td><td>✗ 排除</td><td>threatened（被威胁）利用“赶车的人会遇到麻烦”的常规思维设障；全段没有任何“谁威胁谁”的人际冲突描写。</td></tr><tr><td>B ignored</td><td>被忽视</td><td>✓ 当选</td><td>ignored（被忽视）与“不查票、无人管”的语境同频，也与司机只顾准点的行为逻辑一致。</td></tr><tr><td>C mocked</td><td>被嘲笑</td><td>✗ 排除</td><td>mocked（被嘲笑）同样需要“旁观者”存在，原文没有；主题是“忽视”，不是“嘲弄”。（典型误解：脑补了“其他乘客嘲笑追赶者”的画面，原文并无旁观者视角。）</td></tr><tr><td>D blamed</td><td>被责怪</td><td>✗ 排除</td><td>blamed（被责怪）需要归因逻辑（谁的错）；文中不存在这一关系。（典型误解：脑补了“迟到怪乘客”的归因，而上下文只谈司机赶点、无人维持秩序。）</td></tr></tbody></table>
+<p>代入后的完整句义：And people who run for the bus? They are ignored.（那些跑着追赶公交的人呢？没人理会。）</p>
+<h3>预判追问</h3>
+<ul><li><strong>为什么不是司机“讨厌”他们？</strong>：本文批判的是目标（准点）对行为的扭曲：司机眼里只有时间。无视乘客不是情绪问题，而是“目标单一、其他要素被牺牲”的表现，所以选“忽视”而非任何情绪类动词。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C / D（mocked / blamed）</strong>：脑补原文不存在的路人反应。完形问答链里每个答案都要顺着同一条语境线走——这条线是“无人管”，不是“人际冲突”。</li></ul>
+<blockquote>记忆锚点：问—答链定语境：Never / Of course / very few ⇒ 态度词 = ignored；司机赶点 ⇒ 赶车人被无视。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

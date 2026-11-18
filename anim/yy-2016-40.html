@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-40 · 2016 阅读第 40 题 · even though 让步里的「无关」结论 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "审题眼 · true 判断题逐项验伤", "cls": "key", "tag": "审题", "log": "审题眼：Which of the following is true about Schneider?——定位第六段，逐项回原文验伤", "count": 0, "ribbon": null, "body": "<p>判断题（Which of the following is <b>true</b> about Schneider?）的读法是逐项回原文验伤。Schneider 的全部信息在第六段：①总述（climb 更难）②找工作挣扎 ③稳定工作却付不起月供 ④⑤父母没文凭却生活优渥 ⑥「如今再也做不到」。其中④⑤的 <b>even though 让步结构</b>是本题题眼。</p>"},
+ {"title": "定位原文 · 让步结构摆出两个变量", "cls": "key", "tag": "定位", "log": "定位第六段④⑤句：父母没读完大学 → 照样提供舒适生活", "count": 0, "ribbon": null, "body": quote("Looking back, he is struck that his parents could provide a comfortable life for their children even though neither had completed college when he was young. &ldquo;I still grew up in an upper middle-class home with parents who didn&rsquo;t have college degrees.&rdquo;") + "<p>两句同向重复：④「没读完大学→照样舒适生活」；⑤「没文凭→照样上层中产之家」。is struck（猛然意识到）表明 Schneider 对这种反差感到惊讶——反差对象正是「文凭缺席」与「生活优渥」并存。</p>"},
+ {"title": "同义替换 · 让步＝「无关」结论的配方", "cls": "key", "tag": "替换", "log": "同义替换：even though / didn't have → good life has little to do with a college degree", "count": 0, "ribbon": null, "body": "<p>让步结构的功能：把「文凭」与「好生活」两个变量摆在一起，宣布<b>前者的缺席不影响后者</b>。[C] 把这种关系翻译成相关性判断——好生活与大学文凭<b>几乎没有关系</b>（has little to do with）：文凭不是那份好生活的必要条件。锁定 [C]。</p>"},
+ {"title": "逐项分析 · A He found a dream job after graduating from college", "cls": "bad", "tag": "排除 A", "log": "A 毕业后找到理想工作 ✗ ——struggled（挣扎着才找到）被过度推导成「理想」", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>②句是 <b>struggled</b> to find a job（很努力才找到一份工作）——「挣扎着找到」被过度推导成「找到了理想工作」，「理想与否」文中无据。原文对工作的评价只有一个「难找」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：struggled 的「费力」被顺读成「努力→结果理想」。</p>"},
+ {"title": "逐项分析 · B His parents believe working steadily is a must for success", "cls": "bad", "tag": "排除 B", "log": "B 父母认为稳定工作是成功必需 ✗ ——steady 是 Schneider 自己的词，父母观点未提及", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>working <b>steadily</b> 是 Schneider <b>自己</b>的现状（③句：虽工作稳定却付不起月供）——「父母认为稳定工作是成功必需」这一看法全文从未出现。杂糅 his parents ＋ working steadily 两个词块，观点归属凭空捏造。</p><p style=\"color:#b91c1c\">⚠ 典型误解：主语与观点的归属没核对。</p>"},
+ {"title": "逐项分析 · C His parents' good life has little to do with a college degree", "cls": "good", "tag": "选定 C", "log": "C 父母的好生活与大学文凭几乎无关 ✓ ——even though 让步的抽象化", "count": 2, "ribbon": {"k": "C", "ok": true}, "body": "<p><b>当选。</b>even though neither had completed college ＋ parents who didn't have college degrees——文凭缺席不影响好生活，抽象化为「好生活与大学文凭几乎没有关系」，两句让步信息同时覆盖。</p>"},
+ {"title": "逐项分析 · D He thinks his job as a technician quite challenging", "cls": "bad", "tag": "排除 D", "log": "D 技师工作颇有挑战性 ✗ ——the climb 承接第五段，攀的是人生之路不是修车", "count": 3, "ribbon": {"k": "D", "ok": false}, "body": "<p><b>排除。</b>①句 considers the climb tougher today——<b>the climb 承接第五段 a tougher climb</b>（在人生路标成就上攀行更难），攀的是「起步→立足→成功」这条路，不是芝加哥郊区修车间的职业生涯。宾语被偷换成 his job as a technician。隐喻词必须顺着上文找本体。</p><p style=\"color:#b91c1c\">⚠ 典型误解：tough（艰难）≈ challenging（有挑战），宾语却换了人。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 C", "log": "答案 C（His parents' good life has little to do with a college degree）——见结论卡", "count": 3, "ribbon": null, "body": "<p>完整逻辑：<b>even though 让步摆出「文凭缺席 vs 生活优渥」→ 让步＝无关结论的配方 → little to do with a college degree → 选 C。</b></p><p>答案选 <b>C（His parents' good life has little to do with a college degree）</b>。</p><p><b>记忆锚点</b>：even though 让步＝「无关」结论的配方；climb 是五、六段共用的隐喻＝人生攀行；struggled / steady 只描述 Schneider 本人。</p><p style=\"color:#b91c1c\">最易误选：<b>D（job quite challenging）</b>——tough 修饰的是人生攀行，不是技师工作。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 阅读第 40 题 · even though 让步里的「无关」结论",
+  subtitle: "考点：true 判断题 · 让步结构抽象化 + climb 隐喻本体 + 观点归属核对",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位让步结构 → 抽象化结论 → 逐项验伤”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 C（His parents' good life has little to do with a college degree）", "html": "<b>C 父母的好生活与大学文凭几乎无关</b>：even though / didn't have college degrees 的抽象化。<br>记忆锚点：让步结构＝「无关」结论的配方；climb ＝ 五、六段共用的人生攀行隐喻。<br>最易误选：<b>D（job quite challenging）</b>——tough 修饰的是人生攀行，不是技师工作。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 阅读第 40 题 · true 判断题——even though 让步里的"无关"结论</h2>
+<p>答案：<strong>C（His parents' good life has little to do with a college degree 他父母的好生活与大学文凭几乎没有关系）</strong>。</p>
+<h3>第 0 步：先立机制——让步从句里的信息最"廉价"，却最出结论</h3>
+<p>判断题（Which of the following is true about Schneider?）的读法是逐项回原文验伤。Schneider 的全部信息在第六段，其中④⑤两句是一个 <strong>even though 让步结构</strong>：his parents could provide a comfortable life <strong>even though</strong> neither had completed college（父母尽管没读完大学，仍能提供舒适生活）＋ grew up in an upper middle-class home with parents who <strong>didn't have college degrees</strong>。让步结构的功能是：<strong>把"文凭"与"好生活"这两个变量摆在一起，宣布前者的缺席不影响后者</strong>——这正是一个"无关"结论的配方。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Looking back, he is struck that his parents could provide a comfortable life for their children even though neither had completed college when he was young. "I still grew up in an upper middle-class home with parents who didn't have college degrees," Schneider said.</blockquote>
+<p>两句同向重复：④句"没读完大学→照样舒适生活"；⑤句"没文凭→照样上层中产之家"。is struck（猛然意识到）表明 Schneider 自己对这种反差感到惊讶——反差的对象正是"文凭缺席"与"生活优渥"并存。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[C] His parents' good life <strong>has little to do with</strong> a college degree——把两句的让步关系翻译成"相关性"判断：好生活与大学文凭几乎没有关系。"little to do with" 是对 even though / didn't have... 的抽象化：文凭不是那份好生活的必要条件。</p>
+<h3>第 3 步：逐项排除（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A He found a dream job after graduating from college</td><td>✗</td><td>程度偷换：②句是 struggled to find a job（很努力才找到一份工作）——"挣扎着找到"被过度推导成"找到了理想工作"，"理想与否"文中无据</td></tr><tr><td>B His parents believe working steadily is a must for success</td><td>✗</td><td>视角捏造：working steadily 是 Schneider <strong>自己</strong>的现状（③句），"父母认为稳定工作是成功必需"这一看法全文从未出现——杂糅 his parents ＋ working steadily 两个词块</td></tr><tr><td>D He thinks his job as a technician quite challenging</td><td>✗</td><td>宾语偷换：①句 considers the climb tougher today——the climb 承接第五段 a tougher climb，指"从起步到立足的人生攀行"，不是"技师这份工作"有挑战</td></tr><tr><td>C His parents' good life has little to do with a college degree</td><td>✓</td><td>even though 让步的抽象化：文凭缺席不影响好生活 ＝ 与文凭几乎无关</td></tr></tbody></table>
+<h3>预判追问：D 里的 climb 明明写着"更难"，怎么就成了"工作有挑战"？</h3>
+<p>climb 是一个贯穿第五、六段的隐喻：第五段先说 those just getting started face a <strong>tougher climb</strong> in reaching signpost achievements（在人生成就上攀行更难），第六段开头 Pete Schneider considers the climb tougher today 接的正是这个隐喻——攀的是"起步→立足→成功"这条路，不是芝加哥郊区修车间的职业生涯。①句主语是 the climb（人生之路），D 把宾语偷换成 his job as a technician。隐喻词必须顺着上文找本体，这是判断题里"宾语核对"的典型一例。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：struggled（挣扎、费力）的语感被顺读成"努力→所以结果理想"——原文对工作的评价只有一个"难找"。</li><li><strong>误选 B</strong>：steady 是 Schneider 描述自己的词，安到"父母认为"头上就成了捏造——主语与观点的归属核对是判断题的基本功。</li><li><strong>误选 D</strong>：challenge（挑战）与 tough（艰难）词义相近，但 tough 修饰的是 climb（人生攀行），不是 technician 工作。</li></ul>
+<blockquote>记忆锚点：even though 让步＝"无关"结论的配方——文凭缺席不影响好生活（C 的 little to do with）；climb 是五、六段共用的隐喻＝人生攀行；struggled/steady 只描述 Schneider 本人。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

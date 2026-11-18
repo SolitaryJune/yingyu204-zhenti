@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2016-42 · 2016 新题型第 42 题 · 五镑超人 T 恤＝「容易满足」 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     只改下面的题目专属区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域 ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {"title": "先立方法 · 例子是段旨的「画面版」", "cls": "key", "tag": "方法", "log": "本段结构：小故事 → 成年人反差 → 一句建议；把候选标题套回故事验证", "count": 0, "ribbon": null, "body": "<p>本段写作结构是「<b>小故事 → 成年人的反差 → 一句建议</b>」。故事与建议是同一件事的两次表达：故事给画面，建议给结论。选标题时要做反向验证——<b>把候选标题套回故事里读一遍</b>，能解释「五镑 T 恤为何让人狂喜」的才是正主。</p>"},
+ {"title": "定位段落 · 小事→大事→小事的闭环", "cls": "key", "tag": "定位", "log": "定位【42】段：五镑超人 T 恤欣喜若狂 → 大事并不灵 → 对小事心存感激", "count": 0, "ribbon": null, "body": quote("A couple of Christmases ago, my youngest stepdaughter… got a Superman T-shirt for Christmas. It cost less than a fiver but she was overjoyed… Too often we believe that a new job, bigger house or better car will be the magic silver bullet…, but the reality is these things have very little lasting impact on our happiness levels. Instead, <b>being grateful for small things every day</b> is a much better way to improve wellbeing.") + "<p>闭环结构：孩子的「小事大喜」（五镑 T 恤）→ 成年人的「大事才乐」（新工作/大房子/好车，却收效甚微）→ 回到「小事」的正面建议（对每天的小事心存感激）。首尾都是 <b>small things</b>，中间的大事只是反衬。</p>"},
+ {"title": "提炼段旨 · 一个动作：容易满足", "cls": "key", "tag": "提炼", "log": "提炼段旨：孩子幸福感门槛极低 + 建议把门槛降回来 = Be easily pleased", "count": 0, "ribbon": null, "body": "<p>故事（五镑 T 恤就能 overjoyed——<b>门槛极低</b>）、反衬（大事不灵）、建议（对小事心存感激＝<b>把门槛降回孩子的高度</b>）三块共同指向一个动作：<b>容易满足</b>。</p>"},
+ {"title": "逐项分析 · F Be easily pleased（容易满足）", "cls": "good", "tag": "选定 F", "log": "F 容易满足 ✓ ——套回故事：五镑 T 恤令人狂喜，正是 easily pleased 的画面", "count": 0, "ribbon": {"k": "F", "ok": true}, "body": "<p><b>当选。</b>[F] Be easily pleased：grateful for small things＝为小事就心怀感激，be easily pleased＝小事就能把自己取悦——一个讲心态、一个讲状态，落在同一段画面上（五镑 T 恤带来的 overjoyed）。对象（小事）＋心理动作（满足）双双对齐。</p>"},
+ {"title": "逐项分析 · B Have fun（享受玩乐）", "cls": "bad", "tag": "排除 B", "log": "B 享受玩乐 ✗ ——错位嫁接：overjoyed 的欢乐语感不等于「玩乐」话题", "count": 1, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>overjoyed / happiness 字面诱人，但「玩乐」的真实归属是【44】段（安排时间享受所爱）——本段的关键动作是「<b>满足</b>」，不是「玩」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被欢乐语感吸走，没核对话题的真实归属。</p>"},
+ {"title": "逐项分析 · G Notice things（留意事物）", "cls": "bad", "tag": "排除 G", "log": "G 留意事物 ✗ ——功能误读：对小事的态度是「感激」，不是「观察」", "count": 2, "ribbon": {"k": "G", "ok": false}, "body": "<p><b>排除。</b>small things 容易被读成「留意身边小事」，但作者强调的是<b>为小事感到满足与感激</b>（grateful）——「观察」不是本段的建议动作，动作对象变了方向就接不上。注意：C 与 G 是全篇的两个多余项，凡反复「客串」诱饵的选项基本就是没人认领的那两个。</p><p style=\"color:#b91c1c\">⚠ 典型误解：small 的「小」被读成「要留心的细枝末节」。</p>"},
+ {"title": "结论 · 完整逻辑与记忆锚点", "cls": "good", "tag": "答案 F", "log": "答案 F（Be easily pleased）——见结论卡", "count": 2, "ribbon": null, "body": "<p>完整逻辑：<b>五镑超人 T 恤＝小事大喜的样本 → 大事不灵是反衬 → 建议对小事心存感激 → 标题压缩为 Be easily pleased。</b></p><p>其余选项归宿：A Be silly（【43】）、B Have fun（【44】）、D Express your emotions（【41】）、E Don't overthink it（【45】）；C Ask for help 与 G Notice things 为全篇多余项。</p><p><b>记忆锚点</b>：故事＝段旨的画面版——超人 T 恤＝easily pleased 的样本；grateful for small things＝把幸福感门槛降回孩子的高度。</p><p style=\"color:#b91c1c\">改写允许换词：grateful（心态）与 pleased（状态）同指「低门槛获得幸福感」。</p>"}
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2016 新题型第 42 题 · 一件五镑超人 T 恤讲透「容易满足」",
+  subtitle: "考点：小标题题 · 故事画面验证 + grateful / pleased 同向改写",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位闭环 → 提炼段旨 → 对号入座”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 F（Be easily pleased）", "html": "<b>F 容易满足</b>：五镑超人 T 恤＝easily pleased 的画面样本。<br>记忆锚点：grateful for small things＝把幸福感门槛降回孩子的高度；故事是段旨的画面版。<br>多余项 C / G 反复「客串」诱饵；B 的「玩乐」真实归属是【44】段。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2016 新题型第 42 题——一件五镑超人 T 恤讲透"容易满足"</h2>
+<p>答案：<strong>F（Be easily pleased 容易满足）</strong>。</p>
+<h3>第 0 步：先立方法——例子是段旨的"画面版"，标题要能接住例子</h3>
+<p>本段的写作结构是"<strong>小故事→成年人的反差→一句建议</strong>"：九岁孩子收到一件不到五镑的超人 T 恤就欣喜若狂（overjoyed）；成年人却总觉得要新工作、大房子、好车才配幸福；最后作者给出建议——对小事心存感激更能提升幸福感。故事与建议是同一件事的两次表达：故事给画面，建议给结论。选标题时要做反向验证——<strong>把候选标题套回故事里读一遍</strong>，能解释"五镑 T 恤为何让人狂喜"的才是正主。</p>
+<h3>第 1 步：定位段落，抓"小事→大事→小事"的闭环</h3>
+<blockquote>A couple of Christmases ago, my youngest stepdaughter, who was nine years old at the time, got a Superman T-shirt for Christmas. It cost less than a fiver but she was overjoyed... Too often we believe that a new job, bigger house or better car will be the magic silver bullet..., but the reality is these things have very little lasting impact on our happiness levels. Instead, <strong>being grateful for small things every day</strong> is a much better way to improve wellbeing.</blockquote>
+<p>闭环结构：孩子的"小事大喜"（五镑 T 恤）→ 成年人的"大事才乐"（新工作/大房子/好车，却收效甚微）→ 回到"小事"的正面建议（对每天的小事心存感激）。首尾都是 small things，中间的大事只是反衬。</p>
+<h3>第 2 步：对号入座</h3>
+<p>[F] <strong>Be easily pleased</strong>——"容易被取悦/容易满足"正是整段的画面：五镑 T 恤就能让孩子 overjoyed，孩子的幸福感门槛极低；建议句"对小事心存感激"教的正是成年人把门槛降回孩子的高度。故事（easily pleased 的样本）、反衬（大事不灵）、建议（学会满足于小事）三块共同指向一个动作：<strong>容易满足</strong>。</p>
+<h3>第 3 步：排除诱饵（干扰项归因）</h3>
+<table><thead><tr><th>选项</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>B Have fun</td><td>✗</td><td>错位嫁接：overjoyed / happiness 字面诱人，但"玩乐"是【44】段的主题（安排时间享受所爱）；本段的关键动作是"满足"，不是"玩"</td></tr><tr><td>G Notice things</td><td>✗</td><td>功能误读：small things 容易被读成"留意身边小事"，但作者强调的是<strong>为小事感到满足与感激</strong>（grateful），"观察"不是本段的建议动作</td></tr></tbody></table>
+<p>其余 A Be silly（对应【43】段）、C Ask for help 与 E Don't overthink it、D Express your emotions（对应【41】段）各有归宿，本段内容与之无涉。注意：C 与 G 是全篇的两个多余项——凡在多题里反复"客串"诱饵的选项，基本就是那两个没人认领的。</p>
+<h3>预判追问：grateful（感激）与 pleased（满足）为什么算同义？</h3>
+<p>两者的共同指向是"<strong>低门槛获得幸福感</strong>"：grateful for small things＝为小事就心怀感激，be easily pleased＝小事就能把自己取悦。一个是心态（感激），一个是状态（满足），落在同一段画面上——五镑 T 恤带来的 overjoyed。小标题的改写允许换词，只要"对象＋心理动作"的方向一致。反观 G 的 notice，动作对象变了（从"满足"变成"观察"），方向就接不上了。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：被 happiness / overjoyed 的欢乐语感吸走，没核对"玩乐"话题的真实归属是【44】段。</li><li><strong>误选 G</strong>：small things 的"小"被读成"要留心的细枝末节"——本段对小事的态度是<strong>感激</strong>，不是研究它们。</li><li><strong>只看建议句忽略故事</strong>：漏掉超人 T 恤这个"easily pleased"的具象样本，改写链条就断了一环。</li></ul>
+<blockquote>记忆锚点：故事＝段旨的画面版——五镑超人 T 恤＝easily pleased 的样本；grateful for small things ＝ 把幸福感门槛降回孩子的高度；"客串"多题的选项就是多余项（C、G）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

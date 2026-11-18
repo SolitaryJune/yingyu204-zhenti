@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2012 完形第 15 空 · “多少英里被 __15__”补什么战果动词 · 动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画
+     形态：逐步揭示推理链卡片，每步一张 .aw-stepcard。
+     复制自 tools 模板，只改 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "定位原文 · 空 15 所在句", "cls": "key", "tag": "定位", "log": "定位原文：空 15 所在句，考点：句内语义 + 并列结构（or 共享语义场）", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">...writing about the dirt-snow-and-mud soldiers, not how many miles were __15__ or what towns were captured or liberated.</div><p>空格是被动谓语（were + 过去分词），主语是 how many miles。它在语义场上必须与 or 右侧的 captured / liberated 同类。</p>"}, {"title": "找证据 · or 右侧的两个动词给出语义场样板", "cls": "key", "tag": "证据", "log": "找证据：or 右侧的两个动词给出语义场样板", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">not how many miles were __15__ or what towns were captured or liberated.</div><p>被 not 否定的是“战果式报道”：城镇被攻占、被解放；英里数也是战果的一种——部队推进了多少英里。miles gained = 推进的英里数。</p>"}, {"title": "逐项分析 · A ruined（毁掉）", "cls": "bad", "tag": "排除 A", "log": "A ruined（毁掉）✗ 排除——miles 不是“被毁”的对象", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>ruin 的宾语应是城镇、庄稼、计划这类可毁之物；“多少英里被毁”在此语境搭配荒谬。</p><p style=\"color:#b91c1c\">⚠ 典型误解：战争语境里的负面词顺手一填。</p>"}, {"title": "逐项分析 · B commuted（通勤，往返）", "cls": "bad", "tag": "排除 B", "log": "B commuted（通勤，往返）✗ 排除——主体应是人，且与战争无关", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>commute 的主体是上班族（commute between home and office），miles 不能“被通勤”，战场更无通勤。</p><p style=\"color:#b91c1c\">⚠ 典型误解：见 miles（路程）就联想通勤。</p>"}, {"title": "逐项分析 · C patrolled（巡逻）", "cls": "bad", "tag": "排除 C", "log": "C patrolled（巡逻）✗ 排除——巡逻是“过程”不是“战果”，进不了语义场", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>patrol the miles 字面可以搭，但 patrol 表示“在……巡逻”的过程动作，与 captured / liberated 的“拿下”成果义不同场。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只查字面搭配，没做语义场并列核对。</p>"}, {"title": "逐项分析 · D gained（赢得，获得）", "cls": "good", "tag": "选定 D", "log": "D gained（赢得，获得）✓ 当选", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>miles gained = 推进的英里数（战果），与 captured or liberated 同处“取得战果”语义场，not 一起否定得干干净净。</p>"}, {"title": "结论 · 完整句与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（gained 赢得，获得（推进））——完整句义见结论卡", "count": 3, "ribbon": null, "body": "<p>完整句义：<b>……写泥雪满身的士兵，而不写推进了多少英里、攻占或解放了哪些城镇。</b></p><p>答案选 <b>D（gained 赢得，获得（推进））</b>。</p><p><b>记忆锚点</b>：miles gained 推进的英里数；or 并列共享语义场（captured / liberated / gained）；patrol 巡逻、commute 通勤。</p><p style=\"color:#b91c1c\">最易误选：<b>C（patrolled）</b>——与 miles 的字面搭配最顺，败在没跟 captured/liberated 对齐语义场。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2012 完形第 15 空 · “多少英里被 __15__”补什么战果动词",
+  subtitle: "考点：句内语义 + 并列结构（or 共享语义场） · 定位 → 证据 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {"big": "答案 D（gained 赢得，获得（推进））", "html": "<b>D gained（赢得，获得（推进））</b>。<br>完整句义：……写泥雪满身的士兵，而不写推进了多少英里、攻占或解放了哪些城镇。<br>记忆锚点：miles gained 推进的英里数；or 并列共享语义场（captured / liberated / gained）；patrol 巡逻、commute 通勤。<br>最易误选：<b>C（patrolled）</b>——与 miles 的字面搭配最顺，败在没跟 captured/liberated 对齐语义场。"},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2012 完形第 15 空 · “多少英里被 __15__”补什么战果动词</h2>
+<p>答案：<strong>D（gained 赢得，获得（推进））</strong>。</p>
+<h3>第 0 步：先立机制——本空的解题结构</h3>
+<p>not how many miles were __15__ or what towns were captured or liberated：or 并列两个间接疑问从句，共用一个否定 not。or 的并列要求两侧共享语义场——右侧的 captured（攻占）、liberated（解放）都是“取得战果”的动词，左侧的 miles 就必须配一个同为“战果”义的被动动词：推进/拿下多少英里。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>...writing about the dirt-snow-and-mud soldiers, not how many miles were __15__ or what towns were captured or liberated.</blockquote>
+<p>空格是被动谓语（were + 过去分词），主语是 how many miles。它在语义场上必须与 or 右侧的 captured / liberated 同类。</p>
+<h3>第 2 步：找证据——or 右侧的两个动词给出语义场样板</h3>
+<blockquote>not how many miles were __15__ or what towns were captured or liberated.</blockquote>
+<p>被 not 否定的是“战果式报道”：城镇被攻占、被解放；英里数也是战果的一种——部队推进了多少英里。miles gained = 推进的英里数。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由与典型误解</th></tr></thead><tbody><tr><td>A ruined</td><td>毁掉</td><td>✗ 排除</td><td>ruin 的宾语应是城镇、庄稼、计划这类可毁之物；“多少英里被毁”在此语境搭配荒谬。（典型误解：战争语境里的负面词顺手一填。）</td></tr><tr><td>B commuted</td><td>通勤，往返</td><td>✗ 排除</td><td>commute 的主体是上班族（commute between home and office），miles 不能“被通勤”，战场更无通勤。（典型误解：见 miles（路程）就联想通勤。）</td></tr><tr><td>C patrolled</td><td>巡逻</td><td>✗ 排除</td><td>patrol the miles 字面可以搭，但 patrol 表示“在……巡逻”的过程动作，与 captured / liberated 的“拿下”成果义不同场。（典型误解：只查字面搭配，没做语义场并列核对。）</td></tr><tr><td>D gained</td><td>赢得，获得</td><td>✓ 当选</td><td>miles gained = 推进的英里数（战果），与 captured or liberated 同处“取得战果”语义场，not 一起否定得干干净净。</td></tr></tbody></table>
+<p>代入后的完整句义：……写泥雪满身的士兵，而不写推进了多少英里、攻占或解放了哪些城镇。</p>
+<h3>第 4 步：预判追问</h3>
+<ul><li><strong>patrolled the miles 不是很有“军味”吗？</strong>：“军味”来自单词而非句子。本空的并列框架要求空格词与 captured/liberated 一样表达“战果达成”；patrol 只是行军过程，恰恰没有“拿下”的结果义，与被 not 否定的“战果清单”不匹配。</li><li><strong>gain 在这里怎么翻译？</strong>：取“赢得、推进”义：miles gained = 部队向前推进的英里数，即战报里常见的“又推进了多少公里”。它是战果的计量，所以才会被派尔刻意略去不写。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（patrolled）</strong>：字面搭配过关、语义场并位不过关。</li><li><strong>误选 B（commuted）</strong>：通勤义与战争语境完全脱节。</li><li><strong>误选 A（ruined）</strong>：负面动词乱入“战果”语义场。</li></ul>
+<blockquote>记忆锚点：miles gained 推进的英里数；or 并列共享语义场（captured / liberated / gained）；patrol 巡逻、commute 通勤。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

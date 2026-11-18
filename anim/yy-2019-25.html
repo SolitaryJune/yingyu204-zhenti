@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2019-25 · 2019 阅读 Text 1 第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261116a">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261116a"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [{"title": "审题 · 词义题不做联想，做逻辑推理", "cls": "key", "tag": "定位", "log": "词义推断题：用句内 after 的先后因果 + 上下文锁定 negative emotions 的所指", "count": 0, "ribbon": null, "body": "<p>题干：The word “transgressions” is closest in meaning to ____.</p><p>词义题的机制：<b>不靠词根联想，靠语境逻辑等式</b>。考查词所在的句子自带一个因果骨架——after 表先后：先发生 moral transgressions，后产生 negative emotions。</p>"}, {"title": "解等式 · negative emotions = guilt", "cls": "key", "tag": "证据", "log": "错事后的负面情绪=内疚；触发内疚的行为=做错事", "count": 0, "ribbon": null, "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Using caregiver assessments and the children’s self-observations, she rated each child’s overall sympathy level and his or her tendency to feel negative emotions after moral transgressions.</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Then the kids were handed chocolate coins, and given a chance to share them with an anonymous child. For the low-sympathy kids, how much they shared appeared to turn on how inclined they were to feel guilty.</div><p>negative emotions 是什么？结合全文主线与实验设计（做错事后产生的负面情绪、分巧克力观察分享）：它就是<b>内疚感 guilt</b>。⇒ 能触发内疚的行为 = “做错了不道德的事” ⇒ moral transgressions = wrongdoings。</p>"}, {"title": "逐项分析 · A teachings（教导）", "cls": "bad", "tag": "排除 A", "log": "A teachings（教导） ✗ 排除——中性偏积极：“道德教导”引不出负面情绪，更不会先于 negative emotions 出现", "count": 1, "ribbon": {"k": "A", "ok": false}, "body": "<p><b>排除。</b>中性偏积极：“道德教导”引不出负面情绪，更不会先于 negative emotions 出现。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看 moral 能搭配 teachings，不检查逻辑方向。</p>"}, {"title": "逐项分析 · B discussions（讨论）", "cls": "bad", "tag": "排除 B", "log": "B discussions（讨论） ✗ 排除——中性词：“道德讨论”不会让孩子内疚", "count": 2, "ribbon": {"k": "B", "ok": false}, "body": "<p><b>排除。</b>中性词：“道德讨论”不会让孩子内疚。</p><p style=\"color:#b91c1c\">⚠ 典型误解：同样卡在“感情色彩与逻辑方向”双重不过关。</p>"}, {"title": "逐项分析 · C restrictions（限制，约束）", "cls": "bad", "tag": "排除 C", "log": "C restrictions（限制，约束） ✗ 排除——虽带贬义，但“道德约束”是外部规范、导向正向行为，不会让人内疚；与 after 的“先后因果”也接不上", "count": 3, "ribbon": {"k": "C", "ok": false}, "body": "<p><b>排除。</b>虽带贬义，但“道德约束”是外部规范、导向正向行为，不会让人内疚；与 after 的“先后因果”也接不上。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只对上“贬义”一个维度，忽略了“约束防错、不生内疚”的逻辑。</p>"}, {"title": "逐项分析 · D wrongdoings（错误行为）", "cls": "good", "tag": "选定 D", "log": "D wrongdoings（错误行为） ✓ 当选——做错事 → 内疚：因果链完整；trans-（越过）+ gress（走）=“越界”，与语境验证一致", "count": 3, "ribbon": {"k": "D", "ok": true}, "body": "<p><b>当选。</b>做错事 → 内疚：因果链完整；trans-（越过）+ gress（走）=“越界”，与语境验证一致。</p><p>对应关系：moral transgressions（道德越界）→ negative emotions（内疚）——wrongdoings 闭合等式。</p>"}, {"title": "结论 · 逻辑等式与记忆锚点", "cls": "good", "tag": "答案 D", "log": "答案 D（wrongdoings 错误行为）——词义题三步：找标记→定所指→反推词义", "count": 3, "ribbon": null, "body": "<p>答案选 <b>D（wrongdoings 错误行为，违背道德或法律的行为）</b>。</p><p><b>记忆锚点</b>：词义题三步——找句内逻辑标记（after）→ 确定“邻居”所指（negative emotions = guilt）→ 反推词义（触发内疚的 = 错事）。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选 <b>C（restrictions）</b>：只对上贬义色彩，不看逻辑方向——被约束不等于内疚，约束恰恰防止越界。</p>"}];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2019 Text 1 第 25 题 · transgressions 是什么意思（词义推断题）",
+  subtitle: "考点：词义推断题 · after 因果链 → negative emotions=guilt → 反推词义",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {"big": "答案 D（wrongdoings 错误行为）", "html": "<b>D wrongdoings（错误行为）</b>：moral transgressions 在先 → negative emotions（内疚）在后——“做错事才内疚”闭合等式。<br>最易误选：<b>C（restrictions）</b>——贬义但方向不对：约束防错、不生内疚。<br>记忆锚点：词义题三步——逻辑标记 → 空格词邻居所指 → 反推词义。"}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：词义推断题——在语境里列“逻辑等式”</h2>
+<p>答案：<strong>D（wrongdoings 错误行为）</strong>。</p>
+<h3>第 0 步：先立机制——词义题不做词义联想，做逻辑推理</h3>
+<blockquote>...she rated each child's overall sympathy level and his or her tendency to feel negative emotions after moral transgressions.</blockquote>
+<p>句子自带逻辑骨架：<strong>after</strong> 表先后因果——先发生 moral transgressions，后产生 negative emotions。</p>
+<h3>第 1 步：解出等式两端</h3>
+<ul><li>negative emotions 是什么？结合全文主线与实验设计（做错事后产生的负面情绪；分巧克力实验测的正是内疚倾向）：它就是<strong>内疚感 guilt</strong>；</li><li>能触发内疚的行为是什么？“moral + 触发内疚” ⇒ <strong>做错了不道德的事</strong>。</li><li>⇒ moral transgressions = 道德上的过错行为 = wrongdoings。</li></ul>
+<h3>第 2 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th></tr></thead><tbody><tr><td>A teachings</td><td>教导</td><td>✗ 中性偏积极：“道德教导”引不出负面情绪</td></tr><tr><td>B discussions</td><td>讨论</td><td>✗ 中性：“道德讨论”更不会让人内疚</td></tr><tr><td>C restrictions</td><td>约束</td><td>✗ 虽带贬义，但“道德约束”是外部规范、导向正向行为，不产生内疚</td></tr><tr><td>D wrongdoings</td><td>错误行为</td><td>✓ 做错事 → 内疚，因果链完整</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：只看感情色彩（transgressions 确实偏贬义）不看逻辑方向——“被约束”不等于“内疚”，且 moral restrictions 恰恰是防止错事的，不会先于负面情绪出现。</li><li><strong>凭词根瞎猜</strong>：trans-（越过）+ gress（走）= 越界——方向其实是对的，但仍要回语境验证：越过道德边界 = 做错事 = wrongdoings。</li></ul>
+<blockquote>记忆锚点：词义题三步——找句内逻辑标记（after）→ 确定空格词的“邻居”（negative emotions = guilt）→ 反推词义（触发内疚的 = 错事）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>
