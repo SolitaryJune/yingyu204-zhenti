@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-10 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-10</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-10 · 2026 完形第 10 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 10 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 10 所在句，考点：句间逻辑连接词",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It's just you made some mistakes in the report and she wanted to point these out so that you do better next time. __10__ , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just changed their minds.</div><p>空格位于句首、后接逗号，是典型的<b>句间逻辑连接词</b>题。判断依据只有前后两句的语义关系。</p>"
+ },
+ {
+  "title": "机制 · 连接词只看前后句的语义关系",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：连接词题的唯一依据是前后句的语义关系",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>连接词题最常见的错法是凭「读起来顺」选。正确做法：把空格前后的两句摆在一起，判断关系是并列/类比、因果、转折，还是程度比较。本句前是老板挑刺的善意解释，本句是朋友取消约会的善意解释——同一段里两个结构平行的例子。</p>"
+ },
+ {
+  "title": "证据 · 两个「善意解释」结构平行",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：It's just you… 与 perhaps they both felt unwell… 结构平行",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① 前句 <b>It's just you…</b> 是对老板行为的中性解释；② 本句 <b>perhaps they both felt unwell…</b> 是对朋友行为的中性解释；③ <b>in the case of your friends cancelling</b> 与上文 your boss picks holes 结构平行，是第二个例子；④ 段落走向始终是「别把别人的行为往自己身上解读」，两句同向，不构成转折。</p>"
+ },
+ {
+  "title": "逐项分析 · B Relatively（相对地）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Relatively（相对地） ✗ 排除——表程度比较，需要比较基准",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>relatively 表程度比较，需要比较基准；这里没有「相对什么」的对照对象。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 -ly 副词觉得「很学术、很顺」，不核对它要求的比较结构。</p>"
+ },
+ {
+  "title": "逐项分析 · C Accordingly（因此；相应地）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C Accordingly（因此；相应地） ✗ 排除——表因果结果，两句不是因果",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>accordingly 表因果结果；朋友取消约会不是老板挑刺导致的结果，两句是并列而非因果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把连接词一律当「顺承」，而顺承不等于因果。</p>"
+ },
+ {
+  "title": "逐项分析 · D Contrarily（相反地）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Contrarily（相反地） ✗ 排除——表转折对立，两句方向一致",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>contrarily 表转折对立；两句方向一致，都在给行为找善意的解释，不构成对立。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被前文 But 的反转情绪带偏，见转折段就选转折词。</p>"
+ },
+ {
+  "title": "逐项分析 · A Similarly（同样地）",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A Similarly（同样地） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>两个场景是同一逻辑的两次演示，用 Similarly 引出第二个平行例子最贴切。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（Similarly 同样地）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>同样地，在朋友取消约会这件事上，也许他们那个周末都不舒服，或者只是改变了主意。</b></p><p>答案选 <b>A（Similarly 同样地）</b>。</p><p><b>记忆锚点</b>：两个平行例子之间用 Similarly；判断连接词先定关系（并列/因果/转折/比较），再选词。</p><p style=\"color:#b91c1c\">最易误选：<b>C（Accordingly）</b>——把「顺承」当成「因果」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 10 空 · ____ , in the case of your friends cancelling",
+  subtitle: "考点：句间逻辑连接词 · 两个「善意解释」的平行类比",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 A（Similarly）",
+ "html": "<b>A Similarly（同样地）</b>。<br>完整句义：同样地，在朋友取消约会这件事上，也许他们那个周末都不舒服，或者只是改变了主意。<br>记忆锚点：两个平行例子之间用 Similarly；判断连接词先定关系（并列/因果/转折/比较），再选词。<br>最易误选：<b>C（Accordingly）</b>——把「顺承」当成「因果」。"
+},
+});
+
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 10 空 · 句间逻辑 · 两个「善意解释」的平行类比</h2>
+<p>答案：<strong>A（Similarly 同样地）</strong>。</p>
+<h3>第 0 步：先立机制——逻辑连接词只看「前后句的语义关系」</h3>
+<p>连接词题最常见的错法是凭「读起来顺」选。正确做法是把空格前后的两句摆在一起，判断它们是什么关系：并列或类比、因果、转折，还是程度比较。本句前是老板挑刺的善意解释，本句是朋友取消约会的善意解释——同一段里两个结构平行的例子，关系是「同样地」。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>It's just you made some mistakes in the report and she wanted to point these out so that you do better next time. __10__ , in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just changed their minds.</blockquote>
+<ul><li>前句 It's just you… 是对老板行为的中性解释；</li><li>本句 perhaps they both felt unwell… 是对朋友行为的中性解释；</li><li>in the case of your friends cancelling 与上文 your boss picks holes 结构平行，是第二个例子；</li><li>段落走向始终是「别把别人的行为往自己身上解读」，两句同向，不构成转折。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A Similarly</td><td>同样地</td><td>✓ 当选</td><td>两个场景是同一逻辑的两次演示，用 Similarly 引出第二个平行例子最贴切。</td></tr><tr><td>B Relatively</td><td>相对地</td><td>✗ 排除</td><td>表程度比较，需要比较基准；这里没有「相对什么」的对照对象。</td></tr><tr><td>C Accordingly</td><td>因此；相应地</td><td>✗ 排除</td><td>表因果结果；朋友取消约会不是老板挑刺导致的结果。</td></tr><tr><td>D Contrarily</td><td>相反地</td><td>✗ 排除</td><td>表转折对立；两句方向一致，都在给行为找善意的解释。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p><strong>Similarly</strong>, in the case of your friends cancelling, perhaps they both felt unwell that weekend… 句义：同样地，在朋友取消约会这件事上，也许他们那个周末都不舒服，或者只是改变了主意。回填后「老板—朋友」两个例子并排成立，「第二个善意解释」的段落功能实现。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把连接词一律当「顺承」→ 误选 C（Accordingly）</strong>：顺承不等于因果；朋友取消不是「因此」发生的。</li><li><strong>被前文 But 的反转情绪带偏 → 误选 D（Contrarily）</strong>：整段虽在纠偏，但空格前后两句之间的关系是同向并列，不是对立。</li><li><strong>看到 -ly 副词觉得学术、顺口 → 误选 B（Relatively）</strong>：relatively 要求明确的比较对象，本句没有。</li></ul>
+<blockquote>记忆锚点：两个平行例子之间用 Similarly；判断连接词先定关系（并列、因果、转折、比较），再选词。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

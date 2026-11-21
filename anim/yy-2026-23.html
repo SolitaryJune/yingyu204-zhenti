@@ -1,8 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-23 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-23</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-23 · 2026 第 23 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 推断题抓态度词与转折词",
+  "cls": "key",
+  "tag": "审题",
+  "log": "It is implied in Paragraph 5：推断题——褒贬与转折里读言外之意",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>It is implied in Paragraph 5 that libraries should ____</code>：限定第 5 段的推断题。推断题不抄原文，而是从作者的褒贬与转折里读出言外之意。第 5 段结构典型：<b>先极力褒扬，再用 Yet still 转折点出「却被忽视」</b>。</p>"
+ },
+ {
+  "title": "定位前半 · 极尽褒扬",
+  "cls": "key",
+  "tag": "定位",
+  "log": "前半段：分文不取、无需解释、来去自由，公私机构无一能比",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">In return for all of this, you'll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same.</div><p>分文不取、无需解释、来去自由，而且「公私机构中无一能比」。作者把图书馆抬到了独一无二的位置。</p>"
+ },
+ {
+  "title": "定位转折句 · 问题所在",
+  "cls": "key",
+  "tag": "转折",
+  "log": "Yet still + overlooked and underappreciated —— 态度转折信号",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</div><p><b>Yet still</b> 是态度转折信号：如此优秀的机构却 <b>overlooked and underappreciated</b>（被忽视、被低估）；后一句 visits decline、struggling、financial pressure 说明危机还在加深。</p>"
+ },
+ {
+  "title": "同义替换 · 反推「应受重视」",
+  "cls": "key",
+  "tag": "替换",
+  "log": "overlooked and underappreciated 的反面 = be given greater attention",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>overlooked and underappreciated 的反面，就是 <b>be given greater attention</b>（得到更多关注与重视）。作者用整段铺垫「值得」，用 Yet still 点出「却被忽视」——弦外之音自然是「应该给它们更多重视」。</p>"
+ },
+ {
+  "title": "逐项分析 · A be given greater attention.",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 得到更多关注 ✓——overlooked 的反面，Yet still 引出呼吁",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>be given greater attention（得到更多关注）——<b>推断</b>：overlooked and underappreciated 的反面；Yet still 引出作者呼吁。这是「褒扬—转折—呼吁」式段落的标准推断路径。</p>"
+ },
+ {
+  "title": "逐项分析 · B impose stricter visit limits.",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 实施更严格的到访限制 ✗——反向干扰：作者惋惜 visits 下降",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>impose stricter visit limits（实施更严格的到访限制）——<b>反向干扰</b>：作者惋惜 visits 下降，希望更多人走进图书馆，不是限制。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「到访量下降是个问题」误读成「要限制到访」。</p>"
+ },
+ {
+  "title": "逐项分析 · C work with private institutions.",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 与私营机构合作 ✗——曲解：public or private 只是比较结构",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>work with private institutions（与私营机构合作）——<b>曲解</b>：no other institution, public or private 只是公私对比，强调独一无二，并无合作建议。</p><p style=\"color:#b91c1c\">⚠ 典型误解：抓住 public or private 的字面就联想「公私合作」。</p>"
+ },
+ {
+  "title": "逐项分析 · D get their equipment upgraded.",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 升级设备 ✗——无中生有：财政压力说的是生存困境",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>get their equipment upgraded（升级设备）——<b>无中生有</b>：财政压力说的是生存困境，未提设备升级。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「财政压力」自动补成「缺钱升级设备」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（be given greater attention）——推断题看态度转折",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>段落要义：<b>图书馆分文不取、来去自由，公私机构中无一能比；然而它们却常被忽视、被低估，到访量整体下降，许多图书馆在财政压力下苦苦支撑。言外之意：应当给它们更多重视。</b></p><p>答案选 <b>A（be given greater attention. 得到更多关注。）</b></p><p><b>记忆锚点</b>：推断题抓态度——Yet still + overlooked and underappreciated ⇒ should be given greater attention。</p><p style=\"color:#b91c1c\">最易误选：<b>B（impose stricter visit limits）</b>——作者惋惜 visits 下降，希望更多人使用，不是限制。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 23 题 · It is implied in Paragraph 5",
+  subtitle: "考点：推断题（Yet still + overlooked → be given greater attention）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 褒扬 → 转折 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 A（be given greater attention）",
+    html: "<b>A be given greater attention.</b><br>依据：Yet still our libraries are often overlooked and underappreciated.<br>记忆锚点：推断题抓态度——Yet still + overlooked and underappreciated ⇒ should be given greater attention。<br>最易误选：<b>B（impose stricter visit limits）</b>——作者惋惜 visits 下降，希望更多人使用，不是限制。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 23 题 · 推断题——Yet still + overlooked 反推「应受重视」</h2>
+<p>答案：<strong>A（be given greater attention. 得到更多关注。）</strong>。</p>
+<h3>第 0 步：先立机制——推断题抓「态度词 + 转折词」</h3>
+<p>题干 It is implied in Paragraph 5 问「图书馆应该____」。推断题不抄原文，而是从作者的褒贬与转折里读出言外之意。第 5 段的结构非常典型：<strong>先极力褒扬，再用 Yet still 转折点出「却被忽视」</strong>——褒扬与现实的落差，就是作者呼吁的方向。</p>
+<h3>第 1 步：定位第 5 段前半——极尽褒扬</h3>
+<blockquote>In return for all of this, you'll be asked for precisely nothing. There will be no charge and you will never be asked to justify or explain yourself; you will simply be welcomed in, offered help if you need it, and left alone if you do not. There is no other institution, public or private, that can say the same.</blockquote>
+<p>分文不取、无需解释、来去自由，而且「公私机构中无一能比」。作者把图书馆抬到了独一无二的位置。</p>
+<h3>第 2 步：定位转折句——问题所在</h3>
+<blockquote>Yet still our libraries are often overlooked and underappreciated. There is an overall decline in visits and many are struggling as local authorities come under continued financial pressure.</blockquote>
+<p><strong>Yet still</strong> 是态度转折信号：如此优秀的机构却 <strong>overlooked and underappreciated</strong>（被忽视、被低估）；后一句 visits decline、struggling、financial pressure 说明危机还在加深。</p>
+<h3>第 3 步：同义替换锁定 A</h3>
+<p>overlooked and underappreciated 的反面，就是 <strong>be given greater attention</strong>（得到更多关注与重视）。作者用整段铺垫「值得」，用 Yet still 点出「却被忽视」——弦外之音自然是「应该给它们更多重视」。这是「褒扬—转折—呼吁」式段落的标准推断路径。</p>
+<h3>第 4 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A be given greater attention.</td><td>得到更多关注。</td><td>✓</td><td>推断：overlooked and underappreciated 的反面；Yet still 引出作者呼吁。</td></tr><tr><td>B impose stricter visit limits.</td><td>实施更严格的到访限制。</td><td>✗</td><td>反向干扰：作者惋惜 visits 下降，希望更多人走进图书馆，不是限制。</td></tr><tr><td>C work with private institutions.</td><td>与私营机构合作。</td><td>✗</td><td>曲解：no other institution, public or private 只是公私对比，强调独一无二，并无合作建议。</td></tr><tr><td>D get their equipment upgraded.</td><td>升级设备。</td><td>✗</td><td>无中生有：财政压力说的是生存困境，未提设备升级。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 B</strong>：把「decline in visits 是个问题」误读成「要限制到访」；作者希望的是增加使用。</li><li><strong>误选 C</strong>：抓住 public or private 的字面就联想「公私合作」，忽略它只是比较结构。</li><li><strong>误选 D</strong>：把「财政压力」自动补成「缺钱升级设备」，原文没有这层信息。</li></ul>
+<blockquote>记忆锚点：推断题抓态度——Yet still + overlooked and underappreciated ⇒ should be given greater attention。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

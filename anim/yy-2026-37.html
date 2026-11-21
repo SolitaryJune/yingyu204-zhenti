@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-37 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-37</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-37 · 2026 阅读 Text 2 第 37 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 题干 reality 直指 all organizers face",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：题干 reality → “a reality that all street festival organizers face right now”",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now.</div><p>题干 <b>One reality street festival organizers face</b> 几乎逐词对应 <b>a reality that all street festival organizers face right now</b>。答案就在同一句前半：<b>rising production costs + declining attendee donations</b>。</p>"
+ },
+ {
+  "title": "机制 · 「一升一降」要概括成抽象名词",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：rising costs + declining donations 两个具体趋势 → 概括为 financial difficulties",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>细节题的正确项，常把原文的<b>两个具体趋势</b>概括成一个<b>抽象名词</b>：costs 在涨（rising）、donations 在跌（declining），收入追不上支出——概括起来就是 financial difficulties。见到「一升一降」并列，先往「钱」的抽象词上想。</p>"
+ },
+ {
+  "title": "证据 · 成本 skyrocketed，捐款 dropped dramatically",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：成本 skyrocketed + 捐款 dropped dramatically，两头挤压",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The cost of producing a street festival in Chicago has skyrocketed. Security, entertainment, portable restrooms, insurance and even basics such as fencing and staffing have all become significantly more expensive. At the same time, donations at festival gates have dropped dramatically.</div><p>成本端 <b>skyrocketed</b>（飙升）：安保、演出、移动厕所、保险、围栏、人力全面涨价；收入端 <b>dropped dramatically</b>（骤降）：门口捐款大幅下滑。两头挤压。</p>"
+ },
+ {
+  "title": "逐项分析 · A they are unable to use the donations wisely（无法明智使用捐款）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A they are unable to use the donations wisely ✗ 排除——无「使用不当」信息",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文的问题在捐款<b>变少</b>，不在「用得不好」；全文没有任何资金使用不当的指责——<b>无中生有</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「缺钱」自动脑补成「乱花钱」。</p>"
+ },
+ {
+  "title": "逐项分析 · B they are unable to get sufficient facilities（无法获得足够设施）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B they are unable to get sufficient facilities ✗ 排除——贵 ≠ 缺",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>移动厕所、围栏等设施的问题是 <b>significantly more expensive</b>（变贵），不是「拿不到」；贵 ≠ 缺——<b>偷换概念</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把成本清单里的设施名称读成「设施短缺」。</p>"
+ },
+ {
+  "title": "逐项分析 · C they have to tackle financial difficulties（不得不应对财务困难）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C they have to tackle financial difficulties ✓ 当选——成本升 + 捐款降的概括",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>成本飙升 + 捐款骤降 = 财务困境；<b>tackle</b>（应对）对应题干 organizers face（组织者面对的现实）。rising / declining 两个趋势正是 financial difficulties 的具体化。</p>"
+ },
+ {
+  "title": "逐项分析 · D they have to step up security measures（必须加强安保措施）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D they have to step up security measures ✗ 排除——安保只是变贵，不是要加强",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>security 只是「变贵」的成本项之一，原文没有「必须加强安保措施」的意思；把成本清单里的一个词误读成行动要求——<b>偷换概念</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 security 就以为要「升级安保」。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（they have to tackle financial difficulties）——结论卡见下方",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（they have to tackle financial difficulties 不得不应对财务困难）</b>。</p><p><b>记忆锚点</b>：rising costs + declining donations = financial difficulties；贵 ≠ 缺，贵 ≠ 要加强。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选：<b>B（unable to get sufficient facilities）</b>——原文说设施 significantly more expensive，是价格问题不是供应问题。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读 Text 2 第 37 题 · 街头节庆组织者面对的现实",
+  subtitle: "考点：细节理解 · 成本升 + 捐款降 → 财务困境",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（they have to tackle financial difficulties）",
+ "html": "<b>C they have to tackle financial difficulties</b>（不得不应对财务困难）。<br>证据：rising production costs（成本飙升）+ declining attendee donations（捐款骤降），一升一降两头挤压。<br>记忆锚点：贵 ≠ 缺（B），贵 ≠ 要加强（D）；一升一降概括为 financial difficulties。<br>最易误选：<b>B</b>（unable to get sufficient facilities）——设施只是变贵，不是拿不到。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读 Text 2 第 37 题 · 细节理解 · 所有街头节庆组织者都面临财务困境</h2>
+<p>答案：<strong>C（they have to tackle financial difficulties 他们不得不应对财务困难）</strong>。</p>
+<h3>第 0 步：先立机制——「一升一降」要概括成抽象名词</h3>
+<p>题干 One reality street festival organizers face 直接对应原文 highlighting a reality that all street festival organizers face right now。这句话前半句列了两个具体原因：rising production costs（成本上升）与 declining attendee donations（捐款下降）。细节题的正确项，常把这两个具体趋势概括成一个抽象名词——一升一降，就是财务困难。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>Williams pointed to rising production costs and declining attendee donations as primary reasons the Silver Room Block Party could not continue, highlighting a reality that all street festival organizers face right now.</blockquote>
+<blockquote>The cost of producing a street festival in Chicago has skyrocketed. ... At the same time, donations at festival gates have dropped dramatically.</blockquote>
+<p>成本端 skyrocketed（飙升）：安保、演出、移动厕所、保险、围栏、人力全面涨价；收入端 dropped dramatically（骤降）：门口捐款大幅下滑。两头挤压，正是 financial difficulties。</p>
+<h3>第 2 步：同义替换锁定 C</h3>
+<p>rising costs + declining donations = 收入追不上支出 = 财务困难 → C 项 they have to tackle financial difficulties。tackle（应对）对应 organizers face（组织者面对）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>错因</th></tr></thead><tbody><tr><td>A they are unable to use the donations wisely</td><td>无法明智地使用捐款</td><td>✗ 排除</td><td>无中生有：问题在捐款「变少」，不在「用得不好」，没有任何资金使用不当的指责</td></tr><tr><td>B they are unable to get sufficient facilities</td><td>无法获得足够的设施</td><td>✗ 排除</td><td>偷换概念：移动厕所、围栏等设施的问题是 significantly more expensive（变贵），不是拿不到；贵 ≠ 缺</td></tr><tr><td>C they have to tackle financial difficulties</td><td>不得不应对财务困难</td><td>✓ 当选</td><td>成本飙升＋捐款骤降的概括，与 a reality that all organizers face 咬合</td></tr><tr><td>D they have to step up security measures</td><td>必须加强安保措施</td><td>✗ 排除</td><td>偷换概念：security 只是「变贵」的成本项之一，原文没有「必须加强安保」的意思</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>把「设施变贵」读成「缺设施」→ 误选 B</strong>：more expensive 说的是价格，不是供应。</li><li><strong>把成本清单里的 security 当成行动要求 → 误选 D</strong>：原文说的是安保费用上涨，不是要提升安保等级。</li><li><strong>看到 donations 就联想「善款使用」→ 误选 A</strong>：文章从未质疑组织者的资金使用。</li></ul>
+<blockquote>记忆锚点：rising costs + declining donations = financial difficulties；贵 ≠ 缺，贵 ≠ 要加强。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

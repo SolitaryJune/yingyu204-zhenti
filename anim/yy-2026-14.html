@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-14 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-14</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-14 · 2026 完形第 14 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 14 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 14 所在句，考点：语义推断 · can't … without",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This is when you assume to know what other people are thinking about you, when you can't really know without __14__ them directly.</div><p>空格待填；本题考点：<b>双重否定结构 + 获取信息的途径</b>。</p>"
+ },
+ {
+  "title": "机制 · can't … without 是双重否定",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：can't … without = 「只有 ___ 才能知道」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>you can't really know without ___ them directly</b> 的字面是「不通过 ___ 你就无法真正知道」，等价于「只有 ___ 才能知道」。空格要填的是「获取别人想法」的唯一直接途径。全文对 mind reading 的定义恰恰是「你以为自己知道，其实你不知道」。</p>"
+ },
+ {
+  "title": "证据 · them 与 directly 锁定「直接问本人」",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：them = other people，directly 修饰获取信息的动作",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① <b>assume to know</b> = 假定自己知道——这是 mind reading 的病根；② <b>can't really know</b> = 其实无法真正知道；③ <b>without ___ them directly</b>：them = other people，宾语是人；directly 修饰该动作；④ 想知道「别人在想什么」，唯一的直接途径就是对本人发问。</p>"
+ },
+ {
+  "title": "逐项分析 · A blaming（责备）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A blaming（责备） ✗ 排除——责备不获取信息，反而让对方不愿说",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>责备别人不能让你获知对方的想法，反而会让对方不愿开口。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被 mind reading 的负面色彩带着走，选一个强烈动作。</p>"
+ },
+ {
+  "title": "逐项分析 · B warning（警告）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B warning（警告） ✗ 排除——警告是输出信息，不是获取信息",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>警告是向对方输出信息，不是获取信息，与 know 无关。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「directly」误解成「直接警告对方」。</p>"
+ },
+ {
+  "title": "逐项分析 · C teaching（教导）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C teaching（教导） ✗ 排除——方向反了，是你把知识给对方",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>方向反了：教导是你把知识给对方，而这里缺的是从对方那里得到信息。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 know 误解成「让……知道」，主语 you 变成施与者。</p>"
+ },
+ {
+  "title": "逐项分析 · D asking（询问）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D asking（询问） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>ask them directly = 直接问他们；这是知道别人想法的唯一直接途径，与 assume to know 形成「妄猜 vs 求证」的对照。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（asking 询问）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>你若不直接问他们，其实无从真正知道。</b></p><p>答案选 <b>D（asking 询问）</b>。</p><p><b>记忆锚点</b>：can't know without asking = 想知道别人怎么想，别猜，直接问。</p><p style=\"color:#b91c1c\">最易误选：<b>C（teaching）</b>——把 know 误解成「让别人知道」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 14 空 · you can't really know without ____ them directly",
+  subtitle: "考点：语义推断 · can't … without 双重否定",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 D（asking）",
+ "html": "<b>D asking（询问）</b>。<br>完整句义：你若不直接问他们，其实无从真正知道。<br>记忆锚点：can't know without asking = 想知道别人怎么想，别猜，直接问。<br>最易误选：<b>C（teaching）</b>——把 know 误解成「让别人知道」。"
+},
+});
+
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 14 空 · 语义推断 · 想知道别人在想什么，只能直接问</h2>
+<p>答案：<strong>D（asking 询问）</strong>。</p>
+<h3>第 0 步：先立机制——can't … without 是双重否定，等于「必须通过 ___ 才行」</h3>
+<p>you can't really know without ___ them directly 的字面是「不通过 ___ 你就无法真正知道」，等价于「只有 ___ 才能知道」。空格要填的是「获取别人想法」的唯一直接途径。而本句前半段刚刚指出：mind reading 的病根就是 assume to know——你以为自己知道，其实你不知道。空格正是治这个病的办法。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>This is when you assume to know what other people are thinking about you, when you can't really know without __14__ them directly.</blockquote>
+<ul><li>assume to know：假定自己知道，正是 mind reading 的定义特征；</li><li>can't really know：其实无法真正知道；</li><li>without ___ them directly：缺少一个「直接作用于对方」的动作；</li><li>them 指 other people，宾语是人；想知道「别人在想什么」，对象只能是本人。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A blaming</td><td>责备</td><td>✗ 排除</td><td>责备别人不能让你获知对方想法，反而会让对方不愿开口。</td></tr><tr><td>B warning</td><td>警告</td><td>✗ 排除</td><td>警告是向对方输出信息，不是获取信息，与 know 无关。</td></tr><tr><td>C teaching</td><td>教导</td><td>✗ 排除</td><td>方向反了：教导是你把知识给对方，而这里缺的是从对方那里得到信息。</td></tr><tr><td>D asking</td><td>询问</td><td>✓ 当选</td><td>ask them directly 即直接问他们，是知道别人想法的唯一直接途径。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>when you can't really know without <strong>asking</strong> them directly. 句义：你若不直接问他们，其实无从真正知道。asking 与 assume to know 形成「妄猜 vs 求证」的对照，正是本段对 mind reading 的批驳。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把 know 误解成「让……知道」→ 误选 C（teaching）</strong>：know 的主语是 you，是你「知道」，不是「使别人知道」；方向一颠倒就会选成教学类动词。</li><li><strong>被 mind reading 的负面色彩带着走，选强烈动作 → 误选 A（blaming）或 B（warning）</strong>：本句讨论的是「如何知道」，不是「知道后会怎样」。</li><li><strong>忽略 directly 的提示</strong>：directly 修饰的正是「直接问本人」这一获取信息的动作，而不是「直接责备」。</li></ul>
+<blockquote>记忆锚点：can't know without asking，即想知道别人怎么想，别猜，直接问。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,8 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-25 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-25</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-25 · 2026 阅读第 25 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：概念/记忆/分析推理类题目动画（推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 末段建议题",
+  "cls": "key",
+  "tag": "审题",
+  "log": "题干限定 last paragraph + suggested ⇒ 回尾段摘建议",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>Which of the following is suggested for libraries in the last paragraph?</code>：限段（最后一段）+ 问建议。suggested 就是原文的 recommends。解法：把 recommends 后面的建议逐条摘出 → 向上归纳共同目的 → 再用选项核对；不要拿选项名词回原文找字面重合。</p>"
+ },
+ {
+  "title": "定位原文 · 最后一段",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位尾段 The review recommends … 一句话列了三条建议",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children.") + "<p>作者没有铺垫，直接用一个长句把三条建议一次列完——这正是建议题的「答案仓」。</p>"
+ },
+ {
+  "title": "拆解 · 三条建议分别是什么",
+  "cls": "key",
+  "tag": "拆解",
+  "log": "拆出三条：全国品牌宣传 / 一卡全国通用 / 儿童自动入会",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① <b>national branding campaign</b>：全国品牌宣传，让图书馆更有实体存在感（stronger physical presence）；② <b>a scheme to enable members to use their card in any library in the country</b>：一张借书证在全国任何图书馆通用；③ <b>automatic memberships for children</b>：儿童自动入会。</p>"
+ },
+ {
+  "title": "归纳 · 三条建议的共同目的",
+  "cls": "key",
+  "tag": "归纳",
+  "log": "共同目的：让人更容易找到、更省事地用图书馆",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① 让人更容易注意到并找到图书馆；② 免去异地重复办证；③ 孩子不用申请就自动成为会员。三条都在<b>减少使用图书馆的麻烦</b>——合起来就是 <b>improving user convenience（提升用户便利性）</b>。建议题要的就是这一层「向上归纳」。</p>"
+ },
+ {
+  "title": "逐项分析 · A Inviting public feedback（邀请公众反馈）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 邀请公众反馈 ✗ 排除——末段无征集意见的内容",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>末段三条建议都是图书馆自身「怎么做」，没有征集公众意见这一条。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「公共服务应听取公众意见」的常识塞进原文。</p>"
+ },
+ {
+  "title": "逐项分析 · B Seeking adequate funding（争取充足资金）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 争取资金 ✗ 排除——经费压力在第 5 段，是背景不是末段建议",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>资金压力出现在第 5 段（local authorities come under continued financial pressure），那是用来解释图书馆处境的问题背景；末段建议里没有「要钱」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：跨段借词，把前文的问题当成后文的建议。</p>"
+ },
+ {
+  "title": "逐项分析 · D Offering lifetime memberships（提供终身会员）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 终身会员 ✗ 排除——原文是儿童自动入会，不是终身",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文是 automatic memberships for children（儿童<b>自动入会</b>），选项换成 lifetime memberships（<b>终身会员</b>）——automatic 与 lifetime 是两回事，偷换概念。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 memberships 这个熟悉的词就选。</p>"
+ },
+ {
+  "title": "逐项分析 · C Improving user convenience（提升用户便利性）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C 提升用户便利性 ✓ 当选——三条建议的共同效果",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>品牌宣传（更好找）＋ 一卡通用（更省事）＋ 儿童自动入会（门槛更低），三条具体建议的共同效果就是提升用户便利性。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（Improving user convenience）——建议题的归纳层",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（Improving user convenience 提升用户便利性）</b>。</p><p><b>记忆锚点</b>：建议题先数清 recommends 后面列了几条，再把具体动作归纳成共同目的——品牌宣传、一卡通用、儿童自动入会，都是为了让用户更方便。</p><p style=\"color:#b91c1c\">最易误选：<b>D（Offering lifetime memberships）</b>——automatic memberships for children ≠ lifetime memberships。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 25 题 · 末段给图书馆提了什么建议",
+  subtitle: "Text 1 · 考点：建议题（限段）· 具体建议 → 共同目的 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 拆解 → 归纳 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（Improving user convenience）",
+ "html": "<b>C 提升用户便利性</b>。<br>三条建议：全国品牌宣传（更好找）、借书证全国通用（更省事）、儿童自动入会（门槛更低）——共同效果都是方便用户。<br>记忆锚点：建议题先数条数再归纳目的；automatic memberships for children ≠ lifetime memberships，funding 是第 5 段的背景而非末段建议。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 25 题 · 末段建议题：三条具体建议要向上归纳成同一个目的</h2>
+<p>答案：<strong>C（Improving user convenience 提升用户便利性）</strong>。</p>
+<h3>第 0 步：先立机制——建议题问「改什么」，不是「文中出现了哪个词」</h3>
+<p>题干问末段给图书馆提了什么建议（suggested 即 recommended）。原文用 The review recommends 一口气列出三条<strong>具体动作</strong>，选项则是<strong>抽象概括</strong>。这类题的解法是：先把全部建议摘出来，再问它们共同想让用户得到什么；不能拿选项里的名词回原文找字面重合——membership、public、funding 都能在文中找到影子，但影子不等于建议。</p>
+<h3>第 1 步：定位原文 · 最后一段</h3>
+<blockquote>The review recommends a national branding campaign to give libraries a stronger physical presence, the reintroduction of a scheme to enable members to use their card in any library in the country, and automatic memberships for children.</blockquote>
+<p>三条建议逐条摘出：① 全国品牌宣传，让图书馆更有实体存在感；② 恢复一项计划，让会员的借书证在全国任何一家图书馆通用；③ 儿童自动入会。</p>
+<h3>第 2 步：同义替换——三条建议的共同指向</h3>
+<p>① 让人更容易注意到并找到图书馆；② 一张卡走遍全国，免去重复办证；③ 孩子不用申请就自动成为会员。<strong>三条都在减少使用图书馆的麻烦</strong>，合起来就是 C：improving user convenience（提升用户便利性）。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>依据与归因</th></tr></thead><tbody><tr><td>A Inviting public feedback</td><td>邀请公众反馈</td><td>✗ 排除</td><td>末段三条建议都是图书馆「怎么做」，没有征集意见这一条，无中生有。</td></tr><tr><td>B Seeking adequate funding</td><td>争取充足资金</td><td>✗ 排除</td><td>资金压力出现在第 5 段（local authorities come under continued financial pressure），是问题背景，不是末段建议，张冠李戴。</td></tr><tr><td>C Improving user convenience</td><td>提升用户便利性</td><td>✓ 当选</td><td>品牌宣传、一卡通用、儿童自动入会，共同效果都是让用户更方便。</td></tr><tr><td>D Offering lifetime memberships</td><td>提供终身会员</td><td>✗ 排除</td><td>原文是 automatic memberships for children（儿童自动入会），不是终身会员，偷换概念。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：只看到 memberships 就选，忽略 automatic（自动入会）与 lifetime（终身）是两回事。</li><li><strong>误选 B</strong>：把第 5 段的「经费压力」当成末段建议；题干已限定 last paragraph。</li><li><strong>误选 A</strong>：把「公共服务应听取公众意见」的常识塞进原文，原文没有。</li></ul>
+<blockquote>记忆锚点：建议题先数清 recommends 后面列了几条，再把具体动作归纳成共同目的——品牌宣传、一卡通用、儿童自动入会，都是为了让用户更方便（C）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

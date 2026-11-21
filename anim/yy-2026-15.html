@@ -1,8 +1,174 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-15 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-15</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-15 · 2026 完形第 15 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 15 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 15 所在句，考点：动宾搭配 avoid + doing",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">One simple way to avoid __15__ personalisation and mind reading is to challenge your negative assumptions of what's happened.</div><p>空格待填；本题考点：<b>avoid + 动名词</b>，且动宾搭配必须与「两种思维习惯」语义相容。</p>"
+ },
+ {
+  "title": "机制 · avoid 后面是「你要停止做的行为」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：avoid 后接的是「你要停止做的行为」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>avoid 后接动名词，宾语是 <b>personalisation and mind reading</b>——这不是两个学术名词，而是前文反复演示的两种「思维习惯」：把事往自己身上揽、妄猜别人想法。avoid ___ 这两个东西，意思是「别再做这两个动作」，所以空格必须是一个表示「从事、陷入（某种行为）」的动词。</p>"
+ },
+ {
+  "title": "证据 · 宾语是两种「思维习惯」",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：personalisation and mind reading 是行为，不是话题",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① <b>avoid + 动名词</b>：空格动词必须能与这两个「思维模式」构成动宾关系；② 它们是行为/思维习惯，不是话题、理论或他人事务；③ 前文对 personalisation 的定义是 this way of thinking，对 mind reading 的定义是 you assume to know…——两者都是「你正在做的事」。</p>"
+ },
+ {
+  "title": "证据 · is to challenge… 给出方向",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：is to challenge your negative assumptions 给出「停止」的方向",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p><b>is to challenge your negative assumptions</b> = 具体做法是「质疑自己的负面假设」——即停止这两种思维动作。空格动词的方向必须是「自己去做（然后不做）」，而不是争论、解释或干预别人。</p>"
+ },
+ {
+  "title": "逐项分析 · A arguing about（争论关于）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A arguing about（争论关于） ✗ 排除——把心理习惯当成可争论的话题",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>这把两种思维习惯当成可争论的话题；avoid arguing about them 是「别争论它们」，不是「别做它们」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 avoid 的宾语当成「话题」。</p>"
+ },
+ {
+  "title": "逐项分析 · B accounting for（解释；说明）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B accounting for（解释；说明） ✗ 排除——avoid accounting for 变成「别解释它们」",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>account for 是「解释、说明」；avoid accounting for them 变成「别解释它们」，与「质疑假设」的建议不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被学术化动词干扰，觉得「解释心理机制」很合理。</p>"
+ },
+ {
+  "title": "逐项分析 · D interfering with（干涉；妨碍）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D interfering with（干涉；妨碍） ✗ 排除——方向反了，变成「别去打扰它们」",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>方向反了：with 后面是被干涉的对象，avoid interfering with them 变成「别去打扰这两种思维」，等于保护它们。</p><p style=\"color:#b91c1c\">⚠ 典型误解：忽略 interfering with 的方向义，只看「avoid + 动名词」语法成立。</p>"
+ },
+ {
+  "title": "逐项分析 · C engaging in（从事；参与）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C engaging in（从事；参与） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>avoid engaging in personalisation and mind reading = 避免陷入这两种思维，动宾搭配与语义都成立。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（engaging in 从事；参与）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>避免陷入个人化和读心的一个简单方法，是质疑你对所发生之事的负面假设。</b></p><p>答案选 <b>C（engaging in 从事；参与）</b>。</p><p><b>记忆锚点</b>：avoid engaging in a habit = 避免陷入某种习惯；avoid + doing 先看「这个动作是不是自己能做、该停的行为」。</p><p style=\"color:#b91c1c\">最易误选：<b>D（interfering with）</b>——with 的宾语是被妨碍者，意思正好反了。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 15 空 · One simple way to avoid ____ personalisation and mind reading",
+  subtitle: "考点：动宾搭配 · avoid engaging in 一种思维习惯",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（engaging in）",
+ "html": "<b>C engaging in（从事；参与）</b>。<br>完整句义：避免陷入个人化和读心的一个简单方法，是质疑你对所发生之事的负面假设。<br>记忆锚点：avoid engaging in a habit = 避免陷入某种习惯；avoid + doing 先看「这个动作是不是自己能做、该停的行为」。<br>最易误选：<b>D（interfering with）</b>——with 的宾语是被妨碍者，意思正好反了。"
+},
+});
+
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 15 空 · avoid 的宾语是「要停的行为」</h2>
+<p>答案：<strong>C（engaging in 从事；参与）</strong>。</p>
+<h3>第 0 步：先立机制——avoid + doing 不筛语法，筛动宾</h3>
+<p>四个选项全是 <code>-ing</code> 形式，<code>avoid + 动名词</code> 这条语法线对谁都成立，等于没有筛选力。本题真正的胜负手在<strong>动宾语义</strong>：avoid 的宾语必须是「你自己在做、要停止做的行为」。也就是说，空格动词要能和 <code>personalisation and mind reading</code> 构成「做这两种动作」的关系，而不是「谈论」「解释」「干涉」它们。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>One simple way to avoid __15__ personalisation and mind reading is to challenge your negative assumptions of what's happened.</blockquote>
+<p>句子骨架是 <code>One way to avoid ___ ... is to challenge ...</code>：对策（挑战你的负面假设）就是「不再自动做出这两种解读」。这再次印证 avoid 的对象是<strong>行为本身</strong>——你不再去做它。</p>
+<h3>第 2 步：回扣上文——宾语是两种「思维习惯」</h3>
+<blockquote>Psychologists have a name for this way of thinking: personalisation.</blockquote>
+<p>第 2 段给 personalisation 下的定义是 <code>this way of thinking</code>（这种思维方式）；第 4 段说 mind reading 是 <code>This is when you assume to know what other people are thinking about you</code>——「妄自假定知道别人在想什么」。两者都是<strong>「你正在做的动作」</strong>，不是话题，也不是外部事物。空格要表达的就是「从事、陷入（这种习惯）」。</p>
+<h3>第 3 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A arguing about</td><td>争论；讨论</td><td>✗</td><td><code>about</code> 的宾语是<strong>话题</strong>：avoid arguing about them＝「别争论它们」，与「别做它们」差着一层；文中也没让人去讨论这两种心理。</td></tr><tr><td>B accounting for</td><td>解释；说明</td><td>✗</td><td>avoid accounting for＝「别去解释它们」；文章的建议是 challenge（质疑）假设，从来不是「别解释」。</td></tr><tr><td>C engaging in</td><td>从事；参与</td><td>✓</td><td><code>engage in a habit/practice</code>＝陷入、从事某种行为；avoid engaging in personalisation and mind reading＝避免陷入这两种思维，动宾、语义双合。</td></tr><tr><td>D interfering with</td><td>干涉；妨碍</td><td>✗</td><td><code>with</code> 的宾语是<strong>被干涉的外部对象</strong>；这两种思维是「你自己的习惯」，谈不上干涉；avoid interfering with 反而成了「别打扰它们」＝保护它们，方向拧反。</td></tr></tbody></table>
+<h3>第 4 步：为什么不是 D interfering with</h3>
+<p>最强干扰是 D。<code>interfere with a habit</code> 这个搭配确实存在，考生容易觉得眼熟就选。但搭配里的主语是<strong>外部因素</strong>（压力会 interfere with 睡眠习惯）；本句主语是「我们」——对自己脑中的思维习惯只有「停止去做」一种关系，不存在「干涉」。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 D（最强干扰）</strong>：只认短语眼熟，忽略 <code>with</code> 宾语应为外部事物，方向恰好相反。</li><li><strong>误选 B</strong>：<code>accounting for</code> 看着学术、合理，但「避免解释」与「质疑假设」的建议无关。</li><li><strong>只验语法</strong>：四项都满足 avoid + doing，语法不筛任何一项，必须落到动宾语义。</li></ul>
+<blockquote>记忆锚点：avoid + doing 先问一句「宾语是不是自己能停的行为」；engage in a habit＝陷入某种习惯。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,8 +1,173 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-45 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-45</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-45 · 2026 新题型第 45 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function row(a, b, cls){
+  var bg = cls === 'ok' ? '#ecfdf5' : (cls === 'miss' ? '#fef2f2' : '#f8fafc');
+  var bc = cls === 'ok' ? '#16a34a' : (cls === 'miss' ? '#dc2626' : '#cbd5e1');
+  return '<div style="display:flex;gap:10px;margin:5px 0;padding:7px 10px;border-radius:8px;' +
+    'border:1px solid ' + bc + ';background:' + bg + ';font-size:13px;line-height:1.6">' +
+    '<div style="flex:0 0 36%;color:#334155;font-weight:600">' + a + '</div>' +
+    '<div style="flex:1;color:#475569">' + b + '</div></div>';
+}
+
+var STEPS = [
+ {
+  title: '机制 · 末段的“最强一课”是全篇落点',
+  cls: 'key',
+  tag: '机制',
+  log: '机制：the strongest lesson of all 给末段加权——总结位人物的选项通常是全篇层面的概括',
+  count: 0,
+  ribbon: null,
+  body: '<p>Chazdon 是全文最后一位受访者，作者用 That has been the strongest lesson of all 给她的话加权——<b>末段收束语往往就是全文主旨</b>。</p>' +
+    '<p>人物匹配题遇到这种“总结位”人物，选项通常也是全篇层面的概括，而不是细节。本题左栏人物：<b>Robin Chazdon</b>。</p>'
+ },
+ {
+  title: '定位 · 第七段 Chazdon 的完整引语',
+  cls: 'key',
+  tag: '定位',
+  log: '定位第七段：more than what gets planted … it’s really about people … agents of restoration',
+  count: 0,
+  ribbon: null,
+  body: quote('That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. “Yes, it’s about forests, but it’s really about people. They are the agents of restoration.”') +
+    '<p>引语内部有一个让步转折：Yes, it’s about forests（承认树）→ but it’s really about people（落到人）→ They are the agents（点明人的角色）。</p>'
+ },
+ {
+  title: '拆三层递进 · 不止于种树 → 根本在人 → 人是主体',
+  cls: 'step',
+  tag: '拆解',
+  log: 'more than 种树 → really about people → agents of restoration：三层一层比一层重',
+  count: 0,
+  ribbon: null,
+  body: row('第一层', 'more than what gets planted in the ground —— 修复<b>不止于</b>种树（不是不种树）', '') +
+    row('第二层', 'but it’s really about people —— 但<b>根本在于人</b>', '') +
+    row('第三层', 'They are the agents of restoration —— 人是修复的<b>行动主体</b>', '') +
+    '<p>三层递进的重心一层比一层靠后，最后落在 agents（行动者）上。</p>'
+ },
+ {
+  title: '选定 · D 人的因素应与种树并重',
+  cls: 'good',
+  tag: '当选 D',
+  log: 'D Human factors as well as trees planted ✓ 当选——more than 的两层被 as well as 保留',
+  count: 0,
+  ribbon: { k: 'D', ok: true },
+  body: row('Human factors', 'it’s really about people 与 the agents', 'ok') +
+    row('as well as trees planted', 'more than what gets planted in the ground（种树仍在内，只是不止于此）', 'ok') +
+    row('should be emphasized', 'the strongest lesson of all（最强的一课即应当强调）', 'ok') +
+    '<p><b>当选。</b>D 的 as well as 恰好保留了原文 more than 的两层：树要种，人更要。</p>'
+ },
+ {
+  title: '陷阱 · F 的 interests 不等于 agents',
+  cls: 'bad',
+  tag: '排除 F',
+  log: 'F 为谁的利益 ✗ 排除——interests 归 Janzen，Chazdon 讲的是 agents',
+  count: 1,
+  ribbon: { k: 'F', ok: false },
+  body: '<p><b>排除（多余项）。</b>F（we have to stay with an awareness of whose interests to serve）说的是<b>利益归谁</b>（whose interests），出自第五段 Janzen 的 “restoration by whom, for whom?”。</p>' +
+    '<p>Chazdon 说的是<b>谁是行动者</b>（agents），不是利益分配。一个词的分水岭：<b>interests（利益）不等于 agents（行动者）</b>。F 里没有 agents 的任何影子，属于偷换。</p>'
+ },
+ {
+  title: '陷阱 · C 是上一段 Brancalion 的“目的错位”',
+  cls: 'bad',
+  tag: '排除 C',
+  log: 'C 目的偏离需求 ✗ 排除——那是第六段 Brancalion 的对照，不是末段的人本论',
+  count: 2,
+  ribbon: { k: 'C', ok: false },
+  body: '<p><b>排除。</b>C（The purpose of restoration efforts may be different from the real needs of the people involved）是第六段 Brancalion 的对照——钱为气候、农民为水。</p>' +
+    '<p>Chazdon 没有谈资金与需求的冲突，她谈的是修复这件事的性质：不只是种树，是人。两题是递进关系（先有“为谁修”的争论，最后落到“靠谁修”），但<b>不能互换</b>。</p>'
+ },
+ {
+  title: '归位 · 其余选项各归其主',
+  cls: 'step',
+  tag: '归位',
+  log: 'A→Kettle B→Prescott（多余项） E→Jamnadass G→Stanturf',
+  count: 2,
+  ribbon: null,
+  body: '<p>A 不年年结种 → Christopher Kettle；B 土壤 → Cindy Prescott（<b>多余项</b>）；E 种子供应 → Ramni Jamnadass；G 繁殖快生物 → John Stanturf。</p>' +
+    '<p>B、F 两个多余项都“有出处、无归属”——Prescott 与 Janzen 不在左栏五人中。</p>'
+ },
+ {
+  title: '结论 · 答案与记忆锚点',
+  cls: 'good',
+  tag: '答案 D',
+  log: '45 = D（人的因素应与种树并重）——agents 是分水岭',
+  count: 2,
+  ribbon: null,
+  body: '<p>45 选 <b>D（Human factors, as well as trees planted, should be emphasized in forest restoration.）</b>。</p>' +
+    '<p><b>全篇对位</b>：41=E · 42=A · 43=G · 44=C · 45=D；多余项 <b>B、F</b>。</p>' +
+    '<p><b>记忆锚点</b>：Chazdon = really about people 与 agents of restoration → 人的因素 → D；interests 归 Janzen（F，多余项），purpose 归 Brancalion（C）。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2026 新题型第 45 题 · Chazdon：修复终究是“人的事业”",
+  subtitle: "考点：人物观点匹配（七选五）· 末段主旨句 → interests 与 agents 的分水岭",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“抓主旨 → 拆递进 → 选定 → 排除近义干扰”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 D（Human factors as well as trees planted）",
+    html: "<b>D Human factors, as well as trees planted, should be emphasized in forest restoration.</b><br>依据：Chazdon 的“Restoration is about more than what gets planted in the ground … it’s really about people. They are the agents of restoration.”<br>记忆锚点：agents（行动者）归 D；interests（利益）归 Janzen 的 F（多余项）；purpose 归 Brancalion 的 C。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 新题型第 45 题 · 人物观点匹配 · 修复终究是"人的事业"</h2>
+<p>答案：<strong>D（Human factors, as well as trees planted, should be emphasized in forest restoration.）</strong></p>
+<h3>第 0 步：先立机制——末段的"最强一课"是全篇的落点</h3>
+<p>Chazdon 是全文最后一位受访者，作者用 That has been the strongest lesson of all 给她的话加权——<strong>末段收束语往往就是全文主旨</strong>。人物匹配题遇到这种"总结位"人物，选项通常也是全篇层面的概括，而不是细节。本题左栏人物：<strong>Robin Chazdon</strong>。</p>
+<h3>第 1 步：定位——第七段</h3>
+<blockquote>That has been the strongest lesson of all for forest ecologist Robin Chazdon. Restoration is about more than what gets planted in the ground, she says. "Yes, it's about forests, but it's really about people. They are the agents of restoration."</blockquote>
+<h3>第 2 步：拆三层递进</h3>
+<ol><li>more than what gets planted in the ground —— 修复<strong>不止于</strong>种树，但不是不种树；</li><li>but it's really about people —— 但<strong>根本在于人</strong>；</li><li>They are the agents of restoration —— 人是修复的<strong>行动主体</strong>。</li></ol>
+<h3>第 3 步：对账 D</h3>
+<table><thead><tr><th>选项 D</th><th>原文</th></tr></thead><tbody><tr><td>Human factors</td><td>it's really about people 与 the agents</td></tr><tr><td>as well as trees planted</td><td>more than what gets planted in the ground（种树仍在内，只是不止于此）</td></tr><tr><td>should be emphasized</td><td>the strongest lesson of all（最强的一课即应当强调）</td></tr></tbody></table>
+<p>D 的 as well as 恰好保留了原文 more than 的两层：树要种，人更要。<strong>当选</strong>。</p>
+<h3>第 4 步：排掉 F——interests 与 agents 是两回事</h3>
+<p>F（we have to stay with an awareness of whose interests to serve）说的是<strong>利益归谁</strong>（whose interests），出自第五段 Janzen 的 "restoration by whom, for whom?"。Chazdon 说的是<strong>谁是行动者</strong>（agents），不是利益分配。</p>
+<p>一个词的分水岭：<strong>interests（利益）不等于 agents（行动者）</strong>。F 里没有 agents 的任何影子，属于偷换。</p>
+<h3>第 5 步：排掉 C——上一段的"目的错位"不是末段的"人本"</h3>
+<p>C（The purpose of restoration efforts may be different from the real needs of the people involved）是第六段 Brancalion 的对照——钱为气候、农民为水。Chazdon 没有谈资金与需求的冲突，她谈的是修复这件事的性质：不只是种树，是人。</p>
+<p>两题是递进关系（先有"为谁修"的争论，最后落到"靠谁修"），但<strong>不能互换</strong>。</p>
+<h3>第 6 步：其余选项归位</h3>
+<p>A 不年年结种＝Christopher Kettle；B 土壤＝Cindy Prescott（多余项）；E 种子供应＝Ramni Jamnadass；G 繁殖快生物＝John Stanturf。</p>
+<h3>易错点</h3>
+<ul><li><strong>F 与 D 二选一</strong>：看核心名词——interests 归 F，agents 与 people 归 D；</li><li><strong>把 more than what gets planted 读成"不要种树"</strong>：more than 是"不止于此"，D 用 as well as 处理得恰好，既保留树也突出人；</li><li><strong>忽略 strongest lesson</strong>：这个短语提示本段是全文主旨，主旨句一般不落在细节选项（如 B 土壤、A 结种）上。</li></ul>
+<blockquote>记忆锚点：Chazdon = really about people 与 agents of restoration → 人的因素 → <strong>D</strong>；interests 归 Janzen（F，多余项），purpose 归 Brancalion（C）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

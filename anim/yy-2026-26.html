@@ -1,8 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-26 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-26</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-26 · 2026 阅读第 26 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：概念/记忆/分析推理类题目动画（推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 第 1 段挖空，问的是「结果」",
+  "cls": "key",
+  "tag": "审题",
+  "log": "题干 …engagement with AI can ______ ⇒ 回第 1 段找 can 后的结果",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>According to Paragraph 1, workers’ engagement with AI can ______</code>：限段（第 1 段），且把 can 后面的内容挖空。段内有三层信息——<b>目的</b>（looking for guidance）、<b>结果</b>（leave us feeling …）、<b>风险</b>（share sensitive information）。题干问 can 后面，答案只能是「结果」那一层。</p>"
+ },
+ {
+  "title": "定位原文 · 第 1 段前两句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位句：engaging with AI like this can leave us feeling heard and less isolated",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated.") + "<p>第二句的谓语结构与题干完全对齐：engaging with AI like this <b>can</b> …。</p>"
+ },
+ {
+  "title": "找线索 · can 后面接的是什么",
+  "cls": "key",
+  "tag": "线索",
+  "log": "can leave us feeling heard and less isolated：被倾听、不孤立",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>can 后面是 <b>leave us feeling heard and less isolated</b>：让我们感到被倾听、不那么孤立。注意 looking for guidance on personal and professional problems 出现在<b>第一句</b>，是员工找 AI 的<b>目的</b>，不是互动带来的结果。</p>"
+ },
+ {
+  "title": "同义替换 · feeling heard + less isolated ＝ 情感支持",
+  "cls": "key",
+  "tag": "替换",
+  "log": "被倾听 + 不孤立 ⇒ 情感层面的支持",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>「被倾听」是情绪被接纳，「不那么孤立」是孤独感减轻——两者都落在情感层面，合成 <b>emotional support</b>。这正是 B 项 give them emotional support 的表述。</p>"
+ },
+ {
+  "title": "逐项分析 · A facilitate their career progress（促进职业发展）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 促进职业发展 ✗ 排除——guidance 是目的，不是结果",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>looking for guidance on personal and professional problems 说的是员工<b>寻求</b>指导，段中没有说职业因此进步；把「求助目的」当成「效果」，偷换结果。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 professional 就联想到职业发展。</p>"
+ },
+ {
+  "title": "逐项分析 · C help maintain their motivation（帮助保持动力）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 保持动力 ✗ 排除——全段未提 motivation",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>第 1 段没有 motivation 或任何近义表述，属于无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：凭「聊完更有劲」的日常经验补信息。</p>"
+ },
+ {
+  "title": "逐项分析 · D improve workplace communication（改善职场沟通）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 改善职场沟通 ✗ 排除——交谈对象是 AI，不是同事",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文是 talk to AI like a friend——把 AI 当朋友倾诉，不是与同事沟通。workplace 一词把人换成了同事，张冠李戴。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 workplace 与 talk 拼在一起，脑补出「职场沟通」。</p>"
+ },
+ {
+  "title": "逐项分析 · B give them emotional support（给予情感支持）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B 情感支持 ✓ 当选——feeling heard / less isolated 的归纳",
+  "count": 3,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>feeling heard and less isolated 与 emotional support 构成同义替换，且与题干 can 的位置严丝合缝。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（give them emotional support）",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>B（give them emotional support 给予他们情感支持）</b>。</p><p><b>记忆锚点</b>：题干 can 后面挖空，就回原文 can 后面找结果——feeling heard and less isolated 即情感支持；looking for guidance 是目的，不是结果。</p><p style=\"color:#b91c1c\">最易误选：<b>A（facilitate their career progress）</b>——把求助目的偷换成职业发展。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 26 题 · 员工与 AI 互动能带来什么",
+  subtitle: "Text 2 · 考点：段内细节（can 后的结果）· 目的 / 结果 / 风险三层分离",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 找 can 后结果 → 同义替换 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（give them emotional support）",
+ "html": "<b>B 给予情感支持</b>——feeling heard and less isolated 的同义归纳。<br>记忆锚点：题干 can 后面挖空就回原文 can 后面找结果；looking for guidance 是目的，share sensitive information 是风险，都不能顶替结果。<br>最易误选：<b>A</b>——把求助目的偷换成职业发展。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 26 题 · 段内细节题：答案落在 can 之后的「结果」</h2>
+<p>答案：<strong>B（give them emotional support 给予他们情感支持）</strong>。</p>
+<h3>第 0 步：先立机制——题干挖掉的是「结果」，不是「目的」</h3>
+<p>题干 "workers' engagement with AI can ______" 几乎逐词截自第 1 段第 2 句 "engaging with AI like this can leave us feeling heard and less isolated"。空格要填的就是 can 之后陈述的<strong>结果</strong>。段内另有两处易混信息：第 1 句的 looking for guidance（求助的<strong>目的</strong>）和第 3 句的 share sensitive information（随之而来的<strong>风险</strong>）。细节题只认题干所问的那一层，不能拿目的或风险顶替结果。</p>
+<h3>第 1 步：定位原文 · 第 1 段</h3>
+<blockquote>According to our research, around one in five workers in the UK talk to AI like a friend, looking for guidance on personal and professional problems. Our data shows that engaging with AI like this can leave us feeling heard and less isolated.</blockquote>
+<p>句义：约五分之一的英国员工像朋友一样与 AI 交谈，寻求个人与职业问题的指导；数据显示，这样与 AI 互动会让我们<strong>感到被倾听、不那么孤立</strong>。</p>
+<h3>第 2 步：同义替换——feeling heard and less isolated ＝ emotional support</h3>
+<p>「被倾听」（feeling heard）＋「不那么孤立」（less isolated）合起来正是情感层面的支持 → B：give them emotional support。这不是推断，而是对原文感受描述的直译归纳。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>依据与归因</th></tr></thead><tbody><tr><td>A facilitate their career progress</td><td>促进职业发展</td><td>✗ 排除</td><td>looking for guidance on professional problems 只是<strong>求助目的</strong>，段中并未说职业因此进步，偷换结果。</td></tr><tr><td>B give them emotional support</td><td>给予情感支持</td><td>✓ 当选</td><td>feeling heard and less isolated 的同义归纳。</td></tr><tr><td>C help maintain their motivation</td><td>帮助保持动力</td><td>✗ 排除</td><td>全段未出现 motivation 或相近表述，无中生有。</td></tr><tr><td>D improve workplace communication</td><td>改善职场沟通</td><td>✗ 排除</td><td>交谈对象是 AI（talk to AI like a friend），不是同事，张冠李戴。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：看到 professional 就联想到职业发展；原文说的是「寻求个人与职业问题的指导」，效果落在心理感受。</li><li><strong>误选 D</strong>：把 talk to AI 读成 talk in workplace，把「向 AI 倾诉」当成「同事间沟通」。</li><li><strong>误选 C</strong>：凭「聊完更有劲」的常识补信息，原文没有。</li></ul>
+<blockquote>记忆锚点：题干 can 后面挖空，就回原文 can 后面找结果——feeling heard and less isolated 即情感支持（B）；looking for guidance 是目的，不是结果。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-34 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-34</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-34 · 2026 阅读 Text 1 第 34 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · mixed system 的定义句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：mixed system 原词在段5，定义句 means that 后紧跟后果句",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities.</div><p>题干 <b>It can be learned that the mixed system ______</b>：mixed system 是原文原词，答案句就在段5末尾——先给定义（means that ...），下一句给后果。</p>"
+ },
+ {
+  "title": "机制 · 定义句「X means that...」后面永远跟着机制与后果",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：means that 说机制，下一句说后果——推断题答案藏在后果里",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>遇到 <b>A means that ...</b> 这种定义句，不能只读定义本身，必须连下一句的后果一起读：定义说「它是什么」，下一句说「它导致什么」。推断题的答案，往往就藏在这个「后果」里。</p>"
+ },
+ {
+  "title": "证据 · 一处拥堵，整个高铁网络受影响",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：拥堵或普通车抛锚 → the entire high-speed network is affected",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">If there’s congestion or, for example, a local train breaks down, the entire high-speed network is affected.</div><p>条件句：只要拥堵、或一列普通车抛锚 → <b>the entire high-speed network is affected</b>（整个高铁网络受牵连）。段首 Giuricin 还说过 disruptions in the meantime were inevitable——混跑正是让中断不可避免的结构性原因。</p>"
+ },
+ {
+  "title": "逐项分析 · A provides a wide choice of routes（提供多样的线路选择）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A provides a wide choice of routes ✗ 排除——反向误导：must travel on regular tracks 是限制",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>mixed system 对高铁而言是限制：<b>must travel on the regular tracks</b>（必须跑普通轨道），是「没得选」而不是「选择多」——<b>反向误导</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 mixed（混合）理解成「线路种类丰富」。</p>"
+ },
+ {
+  "title": "逐项分析 · B requires extra operational spending（需要额外运营开支）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B requires extra operational spending ✗ 排除——complex ≠ expensive，无开支信息",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文说 situation becomes highly complex（情况高度复杂），complex 说的是运行调度复杂，不是花钱多；全文没有任何运营开支增加的信息——<b>无中生有</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 complex 直接读成 expensive。</p>"
+ },
+ {
+  "title": "逐项分析 · C increases the level of travel comfort（提升出行舒适度）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C increases the level of travel comfort ✗ 排除——舒适度全文未提",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>舒适度全文未提；混跑带来的是拥堵与故障的传导，与舒适无关——<b>无中生有</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 high-speed train 就联想到「更快更舒适」。</p>"
+ },
+ {
+  "title": "逐项分析 · D puts the high-speed network in trouble（使高铁网络陷入麻烦）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D puts the high-speed network in trouble ✓ 当选——entire network is affected",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>the entire high-speed network is affected = puts the high-speed network in trouble；结合 disruptions ... were inevitable，混跑就是让全网随时可能被拖累的结构性原因。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（puts the high-speed network in trouble）——结论卡见下方",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>D（puts the high-speed network in trouble 使高铁网络陷入麻烦）</b>。</p><p><b>记忆锚点</b>：mixed system = 高铁与普通车混跑 → 一处拥堵/故障 → <b>entire network is affected</b> → in trouble。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选：<b>B（requires extra operational spending）</b>——complex 被误读成 expensive，原文没有开支信息。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读 Text 1 第 34 题 · mixed system 意味着什么",
+  subtitle: "考点：句意推断 · 定义句 means that → 后果句 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 D（puts the high-speed network in trouble）",
+ "html": "<b>D puts the high-speed network in trouble</b>（使高铁网络陷入麻烦）。<br>逻辑：mixed system = 高铁在部分线路／穿城时跑普通轨道 → 一处拥堵或普通车抛锚 → the entire high-speed network is affected。<br>记忆锚点：定义句 means that 后面的机制 + 下一句的后果，连起来读就是答案。<br>最易误选：<b>B</b>（extra operational spending）——complex ≠ expensive，原文无开支信息。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读 Text 1 第 34 题 · 句意推断 · mixed system 把高铁网络拖入困境</h2>
+<p>答案：<strong>D（puts the high-speed network in trouble 使高铁网络陷入麻烦）</strong>。</p>
+<h3>第 0 步：先立机制——定义句「X means that...」后面永远跟着机制与后果</h3>
+<p>题干问 It can be learned that the mixed system ______，mixed system 是原文原词。阅读里遇到「A means that ...」这种定义句，不能只读定义本身，必须连下一句的后果一起读：定义说「它是什么」，下一句说「它导致什么」。推断题的答案，往往就藏在这个「后果」里。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>A mixed system means that high-speed trains must travel on the regular tracks on certain routes or when passing through large cities. If there's congestion or, for example, a local train breaks down, the entire high-speed network is affected.</blockquote>
+<p>机制：高铁在部分线路或穿城时必须跑普通轨道（混跑）。后果：一旦拥堵、或一列普通车抛锚，整个高铁网络都受牵连。</p>
+<h3>第 2 步：同义替换锁定 D</h3>
+<p><code>the entire high-speed network is affected</code> = 整个高铁网络被拖累、出问题 → D 项 puts the high-speed network in trouble。前文 Giuricin 还说 disruptions in the meantime were inevitable（在此期间中断不可避免），混跑正是让中断不可避免的结构性原因，方向完全一致。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>错因</th></tr></thead><tbody><tr><td>A provides a wide choice of routes</td><td>提供多样的线路选择</td><td>✗ 排除</td><td>反向误导：对高铁来说是 must travel on the regular tracks（必须跑普通轨道）的限制，是没得选</td></tr><tr><td>B requires extra operational spending</td><td>需要额外运营开支</td><td>✗ 排除</td><td>无中生有：原文说 situation becomes highly complex，指运行调度复杂，全文没有开支增加的信息</td></tr><tr><td>C increases the level of travel comfort</td><td>提升出行舒适度</td><td>✗ 排除</td><td>无中生有：舒适度全文未提，混跑带来的是拥堵传导</td></tr><tr><td>D puts the high-speed network in trouble</td><td>使高铁网络陷入麻烦</td><td>✓ 当选</td><td>the entire high-speed network is affected 的同义概括</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>把 complex 读成 expensive → 误选 B</strong>：complex（复杂）≠ costly（昂贵），原文没有一分钱的开支信息。</li><li><strong>把「混跑」理解成「线路选择多」→ 误选 A</strong>：mixed 指两种列车共用线路，对高铁是限制而非福利。</li><li><strong>忽略条件句</strong>：If there's congestion... the entire network is affected 是定义句的直接后果，D 就改写自这半句。</li></ul>
+<blockquote>记忆锚点：mixed system = 高铁与普通车混跑 → 一处拥堵或故障 → entire network is affected → in trouble。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

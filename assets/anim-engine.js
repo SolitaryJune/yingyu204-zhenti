@@ -75,7 +75,7 @@
     // 日志
     if(cur === 0){
       E.log.innerHTML = '<div class="aw-log-line">（尚未开始）</div>';
-      E.ribbon.innerHTML = '<span style="font-size:12.5px;color:#94a3b8">随演示逐个点亮…</span>';
+      E.ribbon.innerHTML = '<span style="font-size:12.5px;color:#586e72">随演示逐个点亮…</span>';
     } else {
       var d = el('div', 'aw-log-line ' + (sn.cls || 'step'), safeHtml(sn.log || ''));
       E.log.appendChild(d);
@@ -109,7 +109,7 @@
       if(E.build) E.build(E.stage);
       render(0, false);
       E.log.innerHTML = '<div class="aw-log-line">（尚未开始）</div>';
-      E.ribbon.innerHTML = '<span style="font-size:12.5px;color:#94a3b8">随演示逐个点亮…</span>';
+      E.ribbon.innerHTML = '<span style="font-size:12.5px;color:#586e72">随演示逐个点亮…</span>';
       E.resultBox.classList.remove('show');
       return;
     }
@@ -182,9 +182,15 @@
         }
         var box = document.createElement('details');
         box.className = 'aw-question';
-        // 站点规范：高屏（舞台卡锁视口高的同一断点）下题目卡默认折叠，避免把舞台顶出首屏
-        box.open = !(window.matchMedia &&
-          window.matchMedia('(min-width: 1200px) and (min-height: 860px)').matches);
+        // 站点规范：题目卡默认折叠的两种情形（避免把舞台/控件顶出首屏）：
+        // 1) 独立窗口且高屏（舞台卡锁视口高的同一断点 min-width:1200 + min-height:860）；
+        // 2) 被站点单题页 iframe 内嵌（视口仅 380–640px 高，无论宽窄一律折叠，
+        //    修复验收实测 1920 iframe 内 800px 原文把控件顶到 ~900px 下）。
+        var embedded = false;
+        try { embedded = (window.self !== window.top); } catch (e) { embedded = true; }
+        var tallStandalone = !embedded && window.matchMedia &&
+          window.matchMedia('(min-width: 1200px) and (min-height: 860px)').matches;
+        box.open = !tallStandalone && !embedded;
         box.innerHTML = '<summary>📋 题目与选项 · ' + id + '（全屏时也在）</summary>' +
           '<div class="aw-qbody">' +
           '<div class="aw-qstem">' + fixHtml(q.stemHtml || q.stem || '') + '</div>' + opts +

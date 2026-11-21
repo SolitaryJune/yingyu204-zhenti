@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-11 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-11</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-11 · 2026 完形第 11 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 11 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 11 所在句，考点：固定搭配 + 语义方向",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Similarly, in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just __11__ their minds.</div><p>空格待填；本题考点：<b>固定搭配（verb + one's mind）</b>，同时必须解释「朋友取消聚会」这一结果。</p>"
+ },
+ {
+  "title": "机制 · or 引出的必须是能解释同一结果的第二个原因",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：or 前后的两个原因都必须能解释 cancelling",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>空格所在的 or 从句与 <b>felt unwell that weekend</b> 并列，二者都是「朋友取消聚会」的可能原因。所以空格动词的第一个任务不是「与 mind 搭配得上」，而是「与 mind 搭配后，能解释先约好又取消」这件事。搭配是门槛，语义才是决定项。</p>"
+ },
+ {
+  "title": "证据 · their minds 只是第一道门槛",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：cancelling 是结果，or 前后是两个并列原因",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① 事件：<b>friends cancelling</b>——先约好的聚会临时取消；② or 前 <b>felt unwell</b>——一个能解释取消的原因；③ or 后 <b>they just ___ their minds</b>——必须是另一个「能解释取消」的原因；④ 空格后 <b>their minds</b> 要求动词与 mind 构成固定搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · A opened（open one's mind）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A opened（open one's mind 打开思路） ✗ 排除——搭配成立，但解释不了取消",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>open one's mind 是「打开思路、乐于接受新事物」，搭配成立，但与「临时不去」没有因果关系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只验证搭配成立，不看语义方向。</p>"
+ },
+ {
+  "title": "逐项分析 · C trained（train one's mind）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C trained（train one's mind 训练思维） ✗ 排除——与取消约定无关",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>train one's mind（训练思维）搭配勉强成立，但与「取消约会」毫无因果，语义场错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 mind 相关短语当成可互换的同义替换。</p>"
+ },
+ {
+  "title": "逐项分析 · D cleared（clear one's mind）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D cleared（clear one's mind 理清头脑） ✗ 排除——指放松清醒，不解释取消",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>clear one's mind 指放松、理清思路，搭配成立，但同样解释不了「先约后取消」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 clear their minds 顺口就选，忽略语义。</p>"
+ },
+ {
+  "title": "逐项分析 · B changed（change one's mind）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B changed（change one's mind 改变主意） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>change one's mind 是固定搭配「改变主意」，正好解释先约好、后取消。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（changed 改变）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>也许他们那个周末都不舒服，或者只是改了主意。</b></p><p>答案选 <b>B（changed 改变）</b>。</p><p><b>记忆锚点</b>：搭配题两步走——先看「搭配成不成立」，再看「语义解释不解释这个结果」；change one's mind 仍是「改主意」。</p><p style=\"color:#b91c1c\">最易误选：<b>D（cleared）</b>——clear one's mind 是「放松、清醒」，不是「换决定」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 11 空 · they just ____ their minds",
+  subtitle: "考点：固定搭配 · change one's mind 必须解释「取消约定」",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（changed）",
+ "html": "<b>B changed（改变）</b>。<br>完整句义：也许他们那个周末都不舒服，或者只是改了主意。<br>记忆锚点：搭配题两步走——先看「搭配成不成立」，再看「语义解释不解释这个结果」；change one's mind 仍是「改主意」。<br>最易误选：<b>D（cleared）</b>——clear one's mind 是「放松、清醒」，不是「换决定」。"
+},
+});
+
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 11 空 · 固定搭配 · change one's mind 必须解释「取消约定」</h2>
+<p>答案：<strong>B（changed 改变）</strong>。</p>
+<h3>第 0 步：先立机制——or 引出的是「并列的第二种原因」</h3>
+<p>空格所在的 or 从句与 felt unwell that weekend 并列，二者都是「朋友取消聚会」的可能原因。所以空格动词的第一个任务不是「与 mind 搭配得上」，而是「与 mind 搭配后，能解释先约好又取消」这件事。搭配是门槛，语义才是决定项——这正是本题四个选项都像固定搭配的原因。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Similarly, in the case of your friends cancelling, perhaps they both felt unwell that weekend or they just __11__ their minds.</blockquote>
+<ul><li>事件 friends cancelling：先约好的聚会临时取消；</li><li>or 前的 felt unwell（身体不舒服）：一个能解释取消的原因；</li><li>or 后的 they just __11__ their minds：必须是另一个「能解释取消」的原因；</li><li>空格后 their minds 则要求动词与 mind 构成固定搭配。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A opened</td><td>open one's mind 打开思路</td><td>✗ 排除</td><td>搭配成立，但「打开思路、乐于接受新事物」不解释取消，语义方向与「临时不去」无关。</td></tr><tr><td>B changed</td><td>change one's mind 改变主意</td><td>✓ 当选</td><td>固定搭配，且「改变主意」正好解释先约好、后取消。</td></tr><tr><td>C trained</td><td>train one's mind 训练思维</td><td>✗ 排除</td><td>搭配勉强成立，但与取消约会毫无因果，语义场错位。</td></tr><tr><td>D cleared</td><td>clear one's mind 理清头脑</td><td>✗ 排除</td><td>搭配成立，指放松、清醒，同样解释不了「取消约定」。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>perhaps they both felt unwell that weekend or they just <strong>changed</strong> their minds. 句义：也许他们那个周末都不舒服，或者只是改了主意。两个原因都能解释「取消」，段落的善意解释成立。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>只验搭配、不验语义 → 误选 A（opened）</strong>：open one's mind 是真实搭配，但「打开思路」推不出「不来赴约」。</li><li><strong>把 mind 相关短语当成可互换的同义替换 → 误选 C（trained）或 D（cleared）</strong>：train one's mind 是训练思维，clear one's mind 是放松、清醒，都不是「换决定」。</li><li><strong>看到 clear their minds 顺口就选 → 误选 D</strong>：搭配题的第二步永远是「这个意思能不能解释句中结果」。</li></ul>
+<blockquote>记忆锚点：搭配题两步走——先看「搭配成不成立」，再看「语义解释不解释这个结果」；change one's mind 仍是「改主意」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

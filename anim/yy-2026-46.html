@@ -1,8 +1,213 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-46 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-46</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-46 · 2026 翻译结构拆解：主干 → 修饰 → 指代与名物化</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+/* 长难句分色框：kind = trunk 主干(绿) / mod 修饰(琥珀) / cl 从句(蓝) / odd 熟词与指代(红) */
+function seg(text, kind){
+  var C = {
+    trunk: ['#ecfdf5', '#16a34a', '#14532d'],
+    mod:   ['#fffbeb', '#d97706', '#92400e'],
+    cl:    ['#eff6ff', '#2563eb', '#1e40af'],
+    odd:   ['#fef2f2', '#dc2626', '#991b1b']
+  };
+  var c = C[kind] || ['#f1f5f9', '#64748b', '#0f172a'];
+  return '<span style="background:' + c[0] + ';border-bottom:2px solid ' + c[1] +
+         ';color:' + c[2] + ';padding:1px 4px;border-radius:3px;font-weight:600">' + text + '</span>';
+}
+
+function tri(a, b, c, cls){
+  var bg = cls === 'bad' ? '#fef2f2' : '#f8fafc';
+  return '<div style="display:flex;gap:8px;padding:5px 9px;margin:4px 0;border-radius:8px;background:' + bg +
+    ';font-size:12.8px;line-height:1.55"><div style="flex:0 0 30%;color:#334155;font-weight:600">' + a +
+    '</div><div style="flex:0 0 34%;color:#15803d">' + b + '</div><div style="flex:1;color:#b91c1c">' + c + '</div></div>';
+}
+
+var STEPS = [
+ {
+  title: '机制 · 拆句流水线：主干 → 修饰 → 指代与名物化',
+  cls: 'key',
+  tag: '流程',
+  log: '流程：先抓主干，再挂修饰，最后收指代与名物化——语序失分远比词义失分多',
+  count: 0,
+  ribbon: null,
+  body: '<p>翻译失分多死于<b>语序</b>而非词义。固定流程：① <b>先抓主干</b>（谁 + 是什么 + 干了什么）；② <b>再挂修饰</b>（定语从句、状语从句、介词短语按中文习惯前移或拆句）；③ <b>最后收指代与名物化</b>（it、them、which 必须还原对象，名词化结构还原成动词句）。</p>' +
+    '<p>本篇是“总—分”说明文，四段推进：<b>总说（衣着影响心理）→ 自我表达 → 自信 → 文化与社会影响</b>。全篇九句、无生僻术语，难点全在从句归位与指代还原。</p>' +
+    '<p>分色图例：' + seg('主干', 'trunk') + ' ' + seg('修饰成分', 'mod') + ' ' + seg('从句', 'cl') + ' ' + seg('指代与僻义', 'odd') + '。</p>'
+ },
+ {
+  title: '句①② · 主系表 + refer to 的宾语从句',
+  cls: 'step',
+  tag: '句①②',
+  log: 'refers to how 译“是指……如何……”；not just about covering 译“不仅仅是用来遮盖”',
+  count: 2,
+  ribbon: { k: 2, ok: true },
+  body: '<p>' + seg('The influence of wearables on psychology', 'trunk') + ' ' + seg('refers to', 'odd') + ' ' + seg('how the clothes we wear affect our thoughts, feelings, and behaviors', 'cl') + '.</p>' +
+    '<p>主干是“……的影响 refers to ……”，how 从句作 refers to 的宾语，<b>不能译成“如何”，要译成一个陈述</b>：如何影响……。wearables 字面是“可穿戴之物”，本句后半已自己下定义——the clothes we wear；按题库口径译“可穿戴设备”，也可译“穿着之物、衣着”，关键是把释义关系译出来。</p>' +
+    '<p>' + seg('Clothing is not just about covering our bodies', 'trunk') + '; ' + seg('it', 'odd') + ' ' + seg('plays a significant role in shaping', 'mod') + ' ' + seg('our self-perception and interactions with others', 'trunk') + '.</p>' +
+    '<p>分号并列两句；not just about doing＝不仅仅是用来……；play a role in doing＝在……中起重要作用，shaping 的宾语是自我认知与互动两项。</p>' +
+    '<p><b>译文：</b>可穿戴设备对心理学的影响是指我们穿的衣服如何影响我们的思想、感觉和行为。衣服不仅仅是用来遮盖我们的身体；它在塑造我们的自我认知和与他人的互动中起着重要作用。</p>'
+ },
+ {
+  title: '句③④ · 主系表 + 定语从句前置',
+  cls: 'step',
+  tag: '句③④',
+  log: 'The clothes we choose 定语前置译“我们选择的衣服”；reflect 三宾语照排',
+  count: 4,
+  ribbon: { k: 4, ok: true },
+  body: '<p>' + seg('One aspect of this influence', 'trunk') + ' is ' + seg('self-expression', 'trunk') + '.</p>' +
+    '<p>主系表直译：这种影响的一个方面是自我表达。</p>' +
+    '<p>' + seg('The clothes we choose', 'cl') + ' ' + seg('can reflect', 'trunk') + ' ' + seg('our personality, mood, and identity', 'trunk') + '.</p>' +
+    '<p>The clothes we choose 是省略关系词的定语从句，<b>中文定语前置</b>：我们选择的衣服。reflect 后接三个并列宾语：个性、心情和身份。</p>' +
+    '<p><b>译文：</b>这种影响的一个方面是自我表达。我们选择的衣服可以反映我们的个性、心情和身份。</p>'
+ },
+ {
+  title: '句⑤ · 本段最长句：Whether 让步从句 + 两个宾语从句',
+  cls: 'step',
+  tag: '句⑤',
+  log: 'Whether … or … 译“无论……还是……”；be perceived 增补泛指主语“别人”',
+  count: 5,
+  ribbon: { k: 5, ok: true },
+  body: '<p>' + seg('Whether we opt for bold, colorful outfits or prefer more understated styles', 'cl') + ', ' + seg('our dress choices convey messages', 'trunk') + ' ' + seg('about who we are and how we want to be perceived', 'mod') + '.</p>' +
+    '<p>Whether … or … 引导<b>让步状语从句</b>：无论……还是……；opt for＝选择，understated styles＝低调的风格。主句是“我们的着装选择传达关于……的信息”。</p>' +
+    '<p>about 后接<b>两个并列宾语从句</b>：who we are（我们是谁）与 how we want to be perceived（我们希望被如何看待）。be perceived 是被动，中文增补泛指主语：<b>别人</b>如何看待我们。</p>' +
+    '<p><b>译文：</b>无论我们是选择大胆、色彩鲜艳的服装，还是更喜欢低调的风格，我们的着装选择都传达了我们是谁以及我们希望别人如何看待我们的信息。</p>'
+ },
+ {
+  title: '句⑥⑦ · impact 作动词 + When 从句与 it 的指代',
+  cls: 'step',
+  tag: '句⑥⑦',
+  log: 'it 指“穿着这样的衣服”这件事；that 定语从句修饰 clothes，前置',
+  count: 7,
+  ribbon: { k: 7, ok: true },
+  body: '<p>' + seg('Additionally, clothing can impact our confidence levels', 'trunk') + '.</p>' +
+    '<p>impact 此处作<b>动词</b>：影响；confidence levels 译“自信水平”。</p>' +
+    '<p>' + seg('When we wear clothes', 'cl') + ' ' + seg('that make us feel comfortable and confident', 'cl') + ', ' + seg('it', 'odd') + ' ' + seg('can positively affect our self-esteem and overall mood', 'trunk') + '.</p>' +
+    '<p>When 引导时间状语从句；that 从句修饰 clothes，前置译“让我们感到舒适和自信的（衣服）”。主句主语 <b>it 指代“穿着这样的衣服”这件事</b>，更稳的译法是让“这样穿”作话题。affect 的宾语：自尊与整体情绪。</p>' +
+    '<p><b>译文：</b>此外，衣服会影响我们的自信水平。当我们穿着让我们感到舒适和自信的衣服时，它会对我们的自尊和整体情绪产生积极的影响。</p>'
+ },
+ {
+  title: '句⑧⑨ · which 非限制性定语从句拆句',
+  cls: 'step',
+  tag: '句⑧⑨',
+  log: 'which 指代 norms and expectations，拆成“这……”；attributed to them＝赋予这些衣服的',
+  count: 9,
+  ribbon: { k: 9, ok: true },
+  body: '<p>' + seg('Moreover, cultural and societal influences', 'trunk') + ' ' + seg('play a significant role in shaping', 'mod') + ' ' + seg('our dress choices', 'trunk') + '.</p>' +
+    '<p>与句②同构：play a role in doing；cultural and societal influences 即文化和社会影响。</p>' +
+    '<p>' + seg('Different cultures have their norms and expectations regarding dress', 'trunk') + ', ' + seg('which can influence', 'cl') + ' ' + seg('the types of clothing people wear', 'mod') + ' and ' + seg('the meanings attributed to them', 'odd') + '.</p>' +
+    '<p><b>which 指代前面的 norms and expectations</b>，非限制性定语从句信息量大，<b>拆成独立小分句</b>：“这可能会影响……”。people wear 是省略关系词的定语从句，修饰 the types of clothing。<b>the meanings attributed to them 是过去分词短语作后置定语</b>：attribute A to B＝把 A 赋予 B，此处即“赋予它们的含义”，them 回指衣服。</p>' +
+    '<p><b>译文：</b>此外，文化和社会影响在塑造我们的着装选择方面起着重要作用。不同的文化对着装有自己的规范和期望，这可能会影响人们穿的衣服的类型和赋予它们的含义。</p>'
+ },
+ {
+  title: '易错点 · 正译与误译对照',
+  cls: 'bad',
+  tag: '易错',
+  log: '七组高频误译：refers to how / not just about / understated / be perceived / attributed to',
+  count: 9,
+  ribbon: null,
+  body: tri('表达', '正译', '误译') +
+    tri('refers to how …', '是指……如何……', '指的是怎样') +
+    tri('not just about covering', '不仅仅是用来遮盖', '不只是关于遮盖') +
+    tri('play a role in shaping', '在塑造……中起重要作用', '在塑造中扮演角色') +
+    tri('understated styles', '低调的风格', '被低估的风格') +
+    tri('how we want to be perceived', '我们希望别人如何看待我们', '我们想如何被感知') +
+    tri('it can positively affect', '这会对……产生积极影响', '它能积极地影响（it 不落实）') +
+    tri('the meanings attributed to them', '赋予这些衣服的含义', '归因于它们的意义')
+ },
+ {
+  title: '结论 · 整段译文与记忆锚点',
+  cls: 'good',
+  tag: '结论',
+  log: '主干 → 修饰 → 指代三步走完全篇，完整译文见结论卡',
+  count: 9,
+  ribbon: null,
+  body: '<p>全篇九句的难点落在同一套流程上：<b>主干 → 修饰 → 指代与名物化</b>。三处必还原——how 从句译成陈述、be perceived 增补“别人”、which 拆成“这……”；一处熟词——attribute A to B 即把 A 赋予 B。</p>' +
+    '<p>完整四段译文见右侧结论卡。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2026-46 翻译结构拆解：主干 → 修饰 → 指代与名物化',
+  subtitle: '考点：英译汉（衣着与心理，15 分）· 分色框标出主干 / 修饰 / 从句 / 指代',
+  counterLabel: '已拆句',
+  ribbonTitle: '句子进度（①–⑨ 全拆通）',
+  intro: '点击「▶ 播放」逐句拆解九句难点，分色框即结构。',
+  snaps: snaps,
+  result: {
+    big: '整段译文（答案口径）',
+    html: '<p>可穿戴设备对心理学的影响是指我们穿的衣服如何影响我们的思想、感觉和行为。衣服不仅仅是用来遮盖我们的身体；它在塑造我们的自我认知和与他人的互动中起着重要作用。</p>' +
+      '<p>这种影响的一个方面是自我表达。我们选择的衣服可以反映我们的个性、心情和身份。无论我们是选择大胆、色彩鲜艳的服装，还是更喜欢低调的风格，我们的着装选择都传达了我们是谁以及我们希望别人如何看待我们的信息。</p>' +
+      '<p>此外，衣服会影响我们的自信水平。当我们穿着让我们感到舒适和自信的衣服时，它会对我们的自尊和整体情绪产生积极的影响。</p>' +
+      '<p>此外，文化和社会影响在塑造我们的着装选择方面起着重要作用。不同的文化对着装有自己的规范和期望，这可能会影响人们穿的衣服的类型和赋予它们的含义。</p>' +
+      '<p style="margin-top:8px">记忆锚点：拆句三步 = <b>主干 → 修饰 → 指代与名物化</b>；how 从句译成陈述、be perceived 增补“别人”、which 拆成“这……”；attribute A to B 即把 A 赋予 B。</p>'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 翻译 · 衣着与心理 · 整段英译汉</h2>
+<p>答案：<strong>整段英译汉（15 分）</strong>，评分口径 = 题库参考译文（见文末"整段译文"），逐句按"结构拆解 → 词义定夺"推进。</p>
+<h3>第 0 步：先立机制——拆句流水线：主干 → 修饰 → 指代与名物化</h3>
+<p>翻译失分多死于语序而非词义。固定流程：① <strong>先抓主干</strong>（谁 + 是什么 + 干了什么）；② <strong>再挂修饰</strong>（定语从句、状语从句、介词短语按中文习惯前移或拆句）；③ <strong>最后收指代与名物化</strong>（it、them、which 必须还原对象，名词化结构还原成动词句）。</p>
+<p>本篇是"总—分"说明文，四段推进：<strong>总说（衣着影响心理）→ 自我表达 → 自信 → 文化与社会影响</strong>。全篇九句、无生僻术语，难点全在<strong>从句归位与指代还原</strong>。</p>
+<h3>第 1 步：句①②——主系表加 refer to 的宾语从句</h3>
+<p><strong>句①</strong> The influence of wearables on psychology refers to how the clothes we wear affect our thoughts, feelings, and behaviors.</p>
+<ul><li>主干是 The influence … refers to how …（……的影响是指……）；how 从句作 refers to 的宾语，不能译成"如何"，要译成一个陈述：如何影响……</li><li>wearables 字面是"可穿戴之物"，本文第一句后半已经自己下了定义——the clothes we wear，即"我们穿的衣服"；按题库口径译"可穿戴设备"，也可译"穿着之物、衣着"，关键是把后文的释义关系译出来；</li><li>thoughts、feelings、behaviors 三个并列宾语照排：思想、感觉和行为。</li></ul>
+<p><strong>句②</strong> Clothing is not just about covering our bodies; it plays a significant role in shaping our self-perception and interactions with others.</p>
+<ul><li>分号并列两个分句，中文照排；</li><li>not just about covering = 不仅仅是用来遮盖，不要译成"不只是关于遮盖"；</li><li>play a significant role in doing = 在……中起重要作用；shaping 的宾语是 self-perception（自我认知）与 interactions with others（与他人的互动）两项并列。</li></ul>
+<h3>第 2 步：句③④——主系表加定语从句前置</h3>
+<p><strong>句③</strong> One aspect of this influence is self-expression.</p>
+<ul><li>主系表直译：这种影响的一个方面是自我表达。</li></ul>
+<p><strong>句④</strong> The clothes we choose can reflect our personality, mood, and identity.</p>
+<ul><li>The clothes we choose 是省略关系词的定语从句，<strong>中文定语前置</strong>：我们选择的衣服；</li><li>reflect 后接三个并列宾语：个性、心情和身份。</li></ul>
+<h3>第 3 步：句⑤——本段最长句：Whether 让步从句加两个宾语从句</h3>
+<p><strong>句⑤</strong> Whether we opt for bold, colorful outfits or prefer more understated styles, our dress choices convey messages about who we are and how we want to be perceived.</p>
+<ul><li>Whether … or … 引导<strong>让步状语从句</strong>：无论……还是……；opt for 是选择，understated styles 是低调的风格；</li><li>主句 our dress choices convey messages about …：我们的着装选择传达关于……的信息；</li><li>about 后接<strong>两个并列宾语从句</strong>：who we are（我们是谁）与 how we want to be perceived（我们希望被如何看待）；</li><li>be perceived 是被动，中文"被看待"生硬，增补泛指主语：<strong>别人如何看待我们</strong>。</li></ul>
+<h3>第 4 步：句⑥⑦——impact 作动词，When 从句加 it 的指代</h3>
+<p><strong>句⑥</strong> Additionally, clothing can impact our confidence levels.</p>
+<ul><li>impact 此处作<strong>动词</strong>：影响；confidence levels 译"自信水平"。</li></ul>
+<p><strong>句⑦</strong> When we wear clothes that make us feel comfortable and confident, it can positively affect our self-esteem and overall mood.</p>
+<ul><li>When 引导时间状语从句；that make us feel comfortable and confident 是修饰 clothes 的定语从句，前置译为"让我们感到舒适和自信的（衣服）"；</li><li>主句主语 <strong>it 指代"穿着这样的衣服"这件事</strong>，译文用"它"尚可，更稳的译法是让"这样穿"作话题；</li><li>affect 的两个宾语：self-esteem（自尊）与 overall mood（整体情绪）。</li></ul>
+<h3>第 5 步：句⑧⑨——which 非限制性定语从句拆句</h3>
+<p><strong>句⑧</strong> Moreover, cultural and societal influences play a significant role in shaping our dress choices.</p>
+<ul><li>与句②同构：play a role in doing；cultural and societal influences 即文化和社会影响。</li></ul>
+<p><strong>句⑨</strong> Different cultures have their norms and expectations regarding dress, which can influence the types of clothing people wear and the meanings attributed to them.</p>
+<ul><li>主干：Different cultures have their norms and expectations regarding dress（不同文化对着装有自己的规范和期望）；</li><li><strong>which 指代前面的 norms and expectations</strong>，非限制性定语从句信息量大，<strong>拆成独立小分句</strong>："这可能会影响……"；</li><li>people wear 是省略关系词的定语从句，修饰 the types of clothing：人们穿的衣服的类型；</li><li><strong>the meanings attributed to them 是过去分词短语作后置定语</strong>：attribute A to B 意为把 A 赋予 B，此处即"赋予它们的含义"；them 回指 the types of clothing（衣服）。</li></ul>
+<h3>易错点（正译与误译对照）</h3>
+<table><thead><tr><th>表达</th><th>正译</th><th>误译</th></tr></thead><tbody><tr><td>refers to how …</td><td>是指……如何……</td><td>指的是怎样</td></tr><tr><td>not just about covering</td><td>不仅仅是用来遮盖</td><td>不只是关于遮盖</td></tr><tr><td>play a role in shaping</td><td>在塑造……中起重要作用</td><td>在塑造中扮演角色</td></tr><tr><td>understated styles</td><td>低调的风格</td><td>被低估的风格</td></tr><tr><td>how we want to be perceived</td><td>我们希望别人如何看待我们</td><td>我们想如何被感知</td></tr><tr><td>it can positively affect</td><td>这会对……产生积极影响</td><td>它能积极地影响（it 不落实）</td></tr><tr><td>the meanings attributed to them</td><td>赋予这些衣服的含义</td><td>归因于它们的意义</td></tr></tbody></table>
+<h3>整段译文（答案口径）</h3>
+<blockquote>可穿戴设备对心理学的影响是指我们穿的衣服如何影响我们的思想、感觉和行为。衣服不仅仅是用来遮盖我们的身体；它在塑造我们的自我认知和与他人的互动中起着重要作用。</blockquote>
+<blockquote>这种影响的一个方面是自我表达。我们选择的衣服可以反映我们的个性、心情和身份。无论我们是选择大胆、色彩鲜艳的服装，还是更喜欢低调的风格，我们的着装选择都传达了我们是谁以及我们希望别人如何看待我们的信息。</blockquote>
+<blockquote>此外，衣服会影响我们的自信水平。当我们穿着让我们感到舒适和自信的衣服时，它会对我们的自尊和整体情绪产生积极的影响。</blockquote>
+<blockquote>此外，文化和社会影响在塑造我们的着装选择方面起着重要作用。不同的文化对着装有自己的规范和期望，这可能会影响人们穿的衣服的类型和赋予它们的含义。</blockquote>
+<blockquote>记忆锚点：拆句三步 = <strong>主干 → 修饰 → 指代与名物化</strong>；本篇三处必还原——how 从句译成陈述、be perceived 增补"别人"、which 拆成"这……"；attribute A to B 即把 A 赋予 B。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

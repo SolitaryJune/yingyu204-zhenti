@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-01 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-01</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-01 · 2026 完形第 1 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 1 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 1 所在句，考点：并列同义复现 · 破折号后的两个不定式",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Most of us strive for self-respect — to see ourselves in a positive light, to be __1__ of who we are.") + "<p>空格待填；本题考点：<b>并列同义复现</b>。方法主线：看破折号 → 找并列 → 定褒贬 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · 破折号后的不定式在「解释」self-respect",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：破折号后两个并列不定式给 self-respect 下定义，语义必须同向",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>句子先抛出总概念 self-respect（自尊），破折号后立刻用两个并列的不定式给它下定义：<b>to see ourselves in a positive light</b>（积极看待自己）、<b>to be ____ of who we are</b>（____ 我们是谁）。两个不定式由逗号并列、共用 to，语义上必须同向——都在描述一种<b>正向的自我评价</b>。破折号不是闲笔，而是把答案的语义提前写在了隔壁。</p>"
+ },
+ {
+  "title": "证据 · positive light 与 be ____ of 并列",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：strive for 定褒义、positive light 定正向，空格须褒义且能接 of",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>第一，strive for（努力追求）说明 self-respect 是人人向往的<b>理想状态</b>；第二，in a positive light（以积极的眼光）定下褒义基调；第三，空格与 in a positive light 并列，必须是<b>褒义且能接 of</b> 的形容词。三个线索同向锁定。</p>"
+ },
+ {
+  "title": "逐项分析 · A afraid（害怕的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A afraid（害怕的） ✗ 排除——恐惧与「积极看待自己」方向相反",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>be afraid of who we are = 害怕自己是谁；恐惧与「积极看待自己」方向相反。</p><p style='color:#b91c1c'>⚠ 典型误解：把「在意自己」读成「害怕自己」。</p>"
+ },
+ {
+  "title": "逐项分析 · B critical（挑剔的；批判的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B critical（挑剔的） ✗ 排除——挑剔自己正是后文要抵御的 undermine 行为",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>be critical of = 对……挑剔；挑剔自己恰恰是后文 undermine self-worth 的行为，不是 self-respect 的内涵。</p><p style='color:#b91c1c'>⚠ 典型误解：把后文「批判会伤害自尊」提前塞进空格。</p>"
+ },
+ {
+  "title": "逐项分析 · C proud（自豪的；骄傲的）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C proud（自豪的） ✓ 当选——与 in a positive light 同义复现",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>be proud of who we are = 为我们是谁而自豪；与 in a positive light 同义复现，be proud of 也是固定搭配。</p>"
+ },
+ {
+  "title": "逐项分析 · D tolerant（容忍的；宽容的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D tolerant（容忍的） ✗ 排除——被动将就达不到 strive for 的积极自豪",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>be tolerant of = 容忍、将就；容忍只是被动接受，达不到 strive for 所追求的积极自豪。</p><p style='color:#b91c1c'>⚠ 典型误解：把「接纳自己」当成「自豪」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（proud 自豪的；骄傲的）——完整句义与记忆锚点见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>我们大多数人都追求自尊——以积极的眼光看待自己，为自己是谁而自豪。</b></p><p>答案选 <b>C（proud 自豪的；骄傲的）</b>。</p><p><b>记忆锚点</b>：破折号后的并列不定式 = 同义复现；positive light 的隔壁就是 proud of。</p><p style='color:#b91c1c'>最易误选：<b>B（critical）</b>——把后文「批判会伤害自尊」提前塞进空格。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 1 空 · to be ____ of who we are",
+  subtitle: "考点：并列同义复现（self-respect 的两个不定式解释）· 破折号 → 并列 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（proud）",
+ "html": "<b>C proud（自豪的；骄傲的）</b>。<br>句义：我们大多数人都追求自尊——以积极的眼光看待自己，为自己是谁而自豪。<br>记忆锚点：破折号后的并列不定式 = 同义复现；positive light 的隔壁就是 proud of。<br>最易误选：<b>B（critical）</b>——把后文「批判会伤害自尊」提前塞进空格。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 1 空 · 并列同义复现 · 破折号后的两个不定式</h2>
+<p>答案：<strong>C（proud 自豪的；骄傲的）</strong>。</p>
+<h3>第 0 步：先立机制——破折号后的不定式在「解释」self-respect</h3>
+<p>句子先抛出总概念 self-respect（自尊），破折号后立刻用两个并列的不定式给它下定义：to see ourselves in a positive light（积极看待自己）、to be __1__ of who we are（____ 我们是谁）。两个不定式由逗号并列、共用 to，语义上必须同向——都在描述一种<strong>正向的自我评价</strong>。这是完形填空里典型的「同义复现」结构：破折号不是闲笔，而是把答案的语义提前写在了隔壁。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Most of us strive for self-respect — to see ourselves in a positive light, to be __1__ of who we are.</blockquote>
+<ul><li>strive for = 努力追求，说明 self-respect 是人人向往的<strong>理想状态</strong>；</li><li>in a positive light = 以积极的眼光，定下褒义基调；</li><li>be __1__ of who we are 与 to see ourselves in a positive light 并列，空格必须是<strong>褒义且能接 of</strong> 的形容词。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A afraid</td><td>害怕的</td><td>✗ 排除</td><td>be afraid of who we are = 害怕自己是谁；恐惧与「积极看待自己」方向相反。</td></tr><tr><td>B critical</td><td>挑剔的；批判的</td><td>✗ 排除</td><td>be critical of = 对……挑剔；挑剔自己恰恰是后文 undermine self-worth 的行为，不是 self-respect 的内涵。</td></tr><tr><td>C proud</td><td>自豪的；骄傲的</td><td>✓ 当选</td><td>be proud of who we are = 为我们是谁而自豪；与 in a positive light 同义复现，be proud of 也是固定搭配。</td></tr><tr><td>D tolerant</td><td>容忍的；宽容的</td><td>✗ 排除</td><td>be tolerant of = 容忍、将就；容忍只是被动接受，达不到 strive for 所追求的积极自豪。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>Most of us strive for self-respect — to see ourselves in a positive light, to be <strong>proud</strong> of who we are. 句义：我们大多数人都追求自尊——以积极的眼光看待自己，为自己是谁而自豪。两个不定式一个说「看法」、一个说「情感」，都落在褒义一侧，语义链闭合。</p>
+<h3>易错点</h3>
+<ul><li><strong>把「在意自己」读成「害怕自己」→ 误选 A（afraid）</strong>：空格不是「担心自己不够好」，而是与 positive light 并列的正向评价。</li><li><strong>把后文「批判会伤害自尊」提前塞进空格 → 误选 B（critical）</strong>：critical 正是文中要防御的行为（comments that undermine），不是 self-respect 定义的一部分。</li><li><strong>把「接纳自己」当成「自豪」→ 误选 D（tolerant）</strong>：tolerant 是消极底线、被动忍受；strive for 说明所求的是主动的、积极的高评价。</li></ul>
+<blockquote>记忆锚点：破折号后的并列不定式 = 同义复现；positive light 的隔壁就是 proud of。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

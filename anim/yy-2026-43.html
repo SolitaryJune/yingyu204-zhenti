@@ -1,8 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-43 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-43</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-43 · 2026 新题型第 43 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function row(a, b, cls){
+  var bg = cls === 'ok' ? '#ecfdf5' : (cls === 'miss' ? '#fef2f2' : '#f8fafc');
+  var bc = cls === 'ok' ? '#16a34a' : (cls === 'miss' ? '#dc2626' : '#cbd5e1');
+  return '<div style="display:flex;gap:10px;margin:5px 0;padding:7px 10px;border-radius:8px;' +
+    'border:1px solid ' + bc + ';background:' + bg + ';font-size:13px;line-height:1.6">' +
+    '<div style="flex:0 0 36%;color:#334155;font-weight:600">' + a + '</div>' +
+    '<div style="flex:1;color:#475569">' + b + '</div></div>';
+}
+
+var STEPS = [
+ {
+  title: '机制 · 条件句里藏着选项的改写骨架',
+  cls: 'key',
+  tag: '机制',
+  log: '机制：if 从句是升级条件——去掉它昆虫只是 minor，补上它才变 major',
+  count: 0,
+  ribbon: null,
+  body: '<p>Stanturf 的话是一个 <b>if 条件句</b>：“今天的小问题可能变成大问题，条件是……”。这类句子的考点永远在<b>条件</b>上：去掉 if 从句，昆虫只是 minor problem；补上 if 从句，minor 才变 major。</p>' +
+    '<p>所以匹配时先问：<b>是什么让问题升级？</b>选项 G 的 multiply fast 必须对得上 if 从句，匹配才成立。本题左栏人物：<b>John Stanturf</b>。</p>'
+ },
+ {
+  title: '定位 · 第四段中段 Stanturf 的话',
+  cls: 'key',
+  tag: '定位',
+  log: '定位第四段：Insects … minor problem may become a major problem if …',
+  count: 0,
+  ribbon: null,
+  body: quote('“Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year,” says forest ecologist John Stanturf.') +
+    '<p>整句结构：主语 Insects（今天的 minor problem）＋ 谓语 may become ＋ 表语 a major problem ＋ <b>if 条件从句</b>（一年繁殖三四代）。升级的全部条件都在 if 从句里。</p>'
+ },
+ {
+  title: '对账 · G 抓住的正是“繁殖快”这个条件',
+  cls: 'step',
+  tag: '对账',
+  log: 'G：creatures = Insects；multiply fast = 3-4 generations a year；great threat = major problem',
+  count: 0,
+  ribbon: null,
+  body: row('Some creatures in the forest', 'Insects', 'ok') +
+    row('that multiply fast', 'if they can produce three or four generations in a year', 'ok') +
+    row('can become a great threat', 'may become a major problem', 'ok') +
+    row('to forest restoration', '本段主题：气候变化改变树木、昆虫、病害与其他森林物种的关系', 'ok') +
+    '<p>一年繁殖三四代即 multiply fast；minor 变 major 即小患变大威胁——<b>当选</b>。</p>'
+ },
+ {
+  title: '选定 · G 繁殖快的森林生物会成大威胁',
+  cls: 'good',
+  tag: '当选 G',
+  log: 'G Some creatures … multiply fast … great threat ✓ 当选——条件句的完整改写',
+  count: 0,
+  ribbon: { k: 'G', ok: true },
+  body: '<p><b>当选。</b>G 的限定语 that multiply fast 精确对应 three or four generations in a year；can become a great threat 对应 may become a major problem。原句的论证价值就在“繁殖速度快”这个条件上，G 抓住了它。</p>'
+ },
+ {
+  title: '坑一 · 同段还有 Prescott 的土壤观点',
+  cls: 'bad',
+  tag: '排除 B',
+  log: 'B 土壤 ✗ 排除——出自同段 Cindy Prescott，不在左栏五人中，是多余项',
+  count: 1,
+  ribbon: { k: 'B', ok: false },
+  body: '<p><b>排除（多余项）。</b>本段末尾 Cindy Prescott 说：“If you don’t look at the soil at the start, you can spend a lot of money and time putting in species that aren’t going to survive there.” 这对应 <b>B（土壤）</b>。</p>' +
+    '<p>如果按“段落”而不是“人名”匹配，就会把 B 配给本题。<b>人物匹配铁律：引号里的话归引号前的那个人</b>，同段其他人的观点必须剥离。Prescott 不在左栏，所以 B 是多余项。</p>' +
+    '<p style="color:#b91c1c">⚠ 典型误解：看到 soil 出现在本段，就当成 Stanturf 的观点。</p>'
+ },
+ {
+  title: '坑二 · some creatures 是否太泛，其余选项归位',
+  cls: 'step',
+  tag: '归位',
+  log: 'some creatures 不泛：insects 是其下位词，multiply fast 锁死条件；A/C/D/E/F 各归其主',
+  count: 1,
+  ribbon: null,
+  body: '<p>G 没有直接写 insects，而写 Some creatures in the forest that multiply fast。方向是对的：insects 是 creatures 的下位词，且<b>限定语 multiply fast 精确对应</b> three or four generations in a year。如果 G 只写 creatures can be harmful，那才是泛化失配。</p>' +
+    '<p>其余归位：A 不年年结种 → Kettle；C 目的与需求错位 → Brancalion；D 人的因素 → Chazdon；E 种子供应 → Jamnadass；F 为谁的利益 → Janzen（<b>多余项</b>）。</p>'
+ },
+ {
+  title: '结论 · 答案与记忆锚点',
+  cls: 'good',
+  tag: '答案 G',
+  log: '43 = G（繁殖快的生物成大威胁）——按人名不按段落',
+  count: 1,
+  ribbon: null,
+  body: '<p>43 选 <b>G（Some creatures in the forest that multiply fast can become a great threat to forest restoration.）</b>。</p>' +
+    '<p><b>全篇对位</b>：41=E · 42=A · 43=G · 44=C · 45=D；多余项 <b>B、F</b>。</p>' +
+    '<p><b>记忆锚点</b>：Stanturf = 昆虫一年繁殖三四代，minor 变 major → G；同段的土壤是 Prescott 的 B（多余项）——按人名不按段落。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2026 新题型第 43 题 · Stanturf：繁殖快的昆虫会由小患变大灾",
+  subtitle: "考点：人物观点匹配（七选五）· 条件句改写 → 同段他人观点剥离",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“抓条件 → 对账 → 选定 → 剥离同段干扰”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 G（multiply fast → great threat）",
+    html: "<b>G Some creatures in the forest that multiply fast can become a great threat to forest restoration.</b><br>依据：Stanturf 原话“…… may become a major problem if they can produce three or four generations in a year”。<br>记忆锚点：Stanturf = 昆虫一年繁殖三四代 → minor 变 major → G；同段土壤是 Prescott 的 B（多余项），按人名不按段落。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 新题型第 43 题 · 人物观点匹配 · 繁殖快的昆虫会由小患变大灾</h2>
+<p>答案：<strong>G（Some creatures in the forest that multiply fast can become a great threat to forest restoration.）</strong></p>
+<h3>第 0 步：先立机制——条件句里藏着选项的改写骨架</h3>
+<p>Stanturf 的话是一个 <strong>if 条件句</strong>："今天的小问题可能变成大问题，条件是……"。这类句子的考点永远在<strong>条件</strong>上：去掉 if 从句，昆虫只是 minor problem；补上 if 从句，minor 才变 major。所以匹配时要先问：<strong>是什么让问题升级？</strong> 选项 G 的 multiply fast 必须对得上 if 从句，匹配才成立。</p>
+<h3>第 1 步：定位——第四段中段</h3>
+<blockquote>"Insects that today are a minor problem may become a major problem if they can produce three or four generations in a year," says forest ecologist John Stanturf.</blockquote>
+<h3>第 2 步：对账 G</h3>
+<table><thead><tr><th>选项 G</th><th>原文</th></tr></thead><tbody><tr><td>Some creatures in the forest</td><td>Insects</td></tr><tr><td>that multiply fast</td><td>if they can produce three or four generations in a year</td></tr><tr><td>can become a great threat</td><td>may become a major problem</td></tr><tr><td>to forest restoration</td><td>本段主题：气候变化改变树木、昆虫、病害与其他森林物种的关系</td></tr></tbody></table>
+<p>一年繁殖三四代即 multiply fast；minor 变 major 即小患变大威胁。<strong>当选</strong>。</p>
+<h3>第 3 步：第一个坑——同段还有 Prescott 的土壤观点</h3>
+<p>本段末尾 Cindy Prescott 说："If you don't look at the soil at the start, you can spend a lot of money and time putting in species that aren't going to survive there." 这对应 <strong>B（土壤）</strong>。如果按"段落"而不是"人名"匹配，就会把 B 配给本题。</p>
+<p>人物匹配铁律：<strong>引号里的话归引号前的那个人</strong>，同段其他人的观点必须剥离。B 是 Prescott 的，而 Prescott 不在左栏五人中，所以 B 是多余项。</p>
+<h3>第 4 步：第二个坑——G 的 some creatures 是否太泛</h3>
+<p>G 没有直接写 insects，而写 Some creatures in the forest that multiply fast。方向是对的：insects 是 creatures 的下位词，且<strong>限定语 multiply fast 精确对应 three or four generations in a year</strong>——原句的论证价值就在"繁殖速度快"这个条件上，G 抓住了它。如果 G 只写 creatures can be harmful，那才是泛化失配。</p>
+<h3>第 5 步：其余选项归位</h3>
+<p>A 不年年结种＝Christopher Kettle；C 目的与需求错位＝Pedro Brancalion；D 人的因素＝Robin Chazdon；E 种子供应＝Ramni Jamnadass；F 为谁的利益＝Daniel Janzen（多余项）。</p>
+<h3>易错点</h3>
+<ul><li><strong>按段落配选项</strong>：本段有两个人（Stanturf、Prescott），只认 says forest ecologist John Stanturf 这个说话人标签；</li><li><strong>嫌 great threat 语气重</strong>：原文是 may become a <strong>major</strong> problem，就是"重大威胁"，G 没有夸大；</li><li><strong>忽略条件从句</strong>：只看到 insects、minor problem，会觉得 G 的 multiply fast 无中生有——它恰恰是 if 从句的改写。</li></ul>
+<blockquote>记忆锚点：Stanturf = 昆虫一年繁殖三四代，minor 变 major → <strong>G</strong>；同段的土壤是 Prescott 的 B（多余项）——按人名不按段落。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

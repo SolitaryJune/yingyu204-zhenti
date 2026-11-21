@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-18 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-18</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-18 · 2026 第 18 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 18 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位空 18：give you ____ 的宾语——老板花时间给的「东西」是什么",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The fact your boss took the time to give you __18__ at all means they care enough to want to help you __19__.</div><p>空格是 <b>give you ____</b> 的宾语；<b>at all</b>（竟然肯）带出态度：老板愿意花时间做这件事，本身就说明他关心你。这个「东西」指什么，必须回上文找。</p>"
+ },
+ {
+  "title": "机制 · 动作—命名题",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：空格要名词，而行为已在上文完整发生——先找动作链，再命名",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>这是完形的<b>「动作—命名」题</b>：空格要一个名词，而它指代的行为在前文已经完整发生过。解题顺序只有一条——<b>回上文找动作链，再给动作链命名</b>。词义辨析只是最后的筛选器。</p>"
+ },
+ {
+  "title": "线索 · 回上文找动作链",
+  "cls": "key",
+  "tag": "线索",
+  "log": "动作链：picks holes → mistakes → point these out → do better next time",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">Say your boss picks holes in your sales report...</div><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It's just you made some mistakes in the report and she wanted to point these out so that you do better next time.</div><p>动作链：picks holes（挑毛病）→ made some mistakes（报告有错）→ point these out（把错误指出来）→ so that you do better next time（为了你下次做得更好）。给这串动作命名，就是<b>针对工作表现给出的改进意见</b>，即 feedback。</p>"
+ },
+ {
+  "title": "逐项分析 · A reward（奖励）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A reward（奖励）✗——上文动作是挑错，奖励需要「做得好」的前提",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>上文是挑错、指出错误，属于「纠偏」；reward 需要「做得好」的前提，方向相反。奖励发生在做对之后，反馈发生在做错之时。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「花时间给你东西」脑补成「给好处」。</p>"
+ },
+ {
+  "title": "逐项分析 · B feedback（反馈意见）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B feedback（反馈意见）✓——point these out so that you do better = feedback",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>feedback（反馈意见）＝指出报告中的错误以便改进；<b>give sb feedback</b> 是固定搭配；与 point these out so that you do better next time 完全对应。第 3 段整段就是一次反馈场景。</p>"
+ },
+ {
+  "title": "逐项分析 · C trust（信任）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C trust（信任）✗——give you trust 搭配不成立，且指出错误推不出「给信任」",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b><code>give you trust</code> 搭配不成立（通常 place/put trust in sb）；且「指出错误」不能推出「给出信任」，属于用正向情感词硬凑。</p><p style=\"color:#b91c1c\">⚠ 典型误解：被「老板对你不错」的情感基调带偏。</p>"
+ },
+ {
+  "title": "逐项分析 · D proof（证据）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D proof（证据）✗——上文没有待证命题，老板给的是改进意见",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>proof（证据）需要证明某个命题；上文没有待证命题，老板给的是改进意见，不是证据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「指出错误」误当成「提供证据」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（feedback 反馈意见）——动作链命名成功",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>老板竟然肯花时间给你反馈，这一事实说明他足够关心你、想帮你进步。</b></p><p>答案选 <b>B（feedback 反馈意见）</b>。</p><p><b>记忆锚点</b>：名词空先回上文找动作链——picks holes / point out mistakes = feedback；give sb feedback 是固定搭配。</p><p style=\"color:#b91c1c\">最易误选：<b>A（reward）</b>——把「花时间给东西」当成「给奖励」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 18 空 · they care enough to give you ____",
+  subtitle: "考点：动作命名（picks holes / point out → feedback）· give sb feedback",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 机制 → 回上文找动作链 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 B（feedback）",
+    html: "<b>B feedback（反馈意见）</b>。<br>完整句义：老板竟然肯花时间给你反馈，这一事实说明他足够关心你、想帮你进步。<br>记忆锚点：名词空先回上文找动作链——picks holes / point out mistakes = feedback；give sb feedback 是固定搭配。<br>最易误选：<b>A（reward）</b>——把「花时间给东西」当成「给奖励」。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 18 空 · 动作命名——picks holes / point out → feedback</h2>
+<p>答案：<strong>B（feedback 反馈意见）</strong>。</p>
+<h3>第 0 步：先立机制——完形的「动作—命名」题</h3>
+<p>当空格要求一个名词，而它指代的行为在前文已经完整发生过，解题顺序就只有一条：<strong>回上文找动作链，再给动作链命名</strong>。空 18 的 <code>give you ____</code> 正是这种题——老板「花时间给你的东西」，上文已经用两个动作说清楚了。词义辨析只是最后的筛选器。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The fact your boss took the time to give you __18__ at all means they care enough to want to help you __19__.</blockquote>
+<p>句子骨架：The fact ... means ...（……这一事实说明……）。空格是 give you 的宾语；at all（竟然肯）带出作者的态度：老板愿意花时间做这件事，本身就说明他关心你。</p>
+<h3>第 2 步：回上文找动作链</h3>
+<blockquote>Say your boss picks holes in your sales report...</blockquote>
+<blockquote>It's just you made some mistakes in the report and she wanted to point these out so that you do better next time.</blockquote>
+<p>动作链完整：picks holes（挑毛病）→ made some mistakes（报告有错）→ point these out（把错误指出来）→ so that you do better next time（为了你下次做得更好）。给这串动作命名，就是「针对工作表现给出的改进意见」，即 feedback。</p>
+<h3>第 3 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A reward</td><td>奖励</td><td>✗</td><td>上文是挑错、指出错误，属「纠偏」；reward 需要「做得好」的前提，方向相反。</td></tr><tr><td>B feedback</td><td>反馈意见</td><td>✓</td><td>point these out so that you do better next time 正是反馈；<code>give sb feedback</code> 是固定搭配。</td></tr><tr><td>C trust</td><td>信任</td><td>✗</td><td><code>give you trust</code> 搭配不成立（通常 place/put trust in sb）；且指出错误不能推出「给出信任」。</td></tr><tr><td>D proof</td><td>证据</td><td>✗</td><td>proof 需要证明某个命题，上文没有待证命题；老板给的是改进意见，不是证据。</td></tr></tbody></table>
+<h3>第 4 步：为什么不是 A reward</h3>
+<p>「花时间给你东西」容易被脑补成「给好处」。但看动作：picks holes、point out mistakes——这是挑错，不是表扬。奖励发生在做对之后，反馈发生在做错之时。方向一错，整句的因果关系（关心你→帮你改进）也断了。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（reward）</strong>：把「花时间给东西」当成「给奖励」，没有核对上文动作是挑错。</li><li><strong>误选 C（trust）</strong>：被「老板对你不错」的情感基调带偏；trust 既搭配不顺，也无法由「指出错误」推出。</li><li><strong>误选 D（proof）</strong>：把「指出错误」误当成「提供证据」；文中没有需要证明的命题。</li></ul>
+<blockquote>记忆锚点：名词空先回上文找动作链——picks holes / point out mistakes = feedback；give sb feedback 是固定搭配。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

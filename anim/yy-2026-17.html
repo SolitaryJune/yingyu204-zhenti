@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-17 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-17</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-17 · 2026 第 17 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 17 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位空 17：anything deep or ____ about you —— or 连接的形容词并列",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or __17__ about you.</div><p>空格位于 <b>deep or ____</b> 的并列结构中，共同修饰 <b>anything ... about you</b>：换一种解释，让这些解释不再说明你这个人有什么「深的或 ____ 的」问题。本题考的不是孤立词义，而是<b>并列结构内部的语义方向</b>。</p>"
+ },
+ {
+  "title": "机制 · or 连接的是同向近义词",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：or 连接并列成分——词性相同、语义同向",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>完形里的并列连词是硬线索。<b>or</b> 连接两个并列形容词时，要求<b>同维度、同方向</b>（近义或递进）。deep 已经给定方向——「深层的、触及本质的」，空格必须沿同一方向补一个近义词，而不是换一个不相干的评价维度。</p><p>判断方法：把选项代入 <code>deep or ____</code>，既能与 deep 并列、又能回扣上文的，才成立。</p>"
+ },
+ {
+  "title": "线索 · 回扣第 2 段的 significant",
+  "cls": "key",
+  "tag": "线索",
+  "log": "回扣第 2 段：saying something significant ... about you as a person",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When you take things personally, you're interpreting these situations as saying something significant and negative about you as a person.</div><p>第 2 段给 personalisation 下定义时用的是 <b>significant</b>（重大的）：把一件小事读成关于你「这个人」的重大负面结论。第 5 段的 deep or ____ 正是对 significant 的复现——要拒绝的，是把你定性到「本质层面」的解释。空格应表达「根本的、本质的」。</p>"
+ },
+ {
+  "title": "逐项分析 · A casual（随意的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A casual（随意的）✗——与 deep 不同向，且与 significant 的复现方向相反",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>casual 指「随意的、漫不经心的」，与 deep（深层的）不在同一语义方向，<b>deep or casual</b> 不成近义并列。且上下文要拒绝的是「说明你本质有问题」的解释，casual 把问题说轻，与 significant 的复现方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只凭「随意＝不严重」的语感，把并列读成了对比。</p>"
+ },
+ {
+  "title": "逐项分析 · B obvious（明显的）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B obvious（明显的）✗——衡量「可见程度」，与「定性深度」维度错位",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>obvious 衡量「可见程度」，本句衡量的是解释对「你这个人」的<b>定性深度</b>。维度错位，obvious 与 deep 无法构成近义并列，也无法回扣 significant。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「明显」误当成「严重」。</p>"
+ },
+ {
+  "title": "逐项分析 · C familiar（熟悉的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C familiar（熟悉的）✗——全文无「熟悉／陌生」线索，无信息复现",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>familiar 指「熟悉的」，全文没有任何「熟悉／陌生」的信息线索；它既不能与 deep 并列，也无法承接 significant。属于借「读起来顺」硬凑的词。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只凭语感顺口选词，不回扣上下文关键词。</p>"
+ },
+ {
+  "title": "逐项分析 · D fundamental（根本的）",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D fundamental（根本的）✓——与 deep 近义并列，回扣 significant",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>fundamental 意为「根本的、本质的」，与 deep 构成同向的近义并列：<b>anything deep or fundamental about you</b>＝任何关于你这个人的深层、根本性判断。它精确复现第 2 段的 significant，语义与搭配同时咬合。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（fundamental 根本的）——深度与本质层面的近义并列",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>当你发现自己把某个情境往心里去时，试着想出一些不那么以你为中心的其他解释——尤其是不要把这些解释读成关于你这个人的深层或根本性判断。</b></p><p>答案选 <b>D（fundamental 根本的）</b>。</p><p><b>记忆锚点</b>：or 连接的是同向词——deep or fundamental 是近义并列；再回扣第 2 段的 significant，三重印证。</p><p style=\"color:#b91c1c\">最易误选：<b>A（casual）</b>——只凭「随意＝不严重」的语感，把并列结构读成了对比结构。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 17 空 · saying anything deep or ____ about you",
+  subtitle: "考点：近义并列（or）· deep or fundamental → 回扣 significant",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 并列机制 → 回扣上文 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 D（fundamental）",
+    html: "<b>D fundamental（根本的）</b>。<br>完整句义：试着想出一些不那么以你为中心的其他解释——尤其不要把它们读成关于你这个人的深层或根本性判断。<br>记忆锚点：or 连接同向词——deep or fundamental 是近义并列，并回扣上文的 significant。<br>最易误选：<b>A（casual）</b>——把并列结构读成了对比结构。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 17 空 · 近义并列 deep or fundamental</h2>
+<p>答案：<strong>D（fundamental 根本的）</strong>。</p>
+<h3>第 0 步：先立机制——or 连接的是同向词</h3>
+<p>完形填空里的并列连词是硬线索。<strong>or</strong> 连接两个并列成分时，要求词性相同、<strong>语义同向</strong>（近义或递进），而不是随便放一个「读起来也通」的词。空 17 正处在 <code>anything deep or __17__ about you</code> 这个形容词并列槽里：deep 已经给定了语义方向——「深层的、触及本质的」，空格必须沿着同一方向补词。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>When you find yourself taking a situation personally, try to think of other interpretations that are less focused on you — especially in the sense of saying anything deep or __17__ about you.</blockquote>
+<p>本句是作者给的「解药」：换一种解释，让这些解释不那么以你为中心——尤其不要说明你这个人有什么 deep or ____ 的问题。空格修饰的是「关于你这个人的判断」，判定标准是<strong>这种判断触及得多深</strong>。</p>
+<h3>第 2 步：回扣上文，找到 deep 的同义词</h3>
+<blockquote>When you take things personally, you're interpreting these situations as saying something significant and negative about you as a person.</blockquote>
+<p>第 2 段给 personalisation 下定义时用的词是 <strong>significant</strong>（重大的）：把一件小事读成关于你「这个人」的重大负面结论。第 5 段的 deep or ____ 正是对 significant 的复现——要拒绝的，是把你定性到「本质层面」的解释。所以空格＝根本的、本质的。</p>
+<h3>第 3 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A casual</td><td>随意的；漫不经心的</td><td>✗</td><td>与 deep 不同向，<code>deep or casual</code> 不成近义并列；且 casual 把问题说轻，与 significant 的复现方向相反。</td></tr><tr><td>B obvious</td><td>明显的</td><td>✗</td><td>obvious 衡量「可见程度」，本句衡量「定性深度」；维度错位，也不能回扣 significant。</td></tr><tr><td>C familiar</td><td>熟悉的</td><td>✗</td><td>全文没有「熟悉／陌生」的信息线索，无信息复现。</td></tr><tr><td>D fundamental</td><td>根本的；本质的</td><td>✓</td><td>与 deep 同向近义，<code>anything deep or fundamental about you</code> 语义、搭配都成立；同时回扣第 2 段 significant。</td></tr></tbody></table>
+<h3>第 4 步：为什么不是 A casual</h3>
+<p>最容易误选的是 A。乍看「不严重的解释」也说得通，但题目考的是<strong>并列结构内部的语义方向</strong>：or 不是把两个相反的词摆在一起做对比，而是用一个近义词把 deep 的含义补足。casual 是「随意」，deep 是「深层」，一个往轻里说、一个往深里说，方向相反，不能并列。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（casual）</strong>：把「deep or ____」读成对比结构，凭「随意＝不严重」的语感答题，忽略 or 要求同向。</li><li><strong>误选 B（obvious）</strong>：把「明显」误当成「严重」；原文讨论的是判断的深度，不是可见度。</li><li><strong>误选 C（familiar）</strong>：只看搭配顺口，没有回扣第 2 段的 significant。</li></ul>
+<blockquote>记忆锚点：or 连接同向词——deep or fundamental 是一对近义并列；再回扣上文的 significant，两次复现锁定「根本的」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

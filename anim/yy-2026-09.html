@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-09 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-09</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-09 · 2026 完形第 9 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 9 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 9 所在句，考点：目的状语反推 · so that you do better next time",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But the reality is that your boss might view you very highly. It's just you made some __9__ in the report and she wanted to point these out so that you do better next time.</div><p>空格待填；本题考点：<b>目的状语反推</b>。方法主线：还原「重新解释」句 → 抓目的状语 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · It's just… 是对「被挑刺」的重新解释",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：It's just… 是对「被挑刺」的重新解释",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>第 3 段先用 <b>But the reality is…</b> 把「老板看不起我」这种个人化解读推翻，再用 <b>It's just…</b> 给出中性、甚至善意的真实原因。空格就在这个重新解释句里：老板要指出的是报告里的什么？答案不在空格附近瞎猜，而由后半句的目的状语反推。</p>"
+ },
+ {
+  "title": "证据 · 三个线索夹击",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：point these out + so that you do better next time + picks holes 三线夹击",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>① <b>point these out</b>：these 回指空格内容，被「指出」的通常是问题、毛病；② <b>so that you do better next time</b>：目的状语说明「这次不够好」，即报告里有差错；③ 与上句 <b>picks holes in your sales report</b>（挑毛病）呼应——老板挑的「刺」正是这些差错。</p>"
+ },
+ {
+  "title": "逐项分析 · A complaints（投诉；抱怨）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A complaints（投诉；抱怨） ✗ 排除——指出投诉换不来「下次做得更好」",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「报告里提出投诉」与「指出后下次做得更好」没有因果；point out complaints 也说不通，被指出的是待改进之处。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把老板指出问题误读成报告里写了投诉。</p>"
+ },
+ {
+  "title": "逐项分析 · B choices（选择）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B choices（选择） ✗ 排除——中性词，没有「纠错改进」的方向",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>中性词：被指出「选择」不会让人下次做得更好；与 picks holes（挑毛病）的负面方向不符。</p><p style=\"color:#b91c1c\">⚠ 典型误解：只看到 make some choices 搭配成立，就以为语义也成立。</p>"
+ },
+ {
+  "title": "逐项分析 · D suggestions（建议）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D suggestions（建议） ✗ 排除——建议是正面贡献，与「挑毛病—纠错」方向相反",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>老板的「指出」行为本身可以算建议，但空格是<b>报告里的东西</b>；建议是正面贡献，与「挑毛病—纠错」的语义链相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「老板给建议」和「报告里有建议」混为一谈。</p>"
+ },
+ {
+  "title": "逐项分析 · C mistakes（错误；差错）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C mistakes（错误；差错） ✓ 当选",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>报告里的差错被指出 → 下次做得更好，目的状语、搭配、篇章逻辑全部咬合。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（mistakes 错误；差错）——完整句义见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>只是你报告里出了些差错，她想指出来，好让你下次做得更好。</b></p><p>答案选 <b>C（mistakes 错误；差错）</b>。</p><p><b>记忆锚点</b>：看到 so that you do better next time，先问「指出什么才能让人下次更好」——是错误（mistakes），不是选择、建议或投诉。</p><p style=\"color:#b91c1c\">最易误选：<b>D（suggestions）</b>——把「老板给建议」当成「报告里有建议」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 9 空 · It's just you made some ____ in the report",
+  subtitle: "考点：目的状语反推（so that you do better next time）· 重新解释 → 反推 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（mistakes）",
+ "html": "<b>C mistakes（错误；差错）</b>。<br>完整句义：只是你报告里出了些差错，她想指出来，好让你下次做得更好。<br>记忆锚点：看到 so that you do better next time，先问「指出什么才能让人下次更好」——答案是错误（mistakes），不是选择、建议或投诉。<br>最易误选：<b>D（suggestions）</b>——把「老板给建议」当成「报告里有建议」。"
+},
+});
+
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 9 空 · 目的状语反推 · so that you do better next time 指向「错误」</h2>
+<p>答案：<strong>C（mistakes 错误；差错）</strong>。</p>
+<h3>第 0 步：先立机制——It's just… 是对「被挑刺」的重新解释</h3>
+<p>第 3 段的论证方向是「主观解读 vs 客观事实」：你认定老板挑刺就等于她看不起你；But the reality is… 之后，作者用 It's just… 把同一件事解释成中性的、甚至善意的行为。空格所在的正是这个「重新解释」句：老板指出的对象是什么，不能靠语感猜，要由后半句的目的状语 so that you do better next time 反推——她指出这些，是为了让你「下次做得更好」，说明被指出的是这次没做好的地方。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>But the reality is that your boss might view you very highly. It's just you made some __9__ in the report and she wanted to point these out so that you do better next time.</blockquote>
+<ul><li>point these out（把这些指出来）：these 回指空格的内容，被「指出」的通常是问题、毛病；</li><li>so that you do better next time（以便你下次做得更好）：目的状语直接说明「这次不够好」，即报告里有差错；</li><li>与上文 picks holes in your sales report（挑毛病）呼应：老板挑的「刺」正是这些差错；</li><li>三条线索同向，锁定一个表示「可纠正的差错」的名词。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A complaints</td><td>投诉；抱怨</td><td>✗ 排除</td><td>报告里「提出投诉」与「指出后下次做得更好」没有因果；point out complaints 也说不通，被指出的是待改进之处。</td></tr><tr><td>B choices</td><td>选择</td><td>✗ 排除</td><td>中性词：被指出「选择」不会让人下次做得更好；与 picks holes（挑毛病）的负面方向不符。</td></tr><tr><td>C mistakes</td><td>错误；差错</td><td>✓ 当选</td><td>报告里的差错被指出→下次改进，目的状语、动宾搭配与篇章逻辑全部咬合。</td></tr><tr><td>D suggestions</td><td>建议</td><td>✗ 排除</td><td>老板的「指出」行为本身可以算建议，但空格是报告里的东西；建议是正面贡献，与「挑毛病—纠错」的语义链相反。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>It's just you made some <strong>mistakes</strong> in the report and she wanted to point these out so that you do better next time. 句义：只是你报告里出了些差错，她想指出来，好让你下次做得更好。回填后「善意解释」成立，上文 personalisation 的负面解读被推翻，篇章逻辑闭合。</p>
+<h3>易错点：每个干扰项对应哪种误解</h3>
+<ul><li><strong>把「老板指出问题」误读成「报告里写了投诉」→ 误选 A（complaints）</strong>：complaints 是报告可能包含的内容，但 point these out 加 do better next time 要求被指出的是可纠正的差错。</li><li><strong>只看到 make some choices 搭配成立 → 误选 B（choices）</strong>：搭配成立不等于语义成立；选择本身没有「对错—改进」的方向。</li><li><strong>把「老板给建议」和「报告里有建议」混为一谈 → 误选 D（suggestions）</strong>：老板的指出行为可以叫建议，但空格填的是报告里的东西，且必须是负面的。</li></ul>
+<blockquote>记忆锚点：看到 so that you do better next time，先问「指出什么才能让人下次做得更好」——答案是错误（mistakes），不是选择、建议或投诉。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

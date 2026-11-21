@@ -1,8 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-30 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-30</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-30 · 2026 阅读第 30 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：阅读理解推理链卡片（定位原文 → 找证据 → 逐项排除 → 结论）
+     本题：2026 阅读第 30 题 · 尾段因果题 so...that（答案 D，官方定版）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var C1 = '<div class="aw-stepcard key"><h4><span class="n">1</span>审题眼 · 范围＋因果标记</h4><p>题干：<b>According to the last paragraph, we may easily fall victim to AI as we ______</b>。定位信息两条：范围 <b>the last paragraph</b>（尾段）、因果标记 <b>fall victim</b>（沦为受害者/上当）。as we ___ 问的是「容易受害」的<b>原因</b>——回原文找 fall victim 所在句的因果结构。</p></div>';
+var C2 = '<div class="aw-stepcard key"><h4><span class="n">2</span>定位原文 · 尾段 so...that 因果句</h4><div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it\'s easy to fall victim.</div><p><b>so...that</b> 因果结构把原因圈在 <b>that 之前的 so 侧</b>：市面上 AI 产品<b>太多</b>（so many products out there），又靠<b>巨额广告营销预算</b>狂轰滥炸（huge advertising and marketing budgets）。so 侧是原因，that 侧（easy to fall victim）是结果——原因题不用推断，读结构就行。</p></div>';
+var C3 = '<div class="aw-stepcard good"><h4><span class="n">3</span>逐项分析 · D are excessively exposed to it（过度暴露于它之中）</h4><p><b>当选。</b>excessively ↔ <b>so many ＋ huge</b>（过量、铺天盖地）；exposed to it ↔ products out there ＋ promoted with huge advertising（被海量产品与营销包围）。我们正是<b>接触/暴露</b>在过量的 AI 产品与广告之中，才容易 fall victim。</p></div>';
+var C4 = '<div class="aw-stepcard bad"><h4><span class="n">4</span>逐项分析 · A have a limited understanding of it（对它了解有限）</h4><p><b>排除。</b>「知识盲区」（knowledge gap：40% 的人不清楚 AI 生成内容的归属）出自<b>第 3 段</b>，题干限定 last paragraph；尾段 so...that 给出的直接原因是「产品多、广告猛」，不是「了解有限」。</p><p style="color:#b91c1c">⚠ 典型误解：跨段挪用 knowledge gap 当原因。（本题是 2026 卷争议题：部分机构早期答案给 A，官方定版为 D。）</p></div>';
+var C5 = '<div class="aw-stepcard bad"><h4><span class="n">5</span>逐项分析 · B underestimate its economic costs（低估它的经济成本）</h4><p><b>排除。</b>全文没有讨论使用 AI 的<b>经济成本</b>，无中生有。</p><p style="color:#b91c1c">⚠ 典型误解：由 fall victim（受害）联想到「付出代价」，再脑补成经济成本。</p></div>';
+var C6 = '<div class="aw-stepcard bad"><h4><span class="n">6</span>逐项分析 · C tend to overemphasise its power（倾向于过分强调它的力量）</h4><p><b>排除。</b>尾段说的是产品多、广告猛让人<b>容易上当</b>，不是人们高估 AI 的能力；原文反而一直肯定 AI 的好处（simplify our professional lives）。</p><p style="color:#b91c1c">⚠ 典型误解：把「营销吹捧」偷换成「人们过分强调 AI 的力量」，主语错位。</p></div>';
+var C7 = '<div class="aw-stepcard good"><h4><span class="n">7</span>结论 · 同义替换链与记忆锚点</h4><p>同义替换链：<b>excessively exposed to it ↔ so many products out there ＋ promoted with huge advertising and marketing budgets</b>。</p><p>答案选 <b>D（are excessively exposed to it）</b>。</p><p><b>记忆锚点</b>：so...that 因果句，原因看 <b>so 侧</b>——程度词（so many / huge）就是 excessively 的出处。</p><p style="color:#b91c1c">最易误选：<b>A</b>——knowledge gap 出自第 3 段，且不是尾段给出的直接原因。</p></div>';
+
+AW.init({
+  title: '2026 阅读第 30 题 · According to the last paragraph, we may easily fall victim to AI as we ______',
+  subtitle: '考点：尾段因果题 · so...that 结构原因在 so 侧 · so many products ＋ huge advertising ↔ excessively exposed to it',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开「定位 → 读因果结构 → 逐项排除」的推理链。',
+  snaps: [
+    { cls: 'shift', tag: '审题', log: '定位信息：the last paragraph ＋ fall victim；as we ___ 问原因', count: 0, ribbon: null, done: false, html: C1 },
+    { cls: 'shift', tag: '定位', log: '定位尾段：There are so many products out there, being promoted with huge advertising and marketing budgets, that it\'s easy to fall victim.', count: 0, ribbon: null, done: false, html: C1 + C2 },
+    { cls: 'ok', tag: '选定 D', log: 'D are excessively exposed to it（so many ＋ huge advertising ＝ 过度暴露） ✓ 当选', count: 0, ribbon: { k: 'D', ok: true }, done: false, html: C1 + C2 + C3 },
+    { cls: 'miss', tag: '排除 A', log: 'A have a limited understanding of it（了解有限） ✗ 排除——knowledge gap 出自第 3 段，段落错位', count: 1, ribbon: { k: 'A', ok: false }, done: false, html: C1 + C2 + C3 + C4 },
+    { cls: 'miss', tag: '排除 B', log: 'B underestimate its economic costs（低估经济成本） ✗ 排除——无中生有', count: 2, ribbon: { k: 'B', ok: false }, done: false, html: C1 + C2 + C3 + C4 + C5 },
+    { cls: 'miss', tag: '排除 C', log: 'C tend to overemphasise its power（过分强调其力量） ✗ 排除——主语错位', count: 3, ribbon: { k: 'C', ok: false }, done: false, html: C1 + C2 + C3 + C4 + C5 + C6 },
+    { cls: 'done', tag: '答案 D', log: '答案 D（are excessively exposed to it）——替换链：excessively ↔ so many ＋ huge / exposed to it ↔ products ＋ advertising 包围', count: 3, ribbon: null, done: true, html: C1 + C2 + C3 + C4 + C5 + C6 + C7 }
+  ],
+  result: {
+    big: '答案 D（are excessively exposed to it）',
+    html: '<b>D</b>：so many products ＋ huge advertising and marketing budgets ↔ excessively exposed to it——被铺天盖地的 AI 产品与营销包围，才容易 fall victim（so...that 结构，原因在 so 侧）。<br>A 跨段挪用第 3 段的 knowledge gap（争议题：官方定版 D）；B 经济成本无中生有；C 把「营销轰炸」偷换成「高估 AI 力量」。<br>最易误选：<b>A</b>。'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 30 题 · 尾段因果题：so...that 结构里找原因</h2>
+<p>答案：<strong>D（are excessively exposed to it 过度暴露于它之中）</strong>。</p>
+<h3>第 0 步：先立机制——fall victim 的因果句式</h3>
+<p>题干 "According to the last paragraph, we may easily fall victim to AI as we ______" 问「容易受害」的<strong>原因</strong>，且限定 last paragraph。原因题的读法：找到 fall victim 所在句，识别它的因果结构——这句话是 so...that 句型，<strong>原因圈在 that 之前的 so 侧</strong>，结果才是 that 后面的 easy to fall victim。</p>
+<h3>第 1 步：定位原文 · 尾段</h3>
+<blockquote>And this is where the challenge lies. There are so many products out there, being promoted with huge advertising and marketing budgets, that it's easy to fall victim.</blockquote>
+<p>so 侧给了两个程度信息：① 市面上 AI 产品<strong>太多</strong>（so many products out there）；② 产品靠<strong>巨额广告营销预算</strong>狂轰滥炸（huge advertising and marketing budgets）。合起来：我们被过量的 AI 产品与营销包围，所以容易沦为受害者。</p>
+<h3>第 2 步：同义替换</h3>
+<ul><li>excessively（过度地）↔ so many ＋ huge：两个程度词合并成「过量」。</li><li>exposed to it（暴露于它）↔ products out there ＋ promoted with huge advertising：被产品与广告<strong>包围、接触</strong>，正是 exposed 的语境义。</li></ul>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>依据与归因</th></tr></thead><tbody><tr><td>A have a limited understanding of it</td><td>对它了解有限</td><td>✗ 排除</td><td>知识盲区（knowledge gap：40% 的人不清楚 AI 生成内容归属）出自第 3 段，段落错位；尾段 so...that 的直接归因是产品与营销轰炸。</td></tr><tr><td>B underestimate its economic costs</td><td>低估它的经济成本</td><td>✗ 排除</td><td>全文未提使用 AI 的经济成本，无中生有。</td></tr><tr><td>C tend to overemphasise its power</td><td>倾向于过分强调它的力量</td><td>✗ 排除</td><td>尾段说的是被营销轰炸后容易上当，不是人们高估 AI 能力；原文反而肯定 AI 的好处。</td></tr><tr><td>D are excessively exposed to it</td><td>过度暴露于它之中</td><td>✓ 当选</td><td>so many products ＋ huge advertising and marketing budgets 的同义概括。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A（最强干扰）</strong>：第 3 段确实写了 knowledge gap，但题干限定 last paragraph，且尾段 fall victim 的直接因果由 so...that 给出——「接触过量」而非「了解有限」。注意：本题是 2026 卷<strong>争议题</strong>，部分机构早期答案给 A，官方定版为 D，本站以官方答案 D 为准。</li><li><strong>误选 B</strong>：由 fall victim 联想「付出代价」，再脑补成「经济成本」。</li><li><strong>原词警惕</strong>：fall victim 原词出现在定位句里，但原因不重现在词面上，而藏在 so many / huge 这两个程度词里——程度词就是 excessively 的出处。</li></ul>
+<blockquote>记忆锚点：so...that 因果句，原因看 so 侧——产品多 ＋ 广告猛 ＝ 过度暴露（excessively exposed）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

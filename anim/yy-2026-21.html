@@ -1,8 +1,158 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-21 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-21</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-21 · 2026 第 21 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 细节题三步走",
+  "cls": "key",
+  "tag": "审题",
+  "log": "关键词 commissioned（受委托）+ about English public libraries",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>What was the author commissioned to do about English public libraries?</code>：关键词 <b>commissioned</b>（受委托），问「作者受委托对英国公共图书馆做什么」。细节题三步：圈关键词 → 回原文定位 → 同义替换比对。</p>"
+ },
+ {
+  "title": "定位原文 · commissioned 原词复现",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位句：the culture department commissioned me to conduct an independent review",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday.</div><p>commissioned 原词复现，这一句就是答案句：文化部门委托我 <b>conduct an independent review</b>（进行一次独立评估）。下一句 As I visited libraries up and down the country 补充了调研方式——实地走访。</p>"
+ },
+ {
+  "title": "同义替换 · review = look into",
+  "cls": "key",
+  "tag": "替换",
+  "log": "conduct an independent review = look into their current situation",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>conduct an independent review of English public libraries ＝ 对英国公共图书馆做一次独立<b>调研／评估</b>。review 在此不是「书评」，而是「审查、评估、调查了解」；调研对象是图书馆的整体运行状况 ⇒ <b>look into their current situation</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A Document their valuable traditions.",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 记录宝贵传统 ✗——偷换概念：review 的对象是整体现状，文中无 traditions",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Document their valuable traditions（记录宝贵传统）——<b>偷换概念</b>：review 的对象是图书馆整体现状；文中没有 traditions，也没有「记录／存档」的动作。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「review 图书馆」想成「整理传统」。</p>"
+ },
+ {
+  "title": "逐项分析 · B Make a plan for their expansions.",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 制定扩张计划 ✗——无中生有，且与关闭／财政压力相反",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Make a plan for their expansions（制定扩张计划）——<b>无中生有</b>：review 是评估，不是扩张规划；文中反而写关闭与财政压力，与 expansion 相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「评估后提建议」当成「做扩张规划」。</p>"
+ },
+ {
+  "title": "逐项分析 · C Obtain reader opinions on them.",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 获取读者意见 ✗——张冠李戴：文中信息来自走访与统计数据",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>Obtain reader opinions on them（获取读者意见）——<b>张冠李戴</b>：文中没有征求读者意见；作者的信息来自实地走访（visited libraries）与统计数据。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「评估图书馆」等同于「读者满意度调查」。</p>"
+ },
+ {
+  "title": "逐项分析 · D Look into their current situation.",
+  "cls": "good",
+  "tag": "选定 D",
+  "log": "D 调查它们的现状 ✓——conduct a review = look into",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>Look into their current situation（调查它们的现状）——<b>同义替换</b>：conduct a review＝look into（调查、考察）；review 的内容正是图书馆现状（多元服务、被忽视、关闭数据）。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 D",
+  "log": "答案 D（Look into their current situation）——review 是评估现状",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>现实截然不同——文化部门委托我对英国公共图书馆进行一次独立评估，报告于昨日发布；我走访全国各地图书馆后发现了这一点。</b></p><p>答案选 <b>D（Look into their current situation. 调查它们的现状。）</b></p><p><b>记忆锚点</b>：commissioned to conduct an independent review = look into the current situation；review 是「评估现状」，不是「记录传统／做计划／问读者」。</p><p style=\"color:#b91c1c\">最易误选：<b>A（Document their valuable traditions）</b>——把 review 想成「整理传统」。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 21 题 · What was the author commissioned to do",
+  subtitle: "考点：细节题（commissioned 定位 · review = look into the current situation）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 定位 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 D（Look into their current situation）",
+    html: "<b>D Look into their current situation.</b><br>定位句：the culture department commissioned me to conduct an independent review of English public libraries.<br>记忆锚点：commissioned to conduct an independent review = look into the current situation；review 是「评估现状」。<br>最易误选：<b>A（Document their valuable traditions）</b>——把 review 想成「整理传统」。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 21 题 · 细节题——commissioned 原词定位，review = look into</h2>
+<p>答案：<strong>D（Look into their current situation. 调查它们的现状。）</strong>。</p>
+<h3>第 0 步：先立机制——细节题三步走</h3>
+<p>题干问作者「受委托」做什么，关键词是 <strong>commissioned</strong>（受委托）。细节题固定三步：圈题干关键词回原文定位 → 定位句与选项做同义替换 → 给每个错项归因（偷换概念／无中生有／张冠李戴／过度推断）。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>The reality is startlingly different, as I discovered when the culture department commissioned me to conduct an independent review of English public libraries, published yesterday.</blockquote>
+<p>commissioned 原词复现，这一句就是答案句：文化部门委托我 <strong>conduct an independent review</strong>（进行一次独立评估）。As I visited libraries up and down the country 补充了调研方式——实地走访全国各地图书馆。</p>
+<h3>第 2 步：同义替换</h3>
+<p>conduct an independent review of English public libraries ＝ 对英国公共图书馆做一次独立<strong>调研／评估</strong>。review 在此不是「书评」，而是「审查、评估、调查了解」；调研对象是图书馆的整体运行状况。⇒ <strong>look into their current situation</strong>（调查它们的现状）。</p>
+<h3>第 3 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A Document their valuable traditions.</td><td>记录它们宝贵的传统。</td><td>✗</td><td>偷换概念：review 的对象是图书馆整体现状，文中没有 traditions，也没有「记录／存档」的动作。</td></tr><tr><td>B Make a plan for their expansions.</td><td>为它们的扩张制定计划。</td><td>✗</td><td>无中生有：review 是评估，不是扩张规划；文中反而写关闭与财政压力，与 expansion 相反。</td></tr><tr><td>C Obtain reader opinions on them.</td><td>获取读者对它们的意见。</td><td>✗</td><td>张冠李戴：文中没有征求读者意见；作者的信息来自实地走访与统计数据。</td></tr><tr><td>D Look into their current situation.</td><td>调查它们的现状。</td><td>✓</td><td>同义替换：conduct a review＝look into；下文整篇所见所闻（多元服务、被忽视、关闭数据）正是「现状」。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 A</strong>：把「review 图书馆」理解成「整理图书馆的历史与传统」，用常识替代原文。</li><li><strong>误选 C</strong>：把「评估图书馆」等同于「读者满意度调查」，文中并无读者意见这一信息来源。</li><li><strong>误选 B</strong>：把 review 之后可能提出的建议误当成「制定扩张计划」，且与全文的危机基调相反。</li></ul>
+<blockquote>记忆锚点：commissioned to conduct an independent review = look into the current situation；review 是「评估现状」，不是「记录传统／做计划／问读者」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

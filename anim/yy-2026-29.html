@@ -1,8 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-29 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-29</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-29 · 2026 阅读第 29 题</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：阅读理解推理链卡片（定位原文 → 找证据 → 逐项排除 → 结论）
+     本题：2026 阅读第 29 题 · 目的手段题（答案 D）
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+var C1 = '<div class="aw-stepcard key"><h4><span class="n">1</span>审题眼 · to do 目的短语锁句</h4><p>题干：<b>To positively shift the AI landscape, businesses should ______</b>。to do 给出<b>目的</b>（积极改变 AI 格局），空格问的是达到目的的<b>手段</b>。英文手段通常由 <b>By doing</b> 引出——解题动作固定：拿目的短语 positively shift the AI landscape 当定位词，它大概率原词出现在原文里。</p></div>';
+var C2 = '<div class="aw-stepcard key"><h4><span class="n">2</span>定位原文 · 第 3 段尾句（By 手段结构）</h4><div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</div><p>目的短语 positively shift the AI landscape <b>原词命中句尾</b>，定位一次成功。句首 <b>By</b> 引出两个手段：① instilling best practices in AI engagement（推广 AI 使用最佳实践）；② creating policies that <b>evolve with the technology</b>（制定随技术演进的<b>政策</b>）。前句再补一条：要像对待其他数据一样<b>管理</b>（manage）AI 工具——手段分散在两句里，要合并概括。</p></div>';
+var C3 = '<div class="aw-stepcard good"><h4><span class="n">3</span>逐项分析 · D adjust their management to AI development（使管理适应 AI 的发展）</h4><p><b>当选。</b>adjust their management ↔ manage AI tools ＋ creating policies；to AI development ↔ <b>evolve with the technology</b>（随技术演进）。两个手段合并＝让企业管理跟上 AI 的发展，正是 positively shift the AI landscape 的路径。</p></div>';
+var C4 = '<div class="aw-stepcard bad"><h4><span class="n">4</span>逐项分析 · A increase the transparency of their data sources（提高数据来源透明度）</h4><p><b>排除。</b>原文说 AI 平台可能守不住秘密、企业要像管其他数据一样<b>管理 AI 工具</b>——通篇没有要求「数据来源透明化」。</p><p style="color:#b91c1c">⚠ 典型误解：把「AI 保密差」这一风险背景，反向推导成「提高透明度」的对策。</p></div>';
+var C5 = '<div class="aw-stepcard bad"><h4><span class="n">5</span>逐项分析 · B prioritise the quality of AI-produced content（优先重视 AI 生成内容质量）</h4><p><b>排除。</b>全文谈的是<b>数据安全与政策管理</b>，从未评价 AI 生成内容的质量高低，无中生有。</p><p style="color:#b91c1c">⚠ 典型误解：拿日常「AI 输出质量参差」的经验替代原文信息。</p></div>';
+var C6 = '<div class="aw-stepcard bad"><h4><span class="n">6</span>逐项分析 · C include employee perspectives in their rules（把员工观点纳入规则）</h4><p><b>排除。</b>原文只说部分员工违规使用 AI、40% 的人有知识盲区，对策是 instilling best practices（<b>企业单方面</b>向员工灌输最佳实践），不是「把员工观点写进规则」。</p><p style="color:#b91c1c">⚠ 典型误解：见 employees break the rules 就脑补「听听员工意见」；知识差距靠教育弥补，不靠征询意见。</p></div>';
+var C7 = '<div class="aw-stepcard good"><h4><span class="n">7</span>结论 · 同义替换链与记忆锚点</h4><p>同义替换链：<b>creating policies that evolve with the technology ↔ adjust their management to AI development；manage AI tools ↔ their management</b>。</p><p>答案选 <b>D（adjust their management to AI development）</b>。</p><p><b>记忆锚点</b>：to do 目的短语锁句，<b>By</b> 之后的动名词短语就是手段；手段拆在两句时合并概括。</p><p style="color:#b91c1c">最易误选：<b>C</b>——把「员工违规、知识盲区」曲解为「纳入员工观点」。</p></div>';
+
+AW.init({
+  title: '2026 阅读第 29 题 · To positively shift the AI landscape, businesses should ______',
+  subtitle: '考点：目的手段题 · to do 锁目的，By 后面出手段 · evolve with the technology ↔ adjust management to AI development',
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开「定位 → 找手段 → 逐项排除」的推理链。',
+  snaps: [
+    { cls: 'shift', tag: '审题', log: '题干 to do 问手段；定位词：positively shift the AI landscape（目的短语，原词当路标）', count: 0, ribbon: null, done: false, html: C1 },
+    { cls: 'shift', tag: '定位', log: '定位第 3 段尾句：By instilling best practices... and creating policies that evolve with the technology', count: 0, ribbon: null, done: false, html: C1 + C2 },
+    { cls: 'ok', tag: '选定 D', log: 'D adjust their management to AI development（evolve with the technology ＋ manage AI tools 的合并概括） ✓ 当选', count: 0, ribbon: { k: 'D', ok: true }, done: false, html: C1 + C2 + C3 },
+    { cls: 'miss', tag: '排除 A', log: 'A increase the transparency of their data sources（提高数据来源透明度） ✗ 排除', count: 1, ribbon: { k: 'A', ok: false }, done: false, html: C1 + C2 + C3 + C4 },
+    { cls: 'miss', tag: '排除 B', log: 'B prioritise the quality of AI-produced content（优先重视 AI 生成内容质量） ✗ 排除', count: 2, ribbon: { k: 'B', ok: false }, done: false, html: C1 + C2 + C3 + C4 + C5 },
+    { cls: 'miss', tag: '排除 C', log: 'C include employee perspectives in their rules（把员工观点纳入规则） ✗ 排除', count: 3, ribbon: { k: 'C', ok: false }, done: false, html: C1 + C2 + C3 + C4 + C5 + C6 },
+    { cls: 'done', tag: '答案 D', log: '答案 D（adjust their management to AI development）——替换链：evolve with the technology ↔ adjust management to AI development / manage AI tools ↔ their management', count: 3, ribbon: null, done: true, html: C1 + C2 + C3 + C4 + C5 + C6 + C7 }
+  ],
+  result: {
+    big: '答案 D（adjust their management to AI development）',
+    html: '<b>D</b>：creating policies that <b>evolve with the technology</b>（政策随技术演进）＋ manage AI tools ↔ adjust their management to AI development——让企业管理跟上 AI 的发展，才能 positively shift the AI landscape。<br>A「数据来源透明度」、B「AI 生成内容质量」无中生有；C 把「员工违规、知识盲区」曲解为「纳入员工观点」。<br>最易误选：<b>C</b>。'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 29 题 · 目的手段题：to do 锁目的，By 后面出手段</h2>
+<p>答案：<strong>D（adjust their management to AI development 使其管理适应 AI 的发展）</strong>。</p>
+<h3>第 0 步：先立机制——目的题的答案在「手段标记词」之后</h3>
+<p>题干 "To positively shift the AI landscape, businesses should ______" 前半句用 to do 给出<strong>目的</strong>（积极改变 AI 格局），空格问的是达到这一目的的<strong>手段</strong>。英文的手段通常由 by doing 引出，所以解题动作固定：先拿目的短语当定位词锁句，再看目的前面的 By 短语写了哪些做法。手段常常不止一条，还可能分散在相邻两句里，要合并概括。</p>
+<h3>第 1 步：定位原文 · 第 3 段尾句</h3>
+<blockquote>Employers need to manage AI tools with the same level of care as any other form of data sharing or storage. By instilling best practices in AI engagement and creating policies that evolve with the technology, businesses can positively shift the AI landscape.</blockquote>
+<p>目的短语 positively shift the AI landscape <strong>原词命中句尾</strong>——定位一次成功。By 引出两个手段：① instilling best practices in AI engagement（推广 AI 使用最佳实践）；② creating policies that <strong>evolve with the technology</strong>（制定随技术演进的<strong>政策</strong>）。前一句还补了一条管理要求：要像对待其他数据共享/存储一样<strong>管理</strong>（manage）AI 工具。</p>
+<h3>第 2 步：同义替换——手段①②合并概括</h3>
+<p>creating policies that evolve with the technology ＝ 政策跟着 AI 技术的发展不断调整；manage AI tools ＝ 对 AI 的管理方式。两句合并起来正是：<strong>调整企业管理，使之适应 AI 的发展</strong> → D。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>依据与归因</th></tr></thead><tbody><tr><td>A increase the transparency of their data sources</td><td>提高数据来源的透明度</td><td>✗ 排除</td><td>原文只说 AI 平台可能守不住秘密、要像管其他数据一样管 AI 工具，从未要求「数据来源透明化」，无中生有。</td></tr><tr><td>B prioritise the quality of AI-produced content</td><td>优先重视 AI 生成内容的质量</td><td>✗ 排除</td><td>全文谈数据安全与政策管理，没有评价 AI 生成内容的质量，无中生有。</td></tr><tr><td>C include employee perspectives in their rules</td><td>把员工观点纳入规则</td><td>✗ 排除</td><td>员工违规、40% 的人有知识盲区是对策的背景；原文对策是向员工<strong>灌输最佳实践</strong>，不是征询并纳入员工观点。</td></tr><tr><td>D adjust their management to AI development</td><td>使其管理适应 AI 的发展</td><td>✓ 当选</td><td>policies that evolve with the technology ＋ manage AI tools 的同义概括。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（最强干扰）</strong>：看到 employees break the rules 就脑补「听听员工意见」；主语是企业单方面建政策、教育员工。</li><li><strong>误选 A</strong>：把「AI 保密差」的风险背景反向推导成「提高透明度」的对策；保密问题在文中是挑战，对策是管理而非透明。</li><li><strong>原词警惕</strong>：题干里的 positively shift the AI landscape 原词重现在定位句中，是<strong>路标</strong>；但答案不会原词重现——它藏在 evolve with the technology 的改写里。</li></ul>
+<blockquote>记忆锚点：to do 目的短语锁句 ＋ By 手段短语出答案；手段拆在两句时，evolve with the technology ↔ adjust management to AI development 是合并概括的关键替换。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

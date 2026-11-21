@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-07 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-07</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-07 · 2026 完形第 7 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 7 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 7 所在句，考点：冒号命名关系 · have a term for",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Psychologists have a __7__ for this way of thinking: personalisation.") + "<p>空格待填；本题考点：<b>冒号解释/命名关系</b>。方法主线：看冒号 → 判断关系 → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · 冒号是一个「等号」，不是摆设",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：冒号后直接给出内容——personalisation 是心理学家给这种思维起的名字",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>英文里的冒号常用来<b>解释、命名</b>：冒号前抛出一个待说明的成分，冒号后直接给出内容。本句冒号后只有一个词——personalisation（人格化）。它是什么？是心理学家给 this way of thinking（这种思维方式）起的<b>名字</b>。所以空格必须是一个「名称、叫法」类名词：have a term for sth = 对某事物有一个术语。</p>"
+ },
+ {
+  "title": "证据 · 冒号后的专有名词就是「值」",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：this way of thinking 回指前文；冒号后的 personalisation 只能是空格的「值」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>线索一：have a ____ for sth = 对某事物拥有一个 ____；线索二：冒号后 personalisation 是一个<b>专有名词</b>，只能是这个 ____ 的「值」；线索三：前文 this way of thinking 回指「把别人的言行解读成对自己的负面评价」这种思维模式。命名关系：名称 ↔ 所指。</p>"
+ },
+ {
+  "title": "逐项分析 · A method（方法）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A method（方法） ✗ 排除——personalisation 是名称，不是应对方法",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>personalisation 是思维模式的名称，不是应对它的方法；冒号后没有给出操作步骤。</p><p style='color:#b91c1c'>⚠ 典型误解：把 have a ____ for 读成「有办法」。</p>"
+ },
+ {
+  "title": "逐项分析 · B term（术语；名称）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B term（术语；名称） ✓ 当选——have a term for sth，冒号后正是术语名",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>have a term for sth = 对……有一个术语；冒号后的 personalisation 正是这个术语。</p>"
+ },
+ {
+  "title": "逐项分析 · C design（设计）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C design（设计） ✗ 排除——design for 与命名无关，冒号后也不是设计方案",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>design for 是「为……设计」，与命名无关；冒号后也不是设计方案。</p><p style='color:#b91c1c'>⚠ 典型误解：只凭 for 搭配顺口就选。</p>"
+ },
+ {
+  "title": "逐项分析 · D goal（目标）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D goal（目标） ✗ 排除——personalisation 是命名对象，不是心理学家的目标",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>personalisation 不是心理学家追求的目标，而是他们命名的对象。</p><p style='color:#b91c1c'>⚠ 典型误解：把「心理学家研究它」误读成「以它为目标」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（term 术语；名称）——完整句义与记忆锚点见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>心理学家对这种思维方式有一个术语：人格化。</b></p><p>答案选 <b>B（term 术语；名称）</b>。</p><p><b>记忆锚点</b>：冒号前留空、冒号后一个专有名词 = 命名关系；have a term for sth。</p><p style='color:#b91c1c'>最易误选：<b>A（method）</b>——把 have a ____ for 读成「有办法」，忽略冒号后的命名关系。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 7 空 · Psychologists have a ____ for this way of thinking",
+  subtitle: "考点：冒号命名关系（have a term for）· 看冒号 → 判关系 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（term）",
+ "html": "<b>B term（术语；名称）</b>。<br>句义：心理学家对这种思维方式有一个术语：人格化。<br>记忆锚点：冒号前留空、冒号后一个专有名词 = 命名关系；have a term for sth。<br>最易误选：<b>A（method）</b>——把 have a ____ for 读成「有办法」，忽略冒号后的命名关系。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 7 空 · 冒号命名关系 · have a term for</h2>
+<p>答案：<strong>B（term 术语；名称）</strong>。</p>
+<h3>第 0 步：先立机制——冒号是一个「等号」，不是摆设</h3>
+<p>英文里的冒号常用来<strong>解释、命名</strong>：冒号前抛出一个待说明的成分，冒号后直接给出内容。本句冒号后只有一个词——personalisation（人格化）。它是什么？是心理学家给 this way of thinking（这种思维方式）起的<strong>名字</strong>。所以空格必须是一个「名称、叫法」类名词：have a term for sth = 对某事物有一个术语。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Psychologists have a __7__ for this way of thinking: personalisation.</blockquote>
+<ul><li>have a __7__ for sth = 对某事物拥有一个 ____；</li><li>冒号后 personalisation 是一个<strong>专有名词</strong>，只能是这个 ____ 的「值」；</li><li>前文 this way of thinking 回指「把别人的言行解读成对自己的负面评价」这种思维模式；</li><li>命名关系：名称 ↔ 所指。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A method</td><td>方法</td><td>✗ 排除</td><td>personalisation 是思维模式的名称，不是应对它的方法；冒号后没有给出操作步骤。</td></tr><tr><td>B term</td><td>术语；名称</td><td>✓ 当选</td><td>have a term for sth = 对……有一个术语；冒号后的 personalisation 正是这个术语。</td></tr><tr><td>C design</td><td>设计</td><td>✗ 排除</td><td>design for 是「为……设计」，与命名无关；冒号后也不是设计方案。</td></tr><tr><td>D goal</td><td>目标</td><td>✗ 排除</td><td>personalisation 不是心理学家追求的目标，而是他们命名的对象。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>Psychologists have a <strong>term</strong> for this way of thinking: personalisation. 句义：心理学家对这种思维方式有一个术语：人格化。冒号前后构成「术语—名称」的对应，语义闭合。</p>
+<h3>易错点</h3>
+<ul><li><strong>把 have a __ for 读成「有办法」→ 误选 A（method）</strong>：冒号后给的是名字，不是办法；命名关系只能由 term 承担。</li><li><strong>把「心理学家研究它」误读成「以它为目标」→ 误选 D（goal）</strong>：研究对象不等于目标。</li><li><strong>design 只凭 for 搭配顺口 → 误选 C</strong>：搭配对、语义错，冒号后的内容无法充当「设计」。</li></ul>
+<blockquote>记忆锚点：冒号前留空、冒号后一个专有名词 = 命名关系；have a term for sth。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

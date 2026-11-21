@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-39 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-39</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-39 · 2026 阅读 Text 2 第 39 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · forced to scale back 是题眼",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：段5 forced to scale back the footprint of the fest",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This year, we’ve been forced to scale back the footprint of the fest.</div><p>题干 <b>It is implied that the organizers of Wicker Park Fest have to ______</b>。<b>forced to</b>（被迫）＋ <b>scale back</b>（缩减）直接回应 have to；具体怎么缩，看紧跟着的动作清单。</p>"
+ },
+ {
+  "title": "机制 · 推断题读「被迫清单」＋「让步从句」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：清单概括成选项；while 从句负责排除「放弃特色」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>推断题要做的，是把原文的动作清单概括成一个选项。同时注意 <b>all while striving to keep ...</b> 这个让步从句：它说明组织者竭力<b>不放弃</b>原有特色，是专门用来排除「放弃特色」类选项的护身符。</p>"
+ },
+ {
+  "title": "证据 · 砍舞台、少请演出者、再削减",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：eliminating a stage + booking fewer performers = 演出变少",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park’s unique spirit and reputation as festgoers have come to expect.</div><p>清单：<b>eliminating a stage</b>（砍掉一个舞台）＋ <b>booking fewer performers</b>（少请演出者）＋ additional cuts；目的：reduce our costs；让步：竭力保持活力与特色。</p>"
+ },
+ {
+  "title": "逐项分析 · A count on amateur artists’ participation（依靠业余艺术家的参与）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A count on amateur artists’ participation ✗ 排除——local ≠ amateur",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文是 <b>supportive of local artists</b>（支持本地艺术家），local ≠ amateur；也没有「依靠」之意——<b>偷换概念</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 local（本地的）读成 amateur（业余的）。</p>"
+ },
+ {
+  "title": "逐项分析 · B reduce the number of performances（减少演出数量）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B reduce the number of performances ✓ 当选——清单的概括",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>eliminating a stage + booking fewer performers = 舞台与演出者都变少 = 演出数量减少。正是 forced to scale back 的具体化。</p>"
+ },
+ {
+  "title": "逐项分析 · C give up its most prominent feature（放弃其最显著特色）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C give up its most prominent feature ✗ 排除——反向：while 从句意在保留特色",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文明确 <b>striving to keep the festival as vibrant as ever</b>、<b>as true to Wicker Park’s unique spirit and reputation</b>——正是不放弃特色——<b>反向误导</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到削减成本就以为要「摆烂」，忽略 while 从句。</p>"
+ },
+ {
+  "title": "逐项分析 · D collaborate with large businesses（与大型企业合作）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D collaborate with large businesses ✗ 排除——无中生有",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>段4的 <b>large, city-produced music festivals</b> 只是对比对象，全文没有「与大型企业合作」的表述——<b>无中生有</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把对比语境里的 large 误接到「大型企业」。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（reduce the number of performances）——结论卡见下方",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>B（reduce the number of performances 减少演出数量）</b>。</p><p><b>记忆锚点</b>：forced to scale back → eliminating a stage + booking fewer performers = 减少演出；while 从句护住「特色不丢」。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选：<b>C（give up its most prominent feature）</b>——原文正在竭力保留特色，方向相反。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读 Text 2 第 39 题 · Wicker Park Fest 被迫做什么",
+  subtitle: "考点：推断题 · scale back 清单 → 概括 + 让步从句",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（reduce the number of performances）",
+ "html": "<b>B reduce the number of performances</b>（减少演出数量）。<br>证据：forced to scale back → eliminating a stage + booking fewer performers + additional cuts。<br>记忆锚点：清单概括成选项；all while striving to keep... 说明没有放弃特色。<br>最易误选：<b>C</b>（give up its most prominent feature）——与 while 从句方向相反。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读 Text 2 第 39 题 · 推断题 · Wicker Park Fest 被迫减少演出</h2>
+<p>答案：<strong>B（reduce the number of performances 减少演出数量）</strong>。</p>
+<h3>第 0 步：先立机制——推断题读「被迫清单」＋「让步从句」</h3>
+<p>题干 It is implied that the organizers ... have to ______，对应段5的 This year, we've been forced to scale back the footprint of the fest。forced to（被迫）＋ scale back（缩减）是题眼；后面跟一串具体动作，推断题要做的就是把清单概括成一个选项。而 all while striving to keep... 这个让步从句是「反向护身符」：它说明组织者竭力不放弃原有特色，专门用来排除「放弃特色」类选项。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>This year, we've been forced to scale back the footprint of the fest. We are eliminating a stage, booking fewer performers and making additional cuts to reduce our costs, all while striving to keep the festival as vibrant as ever, as supportive of local artists and businesses, and as true to Wicker Park's unique spirit and reputation as festgoers have come to expect.</blockquote>
+<p>清单：eliminating a stage（砍掉一个舞台）、booking fewer performers（少请演出者）、additional cuts（更多削减）。目的：reduce our costs。让步：竭力保持活力与特色。</p>
+<h3>第 2 步：同义替换锁定 B</h3>
+<p>eliminating a stage + booking fewer performers = 舞台与演出者都变少 = reduce the number of performances。B 项是清单的概括。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>错因</th></tr></thead><tbody><tr><td>A count on amateur artists' participation</td><td>依靠业余艺术家的参与</td><td>✗ 排除</td><td>偷换概念：原文是 supportive of local artists（支持本地艺术家），local ≠ amateur，也没有「依靠」之意</td></tr><tr><td>B reduce the number of performances</td><td>减少演出数量</td><td>✓ 当选</td><td>eliminating a stage + booking fewer performers 的概括</td></tr><tr><td>C give up its most prominent feature</td><td>放弃其最显著特色</td><td>✗ 排除</td><td>反向误导：原文明确 striving to keep the festival as vibrant as ever、as true to its unique spirit，正是不放弃</td></tr><tr><td>D collaborate with large businesses</td><td>与大型企业合作</td><td>✗ 排除</td><td>无中生有：段4的 large, city-produced music festivals 只是对比对象，全文没有与大型企业合作的表述</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>把 local artists 读成 amateur → 误选 A</strong>：本地 ≠ 业余；原文对本地艺术家是「支持」而非「依赖」。</li><li><strong>忽略 all while striving to keep... → 误选 C</strong>：这半句正是「没有放弃特色」的证据。</li><li><strong>把段4的 large 误接到「与大型企业合作」→ 误选 D</strong>：large 修饰的是市政办的音乐节，不是企业。</li></ul>
+<blockquote>记忆锚点：forced to scale back → eliminating a stage + booking fewer performers = 减少演出；while 从句护住「特色不丢」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

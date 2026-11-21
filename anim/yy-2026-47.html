@@ -1,8 +1,197 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-47 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-47</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-47 · 2026 小作文框架：审题 → 谋篇 → 高分句型</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function quote(txt){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + txt + '</div>';
+}
+
+function line(a, b){
+  return '<div style="display:flex;gap:10px;padding:6px 10px;margin:4px 0;border-radius:8px;' +
+    'background:#f8fafc;font-size:13px;line-height:1.6">' +
+    '<div style="flex:0 0 26%;color:#334155;font-weight:600">' + a + '</div>' +
+    '<div style="flex:1;color:#475569">' + b + '</div></div>';
+}
+
+function block(title, body, kind){
+  var C = {
+    one: ['#ecfdf5', '#16a34a'],
+    two: ['#eff6ff', '#2563eb'],
+    three: ['#fffbeb', '#d97706']
+  };
+  var c = C[kind] || ['#f8fafc', '#cbd5e1'];
+  return '<div style="margin:6px 0;padding:8px 12px;border-radius:8px;border-left:4px solid ' + c[1] +
+    ';background:' + c[0] + '"><b style="color:#334155">' + title + '</b><p style="margin-top:4px">' + body + '</p></div>';
+}
+
+var STEPS = [
+ {
+  title: '机制 · “回应 + 追问”型邮件的双层结构',
+  cls: 'key',
+  tag: '机制',
+  log: '机制：回应层要具体（画面），追问层要落地（可回答的问题）',
+  count: 0,
+  ribbon: null,
+  body: '<p>朋友分享视频，回信的本质是<b>情绪回应 + 话题延续</b>：</p>' +
+    block('回应层', '感受必须具体——只说 It’s amazing 是空话，要落到视频里的画面（高铁、长城、饺子、古庙）。', 'one') +
+    block('追问层', '想了解更多必须落地——问什么（酒店、导游、路线）要写出来，愿望才有抓手。', 'two') +
+    '<p>骨架固定：<b>称呼 → 感谢加总体感受 → 具体画面加顺势追问 → 期待加落款</b>。</p>'
+ },
+ {
+  title: '审题 · 指令里的信息全部挖出',
+  cls: 'key',
+  tag: '审题',
+  log: '审题：Jack、两个必答点、100 词、署名 Li Ming',
+  count: 1,
+  ribbon: { k: 1, ok: true },
+  body: quote('Suppose your friend Jack has shared with you a video of his family’s travel in China. Write an email to tell him: 1) how you feel about the video, and 2) your wish to learn more about their travel. Write your answer in about 100 words … Use “Li Ming” instead.') +
+    line('收信人', 'your friend Jack —— 朋友语域，亲切自然，不必公文腔') +
+    line('必答点一', 'how you feel about the video：感受，要有画面支撑') +
+    line('必答点二', 'your wish to learn more about their travel：想了解更多，要有具体追问') +
+    line('词数', 'about 100 words —— 100 词左右，三段最稳') +
+    line('署名', 'Use “Li Ming” instead —— 写真名属格式违规') +
+    '<p style="margin-top:6px">可用时态：一般过去时（看视频的感受）＋ 一般现在时（追问与期待）。</p>'
+ },
+ {
+  title: '谋篇 · 三段各干一件事',
+  cls: 'step',
+  tag: '谋篇',
+  log: '谋篇：段一成对感谢加悬念，段二细节加追问，段三期待加落款',
+  count: 2,
+  ribbon: null,
+  body: block('第一段（1–2 句）', '点题感谢加总体感受：I was so thrilled to watch the wonderful video that you shared with me.', 'one') +
+    block('第二段（3–4 句）', '具体画面（高铁场景、爬长城时的笑脸、尝饺子、看古庙）加顺势追问（我家也在计划夏天去中国西部，想了解酒店与当地导游的推荐）。', 'two') +
+    block('第三段（1–2 句）', '再次感谢加期待更多故事；落款 Yours sincerely, Li Ming。', 'three') +
+    '<p>两段必答、一段收束：<b>第一段管“我看了有感觉”，第二段管“我还想知道”</b>，两件事别挤在同一段里。</p>'
+ },
+ {
+  title: '第一段 · 开篇两句立住温度',
+  cls: 'good',
+  tag: '段一',
+  log: '段一：so thrilled to watch … that you shared；一句感谢一句感受',
+  count: 3,
+  ribbon: { k: '一', ok: true },
+  body: quote('Dear Jack,') +
+    quote('I was so thrilled to watch the wonderful video of your family’s travel in China that you shared with me yesterday.') +
+    '<p>句型拆解：be so thrilled to do … that … ＝ 高兴到……；that 从句也可理解为修饰 video 的定语从句——两种解析都通，落笔只取一条。</p>' +
+    '<p><b>要点</b>：称呼顶格写 Dear Jack,；开篇一句同时完成“感谢分享”与“总体感受”，不要上来就罗列画面。</p>'
+ },
+ {
+  title: '第二段 · 画面要具体，追问要能回答',
+  cls: 'step',
+  tag: '段二',
+  log: '段二：高铁、长城、饺子、古庙四个画面；追问酒店与导游',
+  count: 4,
+  ribbon: { k: '二', ok: true },
+  body: quote('The high-speed train scenes and the smiling faces of your family climbing the Great Wall really impressed me. Seeing how much you all enjoyed the dumplings and ancient temples touched my heart deeply. Since my family is also planning a summer trip to the western part of China, I am eager to learn more about your travel tips, such as the best hotels and local tour guides you would recommend.') +
+    '<p><b>画面清单</b>：高铁（现代）＋ 长城（传统）＋ 饺子（生活）＋ 古庙（文化）——景物与细节搭配，感受才可信。</p>' +
+    '<p><b>追问设计</b>：Since 引出理由（我家也在计划暑期旅行）→ I am eager to learn → such as 落到两个可回答的问题（酒店、导游）。</p>' +
+    '<p style="color:#b45309">追问不要写成 Tell me more about your trip —— 太笼统；问“可回答的具体项”，对方才好回。</p>'
+ },
+ {
+  title: '第三段 · 收束与落款',
+  cls: 'good',
+  tag: '段三',
+  log: '段三：再次感谢加期待；Yours sincerely, Li Ming',
+  count: 5,
+  ribbon: { k: '三', ok: true },
+  body: quote('Thank you again for sharing your happy moments with me. I look forward to hearing more stories from your journey.') +
+    quote('Yours sincerely,<br>Li Ming') +
+    '<p>收束两句：一句回扣感谢，一句 look forward to doing 表期待。落款用 <b>Yours sincerely</b>（知道对方姓名的半正式）＋ 题干指定的 <b>Li Ming</b>。</p>'
+ },
+ {
+  title: '高分句型 · 按功能备一块词板',
+  cls: 'step',
+  tag: '词板',
+  log: '词板： thrilled / impressed / touched / eager to / such as / look forward to',
+  count: 6,
+  ribbon: null,
+  body: line('开篇感谢', 'I was so thrilled to watch the video that you shared with me') +
+    line('评价画面', 'The high-speed train scenes and the smiling faces really impressed me') +
+    line('情感升级', 'Seeing how much you all enjoyed the trip touched my heart deeply') +
+    line('追问缘由', 'Since my family is also planning a summer trip to …, I am eager to learn more') +
+    line('具体追问', 'such as the best hotels and local tour guides you would recommend') +
+    line('收束期待', 'I look forward to hearing more stories from your journey')
+ },
+ {
+  title: '结论 · 框架复述与记忆锚点',
+  cls: 'good',
+  tag: '结论',
+  log: '结论：具体画面加可回答的追问；两段必答、一段收束',
+  count: 7,
+  ribbon: null,
+  body: '<p>全篇框架：<b>称呼 → 感谢加总体感受 → 具体画面加追问 → 期待 → Yours sincerely / Li Ming</b>。</p>' +
+    '<p><b>记忆锚点</b>：回复型邮件 = <b>具体画面（感受）＋ 可回答的追问（愿望）</b>；开头 so thrilled to watch；中段 impressed / touched；追问 such as the best hotels and local tour guides；结尾 look forward to hearing more；署名 Li Ming。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: '2026-47 小作文框架：回复 Jack 的中国旅行视频',
+  subtitle: '考点：应用文（回复、感谢信，10 分）· 审题 → 谋篇 → 高分句型',
+  counterLabel: '已展开',
+  ribbonTitle: '段落进度（一段一段搭起来）',
+  intro: '点击「▶ 播放」按“审题 → 谋篇 → 逐段句型”搭出整封信的框架。',
+  snaps: snaps,
+  result: {
+    big: '框架：回应（具体画面）+ 追问（可回答的问题）',
+    html: '<b>两段必答、一段收束</b>：① 感谢加总体感受（so thrilled to watch …）；② 具体画面（高铁、长城、饺子、古庙）＋ 追问（since …, I am eager to learn … such as the best hotels and local tour guides）；③ 期待（look forward to hearing more）＋ Yours sincerely, Li Ming。<br>记忆锚点：感受要具体（画面），愿望要落地（可回答的问题），署名 Li Ming。'
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 小作文 · 回复朋友：看完中国旅行视频的感受与追问</h2>
+<p>答案：<strong>应用文（回复、感谢信，10 分）</strong>，评分口径 = 内容要点 + 格式 + 语言。两个必答点：<strong>1) how you feel about the video 你对视频的感受；2) your wish to learn more about their travel 想了解更多行程</strong>——缺任何一点直接掉档。</p>
+<h3>第 0 步：先立机制——"回应加追问"型邮件的双层结构</h3>
+<p>朋友分享视频，回信的本质是<strong>情绪回应加话题延续</strong>：</p>
+<ol><li><strong>回应层</strong>：感受必须<strong>具体</strong>——只说 It's amazing 是空话，要落到视频里的画面（高铁、长城、饺子、古庙）；</li><li><strong>追问层</strong>：想了解更多必须<strong>落地</strong>——问什么（酒店、导游、路线）要写出来，愿望才有抓手。</li></ol>
+<p>骨架固定：称呼 → 感谢加总体感受 → 具体画面加顺势追问 → 期待加落款。</p>
+<h3>第 1 步：审题——指令里的信息</h3>
+<table><thead><tr><th>指令关键词</th><th>挖出的信息</th></tr></thead><tbody><tr><td>your friend Jack has shared a video of his family's travel in China</td><td>收信人 Jack；话题：中国旅行视频；朋友语域</td></tr><tr><td>1) how you feel about the video</td><td>必答点一：感受，要有画面支撑</td></tr><tr><td>2) your wish to learn more about their travel</td><td>必答点二：想了解更多，要有具体追问</td></tr><tr><td>about 100 words</td><td>100 词左右，三段最稳</td></tr><tr><td>Use "Li Ming" instead</td><td>署名固定 Li Ming，写真名属格式违规</td></tr></tbody></table>
+<h3>第 2 步：谋篇——三段各干一件事</h3>
+<ul><li><strong>第一段（1 到 2 句）</strong>：点题感谢加总体感受。I was so thrilled to watch the wonderful video that you shared with me；</li><li><strong>第二段（3 到 4 句）</strong>：具体画面（高铁场景、全家爬长城时的笑脸、尝饺子、看古庙）加追问（我家也在计划夏天去中国西部，想了解酒店与当地导游的推荐）；</li><li><strong>第三段（1 到 2 句）</strong>：再次感谢加期待更多故事；落款 Yours sincerely, Li Ming。</li></ul>
+<h3>第 3 步：高分句型（按功能备一块词板）</h3>
+<table><thead><tr><th>功能</th><th>表达</th><th>说明</th></tr></thead><tbody><tr><td>开篇感谢</td><td>I was so thrilled to watch the video that you shared with me</td><td>so … that 结构带出惊喜</td></tr><tr><td>评价画面</td><td>The high-speed train scenes and the smiling faces really impressed me</td><td>具体名词作主语，比 it is great 有内容</td></tr><tr><td>情感升级</td><td>Seeing how much you all enjoyed the trip touched my heart deeply</td><td>分词短语作主语，句式上档</td></tr><tr><td>追问缘由</td><td>Since my family is also planning a summer trip to …, I am eager to learn more</td><td>since 给理由，愿望不突兀</td></tr><tr><td>具体追问</td><td>such as the best hotels and local tour guides you would recommend</td><td>such as 落到可回答的问题</td></tr><tr><td>收束期待</td><td>I look forward to hearing more stories from your journey</td><td>look forward to doing</td></tr></tbody></table>
+<h3>第 4 步：参考范文（按上述框架自写）</h3>
+<blockquote>Dear Jack,</blockquote>
+<blockquote>I was so thrilled to watch the video of your family's trip in China that you shared with me. The high-speed train scenes and the smiling faces of your family climbing the Great Wall really impressed me, and seeing you all enjoy the dumplings and ancient temples touched my heart deeply.</blockquote>
+<blockquote>Since my family is also planning a summer trip to the western part of China, I am eager to learn more about your travel. Could you tell me which hotels you would recommend and whether you hired a local guide?</blockquote>
+<blockquote>Thank you again for sharing such happy moments. I look forward to hearing more stories from your journey.</blockquote>
+<blockquote>Yours sincerely,<br/>Li Ming</blockquote>
+<p>全篇约 110 词，两个必答点各占一段，称呼与落款齐全。</p>
+<h3>第 5 步：预判追问</h3>
+<ul><li><strong>感受要写多细？</strong>：至少两个具体画面——一个景物（高铁、长城），一个生活细节（饺子、古庙）。画面越具体，感受越可信；</li><li><strong>追问怎么才不空？</strong>：问"可回答的问题"——酒店、导游、路线、季节，别只写 tell me more；</li><li><strong>要不要交代背景？</strong>：一句足够，"我家的暑期计划"既是追问的理由，又自然带出写信动机。</li></ul>
+<h3>易错点</h3>
+<ul><li><strong>通篇堆感叹</strong>：amazing、wonderful 连用却无一个画面，感受分拿不满；</li><li><strong>只回应不追问</strong>：漏掉必答点二，直接掉档；</li><li><strong>落笔真名</strong>：题干规定 Li Ming；</li><li><strong>语域错位</strong>：给朋友写信用 I am writing to express my sincere gratitude 之类公文腔，亲切自然即可；</li><li><strong>字数失控</strong>：追问铺得太开超过 150 词，三段 100 词左右最稳。</li></ul>
+<blockquote>记忆锚点：回复型邮件 = <strong>具体画面（感受）加可回答的追问（愿望）</strong>；开头 so thrilled to watch；中段 impressed、touched；追问 such as the best hotels and local tour guides；结尾 look forward to hearing more；署名 Li Ming。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

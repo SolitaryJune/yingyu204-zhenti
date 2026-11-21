@@ -1,8 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-02 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-02</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-02 · 2026 完形第 2 空动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 2 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位原文：空 2 所在句，考点：固定句式 it's only natural to do · 先让步后转折",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it's only __2__ to want to avoid them.") + "<p>空格待填；本题考点：<b>固定句式 + 让步转折</b>。方法主线：看句式 → 看因果 → 看下文 But → 逐项排除。</p>"
+ },
+ {
+  "title": "机制 · it's only natural to do 是固定句式",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：it's only natural to do sth = 做某事再自然不过、人之常情",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>it's only natural to do sth 是英语里的固定表达：做某事「再自然不过」「人之常情」。这里的 only 不是「仅仅」，而是加强语气——「只是（很）自然」。这类填空题必须连着下文读：本段随后用 <b>But the thing is</b> 转折，作者先承认「想回避」合情合理，再反转说「是否真的被伤害其实是主观的」。所以空格要装的是一个<b>即将被转折的常理</b>，而不是被提前否定的错事。</p>"
+ },
+ {
+  "title": "证据 · uncomfortable 的因果 + 下句 But",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：uncomfortable 给出因果，下句 But the thing is 立即转折",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>前半句 can be uncomfortable（会让人不适）已经给出情绪因果：不适 → 想回避。后半句 it's only ____ to want to avoid them 正是这条因果的推论。再往下一句看：<b>But the thing is ... is, to a large degree, subjective</b>——先让步、后翻案。空格若填贬义词，But 就没有转折对象了。</p>"
+ },
+ {
+  "title": "逐项分析 · A risky（有风险的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A risky（有风险的） ✗ 排除——本句讲心理反应，不是行为后果；转折后也不是讲风险",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>回避的「风险」不是本句在讲的因果关系；且若已判定有风险，后面就不必用 But 再翻案。</p><p style='color:#b91c1c'>⚠ 典型误解：把后文「可能误判」提前塞进空格。</p>"
+ },
+ {
+  "title": "逐项分析 · B natural（自然的；正常的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B natural（自然的） ✓ 当选——承接 uncomfortable 的因果，给 But 留足转折空间",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>it's only natural to want to avoid them = 想回避再自然不过；承接 uncomfortable 的因果，也给 But 的转折留足空间。</p>"
+ },
+ {
+  "title": "逐项分析 · C admirable（值得赞赏的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C admirable（值得赞赏的） ✗ 排除——评价过高，转折句不会修正褒义判断",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>评价过高：回避负面评论谈不上值得赞赏，转折句也不会去修正一个褒义判断。</p><p style='color:#b91c1c'>⚠ 典型误解：看到 avoid 就往「值得赞赏」上想。</p>"
+ },
+ {
+  "title": "逐项分析 · D foolish（愚蠢的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D foolish（愚蠢的） ✗ 排除——提前否定「人之常情」，But 失去转折对象",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>直接贬低，把「人之常情」提前否定；这样 But 就失去转折对象，篇章逻辑断裂。</p><p style='color:#b91c1c'>⚠ 典型误解：带着「逃避不好」的道德判断选词。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（natural 自然的；正常的）——完整句义与记忆锚点见结论卡",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>任何削弱自我价值感的评论或经历都会让人不适，想回避它们是再自然不过的。</b></p><p>答案选 <b>B（natural 自然的；正常的）</b>。</p><p><b>记忆锚点</b>：it's only natural to do = 人之常情；先让步、后 But 转折——空格装的是那个「常理」。</p><p style='color:#b91c1c'>最易误选：<b>D（foolish）</b>——把「逃避不好」的道德判断提前塞进让步句。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 2 空 · it's only ____ to want to avoid them",
+  subtitle: "考点：固定句式 it's only natural to do · 先让步后转折 · 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 B（natural）",
+ "html": "<b>B natural（自然的；正常的）</b>。<br>句义：任何削弱自我价值感的评论或经历都会让人不适，想回避它们是再自然不过的。<br>记忆锚点：it's only natural to do = 人之常情；先让步、后 But 转折——空格装的是那个「常理」。<br>最易误选：<b>D（foolish）</b>——把「逃避不好」的道德判断提前塞进让步句。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 2 空 · 固定句式 it's only natural to do · 先让步后转折</h2>
+<p>答案：<strong>B（natural 自然的；正常的）</strong>。</p>
+<h3>第 0 步：先立机制——it's only natural to do 是固定句式，But 是它的「反转开关」</h3>
+<p>it's only natural to do sth 是英语里的固定表达：做某事「再自然不过」「人之常情」。这里的 only 不是「仅仅」，而是加强语气——「只是（很）自然」。这类填空题必须连着下文读：本段随后用 <strong>But the thing is</strong> 转折，作者先承认「想回避」合情合理，再反转说「是否真的被伤害其实是主观的」。所以空格要装的是一个<strong>即将被转折的常理</strong>，而不是被提前否定的错事。</p>
+<h3>第 1 步：定位原文，抽证据</h3>
+<blockquote>Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it's only __2__ to want to avoid them.</blockquote>
+<ul><li>前半句 can be uncomfortable（会让人不适）已经给出情绪因果；</li><li>后半句 it's only __2__ to want to avoid them 是「不适 → 想回避」的推论；</li><li>下一句 But the thing is ... is, to a large degree, subjective 立即转折——先让步，后翻案。</li></ul>
+<h3>第 2 步：对号入座：四个选项逐个上桌</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A risky</td><td>有风险的</td><td>✗ 排除</td><td>回避的「风险」不是本句在讲的因果关系；且若已判定有风险，后面就不必用 But 再翻案。</td></tr><tr><td>B natural</td><td>自然的；正常的</td><td>✓ 当选</td><td>it's only natural to want to avoid them = 想回避再自然不过；承接 uncomfortable 的因果，也给 But 的转折留足空间。</td></tr><tr><td>C admirable</td><td>值得赞赏的</td><td>✗ 排除</td><td>评价过高：回避负面评论谈不上值得赞赏，转折句也不会去修正一个褒义判断。</td></tr><tr><td>D foolish</td><td>愚蠢的</td><td>✗ 排除</td><td>直接贬低，把「人之常情」提前否定；这样 But 就失去转折对象，篇章逻辑断裂。</td></tr></tbody></table>
+<h3>第 3 步：结论——回填验证</h3>
+<p>Any comments or experiences that undermine those feelings of self-worth can be uncomfortable and it's only <strong>natural</strong> to want to avoid them. 句义：任何削弱自我价值感的评论或经历都会让人不适，想回避它们是再自然不过的。紧接着 But 一转，指出「是否真的被削弱」是主观的——先共情、后说理，逻辑顺滑。</p>
+<h3>易错点</h3>
+<ul><li><strong>带着「逃避不好」的道德判断选 D（foolish）</strong>：作者先共情（uncomfortable），foolish 会让 But 的转折失去对象。</li><li><strong>把后文「可能误判」提前塞进空格 → 误选 A（risky）</strong>：risky 评价的是行为后果，本句只讲心理反应。</li><li><strong>看到 avoid 就往「值得赞赏」上想 → 误选 C（admirable）</strong>：admirable 与 only natural 的语气完全不是一个量级。</li></ul>
+<blockquote>记忆锚点：it's only natural to do = 人之常情；先让步、后 But 转折——空格装的是那个「常理」。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,8 +1,170 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-24 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-24</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-24 · 2026 第 24 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 数据作用题两问",
+  "cls": "key",
+  "tag": "审题",
+  "log": "数据题：①数据统计什么？②作者的评价是什么？",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>The statistics mentioned in Paragraph 6 show ____</code>：问第 6 段统计数字「说明了什么」。数据本身不会说话，数据的作用由<b>统计对象</b>和<b>作者的评价句</b>共同决定。固定两步：①数据统计的是什么、呈现什么趋势；②作者紧接着给了什么评语。</p>"
+ },
+ {
+  "title": "定位数据本身 · 关闭数量",
+  "cls": "key",
+  "tag": "定位",
+  "log": "统计对象：2010 年以来关闭的图书馆数量（全英近 800／英格兰 230）",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England.</div><p>统计对象：<b>2010 年以来关闭的图书馆数量</b>。两个来源口径不同（全英近 800／英格兰 230），数字有争议（disputed），但趋势完全一致——大量图书馆在关闭。</p>"
+ },
+ {
+  "title": "定位作者评价句 · too many",
+  "cls": "key",
+  "tag": "态度",
+  "log": "作者评语：It is, of course, 230 libraries too many.",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">It is, of course, 230 libraries too many.</div><p><b>230 libraries too many</b>（230 家也太多了）是作者的态度：即便按最保守的 230 家计，也是不可接受的损失。数据不是中性罗列，而是为「危机」这一论点服务的论据。</p>"
+ },
+ {
+  "title": "同义替换 · 关闭数据 = 危机",
+  "cls": "key",
+  "tag": "替换",
+  "log": "closed since 2010 + too many ⇒ the crisis faced by libraries",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>closed since 2010（持续关闭）＋数量触目惊心＋作者评语 too many ⇒ 图书馆正面临<b>生存危机</b> ⇒ <b>the crisis faced by libraries</b>。数据证明的不是某一家图书馆的问题，而是整个行业的困境。</p>"
+ },
+ {
+  "title": "逐项分析 · A the crisis faced by libraries.",
+  "cls": "good",
+  "tag": "选定 A",
+  "log": "A 图书馆面临的危机 ✓——关闭数量＋too many 共同指向",
+  "count": 0,
+  "ribbon": {
+   "k": "A",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>the crisis faced by libraries（图书馆面临的危机）——关闭数量＝危机的最直接证据；too many 表明作者视之为严重损失。</p>"
+ },
+ {
+  "title": "逐项分析 · B the advancement of libraries.",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 图书馆的进步 ✗——反向干扰：关闭数据与「发展进步」相反",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>the advancement of libraries（图书馆的进步）——<b>反向干扰</b>：关闭数据与「发展进步」正好相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把 disputed（数字有争议）误读成「发展中的正常现象」。</p>"
+ },
+ {
+  "title": "逐项分析 · C the contributions of libraries.",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C 图书馆的贡献 ✗——段落错位：贡献在第 3–5 段，第 6 段讲关闭",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>the contributions of libraries（图书馆的贡献）——<b>段落错位</b>：贡献在第 3–5 段讲（多元服务、免费开放），第 6 段数据讲的是关闭。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把前几段「图书馆贡献大」的印象带进第 6 段。</p>"
+ },
+ {
+  "title": "逐项分析 · D the flaws existing in libraries.",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 图书馆存在的缺陷 ✗——无中生有：危机来自关闭与财政压力",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>the flaws existing in libraries（图书馆存在的缺陷）——<b>无中生有</b>：文中没有说图书馆自身有缺陷；危机来自关闭与财政压力，是外部困境。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到负面数据就联想「图书馆自身有问题」。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 A",
+  "log": "答案 A（the crisis faced by libraries）——数据＋态度共同锁定 crisis",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>段落要义：<b>2010 年以来关闭的图书馆数量虽有争议（全英近 800／英格兰 230），但趋势一致——大量图书馆在关闭；作者感叹「230 家也太多了」，数据证明图书馆正面临生存危机。</b></p><p>答案选 <b>A（the crisis faced by libraries. 图书馆面临的危机。）</b></p><p><b>记忆锚点</b>：数据题先问数据「是什么」（closed since 2010），再问作者态度（230 too many）——两者合起来就是 crisis。</p><p style=\"color:#b91c1c\">最易误选：<b>C（the contributions of libraries）</b>——贡献在前几段讲，第 6 段数据讲关闭。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 24 题 · The statistics in Paragraph 6 show",
+  subtitle: "考点：数据作用题（closed since 2010 + too many → crisis）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“审题 → 数据 → 作者态度 → 同义替换 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 A（the crisis faced by libraries）",
+    html: "<b>A the crisis faced by libraries.</b><br>依据：The number of libraries that have closed since 2010... It is, of course, 230 libraries too many.<br>记忆锚点：数据题先问数据「是什么」（closed since 2010），再问作者态度（230 too many）——合起来就是 crisis。<br>最易误选：<b>C（the contributions of libraries）</b>——贡献在前几段讲，第 6 段数据讲关闭。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 24 题 · 数据作用题——关闭统计指向 crisis</h2>
+<p>答案：<strong>A（the crisis faced by libraries. 图书馆面临的危机。）</strong>。</p>
+<h3>第 0 步：先立机制——数据题两问：数据是什么？作者怎么看？</h3>
+<p>题干问第 6 段的统计数字「说明了什么」。数据本身不会说话，数据的作用由<strong>统计对象</strong>和<strong>作者的评价句</strong>共同决定。所以固定两步：①数据统计的是什么、呈现什么趋势；②作者紧接着给了什么评语。</p>
+<h3>第 1 步：定位数据本身</h3>
+<blockquote>The number of libraries that have closed since 2010 is disputed. An annual survey by the Chartered Institute of Public Finance and Accountancy puts it at nearly 800 across the UK; official statistics held by the Arts Council record 230 in England.</blockquote>
+<p>统计对象：<strong>2010 年以来关闭的图书馆数量</strong>。两个来源口径不同（全英近 800／英格兰 230），数字有争议（disputed），但趋势完全一致——大量图书馆在关闭。</p>
+<h3>第 2 步：定位作者评价句</h3>
+<blockquote>It is, of course, 230 libraries too many.</blockquote>
+<p><strong>230 libraries too many</strong>（230 家也太多了）是作者的态度：即便按最保守的 230 家计，也是不可接受的损失。数据不是中性罗列，而是为「危机」这一论点服务的论据。</p>
+<h3>第 3 步：同义替换锁定 A</h3>
+<p>closed since 2010（持续关闭）＋数量触目惊心＋作者评语 too many ⇒ 图书馆正面临<strong>生存危机</strong> ⇒ <strong>the crisis faced by libraries</strong>。数据证明的不是某一家图书馆的问题，而是整个行业的困境。</p>
+<h3>第 4 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>归因</th></tr></thead><tbody><tr><td>A the crisis faced by libraries.</td><td>图书馆面临的危机。</td><td>✓</td><td>关闭数量＝危机的最直接证据；too many 表明作者视之为严重损失。</td></tr><tr><td>B the advancement of libraries.</td><td>图书馆的进步。</td><td>✗</td><td>反向干扰：关闭数据与「发展进步」正好相反。</td></tr><tr><td>C the contributions of libraries.</td><td>图书馆的贡献。</td><td>✗</td><td>段落错位：贡献在第 3–5 段讲（多元服务、免费开放），第 6 段数据讲关闭。</td></tr><tr><td>D the flaws existing in libraries.</td><td>图书馆存在的缺陷。</td><td>✗</td><td>无中生有：文中没有说图书馆自身有缺陷；危机来自关闭与财政压力，是外部困境。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 C</strong>：把前几段「图书馆贡献大」的印象带进第 6 段；数据段落只看数据说明的对象。</li><li><strong>误选 D</strong>：看到负面数据就联想「图书馆自身有问题」，但关闭的原因是财政压力，不是馆内缺陷。</li><li><strong>误选 B</strong>：把 disputed（数字有争议）误读成「发展中的正常现象」，忽略 too many 的否定评价。</li></ul>
+<blockquote>记忆锚点：数据题先问数据「是什么」（closed since 2010），再问作者态度（230 too many）——两者合起来就是 crisis。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

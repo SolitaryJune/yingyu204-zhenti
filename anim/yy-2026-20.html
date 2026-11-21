@@ -1,8 +1,160 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-20 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-20</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-20 · 2026 第 20 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：yy-2025-01 推理链卡片（quote/card + STEPS + AW.init），只改题目专属区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 空 20 所在句",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位空 20：so ____ that they felt able to cancel —— 结果从句要由形容词解释",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When it comes to your friends — maybe it's because your friendship is so __20__ that they felt able to cancel at late notice.</div><p>空 20 在 <b>so + adj + that</b> 结构中：后面的结果从句「他们觉得可以临时取消」必须由这个形容词解释。</p>"
+ },
+ {
+  "title": "机制 · so...that 是程度→结果的因果链",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：形容词不仅要评价，更要能解释结果——代入问「为什么敢取消」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>so ... that ... 是「程度→结果」的因果链：形容词不仅是评价，更要<b>解释结果</b>。判断方法：把选项代入问一句「友谊____，所以他们才敢临时取消？」——只有能建立因果的选项才成立。</p>"
+ },
+ {
+  "title": "语境 · 换位思考的重构",
+  "cls": "key",
+  "tag": "语境",
+  "log": "语境：不是「他们厌倦你」，而是「关系好到不必客套」",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>本段是全文的「换位思考」重构：前文把朋友取消解读为「他们厌倦你了」（personalisation / mind reading），作者建议换一种解释——不是关系变差，而是<b>关系好到不必客套</b>。</p><div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">When you do this, it might help to try to put yourself in other people's shoes.</div><p>普通关系里临时取消要道歉，怕对方多想；只有关系足够稳固，朋友才敢 late notice 取消——他们确信这点小事不会伤感情。</p>"
+ },
+ {
+  "title": "逐项分析 · A strange（奇怪的）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A strange（奇怪的）✗——推不出「敢取消」，且与安慰性重构方向相反",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>「友谊奇怪」推不出「敢取消」，因果链断裂；且 strange 是负面评价，与作者安慰性的重构方向相反。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「奇怪」当成「特别」。</p>"
+ },
+ {
+  "title": "逐项分析 · B strong（牢固的）",
+  "cls": "good",
+  "tag": "选定 B",
+  "log": "B strong（牢固的）✓——牢固→不必客套→敢临时取消，因果链完整",
+  "count": 1,
+  "ribbon": {
+   "k": "B",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>so strong that...＝友谊如此牢固，以至于他们觉得临时取消也没关系（不会伤感情）。「牢固 → 不必小心翼翼 → 敢临时通知」因果链完整，正是作者要读者接受的重构。</p>"
+ },
+ {
+  "title": "逐项分析 · C vulnerable（脆弱的）",
+  "cls": "bad",
+  "tag": "排除 C",
+  "log": "C vulnerable（脆弱的）✗——方向相反：越脆弱越不敢随意取消",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>方向相反：友谊越脆弱，越不敢随意取消，怕关系破裂；vulnerable 推出的是「小心翼翼」，不是 felt able to cancel。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到「关系」就选情感词，不检查结果从句的因果方向。</p>"
+ },
+ {
+  "title": "逐项分析 · D valuable（宝贵的）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D valuable（宝贵的）✗——价值判断不能解释「敢取消」的行为",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>valuable（宝贵的）是价值判断，不能解释「敢取消」这一行为；友谊宝贵与 so...that 的结果之间没有因果联系。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「重视友谊」当成「敢取消」的理由。</p>"
+ },
+ {
+  "title": "结论 · 完整句与记忆锚点",
+  "cls": "good",
+  "tag": "答案 B",
+  "log": "答案 B（strong 牢固的）——so...that 因果链成立",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>完整句义：<b>说到朋友——也许是因为你们的友谊如此牢固，所以他们觉得临时通知取消也没关系。</b></p><p>答案选 <b>B（strong 牢固的）</b>。</p><p><b>记忆锚点</b>：so ... that 的结果从句在问「为什么敢」——友谊 strong，才不必客套，才敢 late notice 取消。</p><p style=\"color:#b91c1c\">最易误选：<b>C（vulnerable）</b>——只按「关系」联想情感词，忽略了结果从句的因果方向。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 完形第 20 空 · your friendship is so ____ that they felt able to cancel",
+  subtitle: "考点：so...that 因果链（strong → 不必客套 → 敢临时取消）",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: "点击「▶ 播放」逐步展开“定位 → 因果机制 → 语境重构 → 逐项排除”的推理链。",
+  snaps: snaps,
+  result: {
+    big: "答案 B（strong）",
+    html: "<b>B strong（牢固的）</b>。<br>完整句义：说到朋友——也许是因为你们的友谊如此牢固，所以他们觉得临时通知取消也没关系。<br>记忆锚点：so ... that 的结果从句在问「为什么敢」——友谊 strong，才不必客套，才敢 late notice 取消。<br>最易误选：<b>C（vulnerable）</b>——只按「关系」联想情感词，忽略了结果从句的因果方向。"
+  },
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 完形第 20 空 · so...that 因果链——友谊牢固才敢临时取消</h2>
+<p>答案：<strong>B（strong 牢固的）</strong>。</p>
+<h3>第 0 步：先立机制——so + 形容词 + that 是「程度→结果」的因果链</h3>
+<p><code>so __20__ that they felt able to cancel at late notice</code> 不是随便给友谊贴一个形容词，而是在要求这个形容词<strong>解释后面的结果</strong>：友谊到了什么程度，朋友才会觉得「临时取消也没关系」？判断方法：把每个选项代入，问一句「友谊____，所以他们才敢临时取消？」——只有能建立因果的选项才成立。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>When it comes to your friends — maybe it's because your friendship is so __20__ that they felt able to cancel at late notice.</blockquote>
+<p>本段是全文的「换位思考」重构：前文把朋友取消解读为「他们厌倦你了」，作者建议换一种解释——不是关系变差，而是关系好到不必客套。空格要填的正是这个「好到不用见外」的程度。</p>
+<h3>第 2 步：把因果链补齐</h3>
+<p>普通社交关系里，临时取消要给理由、要道歉，因为怕对方多想；只有关系足够稳固，朋友才敢 late notice 取消——他们确信这点小事不会伤感情。所以「牢固」→「不必小心翼翼」→「felt able to cancel」，三段因果一气呵成。</p>
+<h3>第 3 步：逐项对号入座</h3>
+<table><thead><tr><th>选项</th><th>词义</th><th>判定</th><th>理由</th></tr></thead><tbody><tr><td>A strange</td><td>奇怪的</td><td>✗</td><td>「友谊奇怪」推不出「敢取消」；且 strange 是负面评价，与作者安慰性的重构方向相反。</td></tr><tr><td>B strong</td><td>牢固的；坚固的</td><td>✓</td><td>友谊牢固→不必客套→敢临时取消；因果链完整，正是作者要读者接受的重构。</td></tr><tr><td>C vulnerable</td><td>脆弱的</td><td>✗</td><td>方向相反：越脆弱越不敢随意取消，怕关系破裂；vulnerable 推出的是「小心翼翼」。</td></tr><tr><td>D valuable</td><td>宝贵的</td><td>✗</td><td>价值判断不能解释行为：友谊宝贵与「敢临时取消」之间没有因果联系。</td></tr></tbody></table>
+<h3>第 4 步：为什么不是 C vulnerable</h3>
+<p>C 是「看到 friendship 就选情感词」的陷阱。把 vulnerable 代进去：友谊如此脆弱，所以他们敢临时取消——逻辑恰好颠倒。脆弱的关系才需要小心维护；敢 late notice 取消，恰恰证明关系经得起。so...that 的结果从句就是用来筛掉这种方向反了的选项。</p>
+<h3>易错点</h3>
+<ul><li><strong>误选 C（vulnerable）</strong>：只按「关系」联想情感词，不检查结果从句的因果方向。</li><li><strong>误选 D（valuable）</strong>：把「重视友谊」当成「敢取消」的理由，忽略 valuable 不解释行为。</li><li><strong>误选 A（strange）</strong>：把「奇怪」误当成「特别」，且忽略了本段的安慰性基调。</li></ul>
+<blockquote>记忆锚点：so ... that 的结果从句在问「为什么敢」——友谊 strong，才不必客套，才敢 late notice 取消。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

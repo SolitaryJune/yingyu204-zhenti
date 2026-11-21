@@ -1,8 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-42 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-42</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-42 · 2026 新题型第 42 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function row(a, b, cls){
+  var bg = cls === 'ok' ? '#ecfdf5' : (cls === 'miss' ? '#fef2f2' : '#f8fafc');
+  var bc = cls === 'ok' ? '#16a34a' : (cls === 'miss' ? '#dc2626' : '#cbd5e1');
+  return '<div style="display:flex;gap:10px;margin:5px 0;padding:7px 10px;border-radius:8px;' +
+    'border:1px solid ' + bc + ';background:' + bg + ';font-size:13px;line-height:1.6">' +
+    '<div style="flex:0 0 36%;color:#334155;font-weight:600">' + a + '</div>' +
+    '<div style="flex:1;color:#475569">' + b + '</div></div>';
+}
+
+var STEPS = [
+ {
+  title: '机制 · 长句先剥 because，再找 which',
+  cls: 'key',
+  tag: '机制',
+  log: '机制：主干说“需求最迫切”，because 给原因，which 解释术语——选项改写的是后两层',
+  count: 0,
+  ribbon: null,
+  body: '<p>Kettle 这句话是本篇最长的一句，中间塞了破折号插入语、because 原因从句、which 定语从句。人物匹配题只需要<b>论点主干</b>：主干说“基础设施需求最迫切”，because 给出原因，which 再解释原因里的关键术语。</p>' +
+    '<p><b>选项往往改写的是 because 与 which 这一层，而不是主干层</b>——这正是本题的设题点。本题左栏人物：<b>Christopher Kettle</b>。</p>'
+ },
+ {
+  title: '定位 · Kettle 的完整句',
+  cls: 'key',
+  tag: '定位',
+  log: '定位第三段：the need for infrastructure … because many trees are masting species',
+  count: 0,
+  ribbon: null,
+  body: quote('Christopher Kettle … says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are ‘masting’ species, which don’t produce seeds every year.') +
+    '<p><b>三层拆开</b>：① 主干 the need for infrastructure might be most desperate here（对基础设施的需求在这里可能最迫切）；② 破折号内是举例——收种储种的机制加育苗的苗圃；③ because 从句给出原因——许多树是 masting 树种，不年年结种。</p>'
+ },
+ {
+  title: '对账 · A 是 because 与 which 两层的完整改写',
+  cls: 'step',
+  tag: '对账',
+  log: 'A：some kinds of trees = masting species；not annually = not every year；must pay attention = People need to be ready',
+  count: 0,
+  ribbon: null,
+  body: row('some kinds of trees', 'many trees are ‘masting’ species', 'ok') +
+    row('do not produce seeds annually', 'which don’t produce seeds every year', 'ok') +
+    row('People must pay attention to the fact', 'People need to be ready；“Otherwise, you miss the boat, you lose all the seed”', 'ok') +
+    '<p>原文紧跟的警告语正是“必须重视”的语气来源——<b>三个点全中，当选</b>。</p>'
+ },
+ {
+  title: '选定 · A 有些树不年年结种',
+  cls: 'good',
+  tag: '当选 A',
+  log: 'A some kinds of trees do not produce seeds annually ✓ 当选——masting = 不年年结种',
+  count: 0,
+  ribbon: { k: 'A', ok: true },
+  body: '<p><b>当选。</b>masting species 的核心定义就在 which 从句里：don’t produce seeds every year。Kettle 接着用 “People need to be ready” 与 “you miss the boat, you lose all the seed” 强调必须提前准备——A 把这一整层意思收全了。</p>'
+ },
+ {
+  title: '排除 · E 用的是同词，归属却不同',
+  cls: 'bad',
+  tag: '排除 E',
+  log: 'E 种子供应 ✗ 排除——bottleneck 是第二段 Jamnadass 的原话；本段 seeds 只是基础设施的举例',
+  count: 1,
+  ribbon: { k: 'E', ok: false },
+  body: '<p><b>排除。</b>E 和本段的 mechanisms for collecting and storing seeds 都有 seed 词面，但：</p>' +
+    '<p>① E 的 bottleneck 是<b>第二段 Jamnadass 的原话</b>，讲“供应总量从哪来”；② 本段 seeds 只是 infrastructure 的举例，Kettle 的因果核心是<b>结种周期性</b>（masting），不是供应不足。</p>' +
+    '<p>判断标准：<b>选项的核心名词必须落在说话人的因果链上</b>，不能只落在举例上。</p>' +
+    '<p style="color:#b91c1c">⚠ 典型误解：见 seeds 就选 E，把“基础设施”的例子当成了论点。</p>'
+ },
+ {
+  title: '归位 · 其余选项各归其主',
+  cls: 'step',
+  tag: '归位',
+  log: 'B→Prescott（多余项） C→Brancalion D→Chazdon F→Janzen（多余项） G→Stanturf',
+  count: 1,
+  ribbon: null,
+  body: '<p>B 土壤 → Cindy Prescott（第四段末，<b>多余项</b>）；C 目的与需求错位 → Pedro Brancalion；D 人的因素 → Robin Chazdon；F 为谁的利益 → Daniel Janzen（<b>多余项</b>）；G 快速繁殖生物 → John Stanturf。</p>' +
+    '<p>Kettle 段里没有土壤、资金、昆虫的任何论述——按“说话人”归属，不按“段落里出现过什么”归属。</p>'
+ },
+ {
+  title: '结论 · 答案与记忆锚点',
+  cls: 'good',
+  tag: '答案 A',
+  log: '42 = A（有些树不年年结种）——masting 是 Kettle 的因果核心',
+  count: 1,
+  ribbon: null,
+  body: '<p>42 选 <b>A（People must pay attention to the fact that some kinds of trees do not produce seeds annually.）</b>。</p>' +
+    '<p><b>全篇对位</b>：41=E · 42=A · 43=G · 44=C · 45=D；多余项 <b>B、F</b>。</p>' +
+    '<p><b>记忆锚点</b>：Kettle = masting = 不年年结种 → A；同篇两个 seed 选项按归属分：Jamnadass 管“够不够”（E），Kettle 管“有没有规律”（A）。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2026 新题型第 42 题 · Kettle：masting 树种不年年结种",
+  subtitle: "考点：人物观点匹配（七选五）· 长句剥 because / which → 同义改写对账",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“剥长句 → 对账 → 选定 → 排除同词干扰”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 A（some kinds of trees do not produce seeds annually）",
+    html: "<b>A People must pay attention to the fact that some kinds of trees do not produce seeds annually.</b><br>依据：Kettle 句的 because 与 which 两层——many trees are ‘masting’ species, which don’t produce seeds every year；People need to be ready。<br>记忆锚点：Kettle = masting = 不年年结种 → A；E 的 bottleneck 是 Jamnadass 的“够不够”，同词不同主。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 新题型第 42 题 · 人物观点匹配 · masting 树种不年年结种</h2>
+<p>答案：<strong>A（People must pay attention to the fact that some kinds of trees do not produce seeds annually.）</strong></p>
+<h3>第 0 步：先立机制——长句先剥 because，再找 which</h3>
+<p>Kettle 这句话是本篇最长的一句，中间塞了破折号插入语、because 原因从句、which 定语从句。人物匹配题只需要<strong>论点主干</strong>：主干说"基础设施需求最迫切"，because 给出原因，which 再解释原因里的关键术语。<strong>选项往往改写的是 because 与 which 这一层，而不是主干层</strong>——这正是本题的设题点。</p>
+<h3>第 1 步：定位——Kettle 的完整句</h3>
+<blockquote>Christopher Kettle … says that the need for infrastructure — things such as mechanisms for collecting and storing seeds, and nurseries to raise seedlings — might be most desperate here because many trees are 'masting' species, which don't produce seeds every year.</blockquote>
+<p>三层拆开：① 主干 the need for infrastructure might be most desperate here（对基础设施的需求在这里可能最迫切）；② 破折号内是举例——收种储种的机制加育苗的苗圃；③ because 从句给出原因——许多树是 masting 树种，不年年结种。</p>
+<h3>第 2 步：对账 A——三个信息点逐一落地</h3>
+<table><thead><tr><th>选项 A</th><th>原文</th></tr></thead><tbody><tr><td>some kinds of trees</td><td>many trees are 'masting' species</td></tr><tr><td>do not produce seeds annually</td><td>don't produce seeds every year</td></tr><tr><td>People must pay attention to the fact</td><td>People need to be ready 与 "you miss the boat, you lose all the seed"</td></tr></tbody></table>
+<p>A 是对 because 加 which 两层的完整改写；原文紧跟的 People need to be ready、miss the boat、lose all the seed 正是"必须重视"的语气来源。</p>
+<h3>第 3 步：排掉最像的 E——同词不同主</h3>
+<p>E（The supply of seeds is a tough problem）和本段 mechanisms for collecting and storing seeds 都有 seed 词面，但：</p>
+<ul><li>E 的 bottleneck 是<strong>第二段 Jamnadass 的原话</strong>，讲"供应总量从哪来"；</li><li>本段 seeds 只是 infrastructure 的举例，Kettle 的因果核心是<strong>结种周期性</strong>（masting），不是供应不足。</li></ul>
+<p>判断标准：<strong>选项的核心名词必须落在说话人的因果链上</strong>，不能只落在举例上。</p>
+<h3>第 4 步：其余选项归位</h3>
+<p>B 土壤＝Cindy Prescott（多余项）；C 目的与需求错位＝Pedro Brancalion；D 人的因素＝Robin Chazdon；F 为谁的利益＝Daniel Janzen（多余项）；G 快速繁殖生物＝John Stanturf。Kettle 段里没有土壤、资金、昆虫的任何论述。</p>
+<h3>易错点</h3>
+<ul><li><strong>见 seeds 选 E</strong>：本段 seeds 出现在"收种储种"的举例里，E 的核心 bottleneck 属于 Jamnadass；</li><li><strong>把 infrastructure 直接读成"种子供应"</strong>：基础设施是收、储、育苗的<strong>能力建设</strong>，E 讲的是种苗本身的<strong>来源</strong>——一个讲能力，一个讲源头；</li><li><strong>跳过 which 从句</strong>：A 的 do not produce seeds annually 就藏在 which 后面，漏读这句就会觉得 A 与 Kettle 无关。</li></ul>
+<blockquote>记忆锚点：Kettle = masting = <strong>不年年结种 → A</strong>；同篇两个 seed 选项按归属分：Jamnadass 管"够不够"（E），Kettle 管"有没有规律"（A）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

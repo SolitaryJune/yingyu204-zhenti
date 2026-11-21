@@ -1,8 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-33 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-33</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-33 · 2026 阅读 Text 1 第 33 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- ============================================================
+     模板：概念 / 记忆 / 分析推理类题目动画（推理链卡片，参考站内 yy-2024-01）
+     只改下面的 AW.init 区域。
+============================================================= -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "定位原文 · 题干关键词 cause + disruptions",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：题干 cause + disruptions → 段2 caused by、段5 another problem / lack of capacity",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos at a time when most people head on holiday.</div><p>题干问 <b>one cause of the disruptions</b>。段2用 <b>caused by</b> 给出第一条原因（numerous maintenance works），段5再用 <b>But lack of capacity is another problem</b> 追加第二条。原文原因不止一条，选项只会复现其中一条。</p>"
+ },
+ {
+  "title": "机制 · 原因题先分清「原因」与「结果」",
+  "cls": "key",
+  "tag": "机制",
+  "log": "机制：delays 是结果，caused by / another problem / lack 后面才是原因",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>原因题不能拿结果当原因。段2主干是 delays ... have thrown the rail industry into chaos——delays（延误）是<b>结果</b>，caused by numerous maintenance works（大量维修施工）才是<b>原因</b>。段5的 another problem 则把 <b>lack of capacity</b> 补成第二条原因。解题时顺着 caused by / problem / lack of 这些路标走，就不会被结果性表述带偏。</p>"
+ },
+ {
+  "title": "证据 · 原文把「运力不足」写成了明牌",
+  "cls": "key",
+  "tag": "证据",
+  "log": "证据：lack of capacity = no spare capacity，没有缓冲，一出故障就全网连锁",
+  "count": 0,
+  "ribbon": null,
+  "body": "<div style=\"margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569\">But lack of capacity is another problem. ... “We have a mixed system, there is no spare capacity and as soon as there’s a hiccup on the line, the situation becomes highly complex,” he said.</div><p>lack of capacity（运力缺乏）与 no spare capacity（没有富余运力）两次同义复现；hiccup（小故障）就能让情况 highly complex——运力没有缓冲，一出问题全网连锁。这正是「原因」一侧的表述。</p>"
+ },
+ {
+  "title": "逐项分析 · A Complex train schedules（复杂的列车时刻表）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A Complex train schedules ✗ 排除——原文无「时刻表复杂」，complex 说的是线路混跑",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文只说 mixed system（高铁与普通车混跑）让情况 highly complex，从未提到「时刻表复杂」。把 complex 的对象由「线路混跑」偷换成「时刻表」，属<b>无中生有</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 complex 就自行脑补成「时刻表复杂」。</p>"
+ },
+ {
+  "title": "逐项分析 · B Shortage of investments（投资短缺）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B Shortage of investments ✗ 排除——反向误导：原文是 €24bn / €124bn 巨额投资",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>段4给出的数字是 <b>€24bn</b>（到 2026 年）与 <b>€124bn</b>（未来十年），投资规模巨大而不是短缺。原文把基础设施改造列为中断的部分原因，恰恰因为工程正在大举进行——<b>反向误导</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 infrastructure、recovery fund 就条件反射地选「投资不足」。</p>"
+ },
+ {
+  "title": "逐项分析 · C Its limited capacity（其有限的运力）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C Its limited capacity ✓ 当选——lack of capacity = limited capacity",
+  "count": 2,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>lack of capacity = limited capacity，no spare capacity 再证一次；段5的 another problem 明确把它列为中断原因。原文还补了一句：as soon as there’s a hiccup on the line, the situation becomes highly complex——运力没有缓冲，小故障就会放大成全网问题。</p>"
+ },
+ {
+  "title": "逐项分析 · D Its massive scale（其庞大的规模）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D Its massive scale ✗ 排除——规模大是段1的优势，不是中断原因",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>规模大在段1是卖点：连接 Naples、Bologna、Florence、Turin，500km 只要三小时。原文列出的原因是「施工、改造、运力」一侧，与 massive scale 无关——<b>偷换概念</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「网络大」当成「问题多」的同义词。</p>"
+ },
+ {
+  "title": "结论 · 答案与记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（Its limited capacity）——结论卡见下方",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（Its limited capacity 其有限的运力）</b>。</p><p><b>记忆锚点</b>：原因题认准 caused by / another problem / lack；<b>lack of capacity = no spare capacity = limited capacity</b>。</p><p style=\"color:#b91c1c\">⚠ 典型误解：最易误选：<b>B（Shortage of investments）</b>——原文是 €24bn/€124bn 的巨额投资，方向恰好相反。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读 Text 1 第 33 题 · 意大利高铁网络中断的原因",
+  subtitle: "考点：因果细节 · caused by / another problem → 同义替换 → 逐项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 机制 → 证据 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（Its limited capacity）",
+ "html": "<b>C Its limited capacity</b>（其有限的运力）。<br>定位：段5 But lack of capacity is another problem；no spare capacity 同义复现——没有富余运力，一处故障便全网连锁。<br>记忆锚点：原因题认准 caused by / another problem / lack；lack of capacity = no spare capacity = limited capacity。<br>最易误选：<b>B</b>（Shortage of investments）——原文 €24bn/€124bn 是巨额投资，方向相反。"
+},
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读 Text 1 第 33 题 · 因果细节 · 网络中断的原因之一是运力不足</h2>
+<p>答案：<strong>C（Its limited capacity 其有限的运力）</strong>。</p>
+<h3>第 0 步：先立机制——原因题要找「原文亲口盖章的因果链」</h3>
+<p>原因题（one cause of ...）不能靠常识填空，必须回到原文找因果路标：<code>caused by</code>、<code>because</code>、<code>another problem</code>、<code>lack of</code>。找到之后还要分清谁是因、谁是果——delays 是「结果」，造成 delays 的东西才是「原因」。本文的中断原因不止一条，选项只会复现其中一条，逐一比对即可。</p>
+<h3>第 1 步：定位原文</h3>
+<blockquote>This is why the recent severe delays caused by numerous maintenance works have thrown the rail industry into chaos...</blockquote>
+<blockquote>But lack of capacity is another problem. ... "We have a mixed system, there is no spare capacity and as soon as there's a hiccup on the line, the situation becomes highly complex," he said.</blockquote>
+<p>第一处用 caused by 给出原因之一：numerous maintenance works（大量维修施工）；第二处用 another problem 追加第二个原因：lack of capacity（运力缺乏），并用 no spare capacity（没有富余运力）同义复现。</p>
+<h3>第 2 步：同义替换锁定 C</h3>
+<p><code>lack of capacity</code> = <code>no spare capacity</code> = <code>limited capacity</code>。三条表达同一个意思：线路已经满负荷，没有缓冲，任何一个小故障（hiccup）都会让整个网络连锁受影响。C 项 Its limited capacity 正是这条原因的同义改写。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>错因</th></tr></thead><tbody><tr><td>A Complex train schedules</td><td>复杂的列车时刻表</td><td>✗ 排除</td><td>无中生有：原文的 highly complex 说的是 mixed system（高铁与普通车混跑）让情况复杂，从未提到时刻表</td></tr><tr><td>B Shortage of investments</td><td>投资短缺</td><td>✗ 排除</td><td>反向误导：原文给出 €24bn、€124bn 的巨额投资计划，是投资规模巨大而非短缺</td></tr><tr><td>C Its limited capacity</td><td>其有限的运力</td><td>✓ 当选</td><td>lack of capacity / no spare capacity 的直接同义替换，且被 another problem 明确定为原因</td></tr><tr><td>D Its massive scale</td><td>其庞大的规模</td><td>✗ 排除</td><td>偷换概念：规模大在段1是优势（连接多城、500km 仅 3 小时），不是中断原因</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>只盯着段2的 maintenance works，选项里找不到就乱选</strong>：原文原因不止一条，段5的 another problem 就是第二条；maintenance works 恰好没进选项，正确项落在另一条原因上。</li><li><strong>把 highly complex 理解成「时刻表复杂」→ 误选 A</strong>：complex 的主语是混跑系统下的运行状况，不是列车时刻表。</li><li><strong>看到 infrastructure、investment 就条件反射选「投资不足」→ 误选 B</strong>：原文的投资数字恰恰证明方向相反。</li></ul>
+<blockquote>记忆锚点：原因题认准 caused by / another problem / lack of；lack of capacity = no spare capacity = limited capacity。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

@@ -1,8 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-28 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-28</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yy-2026-28 · 2026 阅读第 28 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<!-- 模板：概念/记忆/分析推理类题目动画（推理链卡片），只改 AW.init 区域 -->
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+// 原文关键句引用块
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+// 一张推理卡片
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+// 推理链：每一步的完整内容（引擎按步数截取显示）
+var STEPS = [
+ {
+  "title": "审题 · 原因细节题：due to 问原因",
+  "cls": "key",
+  "tag": "审题",
+  "log": "due to ⇒ 原因细节题，答案在「理由标记词」之后",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>题干 <code>Some employees choose to break the rules on AI due to ______</code>：due to 问的是员工<b>违规用 AI 的原因</b>。原因细节题的答案一定是原文明确写出的理由——先定位 break the rules，再找理由标记词（because / reasons — 之类），照着标记读，不要自己推断，也不要到别的段落借理由。</p>"
+ },
+ {
+  "title": "定位原文 · 第 2 段末尾",
+  "cls": "key",
+  "tag": "定位",
+  "log": "定位：ban / regulate → break the rules → They have their reasons —",
+  "count": 0,
+  "ribbon": null,
+  "body": quote("Employers are taking note and taking action. According to our research, 25% have decided to either outright ban AI or regulate its use within their organisations. But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.") + "<p>结构一目了然：公司<b>禁令</b>（ban / regulate）→ <b>但</b>仍有人违规（break the rules）→ <b>They have their reasons —</b>，破折号就是理由的入口，理由清单全在它后面。</p>"
+ },
+ {
+  "title": "找线索 · 破折号后的两条理由",
+  "cls": "key",
+  "tag": "线索",
+  "log": "理由① 63% 报告 productivity 提高；理由② AI 比同事更能帮",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>理由①：around 63% of them report that using AI <b>increases their productivity</b>（提高了工作效率）；理由②：some even feel AI <b>offers more help than their human colleagues</b>（比人类同事帮得更多）。两条理由都指向同一个事实：AI 给他们的<b>工作</b>带来了实实在在的好处。</p>"
+ },
+ {
+  "title": "归纳 · 两条理由的共同点",
+  "cls": "key",
+  "tag": "归纳",
+  "log": "干活更快 + 帮得比同事还多 ⇒ AI 在工作中承担重要角色",
+  "count": 0,
+  "ribbon": null,
+  "body": "<p>效率提高 ＋ 帮助超过同事 ⇒ AI 已经深度参与他们的<b>工作</b>，角色重要到「公司明令禁止也要偷偷用」。这就是正确选项的同义改写来源：<b>它在工作中的重要作用</b>。</p>"
+ },
+ {
+  "title": "逐项分析 · A easy access to AI products（容易获取 AI 产品）",
+  "cls": "bad",
+  "tag": "排除 A",
+  "log": "A 容易获取 AI 产品 ✗ 排除——跨段借词，products 在尾段说消费者易被营销忽悠",
+  "count": 1,
+  "ribbon": {
+   "k": "A",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>跨段借词：products / advertising 出现在<b>尾段</b>（There are so many products out there, being promoted with huge advertising and marketing budgets, that it’s easy to fall victim），说的是消费者容易被营销忽悠，与第 2 段员工违规的<b>原因</b>无关——段落错位。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 products / access 是原词就往 A 上凑，忘了理由必须从 They have their reasons — 之后找。</p>"
+ },
+ {
+  "title": "逐项分析 · B the desire to stay well-informed（想要保持消息灵通）",
+  "cls": "bad",
+  "tag": "排除 B",
+  "log": "B 想要保持消息灵通 ✗ 排除——原文未提信息获取，无中生有",
+  "count": 2,
+  "ribbon": {
+   "k": "B",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>原文没有一处提到「获取信息 / 消息灵通」：首段是把 AI 当朋友聊个人与职业问题，第 2 段的理由是效率与帮助，均与 well-informed 无关——无中生有。</p><p style=\"color:#b91c1c\">⚠ 典型误解：把「用 AI 查资料」的日常经验代入题目，当成原文信息。</p>"
+ },
+ {
+  "title": "逐项分析 · D the need to compete with others（与他人竞争的需要）",
+  "cls": "bad",
+  "tag": "排除 D",
+  "log": "D 与他人竞争的需要 ✗ 排除——more help than colleagues 是帮助对比，不是竞争",
+  "count": 3,
+  "ribbon": {
+   "k": "D",
+   "ok": false
+  },
+  "body": "<p><b>排除。</b>more help than their human colleagues 是 <b>AI 与人类同事</b>之间「帮助大小」的对比，主语是 AI；原文没有任何「员工之间 / 人机之间互相竞争」的语义——把「比较」读成「竞争」属于过度推断。</p><p style=\"color:#b91c1c\">⚠ 典型误解：看到 than 就联想到 compete，把比较级一律当成竞争动机。</p>"
+ },
+ {
+  "title": "逐项分析 · C its significant role in their work（它在工作中的重要作用）",
+  "cls": "good",
+  "tag": "选定 C",
+  "log": "C 它在工作中的重要作用 ✓ 当选——increases productivity + offers more help 的概括",
+  "count": 3,
+  "ribbon": {
+   "k": "C",
+   "ok": true
+  },
+  "body": "<p><b>当选。</b>increases their productivity（干活更快）＋ offers more help than their human colleagues（帮得比同事还多）→ AI 在他们的<b>工作</b>中承担着<b>重要作用</b>，重要到宁愿违规也不放弃。</p>"
+ },
+ {
+  "title": "结论 · 记忆锚点",
+  "cls": "good",
+  "tag": "答案 C",
+  "log": "答案 C（its significant role in their work）——理由就在 They have their reasons — 之后",
+  "count": 3,
+  "ribbon": null,
+  "body": "<p>答案选 <b>C（its significant role in their work 它在工作中的重要作用）</b>。</p><p><b>记忆锚点</b>：原因题盯住理由标记词（They have their reasons — / because / thanks to），理由就在标记之后；两条理由（productivity 提高、比同事更能帮）合起来即「AI 在工作里太重要」。不要跨段借理由——A 的 products 在尾段，说的是容易被广告忽悠。</p><p style=\"color:#b91c1c\">最易误选：<b>A</b>——跨段借词的段落错位。</p>"
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last,
+  };
+});
+
+AW.init({
+  title: "2026 阅读第 28 题 · 员工违规使用 AI 的原因是什么",
+  subtitle: "Text 2 · 考点：原因细节题 · due to 问原因，理由在「They have their reasons —」破折号之后",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“审题 → 定位 → 找理由 → 归纳 → 逐项排除”的推理链。',
+  snaps: snaps,
+  result: {
+ "big": "答案 C（its significant role in their work）",
+ "html": "<b>C 它在工作中的重要作用</b>——They have their reasons — 后两条理由：increases their productivity ＋ offers more help than their human colleagues，合起来即 AI 在工作中承担重要角色。<br>A 跨段借词（尾段 products 说的是容易被广告忽悠）；B 无中生有（全文未提「消息灵通」）；D 过度推断（more help than colleagues 是帮助对比，不是竞争）。<br>最易误选：<b>A</b>。"
+}
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 阅读第 28 题 · 原因细节题：破折号后面就是理由</h2>
+<p>答案：<strong>C（its significant role in their work 它在工作中的重要作用）</strong>。</p>
+<h3>第 0 步：先立机制——due to 问原因，答案在「理由标记词」之后</h3>
+<p>题干 "Some employees choose to break the rules on AI due to ______" 问的是员工违规的<strong>原因</strong>。原文在 "some employees choose to break the rules" 之后紧跟一句 "They have their reasons —"，破折号就是理由的入口。原因题只要顺着这个标记读下去，不必自己推断，也不要到别段借理由。</p>
+<h3>第 1 步：定位原文 · 第 2 段</h3>
+<blockquote>But even with these policies in place, some employees choose to break the rules. They have their reasons — around 63% of them report that using AI increases their productivity, and some even feel AI offers more help than their human colleagues.</blockquote>
+<p>理由有两条：① 约 63% 的员工报告使用 AI <strong>提高了工作效率</strong>；② 一些人甚至觉得 AI <strong>比人类同事帮得更多</strong>。</p>
+<h3>第 2 步：同义替换——两条理由的共同点</h3>
+<p>效率提高 ＋ 帮助超过同事，说明 AI 在他们<strong>工作中承担了重要角色</strong>，以至于宁可违规也不愿放弃 → C：its significant role in their work。</p>
+<h3>第 3 步：逐项排除</h3>
+<table><thead><tr><th>选项</th><th>释义</th><th>判定</th><th>依据与归因</th></tr></thead><tbody><tr><td>A easy access to AI products</td><td>容易获取 AI 产品</td><td>✗ 排除</td><td>「产品多、广告猛」出自尾段，说的是容易上当，与违规理由无关，段落错位。</td></tr><tr><td>B the desire to stay well-informed</td><td>想要保持消息灵通</td><td>✗ 排除</td><td>原文未提信息获取或知情需求，无中生有。</td></tr><tr><td>C its significant role in their work</td><td>它在工作中的重要作用</td><td>✓ 当选</td><td>increases their productivity ＋ offers more help 的概括。</td></tr><tr><td>D the need to compete with others</td><td>与他人竞争的需要</td><td>✗ 排除</td><td>more help than their human colleagues 是比较「帮助大小」，不是竞争动机，过度推断。</td></tr></tbody></table>
+<h3>易错点</h3>
+<ul><li><strong>误选 D</strong>：把「AI 比同事更能帮上忙」读成「员工要靠 AI 和同事竞争」；原文没有竞争语义。</li><li><strong>误选 A</strong>：跨段借词，把尾段的 products 挪来解释第 2 段的违规原因。</li><li><strong>误选 B</strong>：把「用 AI 查资料」的日常经验当成原文信息。</li></ul>
+<blockquote>记忆锚点：原因题盯住理由标记——They have their reasons — 后面两条（productivity 提高、比同事更能帮忙）合起来就是「AI 在工作里太重要」（C）。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>

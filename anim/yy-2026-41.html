@@ -1,8 +1,182 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><title>yy-2026-41 动画制作中</title>
-<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:#f5e6b8;color:#586e72}
-.box{text-align:center}.box .icon{font-size:44px;margin-bottom:10px}</style></head>
-<body><div class="box"><div class="icon">🎬</div>
-<p><strong>yy-2026-41</strong> 的交互动画正在由生成流水线制作</p>
-<p style="font-size:13px">完成后将自动替换本占位页</p></div></body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yy-2026-41 · 2026 新题型第 41 题动画</title>
+<link rel="stylesheet" href="../assets/anim.css?v=20261121b">
+</head>
+<body>
+<div class="aw"></div>
+<script src="../assets/anim-engine.js?v=20261121b"></script>
+<script>
+/* ================== 题目专属区域（只改这里） ================== */
+function quote(en){
+  return '<div style="margin:2px 0 8px;padding:7px 12px;border-left:3px solid var(--amber,#d97706);' +
+    'background:#fffbeb;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#475569">' + en + '</div>';
+}
+
+function card(n, cls, title, body){
+  return '<div class="aw-stepcard ' + (cls || '') + '"><h4><span class="n">' + n +
+         '</span>' + title + '</h4>' + body + '</div>';
+}
+
+function opt(k, en, zh){
+  return '<div style="display:flex;gap:8px;padding:3px 0;font-size:12.8px;line-height:1.55;color:#475569">' +
+    '<b style="flex:0 0 16px;color:#0f172a">' + k + '</b><span>' + en +
+    ' <span style="color:#94a3b8">（' + zh + '）</span></span></div>';
+}
+
+function row(a, b, cls){
+  var bg = cls === 'ok' ? '#ecfdf5' : (cls === 'miss' ? '#fef2f2' : '#f8fafc');
+  var bc = cls === 'ok' ? '#16a34a' : (cls === 'miss' ? '#dc2626' : '#cbd5e1');
+  return '<div style="display:flex;gap:10px;margin:5px 0;padding:7px 10px;border-radius:8px;' +
+    'border:1px solid ' + bc + ';background:' + bg + ';font-size:13px;line-height:1.6">' +
+    '<div style="flex:0 0 36%;color:#334155;font-weight:600">' + a + '</div>' +
+    '<div style="flex:1;color:#475569">' + b + '</div></div>';
+}
+
+var STEPS = [
+ {
+  title: '审题 · 七选五人物匹配怎么打',
+  cls: 'key',
+  tag: '机制',
+  log: '机制：人名锁定原话 → 剥出论点主干 → 与选项同义改写对账；两项多余',
+  count: 0,
+  ribbon: null,
+  body: '<p>候选陈述（A–G，其中两项多余）：</p>' +
+    opt('A', 'People must pay attention to the fact that some kinds of trees do not produce seeds annually.', '有些树不年年结种') +
+    opt('B', 'Soil is an important element to be taken into account in forest restoration.', '土壤是重要因素') +
+    opt('C', 'The purpose of restoration efforts may be different from the real needs of the people involved.', '修复目的可能偏离参与者真实需求') +
+    opt('D', 'Human factors, as well as trees planted, should be emphasized in forest restoration.', '人的因素应与种树并重') +
+    opt('E', 'The supply of seeds is a tough problem that has to be dealt with.', '种子供应是必须解决的难题') +
+    opt('F', 'When it comes to restoration, we have to stay with an awareness of whose interests to serve.', '要意识到为谁的利益服务') +
+    opt('G', 'Some creatures in the forest that multiply fast can become a great threat to forest restoration.', '繁殖快的森林生物会成大威胁') +
+    '<p style="margin-top:8px">本题左栏人物：<b>Ramni Jamnadass</b>。人物匹配不考通读，考<b>定点检索 + 同义改写对账</b>：① 拿人名回原文锁定他本人的原话；② 剥出论点主干；③ 与选项逐点对账——词面对上不算数，逻辑对上才算数。</p>'
+ },
+ {
+  title: '定位 · 第二段只有一问一判',
+  cls: 'key',
+  tag: '定位',
+  log: '定位第二段：Jamnadass 只说了一件事——种植材料从哪来，是一个大瓶颈',
+  count: 0,
+  ribbon: null,
+  body: quote('“Where’s the planting material going to come from? That’s one big bottleneck,” says genetic-resources specialist Ramni Jamnadass.') +
+    '<p>全段只有两句直接引语：一个<b>问句</b>（种植材料从哪来）加一个<b>判断</b>（这是一个大瓶颈）。他没提任何具体树种，也没给解法——这两点决定了后面怎么排除。</p>'
+ },
+ {
+  title: '对账 · E 的三个信息点全部有落点',
+  cls: 'step',
+  tag: '对账',
+  log: 'E：planting material → supply of seeds；bottleneck → tough problem；从哪来 → has to be dealt with',
+  count: 0,
+  ribbon: null,
+  body: row('planting material', '回看第一段即 supplies of seeds and seedlings —— 种苗供应 <b>= the supply of seeds</b>', 'ok') +
+    row('one big bottleneck', '大堵点 <b>= a tough problem</b>，卡住修复工程的难题', 'ok') +
+    row('Where’s … going to come from?', '从哪来必须先解决 <b>= has to be dealt with</b>', 'ok') +
+    '<p>三个信息点全部对上，且 E 没有任何原文之外的引申——<b>三个点全中，当选</b>。</p>'
+ },
+ {
+  title: '选定 · E The supply of seeds',
+  cls: 'good',
+  tag: '当选 E',
+  log: 'E The supply of seeds is a tough problem ✓ 当选——问句与判断合起来就是“供应是瓶颈”',
+  count: 0,
+  ribbon: { k: 'E', ok: true },
+  body: '<p><b>当选。</b>“Where’s the planting material going to come from?”＝供应来源问题；“That’s one big bottleneck”＝它是个大难题。两句合起来，正是 E 的 the supply of seeds is a tough problem that has to be dealt with。</p>'
+ },
+ {
+  title: '排除 · A 的“种子”讲的是不年年结',
+  cls: 'bad',
+  tag: '排除 A',
+  log: 'A 不年年结种 ✗ 排除——那是第三段 Kettle 的 masting 观点，不是 Jamnadass',
+  count: 1,
+  ribbon: { k: 'A', ok: false },
+  body: '<p><b>排除。</b>A 说 some kinds of trees do not produce seeds annually（有些树不年年结种）。这也是全文出现过的观点，但出处是<b>第三段 Kettle 的 masting species</b>，不是 Jamnadass。</p>' +
+    '<p>E 讲<b>供应总量</b>（种苗从哪来、够不够）；A 讲<b>结种规律</b>（某些树种隔几年才结一次种）。同篇两个“种子”选项，靠归属人区分。</p>' +
+    '<p style="color:#b91c1c">⚠ 典型误解：见 seed 就选 A，没看是谁说的。</p>'
+ },
+ {
+  title: '多余项 · B 土壤是 Prescott 的观点',
+  cls: 'bad',
+  tag: '排除 B',
+  log: 'B 土壤 ✗ 多余项——出自第四段末 Cindy Prescott，她不在左栏五人中',
+  count: 2,
+  ribbon: { k: 'B', ok: false },
+  body: '<p><b>排除（多余项）。</b>B 的土壤观点出自第四段末尾的 Cindy Prescott：“If you don’t look at the soil at the start …”。Prescott <b>不在左栏五人之中</b>，所以 B 没有归属对象。</p>' +
+    '<p>这也是七选五的固定设计：两个多余项都能在文中找到出处，考的就是<b>归属人</b>。</p>'
+ },
+ {
+  title: '多余项 · F 是 Janzen 的问句，其余选项各归其主',
+  cls: 'bad',
+  tag: '排除 F',
+  log: 'F 为谁的利益 ✗ 多余项（Janzen）；C→Brancalion D→Chazdon G→Stanturf',
+  count: 3,
+  ribbon: { k: 'F', ok: false },
+  body: '<p><b>排除（多余项）。</b>F 的 whose interests to serve 是第五段 Daniel Janzen 的 “restoration by whom, for whom?” 的改写，Janzen 同样不在左栏。</p>' +
+    '<p>其余三项各有其主：<b>C</b> 目的与需求错位 → Pedro Brancalion（第 44 题）；<b>D</b> 人的因素 → Robin Chazdon（第 45 题）；<b>G</b> 繁殖快的生物 → John Stanturf（第 43 题）。七项里五项有主，剩下 B、F 就是多余项。</p>'
+ },
+ {
+  title: '结论 · 全篇对位与记忆锚点',
+  cls: 'good',
+  tag: '答案 E',
+  log: '41 = E（种子供应是难题）——全篇对位见结论卡',
+  count: 3,
+  ribbon: null,
+  body: '<p>41 选 <b>E（The supply of seeds is a tough problem that has to be dealt with.）</b>。</p>' +
+    '<p><b>全篇对位</b>：41=E 供应瓶颈 · 42=A 不年年结种 · 43=G 繁殖快昆虫 · 44=C 目的偏离需求 · 45=D 人的因素；多余项 <b>B、F</b>。</p>' +
+    '<p><b>记忆锚点</b>：Jamnadass = “planting material 从哪来？”＝供应瓶颈 → E；A 的“种子”讲的是不年年结，那是 Kettle 的 masting——同词不同主，按人归属。</p>'
+ }
+];
+
+var snaps = STEPS.map(function(s, i){
+  var last = i === STEPS.length - 1;
+  return {
+    cls: last ? 'done' : (s.cls === 'good' ? 'ok' : (s.cls === 'bad' ? 'miss' : 'shift')),
+    tag: s.tag, log: s.log, count: s.count, ribbon: s.ribbon || null,
+    html: STEPS.slice(0, i + 1).map(function(x, j){ return card(j + 1, x.cls, x.title, x.body); }).join(''),
+    done: last
+  };
+});
+
+AW.init({
+  title: "2026 新题型第 41 题 · Jamnadass：种苗供应是一个大瓶颈",
+  subtitle: "考点：人物观点匹配（七选五）· 定位原话 → 同义改写对账 → 多余项排除",
+  counterLabel: '已排除',
+  ribbonTitle: '选项判定（✓ 当选 / ✗ 排除）',
+  intro: '点击「▶ 播放」逐步展开“定位 → 对账 → 选定 → 排除 → 归位”的推理链。',
+  snaps: snaps,
+  result: {
+    big: "答案 E（The supply of seeds is a tough problem）",
+    html: "<b>E The supply of seeds is a tough problem that has to be dealt with.</b><br>依据：Jamnadass 原话 “Where’s the planting material going to come from? That’s one big bottleneck.” planting material＝种苗，bottleneck＝必须解决的难题。<br>记忆锚点：Jamnadass 管“种子够不够”（E），Kettle 管“结种有没有规律”（A）——同词不同主，按人归属；B（Prescott 土壤）、F（Janzen 为谁服务）是多余项。"
+  }
+});
+/* ================== 题目专属区域结束 ================== */
+</script>
+<!-- AW_EXPLAIN_START -->
+<details class="aw-explain" open>
+<summary><span class="aw-explain-title">📝 文字讲解</span><span class="aw-explain-sub">与动画配套的完整讲解 · 点击展开/收起</span></summary>
+<div class="aw-explain-body"><h2>本题讲解：2026 新题型第 41 题 · 人物观点匹配 · 种苗供应是一个大瓶颈</h2>
+<p>答案：<strong>E（The supply of seeds is a tough problem that has to be dealt with.）</strong></p>
+<h3>第 0 步：先立机制——人物匹配题按"人名 → 原话 → 改写"三步走</h3>
+<p>英语二新题型的人物观点匹配，左栏是五位专家，右栏七个陈述（两项多余）。这类题不考通读，考的是<strong>定点检索 + 同义改写对账</strong>。固定三步：① 拿人名回原文，<strong>锁定他本人的原话</strong>（says 前后的引号）；② 剥出这句话的<strong>论点主干</strong>——谁、什么是什么问题；③ 拿主干与选项做<strong>同义改写匹配</strong>，词面对上不算数，逻辑对上才算数。本题左栏人物：<strong>Ramni Jamnadass</strong>。</p>
+<h3>第 1 步：定位——第二段只有一问一判</h3>
+<blockquote>"Where's the planting material going to come from? That's one big bottleneck," says genetic-resources specialist Ramni Jamnadass.</blockquote>
+<p>全段只有两句直接引语：一个问句（种植材料从哪来）加一个判断（这是一个大瓶颈）。他没提任何具体树种，也没给解法——这两点决定了后面怎么排除。</p>
+<h3>第 2 步：拆证据句，和 E 逐点对账</h3>
+<table><thead><tr><th>原文</th><th>选项 E 的改写</th><th>对账结果</th></tr></thead><tbody><tr><td>planting material（回看第一段即 supplies of seeds and seedlings）</td><td>the supply of seeds</td><td>种苗供应</td></tr><tr><td>one big bottleneck</td><td>a tough problem</td><td>一个大堵点即一个难题</td></tr><tr><td>Where's … going to come from?</td><td>has to be dealt with</td><td>从哪来即必须先解决的供应问题</td></tr></tbody></table>
+<p>E 的三个信息点全部有原文落点，且没有多余信息——<strong>当选</strong>。</p>
+<h3>第 3 步：排掉最像的 A——两个"种子"不是一回事</h3>
+<p>A 说 some kinds of trees do not produce seeds annually（有些树不年年结种）。这也是全文出现过的观点，但<strong>出处是第三段 Kettle 的 masting species</strong>，不是 Jamnadass。</p>
+<ul><li>E 讲的是<strong>供应总量</strong>：种苗从哪里来、够不够；</li><li>A 讲的是<strong>结种规律</strong>：某些树种隔几年才结一次种。</li></ul>
+<p>同一篇里两个"种子"选项，靠<strong>归属人</strong>区分，不能靠词面。</p>
+<h3>第 4 步：把其余选项一一归位（多余项就是这样现形的）</h3>
+<table><thead><tr><th>选项</th><th>内容</th><th>文中归属</th></tr></thead><tbody><tr><td>A</td><td>有些树不年年结种</td><td>Christopher Kettle（第 42 题）</td></tr><tr><td>B</td><td>土壤是重要因素</td><td>Cindy Prescott（第四段末，不在左栏，多余项）</td></tr><tr><td>C</td><td>修复目的可能偏离参与者真实需求</td><td>Pedro Brancalion（第 44 题）</td></tr><tr><td>D</td><td>人的因素应与种树并重</td><td>Robin Chazdon（第 45 题）</td></tr><tr><td>F</td><td>要意识到为谁的利益服务</td><td>Daniel Janzen（第五段，不在左栏，多余项）</td></tr><tr><td>G</td><td>快速繁殖的生物会成大威胁</td><td>John Stanturf（第 43 题）</td></tr></tbody></table>
+<p>七项里五项各有其主，剩下 <strong>B、F</strong> 正是两个多余项——它们对应的 Prescott、Janzen 都不在左栏五人之中。</p>
+<h3>易错点</h3>
+<ul><li><strong>见 seed 就选 A</strong>：A 的落点是"不年年结种"（Kettle 的 masting），与"供应从哪来"是两个问题，一个讲周期性，一个讲总量；</li><li><strong>把第一段算成 Jamnadass 的观点</strong>：第一段是全文总起（专家们建种子库、测基因），没有归属人；Jamnadass 的具体贡献是点出 bottleneck；</li><li><strong>只读人名前后半句</strong>：本段功能就是"提出瓶颈"，读全段才知道他没谈解决路径，E 的 has to be dealt with 是顺理成章的概括而非原文断言。</li></ul>
+<blockquote>记忆锚点：Jamnadass = planting material 从哪来？= <strong>供应瓶颈 → E</strong>；A 的"种子"讲的是不年年结，那是 Kettle 的 masting——同词不同主，按人归属。</blockquote></div>
+</details>
+<!-- AW_EXPLAIN_END -->
+</body>
+</html>
